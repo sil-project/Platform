@@ -1,41 +1,42 @@
-# Cache and logs (Symfony2)
-/app/cache/*
-/app/logs/*
-!app/cache/.gitkeep
-!app/logs/.gitkeep
+/app/config/parameters.yml
 
-# Email spool folder
-/app/spool/*
+/phpunit.xml
 
-# Cache, session files and logs (Symfony3)
+/var/*
+
+!/var/cache
 /var/cache/*
-/var/logs/*
-/var/sessions/*
 !var/cache/.gitkeep
+
+!/var/logs
+/var/logs/*
 !var/logs/.gitkeep
+
+!/var/sessions
+/var/sessions/*
 !var/sessions/.gitkeep
 
-# Parameters
-/app/config/parameters.yml
-/app/config/parameters.ini
+!var/SymfonyRequirements.php
 
-# Managed by Composer
-/app/bootstrap.php.cache
-/var/bootstrap.php.cache
-/bin/*
-!bin/console
-!bin/symfony_requirements
+# Composer PHAR
+/composer.phar
 
-# Assets and user uploads
+/vendor/
+
 /web/bundles/
-/web/uploads/
-
-# PHPUnit
-/app/phpunit.xml
-/phpunit.xml
 
 # Build data
 /build/
 
-# Backup entities generated with doctrine:generate:entities command
-**/Entity/*~
+# IDE
+/nbproject/
+
+# Backups
+*~
+
+# npm
+/node_modules/
+
+/.web-server-pid
+/.php_cs.cache
+/npm-debug.log
