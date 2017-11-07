@@ -3,9 +3,15 @@ imports:
     - { resource: security.yml }
     - { resource: services.yml }
 
+    # Vendors
+
+    - { resource: vendors/sonata_block.yml }
+    - { resource: vendors/sylius.yml }
+
     # BLAST Bundles
 
     - { resource: "@BlastResourceBundle/Resources/config/app/config.yml" }
+    - { resource: "@BlastUtilsBundle/Resources/config/app/config.yml" }
 
     # SIL Bundles
 

@@ -1,5 +1,15 @@
 <?php
 
+/*
+ * This file is part of the Sil Project.
+ *
+ * Copyright (C) 2015-2017 Libre Informatique
+ *
+ * This file is licenced under the GNU GPL v3.
+ * For the full copyright and license information, please view the LICENSE.md
+ * file that was distributed with this source code.
+ */
+
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Config\Loader\LoaderInterface;
 
@@ -8,63 +18,9 @@ class AppKernel extends Kernel
     public function registerBundles()
     {
         $bundles = [
-
-            // Symfony bundles
-
-            new Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
-            new Symfony\Bundle\MonologBundle\MonologBundle(),
-            new Symfony\Bundle\SecurityBundle\SecurityBundle(),
-            new Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
-            new Symfony\Bundle\TwigBundle\TwigBundle(),
-            new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
-
-            // Doctrine
-
-            new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
-            new Doctrine\Bundle\DoctrineCacheBundle\DoctrineCacheBundle(),
-            new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
-            new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
-
-            // Sonata
-
-            new Sonata\CoreBundle\SonataCoreBundle(),
-            new Sonata\AdminBundle\SonataAdminBundle(),
-            new Sonata\BlockBundle\SonataBlockBundle(),
-            new Sonata\IntlBundle\SonataIntlBundle(),
-            new Exporter\Bridge\Symfony\Bundle\SonataExporterBundle(),
-            new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
-
-            // FOS
-
-            new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
-            new FOS\OAuthServerBundle\FOSOAuthServerBundle(),
-            new FOS\RestBundle\FOSRestBundle(),
-
-            // JMS
-
-            new JMS\SerializerBundle\JMSSerializerBundle(),
-
-            // Knp
-
-            new Knp\Bundle\GaufretteBundle\KnpGaufretteBundle(),
-            new Knp\Bundle\MenuBundle\KnpMenuBundle(),
-            new Knp\Bundle\SnappyBundle\KnpSnappyBundle(),
-
-            // Misc
-
-            new Bazinga\Bundle\HateoasBundle\BazingaHateoasBundle(),
-            new Bazinga\Bundle\JsTranslationBundle\BazingaJsTranslationBundle(),
-            new JeroenDesloovere\Bundle\VCardBundle\JeroenDesloovereVCardBundle(),
-            new Liip\ImagineBundle\LiipImagineBundle(),
-            new Payum\Bundle\PayumBundle\PayumBundle(),
-            new Sparkling\VATBundle\SparklingVATBundle(),
-            new Stfalcon\Bundle\TinymceBundle\StfalconTinymceBundle(),
-            new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
-            new WhiteOctober\PagerfantaBundle\WhiteOctoberPagerfantaBundle(),
-            new winzou\Bundle\StateMachineBundle\winzouStateMachineBundle(),
-            new Lexik\Bundle\MaintenanceBundle\LexikMaintenanceBundle(),
-
+            // -------------------------------------------------------------------------------------
             // Sylius bundles
+            // -------------------------------------------------------------------------------------
 
             new Sylius\Bundle\OrderBundle\SyliusOrderBundle(),
             new Sylius\Bundle\MoneyBundle\SyliusMoneyBundle(),
@@ -92,12 +48,87 @@ class AppKernel extends Kernel
             new Sylius\Bundle\PayumBundle\SyliusPayumBundle(), // must be added after PayumBundle.
             new Sylius\Bundle\ThemeBundle\SyliusThemeBundle(), // must be added after FrameworkBundle
 
+            // -------------------------------------------------------------------------------------
+            // Symfony bundles
+            // -------------------------------------------------------------------------------------
+
+            new Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
+            new Symfony\Bundle\MonologBundle\MonologBundle(),
+            new Symfony\Bundle\SecurityBundle\SecurityBundle(),
+            new Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
+            new Symfony\Bundle\TwigBundle\TwigBundle(),
+            new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
+
+            // -------------------------------------------------------------------------------------
+            // Doctrine
+            // -------------------------------------------------------------------------------------
+
+            new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
+            new Doctrine\Bundle\DoctrineCacheBundle\DoctrineCacheBundle(),
+            new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
+            new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
+
+            // -------------------------------------------------------------------------------------
+            // Sonata
+            // -------------------------------------------------------------------------------------
+
+            new Sonata\CoreBundle\SonataCoreBundle(),
+            new Sonata\AdminBundle\SonataAdminBundle(),
+            new Sonata\BlockBundle\SonataBlockBundle(),
+            new Sonata\IntlBundle\SonataIntlBundle(),
+            new Exporter\Bridge\Symfony\Bundle\SonataExporterBundle(),
+            new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
+
+            // -------------------------------------------------------------------------------------
+            // FOS
+            // -------------------------------------------------------------------------------------
+
+            new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
+            new FOS\OAuthServerBundle\FOSOAuthServerBundle(),
+            new FOS\RestBundle\FOSRestBundle(),
+
+            // -------------------------------------------------------------------------------------
+            // JMS
+            // -------------------------------------------------------------------------------------
+
+            new JMS\SerializerBundle\JMSSerializerBundle(),
+
+            // -------------------------------------------------------------------------------------
+            // Knp
+            // -------------------------------------------------------------------------------------
+
+            new Knp\Bundle\GaufretteBundle\KnpGaufretteBundle(),
+            new Knp\Bundle\MenuBundle\KnpMenuBundle(),
+            new Knp\Bundle\SnappyBundle\KnpSnappyBundle(),
+
+            // -------------------------------------------------------------------------------------
+            // Misc
+            // -------------------------------------------------------------------------------------
+
+            new Bazinga\Bundle\HateoasBundle\BazingaHateoasBundle(),
+            new Bazinga\Bundle\JsTranslationBundle\BazingaJsTranslationBundle(),
+            new JeroenDesloovere\Bundle\VCardBundle\JeroenDesloovereVCardBundle(),
+            new Liip\ImagineBundle\LiipImagineBundle(),
+            new Payum\Bundle\PayumBundle\PayumBundle(),
+            new Sparkling\VATBundle\SparklingVATBundle(),
+            new Stfalcon\Bundle\TinymceBundle\StfalconTinymceBundle(),
+            new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
+            new WhiteOctober\PagerfantaBundle\WhiteOctoberPagerfantaBundle(),
+            new winzou\Bundle\StateMachineBundle\winzouStateMachineBundle(),
+            new Lexik\Bundle\MaintenanceBundle\LexikMaintenanceBundle(),
+
+            // -------------------------------------------------------------------------------------
             // Sylius main bundles
+            // -------------------------------------------------------------------------------------
+
             new Sylius\Bundle\AdminBundle\SyliusAdminBundle(),
             new Sylius\Bundle\ShopBundle\SyliusShopBundle(),
             new Sylius\Bundle\AdminApiBundle\SyliusAdminApiBundle(),
 
+            // -------------------------------------------------------------------------------------
             // Blast bundles
+            // -------------------------------------------------------------------------------------
+
             new Blast\Bundle\CoreBundle\BlastCoreBundle(),
             new Blast\Bundle\OuterExtensionBundle\BlastOuterExtensionBundle(),
             new Blast\Bundle\BaseEntitiesBundle\BlastBaseEntitiesBundle(),
@@ -107,7 +138,10 @@ class AppKernel extends Kernel
             new Blast\Bundle\ResourceBundle\BlastResourceBundle(),
             new Blast\Bundle\DecoratorBundle\BlastDecoratorBundle(),
 
+            // -------------------------------------------------------------------------------------
             // Librinfo bundles
+            // -------------------------------------------------------------------------------------
+
             new Sil\Bundle\CRMBundle\SilCRMBundle(),
             new Sil\Bundle\SonataSyliusUserBundle\SilSonataSyliusUserBundle(),
             new Sil\Bundle\VarietyBundle\SilVarietyBundle(),
@@ -119,6 +153,11 @@ class AppKernel extends Kernel
             new Sil\Bundle\SyliusPayboxBundle\SilSyliusPayboxBundle(),
             new Sil\Bundle\StockBundle\SilStockBundle(),
             new Sil\Bundle\ManufacturingBundle\SilManufacturingBundle(),
+
+            // -------------------------------------------------------------------------------------
+            // Temp (For OuterExtensions)
+            // -------------------------------------------------------------------------------------
+            new AppBundle\AppBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
@@ -142,16 +181,16 @@ class AppKernel extends Kernel
 
     public function getCacheDir()
     {
-        return dirname(__DIR__).'/var/cache/'.$this->getEnvironment();
+        return dirname(__DIR__) . '/var/cache/' . $this->getEnvironment();
     }
 
     public function getLogDir()
     {
-        return dirname(__DIR__).'/var/logs';
+        return dirname(__DIR__) . '/var/logs';
     }
 
     public function registerContainerConfiguration(LoaderInterface $loader)
     {
-        $loader->load($this->getRootDir().'/config/config_'.$this->getEnvironment().'.yml');
+        $loader->load($this->getRootDir() . '/config/config_' . $this->getEnvironment() . '.yml');
     }
 }
