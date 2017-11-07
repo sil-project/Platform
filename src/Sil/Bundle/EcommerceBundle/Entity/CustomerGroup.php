@@ -12,23 +12,17 @@
 
 namespace Sil\Bundle\EcommerceBundle\Entity;
 
-/* @todo reference to AppBundle should be removed */
-use AppBundle\Entity\OuterExtension\SilEcommerceBundle\CustomerGroupExtension;
-use Blast\Bundle\OuterExtensionBundle\Entity\Traits\OuterExtensible;
 use Sylius\Component\Customer\Model\CustomerGroup as BaseCustomerGroup;
 use Doctrine\Common\Collections\ArrayCollection;
 
 class CustomerGroup extends BaseCustomerGroup
 {
-    use OuterExtensible,
-    CustomerGroupExtension;
-
     protected $customers;
 
     public function initCustomerGroup()
     {
         $this->customers = new ArrayCollection();
-        $this->initOuterExtendedClasses();
+
     }
 
     public function __toString(): string

@@ -1,11 +1,11 @@
 <?php
 
 /*
- * This file is part of the Blast Project package.
+ * This file is part of the Sil Project.
  *
  * Copyright (C) 2015-2017 Libre Informatique
  *
- * This file is licenced under the GNU LGPL v3.
+ * This file is licenced under the GNU GPL v3.
  * For the full copyright and license information, please view the LICENSE.md
  * file that was distributed with this source code.
  */
@@ -14,17 +14,13 @@ namespace Sil\Bundle\EcommerceBundle\Entity;
 
 use Sylius\Component\Core\Model\TaxonInterface;
 use Sylius\Component\Taxonomy\Model\Taxon as BaseTaxon;
-use Blast\Bundle\OuterExtensionBundle\Entity\Traits\OuterExtensible;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Stringable;
-/* @todo reference to AppBundle should be removed */
-use AppBundle\Entity\OuterExtension\SilEcommerceBundle\TaxonExtension;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
 use Sylius\Component\Core\Model\ImageInterface;
 
 class Taxon extends BaseTaxon implements TaxonInterface
 {
-    // use OuterExtensible, Stringable, TaxonExtension;
     use Stringable;
 
     private $images;
@@ -32,15 +28,7 @@ class Taxon extends BaseTaxon implements TaxonInterface
     public function initTaxon()
     {
         $this->images = new ArrayCollection();
-        //    $this->initializeTranslationsCollection();
-        $this->initOuterExtendedClasses();
     }
-
-    /*
-    public function __toString()
-    {
-    return (string) $this->getName();
-    }*/
 
     /**
      * __clone().

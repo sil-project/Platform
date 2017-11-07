@@ -248,7 +248,7 @@ services:
         class: Sil\Bundle\EcommerceBundle\Imagine\PathResolver\ProductPathResolver
         calls:
             - [setEm, ['@doctrine.orm.entity_manager'] ]
-            - [setWebDir, ['%assetic.read_from%'] ]
+            - [setWebDir, ['%symfony-web-dir%'] ]
 
     librinfo_ecommerce.media.events.listener:
         class: Sil\Bundle\EcommerceBundle\EventListener\UploadControllerEventListener

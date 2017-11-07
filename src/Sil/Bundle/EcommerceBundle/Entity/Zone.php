@@ -13,18 +13,12 @@
 namespace Sil\Bundle\EcommerceBundle\Entity;
 
 use Sylius\Component\Addressing\Model\Zone as BaseZone;
-use Blast\Bundle\OuterExtensionBundle\Entity\Traits\OuterExtensible;
-/* @todo reference to AppBundle should be removed */
-use AppBundle\Entity\OuterExtension\SilEcommerceBundle\ZoneExtension;
 
 class Zone extends BaseZone
 {
-    use OuterExtensible,
-    ZoneExtension;
-
     public function initZone()
     {
-        $this->initOuterExtendedClasses();
+
     }
 
     public function __toString(): string

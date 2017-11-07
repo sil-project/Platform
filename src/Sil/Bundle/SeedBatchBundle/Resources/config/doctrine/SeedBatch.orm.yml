@@ -58,7 +58,7 @@ Sil\Bundle\SeedBatchBundle\Entity\SeedBatch:
                 name: seed_farm_id
                 referencedColumnName: id
         variety:
-            targetEntity: Sil\Bundle\VarietiesBundle\Entity\Variety
+            targetEntity: Sil\Bundle\VarietyBundle\Entity\Variety
             inversedBy: seedBatches
             joinColumn:
                 name: variety_id
