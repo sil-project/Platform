@@ -10,15 +10,15 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\MediaBundle\DependencyInjection;
+namespace Sil\Bundle\EmailBundle\DependencyInjection;
 
-use Blast\CoreBundle\DependencyInjection\BlastCoreExtension;
+use Blast\Bundle\CoreBundle\DependencyInjection\BlastCoreExtension;
 
 /**
  * This is the class that loads and manages your bundle configuration.
  *
- * @see http://symfony.com/doc/current/cookbook/bundles/extension.html
+ * To learn more see {@link http://symfony.com/doc/current/cookbook/bundles/extension.html}
  */
-class LibrinfoMediaExtension extends BlastCoreExtension
+class SilEmailExtension extends BlastCoreExtension
 {
 }

@@ -10,11 +10,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EcommerceBundle\Factory;
+namespace Sil\Bundle\EcommerceBundle\Factory;
 
-use Blast\CoreBundle\CodeGenerator\CodeGeneratorInterface;
+use Blast\Bundle\CoreBundle\CodeGenerator\CodeGeneratorInterface;
 use Knp\Snappy\GeneratorInterface;
-use Librinfo\EcommerceBundle\Entity\Invoice;
+use Sil\Bundle\EcommerceBundle\Entity\Invoice;
 use Sylius\Component\Core\Model\OrderInterface;
 use Sylius\Component\Resource\Exception\UnsupportedMethodException;
 use Symfony\Component\Templating\EngineInterface;

@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EcommerceBundle\Form\Type;
+namespace Sil\Bundle\EcommerceBundle\Form\Type;
 
 class ShippingMethodChannelsType extends AnyChannelsType
 {

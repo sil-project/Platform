@@ -33,7 +33,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Librinfo\\DecoratorBundle\\": "/"
+            "Librinfo\\DecoratorBundle\\": "."
         }
     },
     "suggest": {

@@ -10,14 +10,14 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EmailBundle\Entity;
+namespace Sil\Bundle\EmailBundle\Entity;
 
-use AppBundle\Entity\OuterExtension\LibrinfoEmailBundle\EmailTemplateExtension;
-use Blast\BaseEntitiesBundle\Entity\Traits\BaseEntity;
-use Blast\BaseEntitiesBundle\Entity\Traits\Loggable;
-use Blast\BaseEntitiesBundle\Entity\Traits\Searchable;
-use Blast\BaseEntitiesBundle\Entity\Traits\Timestampable;
-use Blast\OuterExtensionBundle\Entity\Traits\OuterExtensible;
+use AppBundle\Entity\OuterExtension\SilEmailBundle\EmailTemplateExtension;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\BaseEntity;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Loggable;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Searchable;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Timestampable;
+use Blast\Bundle\OuterExtensionBundle\Entity\Traits\OuterExtensible;
 
 /**
  * EmailTemplate.

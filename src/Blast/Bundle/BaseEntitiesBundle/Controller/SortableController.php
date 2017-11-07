@@ -10,10 +10,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Blast\BaseEntitiesBundle\Controller;
+namespace Blast\Bundle\BaseEntitiesBundle\Controller;
 
 use Sonata\AdminBundle\Controller\CoreController;
-use Librinfo\DoctrineBundle\Entity\Repository\SortableRepository;
+use Sil\Bundle\DoctrineBundle\Entity\Repository\SortableRepository;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;

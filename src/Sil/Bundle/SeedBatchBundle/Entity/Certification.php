@@ -10,13 +10,13 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\SeedBatchBundle\Entity;
+namespace Sil\Bundle\SeedBatchBundle\Entity;
 
-use AppBundle\Entity\OuterExtension\LibrinfoSeedBatchBundle\CertificationExtension;
-use Blast\BaseEntitiesBundle\Entity\Traits\BaseEntity;
-use Blast\BaseEntitiesBundle\Entity\Traits\Descriptible;
-use Blast\BaseEntitiesBundle\Entity\Traits\Timestampable;
-use Blast\OuterExtensionBundle\Entity\Traits\OuterExtensible;
+use AppBundle\Entity\OuterExtension\SilSeedBatchBundle\CertificationExtension;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\BaseEntity;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Descriptible;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Timestampable;
+use Blast\Bundle\OuterExtensionBundle\Entity\Traits\OuterExtensible;
 
 /**
  * Certification.
@@ -56,17 +56,17 @@ class Certification
     private $url;
 
     /**
-     * @var \Librinfo\SeedBatchBundle\Entity\CertificationType
+     * @var \Sil\Bundle\SeedBatchBundle\Entity\CertificationType
      */
     private $certificationType;
 
     /**
-     * @var \Librinfo\SeedBatchBundle\Entity\CertifyingBody
+     * @var \Sil\Bundle\SeedBatchBundle\Entity\CertifyingBody
      */
     private $certifyingBody;
 
     /**
-     * @var \Librinfo\SeedBatchBundle\Entity\Plot
+     * @var \Sil\Bundle\SeedBatchBundle\Entity\Plot
      */
     private $plot;
 
@@ -214,7 +214,7 @@ class Certification
     /**
      * Set certificationType.
      *
-     * @param \Librinfo\SeedBatchBundle\Entity\CertificationType $certificationType
+     * @param \Sil\Bundle\SeedBatchBundle\Entity\CertificationType $certificationType
      *
      * @return Certification
      */
@@ -228,7 +228,7 @@ class Certification
     /**
      * Get certificationType.
      *
-     * @return \Librinfo\SeedBatchBundle\Entity\CertificationType
+     * @return \Sil\Bundle\SeedBatchBundle\Entity\CertificationType
      */
     public function getCertificationType()
     {
@@ -238,11 +238,11 @@ class Certification
     /**
      * Set plot.
      *
-     * @param \Librinfo\SeedBatchBundle\Entity\Plot $plot
+     * @param \Sil\Bundle\SeedBatchBundle\Entity\Plot $plot
      *
      * @return Certification
      */
-    public function setPlot(\Librinfo\SeedBatchBundle\Entity\Plot $plot = null)
+    public function setPlot(\Sil\Bundle\SeedBatchBundle\Entity\Plot $plot = null)
     {
         $this->plot = $plot;
 
@@ -252,7 +252,7 @@ class Certification
     /**
      * Get plot.
      *
-     * @return \Librinfo\SeedBatchBundle\Entity\Plot
+     * @return \Sil\Bundle\SeedBatchBundle\Entity\Plot
      */
     public function getPlot()
     {
@@ -262,11 +262,11 @@ class Certification
     /**
      * Set certifyingBody.
      *
-     * @param \Librinfo\SeedBatchBundle\Entity\CertifyingBody $certifyingBody
+     * @param \Sil\Bundle\SeedBatchBundle\Entity\CertifyingBody $certifyingBody
      *
      * @return Certification
      */
-    public function setCertifyingBody(\Librinfo\SeedBatchBundle\Entity\CertifyingBody $certifyingBody = null)
+    public function setCertifyingBody(\Sil\Bundle\SeedBatchBundle\Entity\CertifyingBody $certifyingBody = null)
     {
         $this->certifyingBody = $certifyingBody;
 
@@ -276,7 +276,7 @@ class Certification
     /**
      * Get certifyingBody.
      *
-     * @return \Librinfo\SeedBatchBundle\Entity\CertifyingBody
+     * @return \Sil\Bundle\SeedBatchBundle\Entity\CertifyingBody
      */
     public function getCertifyingBody()
     {

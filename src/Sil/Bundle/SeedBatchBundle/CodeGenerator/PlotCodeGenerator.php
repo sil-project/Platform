@@ -10,16 +10,16 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\SeedBatchBundle\CodeGenerator;
+namespace Sil\Bundle\SeedBatchBundle\CodeGenerator;
 
 use Doctrine\ORM\EntityManager;
-use Blast\CoreBundle\CodeGenerator\CodeGeneratorInterface;
-use Blast\CoreBundle\Exception\InvalidEntityCodeException;
-use Librinfo\SeedBatchBundle\Entity\Plot;
+use Blast\Bundle\CoreBundle\CodeGenerator\CodeGeneratorInterface;
+use Blast\Bundle\CoreBundle\Exception\InvalidEntityCodeException;
+use Sil\Bundle\SeedBatchBundle\Entity\Plot;
 
 class PlotCodeGenerator implements CodeGeneratorInterface
 {
-    const ENTITY_CLASS = 'Librinfo\SeedBatchBundle\Entity\Plot';
+    const ENTITY_CLASS = 'Sil\Bundle\SeedBatchBundle\Entity\Plot';
     const ENTITY_FIELD = 'code';
 
     private static $length = 2;

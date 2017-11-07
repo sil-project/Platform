@@ -10,9 +10,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EmailBundle\Entity;
+namespace Sil\Bundle\EmailBundle\Entity;
 
-use Librinfo\EmailBundle\Services\SwiftMailer\Spool\SpoolStatus;
+use Sil\Bundle\EmailBundle\Services\SwiftMailer\Spool\SpoolStatus;
 
 abstract class Spoolable
 {

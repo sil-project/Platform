@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EmailBundle\Controller;
+namespace Sil\Bundle\EmailBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -24,7 +24,7 @@ class AjaxController extends Controller
      */
     public function getEmailTemplateAction($templateId)
     {
-        $repo = $this->getDoctrine()->getRepository('LibrinfoEmailBundle:EmailTemplate');
+        $repo = $this->getDoctrine()->getRepository('SilEmailBundle:EmailTemplate');
         $template = $repo->find($templateId);
 
         return new Response($template->getContent(), 200);
@@ -37,10 +37,10 @@ class AjaxController extends Controller
      */
     public function addToContentAction($fileId)
     {
-        $repo = $this->getDoctrine()->getRepository('LibrinfoMediaBundle:File');
+        $repo = $this->getDoctrine()->getRepository('SilMediaBundle:File');
 
         $file = $repo->find($fileId);
 
-        return new Response($this->renderView('LibrinfoMediaBundle:Generator:img_tag.html.twig', ['img' => $file]));
+        return new Response($this->renderView('SilMediaBundle:Generator:img_tag.html.twig', ['img' => $file]));
     }
 }

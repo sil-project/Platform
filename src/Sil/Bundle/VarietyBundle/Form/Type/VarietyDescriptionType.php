@@ -10,13 +10,13 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\VarietiesBundle\Form\Type;
+namespace Sil\Bundle\VarietyBundle\Form\Type;
 
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\OptionsResolver\Options;
 use Doctrine\ORM\EntityManager;
-use Blast\CoreBundle\Form\AbstractType as BaseAbstractType;
-use Librinfo\VarietiesBundle\Form\ChoiceLoader\VarietyDescriptionChoiceLoader;
+use Blast\Bundle\CoreBundle\Form\AbstractType as BaseAbstractType;
+use Sil\Bundle\VarietyBundle\Form\ChoiceLoader\VarietyDescriptionChoiceLoader;
 
 class VarietyDescriptionType extends BaseAbstractType
 {

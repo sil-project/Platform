@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EcommerceBundle\Controller;
+namespace Sil\Bundle\EcommerceBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -33,7 +33,7 @@ class AjaxController extends Controller
     {
         $value = $request->get('value');
         $manager = $this->getDoctrine()->getManager();
-        $repo = $manager->getRepository('LibrinfoEcommerceBundle:Order');
+        $repo = $manager->getRepository('SilEcommerceBundle:Order');
 
         $order = $repo->find($request->get('id'));
 

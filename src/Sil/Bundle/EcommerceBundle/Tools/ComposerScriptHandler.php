@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EcommerceBundle\Tools;
+namespace Sil\Bundle\EcommerceBundle\Tools;
 
 use Sensio\Bundle\DistributionBundle\Composer\ScriptHandler;
 use Composer\Script\Event;

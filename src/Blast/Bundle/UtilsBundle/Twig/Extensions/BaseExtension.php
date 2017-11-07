@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Blast\UtilsBundle\Twig\Extensions;
+namespace Blast\Bundle\UtilsBundle\Twig\Extensions;
 
 use Symfony\Component\Routing\RouterInterface;
 use Twig_Environment;

@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Blast\BaseEntitiesBundle\Loggable\Mapping\Driver;
+namespace Blast\Bundle\BaseEntitiesBundle\Loggable\Mapping\Driver;
 
 use Doctrine\Common\Persistence\Mapping\ClassMetadata;
 use Gedmo\Exception\InvalidMappingException;

@@ -1,7 +1,7 @@
 services:
     librinfo_emailcrm.admin.organism:
-        class: Librinfo\EmailCRMBundle\Admin\OrganismAdmin
-        arguments: [~, Librinfo\CRMBundle\Entity\Organism, LibrinfoCRMBundle:OrganismAdmin]
+        class: Sil\Bundle\EmailCRMBundle\Admin\OrganismAdmin
+        arguments: [~, Sil\Bundle\CRMBundle\Entity\Organism, SilCRMBundle:OrganismAdmin]
         tags:
             -   name: sonata.admin
                 manager_type: orm
@@ -9,5 +9,5 @@ services:
                 label: librinfo.emailcrmbundle.admin.organism
                 label_translator_strategy: blast_core.label.strategy.librinfo_emailcrm
         calls:
-            - [ setTemplate, [edit, LibrinfoCRMBundle:OrganismAdmin:edit.html.twig]]
-            - [ setTemplate, [show, LibrinfoCRMBundle:OrganismAdmin:show.html.twig]]
+            - [ setTemplate, [edit, SilCRMBundle:OrganismAdmin:edit.html.twig]]
+            - [ setTemplate, [show, SilCRMBundle:OrganismAdmin:show.html.twig]]

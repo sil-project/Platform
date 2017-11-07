@@ -10,9 +10,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Blast\BaseEntitiesBundle\DependencyInjection;
+namespace Blast\Bundle\BaseEntitiesBundle\DependencyInjection;
 
-use Blast\CoreBundle\DependencyInjection\BlastCoreExtension;
+use Blast\Bundle\CoreBundle\DependencyInjection\BlastCoreExtension;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 class BlastBaseEntitiesExtension extends BlastCoreExtension

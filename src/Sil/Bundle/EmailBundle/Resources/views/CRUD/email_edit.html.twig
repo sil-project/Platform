@@ -1,14 +1,14 @@
 
-{% extends 'LibrinfoMediaBundle:CRUD:edit.html.twig' %}
+{% extends 'SilMediaBundle:CRUD:edit.html.twig' %}
 
 {# add the send button to update form #}
 {% block sonata_form_actions %}
     {{ parent() }}
     {% if admin.id(object) is not null %}
         {% if not object.sent %}
-            <a class="btn btn-info" href="{{ admin.generateObjectUrl('send', object) }}" type="submit"><i class="fa fa-paper-plane"></i> {{ 'Send'|trans({}, 'LibrinfoEmailBundle') }}</a>
+            <a class="btn btn-info" href="{{ admin.generateObjectUrl('send', object) }}" type="submit"><i class="fa fa-paper-plane"></i> {{ 'Send'|trans({}, 'SilEmailBundle') }}</a>
         {% endif %}
-        <a class="btn btn-info" href="{{ admin.generateObjectUrl('duplicate', object) }}"><i class="fa fa-files-o"></i> {{ 'Duplicate'|trans({}, 'LibrinfoEmailBundle') }}</a>
+        <a class="btn btn-info" href="{{ admin.generateObjectUrl('duplicate', object) }}"><i class="fa fa-files-o"></i> {{ 'Duplicate'|trans({}, 'SilEmailBundle') }}</a>
     {% endif %}
 {% endblock %}
 
@@ -19,5 +19,5 @@
 {% endblock %}
 
 {% block dropzone_template %}
-    {% include 'LibrinfoEmailBundle:dropzone:dropzone_template.mustache.twig' %}
+    {% include 'SilEmailBundle:dropzone:dropzone_template.mustache.twig' %}
 {% endblock %}

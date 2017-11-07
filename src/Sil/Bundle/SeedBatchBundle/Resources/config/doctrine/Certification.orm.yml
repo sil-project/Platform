@@ -1,4 +1,4 @@
-Librinfo\SeedBatchBundle\Entity\Certification:
+Sil\Bundle\SeedBatchBundle\Entity\Certification:
     type: entity
     blast:
         loggable: true
@@ -27,11 +27,11 @@ Librinfo\SeedBatchBundle\Entity\Certification:
 
     manyToOne:
         plot:
-            targetEntity: Librinfo\SeedBatchBundle\Entity\Plot
+            targetEntity: Sil\Bundle\SeedBatchBundle\Entity\Plot
             inversedBy: certifications
             cascade: [ persist ]
         certificationType:
-            targetEntity: Librinfo\SeedBatchBundle\Entity\CertificationType
+            targetEntity: Sil\Bundle\SeedBatchBundle\Entity\CertificationType
         certifyingBody:
-            targetEntity: Librinfo\SeedBatchBundle\Entity\CertifyingBody
+            targetEntity: Sil\Bundle\SeedBatchBundle\Entity\CertifyingBody
 

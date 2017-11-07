@@ -10,16 +10,16 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\SeedBatchBundle\Entity;
+namespace Sil\Bundle\SeedBatchBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use AppBundle\Entity\OuterExtension\LibrinfoSeedBatchBundle\CertifyingBodyExtension;
-use Blast\BaseEntitiesBundle\Entity\Traits\Addressable;
-use Blast\BaseEntitiesBundle\Entity\Traits\BaseEntity;
-use Blast\BaseEntitiesBundle\Entity\Traits\Descriptible;
-use Blast\BaseEntitiesBundle\Entity\Traits\Loggable;
-use Blast\BaseEntitiesBundle\Entity\Traits\Timestampable;
-use Blast\OuterExtensionBundle\Entity\Traits\OuterExtensible;
+use AppBundle\Entity\OuterExtension\SilSeedBatchBundle\CertifyingBodyExtension;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Addressable;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\BaseEntity;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Descriptible;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Loggable;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Timestampable;
+use Blast\Bundle\OuterExtensionBundle\Entity\Traits\OuterExtensible;
 
 /**
  * CertifyingBody.
@@ -128,11 +128,11 @@ class CertifyingBody
     /**
      * Add certifications.
      *
-     * @param \Librinfo\SeedBatchBundle\Entity\Certification $certifications
+     * @param \Sil\Bundle\SeedBatchBundle\Entity\Certification $certifications
      *
      * @return Plot
      */
-    public function addCertification(\Librinfo\SeedBatchBundle\Entity\Certification $certifications)
+    public function addCertification(\Sil\Bundle\SeedBatchBundle\Entity\Certification $certifications)
     {
         $this->certifications[] = $certifications;
 
@@ -142,9 +142,9 @@ class CertifyingBody
     /**
      * Remove certification.
      *
-     * @param \Librinfo\SeedBatchBundle\Entity\Certification $certification
+     * @param \Sil\Bundle\SeedBatchBundle\Entity\Certification $certification
      */
-    public function removeCertification(\Librinfo\SeedBatchBundle\Entity\Certification $certification)
+    public function removeCertification(\Sil\Bundle\SeedBatchBundle\Entity\Certification $certification)
     {
         $this->certifications->removeElement($certification);
     }

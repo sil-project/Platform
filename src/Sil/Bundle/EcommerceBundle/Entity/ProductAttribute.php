@@ -10,10 +10,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EcommerceBundle\Entity;
+namespace Sil\Bundle\EcommerceBundle\Entity;
 
 use Sylius\Component\Product\Model\ProductAttribute as BaseProductAttribute;
-use Blast\BaseEntitiesBundle\Entity\Traits\Stringable;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Stringable;
 
 class ProductAttribute extends BaseProductAttribute
 {

@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Blast\BaseEntitiesBundle\Loggable\Mapping\Driver;
+namespace Blast\Bundle\BaseEntitiesBundle\Loggable\Mapping\Driver;
 
 use Gedmo\Mapping\Driver\Xml as BaseXml;
 use Gedmo\Exception\InvalidMappingException;

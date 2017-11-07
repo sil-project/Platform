@@ -10,11 +10,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\VarietiesBundle\Form\Type;
+namespace Sil\Bundle\VarietyBundle\Form\Type;
 
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Blast\CoreBundle\Form\AbstractType as BaseAbstractType;
-use Librinfo\VarietiesBundle\Entity\LifeCycle;
+use Blast\Bundle\CoreBundle\Form\AbstractType as BaseAbstractType;
+use Sil\Bundle\VarietyBundle\Entity\LifeCycle;
 
 class LifeCycleType extends BaseAbstractType
 {

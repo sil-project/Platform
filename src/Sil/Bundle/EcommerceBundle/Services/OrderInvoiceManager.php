@@ -10,14 +10,14 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EcommerceBundle\Services;
+namespace Sil\Bundle\EcommerceBundle\Services;
 
 use Doctrine\ORM\EntityManager;
-use Librinfo\EcommerceBundle\Entity\OrderInterface;
+use Sil\Bundle\EcommerceBundle\Entity\OrderInterface;
 use SM\Factory\Factory;
-use Librinfo\EcommerceBundle\Factory\InvoiceFactoryInterface;
-use Librinfo\EcommerceBundle\Entity\Invoice;
-use Librinfo\EcommerceBundle\SalesJournal\SalesJournalService;
+use Sil\Bundle\EcommerceBundle\Factory\InvoiceFactoryInterface;
+use Sil\Bundle\EcommerceBundle\Entity\Invoice;
+use Sil\Bundle\EcommerceBundle\SalesJournal\SalesJournalService;
 
 class OrderInvoiceManager
 {

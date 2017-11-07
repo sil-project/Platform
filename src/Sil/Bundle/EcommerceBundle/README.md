@@ -1,4 +1,4 @@
-# SymfonyLibrinfoEcommerceBundle
+# SymfonySilEcommerceBundle
 
 [![Build Status](https://travis-ci.org/libre-informatique/EcommerceBundle.svg?branch=master)](https://travis-ci.org/libre-informatique/EcommerceBundle)
 [![Coverage Status](https://coveralls.io/repos/github/libre-informatique/EcommerceBundle/badge.svg?branch=master)](https://coveralls.io/github/libre-informatique/EcommerceBundle?branch=master)

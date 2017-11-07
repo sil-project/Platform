@@ -10,10 +10,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EcommerceBundle\Entity;
+namespace Sil\Bundle\EcommerceBundle\Entity;
 
 use Sylius\Component\Core\Model\ProductReview as BaseProductReview;
-use Blast\BaseEntitiesBundle\Entity\Traits\BaseEntity;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\BaseEntity;
 
 class ProductReview extends BaseProductReview
 {

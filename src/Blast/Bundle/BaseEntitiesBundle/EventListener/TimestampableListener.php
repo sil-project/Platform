@@ -10,10 +10,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Blast\BaseEntitiesBundle\EventListener;
+namespace Blast\Bundle\BaseEntitiesBundle\EventListener;
 
-use Blast\BaseEntitiesBundle\EventListener\Traits\ClassChecker;
-use Blast\BaseEntitiesBundle\EventListener\Traits\Logger;
+use Blast\Bundle\BaseEntitiesBundle\EventListener\Traits\ClassChecker;
+use Blast\Bundle\BaseEntitiesBundle\EventListener\Traits\Logger;
 use DateTime;
 use Doctrine\Common\EventSubscriber;
 use Doctrine\ORM\Event\LifecycleEventArgs;
@@ -57,13 +57,13 @@ class TimestampableListener implements LoggerAwareInterface, EventSubscriber
 
         $reflectionClass = $metadata->getReflectionClass();
 
-        if (!$reflectionClass || !$this->hasTrait($reflectionClass, 'Blast\BaseEntitiesBundle\Entity\Traits\Timestampable')) {
+        if (!$reflectionClass || !$this->hasTrait($reflectionClass, 'Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Timestampable')) {
             return;
         } // return if current entity doesn't use Timestampable trait
 
         // Check if parents already have the Timestampable trait
         foreach ($metadata->parentClasses as $parent) {
-            if ($this->classAnalyzer->hasTrait($parent, 'Blast\BaseEntitiesBundle\Entity\Traits\Timestampable')) {
+            if ($this->classAnalyzer->hasTrait($parent, 'Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Timestampable')) {
                 return;
             }
         }
@@ -101,7 +101,7 @@ class TimestampableListener implements LoggerAwareInterface, EventSubscriber
     {
         $entity = $eventArgs->getObject();
 
-        if (!$this->hasTrait($entity, 'Blast\BaseEntitiesBundle\Entity\Traits\Timestampable')) {
+        if (!$this->hasTrait($entity, 'Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Timestampable')) {
             return;
         }
 
@@ -123,7 +123,7 @@ class TimestampableListener implements LoggerAwareInterface, EventSubscriber
     {
         $entity = $eventArgs->getObject();
 
-        if (!$this->hasTrait($entity, 'Blast\BaseEntitiesBundle\Entity\Traits\Timestampable')) {
+        if (!$this->hasTrait($entity, 'Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Timestampable')) {
             return;
         }
 

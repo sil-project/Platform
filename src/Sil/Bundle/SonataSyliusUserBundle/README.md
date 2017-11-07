@@ -80,7 +80,7 @@ public function registerBundles()
         // [...]
 
         // SONATA SYLIUS USER BUNDLE
-        new Librinfo\SonataSyliusUserBundle\SonataSyliusUserBundle(),
+        new Sil\Bundle\SonataSyliusUserBundle\SonataSyliusUserBundle(),
     );
 }
 ```

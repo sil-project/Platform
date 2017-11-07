@@ -1,2 +1,2 @@
-Librinfo\EcommerceBundle\Entity\Product:
+Sil\Bundle\EcommerceBundle\Entity\Product:
     type: entity

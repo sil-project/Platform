@@ -10,9 +10,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EmailCRMBundle\DependencyInjection;
+namespace Sil\Bundle\EmailCRMBundle\DependencyInjection;
 
-use Blast\CoreBundle\DependencyInjection\BlastCoreExtension;
+use Blast\Bundle\CoreBundle\DependencyInjection\BlastCoreExtension;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 /**
@@ -20,12 +20,12 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
  *
  * @see http://symfony.com/doc/current/cookbook/bundles/extension.html
  */
-class LibrinfoEmailCRMExtension extends BlastCoreExtension
+class SilEmailCRMExtension extends BlastCoreExtension
 {
     public function loadSecurity(ContainerBuilder $container)
     {
-        if (class_exists('\Librinfo\SecurityBundle\Configurator\SecurityConfigurator')) {
-            \Librinfo\SecurityBundle\Configurator\SecurityConfigurator::getInstance($container)->loadSecurityYml(__DIR__ . '/../Resources/config/security.yml');
+        if (class_exists('\Sil\Bundle\SecurityBundle\Configurator\SecurityConfigurator')) {
+            \Sil\Bundle\SecurityBundle\Configurator\SecurityConfigurator::getInstance($container)->loadSecurityYml(__DIR__ . '/../Resources/config/security.yml');
         }
     }
 }

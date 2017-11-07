@@ -10,10 +10,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\SeedBatchBundle\Admin;
+namespace Sil\Bundle\SeedBatchBundle\Admin;
 
-use Blast\CoreBundle\Admin\CoreAdmin;
-use Blast\CoreBundle\Admin\Traits\Base as BaseAdmin;
+use Blast\Bundle\CoreBundle\Admin\CoreAdmin;
+use Blast\Bundle\CoreBundle\Admin\Traits\Base as BaseAdmin;
 
 class SeedFarmAdmin extends CoreAdmin
 {

@@ -4,9 +4,9 @@ services:
 
     librinfo_ecommerce.dashboard.main:
         parent: blast_core.dashboard.block
-        class: Librinfo\EcommerceBundle\Dashboard\EcommerceDashboardBlock
+        class: Sil\Bundle\EcommerceBundle\Dashboard\EcommerceDashboardBlock
         arguments:
-            - 'LibrinfoEcommerceBundle:Dashboard:ecommerce_dashboard.html.twig'
+            - 'SilEcommerceBundle:Dashboard:ecommerce_dashboard.html.twig'
         calls:
             - [setSalesStats, ['@librinfo_ecommerce.dashboard.stats.sales']]
             - [setOrderToProcessStats, ['@librinfo_ecommerce.dashboard.stats.order_to_process']]
@@ -24,23 +24,23 @@ services:
 
     librinfo_ecommerce.dashboard.stats.raw_queries:
         parent: librinfo_ecommerce.dashboard.stats.abstract_stats
-        class: Librinfo\EcommerceBundle\Dashboard\Stats\RawQueries
+        class: Sil\Bundle\EcommerceBundle\Dashboard\Stats\RawQueries
 
     # STATS
 
     librinfo_ecommerce.dashboard.stats.sales:
         parent: librinfo_ecommerce.dashboard.stats.abstract_stats
-        class: Librinfo\EcommerceBundle\Dashboard\Stats\Sales
+        class: Sil\Bundle\EcommerceBundle\Dashboard\Stats\Sales
         calls:
             - [setRawQueries, ['@librinfo_ecommerce.dashboard.stats.raw_queries']]
 
     librinfo_ecommerce.dashboard.stats.order_to_process:
         parent: librinfo_ecommerce.dashboard.stats.abstract_stats
-        class: Librinfo\EcommerceBundle\Dashboard\Stats\OrdersToProcess
+        class: Sil\Bundle\EcommerceBundle\Dashboard\Stats\OrdersToProcess
 
     librinfo_ecommerce.dashboard.stats.misc:
         parent: librinfo_ecommerce.dashboard.stats.abstract_stats
-        class: Librinfo\EcommerceBundle\Dashboard\Stats\Misc
+        class: Sil\Bundle\EcommerceBundle\Dashboard\Stats\Misc
         calls:
             - [setRawQueries, ['@librinfo_ecommerce.dashboard.stats.raw_queries']]
             - [setMoneyFormatter, ['@sylius.money_formatter']]

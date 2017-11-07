@@ -10,12 +10,12 @@
  * file that was distributed with this source code.
  */
 
-namespace Blast\UtilsBundle\Form\Type;
+namespace Blast\Bundle\UtilsBundle\Form\Type;
 
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\Form\FormInterface;
-use Blast\CoreBundle\Form\AbstractType as BaseAbstractType;
+use Blast\Bundle\CoreBundle\Form\AbstractType as BaseAbstractType;
 
 class UniqueFieldType extends BaseAbstractType
 {

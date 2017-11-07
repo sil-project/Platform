@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EcommerceBundle\Dashboard\Stats;
+namespace Sil\Bundle\EcommerceBundle\Dashboard\Stats;
 
 use Sylius\Bundle\MoneyBundle\Formatter\MoneyFormatterInterface;
 use Sylius\Component\Currency\Context\CurrencyContextInterface;

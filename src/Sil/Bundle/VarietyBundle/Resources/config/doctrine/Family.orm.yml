@@ -1,4 +1,4 @@
-Librinfo\VarietiesBundle\Entity\Family:
+Sil\Bundle\VarietyBundle\Entity\Family:
     type: entity
     table: family
     blast:
@@ -13,7 +13,7 @@ Librinfo\VarietiesBundle\Entity\Family:
 
     oneToMany:
         genuses:
-            targetEntity: Librinfo\VarietiesBundle\Entity\Genus
+            targetEntity: Sil\Bundle\VarietyBundle\Entity\Genus
             mappedBy: family
             cascade: [ persist ]
 

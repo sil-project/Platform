@@ -10,9 +10,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EmailCRMBundle\Entity\Repository;
+namespace Sil\Bundle\EmailCRMBundle\Entity\Repository;
 
-use Librinfo\CRMBundle\Entity\Repository\OrganismRepository as BaseOrganismRepository;
+use Sil\Bundle\CRMBundle\Entity\Repository\OrganismRepository as BaseOrganismRepository;
 
 class OrganismRepository extends BaseOrganismRepository
 {
@@ -23,7 +23,7 @@ class OrganismRepository extends BaseOrganismRepository
     {
         $qb = $this->getEntityManager()->createQueryBuilder('e');
         $qb->select('e')
-            ->from('LibrinfoEmailBundle:Email', 'e')
+            ->from('SilEmailBundle:Email', 'e')
             ->leftJoin('e.organizations', 'org')
             ->leftJoin('e.individuals', 'pos')
             ->where('org.id = :id')

@@ -1,14 +1,14 @@
-Librinfo\VarietiesBundle\Entity\PlantCategory:
+Sil\Bundle\VarietyBundle\Entity\PlantCategory:
     type: entity
-    repositoryClass: Librinfo\VarietiesBundle\Entity\Repository\PlantCategoryRepository
+    repositoryClass: Sil\Bundle\VarietyBundle\Entity\Repository\PlantCategoryRepository
     fields:
         code:
             type:     string(6)
             nullable: true
     manyToMany:
         species:
-            targetEntity: Librinfo\VarietiesBundle\Entity\Species
+            targetEntity: Sil\Bundle\VarietyBundle\Entity\Species
             mappedBy: plant_categories
         varieties:
-            targetEntity: Librinfo\VarietiesBundle\Entity\Variety
+            targetEntity: Sil\Bundle\VarietyBundle\Entity\Variety
             mappedBy: plant_categories   

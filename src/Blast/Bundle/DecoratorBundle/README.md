@@ -1,4 +1,4 @@
-# SymfonyLibrinfoDecoratorBundle
+# SymfonyBlastDecoratorBundle
 
 [![Build Status](https://travis-ci.org/libre-informatique/DecoratorBundle.svg?branch=master)](https://travis-ci.org/libre-informatique/DecoratorBundle)
 [![Coverage Status](https://coveralls.io/repos/github/libre-informatique/DecoratorBundle/badge.svg?branch=master)](https://coveralls.io/github/libre-informatique/DecoratorBundle?branch=master)
@@ -35,15 +35,15 @@ From your project root directory:
 
 ### The Sonata bundles
 
-Do not forget to configure the SonataAdminBundle. Find examples in the [libre-informatique/crm-bundle](https://github.com/libre-informatique/SymfonyLibrinfoCRMBundle#the-sonata-bundles) documentation.
+Do not forget to configure the SonataAdminBundle. Find examples in the [libre-informatique/crm-bundle](https://github.com/libre-informatique/SymfonySilCRMBundle#the-sonata-bundles) documentation.
 
 ### The Libre Informatique bundles
 
-Do not forget to configure the BlastCoreBundle. Find examples in the [libre-informatique/core-bundle](https://github.com/libre-informatique/SymfonyLibrinfoCRMBundle#the-libre-informatique-bundles) documentation.
+Do not forget to configure the BlastCoreBundle. Find examples in the [libre-informatique/core-bundle](https://github.com/libre-informatique/SymfonySilCRMBundle#the-libre-informatique-bundles) documentation.
 
 ### Finish
 
-Consider ```LibrinfoDecoratorBundle``` an assetic bundle :
+Consider ```BlastDecoratorBundle``` an assetic bundle :
 
 ```
 # app/config/config.yml
@@ -51,7 +51,7 @@ Consider ```LibrinfoDecoratorBundle``` an assetic bundle :
 assetic:
     bundles:
         # ...
-        - LibrinfoDecoratorBundle
+        - BlastDecoratorBundle
 # ...
 ```
 
@@ -65,7 +65,7 @@ This bundle aims to ease the personnalization, in a reusable and scalable way, o
 
 It works as a man-in-the-middle technology that overloads the default configuration, without stealing the right, for a project, to precise it again. By the way, this bundle reduces the size of the global configuration of a project.
 
-## Improving the LibrinfoDecoratorBundle
+## Improving the BlastDecoratorBundle
 
 The basics is to be able to extend in a very smoothy way the SonataAdminBundle, replacing its default parameters in a single YAML file named ```Resources/config/decorator.yml```, and using the Twig philosophy of inheritance and blocks.
 
@@ -78,7 +78,7 @@ parameters:
         templates:
             layout:
                 original: [SonataAdminBundle::standard_layout.html.twig, BlastCoreBundle::standard_layout.html.twig]
-                modified: LibrinfoDecoratorBundle::layout.html.twig
+                modified: BlastDecoratorBundle::layout.html.twig
 ```
 
 You have noticed the root of this bundle's parameters : ```librinfo_decorator```.
@@ -86,12 +86,12 @@ Then if you need to replace generically some templates, you'll need to configure
 
 So, you'll have to specify the Sonata key (from ```sonata_admin``` root element in your ```app/config/config.yml```, see [the Sonata documentation](https://sonata-project.org/bundles/admin/2-3/doc/reference/configuration.html)) and two sub-keys :
 
-* ```original```: an array of which values you allow LibrinfoDecoratorBundle to erase
+* ```original```: an array of which values you allow BlastDecoratorBundle to erase
 * ```modified```: the value which will replace what you wrote in the ```original``` sub-key
  
 ### The templates
 
-Once you've replaced some of the default configuration templates by new ones you'll be able, if the new ones are located within the LibrinfoDecoratorBundle, to define them in the ```Resources/views/``` directory. There you'll use the Twig directives of ```extends```, ```{{ parent() }}```, ```{% block xxx %}``` to be more efficient.
+Once you've replaced some of the default configuration templates by new ones you'll be able, if the new ones are located within the BlastDecoratorBundle, to define them in the ```Resources/views/``` directory. There you'll use the Twig directives of ```extends```, ```{{ parent() }}```, ```{% block xxx %}``` to be more efficient.
 
 e.g.:
 

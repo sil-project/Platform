@@ -10,14 +10,14 @@
  * file that was distributed with this source code.
  */
 
-namespace Blast\BaseEntitiesBundle\EventListener;
+namespace Blast\Bundle\BaseEntitiesBundle\EventListener;
 
 use Doctrine\Common\EventSubscriber;
 use Doctrine\ORM\Mapping\ClassMetadata;
 use Doctrine\ORM\Event\LoadClassMetadataEventArgs;
 use Doctrine\ORM\Event\OnFlushEventArgs;
-use Blast\BaseEntitiesBundle\EventListener\Traits\ClassChecker;
-use Blast\BaseEntitiesBundle\EventListener\Traits\Logger;
+use Blast\Bundle\BaseEntitiesBundle\EventListener\Traits\ClassChecker;
+use Blast\Bundle\BaseEntitiesBundle\EventListener\Traits\Logger;
 
 class SearchableListener implements EventSubscriber
 {
@@ -57,13 +57,13 @@ class SearchableListener implements EventSubscriber
 
         // Check if parents already have the Searchable trait
         foreach ($metadata->parentClasses as $parent) {
-            if ($this->classAnalyzer->hasTrait($parent, 'Blast\BaseEntitiesBundle\Entity\Traits\Searchable')) {
+            if ($this->classAnalyzer->hasTrait($parent, 'Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Searchable')) {
                 return;
             }
         }
 
         // Add oneToMany mapping to entities that have the Searchable trait
-        if ($this->hasTrait($reflectionClass, 'Blast\BaseEntitiesBundle\Entity\Traits\Searchable')) {
+        if ($this->hasTrait($reflectionClass, 'Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Searchable')) {
             $this->logger->debug('[SearchableListener] Entering SearchableListener for « loadClassMetadata » event: entity ' . $reflectionClass->getName());
 
             $metadata->mapOneToMany([
@@ -76,7 +76,7 @@ class SearchableListener implements EventSubscriber
 
         // Add manyToOne mapping to entities that extend SearchIndexEntity (first parent only)
         $parentClass = $reflectionClass->getParentClass();
-        if ($parentClass && $parentClass->getName() == 'Blast\BaseEntitiesBundle\Entity\SearchIndexEntity') {
+        if ($parentClass && $parentClass->getName() == 'Blast\Bundle\BaseEntitiesBundle\Entity\SearchIndexEntity') {
             $this->logger->debug('[SearchableListener] Entering SearchableListener for « loadClassMetadata » event: entity ' . $reflectionClass->getName());
 
             $metadata->mapManyToOne([
@@ -94,20 +94,20 @@ class SearchableListener implements EventSubscriber
         $uow = $em->getUnitOfWork();
 
         foreach ($uow->getScheduledEntityInsertions() as $entity) {
-            if ($this->hasTrait($entity, 'Blast\BaseEntitiesBundle\Entity\Traits\Searchable')) {
+            if ($this->hasTrait($entity, 'Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Searchable')) {
                 $this->createSearchIndexes($em, $entity);
             }
         }
 
         foreach ($uow->getScheduledEntityUpdates() as $entity) {
-            if ($this->hasTrait($entity, 'Blast\BaseEntitiesBundle\Entity\Traits\Searchable')) {
+            if ($this->hasTrait($entity, 'Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Searchable')) {
                 $this->deleteSearchIndexes($em, $entity);
                 $this->createSearchIndexes($em, $entity);
             }
         }
 
         foreach ($uow->getScheduledEntityDeletions() as $entity) {
-            if ($this->hasTrait($entity, 'Blast\BaseEntitiesBundle\Entity\Traits\Searchable')) {
+            if ($this->hasTrait($entity, 'Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Searchable')) {
                 $this->deleteSearchIndexes($em, $entity);
             }
         }

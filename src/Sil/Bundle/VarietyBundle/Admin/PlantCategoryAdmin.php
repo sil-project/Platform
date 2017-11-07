@@ -10,11 +10,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\VarietiesBundle\Admin;
+namespace Sil\Bundle\VarietyBundle\Admin;
 
-use Blast\CoreBundle\Admin\CoreAdmin;
-use Blast\CoreBundle\Admin\Traits\Base as BaseAdmin;
-use Blast\BaseEntitiesBundle\Admin\Traits\NestedTreeableAdmin;
+use Blast\Bundle\CoreBundle\Admin\CoreAdmin;
+use Blast\Bundle\CoreBundle\Admin\Traits\Base as BaseAdmin;
+use Blast\Bundle\BaseEntitiesBundle\Admin\Traits\NestedTreeableAdmin;
 
 class PlantCategoryAdmin extends CoreAdmin
 {

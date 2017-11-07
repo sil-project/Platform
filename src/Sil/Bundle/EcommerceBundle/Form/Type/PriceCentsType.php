@@ -10,12 +10,12 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EcommerceBundle\Form\Type;
+namespace Sil\Bundle\EcommerceBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Librinfo\EcommerceBundle\Form\DataTransformer\PriceCentsTransformer;
+use Sil\Bundle\EcommerceBundle\Form\DataTransformer\PriceCentsTransformer;
 
 class PriceCentsType extends AbstractType
 {

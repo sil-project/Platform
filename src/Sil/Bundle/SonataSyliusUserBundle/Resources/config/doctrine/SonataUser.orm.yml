@@ -4,7 +4,7 @@
 # For the full copyright and license information, please view the LICENSE
 # file that was distributed with this source code.
 
-Librinfo\SonataSyliusUserBundle\Entity\SonataUser:
+Sil\Bundle\SonataSyliusUserBundle\Entity\SonataUser:
     type: mappedSuperclass
     fields:
         firstName:
@@ -21,7 +21,7 @@ Librinfo\SonataSyliusUserBundle\Entity\SonataUser:
     manyToMany:
         groups:
             inversedBy: users
-            targetEntity: Librinfo\SonataSyliusUserBundle\Entity\SonataGroup
+            targetEntity: Sil\Bundle\SonataSyliusUserBundle\Entity\SonataGroup
             joinTable:
                 name: librinfo_user_groups_users
                 joinColumns:

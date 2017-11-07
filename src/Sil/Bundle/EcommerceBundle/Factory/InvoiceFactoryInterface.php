@@ -10,9 +10,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EcommerceBundle\Factory;
+namespace Sil\Bundle\EcommerceBundle\Factory;
 
-use Librinfo\EcommerceBundle\Entity\Invoice;
+use Sil\Bundle\EcommerceBundle\Entity\Invoice;
 use Sylius\Component\Core\Model\OrderInterface;
 use Sylius\Component\Resource\Factory\FactoryInterface;
 

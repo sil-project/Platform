@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\SonataSyliusUserBundle\Entity\Traits\OuterExtension;
+namespace Sil\Bundle\SonataSyliusUserBundle\Entity\Traits\OuterExtension;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;

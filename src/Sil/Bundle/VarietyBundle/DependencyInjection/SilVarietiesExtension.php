@@ -10,21 +10,19 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\SeedBatchBundle\DependencyInjection;
+namespace Sil\Bundle\VarietyBundle\DependencyInjection;
 
-use Blast\CoreBundle\DependencyInjection\BlastCoreExtension;
-use Blast\CoreBundle\DependencyInjection\DefaultParameters;
-use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\Loader;
-use Symfony\Component\Yaml\Yaml;
+use Blast\Bundle\CoreBundle\DependencyInjection\BlastCoreExtension;
 
 /**
  * This is the class that loads and manages your bundle configuration.
  *
- * @see http://symfony.com/doc/current/cookbook/bundles/extension.html
+ * To learn more see {@link http://symfony.com/doc/current/cookbook/bundles/extension.html}
  */
-class LibrinfoSeedBatchExtension extends BlastCoreExtension
+class SilVarietiesExtension extends BlastCoreExtension
 {
     /**
      * {@inheritdoc}
@@ -38,23 +36,20 @@ class LibrinfoSeedBatchExtension extends BlastCoreExtension
         $loader->load('services.yml');
         $loader->load('admin.yml');
 
-        $container->setParameter('librinfo_seed_batch', $config);
+        $container->setParameter('librinfo_varieties', $config);
 
         // Entity code generators
-        foreach (['seed_batch', 'seed_producer', 'plot', 'seed_farm'] as $cg) {
-            $container->setParameter("librinfo_seed_batch.code_generator.$cg",
-                $container->getParameter('librinfo_seed_batch')['code_generator'][$cg]
-            );
-        }
+        $container->setParameter('librinfo_varieties.code_generator.species',
+            $container->getParameter('librinfo_varieties')['code_generator']['species']
+        );
+        $container->setParameter('librinfo_varieties.code_generator.variety',
+            $container->getParameter('librinfo_varieties')['code_generator']['variety']
+        );
 
         if ($container->getParameter('kernel.environment') == 'test') {
             $loader->load('datafixtures.yml');
         }
 
         $this->mergeParameter('blast', $container, __DIR__ . '/../Resources/config');
-
-        if (class_exists('\Librinfo\SecurityBundle\Configurator\SecurityConfigurator')) {
-            \Librinfo\SecurityBundle\Configurator\SecurityConfigurator::getInstance($container)->loadSecurityYml(__DIR__ . '/../Resources/config/security.yml');
-        }
     }
 }

@@ -10,12 +10,12 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EcommerceBundle\Services;
+namespace Sil\Bundle\EcommerceBundle\Services;
 
 use Doctrine\ORM\EntityManager;
-use Librinfo\EcommerceBundle\Entity\OrderInterface;
-use Blast\CoreBundle\CodeGenerator\CodeGeneratorInterface;
-use Librinfo\CRMBundle\Entity\Organism;
+use Sil\Bundle\EcommerceBundle\Entity\OrderInterface;
+use Blast\Bundle\CoreBundle\CodeGenerator\CodeGeneratorInterface;
+use Sil\Bundle\CRMBundle\Entity\Organism;
 
 class OrderCustomerManager
 {

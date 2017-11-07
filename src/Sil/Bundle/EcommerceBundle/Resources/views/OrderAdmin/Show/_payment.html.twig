@@ -2,7 +2,7 @@
 
 <td width="50%">
     <strong>
-        {% include('LibrinfoEcommerceBundle:OrderAdmin:_state_label.html.twig') with {'category': 'payment', 'value': payment.state} %}
+        {% include('SilEcommerceBundle:OrderAdmin:_state_label.html.twig') with {'category': 'payment', 'value': payment.state} %}
         &nbsp;{{ payment.method }}
         <br>
         <span id="{{payment.id}}" class="order_payment_total">{{ money.convertAndFormat(payment.amount) }}</span>

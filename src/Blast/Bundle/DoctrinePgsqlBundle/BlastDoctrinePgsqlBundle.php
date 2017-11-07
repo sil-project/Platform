@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Blast\DoctrinePgsqlBundle;
+namespace Blast\Bundle\DoctrinePgsqlBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 use Doctrine\ORM\Query;
@@ -25,7 +25,7 @@ class BlastDoctrinePgsqlBundle extends Bundle
             ->getConfiguration()
             ->setDefaultQueryHint(
                 Query::HINT_CUSTOM_OUTPUT_WALKER,
-                'Blast\DoctrinePgsqlBundle\DoctrineExtensions\BlastWalker'
+                'Blast\Bundle\DoctrinePgsqlBundle\DoctrineExtensions\BlastWalker'
             );
     }
 }

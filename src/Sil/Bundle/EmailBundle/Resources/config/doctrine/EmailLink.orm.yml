@@ -1,4 +1,4 @@
-Librinfo\EmailBundle\Entity\EmailLink:
+Sil\Bundle\EmailBundle\Entity\EmailLink:
     type: entity
     fields:
         destination: 
@@ -10,7 +10,7 @@ Librinfo\EmailBundle\Entity\EmailLink:
             nullable: true
     manyToOne:
         email:
-            targetEntity: Librinfo\EmailBundle\Entity\Email
+            targetEntity: Sil\Bundle\EmailBundle\Entity\Email
             inversedBy: links
             joinColumn:
                 name: email_id

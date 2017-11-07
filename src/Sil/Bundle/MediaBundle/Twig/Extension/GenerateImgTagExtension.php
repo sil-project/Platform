@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\MediaBundle\Twig\Extension;
+namespace Sil\Bundle\MediaBundle\Twig\Extension;
 
 class GenerateImgTagExtension extends \Twig_Extension
 {

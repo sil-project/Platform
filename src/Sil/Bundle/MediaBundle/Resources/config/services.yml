@@ -1,17 +1,17 @@
 services:
 ### TWIG EXTENSIONS ###    
     librinfo_media.twig_extension.img_tag_generator:
-        class: Librinfo\MediaBundle\Twig\Extension\GenerateImgTagExtension
+        class: Sil\Bundle\MediaBundle\Twig\Extension\GenerateImgTagExtension
         tags:
             - { name: twig.extension }
 ### FORM TYPES ###
     librinfo_media.form.type.dropzone:
-        class: Librinfo\MediaBundle\Form\Type\DropzoneType
+        class: Sil\Bundle\MediaBundle\Form\Type\DropzoneType
         tags:
             - { name: form.type, alias: librinfo_dropzone }
             
     imagine.data.loader.db_loader:
-        class: Librinfo\MediaBundle\Imagine\Loader\DbLoader
+        class: Sil\Bundle\MediaBundle\Imagine\Loader\DbLoader
         arguments:
             - "@imagine.data.loader.resolver.default"
             - "@liip_imagine"
@@ -21,12 +21,12 @@ services:
             - { name: "liip_imagine.binary.loader", loader: db_loader }
             
     imagine.data.loader.resolver.default:
-        class: Librinfo\MediaBundle\Imagine\PathResolver\DefaultResolver
+        class: Sil\Bundle\MediaBundle\Imagine\PathResolver\DefaultResolver
         calls:
             - [setEm, ['@doctrine.orm.entity_manager'] ]
 
     librinfo_media.events.listener:
-        class: Librinfo\MediaBundle\Events\UploadControllerEventListener
+        class: Sil\Bundle\MediaBundle\Events\UploadControllerEventListener
         calls:
             - [setEm, ["@doctrine.orm.entity_manager"]]
         tags:

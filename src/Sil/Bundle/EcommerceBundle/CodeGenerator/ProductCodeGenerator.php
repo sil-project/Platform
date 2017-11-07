@@ -10,16 +10,16 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EcommerceBundle\CodeGenerator;
+namespace Sil\Bundle\EcommerceBundle\CodeGenerator;
 
 use Doctrine\ORM\EntityManager;
-use Blast\CoreBundle\CodeGenerator\CodeGeneratorInterface;
-use Blast\CoreBundle\Exception\InvalidEntityCodeException;
-use Librinfo\EcommerceBundle\Entity\Product;
+use Blast\Bundle\CoreBundle\CodeGenerator\CodeGeneratorInterface;
+use Blast\Bundle\CoreBundle\Exception\InvalidEntityCodeException;
+use Sil\Bundle\EcommerceBundle\Entity\Product;
 
 class ProductCodeGenerator implements CodeGeneratorInterface
 {
-    const ENTITY_CLASS = 'Librinfo\EcommerceBundle\Entity\Product';
+    const ENTITY_CLASS = 'Sil\Bundle\EcommerceBundle\Entity\Product';
     const ENTITY_FIELD = 'code';
 
     private static $length = 3;

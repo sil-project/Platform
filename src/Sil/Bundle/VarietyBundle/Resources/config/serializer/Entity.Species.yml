@@ -1,4 +1,4 @@
-Librinfo\VarietiesBundle\Entity\Species:
+Sil\Bundle\VarietyBundle\Entity\Species:
     properties:
         varieties:
             exclude: true

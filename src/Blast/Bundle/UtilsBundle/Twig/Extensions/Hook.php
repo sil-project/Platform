@@ -10,10 +10,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Blast\UtilsBundle\Twig\Extensions;
+namespace Blast\Bundle\UtilsBundle\Twig\Extensions;
 
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
-use Blast\UtilsBundle\Hook\Component\Event\HookEvent;
+use Blast\Bundle\UtilsBundle\Hook\Component\Event\HookEvent;
 
 class Hook extends \Twig_Extension
 {

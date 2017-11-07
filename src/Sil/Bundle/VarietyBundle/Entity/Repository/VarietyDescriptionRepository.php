@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\VarietiesBundle\Entity\Repository;
+namespace Sil\Bundle\VarietyBundle\Entity\Repository;
 
 use Doctrine\ORM\EntityRepository;
 

@@ -10,9 +10,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Blast\BaseEntitiesBundle\EventListener\Traits;
+namespace Blast\Bundle\BaseEntitiesBundle\EventListener\Traits;
 
-use Blast\CoreBundle\Tools\Reflection\ClassAnalyzer;
+use Blast\Bundle\CoreBundle\Tools\Reflection\ClassAnalyzer;
 
 trait ClassChecker
 {

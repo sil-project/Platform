@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EmailBundle\Entity\OuterExtension;
+namespace Sil\Bundle\EmailBundle\Entity\OuterExtension;
 
 trait HasEmail
 {

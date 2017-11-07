@@ -1,4 +1,4 @@
-Librinfo\SeedBatchBundle\Entity\Plot:
+Sil\Bundle\SeedBatchBundle\Entity\Plot:
     properties:
         code:
             - NotBlank: ~

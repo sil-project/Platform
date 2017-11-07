@@ -12,7 +12,7 @@
 
 namespace Sil\Bundle\StockBundle\Controller;
 
-use Blast\CoreBundle\Controller\CRUDController;
+use Blast\Bundle\CoreBundle\Controller\CRUDController;
 use Symfony\Component\Form\Form;
 
 /**

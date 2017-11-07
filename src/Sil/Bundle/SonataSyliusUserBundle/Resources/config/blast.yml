@@ -1,6 +1,6 @@
 parameters:
     blast:
-        Librinfo\SonataSyliusUserBundle\Entity\SonataUser:
+        Sil\Bundle\SonataSyliusUserBundle\Entity\SonataUser:
             Sonata\AdminBundle\Datagrid\ListMapper:
                 add:
                     username: ~
@@ -88,7 +88,7 @@ parameters:
                                 type: array
                                 template: BlastCoreBundle:CRUD:show_array_roles.html.twig
 
-        Librinfo\SonataSyliusBundle\Entity\SonataGroup:
+        Sil\Bundle\SonataSyliusBundle\Entity\SonataGroup:
             Sonata\AdminBundle\Datagrid\ListMapper:
                 add:
                     name: ~
@@ -100,7 +100,7 @@ parameters:
             Sonata\AdminBundle\Show\ShowMapper:
                 _copy: Sonata\AdminBundle\Form\FormMapper
 
-        Librinfo\SonataSyliusUserBundle\Entity\Traits\Traceable:
+        Sil\Bundle\SonataSyliusUserBundle\Entity\Traits\Traceable:
             Sonata\AdminBundle\Show\ShowMapper:
                 add:
                     form_tab_history:
@@ -113,16 +113,16 @@ parameters:
                         form_group_history:
                             createdBy:
                                 type: entity
-                                class: Librinfo\SonataSyliusUserBundle\Entity\SonataUser
+                                class: Sil\Bundle\SonataSyliusUserBundle\Entity\SonataUser
                                 disabled: true
                                 required: false
                             updatedBy:
                                 type: entity
-                                class: Librinfo\SonataSyliusUserBundle\Entity\SonataUser
+                                class: Sil\Bundle\SonataSyliusUserBundle\Entity\SonataUser
                                 disabled: true
                                 required: false
 
-        Librinfo\SonataSyliusUserBundle\Entity\Traits\Ownable:
+        Sil\Bundle\SonataSyliusUserBundle\Entity\Traits\Ownable:
             Sonata\AdminBundle\Datagrid\DatagridMapper:
                 add:
                     owner: ~
@@ -132,5 +132,5 @@ parameters:
                         form_group_misc:
                             owner:
                                 type: entity
-                                class: Librinfo\SonataSyliusUserBundle\Entity\SonataUser
+                                class: Sil\Bundle\SonataSyliusUserBundle\Entity\SonataUser
                                 required: false

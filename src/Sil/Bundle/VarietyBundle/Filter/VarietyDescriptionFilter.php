@@ -10,10 +10,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\VarietiesBundle\Filter;
+namespace Sil\Bundle\VarietyBundle\Filter;
 
 use Doctrine\ORM\QueryBuilder;
-use Librinfo\VarietiesBundle\Form\Type\VarietyDescriptionFilterType;
+use Sil\Bundle\VarietyBundle\Form\Type\VarietyDescriptionFilterType;
 use Sonata\AdminBundle\Datagrid\ProxyQueryInterface;
 use Sonata\DoctrineORMAdminBundle\Filter\Filter;
 

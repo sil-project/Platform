@@ -10,11 +10,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EcommerceBundle\Entity\OuterExtension;
+namespace Sil\Bundle\EcommerceBundle\Entity\OuterExtension;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use Librinfo\EcommerceBundle\Entity\Product;
+use Sil\Bundle\EcommerceBundle\Entity\Product;
 
 /**
  * @author Marcos Bezerra de Menezes <marcos.bezerra@libre-informatique.fr>

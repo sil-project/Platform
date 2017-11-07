@@ -10,9 +10,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EcommerceBundle\Command;
+namespace Sil\Bundle\EcommerceBundle\Command;
 
-use Librinfo\SonataSyliusUserBundle\Entity\SonataUserInterface;
+use Sil\Bundle\SonataSyliusUserBundle\Entity\SonataUserInterface;
 use Sylius\Bundle\CoreBundle\Command\AbstractInstallCommand;
 use Sylius\Component\Locale\Model\LocaleInterface;
 use Symfony\Component\Console\Helper\QuestionHelper;
@@ -29,7 +29,7 @@ use Webmozart\Assert\Assert;
  *
  * main changes:
  * Sylius\Component\Core\Model\AdminUserInterface was replaced by
- * Librinfo\SonataSyliusUserBundle\Entity\SonataUserInterface
+ * Sil\Bundle\SonataSyliusUserBundle\Entity\SonataUserInterface
  *
  * @author Paweł Jędrzejewski <pawel@sylius.org>
  * @author Marcos Bezerra de Menezes <marcos.bezerra@libre-informatique.fr>

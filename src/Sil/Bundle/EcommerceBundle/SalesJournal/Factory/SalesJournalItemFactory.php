@@ -10,12 +10,12 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EcommerceBundle\SalesJournal\Factory;
+namespace Sil\Bundle\EcommerceBundle\SalesJournal\Factory;
 
-use Librinfo\EcommerceBundle\Entity\OrderInterface;
-use Librinfo\EcommerceBundle\Entity\Invoice;
-use Librinfo\EcommerceBundle\Entity\Payment;
-use Librinfo\EcommerceBundle\Entity\SalesJournalItem;
+use Sil\Bundle\EcommerceBundle\Entity\OrderInterface;
+use Sil\Bundle\EcommerceBundle\Entity\Invoice;
+use Sil\Bundle\EcommerceBundle\Entity\Payment;
+use Sil\Bundle\EcommerceBundle\Entity\SalesJournalItem;
 
 class SalesJournalItemFactory
 {

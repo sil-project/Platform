@@ -10,9 +10,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EmailBundle\Entity;
+namespace Sil\Bundle\EmailBundle\Entity;
 
-use Blast\BaseEntitiesBundle\Entity\SearchIndexEntity;
+use Blast\Bundle\BaseEntitiesBundle\Entity\SearchIndexEntity;
 
 class EmailSearchIndex extends SearchIndexEntity
 {

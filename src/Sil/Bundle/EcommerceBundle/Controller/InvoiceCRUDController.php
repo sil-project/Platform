@@ -10,9 +10,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EcommerceBundle\Controller;
+namespace Sil\Bundle\EcommerceBundle\Controller;
 
-use Blast\CoreBundle\Controller\CRUDController;
+use Blast\Bundle\CoreBundle\Controller\CRUDController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -100,7 +100,7 @@ class InvoiceCRUDController extends CRUDController
     public function generateAction(Request $request, $order_id)
     {
         $manager = $this->getDoctrine()->getManager();
-        $repo = $manager->getRepository('LibrinfoEcommerceBundle:Order');
+        $repo = $manager->getRepository('SilEcommerceBundle:Order');
 
         $order = $repo->find($order_id);
         if (!$order) {
@@ -124,7 +124,7 @@ class InvoiceCRUDController extends CRUDController
 
         $order->addInvoice($invoice);
 
-        $html = $this->renderView('LibrinfoEcommerceBundle:OrderAdmin/Show:_invoices_inner.html.twig', ['object' => $order]);
+        $html = $this->renderView('SilEcommerceBundle:OrderAdmin/Show:_invoices_inner.html.twig', ['object' => $order]);
 
         return new JsonResponse(['html' => $html]);
     }

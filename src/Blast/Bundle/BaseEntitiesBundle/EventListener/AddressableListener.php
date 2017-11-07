@@ -10,10 +10,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Blast\BaseEntitiesBundle\EventListener;
+namespace Blast\Bundle\BaseEntitiesBundle\EventListener;
 
-use Blast\BaseEntitiesBundle\EventListener\Traits\ClassChecker;
-use Blast\BaseEntitiesBundle\EventListener\Traits\Logger;
+use Blast\Bundle\BaseEntitiesBundle\EventListener\Traits\ClassChecker;
+use Blast\Bundle\BaseEntitiesBundle\EventListener\Traits\Logger;
 use Doctrine\Common\EventSubscriber;
 use Doctrine\ORM\Event\LoadClassMetadataEventArgs;
 use Doctrine\ORM\Mapping\ClassMetadata;
@@ -47,13 +47,13 @@ class AddressableListener implements LoggerAwareInterface, EventSubscriber
 
         $reflectionClass = $metadata->getReflectionClass();
 
-        if (!$reflectionClass || !$this->hasTrait($reflectionClass, 'Blast\BaseEntitiesBundle\Entity\Traits\Addressable')) {
+        if (!$reflectionClass || !$this->hasTrait($reflectionClass, 'Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Addressable')) {
             return;
         } // return if current entity doesn't use Addressable trait
 
         // Check if parents already have the Addressable trait
         foreach ($metadata->parentClasses as $parent) {
-            if ($this->classAnalyzer->hasTrait($parent, 'Blast\BaseEntitiesBundle\Entity\Traits\Addressable')) {
+            if ($this->classAnalyzer->hasTrait($parent, 'Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Addressable')) {
                 return;
             }
         }

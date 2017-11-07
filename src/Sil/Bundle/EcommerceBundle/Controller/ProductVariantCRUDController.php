@@ -10,9 +10,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EcommerceBundle\Controller;
+namespace Sil\Bundle\EcommerceBundle\Controller;
 
-use Blast\CoreBundle\Controller\CRUDController;
+use Blast\Bundle\CoreBundle\Controller\CRUDController;
 use Sylius\Component\Product\Model\ProductVariant;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;

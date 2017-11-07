@@ -5,7 +5,7 @@
 # file that was distributed with this source code.
 
 parameters:
-    sonata.core.flashmessage.manager.class: Librinfo\EcommerceBundle\Services\FlashManager
+    sonata.core.flashmessage.manager.class: Sil\Bundle\EcommerceBundle\Services\FlashManager
 
 imports:
      - { resource: "state_machine.yml" }
@@ -23,16 +23,16 @@ sylius_product:
     resources:
         product:
             classes:
-                model: Librinfo\EcommerceBundle\Entity\Product
+                model: Sil\Bundle\EcommerceBundle\Entity\Product
         product_variant:
             classes:
-                model: Librinfo\EcommerceBundle\Entity\ProductVariant
+                model: Sil\Bundle\EcommerceBundle\Entity\ProductVariant
         product_option:
             classes:
-                model: Librinfo\EcommerceBundle\Entity\ProductOption
+                model: Sil\Bundle\EcommerceBundle\Entity\ProductOption
         product_option_value:
             classes:
-                model: Librinfo\EcommerceBundle\Entity\ProductOptionValue
+                model: Sil\Bundle\EcommerceBundle\Entity\ProductOptionValue
 
 sylius_review:
     resources:
@@ -40,26 +40,26 @@ sylius_review:
             subject: "%sylius.model.product.class%"
             review:
                 classes:
-                    model: Librinfo\EcommerceBundle\Entity\ProductReview
+                    model: Sil\Bundle\EcommerceBundle\Entity\ProductReview
             reviewer:
                 classes:
-                    model: Librinfo\CRMBundle\Entity\Organism
+                    model: Sil\Bundle\CRMBundle\Entity\Organism
 
 sylius_order:
     resources:
         order:
             classes:
-                model: Librinfo\EcommerceBundle\Entity\Order
+                model: Sil\Bundle\EcommerceBundle\Entity\Order
         order_item:
             classes:
-                model: Librinfo\EcommerceBundle\Entity\OrderItem
-                controller: Librinfo\EcommerceBundle\Controller\SyliusOrderItemController
+                model: Sil\Bundle\EcommerceBundle\Entity\OrderItem
+                controller: Sil\Bundle\EcommerceBundle\Controller\SyliusOrderItemController
 
 sylius_taxation:
     resources:
         tax_rate:
             classes:
-                model: Librinfo\EcommerceBundle\Entity\TaxRate
+                model: Sil\Bundle\EcommerceBundle\Entity\TaxRate
 
 
 sylius_channel:
@@ -67,79 +67,79 @@ sylius_channel:
     resources:
         channel:
             classes:
-                repository: Librinfo\EcommerceBundle\Repository\ChannelRepository
+                repository: Sil\Bundle\EcommerceBundle\Repository\ChannelRepository
 
 sylius_attribute:
     resources:
         product:
-            subject: Librinfo\EcommerceBundle\Entity\Product
+            subject: Sil\Bundle\EcommerceBundle\Entity\Product
             attribute:
                 classes:
-                    model: Librinfo\EcommerceBundle\Entity\ProductAttribute
+                    model: Sil\Bundle\EcommerceBundle\Entity\ProductAttribute
 
 sylius_customer:
     driver: doctrine/orm
     resources:
         # customer:
         #     classes:
-        #         model: Librinfo\CRMBundle\Entity\Organism
+        #         model: Sil\Bundle\CRMBundle\Entity\Organism
         customer_group:
             classes:
-                model: Librinfo\EcommerceBundle\Entity\CustomerGroup
+                model: Sil\Bundle\EcommerceBundle\Entity\CustomerGroup
 
 sylius_addressing:
     resources:
         address:
             classes:
-                model: Librinfo\CRMBundle\Entity\Address
+                model: Sil\Bundle\CRMBundle\Entity\Address
         zone:
             classes:
-                model: Librinfo\EcommerceBundle\Entity\Zone
+                model: Sil\Bundle\EcommerceBundle\Entity\Zone
 
 sylius_user:
     resources:
         admin:
             user:
                 classes:
-                    model: Librinfo\SonataSyliusUserBundle\Entity\SonataUser
+                    model: Sil\Bundle\SonataSyliusUserBundle\Entity\SonataUser
 
 sylius_core:
     resources:
         product_image:
             classes:
-                model: Librinfo\EcommerceBundle\Entity\ProductImage
+                model: Sil\Bundle\EcommerceBundle\Entity\ProductImage
 
 sylius_taxonomy:
     resources:
         taxon:
             classes:
-                model: Librinfo\EcommerceBundle\Entity\Taxon
+                model: Sil\Bundle\EcommerceBundle\Entity\Taxon
 
 sylius_taxonomy:
     resources:
         taxon:
             classes:
-                model: Librinfo\EcommerceBundle\Entity\Taxon
+                model: Sil\Bundle\EcommerceBundle\Entity\Taxon
 
 sylius_shipping:
     driver: doctrine/orm
     resources:
         shipping_method:
             classes:
-                model: Librinfo\EcommerceBundle\Entity\ShippingMethod
+                model: Sil\Bundle\EcommerceBundle\Entity\ShippingMethod
 
 sylius_payment:
     driver: doctrine/orm
     resources:
         payment:
             classes:
-                model: Librinfo\EcommerceBundle\Entity\Payment
+                model: Sil\Bundle\EcommerceBundle\Entity\Payment
 
 sylius_shop:
     # resources:
     #     checkout_address:
     #         templates:
-    #             form: LibrinfoEcommerceBundle:Checkout:address.html.twig
+    #             form: SilEcommerceBundle:Checkout:address.html.twig
 
     checkout_resolver:
         pattern: /checkout/.+

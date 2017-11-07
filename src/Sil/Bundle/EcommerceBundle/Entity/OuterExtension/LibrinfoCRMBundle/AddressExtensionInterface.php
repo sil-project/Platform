@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EcommerceBundle\Entity\OuterExtension\LibrinfoCRMBundle;
+namespace Sil\Bundle\EcommerceBundle\Entity\OuterExtension\SilCRMBundle;
 
 use Sylius\Component\Core\Model\AddressInterface;
 

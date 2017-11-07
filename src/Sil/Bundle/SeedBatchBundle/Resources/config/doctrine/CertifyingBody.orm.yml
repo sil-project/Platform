@@ -1,4 +1,4 @@
-Librinfo\SeedBatchBundle\Entity\CertifyingBody:
+Sil\Bundle\SeedBatchBundle\Entity\CertifyingBody:
     type: entity
 
     fields:

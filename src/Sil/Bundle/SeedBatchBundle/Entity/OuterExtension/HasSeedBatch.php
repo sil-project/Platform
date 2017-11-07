@@ -10,9 +10,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\SeedBatchBundle\Entity\OuterExtension;
+namespace Sil\Bundle\SeedBatchBundle\Entity\OuterExtension;
 
-use Librinfo\SeedBatchBundle\Entity\SeedBatch;
+use Sil\Bundle\SeedBatchBundle\Entity\SeedBatch;
 
 trait HasSeedBatch
 {

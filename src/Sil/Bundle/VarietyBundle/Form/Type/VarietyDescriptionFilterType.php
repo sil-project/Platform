@@ -10,9 +10,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\VarietiesBundle\Form\Type;
+namespace Sil\Bundle\VarietyBundle\Form\Type;
 
-use Blast\CoreBundle\Form\AbstractType as BaseAbstractType;
+use Blast\Bundle\CoreBundle\Form\AbstractType as BaseAbstractType;
 use Doctrine\ORM\EntityManager;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;

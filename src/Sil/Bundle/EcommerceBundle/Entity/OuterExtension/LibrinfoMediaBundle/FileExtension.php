@@ -10,9 +10,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EcommerceBundle\Entity\OuterExtension\LibrinfoMediaBundle;
+namespace Sil\Bundle\EcommerceBundle\Entity\OuterExtension\SilMediaBundle;
 
-use Librinfo\EcommerceBundle\Entity\Product;
+use Sil\Bundle\EcommerceBundle\Entity\Product;
 
 trait FileExtension
 {

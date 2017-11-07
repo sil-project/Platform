@@ -1,19 +1,19 @@
 # info: VarietyDescription extends GenericDescription (mapped superclass)
 
-Librinfo\VarietiesBundle\Entity\VarietyDescription:
+Sil\Bundle\VarietyBundle\Entity\VarietyDescription:
     type: entity
     inheritanceType: SINGLE_TABLE
     discriminatorColumn:
         name: fieldset
         type: string
     discriminatorMap:
-        variety: Librinfo\VarietiesBundle\Entity\VarietyDescription
-        professional: Librinfo\VarietiesBundle\Entity\VarietyDescriptionProfessional
-        amateur: Librinfo\VarietiesBundle\Entity\VarietyDescriptionAmateur
-        production: Librinfo\VarietiesBundle\Entity\VarietyDescriptionProduction
-        commercial: Librinfo\VarietiesBundle\Entity\VarietyDescriptionCommercial
-        plant: Librinfo\VarietiesBundle\Entity\VarietyDescriptionPlant
-        culture: Librinfo\VarietiesBundle\Entity\VarietyDescriptionCulture
-        inner: Librinfo\VarietiesBundle\Entity\VarietyDescriptionInner
+        variety: Sil\Bundle\VarietyBundle\Entity\VarietyDescription
+        professional: Sil\Bundle\VarietyBundle\Entity\VarietyDescriptionProfessional
+        amateur: Sil\Bundle\VarietyBundle\Entity\VarietyDescriptionAmateur
+        production: Sil\Bundle\VarietyBundle\Entity\VarietyDescriptionProduction
+        commercial: Sil\Bundle\VarietyBundle\Entity\VarietyDescriptionCommercial
+        plant: Sil\Bundle\VarietyBundle\Entity\VarietyDescriptionPlant
+        culture: Sil\Bundle\VarietyBundle\Entity\VarietyDescriptionCulture
+        inner: Sil\Bundle\VarietyBundle\Entity\VarietyDescriptionInner
     table: variety_description
-    repositoryClass: Librinfo\VarietiesBundle\Entity\Repository\VarietyDescriptionRepository
+    repositoryClass: Sil\Bundle\VarietyBundle\Entity\Repository\VarietyDescriptionRepository

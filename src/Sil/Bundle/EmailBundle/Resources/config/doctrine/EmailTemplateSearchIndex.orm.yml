@@ -1,2 +1,2 @@
-Librinfo\EmailBundle\Entity\EmailTemplateSearchIndex:
+Sil\Bundle\EmailBundle\Entity\EmailTemplateSearchIndex:
     type: entity

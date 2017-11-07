@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Blast\BaseEntitiesBundle\Admin\Traits;
+namespace Blast\Bundle\BaseEntitiesBundle\Admin\Traits;
 
 trait NestedTreeableAdmin
 {

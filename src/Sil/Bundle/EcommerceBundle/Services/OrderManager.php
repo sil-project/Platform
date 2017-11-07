@@ -10,10 +10,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EcommerceBundle\Services;
+namespace Sil\Bundle\EcommerceBundle\Services;
 
 use Doctrine\ORM\EntityManager;
-use Librinfo\EcommerceBundle\Entity\OrderInterface;
+use Sil\Bundle\EcommerceBundle\Entity\OrderInterface;
 use SM\Factory\Factory;
 use Sylius\Bundle\OrderBundle\NumberAssigner\OrderNumberAssigner;
 

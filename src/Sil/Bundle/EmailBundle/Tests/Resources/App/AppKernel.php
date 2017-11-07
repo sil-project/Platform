@@ -27,8 +27,8 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             // Librinfo
-            new Librinfo\EmailBundle\LibrinfoEmailBundle(),
-            new Librinfo\MediaBundle\LibrinfoMediaBundle(),
+            new Sil\Bundle\EmailBundle\SilEmailBundle(),
+            new Sil\Bundle\MediaBundle\SilMediaBundle(),
             // Sonata
             new Sonata\CoreBundle\SonataCoreBundle(),
             new Sonata\BlockBundle\SonataBlockBundle(),
@@ -37,10 +37,10 @@ class AppKernel extends Kernel
             new Sonata\AdminBundle\SonataAdminBundle(),
             // new Sonata\IntlBundle\SonataIntlBundle(),
             // Blast
-            new Blast\OuterExtensionBundle\BlastOuterExtensionBundle(),
-            new Blast\CoreBundle\BlastCoreBundle(),
-            new Blast\BaseEntitiesBundle\BlastBaseEntitiesBundle(),
-            new Blast\UtilsBundle\BlastUtilsBundle(),
+            new Blast\Bundle\OuterExtensionBundle\BlastOuterExtensionBundle(),
+            new Blast\Bundle\CoreBundle\BlastCoreBundle(),
+            new Blast\Bundle\BaseEntitiesBundle\BlastBaseEntitiesBundle(),
+            new Blast\Bundle\UtilsBundle\BlastUtilsBundle(),
             // Wisiwig editor
             new Stfalcon\Bundle\TinymceBundle\StfalconTinymceBundle(),
         ];

@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\MediaBundle\Events;
+namespace Sil\Bundle\MediaBundle\Events;
 
 use Symfony\Component\EventDispatcher\GenericEvent;
 use Doctrine\ORM\EntityManager;
@@ -28,7 +28,7 @@ class UploadControllerEventListener
 
     public function preGetEntity(GenericEvent $event)
     {
-        $repo = $this->em->getRepository('LibrinfoMediaBundle:File');
+        $repo = $this->em->getRepository('SilMediaBundle:File');
 
         $file = $repo->find($event->getSubject()['context']['id']);
         if ($file !== null) {

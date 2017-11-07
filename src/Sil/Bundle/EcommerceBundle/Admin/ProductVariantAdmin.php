@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EcommerceBundle\Admin;
+namespace Sil\Bundle\EcommerceBundle\Admin;
 
 use Doctrine\ORM\QueryBuilder;
 use Sonata\AdminBundle\Form\FormMapper;
@@ -18,7 +18,7 @@ use Sonata\CoreBundle\Validator\ErrorElement;
 use Sylius\Component\Product\Model\ProductInterface;
 use Sylius\Component\Product\Model\ProductVariantInterface;
 use Sylius\Component\Resource\Factory\Factory;
-use Librinfo\EcommerceBundle\Repository\ChannelRepository;
+use Sil\Bundle\EcommerceBundle\Repository\ChannelRepository;
 
 /**
  * @author Marcos Bezerra de Menezes <marcos.bezerra@libre-informatique.fr>
@@ -43,7 +43,7 @@ class ProductVariantAdmin extends SyliusGenericAdmin
         $list = parent::configureActionButtons($action, $object);
 
         $list['show_product'] = [
-            'template' => 'LibrinfoEcommerceBundle:Button:show_product_button.html.twig'
+            'template' => 'SilEcommerceBundle:Button:show_product_button.html.twig'
         ];
 
         return $list;
@@ -151,7 +151,7 @@ class ProductVariantAdmin extends SyliusGenericAdmin
         $repository = $this->getConfigurationPool()->getContainer()->get('sylius.repository.product_option_value');
         /* todo: check this request */
         $queryBuilder = $repository->createQueryBuilder('o')
-                      ->andWhere('o.option IN (SELECT o2 FROM LibrinfoEcommerceBundle:Product p LEFT JOIN p.options o2 WHERE p = :product)')
+                      ->andWhere('o.option IN (SELECT o2 FROM SilEcommerceBundle:Product p LEFT JOIN p.options o2 WHERE p = :product)')
                       ->setParameter('product', $this->product);
 
         return $queryBuilder;

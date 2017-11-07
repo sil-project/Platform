@@ -10,10 +10,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Blast\BaseEntitiesBundle\Entity\Traits;
+namespace Blast\Bundle\BaseEntitiesBundle\Entity\Traits;
 
-use Blast\BaseEntitiesBundle\Entity\Traits\Tree\Node;
-use Blast\BaseEntitiesBundle\Entity\Traits\Tree\NodeInterface;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Tree\Node;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Tree\NodeInterface;
 
 trait Treeable
 {

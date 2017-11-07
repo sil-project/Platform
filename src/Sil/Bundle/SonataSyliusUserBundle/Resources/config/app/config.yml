@@ -10,7 +10,7 @@ sylius_user:
         sonata:
             user:
                 classes:
-                    model: Librinfo\SonataSyliusUserBundle\Entity\SonataUser
+                    model: Sil\Bundle\SonataSyliusUserBundle\Entity\SonataUser
                     repository: Sylius\Bundle\UserBundle\Doctrine\ORM\UserRepository
                     # TODO:
                     form: Sylius\Bundle\CoreBundle\Form\Type\User\AdminUserType

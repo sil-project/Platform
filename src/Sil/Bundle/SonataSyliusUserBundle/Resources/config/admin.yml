@@ -1,8 +1,8 @@
 services:
 
     librinfo_sonata_sylius_user.admin.sonata_user:
-        class: Librinfo\SonataSyliusUserBundle\Admin\SonataUserAdmin
-        arguments: [~, Librinfo\SonataSyliusUserBundle\Entity\SonataUser, BlastCoreBundle:CRUD]
+        class: Sil\Bundle\SonataSyliusUserBundle\Admin\SonataUserAdmin
+        arguments: [~, Sil\Bundle\SonataSyliusUserBundle\Entity\SonataUser, BlastCoreBundle:CRUD]
         tags:
             - name: sonata.admin
               manager_type: orm

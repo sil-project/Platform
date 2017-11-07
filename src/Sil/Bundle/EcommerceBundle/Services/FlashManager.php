@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EcommerceBundle\Services;
+namespace Sil\Bundle\EcommerceBundle\Services;
 
 use Sonata\CoreBundle\FlashMessage\FlashManager as BaseFlashManager;
 

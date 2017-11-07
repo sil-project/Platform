@@ -1,4 +1,4 @@
-Librinfo\EmailBundle\Entity\Spoolable:
+Sil\Bundle\EmailBundle\Entity\Spoolable:
     type: mappedSuperclass
     fields:
         message:

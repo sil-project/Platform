@@ -5,7 +5,7 @@ parameters:
 # ORGANISM
 ############
 
-        Librinfo\CRMBundle\Admin\OrganismAdmin:
+        Sil\Bundle\CRMBundle\Admin\OrganismAdmin:
             Sonata\AdminBundle\Show\ShowMapper:
                 remove:
                     email_history: ~
@@ -13,7 +13,7 @@ parameters:
                     show_tab_emails:
                         '':
                             email_history:
-                                template: LibrinfoEmailCRMBundle:CRUD:show_field_emails_list.html.twig
+                                template: SilEmailCRMBundle:CRUD:show_field_emails_list.html.twig
                                 mapped: false
                     _options:
                         tabsOrder:
@@ -29,21 +29,21 @@ parameters:
 # EMAIL
 #########
 
-        Librinfo\EmailBundle\Admin\EmailAdmin:
+        Sil\Bundle\EmailBundle\Admin\EmailAdmin:
             Sonata\AdminBundle\Form\FormMapper:
                 add:
                     form_group_general:
                         '':
                             organizations:
-                                type: Blast\BaseEntitiesBundle\Form\Type\SearchIndexAutocompleteType
-                                callback: Librinfo\CRMBundle\Admin\PositionAdmin::organizationsCallback
+                                type: Blast\Bundle\BaseEntitiesBundle\Form\Type\SearchIndexAutocompleteType
+                                callback: Sil\Bundle\CRMBundle\Admin\PositionAdmin::organizationsCallback
                                 multiple: true
                                 required: false
                                 _options:
                                     admin_code: librinfo_crm.admin.organism
                             individuals:
-                                type: Blast\BaseEntitiesBundle\Form\Type\SearchIndexAutocompleteType
-                                callback: Librinfo\CRMBundle\Admin\PositionAdmin::individualsCallback
+                                type: Blast\Bundle\BaseEntitiesBundle\Form\Type\SearchIndexAutocompleteType
+                                callback: Sil\Bundle\CRMBundle\Admin\PositionAdmin::individualsCallback
                                 multiple: true
                                 required: false
                                 _options:
@@ -69,7 +69,7 @@ parameters:
                         field_options:
                             property: label
                             admin_code: librinfo_email.admin.email
-                            callback: Librinfo\CRMBundle\Admin\PositionAdmin::individualsCallback
+                            callback: Sil\Bundle\CRMBundle\Admin\PositionAdmin::individualsCallback
                     organizations:
                         type: doctrine_orm_model_autocomplete
                         admin_code: librinfo_crm.admin.organism
@@ -77,4 +77,4 @@ parameters:
                         field_options:
                             property: title
                             admin_code: librinfo_email.admin.email
-                            callback: Librinfo\CRMBundle\Admin\PositionAdmin::organizationsCallback
+                            callback: Sil\Bundle\CRMBundle\Admin\PositionAdmin::organizationsCallback

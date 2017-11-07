@@ -10,11 +10,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Blast\UtilsBundle\Repository;
+namespace Blast\Bundle\UtilsBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
-use Blast\CoreBundle\Model\UserInterface;
-use Blast\UtilsBundle\Entity\CustomFilter;
+use Blast\Bundle\CoreBundle\Model\UserInterface;
+use Blast\Bundle\UtilsBundle\Entity\CustomFilter;
 
 class CustomFilterRepository extends EntityRepository
 {

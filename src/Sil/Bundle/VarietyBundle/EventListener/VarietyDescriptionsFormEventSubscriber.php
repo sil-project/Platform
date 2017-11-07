@@ -10,12 +10,12 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\VarietiesBundle\EventListener;
+namespace Sil\Bundle\VarietyBundle\EventListener;
 
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Blast\CoreBundle\Admin\CoreAdmin;
+use Blast\Bundle\CoreBundle\Admin\CoreAdmin;
 use Doctrine\Common\Collections\ArrayCollection;
 
 class VarietyDescriptionsFormEventSubscriber implements EventSubscriberInterface
@@ -65,7 +65,7 @@ class VarietyDescriptionsFormEventSubscriber implements EventSubscriberInterface
                 $setter = 'set' . ucfirst($fieldset) . 'Descriptions';
                 $remover = 'remove' . ucfirst($fieldset) . 'Description';
                 $adder = 'add' . ucfirst($fieldset) . 'Description';
-                $constructor = '\Librinfo\VarietiesBundle\Entity\VarietyDescription' . ucfirst($fieldset);
+                $constructor = '\Sil\Bundle\VarietyBundle\Entity\VarietyDescription' . ucfirst($fieldset);
 
                 // Hide VarietyDescriptions that are not found in configuration
                 foreach ($subject->$getter() as $desc) {

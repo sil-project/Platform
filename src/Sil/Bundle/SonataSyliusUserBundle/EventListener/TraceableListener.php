@@ -10,15 +10,15 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\SonataSyliusUserBundle\EventListener;
+namespace Sil\Bundle\SonataSyliusUserBundle\EventListener;
 
-use Blast\BaseEntitiesBundle\EventListener\Traits\ClassChecker;
+use Blast\Bundle\BaseEntitiesBundle\EventListener\Traits\ClassChecker;
 use DateTime;
 use Doctrine\Common\EventSubscriber;
 use Doctrine\ORM\Event\LifecycleEventArgs;
 use Doctrine\ORM\Event\LoadClassMetadataEventArgs;
 use Doctrine\ORM\Mapping\ClassMetadata;
-use Librinfo\SonataSyliusUserBundle\Entity\Traits\Traceable;
+use Sil\Bundle\SonataSyliusUserBundle\Entity\Traits\Traceable;
 use Monolog\Logger;
 use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerInterface;

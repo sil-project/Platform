@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace AppBundle\Entity\OuterExtension\LibrinfoEmailBundle;
+namespace AppBundle\Entity\OuterExtension\SilEmailBundle;
 
 trait EmailExtension
 {

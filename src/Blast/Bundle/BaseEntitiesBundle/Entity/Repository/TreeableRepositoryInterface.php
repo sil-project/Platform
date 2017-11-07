@@ -10,10 +10,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Blast\BaseEntitiesBundle\Entity\Repository;
+namespace Blast\Bundle\BaseEntitiesBundle\Entity\Repository;
 
 use Doctrine\ORM\QueryBuilder;
-use Blast\BaseEntitiesBundle\Entity\Traits\Tree\NodeInterface;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Tree\NodeInterface;
 
 interface TreeableRepositoryInterface
 {

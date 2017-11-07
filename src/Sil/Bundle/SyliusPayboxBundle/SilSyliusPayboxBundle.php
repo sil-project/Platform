@@ -10,15 +10,19 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\SeedBatchBundle;
+namespace Sil\Bundle\SyliusPayboxBundle;
 
+use Sil\Bundle\SyliusPayboxBundle\DependencyInjection\SilSyliusPayboxExtension;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
 
-class LibrinfoSeedBatchBundle extends Bundle
+class SilSyliusPayboxBundle extends Bundle
 {
-    public function build(ContainerBuilder $container)
+    public function getContainerExtension()
     {
-        parent::build($container);
+        if (null === $this->extension) {
+            $this->extension = new SilSyliusPayboxExtension();
+        }
+
+        return $this->extension;
     }
 }

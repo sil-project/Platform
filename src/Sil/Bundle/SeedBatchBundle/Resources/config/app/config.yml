@@ -1,6 +1,6 @@
 blast_base_entities:
     entity_search_indexes:
-        Librinfo\SeedBatchBundle\Entity\SeedBatch:
+        Sil\Bundle\SeedBatchBundle\Entity\SeedBatch:
             fields:
                 - variety
                 - producer

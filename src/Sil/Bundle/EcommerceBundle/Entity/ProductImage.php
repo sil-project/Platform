@@ -10,13 +10,13 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EcommerceBundle\Entity;
+namespace Sil\Bundle\EcommerceBundle\Entity;
 
 /* @todo reference to AppBundle should be removed */
-use AppBundle\Entity\OuterExtension\LibrinfoEcommerceBundle\ProductImageExtension;
-use Blast\OuterExtensionBundle\Entity\Traits\OuterExtensible;
+use AppBundle\Entity\OuterExtension\SilEcommerceBundle\ProductImageExtension;
+use Blast\Bundle\OuterExtensionBundle\Entity\Traits\OuterExtensible;
 use Sylius\Component\Core\Model\ProductImage as BaseProductImage;
-use Librinfo\MediaBundle\Entity\File;
+use Sil\Bundle\MediaBundle\Entity\File;
 use SplFileInfo;
 
 class ProductImage extends BaseProductImage

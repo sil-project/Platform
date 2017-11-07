@@ -1,8 +1,8 @@
 services:
  
     librinfo_seedbatch.admin.organism:
-        class: Librinfo\SeedBatchBundle\Admin\OrganismAdmin
-        arguments: [~, Librinfo\CRMBundle\Entity\Organism, LibrinfoSeedBatchBundle:OrganismAdmin]
+        class: Sil\Bundle\SeedBatchBundle\Admin\OrganismAdmin
+        arguments: [~, Sil\Bundle\CRMBundle\Entity\Organism, SilSeedBatchBundle:OrganismAdmin]
         tags:
             -   name: sonata.admin
                 manager_type: orm
@@ -10,12 +10,12 @@ services:
                 label: librinfo.seedbatchbundle.admin.organism
                 label_translator_strategy: blast_core.label.strategy.librinfo_seedbatch
         calls:
-            - [ setTemplate, [edit, LibrinfoSeedBatchBundle:OrganismAdmin:edit.html.twig]]
-            - [ setTemplate, [show, LibrinfoCRMBundle:OrganismAdmin:show.html.twig]]
+            - [ setTemplate, [edit, SilSeedBatchBundle:OrganismAdmin:edit.html.twig]]
+            - [ setTemplate, [show, SilCRMBundle:OrganismAdmin:show.html.twig]]
 
     librinfo_seedbatch.admin.seed_producer:
-        class: Librinfo\SeedBatchBundle\Admin\SeedProducerAdmin
-        arguments: [~, Librinfo\CRMBundle\Entity\Organism, LibrinfoSeedBatchBundle:OrganismAdmin]
+        class: Sil\Bundle\SeedBatchBundle\Admin\SeedProducerAdmin
+        arguments: [~, Sil\Bundle\CRMBundle\Entity\Organism, SilSeedBatchBundle:OrganismAdmin]
         tags:
             -   name: sonata.admin
                 manager_type: orm
@@ -23,12 +23,12 @@ services:
                 label: librinfo.seedbatchbundle.admin.organism
                 label_translator_strategy: blast_core.label.strategy.librinfo_seedbatch
         calls:
-            - [ setTemplate, [edit, LibrinfoSeedBatchBundle:OrganismAdmin:edit.html.twig]]
-            - [ setTemplate, [show, LibrinfoCRMBundle:OrganismAdmin:show.html.twig]]
+            - [ setTemplate, [edit, SilSeedBatchBundle:OrganismAdmin:edit.html.twig]]
+            - [ setTemplate, [show, SilCRMBundle:OrganismAdmin:show.html.twig]]
 
     librinfo_seedbatch.admin.seedfarm:
-        class: Librinfo\SeedBatchBundle\Admin\SeedFarmAdmin
-        arguments: [~, Librinfo\SeedBatchBundle\Entity\SeedFarm, BlastCoreBundle:CRUD]
+        class: Sil\Bundle\SeedBatchBundle\Admin\SeedFarmAdmin
+        arguments: [~, Sil\Bundle\SeedBatchBundle\Entity\SeedFarm, BlastCoreBundle:CRUD]
         tags:
             -   name: sonata.admin
                 manager_type: orm
@@ -37,8 +37,8 @@ services:
                 label_translator_strategy: blast_core.label.strategy.librinfo_seedbatch
 
     librinfo_seedbatch.admin.seedbatch:
-        class: Librinfo\SeedBatchBundle\Admin\SeedBatchAdmin
-        arguments: [~, Librinfo\SeedBatchBundle\Entity\SeedBatch, BlastCoreBundle:CRUD]
+        class: Sil\Bundle\SeedBatchBundle\Admin\SeedBatchAdmin
+        arguments: [~, Sil\Bundle\SeedBatchBundle\Entity\SeedBatch, BlastCoreBundle:CRUD]
         tags:
             -   name: sonata.admin
                 manager_type: orm
@@ -46,11 +46,11 @@ services:
                 label: librinfo.seedbatchbundle.admin.seed_batch
                 label_translator_strategy: blast_core.label.strategy.librinfo_seedbatch
         calls:
-            - [ setTemplate, [edit, LibrinfoSeedBatchBundle:SeedBatchAdmin:edit.html.twig]]
+            - [ setTemplate, [edit, SilSeedBatchBundle:SeedBatchAdmin:edit.html.twig]]
 
     librinfo_seedbatch.admin.seedbatch_embedded:
-        class: Librinfo\SeedBatchBundle\Admin\SeedBatchEmbeddedAdmin
-        arguments: [~, Librinfo\SeedBatchBundle\Entity\SeedBatch, BlastCoreBundle:CRUD]
+        class: Sil\Bundle\SeedBatchBundle\Admin\SeedBatchEmbeddedAdmin
+        arguments: [~, Sil\Bundle\SeedBatchBundle\Entity\SeedBatch, BlastCoreBundle:CRUD]
         tags:
             -   name: sonata.admin
                 manager_type: orm
@@ -59,8 +59,8 @@ services:
                 label_translator_strategy: blast_core.label.strategy.librinfo_seedbatch
 
     librinfo_seedbatch.admin.plot:
-        class: Librinfo\SeedBatchBundle\Admin\PlotAdmin
-        arguments: [~, Librinfo\SeedBatchBundle\Entity\Plot, BlastCoreBundle:CRUD]
+        class: Sil\Bundle\SeedBatchBundle\Admin\PlotAdmin
+        arguments: [~, Sil\Bundle\SeedBatchBundle\Entity\Plot, BlastCoreBundle:CRUD]
         tags:
             -   name: sonata.admin
                 manager_type: orm
@@ -69,8 +69,8 @@ services:
                 label_translator_strategy: blast_core.label.strategy.librinfo_seedbatch
 
     librinfo_seedbatch.admin.plot_embedded:
-        class: Librinfo\SeedBatchBundle\Admin\PlotEmbeddedAdmin
-        arguments: [~, Librinfo\SeedBatchBundle\Entity\Plot, BlastCoreBundle:CRUD]
+        class: Sil\Bundle\SeedBatchBundle\Admin\PlotEmbeddedAdmin
+        arguments: [~, Sil\Bundle\SeedBatchBundle\Entity\Plot, BlastCoreBundle:CRUD]
         tags:
             -   name: sonata.admin
                 manager_type: orm
@@ -79,8 +79,8 @@ services:
                 label_translator_strategy: blast_core.label.strategy.librinfo_seedbatch
 
     librinfo_seed_batch.admin.certification:
-        class: Librinfo\SeedBatchBundle\Admin\CertificationAdmin
-        arguments: [~, Librinfo\SeedBatchBundle\Entity\Certification, BlastCoreBundle:CRUD]
+        class: Sil\Bundle\SeedBatchBundle\Admin\CertificationAdmin
+        arguments: [~, Sil\Bundle\SeedBatchBundle\Entity\Certification, BlastCoreBundle:CRUD]
         tags:
             - name: sonata.admin
               manager_type: orm
@@ -89,8 +89,8 @@ services:
               label_translator_strategy: blast_core.label.strategy.librinfo_seedbatch
 
     librinfo_seed_batch.admin.certification_type:
-        class: Librinfo\SeedBatchBundle\Admin\CertificationTypeAdmin
-        arguments: [~, Librinfo\SeedBatchBundle\Entity\CertificationType, LibrinfoMediaBundle:CRUD]
+        class: Sil\Bundle\SeedBatchBundle\Admin\CertificationTypeAdmin
+        arguments: [~, Sil\Bundle\SeedBatchBundle\Entity\CertificationType, SilMediaBundle:CRUD]
         tags:
             - name: sonata.admin
               manager_type: orm
@@ -98,11 +98,11 @@ services:
               label: CertificationType
               label_translator_strategy: blast_core.label.strategy.librinfo_seedbatch
         calls:
-            - [ setTemplate, [ edit, LibrinfoMediaBundle:CRUD:edit.html.twig ] ]
+            - [ setTemplate, [ edit, SilMediaBundle:CRUD:edit.html.twig ] ]
 
     librinfo_seed_batch.admin.certifying_body:
-        class: Librinfo\SeedBatchBundle\Admin\CertifyingBodyAdmin
-        arguments: [~, Librinfo\SeedBatchBundle\Entity\CertifyingBody, LibrinfoMediaBundle:CRUD]
+        class: Sil\Bundle\SeedBatchBundle\Admin\CertifyingBodyAdmin
+        arguments: [~, Sil\Bundle\SeedBatchBundle\Entity\CertifyingBody, SilMediaBundle:CRUD]
         tags:
             - name: sonata.admin
               manager_type: orm
@@ -110,4 +110,4 @@ services:
               label: librinfo.seedbatchbundle.admin.certifying_body
               label_translator_strategy: blast_core.label.strategy.librinfo_seedbatch
         calls:
-            - [ setTemplate, [ edit, LibrinfoMediaBundle:CRUD:edit.html.twig ] ]
+            - [ setTemplate, [ edit, SilMediaBundle:CRUD:edit.html.twig ] ]

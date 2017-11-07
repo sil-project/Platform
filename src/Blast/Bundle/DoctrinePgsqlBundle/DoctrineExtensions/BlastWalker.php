@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Blast\DoctrinePgsqlBundle\DoctrineExtensions;
+namespace Blast\Bundle\DoctrinePgsqlBundle\DoctrineExtensions;
 
 use Doctrine\ORM\Query\SqlWalker;
 

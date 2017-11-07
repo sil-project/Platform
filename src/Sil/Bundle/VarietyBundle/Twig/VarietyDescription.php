@@ -10,12 +10,12 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\VarietiesBundle\Twig;
+namespace Sil\Bundle\VarietyBundle\Twig;
 
 use Symfony\Component\Translation\TranslatorInterface;
 use Symfony\Component\PropertyAccess\PropertyAccessor;
-use Librinfo\VarietiesBundle\Entity\Variety;
-use Librinfo\VarietiesBundle\Entity\VarietyDescription as VarietyDescriptionEntity;
+use Sil\Bundle\VarietyBundle\Entity\Variety;
+use Sil\Bundle\VarietyBundle\Entity\VarietyDescription as VarietyDescriptionEntity;
 
 class VarietyDescription extends \Twig_Extension
 {

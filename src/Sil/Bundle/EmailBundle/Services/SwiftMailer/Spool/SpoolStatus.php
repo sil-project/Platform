@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EmailBundle\Services\SwiftMailer\Spool;
+namespace Sil\Bundle\EmailBundle\Services\SwiftMailer\Spool;
 
 interface SpoolStatus
 {

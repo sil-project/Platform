@@ -10,9 +10,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\SeedBatchBundle\Controller;
+namespace Sil\Bundle\SeedBatchBundle\Controller;
 
-use Librinfo\CRMBundle\Controller\OrganismAdminController as CRUDController;
+use Sil\Bundle\CRMBundle\Controller\OrganismAdminController as CRUDController;
 
 class OrganismAdminController extends CRUDController
 {

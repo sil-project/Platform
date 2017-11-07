@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Blast\BaseEntitiesBundle\Entity;
+namespace Blast\Bundle\BaseEntitiesBundle\Entity;
 
 abstract class GenericEntity
 {

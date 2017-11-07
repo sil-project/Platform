@@ -1,6 +1,6 @@
-Librinfo\CRMBundle\Entity\Organism:
+Sil\Bundle\CRMBundle\Entity\Organism:
     type: entity
-#    repositoryClass: Librinfo\EmailCRMBundle\Entity\Repository\OrganismRepository
+#    repositoryClass: Sil\Bundle\EmailCRMBundle\Entity\Repository\OrganismRepository
     fields:
         emailCanonical:
             type: string
@@ -14,15 +14,15 @@ Librinfo\CRMBundle\Entity\Organism:
 
     oneToMany:
         orders:
-            targetEntity: Librinfo\EcommerceBundle\Entity\Order
+            targetEntity: Sil\Bundle\EcommerceBundle\Entity\Order
             mappedBy: customer
             cascade: [persist, remove]
         addresses:
-            targetEntity: Librinfo\CRMBundle\Entity\Address
+            targetEntity: Sil\Bundle\CRMBundle\Entity\Address
             mappedBy: customer
             cascade: [ persist ]
 
     manyToOne:
         group:
-            targetEntity: Librinfo\EcommerceBundle\Entity\CustomerGroup
+            targetEntity: Sil\Bundle\EcommerceBundle\Entity\CustomerGroup
             inversedBy: customers

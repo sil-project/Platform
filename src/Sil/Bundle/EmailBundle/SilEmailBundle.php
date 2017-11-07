@@ -10,10 +10,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\DecoratorBundle;
+namespace Sil\Bundle\EmailBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class LibrinfoDecoratorBundle extends Bundle
+class SilEmailBundle extends Bundle
 {
 }

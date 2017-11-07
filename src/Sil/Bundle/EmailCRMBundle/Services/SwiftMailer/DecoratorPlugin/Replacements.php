@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EmailCRMBundle\Services\SwiftMailer\DecoratorPlugin;
+namespace Sil\Bundle\EmailCRMBundle\Services\SwiftMailer\DecoratorPlugin;
 
 use Doctrine\ORM\EntityManager;
 
@@ -27,7 +27,7 @@ class Replacements implements \Swift_Plugins_Decorator_Replacements
     }
 
     /**
-     * Returns Contact info if LibrinfoCRMBundle is installed.
+     * Returns Contact info if SilCRMBundle is installed.
      *
      * @param type $address
      *
@@ -35,7 +35,7 @@ class Replacements implements \Swift_Plugins_Decorator_Replacements
      */
     public function getReplacementsFor($address)
     {
-        $organism = $this->manager->getRepository('LibrinfoCRMBundle:Organism')->findOneBy(array('email' => $address));
+        $organism = $this->manager->getRepository('SilCRMBundle:Organism')->findOneBy(array('email' => $address));
 
         if ($organism) {
             if ($organism->isIndividual()) {

@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Blast\DoctrinePgsqlBundle\DoctrineExtensions\Functions;
+namespace Blast\Bundle\DoctrinePgsqlBundle\DoctrineExtensions\Functions;
 
 use Doctrine\ORM\Query\AST\Functions\FunctionNode;
 use Doctrine\ORM\Query\Lexer;

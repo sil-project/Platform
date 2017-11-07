@@ -1,13 +1,13 @@
 #upload files
 librinfo_media.upload:
     path:     librinfo/media/upload
-    defaults: { _controller: LibrinfoMediaBundle:Upload:upload }
+    defaults: { _controller: SilMediaBundle:Upload:upload }
 # remove uploaded files
 librinfo_media.remove:
     path:     librinfo/media/remove/{fileId}
-    defaults: { _controller: LibrinfoMediaBundle:Upload:remove, fileId: null }
+    defaults: { _controller: SilMediaBundle:Upload:remove, fileId: null }
 
 # load uploaded files
 librinfo_media.load:
     path:     librinfo/media/load
-    defaults: { _controller: LibrinfoMediaBundle:Upload:load }
+    defaults: { _controller: SilMediaBundle:Upload:load }

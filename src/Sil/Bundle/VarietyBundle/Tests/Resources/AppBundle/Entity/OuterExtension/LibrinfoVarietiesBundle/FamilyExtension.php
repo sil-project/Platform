@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace AppBundle\Entity\OuterExtension\LibrinfoVarietiesBundle;
+namespace AppBundle\Entity\OuterExtension\SilVarietyBundle;
 
 trait FamilyExtension
 {

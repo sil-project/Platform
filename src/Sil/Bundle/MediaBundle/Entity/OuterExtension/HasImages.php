@@ -10,10 +10,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\MediaBundle\Entity\OuterExtension;
+namespace Sil\Bundle\MediaBundle\Entity\OuterExtension;
 
 use Doctrine\Common\Collections\Collection;
-use Librinfo\MediaBundle\Entity\File;
+use Sil\Bundle\MediaBundle\Entity\File;
 
 trait HasImages
 {

@@ -4,12 +4,12 @@ default: # see available parameters with command : app/console debug:container -
             layout: BlastCoreBundle::standard_layout.html.twig
             user_block: BlastCoreBundle:Block:user_block.html.twig
         replace:
-            layout: LibrinfoDecoratorBundle:Admin:layout.html.twig
-            user_block: LibrinfoDecoratorBundle:Admin/Block:user_block.html.twig
+            layout: BlastDecoratorBundle:Admin:layout.html.twig
+            user_block: BlastDecoratorBundle:Admin/Block:user_block.html.twig
     sonata_doctrine_orm_admin.templates:
         default:
             form:
                 - SonataDoctrineORMAdminBundle:Form:form_admin_fields.html.twig
         replace:
             form:
-                - LibrinfoDecoratorBundle:Admin/Form:admin_forms.html.twig
+                - BlastDecoratorBundle:Admin/Form:admin_forms.html.twig

@@ -1,8 +1,8 @@
-Librinfo\EcommerceBundle\Entity\ProductImage:
+Sil\Bundle\EcommerceBundle\Entity\ProductImage:
     type: entity
     manyToOne:
         realFile:
-            targetEntity: Librinfo\MediaBundle\Entity\File
+            targetEntity: Sil\Bundle\MediaBundle\Entity\File
             joinColumn:
                 name: real_file_id
                 referencedColumnName: id
@@ -10,7 +10,7 @@ Librinfo\EcommerceBundle\Entity\ProductImage:
             fetch: EAGER
     manyToMany:
         productVariants:
-            targetEntity: Librinfo\EcommerceBundle\Entity\ProductVariant
+            targetEntity: Sil\Bundle\EcommerceBundle\Entity\ProductVariant
             orphanRemoval: true
             inversedBy: images
             joinTable:

@@ -1,4 +1,4 @@
-Librinfo\VarietiesBundle\Entity\GenericDescription:
+Sil\Bundle\VarietyBundle\Entity\GenericDescription:
     type: mappedSuperclass
 
     fields:

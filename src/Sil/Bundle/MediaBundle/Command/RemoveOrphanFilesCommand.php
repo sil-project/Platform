@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\MediaBundle\Command;
+namespace Sil\Bundle\MediaBundle\Command;
 
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputInterface;
@@ -42,7 +42,7 @@ class RemoveOrphanFilesCommand extends ContainerAwareCommand
 
         $manager = $this->getContainer()->get('doctrine')->getManager();
 
-        $orphans = $manager->getRepository('LibrinfoMediaBundle:File')->findBy(['owned' => false]);
+        $orphans = $manager->getRepository('SilMediaBundle:File')->findBy(['owned' => false]);
 
         foreach ($orphans as $file) {
             ++$count;

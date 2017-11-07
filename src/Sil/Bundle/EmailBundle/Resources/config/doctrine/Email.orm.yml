@@ -1,4 +1,4 @@
-Librinfo\EmailBundle\Entity\Email:
+Sil\Bundle\EmailBundle\Entity\Email:
     type: entity
     blast:
         loggable: true
@@ -32,7 +32,7 @@ Librinfo\EmailBundle\Entity\Email:
             nullable: true
     manyToMany:
         attachments:
-            targetEntity: \Librinfo\MediaBundle\Entity\File
+            targetEntity: \Sil\Bundle\MediaBundle\Entity\File
             joinTable:
                 name: librinfo_email_file
                 joinColumns:

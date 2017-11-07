@@ -10,9 +10,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EcommerceBundle\Admin;
+namespace Sil\Bundle\EcommerceBundle\Admin;
 
-use Blast\CoreBundle\Admin\Traits\EmbeddedAdmin;
+use Blast\Bundle\CoreBundle\Admin\Traits\EmbeddedAdmin;
 
 class ChannelPricingAdmin extends SyliusGenericAdmin
 {

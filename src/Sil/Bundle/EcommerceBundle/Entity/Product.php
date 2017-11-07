@@ -10,10 +10,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EcommerceBundle\Entity;
+namespace Sil\Bundle\EcommerceBundle\Entity;
 
-use AppBundle\Entity\OuterExtension\LibrinfoEcommerceBundle\ProductExtension;
-use Blast\OuterExtensionBundle\Entity\Traits\OuterExtensible;
+use AppBundle\Entity\OuterExtension\SilEcommerceBundle\ProductExtension;
+use Blast\Bundle\OuterExtensionBundle\Entity\Traits\OuterExtensible;
 use Sylius\Component\Core\Model\Product as BaseProduct;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -64,7 +64,7 @@ class Product extends BaseProduct
     }
 
     /**
-     * alias for LibrinfoMediaBundle/CRUDController::handleFiles().
+     * alias for SilMediaBundle/CRUDController::handleFiles().
      *
      * @param File $file
      *
@@ -80,7 +80,7 @@ class Product extends BaseProduct
     }
 
     /**
-     * alias for LibrinfoMediaBundle/CRUDController::handleFiles().
+     * alias for SilMediaBundle/CRUDController::handleFiles().
      *
      * @param File $file
      *

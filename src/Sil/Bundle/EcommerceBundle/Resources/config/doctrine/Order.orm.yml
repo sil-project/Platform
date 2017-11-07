@@ -1,9 +1,9 @@
-Librinfo\EcommerceBundle\Entity\Order:
+Sil\Bundle\EcommerceBundle\Entity\Order:
     type: entity
 
     oneToMany:
         invoices:
-            targetEntity: Librinfo\EcommerceBundle\Entity\Invoice
+            targetEntity: Sil\Bundle\EcommerceBundle\Entity\Invoice
             mappedBy: order
             cascade: [ persist, remove ]
             orphanRemoval: true

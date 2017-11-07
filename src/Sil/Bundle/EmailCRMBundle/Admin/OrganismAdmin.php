@@ -10,9 +10,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EmailCRMBundle\Admin;
+namespace Sil\Bundle\EmailCRMBundle\Admin;
 
-use Librinfo\CRMBundle\Admin\OrganismAdmin as BaseOrganismAdmin;
+use Sil\Bundle\CRMBundle\Admin\OrganismAdmin as BaseOrganismAdmin;
 
 class OrganismAdmin extends BaseOrganismAdmin
 {

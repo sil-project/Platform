@@ -1,4 +1,4 @@
-Librinfo\EcommerceBundle\Entity\Taxon:
+Sil\Bundle\EcommerceBundle\Entity\Taxon:
     type: entity
     oneToMany:
         images:

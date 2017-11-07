@@ -10,11 +10,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Blast\BaseEntitiesBundle;
+namespace Blast\Bundle\BaseEntitiesBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Blast\BaseEntitiesBundle\DependencyInjection\Compiler\ValidateExtensionConfigurationPass;
+use Blast\Bundle\BaseEntitiesBundle\DependencyInjection\Compiler\ValidateExtensionConfigurationPass;
 
 class BlastBaseEntitiesBundle extends Bundle
 {

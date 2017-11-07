@@ -4,7 +4,7 @@ parameters:
 # FAMILY
 ##########
 
-        Librinfo\VarietiesBundle\Entity\Family:
+        Sil\Bundle\VarietyBundle\Entity\Family:
             Sonata\AdminBundle\Show\ShowMapper:
                 remove:
                     name: ~
@@ -40,13 +40,13 @@ parameters:
                     form_group_general:
                         '':
                             name:
-                                type: Blast\UtilsBundle\Form\Type\UniqueFieldType
+                                type: Blast\Bundle\UtilsBundle\Form\Type\UniqueFieldType
                                 return_link: true
                                 required: true
                                 attr:
                                     class: inline-block
                             latin_name:
-                                type: Blast\UtilsBundle\Form\Type\UniqueFieldType
+                                type: Blast\Bundle\UtilsBundle\Form\Type\UniqueFieldType
                                 return_link: true
                                 required: false
                                 attr:
@@ -59,7 +59,7 @@ parameters:
                                     width: 50
                             description:
                                 required: false
-                                type: Blast\UtilsBundle\Form\Type\TinyMceType
+                                type: Blast\Bundle\UtilsBundle\Form\Type\TinyMceType
                                 attr:
                                     class: new-line
                                     height: 200
@@ -115,7 +115,7 @@ parameters:
 # GENUS
 ##########
 
-        Librinfo\VarietiesBundle\Entity\Genus:
+        Sil\Bundle\VarietyBundle\Entity\Genus:
             Sonata\AdminBundle\Show\ShowMapper:
                 remove: [description, createdAt, updatedAt]
                 add:
@@ -150,13 +150,13 @@ parameters:
                                     class: new-line
                                     width: 30
                             name:
-                                type: Blast\UtilsBundle\Form\Type\UniqueFieldType
+                                type: Blast\Bundle\UtilsBundle\Form\Type\UniqueFieldType
                                 return_link: true
                                 required: true
                                 attr:
                                     class: inline-block
                             latin_name:
-                                type: Blast\UtilsBundle\Form\Type\UniqueFieldType
+                                type: Blast\Bundle\UtilsBundle\Form\Type\UniqueFieldType
                                 return_link: true
                                 required: false
                                 attr:
@@ -169,7 +169,7 @@ parameters:
                                     width: 50
                             description:
                                 required: false
-                                type: Blast\UtilsBundle\Form\Type\TinyMceType
+                                type: Blast\Bundle\UtilsBundle\Form\Type\TinyMceType
                                 attr:
                                     class: new-line
                                     height: 200
@@ -236,7 +236,7 @@ parameters:
 # PLANT CATEGORY
 #################
 
-        Librinfo\VarietiesBundle\Entity\PlantCategory:
+        Sil\Bundle\VarietyBundle\Entity\PlantCategory:
             Sonata\AdminBundle\Show\ShowMapper:
                 _copy: Sonata\AdminBundle\Form\FormMapper
                 add:
@@ -252,7 +252,7 @@ parameters:
                     form_group_general:
                         '':
                             name:
-                                type: Blast\UtilsBundle\Form\Type\UniqueFieldType
+                                type: Blast\Bundle\UtilsBundle\Form\Type\UniqueFieldType
                                 required: true
                                 attr:
                                     class: inline-block
@@ -264,8 +264,8 @@ parameters:
                                     class: inline-block
                                     width: 45
                             treeParent:
-                                type: Blast\BaseEntitiesBundle\Form\Type\NestedTreeableType
-                                class: Librinfo\VarietiesBundle\Entity\PlantCategory
+                                type: Blast\Bundle\BaseEntitiesBundle\Form\Type\NestedTreeableType
+                                class: Sil\Bundle\VarietyBundle\Entity\PlantCategory
                                 required: false
                                 placeholder: ''
                     _helper_links:
@@ -289,7 +289,7 @@ parameters:
 # SPECIES
 ##########
 
-        Librinfo\VarietiesBundle\Entity\Species:
+        Sil\Bundle\VarietyBundle\Entity\Species:
             Sonata\AdminBundle\Show\ShowMapper:
                 remove:
                     description: ~
@@ -347,19 +347,19 @@ parameters:
                                     class: inline-block
                                     width: 50
                             code:
-                                type: Blast\CoreBundle\Form\Type\EntityCodeType
+                                type: Blast\Bundle\CoreBundle\Form\Type\EntityCodeType
                                 required: true
                                 attr:
                                     class: inline-block
                                     width: 50
                             name:
-                                type: Blast\UtilsBundle\Form\Type\UniqueFieldType
+                                type: Blast\Bundle\UtilsBundle\Form\Type\UniqueFieldType
                                 return_link: true
                                 attr:
                                     class: inline-block
                                     width: 50
                             latin_name:
-                                type: Blast\UtilsBundle\Form\Type\UniqueFieldType
+                                type: Blast\Bundle\UtilsBundle\Form\Type\UniqueFieldType
                                 return_link: true
                                 required: false
                                 attr:
@@ -372,8 +372,8 @@ parameters:
                                     class: inline-block
                                     width: 50
                             plant_categories:
-                                type: Blast\BaseEntitiesBundle\Form\Type\NestedTreeableType
-                                class: Librinfo\VarietiesBundle\Entity\PlantCategory
+                                type: Blast\Bundle\BaseEntitiesBundle\Form\Type\NestedTreeableType
+                                class: Sil\Bundle\VarietyBundle\Entity\PlantCategory
                                 required: false
                                 multiple: true
                                 attr:
@@ -393,7 +393,7 @@ parameters:
                         form_group_description:
                             description:
                                 required: false
-                                type: Blast\UtilsBundle\Form\Type\TinyMceType
+                                type: Blast\Bundle\UtilsBundle\Form\Type\TinyMceType
                                 attr:
                                     class: new-line
                                     height: 200
@@ -415,7 +415,7 @@ parameters:
                                     class: inline-block
                                     width: 50
                             life_cycle:
-                                type: Librinfo\VarietiesBundle\Form\Type\LifeCycleType
+                                type: Sil\Bundle\VarietyBundle\Form\Type\LifeCycleType
                                 required: false
                                 attr:
                                     class: inline-block
@@ -481,7 +481,7 @@ parameters:
 # SPECIES EMBEDDED
 ###################
 
-        Librinfo\VarietiesBundle\Admin\SpeciesEmbeddedAdmin:
+        Sil\Bundle\VarietyBundle\Admin\SpeciesEmbeddedAdmin:
             Sonata\AdminBundle\Show\ShowMapper:
                 add: ~
             Sonata\AdminBundle\Form\FormMapper:
@@ -522,18 +522,18 @@ parameters:
                                     class: new-line
                                     width: 30
                             code:
-                                type: Blast\CoreBundle\Form\Type\EntityCodeType
+                                type: Blast\Bundle\CoreBundle\Form\Type\EntityCodeType
                                 required: true
                                 attr:
                                     class: new-line
                                     width: 30
                             name:
-                                type: Blast\UtilsBundle\Form\Type\UniqueFieldType
+                                type: Blast\Bundle\UtilsBundle\Form\Type\UniqueFieldType
                                 return_link: true
                                 attr:
                                     class: inline-block
                             latin_name:
-                                type: Blast\UtilsBundle\Form\Type\UniqueFieldType
+                                type: Blast\Bundle\UtilsBundle\Form\Type\UniqueFieldType
                                 return_link: true
                                 required: false
                                 attr:
@@ -547,14 +547,14 @@ parameters:
                                     width: 50
                             description:
                                 required: false
-                                type: Blast\UtilsBundle\Form\Type\TinyMceType
+                                type: Blast\Bundle\UtilsBundle\Form\Type\TinyMceType
                                 attr:
                                     class: new-line
                                     height: 200
 
                             plant_categories:
-                                type: Blast\BaseEntitiesBundle\Form\Type\NestedTreeableType
-                                class: Librinfo\VarietiesBundle\Entity\PlantCategory
+                                type: Blast\Bundle\BaseEntitiesBundle\Form\Type\NestedTreeableType
+                                class: Sil\Bundle\VarietyBundle\Entity\PlantCategory
                                 required: false
                                 multiple: true
                                 attr:
@@ -574,7 +574,7 @@ parameters:
                                     class: new-line
                                     width: 30
                             life_cycle:
-                                type: Librinfo\VarietiesBundle\Form\Type\LifeCycleType
+                                type: Sil\Bundle\VarietyBundle\Form\Type\LifeCycleType
                                 required: false
                                 attr:
                                     class: new-line
@@ -605,9 +605,9 @@ parameters:
 # VARIETY
 ###############
 
-        Librinfo\VarietiesBundle\Entity\Variety:
+        Sil\Bundle\VarietyBundle\Entity\Variety:
             Sonata\AdminBundle\Show\ShowMapper:
-                titleTemplate: LibrinfoVarietiesBundle:VarietyAdmin:show_title.html.twig
+                titleTemplate: SilVarietyBundle:VarietyAdmin:show_title.html.twig
                 forceTabs: true
                 remove:
                     description: ~
@@ -683,7 +683,7 @@ parameters:
                     form_tab_images:
                         '':
                             images:
-                                template: LibrinfoMediaBundle:CRUD:show_images.html.twig
+                                template: SilMediaBundle:CRUD:show_images.html.twig
                     _options:
                         tabsOrder:
                             - form_tab_general
@@ -698,7 +698,7 @@ parameters:
                             - form_tab_strains
                             - form_tab_images
             Sonata\AdminBundle\Form\FormMapper:
-                titleTemplate: LibrinfoVarietiesBundle:VarietyAdmin:edit_title.html.twig
+                titleTemplate: SilVarietyBundle:VarietyAdmin:edit_title.html.twig
                 remove:
                     description: ~
                     legal_germination_rate: ~
@@ -738,7 +738,7 @@ parameters:
                                 _options:
                                     admin_code: librinfo_varieties.admin.species
                             plant_type:
-                                type: Blast\UtilsBundle\Form\Type\CustomChoiceType
+                                type: Blast\Bundle\UtilsBundle\Form\Type\CustomChoiceType
                                 choices_field: plant_type
                                 blast_choices:
                                     - Feuille
@@ -760,14 +760,14 @@ parameters:
                                 _options:
                                     admin_code: librinfo_varieties.admin.variety
                             name:
-                                type: Blast\UtilsBundle\Form\Type\UniqueFieldType
+                                type: Blast\Bundle\UtilsBundle\Form\Type\UniqueFieldType
                                 return_link: true
                                 required: true
                                 attr:
                                     class: inline-block
                                     width: 50
                             latin_name:
-                                type: Blast\UtilsBundle\Form\Type\UniqueFieldType
+                                type: Blast\Bundle\UtilsBundle\Form\Type\UniqueFieldType
                                 return_link: true
                                 required: true
                                 attr:
@@ -782,14 +782,14 @@ parameters:
                                     width: 50
                                     inherit: target
                             code:
-                                type: Blast\CoreBundle\Form\Type\EntityCodeType
+                                type: Blast\Bundle\CoreBundle\Form\Type\EntityCodeType
                                 required: true
                                 attr:
                                     class: inline-block
                                     width: 50
                             plant_categories:
-                                type: Blast\BaseEntitiesBundle\Form\Type\NestedTreeableType
-                                class: Librinfo\VarietiesBundle\Entity\PlantCategory
+                                type: Blast\Bundle\BaseEntitiesBundle\Form\Type\NestedTreeableType
+                                class: Sil\Bundle\VarietyBundle\Entity\PlantCategory
                                 required: false
                                 multiple: true
                                 attr:
@@ -812,7 +812,7 @@ parameters:
                         form_group_description:
                             description:
                                 required: false
-                                type: Blast\UtilsBundle\Form\Type\TinyMceType
+                                type: Blast\Bundle\UtilsBundle\Form\Type\TinyMceType
                                 attr:
                                     class: new-line
                                     height: 200
@@ -852,7 +852,7 @@ parameters:
                                     class: new-line
                                     width: 100
                             life_cycle:
-                                type: Librinfo\VarietiesBundle\Form\Type\LifeCycleType
+                                type: Sil\Bundle\VarietyBundle\Form\Type\LifeCycleType
                                 required: false
                                 attr:
                                     class: inline-block
@@ -860,7 +860,7 @@ parameters:
                                     inherit: target
                             regulatory_status:
                                 required: false
-                                type: Blast\UtilsBundle\Form\Type\CustomChoiceType
+                                type: Blast\Bundle\UtilsBundle\Form\Type\CustomChoiceType
                                 choices_field: regulatory_status
                                 blast_choices:
                                    - Contrôlé
@@ -1048,7 +1048,7 @@ parameters:
                     form_tab_images:
                         '':
                             images:
-                                type: Librinfo\MediaBundle\Form\Type\DropzoneType
+                                type: Sil\Bundle\MediaBundle\Form\Type\DropzoneType
                                 required: false
                     _options:
                         tabsOrder:
@@ -1124,10 +1124,10 @@ parameters:
                 add:
                     name:
                         identifier: true
-                        template: LibrinfoVarietiesBundle:VarietyAdmin:list_field_name.html.twig
+                        template: SilVarietyBundle:VarietyAdmin:list_field_name.html.twig
                     code:
                         identifier: true
-                        template: LibrinfoVarietiesBundle:VarietyAdmin:list_field_code.html.twig
+                        template: SilVarietyBundle:VarietyAdmin:list_field_code.html.twig
                     latin_name: ~
                     is_strain:
                         type: boolean
@@ -1135,7 +1135,7 @@ parameters:
                         type: boolean
                     _actions:
                         strain:
-                            template: LibrinfoVarietiesBundle:CRUD:list__action_strain.html.twig
+                            template: SilVarietyBundle:CRUD:list__action_strain.html.twig
                     _options:
                         fieldsOrder:
                             - code
@@ -1152,7 +1152,7 @@ parameters:
 # VARIETY DESCRIPTION
 #####################
 
-        Librinfo\VarietiesBundle\Entity\VarietyDescription:
+        Sil\Bundle\VarietyBundle\Entity\VarietyDescription:
             Sonata\AdminBundle\Show\ShowMapper:
                 add:
 #                    field: ~

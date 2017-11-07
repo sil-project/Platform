@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\SeedBatchBundle\Admin;
+namespace Sil\Bundle\SeedBatchBundle\Admin;
 
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 

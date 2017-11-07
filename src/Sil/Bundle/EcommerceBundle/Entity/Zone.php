@@ -10,12 +10,12 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EcommerceBundle\Entity;
+namespace Sil\Bundle\EcommerceBundle\Entity;
 
 use Sylius\Component\Addressing\Model\Zone as BaseZone;
-use Blast\OuterExtensionBundle\Entity\Traits\OuterExtensible;
+use Blast\Bundle\OuterExtensionBundle\Entity\Traits\OuterExtensible;
 /* @todo reference to AppBundle should be removed */
-use AppBundle\Entity\OuterExtension\LibrinfoEcommerceBundle\ZoneExtension;
+use AppBundle\Entity\OuterExtension\SilEcommerceBundle\ZoneExtension;
 
 class Zone extends BaseZone
 {

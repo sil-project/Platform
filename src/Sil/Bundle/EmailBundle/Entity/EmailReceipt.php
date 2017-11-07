@@ -10,9 +10,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EmailBundle\Entity;
+namespace Sil\Bundle\EmailBundle\Entity;
 
-use Blast\BaseEntitiesBundle\Entity\Traits\BaseEntity;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\BaseEntity;
 
 /**
  * EmailReceipt.
@@ -32,7 +32,7 @@ class EmailReceipt
     private $date;
 
     /**
-     * @var \Librinfo\EmailBundle\Entity\Email
+     * @var \Sil\Bundle\EmailBundle\Entity\Email
      */
     private $email;
 
@@ -87,11 +87,11 @@ class EmailReceipt
     /**
      * Set email.
      *
-     * @param \Librinfo\EmailBundle\Entity\Email $email
+     * @param \Sil\Bundle\EmailBundle\Entity\Email $email
      *
      * @return EmailReceipt
      */
-    public function setEmail(\Librinfo\EmailBundle\Entity\Email $email = null)
+    public function setEmail(\Sil\Bundle\EmailBundle\Entity\Email $email = null)
     {
         $this->email = $email;
 
@@ -101,7 +101,7 @@ class EmailReceipt
     /**
      * Get email.
      *
-     * @return \Librinfo\EmailBundle\Entity\Email
+     * @return \Sil\Bundle\EmailBundle\Entity\Email
      */
     public function getEmail()
     {

@@ -10,13 +10,13 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EcommerceBundle\SalesJournal\Handler;
+namespace Sil\Bundle\EcommerceBundle\SalesJournal\Handler;
 
-use Librinfo\EcommerceBundle\Entity\OrderInterface;
+use Sil\Bundle\EcommerceBundle\Entity\OrderInterface;
 use Sylius\Component\Core\Model\OrderItemInterface;
 use Sylius\Component\Core\Model\AdjustmentInterface;
-use Librinfo\EcommerceBundle\Entity\Invoice;
-use Librinfo\EcommerceBundle\SalesJournal\Strategy\StrategyInterface;
+use Sil\Bundle\EcommerceBundle\Entity\Invoice;
+use Sil\Bundle\EcommerceBundle\SalesJournal\Strategy\StrategyInterface;
 
 class OrderHandler extends AbstractHandler
 {

@@ -10,14 +10,14 @@
  * file that was distributed with this source code.
  */
 
-namespace Blast\BaseEntitiesBundle\Form\Type;
+namespace Blast\Bundle\BaseEntitiesBundle\Form\Type;
 
 use Symfony\Component\Form\Extension\Core\EventListener\ResizeFormListener;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Sonata\AdminBundle\Form\Type\ModelAutocompleteType;
-use Blast\BaseEntitiesBundle\Form\DataTransformer\ModelToIdTransformer;
+use Blast\Bundle\BaseEntitiesBundle\Form\DataTransformer\ModelToIdTransformer;
 
 /**
  * Form type that uses search indexes for entity search autocompletion.

@@ -1,4 +1,4 @@
-Librinfo\SeedBatchBundle\Entity\SeedBatch:
+Sil\Bundle\SeedBatchBundle\Entity\SeedBatch:
     type: entity
 
     fields:
@@ -52,25 +52,25 @@ Librinfo\SeedBatchBundle\Entity\SeedBatch:
 
     manyToOne:
         seedFarm:
-            targetEntity: Librinfo\SeedBatchBundle\Entity\SeedFarm
+            targetEntity: Sil\Bundle\SeedBatchBundle\Entity\SeedFarm
             inversedBy: seedBatches
             joinColumn:
                 name: seed_farm_id
                 referencedColumnName: id
         variety:
-            targetEntity: Librinfo\VarietiesBundle\Entity\Variety
+            targetEntity: Sil\Bundle\VarietiesBundle\Entity\Variety
             inversedBy: seedBatches
             joinColumn:
                 name: variety_id
                 referencedColumnName: id
         producer:
-            targetEntity: Librinfo\CRMBundle\Entity\Organism
+            targetEntity: Sil\Bundle\CRMBundle\Entity\Organism
             inversedBy: seedBatches
             joinColumn:
                 name: producer_id
                 referencedColumnName: id
         plot:
-            targetEntity: Librinfo\SeedBatchBundle\Entity\Plot
+            targetEntity: Sil\Bundle\SeedBatchBundle\Entity\Plot
             inversedBy: seedBatches
             joinColumn:
                 name: plot_id

@@ -16,8 +16,8 @@ namespace Sil\Bundle\StockBundle\Domain\Entity;
 
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
-use Blast\BaseEntitiesBundle\Entity\Traits\Guidable;
-use Blast\BaseEntitiesBundle\Entity\Traits\NestedTreeable;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Guidable;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\NestedTreeable;
 use InvalidArgumentException;
 
 /**

@@ -10,10 +10,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EmailCRMBundle\Services;
+namespace Sil\Bundle\EmailCRMBundle\Services;
 
-use Librinfo\EmailBundle\Services\Sender as BaseSender;
-use Librinfo\EmailCRMBundle\Services\SwiftMailer\DecoratorPlugin\Replacements;
+use Sil\Bundle\EmailBundle\Services\Sender as BaseSender;
+use Sil\Bundle\EmailCRMBundle\Services\SwiftMailer\DecoratorPlugin\Replacements;
 
 class Sender extends BaseSender
 {

@@ -10,11 +10,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EcommerceBundle\EventListener;
+namespace Sil\Bundle\EcommerceBundle\EventListener;
 
-use Blast\BaseEntitiesBundle\EventListener\Traits\ClassChecker;
-use Blast\BaseEntitiesBundle\EventListener\Traits\Logger;
-use Librinfo\EcommerceBundle\Entity\Payment;
+use Blast\Bundle\BaseEntitiesBundle\EventListener\Traits\ClassChecker;
+use Blast\Bundle\BaseEntitiesBundle\EventListener\Traits\Logger;
+use Sil\Bundle\EcommerceBundle\Entity\Payment;
 use Doctrine\Common\EventSubscriber;
 use Doctrine\ORM\Event\LoadClassMetadataEventArgs;
 use Psr\Log\LoggerAwareInterface;

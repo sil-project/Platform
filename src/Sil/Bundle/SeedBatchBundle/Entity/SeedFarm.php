@@ -10,15 +10,15 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\SeedBatchBundle\Entity;
+namespace Sil\Bundle\SeedBatchBundle\Entity;
 
-use AppBundle\Entity\OuterExtension\LibrinfoSeedBatchBundle\SeedFarmExtension;
-use Blast\BaseEntitiesBundle\Entity\Traits\Addressable;
-use Blast\BaseEntitiesBundle\Entity\Traits\BaseEntity;
-use Blast\BaseEntitiesBundle\Entity\Traits\Descriptible;
-use Blast\BaseEntitiesBundle\Entity\Traits\Loggable;
-use Blast\BaseEntitiesBundle\Entity\Traits\Timestampable;
-use Blast\OuterExtensionBundle\Entity\Traits\OuterExtensible;
+use AppBundle\Entity\OuterExtension\SilSeedBatchBundle\SeedFarmExtension;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Addressable;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\BaseEntity;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Descriptible;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Loggable;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Timestampable;
+use Blast\Bundle\OuterExtensionBundle\Entity\Traits\OuterExtensible;
 
 /**
  * SeedFarm.
@@ -79,11 +79,11 @@ class SeedFarm
     /**
      * Add seedBatch.
      *
-     * @param \Librinfo\SeedBatchBundle\Entity\SeedBatch $seedBatch
+     * @param \Sil\Bundle\SeedBatchBundle\Entity\SeedBatch $seedBatch
      *
      * @return SeedFarm
      */
-    public function addSeedBatch(\Librinfo\SeedBatchBundle\Entity\SeedBatch $seedBatch)
+    public function addSeedBatch(\Sil\Bundle\SeedBatchBundle\Entity\SeedBatch $seedBatch)
     {
         $this->seedBatches[] = $seedBatch;
 
@@ -93,11 +93,11 @@ class SeedFarm
     /**
      * Remove seedBatch.
      *
-     * @param \Librinfo\SeedBatchBundle\Entity\SeedBatch $seedBatch
+     * @param \Sil\Bundle\SeedBatchBundle\Entity\SeedBatch $seedBatch
      *
      * @return bool tRUE if this collection contained the specified element, FALSE otherwise
      */
-    public function removeSeedBatch(\Librinfo\SeedBatchBundle\Entity\SeedBatch $seedBatch)
+    public function removeSeedBatch(\Sil\Bundle\SeedBatchBundle\Entity\SeedBatch $seedBatch)
     {
         return $this->seedBatches->removeElement($seedBatch);
     }

@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Blast\DoctrineSessionBundle\Entity;
+namespace Blast\Bundle\DoctrineSessionBundle\Entity;
 
 /**
  * Session.

@@ -10,13 +10,13 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EmailBundle\Controller;
+namespace Sil\Bundle\EmailBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Librinfo\EmailBundle\Entity\EmailReceipt;
-use Librinfo\EmailBundle\Entity\EmailLink;
+use Sil\Bundle\EmailBundle\Entity\EmailReceipt;
+use Sil\Bundle\EmailBundle\Entity\EmailLink;
 
 class TrackingController extends Controller
 {
@@ -74,7 +74,7 @@ class TrackingController extends Controller
 
         $this->initManager();
 
-        $email = $this->manager->getRepository('LibrinfoEmailBundle:Email')->find($emailId);
+        $email = $this->manager->getRepository('SilEmailBundle:Email')->find($emailId);
 
         if (!$email) {
             return;
@@ -105,7 +105,7 @@ class TrackingController extends Controller
 
         $this->initManager();
 
-        $email = $this->manager->getRepository('LibrinfoEmailBundle:Email')->find($emailId);
+        $email = $this->manager->getRepository('SilEmailBundle:Email')->find($emailId);
 
         if (!$email) {
             return;

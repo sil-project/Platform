@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EcommerceBundle\Services;
+namespace Sil\Bundle\EcommerceBundle\Services;
 
 use Doctrine\ORM\EntityManager;
 use Sylius\Component\Channel\Context\ChannelContextInterface;
@@ -18,8 +18,8 @@ use Sylius\Component\Resource\Factory\FactoryInterface;
 use Sylius\Component\Order\Factory\OrderItemUnitFactoryInterface;
 use Sylius\Component\Order\Processor\CompositeOrderProcessor;
 use SM\Factory\Factory;
-use Librinfo\EcommerceBundle\Entity\Product;
-use Librinfo\EcommerceBundle\Entity\ProductVariant;
+use Sil\Bundle\EcommerceBundle\Entity\Product;
+use Sil\Bundle\EcommerceBundle\Entity\ProductVariant;
 
 /**
  * Add products to existing order.
@@ -90,7 +90,7 @@ class OrderUpdater
     {
         //Retrieve order
         $order = $this->em
-            ->getRepository('LibrinfoEcommerceBundle:Order')
+            ->getRepository('SilEcommerceBundle:Order')
             ->find($orderId);
 
         $orderStateMachine = $this->smFactory->get($order, 'sylius_order');
@@ -101,7 +101,7 @@ class OrderUpdater
             //Retrieve product variant
             /** @var ProductVariant $variant * */
             $variant = $this->em
-                ->getRepository('LibrinfoEcommerceBundle:ProductVariant')
+                ->getRepository('SilEcommerceBundle:ProductVariant')
                 ->find($variantId);
 
             $optionCode = $variant->getOptionValues()->first() ? $variant->getOptionValues()->first()->getOption()->getCode() : false;

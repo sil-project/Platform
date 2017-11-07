@@ -1,4 +1,4 @@
-Librinfo\EmailBundle\Entity\EmailReceipt:
+Sil\Bundle\EmailBundle\Entity\EmailReceipt:
     type: entity
     fields:
         address:
@@ -8,7 +8,7 @@ Librinfo\EmailBundle\Entity\EmailReceipt:
             nullable: true
     manyToOne:
         email:
-            targetEntity: Librinfo\EmailBundle\Entity\Email
+            targetEntity: Sil\Bundle\EmailBundle\Entity\Email
             inversedBy: receipts
             joinColumn:
                 name: email_id

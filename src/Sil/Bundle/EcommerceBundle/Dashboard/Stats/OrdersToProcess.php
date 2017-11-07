@@ -10,10 +10,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EcommerceBundle\Dashboard\Stats;
+namespace Sil\Bundle\EcommerceBundle\Dashboard\Stats;
 
-use Librinfo\EcommerceBundle\Entity\Order;
-use Librinfo\EcommerceBundle\Entity\OrderInterface;
+use Sil\Bundle\EcommerceBundle\Entity\Order;
+use Sil\Bundle\EcommerceBundle\Entity\OrderInterface;
 
 class OrdersToProcess extends AbstractStats
 {

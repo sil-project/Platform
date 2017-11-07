@@ -10,14 +10,14 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EcommerceBundle\Fixture;
+namespace Sil\Bundle\EcommerceBundle\Fixture;
 
 use Sylius\Bundle\FixturesBundle\Fixture\AbstractFixture;
 use Sylius\Bundle\FixturesBundle\Fixture\FixtureInterface;
-use Librinfo\EcommerceBundle\Entity\CustomerGroup;
+use Sil\Bundle\EcommerceBundle\Entity\CustomerGroup;
 use Doctrine\ORM\EntityManager;
-use Librinfo\CRMBundle\CodeGenerator\CustomerCodeGenerator;
-use Librinfo\CRMBundle\Entity\Organism;
+use Sil\Bundle\CRMBundle\CodeGenerator\CustomerCodeGenerator;
+use Sil\Bundle\CRMBundle\Entity\Organism;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 

@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Blast\BaseEntitiesBundle\EventListener\Traits;
+namespace Blast\Bundle\BaseEntitiesBundle\EventListener\Traits;
 
 use Psr\Log\LoggerInterface;
 

@@ -10,10 +10,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EcommerceBundle\Repository;
+namespace Sil\Bundle\EcommerceBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
-use Librinfo\EcommerceBundle\Entity\SalesJournalItem;
+use Sil\Bundle\EcommerceBundle\Entity\SalesJournalItem;
 
 class SalesJournalItemRepository extends EntityRepository
 {

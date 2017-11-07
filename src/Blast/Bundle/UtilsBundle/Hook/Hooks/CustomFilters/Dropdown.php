@@ -10,11 +10,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Blast\UtilsBundle\Hook\Hooks\CustomFilters;
+namespace Blast\Bundle\UtilsBundle\Hook\Hooks\CustomFilters;
 
-use Blast\UtilsBundle\Hook\Component\AbstractHook;
+use Blast\Bundle\UtilsBundle\Hook\Component\AbstractHook;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorage;
-use Blast\UtilsBundle\Repository\CustomFilterRepository;
+use Blast\Bundle\UtilsBundle\Repository\CustomFilterRepository;
 
 class Dropdown extends AbstractHook
 {

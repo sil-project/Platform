@@ -10,14 +10,14 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\VarietiesBundle\Entity;
+namespace Sil\Bundle\VarietyBundle\Entity;
 
-use AppBundle\Entity\OuterExtension\LibrinfoVarietiesBundle\FamilyExtension;
-use Blast\BaseEntitiesBundle\Entity\Traits\BaseEntity;
-use Blast\BaseEntitiesBundle\Entity\Traits\Descriptible;
-use Blast\BaseEntitiesBundle\Entity\Traits\Nameable;
-use Blast\BaseEntitiesBundle\Entity\Traits\Timestampable;
-use Blast\OuterExtensionBundle\Entity\Traits\OuterExtensible;
+use AppBundle\Entity\OuterExtension\SilVarietyBundle\FamilyExtension;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\BaseEntity;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Descriptible;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Nameable;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Timestampable;
+use Blast\Bundle\OuterExtensionBundle\Entity\Traits\OuterExtensible;
 
 /**
  * Family.
@@ -117,11 +117,11 @@ class Family
     /**
      * Add genus.
      *
-     * @param \Librinfo\VarietiesBundle\Entity\Genus $genus
+     * @param \Sil\Bundle\VarietyBundle\Entity\Genus $genus
      *
      * @return Family
      */
-    public function addGenus(\Librinfo\VarietiesBundle\Entity\Genus $genus)
+    public function addGenus(\Sil\Bundle\VarietyBundle\Entity\Genus $genus)
     {
         $genus->setFamily($this);
         $this->genuses->add($genus);
@@ -132,11 +132,11 @@ class Family
     /**
      * Remove genus.
      *
-     * @param \Librinfo\VarietiesBundle\Entity\Genus $genus
+     * @param \Sil\Bundle\VarietyBundle\Entity\Genus $genus
      *
      * @return bool tRUE if this collection contained the specified element, FALSE otherwise
      */
-    public function removeGenus(\Librinfo\VarietiesBundle\Entity\Genus $genus)
+    public function removeGenus(\Sil\Bundle\VarietyBundle\Entity\Genus $genus)
     {
         return $this->genuses->removeElement($genus);
     }

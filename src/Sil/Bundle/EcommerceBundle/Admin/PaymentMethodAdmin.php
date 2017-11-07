@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EcommerceBundle\Admin;
+namespace Sil\Bundle\EcommerceBundle\Admin;
 
 use Sonata\AdminBundle\Route\RouteCollection;
 

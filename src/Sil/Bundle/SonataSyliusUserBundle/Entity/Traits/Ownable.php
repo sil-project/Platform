@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\SonataSyliusUserBundle\Entity\Traits;
+namespace Sil\Bundle\SonataSyliusUserBundle\Entity\Traits;
 
 use Symfony\Component\Security\Core\User\UserInterface;
 

@@ -12,7 +12,7 @@
 
 namespace Sil\Bundle\ManufacturingBundle\Domain\Entity;
 
-use Blast\BaseEntitiesBundle\Entity\Traits\Guidable;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Guidable;
 use Sil\Bundle\StockBundle\Domain\Entity\StockItemInterface;
 use Sil\Bundle\StockBundle\Domain\Entity\Uom;
 use Sil\Bundle\StockBundle\Domain\Entity\UomQty;

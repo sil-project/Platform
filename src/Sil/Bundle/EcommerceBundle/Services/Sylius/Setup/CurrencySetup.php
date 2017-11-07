@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EcommerceBundle\Services\Sylius\Setup;
+namespace Sil\Bundle\EcommerceBundle\Services\Sylius\Setup;
 
 use Sylius\Bundle\CoreBundle\Installer\Setup\CurrencySetupInterface;
 use Sylius\Component\Currency\Model\CurrencyInterface;

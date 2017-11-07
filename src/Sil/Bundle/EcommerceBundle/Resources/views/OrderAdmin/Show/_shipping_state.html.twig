@@ -1,5 +1,5 @@
 {% extends 'SonataAdminBundle:CRUD:base_show_field.html.twig' %}
 
 {% block field_value %}
-    {% include('LibrinfoEcommerceBundle:OrderAdmin:_state_label.html.twig') with {'category': 'order_shipping', 'value': object.shippingState} %}
+    {% include('SilEcommerceBundle:OrderAdmin:_state_label.html.twig') with {'category': 'order_shipping', 'value': object.shippingState} %}
 {% endblock %}

@@ -1,4 +1,4 @@
-Blast\BaseEntitiesBundle\Entity\SearchIndexEntity:
+Blast\Bundle\BaseEntitiesBundle\Entity\SearchIndexEntity:
     type: mappedSuperclass
     id:
         id:

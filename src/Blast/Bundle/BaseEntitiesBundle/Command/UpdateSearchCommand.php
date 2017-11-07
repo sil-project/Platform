@@ -10,13 +10,13 @@
  * file that was distributed with this source code.
  */
 
-namespace Blast\BaseEntitiesBundle\Command;
+namespace Blast\Bundle\BaseEntitiesBundle\Command;
 
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Input\InputArgument;
 use Doctrine\Bundle\DoctrineBundle\Command\DoctrineCommand;
-use Blast\BaseEntitiesBundle\Entity\Traits\Searchable;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Searchable;
 
 /**
  * Batch update of search indexes.
@@ -68,7 +68,7 @@ EOT
         // Check if the entity has the Searchable trait
         $reflector = new \ReflectionClass($name);
         $traits = $reflector->getTraitNames();
-        if (!in_array('Blast\BaseEntitiesBundle\Entity\Traits\Searchable', $traits)) {
+        if (!in_array('Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Searchable', $traits)) {
             throw new \RuntimeException(sprintf('%s class doesn\'t have the Searchable trait.', $reflector->getName()));
         }
 

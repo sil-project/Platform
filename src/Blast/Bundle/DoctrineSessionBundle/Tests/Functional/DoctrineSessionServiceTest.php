@@ -10,9 +10,9 @@
  * file that was distributed with this source code.
  */
 
-namespace  Blast\DoctrineSessionBundle\Tests\Functional;
+namespace  Blast\Bundle\DoctrineSessionBundle\Tests\Functional;
 
-use Blast\TestsBundle\Functional\BlastTestCase;
+use Blast\Bundle\TestsBundle\Functional\BlastTestCase;
 
 class DoctrineSessionServiceTest extends BlastTestCase
 {

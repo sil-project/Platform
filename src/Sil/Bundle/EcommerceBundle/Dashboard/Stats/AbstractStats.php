@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EcommerceBundle\Dashboard\Stats;
+namespace Sil\Bundle\EcommerceBundle\Dashboard\Stats;
 
 use Doctrine\DBAL\Connection;
 use Doctrine\Bundle\DoctrineBundle\Registry;

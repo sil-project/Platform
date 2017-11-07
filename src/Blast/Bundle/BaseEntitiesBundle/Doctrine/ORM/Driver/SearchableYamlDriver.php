@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Blast\BaseEntitiesBundle\Doctrine\ORM\Driver;
+namespace Blast\Bundle\BaseEntitiesBundle\Doctrine\ORM\Driver;
 
 use Doctrine\Common\Persistence\Mapping\ClassMetadata;
 use Doctrine\ORM\Mapping\Driver\SimplifiedYamlDriver;

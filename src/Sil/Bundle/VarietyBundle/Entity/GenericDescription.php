@@ -10,9 +10,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\VarietiesBundle\Entity;
+namespace Sil\Bundle\VarietyBundle\Entity;
 
-use Blast\BaseEntitiesBundle\Entity\Traits\BaseEntity;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\BaseEntity;
 
 /**
  * GenericDescription.

@@ -1,4 +1,4 @@
-Librinfo\EcommerceBundle\Entity\ShippingMethod:
+Sil\Bundle\EcommerceBundle\Entity\ShippingMethod:
     type: entity
     table: sylius_shipping_method
     blast:

@@ -10,12 +10,12 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EmailBundle\Services\Test\Unit;
+namespace Sil\Bundle\EmailBundle\Services\Test\Unit;
 
 use PHPUnit\Framework\TestCase;
-use Librinfo\EmailBundle\Services\Sender;
-use Librinfo\EmailBundle\Entity\Email;
-use Librinfo\EmailBundle\Services\AddressManager;
+use Sil\Bundle\EmailBundle\Services\Sender;
+use Sil\Bundle\EmailBundle\Entity\Email;
+use Sil\Bundle\EmailBundle\Services\AddressManager;
 
 class SenderTest extends TestCase
 {
@@ -36,7 +36,7 @@ class SenderTest extends TestCase
         $this->spoolMailerMock = $this->createMock(\Swift_Mailer::class);
         $this->directMailerMock = $this->createMock(\Swift_Mailer::class);
         $this->messageMock = $this->createMock(\Swift_Message::class);
-        $this->inlineAttachmentsHandlerMock = $this->createMock('Librinfo\EmailBundle\Services\InlineAttachments');
+        $this->inlineAttachmentsHandlerMock = $this->createMock('Sil\Bundle\EmailBundle\Services\InlineAttachments');
         $this->managerMock = $this->createMock('Doctrine\ORM\EntityManager');
              
         $this->mail = new Email();
@@ -64,7 +64,7 @@ class SenderTest extends TestCase
     }
 
     /**
-     * @covers \Librinfo\EmailBundle\Services\Sender::send
+     * @covers \Sil\Bundle\EmailBundle\Services\Sender::send
      */
     public function testSend()
     {

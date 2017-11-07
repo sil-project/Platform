@@ -12,7 +12,7 @@
 
 namespace Sil\Bundle\StockBundle\Controller;
 
-use Blast\CoreBundle\Controller\CRUDController;
+use Blast\Bundle\CoreBundle\Controller\CRUDController;
 use Sil\Bundle\StockBundle\Domain\Entity\Operation;
 use Sil\Bundle\StockBundle\Domain\Service\OperationServiceInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;

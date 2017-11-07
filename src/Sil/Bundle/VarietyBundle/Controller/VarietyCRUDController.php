@@ -10,11 +10,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\VarietiesBundle\Controller;
+namespace Sil\Bundle\VarietyBundle\Controller;
 
-use Blast\CoreBundle\Exception\InvalidEntityCodeException;
-use Blast\UtilsBundle\Form\Type\CustomChoiceType;
-use Librinfo\MediaBundle\Controller\CRUDController as BaseCRUDController;
+use Blast\Bundle\CoreBundle\Exception\InvalidEntityCodeException;
+use Blast\Bundle\UtilsBundle\Form\Type\CustomChoiceType;
+use Sil\Bundle\MediaBundle\Controller\CRUDController as BaseCRUDController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -24,7 +24,7 @@ class VarietyCRUDController extends BaseCRUDController
     public function hierarchyAction($id)
     {
         $species = $this->get('doctrine')
-                ->getRepository('LibrinfoVarietiesBundle:Species')
+                ->getRepository('SilVarietyBundle:Species')
                 ->find($id)
             ;
 
@@ -146,7 +146,7 @@ class VarietyCRUDController extends BaseCRUDController
         ;
 
         return $this->render(
-            'LibrinfoVarietiesBundle:Form:filter_widget.html.twig',
+            'SilVarietyBundle:Form:filter_widget.html.twig',
             array(
                 'form' => $view,
             ),

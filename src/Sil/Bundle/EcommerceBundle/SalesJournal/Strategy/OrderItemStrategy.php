@@ -10,11 +10,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EcommerceBundle\SalesJournal\Strategy;
+namespace Sil\Bundle\EcommerceBundle\SalesJournal\Strategy;
 
 use Sylius\Component\Core\Model\OrderItemInterface;
-use Librinfo\EcommerceBundle\Entity\ProductVariant;
-use Librinfo\EcommerceBundle\Entity\SalesJournalItem;
+use Sil\Bundle\EcommerceBundle\Entity\ProductVariant;
+use Sil\Bundle\EcommerceBundle\Entity\SalesJournalItem;
 
 class OrderItemStrategy implements StrategyInterface
 {

@@ -2,7 +2,7 @@
 parameters:
     blast:
 ######  Email ##########
-        Librinfo\EmailBundle\Entity\Email:
+        Sil\Bundle\EmailBundle\Entity\Email:
             Sonata\AdminBundle\Datagrid\ListMapper:
                 remove:
                     createdAt: ~
@@ -12,7 +12,7 @@ parameters:
                     sent: ~
                     _actions:
                         send:
-                            template: LibrinfoEmailBundle:CRUD:list__action_send.html.twig
+                            template: SilEmailBundle:CRUD:list__action_send.html.twig
                     _options:
                         fieldsOrder:
                             - field_to
@@ -40,10 +40,10 @@ parameters:
                                 type: textarea
                         form_group_attachments:
                             attachments:
-                                template: LibrinfoMediaBundle:CRUD:show_images.html.twig
+                                template: SilMediaBundle:CRUD:show_images.html.twig
                         form_group_tracking:
                             stats:
-                                template: LibrinfoEmailBundle:CRUD:show_field_stats.html.twig
+                                template: SilEmailBundle:CRUD:show_field_stats.html.twig
                         _options:
                             groupsOrder:
                             - form_group_general
@@ -78,11 +78,11 @@ parameters:
                                 attr:
                                     class: template_select
                             content:
-                                type: Blast\UtilsBundle\Form\Type\TinyMceType
+                                type: Blast\Bundle\UtilsBundle\Form\Type\TinyMceType
                             attachments:
-                                type: Librinfo\MediaBundle\Form\Type\DropzoneType
+                                type: Sil\Bundle\MediaBundle\Form\Type\DropzoneType
                                 required: false
-                                dropzoneTemplate: LibrinfoEmailBundle:dropzone:dropzone_template.mustache.twig
+                                dropzoneTemplate: SilEmailBundle:dropzone:dropzone_template.mustache.twig
                             _options:
                                 fieldsOrder:
                                     - field_from
@@ -132,7 +132,7 @@ parameters:
 
 ########## EmailTemplate ##########
 
-        Librinfo\EmailBundle\Entity\EmailTemplate:
+        Sil\Bundle\EmailBundle\Entity\EmailTemplate:
             Sonata\AdminBundle\Show\ShowMapper:
                 _copy: Sonata\AdminBundle\Form\FormMapper
             Sonata\AdminBundle\Form\FormMapper:
@@ -164,26 +164,26 @@ parameters:
                     show_tab_emails:
                         '':
                             email_history:
-                                template: LibrinfoEmailBundle:CRUD:show_field_emails_list.html.twig
+                                template: SilEmailBundle:CRUD:show_field_emails_list.html.twig
                                 mapped: false
 
 ################
 #   EMAILABLE  #
 ################
 
-        Blast\BaseEntitiesBundle\Entity\Traits\Emailable:
+        Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Emailable:
             Sonata\AdminBundle\Show\ShowMapper:
                 add:
                     form_group_general:
                         '':
                             email:
-                                template: LibrinfoEmailBundle:CRUD:show_field_email.html.twig
+                                template: SilEmailBundle:CRUD:show_field_email.html.twig
 
 ################################################################################
 # EmailReceipt
 ################################################################################
 
-        Librinfo\EmailBundle\Entity\EmailReceipt:
+        Sil\Bundle\EmailBundle\Entity\EmailReceipt:
             # SHOW
             Sonata\AdminBundle\Show\ShowMapper:
                 add:
@@ -227,7 +227,7 @@ parameters:
 # EmailLink
 ################################################################################
 
-        Librinfo\EmailBundle\Entity\EmailLink:
+        Sil\Bundle\EmailBundle\Entity\EmailLink:
             # SHOW
             Sonata\AdminBundle\Show\ShowMapper:
                 add:

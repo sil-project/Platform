@@ -10,9 +10,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Blast\BaseEntitiesBundle\Admin;
+namespace Blast\Bundle\BaseEntitiesBundle\Admin;
 
-use Blast\CoreBundle\Admin\CoreAdmin;
+use Blast\Bundle\CoreBundle\Admin\CoreAdmin;
 
 abstract class TreeableAdmin extends CoreAdmin
 {

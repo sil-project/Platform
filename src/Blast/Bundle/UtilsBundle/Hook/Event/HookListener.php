@@ -10,9 +10,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Blast\UtilsBundle\Hook\Event;
+namespace Blast\Bundle\UtilsBundle\Hook\Event;
 
-use Blast\UtilsBundle\Hook\Registry;
+use Blast\Bundle\UtilsBundle\Hook\Registry;
 use Symfony\Bundle\TwigBundle\TwigEngine;
 
 class HookListener

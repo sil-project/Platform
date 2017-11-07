@@ -10,10 +10,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\SeedBatchBundle\Entity\OuterExtension;
+namespace Sil\Bundle\SeedBatchBundle\Entity\OuterExtension;
 
 use Doctrine\Common\Collections\Collection;
-use Librinfo\SeedBatchBundle\Entity\Plot;
+use Sil\Bundle\SeedBatchBundle\Entity\Plot;
 
 trait HasPlots
 {

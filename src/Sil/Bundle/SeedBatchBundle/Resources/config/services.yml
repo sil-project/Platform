@@ -2,35 +2,35 @@ services:
 
 
     blast_core.label.strategy.librinfo_seedbatch:
-        class: Blast\CoreBundle\Translator\LibrinfoLabelTranslatorStrategy
-        arguments: ['Librinfo\SeedBatchBundle']
+        class: Blast\Bundle\CoreBundle\Translator\LibrinfoLabelTranslatorStrategy
+        arguments: ['Sil\Bundle\SeedBatchBundle']
 
   
 # ENTITY CODE GENERATORS
 
     librinfo_seed_batch.code_generator.seed_producer:
-        class: Librinfo\SeedBatchBundle\CodeGenerator\SeedProducerCodeGenerator
+        class: Sil\Bundle\SeedBatchBundle\CodeGenerator\SeedProducerCodeGenerator
         factory:   ['@blast_core.code_generator_factory', create]
         arguments: ['%librinfo_seed_batch.code_generator.seed_producer%', '@doctrine.orm.entity_manager']
         tags:
             - { name: blast.entity_code_generator }
 
     librinfo_seed_batch.code_generator.plot:
-        class: Librinfo\SeedBatchBundle\CodeGenerator\PlotCodeGenerator
+        class: Sil\Bundle\SeedBatchBundle\CodeGenerator\PlotCodeGenerator
         factory:   ['@blast_core.code_generator_factory', create]
         arguments: ['%librinfo_seed_batch.code_generator.plot%', '@doctrine.orm.entity_manager']
         tags:
             - { name: blast.entity_code_generator }
 
     librinfo_seed_batch.code_generator.seed_farm:
-        class: Librinfo\SeedBatchBundle\CodeGenerator\SeedFarmCodeGenerator
+        class: Sil\Bundle\SeedBatchBundle\CodeGenerator\SeedFarmCodeGenerator
         factory:   ['@blast_core.code_generator_factory', create]
         arguments: ['%librinfo_seed_batch.code_generator.seed_farm%', '@doctrine.orm.entity_manager']
         tags:
             - { name: blast.entity_code_generator }
 
     librinfo_seed_batch.code_generator.seed_batch:
-        class: Librinfo\SeedBatchBundle\CodeGenerator\SeedBatchCodeGenerator
+        class: Sil\Bundle\SeedBatchBundle\CodeGenerator\SeedBatchCodeGenerator
         factory:   ['@blast_core.code_generator_factory', create]
         arguments: ['%librinfo_seed_batch.code_generator.seed_batch%', '@doctrine.orm.entity_manager']
         tags:

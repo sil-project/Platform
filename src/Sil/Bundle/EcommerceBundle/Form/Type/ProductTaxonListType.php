@@ -10,14 +10,14 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EcommerceBundle\Form\Type;
+namespace Sil\Bundle\EcommerceBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Doctrine\ORM\EntityManagerInterface;
-use Librinfo\EcommerceBundle\Form\DataTransformer\ArrayCollectionTransformer;
+use Sil\Bundle\EcommerceBundle\Form\DataTransformer\ArrayCollectionTransformer;
 
 class ProductTaxonListType extends AbstractType
 {

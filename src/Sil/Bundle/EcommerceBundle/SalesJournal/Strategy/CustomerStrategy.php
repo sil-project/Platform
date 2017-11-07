@@ -10,13 +10,13 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EcommerceBundle\SalesJournal\Strategy;
+namespace Sil\Bundle\EcommerceBundle\SalesJournal\Strategy;
 
 use Sylius\Component\Core\Model\CustomerInterface;
 use Sylius\Component\Core\Model\OrderInterface;
 use Sylius\Component\Core\Model\OrderItemInterface;
-use Librinfo\EcommerceBundle\Entity\Payment;
-use Librinfo\EcommerceBundle\Entity\SalesJournalItem;
+use Sil\Bundle\EcommerceBundle\Entity\Payment;
+use Sil\Bundle\EcommerceBundle\Entity\SalesJournalItem;
 
 class CustomerStrategy implements StrategyInterface
 {

@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Blast\UtilsBundle\DependencyInjection;
+namespace Blast\Bundle\UtilsBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
@@ -42,7 +42,7 @@ class Configuration implements ConfigurationInterface
                                     ->defaultValue(false)
                                 ->end()
                                 ->scalarNode('class')
-                                    ->defaultValue('Blast\UtilsBundle\Entity\CustomFilter')
+                                    ->defaultValue('Blast\Bundle\UtilsBundle\Entity\CustomFilter')
                                 ->end()
                             ->end()
                         ->end()

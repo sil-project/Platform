@@ -4,7 +4,7 @@
 {% block show %}
     {{ parent() }}
     {% if admin.id(object) is not null %}
-        <a class="btn btn-info" href="{{ admin.generateObjectUrl('duplicate', object) }}"><i class="fa fa-files-o"></i> {{ 'Duplicate'|trans({}, 'LibrinfoEmailBundle') }}</a>
+        <a class="btn btn-info" href="{{ admin.generateObjectUrl('duplicate', object) }}"><i class="fa fa-files-o"></i> {{ 'Duplicate'|trans({}, 'SilEmailBundle') }}</a>
     {% endif %}
     
     {% if stats is defined %}

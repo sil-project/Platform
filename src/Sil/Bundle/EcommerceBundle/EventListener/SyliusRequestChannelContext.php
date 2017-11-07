@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EcommerceBundle\EventListener;
+namespace Sil\Bundle\EcommerceBundle\EventListener;
 
 use Symfony\Component\HttpFoundation\Request;
 use Sylius\Component\Channel\Context\RequestBased\RequestResolverInterface;

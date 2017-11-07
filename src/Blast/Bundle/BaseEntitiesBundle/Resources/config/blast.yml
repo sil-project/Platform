@@ -6,7 +6,7 @@ parameters:
                 list:
                     sort_rank: BlastBaseEntitiesBundle:CRUD:list_field_sort_rank.html.twig
 
-        Blast\BaseEntitiesBundle\Entity\Traits\Addressable:
+        Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Addressable:
             Sonata\AdminBundle\Datagrid\ListMapper:
                 add:
                     zip: ~
@@ -39,7 +39,7 @@ parameters:
                                 disabled: true
                                 required: false
 
-        Blast\BaseEntitiesBundle\Entity\Traits\Emailable:
+        Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Emailable:
             Sonata\AdminBundle\Datagrid\ListMapper:
                 add:
                     email:
@@ -63,7 +63,7 @@ parameters:
                             emailNpai: ~
                             emailNoNewsletter: ~
 
-        Blast\BaseEntitiesBundle\Entity\Traits\Nameable:
+        Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Nameable:
             Sonata\AdminBundle\Datagrid\ListMapper:
                 add:
                     name:
@@ -79,7 +79,7 @@ parameters:
                         '':
                             name: ~
 
-        Blast\BaseEntitiesBundle\Entity\Traits\Descriptible:
+        Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Descriptible:
             Sonata\AdminBundle\Show\ShowMapper:
                 add:
                     form_tab_general:
@@ -93,7 +93,7 @@ parameters:
                                 type: textarea
                                 required: false
 
-        Blast\BaseEntitiesBundle\Entity\Traits\Labelable:
+        Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Labelable:
             Sonata\AdminBundle\Datagrid\ListMapper:
                 add:
                     label: ~
@@ -108,7 +108,7 @@ parameters:
                         '':
                             label: ~
 
-        Blast\BaseEntitiesBundle\Entity\Traits\Timestampable:
+        Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Timestampable:
             Sonata\AdminBundle\Datagrid\ListMapper:
                 add:
                     createdAt: ~
@@ -137,7 +137,7 @@ parameters:
                                 required: false
                                 dp_side_by_side: true
 
-        Blast\BaseEntitiesBundle\Entity\Traits\Guidable:
+        Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Guidable:
             Sonata\AdminBundle\Datagrid\ListMapper:
                 remove:
                     id: ~
@@ -150,7 +150,7 @@ parameters:
                 remove:
                     id: ~
 
-#        Blast\BaseEntitiesBundle\Entity\Traits\Treeable:
+#        Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Treeable:
 #            Sonata\AdminBundle\Show\ShowMapper:
 #                _copy: Sonata\AdminBundle\Form\FormMapper
 #            Sonata\AdminBundle\Form\FormMapper:
@@ -160,7 +160,7 @@ parameters:
 #                            parentNode: ~
 #                                type: librinfo_baseentities_treeable  # ???
 
-        Blast\BaseEntitiesBundle\Entity\Traits\Sortable:
+        Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Sortable:
             Sonata\AdminBundle\Datagrid\ListMapper:
                 add:
                     sortRank:
@@ -170,7 +170,7 @@ parameters:
        ### DOCTRINE ###
 
         ### SearchIndexEntity  ###
-        Blast\BaseEntitiesBundle\Entity\SearchIndexEntity:
+        Blast\Bundle\BaseEntitiesBundle\Entity\SearchIndexEntity:
             # SHOW
             Sonata\AdminBundle\Show\ShowMapper:
                 add:

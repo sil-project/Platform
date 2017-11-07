@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EcommerceBundle\Fixture;
+namespace Sil\Bundle\EcommerceBundle\Fixture;
 
 use Sylius\Bundle\CoreBundle\Fixture\ChannelFixture as BaseFixture;
 use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;

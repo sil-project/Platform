@@ -27,7 +27,7 @@
         "sonata",
         "symfony"
     ],
-    "homepage": "https://github.com/libre-informatique/SymfonyLibrinfoEmailBundle",
+    "homepage": "https://github.com/libre-informatique/SymfonySilEmailBundle",
     "authors": [
         {
             "name": "Romain SANCHEZ",
@@ -40,7 +40,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Librinfo\\EmailBundle\\": "/"
+            "Librinfo\\EmailBundle\\": "."
         }
     }
 }

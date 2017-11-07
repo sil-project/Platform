@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\VarietiesBundle\DependencyInjection;
+namespace Sil\Bundle\VarietyBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
@@ -38,8 +38,8 @@ class Configuration implements ConfigurationInterface
                 ->arrayNode('code_generator')
                     ->addDefaultsIfNotSet()
                     ->children()
-                        ->scalarNode('species')->defaultValue('Librinfo\VarietiesBundle\CodeGenerator\SpeciesCodeGenerator')->end()
-                        ->scalarNode('variety')->defaultValue('Librinfo\VarietiesBundle\CodeGenerator\VarietyCodeGenerator')->end()
+                        ->scalarNode('species')->defaultValue('Sil\Bundle\VarietyBundle\CodeGenerator\SpeciesCodeGenerator')->end()
+                        ->scalarNode('variety')->defaultValue('Sil\Bundle\VarietyBundle\CodeGenerator\VarietyCodeGenerator')->end()
                     ->end()
                 ->end()
                 ->arrayNode('variety_descriptions')
@@ -55,7 +55,7 @@ class Configuration implements ConfigurationInterface
                                         ->scalarNode('label')->defaultNull()->end()
                                         ->scalarNode('choices_field')->end()
                                         ->scalarNode('template')->end()
-                                        ->scalarNode('choices_class')->defaultValue('\Blast\UtilsBundle\Entity\SelectChoice')->end()
+                                        ->scalarNode('choices_class')->defaultValue('\Blast\Bundle\UtilsBundle\Entity\SelectChoice')->end()
                                         ->booleanNode('multiple')->end()
                                         ->booleanNode('expanded')->end()
                                         ->arrayNode('choices')

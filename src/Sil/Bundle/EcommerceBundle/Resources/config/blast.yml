@@ -12,9 +12,9 @@ parameters:
 # PRODUCT
 ##########
 
-        Librinfo\EcommerceBundle\Entity\Product:
+        Sil\Bundle\EcommerceBundle\Entity\Product:
             form_theme:
-                - LibrinfoEcommerceBundle:Form:fields.html.twig
+                - SilEcommerceBundle:Form:fields.html.twig
             Sonata\AdminBundle\Show\ShowMapper:
                 forceTabs: true
                 add:
@@ -22,7 +22,7 @@ parameters:
                         '':
                             name: ~
                             slug:
-                                template: "LibrinfoEcommerceBundle:ProductAdmin:show_field_shop_link.html.twig"
+                                template: "SilEcommerceBundle:ProductAdmin:show_field_shop_link.html.twig"
                             code: ~
                             enabled:
                                 type: boolean
@@ -38,14 +38,14 @@ parameters:
                             mainTaxon: ~
                             taxons:
                                 admin_code: librinfo_ecommerce.admin.taxon
-                                template: LibrinfoEcommerceBundle:ProductAdmin:show_field_taxons.html.twig
+                                template: SilEcommerceBundle:ProductAdmin:show_field_taxons.html.twig
                         show_group_availability:
                             available:
                     show_tab_variants:
                         '':
                             variants:
                                 admin_code: librinfo_ecommerce.admin.product_variant
-                                template: LibrinfoEcommerceBundle:ProductAdmin:show_field_product_variants.html.twig
+                                template: SilEcommerceBundle:ProductAdmin:show_field_product_variants.html.twig
                     form_tab_history:
                         form_group_history:
                             createdAt: ~
@@ -53,7 +53,7 @@ parameters:
                     form_tab_images:
                         '':
                             images:
-                                template: LibrinfoMediaBundle:CRUD:show_images.html.twig
+                                template: SilMediaBundle:CRUD:show_images.html.twig
                     _options:
                         tabsOrder: [form_group_general, show_tab_variants, form_tab_images, form_tab_history]
 
@@ -83,10 +83,10 @@ parameters:
                                 required: false
                         form_group_description:
                             shortDescription:
-                                type: Blast\UtilsBundle\Form\Type\TinyMceType
+                                type: Blast\Bundle\UtilsBundle\Form\Type\TinyMceType
                                 required: false
                             description:
-                                type: Blast\UtilsBundle\Form\Type\TinyMceType
+                                type: Blast\Bundle\UtilsBundle\Form\Type\TinyMceType
                                 required: false
                             metaKeywords:
                                 type: text
@@ -96,15 +96,15 @@ parameters:
                                 required: false
                         form_group_channels_and_taxonomy:
                             channels:
-                                type: Librinfo\EcommerceBundle\Form\Type\ProductChannelsType
+                                type: Sil\Bundle\EcommerceBundle\Form\Type\ProductChannelsType
                                 multiple: true
                                 expanded: true
                             mainTaxon:
-                                type: Librinfo\EcommerceBundle\Form\Type\TaxonListType
+                                type: Sil\Bundle\EcommerceBundle\Form\Type\TaxonListType
                                 choice_label: displayName
                                 required: true
                             taxons:
-                                type: Librinfo\EcommerceBundle\Form\Type\ProductTaxonListType
+                                type: Sil\Bundle\EcommerceBundle\Form\Type\ProductTaxonListType
                                 choice_label: displayName
                                 multiple: true
                                 expanded: true
@@ -130,7 +130,7 @@ parameters:
                     form_tab_images:
                         form_group_images:
                             images:
-                                type: Librinfo\MediaBundle\Form\Type\DropzoneType
+                                type: Sil\Bundle\MediaBundle\Form\Type\DropzoneType
                                 required: false
                                 mediaContext: ecommerce_productimage
                     _options:
@@ -151,9 +151,9 @@ parameters:
                             - enabled
                     _actions:
                         shop_link:
-                            template: 'LibrinfoEcommerceBundle:CRUD:list__action_shop_link.html.twig'
+                            template: 'SilEcommerceBundle:CRUD:list__action_shop_link.html.twig'
                         # variants:
-                        #     template: 'LibrinfoEcommerceBundle:CRUD:list__action_variants.html.twig'
+                        #     template: 'SilEcommerceBundle:CRUD:list__action_variants.html.twig'
                     _export_formats:
                         csv: [code, name, available]
                         xls: csv
@@ -178,7 +178,7 @@ parameters:
 ############################
 
 
-        Librinfo\EcommerceBundle\Entity\ProductVariant:
+        Sil\Bundle\EcommerceBundle\Entity\ProductVariant:
             # SHOW
             Sonata\AdminBundle\Show\ShowMapper:
                 forceTabs: true
@@ -191,12 +191,12 @@ parameters:
                                 type: text
                             code: ~
                             optionValues:
-                                template: LibrinfoEcommerceBundle:ProductVariantAdmin:show_field_optionvalues.html.twig
+                                template: SilEcommerceBundle:ProductVariantAdmin:show_field_optionvalues.html.twig
                                 admin_code: librinfo_ecommerce_option_value.admin.product
                         show_group_pricing:
                             taxCategory: ~
                             price:
-                                template: LibrinfoEcommerceBundle:CRUD:show_field_money.html.twig
+                                template: SilEcommerceBundle:CRUD:show_field_money.html.twig
                         show_group_stock:
                             onHand: ~
                             onHold: ~
@@ -223,7 +223,7 @@ parameters:
                             name:
                                 type: text
                             code:
-                                type: Blast\CoreBundle\Form\Type\EntityCodeType
+                                type: Blast\Bundle\CoreBundle\Form\Type\EntityCodeType
                             product:
                                 type: sonata_type_model_hidden
                                 _options:
@@ -271,7 +271,7 @@ parameters:
                     available:
                         type: boolean
                     price:
-                        template: LibrinfoEcommerceBundle:ProductVariantAdmin:list_field_price.html.twig
+                        template: SilEcommerceBundle:ProductVariantAdmin:list_field_price.html.twig
                     optionValues:
                         associated_property: fullCode
                         admin_code: librinfo_ecommerce_option_value.admin.product
@@ -314,7 +314,7 @@ parameters:
 # PRODUCTVARIANT(EMBEDDED)
 ############################
 
-        Librinfo\EcommerceBundle\Admin\ProductVariantEmbeddedAdmin:
+        Sil\Bundle\EcommerceBundle\Admin\ProductVariantEmbeddedAdmin:
             # SHOW
             Sonata\AdminBundle\Show\ShowMapper:
                 forceTabs: true
@@ -341,7 +341,7 @@ parameters:
                             name:
                                 type: text
                             code:
-                                type: Blast\CoreBundle\Form\Type\EntityCodeType
+                                type: Blast\Bundle\CoreBundle\Form\Type\EntityCodeType
                             product:
                                 type: sonata_type_model_hidden
                                 _options:
@@ -431,7 +431,7 @@ parameters:
 # PRODUCTOPTION
 ####################
 
-        Librinfo\EcommerceBundle\Entity\ProductOption:
+        Sil\Bundle\EcommerceBundle\Entity\ProductOption:
             # SHOW
             Sonata\AdminBundle\Show\ShowMapper:
                 add:
@@ -489,7 +489,7 @@ parameters:
 # PRODUCTOPTIONVALUE
 ####################
 
-        Librinfo\EcommerceBundle\Entity\ProductOptionValue:
+        Sil\Bundle\EcommerceBundle\Entity\ProductOptionValue:
             # SHOW
             Sonata\AdminBundle\Show\ShowMapper:
                 add:
@@ -537,19 +537,19 @@ parameters:
                                 attr:
                                     readonly: true
                             price:
-                                type: Librinfo\EcommerceBundle\Form\Type\PriceCentsType
+                                type: Sil\Bundle\EcommerceBundle\Form\Type\PriceCentsType
                             original_price:
-                                type: Librinfo\EcommerceBundle\Form\Type\PriceCentsType
+                                type: Sil\Bundle\EcommerceBundle\Form\Type\PriceCentsType
 
 ########
 # ORDER
 ########
 
         # Sylius\Component\Core\Model\Order:
-        Librinfo\EcommerceBundle\Entity\Order:
+        Sil\Bundle\EcommerceBundle\Entity\Order:
             # SHOW
             Sonata\AdminBundle\Show\ShowMapper:
-                titleTemplate: LibrinfoEcommerceBundle:OrderAdmin/Show:show_title.html.twig
+                titleTemplate: SilEcommerceBundle:OrderAdmin/Show:show_title.html.twig
                 forceTabs: true
                 add:
                     show_tab_order_details:
@@ -557,31 +557,31 @@ parameters:
                             number: ~
                             channel: ~
                             state:
-                                template: LibrinfoEcommerceBundle:OrderAdmin/Show:_order_state.html.twig
+                                template: SilEcommerceBundle:OrderAdmin/Show:_order_state.html.twig
                             paymentState:
-                                template: LibrinfoEcommerceBundle:OrderAdmin/Show:_payment_state.html.twig
+                                template: SilEcommerceBundle:OrderAdmin/Show:_payment_state.html.twig
                             shippingState:
-                                template: LibrinfoEcommerceBundle:OrderAdmin/Show:_shipping_state.html.twig
+                                template: SilEcommerceBundle:OrderAdmin/Show:_shipping_state.html.twig
                             notes:
-                                template: LibrinfoEcommerceBundle:OrderAdmin/Show:_notes.html.twig
+                                template: SilEcommerceBundle:OrderAdmin/Show:_notes.html.twig
                             invoice_list:
                                 mapped: false
-                                template: LibrinfoEcommerceBundle:OrderAdmin/Show:_invoices.html.twig
+                                template: SilEcommerceBundle:OrderAdmin/Show:_invoices.html.twig
                         show_group_customer:
                             customer:
                                 admin_code: librinfo_ecommerce.admin.customer
                             customer.createdAt: ~
                             customerIp: ~
                             localeCode:
-                                template: LibrinfoEcommerceBundle:OrderAdmin/Show:_locale_code.html.twig
+                                template: SilEcommerceBundle:OrderAdmin/Show:_locale_code.html.twig
                             tokenValue: ~
                         show_group_totals:
                             itemsTotal:
-                                template: LibrinfoEcommerceBundle:CRUD:show_field_money.html.twig
+                                template: SilEcommerceBundle:CRUD:show_field_money.html.twig
                             adjustmentsTotal:
-                                template: LibrinfoEcommerceBundle:CRUD:show_field_money.html.twig
+                                template: SilEcommerceBundle:CRUD:show_field_money.html.twig
                             total:
-                                template: LibrinfoEcommerceBundle:CRUD:show_field_money.html.twig
+                                template: SilEcommerceBundle:CRUD:show_field_money.html.twig
                             currencyCode: ~
                             exchangeRate: ~
                         show_group_actions:
@@ -589,7 +589,7 @@ parameters:
                                 class: col-md-12
                             orderActions:
                                 mapped: false
-                                template: LibrinfoEcommerceBundle:OrderAdmin/Show:_order_actions.html.twig
+                                template: SilEcommerceBundle:OrderAdmin/Show:_order_actions.html.twig
                         _options:
                             attr:
                                 class: inline-block
@@ -602,26 +602,26 @@ parameters:
                         '':
                             summary:
                                 mapped: false
-                                template: LibrinfoEcommerceBundle:OrderAdmin/Show:_summary.html.twig
+                                template: SilEcommerceBundle:OrderAdmin/Show:_summary.html.twig
                     show_tab_payment_delivery:
                         show_group_addresses:
                             shipping_address:
                                 mapped: false
-                                template: LibrinfoEcommerceBundle:OrderAdmin/Show:_shipping_address.html.twig
+                                template: SilEcommerceBundle:OrderAdmin/Show:_shipping_address.html.twig
                             billing_address:
                                 mapped: false
-                                template: LibrinfoEcommerceBundle:OrderAdmin/Show:_billing_address.html.twig
+                                template: SilEcommerceBundle:OrderAdmin/Show:_billing_address.html.twig
                         show_group_payments:
                             payment_state:
                                 mapped: false
-                                template: LibrinfoEcommerceBundle:OrderAdmin/Show:_payment_state_header.html.twig
+                                template: SilEcommerceBundle:OrderAdmin/Show:_payment_state_header.html.twig
                             payments_list:
                                 mapped: false
-                                template: LibrinfoEcommerceBundle:OrderAdmin/Show:_payments.html.twig
+                                template: SilEcommerceBundle:OrderAdmin/Show:_payments.html.twig
                         show_group_shipments:
                             shipments:
                                 mapped: false
-                                template: LibrinfoEcommerceBundle:OrderAdmin/Show:_shipments.html.twig
+                                template: SilEcommerceBundle:OrderAdmin/Show:_shipments.html.twig
                     show_tab_history:
                         '':
                             createdAt: ~
@@ -667,14 +667,14 @@ parameters:
                                 required: true
                         form_group_addresses:
                             shippingAddress:
-                                type: Librinfo\EcommerceBundle\Form\Type\OrderAddressType
+                                type: Sil\Bundle\EcommerceBundle\Form\Type\OrderAddressType
                                 attr:
                                     class: nested-form inline-block
                                     width: 50
                                 constraints:
                                     - Symfony\Component\Validator\Constraints\Valid
                             billingAddress:
-                                type: Librinfo\EcommerceBundle\Form\Type\OrderAddressType
+                                type: Sil\Bundle\EcommerceBundle\Form\Type\OrderAddressType
                                 attr:
                                     class: nested-form inline-block
                                     width: 50
@@ -698,18 +698,18 @@ parameters:
                         admin_code: librinfo_ecommerce.admin.customer
                     notes: ~
                     state:
-                        template: LibrinfoEcommerceBundle:OrderAdmin:list_field_state.html.twig
+                        template: SilEcommerceBundle:OrderAdmin:list_field_state.html.twig
                     #checkoutState: ~
                     paymentState:
-                        template: LibrinfoEcommerceBundle:OrderAdmin:list_field_payment_state.html.twig
+                        template: SilEcommerceBundle:OrderAdmin:list_field_payment_state.html.twig
                     shippingState:
-                        template: LibrinfoEcommerceBundle:OrderAdmin:list_field_shipping_state.html.twig
+                        template: SilEcommerceBundle:OrderAdmin:list_field_shipping_state.html.twig
                     total:
                         type: text
-                        template: LibrinfoEcommerceBundle:OrderAdmin:list_field_total.html.twig
+                        template: SilEcommerceBundle:OrderAdmin:list_field_total.html.twig
                     _actions:
                         delete:
-                            template: LibrinfoEcommerceBundle:OrderAdmin:list__action_delete.html.twig
+                            template: SilEcommerceBundle:OrderAdmin:list__action_delete.html.twig
             # FILTERS
             Sonata\AdminBundle\Datagrid\DatagridMapper:
                 add:
@@ -729,17 +729,17 @@ parameters:
                     notes: ~
                     state:
                         type: doctrine_orm_string
-                        field_type: Librinfo\EcommerceBundle\Form\Type\OrderStateType
+                        field_type: Sil\Bundle\EcommerceBundle\Form\Type\OrderStateType
                         field_options:
                             no_cart: true
                     paymentState:
                         type: doctrine_orm_string
-                        field_type: Librinfo\EcommerceBundle\Form\Type\PaymentStateType
+                        field_type: Sil\Bundle\EcommerceBundle\Form\Type\PaymentStateType
                         field_options:
                             no_cart: true
                     shippingState:
                         type: doctrine_orm_string
-                        field_type: Librinfo\EcommerceBundle\Form\Type\ShippingStateType
+                        field_type: Sil\Bundle\EcommerceBundle\Form\Type\ShippingStateType
                         field_options:
                             no_cart: true
                     # TODO euros to cents transformer:
@@ -763,7 +763,7 @@ parameters:
 # ADMINUSER
 ################
 
-        Librinfo\EcommerceBundle\Entity\AdminUser:
+        Sil\Bundle\EcommerceBundle\Entity\AdminUser:
             # SHOW
             Sonata\AdminBundle\Show\ShowMapper:
                 add:
@@ -882,7 +882,7 @@ parameters:
 # PAYMENT
 ################
 
-        Librinfo\EcommerceBundle\Entity\Payment:
+        Sil\Bundle\EcommerceBundle\Entity\Payment:
             # SHOW
             Sonata\AdminBundle\Show\ShowMapper:
                 remove:
@@ -896,9 +896,9 @@ parameters:
                             order.channel: ~
                             method: ~
                             state:
-                                template: LibrinfoEcommerceBundle:PaymentAdmin/Show:_payment_state.html.twig
+                                template: SilEcommerceBundle:PaymentAdmin/Show:_payment_state.html.twig
                             amount:
-                                template: LibrinfoEcommerceBundle:CRUD:show_field_money.html.twig
+                                template: SilEcommerceBundle:CRUD:show_field_money.html.twig
                             updatedAt:
                                 label: librinfo.ecommercebundle.paid_at
                         show_group_order:
@@ -907,11 +907,11 @@ parameters:
                             order.tokenValue: ~
                         show_group_totals:
                             order.itemsTotal:
-                                template: LibrinfoEcommerceBundle:CRUD:show_field_money.html.twig
+                                template: SilEcommerceBundle:CRUD:show_field_money.html.twig
                             order.adjustmentsTotal:
-                                template: LibrinfoEcommerceBundle:CRUD:show_field_money.html.twig
+                                template: SilEcommerceBundle:CRUD:show_field_money.html.twig
                             order.total:
-                                template: LibrinfoEcommerceBundle:CRUD:show_field_money.html.twig
+                                template: SilEcommerceBundle:CRUD:show_field_money.html.twig
                             order.currencyCode: ~
             # FORM
             Sonata\AdminBundle\Form\FormMapper:
@@ -919,9 +919,9 @@ parameters:
                     '':
                         '':
                             state:
-                                type: Librinfo\EcommerceBundle\Form\Type\PaymentStateType
+                                type: Sil\Bundle\EcommerceBundle\Form\Type\PaymentStateType
                             amount:
-                                type: \Librinfo\EcommerceBundle\Form\Type\PriceCentsType
+                                type: \Sil\Bundle\EcommerceBundle\Form\Type\PriceCentsType
                             currencyCode: ~
                             order:
                                 type: sonata_type_model
@@ -958,19 +958,19 @@ parameters:
                     method:
                         label: librinfo.ecommercebundle.payment_method
                     order.paymentState:
-                        template: LibrinfoEcommerceBundle:PaymentAdmin:list_field_state.html.twig
+                        template: SilEcommerceBundle:PaymentAdmin:list_field_state.html.twig
                     amount:
                         type: text
-                        template: LibrinfoEcommerceBundle:PaymentAdmin:list_field_amount.html.twig
+                        template: SilEcommerceBundle:PaymentAdmin:list_field_amount.html.twig
                     dueAmount:
                         type: text
-                        template: LibrinfoEcommerceBundle:PaymentAdmin:list_field_due_amount.html.twig
+                        template: SilEcommerceBundle:PaymentAdmin:list_field_due_amount.html.twig
                         mapped: false
                     createdAt: ~
                     updatedAt: ~
                     _actions:
                         delete:
-                            template: LibrinfoEcommerceBundle:OrderAdmin:list__action_delete.html.twig
+                            template: SilEcommerceBundle:OrderAdmin:list__action_delete.html.twig
             # FILTERS
             Sonata\AdminBundle\Datagrid\DatagridMapper:
                 add:
@@ -983,7 +983,7 @@ parameters:
                     # order.customer.circle: ~
                     order.paymentState:
                         type: doctrine_orm_string
-                        field_type: Librinfo\EcommerceBundle\Form\Type\PaymentStateType
+                        field_type: Sil\Bundle\EcommerceBundle\Form\Type\PaymentStateType
                         field_options:
                             no_cart: true
                     method:
@@ -1002,7 +1002,7 @@ parameters:
 # SALESJOURNAL
 ################
 
-        Librinfo\EcommerceBundle\Admin\SalesJournalAdmin:
+        Sil\Bundle\EcommerceBundle\Admin\SalesJournalAdmin:
 #            # LIST
             Sonata\AdminBundle\Datagrid\ListMapper:
                 remove:
@@ -1017,9 +1017,9 @@ parameters:
                     payment: ~
                     label: ~
                     debit:
-                        template: LibrinfoEcommerceBundle:CRUD:list_field_money.html.twig
+                        template: SilEcommerceBundle:CRUD:list_field_money.html.twig
                     credit:
-                        template: LibrinfoEcommerceBundle:CRUD:list_field_money.html.twig
+                        template: SilEcommerceBundle:CRUD:list_field_money.html.twig
 
 
 #            # FILTERS
@@ -1034,18 +1034,18 @@ parameters:
                     payment: ~
                     label: ~
                     debit:
-                        template: LibrinfoEcommerceBundle:CRUD:list_field_money.html.twig
+                        template: SilEcommerceBundle:CRUD:list_field_money.html.twig
                     credit:
-                        template: LibrinfoEcommerceBundle:CRUD:list_field_money.html.twig
+                        template: SilEcommerceBundle:CRUD:list_field_money.html.twig
 
 
 #################
 # PAYMENTMETHOD
 #################
 
-        Librinfo\EcommerceBundle\Admin\PaymentMethodAdmin:
+        Sil\Bundle\EcommerceBundle\Admin\PaymentMethodAdmin:
             form_theme:
-                - LibrinfoEcommerceBundle:Form:fields.html.twig
+                - SilEcommerceBundle:Form:fields.html.twig
             Sonata\AdminBundle\Datagrid\ListMapper:
                 remove:
                     _actions: [duplicate]
@@ -1074,7 +1074,7 @@ parameters:
                             translation.description:
                                 type: textarea
                             translation.instructions:
-                                type: Blast\UtilsBundle\Form\Type\TinyMceType
+                                type: Blast\Bundle\UtilsBundle\Form\Type\TinyMceType
                                 required: true
                                 help: librinfo.ecommercebundle.translation__instructions_help
 ############
@@ -1082,7 +1082,7 @@ parameters:
 ############
 
         # SHOW
-        Librinfo\CRMBundle\Admin\CustomerAdmin:
+        Sil\Bundle\CRMBundle\Admin\CustomerAdmin:
             Sonata\AdminBundle\Show\ShowMapper:
                 add:
                     form_tab_general:
@@ -1130,7 +1130,7 @@ parameters:
 #################
 
         # SHOW
-        Librinfo\EcommerceBundle\Entity\CustomerGroup:
+        Sil\Bundle\EcommerceBundle\Entity\CustomerGroup:
             Sonata\AdminBundle\Show\ShowMapper:
                 add:
                     form_tab_general:
@@ -1159,7 +1159,7 @@ parameters:
 # TAXRATE
 ##########
 
-        Librinfo\EcommerceBundle\Entity\TaxRate:
+        Sil\Bundle\EcommerceBundle\Entity\TaxRate:
             baseRoute:
                 name: admin_librinfo_ecommerce_taxrate
                 pattern: librinfo/ecommerce/taxrate
@@ -1272,7 +1272,7 @@ parameters:
 # ZONE
 #######
 
-        Librinfo\EcommerceBundle\Entity\Zone:
+        Sil\Bundle\EcommerceBundle\Entity\Zone:
             baseRoute:
                 name: admin_librinfo_ecommerce_zone
                 pattern: librinfo/ecommerce/zone
@@ -1307,7 +1307,7 @@ parameters:
 # TAXON
 #######
 
-        Librinfo\EcommerceBundle\Entity\Taxon:
+        Sil\Bundle\EcommerceBundle\Entity\Taxon:
             baseRoute:
                 name: admin_librinfo_ecommerce_taxon
                 pattern: librinfo/ecommerce/taxon
@@ -1327,7 +1327,7 @@ parameters:
             Sonata\AdminBundle\Datagrid\ListMapper:
                 add:
                     translation.name:
-                        template: LibrinfoEcommerceBundle:CRUD:list_field_treeable.html.twig
+                        template: SilEcommerceBundle:CRUD:list_field_treeable.html.twig
                         identifier: true
                     code:
                         sortable: false
@@ -1341,7 +1341,7 @@ parameters:
 # CHANNEL
 ################################################################################
 
-        Librinfo\EcommerceBundle\Entity\Channel:
+        Sil\Bundle\EcommerceBundle\Entity\Channel:
             baseRoute:
                 name: admin_librinfo_ecommerce_channel
                 pattern: librinfo/ecommerce/channel
@@ -1437,13 +1437,13 @@ parameters:
                         form_group_channel:
                             code:
                                 required: true
-                                type: Blast\UtilsBundle\Form\Type\UniqueFieldType
+                                type: Blast\Bundle\UtilsBundle\Form\Type\UniqueFieldType
                                 attr:
                                     class: inline-block
                                     width: 50
                             name:
                                 required: true
-                                type: Blast\UtilsBundle\Form\Type\UniqueFieldType
+                                type: Blast\Bundle\UtilsBundle\Form\Type\UniqueFieldType
                                 attr:
                                     class: inline-block
                                     width: 50
@@ -1540,7 +1540,7 @@ parameters:
 # SHIPPINGMETHOD
 ################################################################################
 
-        Librinfo\EcommerceBundle\Entity\ShippingMethod:
+        Sil\Bundle\EcommerceBundle\Entity\ShippingMethod:
             baseRoute:
                 name: admin_librinfo_ecommerce_shipping_method
                 pattern: librinfo/ecommerce/shipping_method
@@ -1564,7 +1564,7 @@ parameters:
                             channels: ~
                             configuration:
                                 label: 'librinfo.ecommercebundle.amount'
-                                template: LibrinfoEcommerceBundle:CRUD:show_shipping_method_configuration_array.html.twig
+                                template: SilEcommerceBundle:CRUD:show_shipping_method_configuration_array.html.twig
                             zone: ~
 
                     show_tab_history:
@@ -1593,7 +1593,7 @@ parameters:
                         form_group_parameters:
                             zone: ~
                             channels:
-                                type: Librinfo\EcommerceBundle\Form\Type\ShippingMethodChannelsType
+                                type: Sil\Bundle\EcommerceBundle\Form\Type\ShippingMethodChannelsType
                                 multiple: true
                                 expanded: true
                     form_tab_history:
@@ -1813,16 +1813,16 @@ parameters:
                     email: ~
                     enabled: ~
                     lastLogin: ~
-        Librinfo\EcommerceBundle\Entity\Invoice:
+        Sil\Bundle\EcommerceBundle\Entity\Invoice:
             Sonata\AdminBundle\Show\ShowMapper:
                 add:
                     number: ~
                     order: ~
                     total:
-                        template: LibrinfoEcommerceBundle:CRUD:show_field_money.html.twig
+                        template: SilEcommerceBundle:CRUD:show_field_money.html.twig
             Sonata\AdminBundle\Datagrid\ListMapper:
                 add:
                     number: ~
                     order: ~
                     total:
-                        template: LibrinfoEcommerceBundle:CRUD:list_field_money.html.twig
+                        template: SilEcommerceBundle:CRUD:list_field_money.html.twig

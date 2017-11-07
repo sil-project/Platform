@@ -1,7 +1,7 @@
-Blast\UtilsBundle\Entity\CustomFilter:
+Blast\Bundle\UtilsBundle\Entity\CustomFilter:
     type: entity
     table: blast_custom_filters
-    repositoryClass: Blast\UtilsBundle\Repository\CustomFilterRepository
+    repositoryClass: Blast\Bundle\UtilsBundle\Repository\CustomFilterRepository
     blast:
         loggable:     true
     fields:
@@ -19,4 +19,4 @@ Blast\UtilsBundle\Entity\CustomFilter:
             nullable: true
     manyToOne:
         user:
-            targetEntity: Blast\CoreBundle\Model\UserInterface
+            targetEntity: Blast\Bundle\CoreBundle\Model\UserInterface

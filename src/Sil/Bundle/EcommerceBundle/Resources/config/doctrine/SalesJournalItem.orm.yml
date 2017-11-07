@@ -1,6 +1,6 @@
-Librinfo\EcommerceBundle\Entity\SalesJournalItem:
+Sil\Bundle\EcommerceBundle\Entity\SalesJournalItem:
     type: entity
-    repositoryClass: Librinfo\EcommerceBundle\Repository\SalesJournalItemRepository
+    repositoryClass: Sil\Bundle\EcommerceBundle\Repository\SalesJournalItemRepository
     fields:
         operationDate:
             type: datetime
@@ -21,8 +21,8 @@ Librinfo\EcommerceBundle\Entity\SalesJournalItem:
             nullable: false
     manyToOne:
         order:
-            targetEntity: Librinfo\EcommerceBundle\Entity\Order
+            targetEntity: Sil\Bundle\EcommerceBundle\Entity\Order
         invoice:
-            targetEntity: Librinfo\EcommerceBundle\Entity\Invoice
+            targetEntity: Sil\Bundle\EcommerceBundle\Entity\Invoice
         payment:
-            targetEntity: Librinfo\EcommerceBundle\Entity\Payment
+            targetEntity: Sil\Bundle\EcommerceBundle\Entity\Payment

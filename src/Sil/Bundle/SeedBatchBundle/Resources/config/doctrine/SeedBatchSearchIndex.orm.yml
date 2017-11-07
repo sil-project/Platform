@@ -1,2 +1,2 @@
-Librinfo\SeedBatchBundle\Entity\SeedBatchSearchIndex:
+Sil\Bundle\SeedBatchBundle\Entity\SeedBatchSearchIndex:
     type: entity

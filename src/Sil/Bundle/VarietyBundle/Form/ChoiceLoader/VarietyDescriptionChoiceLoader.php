@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\VarietiesBundle\Form\ChoiceLoader;
+namespace Sil\Bundle\VarietyBundle\Form\ChoiceLoader;
 
 use Symfony\Component\Form\ChoiceList\ArrayChoiceList;
 use Symfony\Component\Form\ChoiceList\ChoiceListInterface;
@@ -64,7 +64,7 @@ class VarietyDescriptionChoiceLoader implements ChoiceLoaderInterface
     {
         $choiceList = [];
         $fieldSet = ucfirst($this->options['fieldset']);
-        $qb = $this->manager->getRepository(sprintf('LibrinfoVarietiesBundle:VarietyDescription%s', $fieldSet))->createQueryBuilder('v');
+        $qb = $this->manager->getRepository(sprintf('SilVarietyBundle:VarietyDescription%s', $fieldSet))->createQueryBuilder('v');
 
         $choices = $qb->select('v.field')
                 ->distinct(true)

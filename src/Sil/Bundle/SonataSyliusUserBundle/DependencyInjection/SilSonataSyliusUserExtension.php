@@ -10,10 +10,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\SonataSyliusUserBundle\DependencyInjection;
+namespace Sil\Bundle\SonataSyliusUserBundle\DependencyInjection;
 
-use Blast\CoreBundle\DependencyInjection\BlastCoreExtension;
+use Blast\Bundle\CoreBundle\DependencyInjection\BlastCoreExtension;
 
-class SonataSyliusUserExtension extends BlastCoreExtension
+class SilSonataSyliusUserExtension extends BlastCoreExtension
 {
 }

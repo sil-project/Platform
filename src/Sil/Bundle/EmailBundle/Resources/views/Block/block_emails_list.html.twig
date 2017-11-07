@@ -49,9 +49,9 @@
                             {% if not email.sent %}
                                 <a href="{{ path('admin_librinfo_email_email_send') }}"
                                    class="btn btn-sm btn-default ajax-send-email"
-                                   title="{{ 'Send'|trans({}, 'LibrinfoEmailBundle') }}">
+                                   title="{{ 'Send'|trans({}, 'SilEmailBundle') }}">
                                     <i class="fa fa-paper-plane"></i>
-                                    {{ 'action_send'|trans({}, 'LibrinfoEmailBundle') }}
+                                    {{ 'action_send'|trans({}, 'SilEmailBundle') }}
                                 </a>
                             {% endif %}
                         </div>

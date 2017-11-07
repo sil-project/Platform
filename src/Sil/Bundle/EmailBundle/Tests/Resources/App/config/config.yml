@@ -44,7 +44,7 @@ twig:
         - 'BlastCoreBundle:Admin/Form:fields.html.twig'
         - 'BlastUtilsBundle:Form:fields.html.twig'
         - 'BlastBaseEntitiesBundle:Form:fields.html.twig'
-        - 'LibrinfoMediaBundle:Form:fields.html.twig'
+        - 'SilMediaBundle:Form:fields.html.twig'
 
 # Doctrine Configuration
 doctrine:

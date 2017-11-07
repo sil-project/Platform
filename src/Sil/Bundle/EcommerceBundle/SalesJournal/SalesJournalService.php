@@ -10,14 +10,14 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EcommerceBundle\SalesJournal;
+namespace Sil\Bundle\EcommerceBundle\SalesJournal;
 
-use Librinfo\EcommerceBundle\Entity\OrderInterface;
-use Librinfo\EcommerceBundle\Entity\Invoice;
-use Librinfo\EcommerceBundle\Entity\Payment;
-use Librinfo\EcommerceBundle\SalesJournal\Handler\OrderHandler;
-use Librinfo\EcommerceBundle\SalesJournal\Handler\PaymentHandler;
-use Librinfo\EcommerceBundle\SalesJournal\Factory\SalesJournalItemFactory;
+use Sil\Bundle\EcommerceBundle\Entity\OrderInterface;
+use Sil\Bundle\EcommerceBundle\Entity\Invoice;
+use Sil\Bundle\EcommerceBundle\Entity\Payment;
+use Sil\Bundle\EcommerceBundle\SalesJournal\Handler\OrderHandler;
+use Sil\Bundle\EcommerceBundle\SalesJournal\Handler\PaymentHandler;
+use Sil\Bundle\EcommerceBundle\SalesJournal\Factory\SalesJournalItemFactory;
 
 class SalesJournalService
 {

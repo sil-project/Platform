@@ -34,7 +34,7 @@ class AppKernel extends Kernel
         $bundles = [
             //...
 
-            new Blast\DoctrineSessionBundle\BlastDoctrineSessionBundle(),
+            new Blast\Bundle\DoctrineSessionBundle\BlastDoctrineSessionBundle(),
 
         ];
         //...
@@ -119,7 +119,7 @@ Usage
 -----
 ```php
 
-use Blast\DoctrineSessionBundle\Handler\DoctrineORMHandler;
+use Blast\Bundle\DoctrineSessionBundle\Handler\DoctrineORMHandler;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\HttpFoundation\Session\Storage\NativeSessionStorage;
 
@@ -127,7 +127,7 @@ use Symfony\Component\HttpFoundation\Session\Storage\NativeSessionStorage;
 
         $doctrinehandler = new DoctrineORMHandler(
                          $this->get('doctrine'),
-                         'Blast\DoctrineSessionBundle\Entity\Session');
+                         'Blast\Bundle\DoctrineSessionBundle\Entity\Session');
 
         $storage = new NativeSessionStorage(
                  array(),

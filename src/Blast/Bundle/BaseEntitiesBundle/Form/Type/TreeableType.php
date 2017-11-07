@@ -10,14 +10,14 @@
  * file that was distributed with this source code.
  */
 
-namespace Blast\BaseEntitiesBundle\Form\Type;
+namespace Blast\Bundle\BaseEntitiesBundle\Form\Type;
 
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\OptionsResolver\Options;
 use Doctrine\ORM\EntityManager;
-use Blast\CoreBundle\Form\AbstractType;
+use Blast\Bundle\CoreBundle\Form\AbstractType;
 
 class TreeableType extends AbstractType
 {

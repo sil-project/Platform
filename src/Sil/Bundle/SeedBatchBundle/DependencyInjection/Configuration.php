@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\SeedBatchBundle\DependencyInjection;
+namespace Sil\Bundle\SeedBatchBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
@@ -38,10 +38,10 @@ class Configuration implements ConfigurationInterface
                 ->arrayNode('code_generator')
                     ->addDefaultsIfNotSet()
                     ->children()
-                        ->scalarNode('seed_batch')->defaultValue('Librinfo\SeedBatchBundle\CodeGenerator\SeedBatchCodeGenerator')->end()
-                        ->scalarNode('seed_producer')->defaultValue('Librinfo\SeedBatchBundle\CodeGenerator\SeedProducerCodeGenerator')->end()
-                        ->scalarNode('plot')->defaultValue('Librinfo\SeedBatchBundle\CodeGenerator\PlotCodeGenerator')->end()
-                        ->scalarNode('seed_farm')->defaultValue('Librinfo\SeedBatchBundle\CodeGenerator\SeedFarmCodeGenerator')->end()
+                        ->scalarNode('seed_batch')->defaultValue('Sil\Bundle\SeedBatchBundle\CodeGenerator\SeedBatchCodeGenerator')->end()
+                        ->scalarNode('seed_producer')->defaultValue('Sil\Bundle\SeedBatchBundle\CodeGenerator\SeedProducerCodeGenerator')->end()
+                        ->scalarNode('plot')->defaultValue('Sil\Bundle\SeedBatchBundle\CodeGenerator\PlotCodeGenerator')->end()
+                        ->scalarNode('seed_farm')->defaultValue('Sil\Bundle\SeedBatchBundle\CodeGenerator\SeedFarmCodeGenerator')->end()
                     ->end()
                 ->end()
             ->end()

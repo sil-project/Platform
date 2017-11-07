@@ -10,12 +10,12 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EmailBundle\Services\SwiftMailer\Spool;
+namespace Sil\Bundle\EmailBundle\Services\SwiftMailer\Spool;
 
 use Doctrine\ORM\EntityManager;
 use Symfony\Bundle\FrameworkBundle\Routing\Router;
-use Librinfo\EmailBundle\Services\Tracking;
-use Librinfo\EmailBundle\Services\InlineAttachments;
+use Sil\Bundle\EmailBundle\Services\Tracking;
+use Sil\Bundle\EmailBundle\Services\InlineAttachments;
 
 /**
  * Class DbSpool.
@@ -57,7 +57,7 @@ class DbSpool extends \Swift_ConfigurableSpool
         $this->router = $router;
         $this->manager = $manager;
         $this->environment = $environment;
-        $this->repository = $this->manager->getRepository('LibrinfoEmailBundle:Email');
+        $this->repository = $this->manager->getRepository('SilEmailBundle:Email');
     }
 
     /**

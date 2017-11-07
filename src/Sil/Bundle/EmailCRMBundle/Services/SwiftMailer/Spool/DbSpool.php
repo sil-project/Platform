@@ -10,13 +10,13 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EmailCRMBundle\Services\SwiftMailer\Spool;
+namespace Sil\Bundle\EmailCRMBundle\Services\SwiftMailer\Spool;
 
-use Librinfo\EmailBundle\Services\SwiftMailer\Spool\DbSpool as BaseDbSpool;
-use Librinfo\EmailBundle\Services\SwiftMailer\Spool\SpoolStatus;
-use Librinfo\EmailBundle\Services\InlineAttachments;
-use Librinfo\EmailCRMBundle\Services\SwiftMailer\DecoratorPlugin\Replacements;
-use Librinfo\EmailCRMBundle\Services\AddressManager;
+use Sil\Bundle\EmailBundle\Services\SwiftMailer\Spool\DbSpool as BaseDbSpool;
+use Sil\Bundle\EmailBundle\Services\SwiftMailer\Spool\SpoolStatus;
+use Sil\Bundle\EmailBundle\Services\InlineAttachments;
+use Sil\Bundle\EmailCRMBundle\Services\SwiftMailer\DecoratorPlugin\Replacements;
+use Sil\Bundle\EmailCRMBundle\Services\AddressManager;
 use Doctrine\ORM\EntityManager;
 use Symfony\Bundle\FrameworkBundle\Routing\Router;
 
@@ -40,7 +40,7 @@ class DbSpool extends BaseDbSpool
         $this->router = $router;
         $this->manager = $manager;
         $this->environment = $environment;
-        $this->repository = $this->manager->getRepository('LibrinfoEmailBundle:Email');
+        $this->repository = $this->manager->getRepository('SilEmailBundle:Email');
         $this->addressManager = $addressManager;
     }
 

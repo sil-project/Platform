@@ -10,12 +10,12 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EcommerceBundle\Entity;
+namespace Sil\Bundle\EcommerceBundle\Entity;
 
 use Sylius\Component\Core\Model\TaxRate as BaseTaxRate;
-use Blast\OuterExtensionBundle\Entity\Traits\OuterExtensible;
+use Blast\Bundle\OuterExtensionBundle\Entity\Traits\OuterExtensible;
 /* @todo reference to AppBundle should be removed */
-use AppBundle\Entity\OuterExtension\LibrinfoEcommerceBundle\TaxRateExtension;
+use AppBundle\Entity\OuterExtension\SilEcommerceBundle\TaxRateExtension;
 
 class TaxRate extends BaseTaxRate
 {

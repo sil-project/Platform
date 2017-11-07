@@ -10,17 +10,17 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\SeedBatchBundle\Entity;
+namespace Sil\Bundle\SeedBatchBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use AppBundle\Entity\OuterExtension\LibrinfoSeedBatchBundle\PlotExtension;
-use Blast\BaseEntitiesBundle\Entity\Traits\Addressable;
-use Blast\BaseEntitiesBundle\Entity\Traits\BaseEntity;
-use Blast\BaseEntitiesBundle\Entity\Traits\Descriptible;
-use Blast\BaseEntitiesBundle\Entity\Traits\Loggable;
-use Blast\BaseEntitiesBundle\Entity\Traits\Searchable;
-use Blast\BaseEntitiesBundle\Entity\Traits\Timestampable;
-use Blast\OuterExtensionBundle\Entity\Traits\OuterExtensible;
+use AppBundle\Entity\OuterExtension\SilSeedBatchBundle\PlotExtension;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Addressable;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\BaseEntity;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Descriptible;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Loggable;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Searchable;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Timestampable;
+use Blast\Bundle\OuterExtensionBundle\Entity\Traits\OuterExtensible;
 
 /**
  * Plot.
@@ -47,7 +47,7 @@ class Plot
     private $seedBatches;
 
     /**
-     * @var \Librinfo\CRMBundle\Entity\Organism
+     * @var \Sil\Bundle\CRMBundle\Entity\Organism
      */
     private $producer;
 
@@ -107,11 +107,11 @@ class Plot
     /**
      * Add seedBatch.
      *
-     * @param \Librinfo\SeedBatchBundle\Entity\SeedBatch $seedBatch
+     * @param \Sil\Bundle\SeedBatchBundle\Entity\SeedBatch $seedBatch
      *
      * @return Plot
      */
-    public function addSeedBatch(\Librinfo\SeedBatchBundle\Entity\SeedBatch $seedBatch)
+    public function addSeedBatch(\Sil\Bundle\SeedBatchBundle\Entity\SeedBatch $seedBatch)
     {
         $this->seedBatches[] = $seedBatch;
 
@@ -121,11 +121,11 @@ class Plot
     /**
      * Remove seedBatch.
      *
-     * @param \Librinfo\SeedBatchBundle\Entity\SeedBatch $seedBatch
+     * @param \Sil\Bundle\SeedBatchBundle\Entity\SeedBatch $seedBatch
      *
      * @return bool tRUE if this collection contained the specified element, FALSE otherwise
      */
-    public function removeSeedBatch(\Librinfo\SeedBatchBundle\Entity\SeedBatch $seedBatch)
+    public function removeSeedBatch(\Sil\Bundle\SeedBatchBundle\Entity\SeedBatch $seedBatch)
     {
         return $this->seedBatches->removeElement($seedBatch);
     }
@@ -143,11 +143,11 @@ class Plot
     /**
      * Set producer.
      *
-     * @param \Librinfo\CRMBundle\Entity\Organism $producer
+     * @param \Sil\Bundle\CRMBundle\Entity\Organism $producer
      *
      * @return Plot
      */
-    public function setProducer(\Librinfo\CRMBundle\Entity\Organism $producer = null)
+    public function setProducer(\Sil\Bundle\CRMBundle\Entity\Organism $producer = null)
     {
         $this->producer = $producer;
 
@@ -157,11 +157,11 @@ class Plot
     /**
      * Set Organism (Producer in fact).
      *
-     * @param \Librinfo\CRMBundle\Entity\Organism $producer
+     * @param \Sil\Bundle\CRMBundle\Entity\Organism $producer
      *
      * @return Plot
      */
-    public function setOrganism(\Librinfo\CRMBundle\Entity\Organism $producer = null)
+    public function setOrganism(\Sil\Bundle\CRMBundle\Entity\Organism $producer = null)
     {
         $this->setProducer($producer);
 
@@ -171,7 +171,7 @@ class Plot
     /**
      * Get producer.
      *
-     * @return \Librinfo\CRMBundle\Entity\Organism
+     * @return \Sil\Bundle\CRMBundle\Entity\Organism
      */
     public function getProducer()
     {
@@ -181,11 +181,11 @@ class Plot
     /**
      * Add certifications.
      *
-     * @param \Librinfo\SeedBatchBundle\Entity\Certification $certifications
+     * @param \Sil\Bundle\SeedBatchBundle\Entity\Certification $certifications
      *
      * @return Plot
      */
-    public function addCertification(\Librinfo\SeedBatchBundle\Entity\Certification $certifications)
+    public function addCertification(\Sil\Bundle\SeedBatchBundle\Entity\Certification $certifications)
     {
         $this->certifications[] = $certifications;
 
@@ -195,9 +195,9 @@ class Plot
     /**
      * Remove certification.
      *
-     * @param \Librinfo\SeedBatchBundle\Entity\Certification $certification
+     * @param \Sil\Bundle\SeedBatchBundle\Entity\Certification $certification
      */
-    public function removeCertification(\Librinfo\SeedBatchBundle\Entity\Certification $certification)
+    public function removeCertification(\Sil\Bundle\SeedBatchBundle\Entity\Certification $certification)
     {
         $this->certifications->removeElement($certification);
     }

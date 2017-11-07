@@ -15,11 +15,6 @@
             "homepage": "http://www.libre-informatique.fr/"
         }
     ],
-    "autoload": {
-        "psr-4": {
-            "Sil\\Bundle\\StockBundle\\": "/"
-        }
-    },
     "require": {
         "php": ">=7.1",
         "symfony/symfony": ">=3.2",
@@ -38,5 +33,9 @@
             "chmod u+x bin/phpunit"
         ]
     },
-    "suggest": {}
+    "autoload": {
+        "psr-4": {
+            "Sil\\Bundle\\StockBundle\\": "."
+        }
+    }
 }

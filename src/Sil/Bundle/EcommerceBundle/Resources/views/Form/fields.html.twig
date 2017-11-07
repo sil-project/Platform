@@ -1,11 +1,11 @@
 {% extends 'SonataAdminBundle:Form:form_admin_fields.html.twig' %}
 
 {% block sonata_admin_orm_one_to_many_widget %}
-    {% include 'LibrinfoEcommerceBundle:Form/Type:product_variant_collection.html.twig' %}
+    {% include 'SilEcommerceBundle:Form/Type:product_variant_collection.html.twig' %}
 {% endblock %}
 
 {% block dropzone_template %}
-    {% include 'LibrinfoEcommerceBundle:dropzone:dropzone_template.mustache.twig' %}
+    {% include 'SilEcommerceBundle:dropzone:dropzone_template.mustache.twig' %}
 
     <script>
         $(document).on('click', '.dropzone .btn.setAsCover:not(.cover)', function (e) {

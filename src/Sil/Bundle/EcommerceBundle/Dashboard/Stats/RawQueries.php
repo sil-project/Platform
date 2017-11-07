@@ -10,13 +10,13 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EcommerceBundle\Dashboard\Stats;
+namespace Sil\Bundle\EcommerceBundle\Dashboard\Stats;
 
-use Librinfo\EcommerceBundle\Entity\Order;
-use Librinfo\EcommerceBundle\Entity\OrderItem;
+use Sil\Bundle\EcommerceBundle\Entity\Order;
+use Sil\Bundle\EcommerceBundle\Entity\OrderItem;
 use Sylius\Component\Order\Model\Adjustment;
 use Sylius\Component\Core\Model\AdjustmentInterface;
-use Librinfo\EcommerceBundle\Entity\Payment;
+use Sil\Bundle\EcommerceBundle\Entity\Payment;
 
 class RawQueries extends AbstractStats
 {

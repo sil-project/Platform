@@ -10,14 +10,14 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EcommerceBundle\Entity;
+namespace Sil\Bundle\EcommerceBundle\Entity;
 
 use Sylius\Component\Core\Model\TaxonInterface;
 use Sylius\Component\Taxonomy\Model\Taxon as BaseTaxon;
-use Blast\OuterExtensionBundle\Entity\Traits\OuterExtensible;
-use Blast\BaseEntitiesBundle\Entity\Traits\Stringable;
+use Blast\Bundle\OuterExtensionBundle\Entity\Traits\OuterExtensible;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Stringable;
 /* @todo reference to AppBundle should be removed */
-use AppBundle\Entity\OuterExtension\LibrinfoEcommerceBundle\TaxonExtension;
+use AppBundle\Entity\OuterExtension\SilEcommerceBundle\TaxonExtension;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
 use Sylius\Component\Core\Model\ImageInterface;

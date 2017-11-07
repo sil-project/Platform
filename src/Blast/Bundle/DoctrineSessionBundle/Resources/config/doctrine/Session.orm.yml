@@ -1,4 +1,4 @@
-Blast\DoctrineSessionBundle\Entity\Session:
+Blast\Bundle\DoctrineSessionBundle\Entity\Session:
     type: entity
     table: sf_session
     id:

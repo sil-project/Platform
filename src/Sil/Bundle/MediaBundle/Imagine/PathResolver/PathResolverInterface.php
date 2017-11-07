@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\MediaBundle\Imagine\PathResolver;
+namespace Sil\Bundle\MediaBundle\Imagine\PathResolver;
 
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 

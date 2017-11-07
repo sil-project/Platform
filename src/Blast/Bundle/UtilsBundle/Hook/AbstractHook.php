@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Blast\UtilsBundle\Hook;
+namespace Blast\Bundle\UtilsBundle\Hook;
 
 abstract class AbstractHook
 {

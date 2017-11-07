@@ -10,7 +10,7 @@
 
 
 This bundle provides some tools for a better integration of
-[LibrinfoDoctrineBundle](https://github.com/libre-informatique/SymfonyLibrinfoDoctrineBundle)
+[SilDoctrineBundle](https://github.com/libre-informatique/SymfonySilDoctrineBundle)
 behaviours in
 [Sonata Admin](https://sonata-project.org/bundles/admin/master/doc/index.html)
 
@@ -43,9 +43,9 @@ Edit your app/AppKernel.php file and add your "libre-informatique/base-entities-
             // ...
 
             // The libre-informatique bundles
-            new Blast\BaseEntitiesBundle\BlastCoreBundle(),
-            new Blast\BaseEntitiesBundle\LibrinfoDoctrineBundle(),
-            new Blast\BaseEntitiesBundle\BlastBaseEntitiesBundle(),
+            new Blast\Bundle\BaseEntitiesBundle\BlastCoreBundle(),
+            new Blast\Bundle\BaseEntitiesBundle\SilDoctrineBundle(),
+            new Blast\Bundle\BaseEntitiesBundle\BlastBaseEntitiesBundle(),
 
             // your personal bundles
         );
@@ -56,7 +56,7 @@ Edit your app/AppKernel.php file and add your "libre-informatique/base-entities-
 Activate the listeners you need in your application  (add those lines to ```app/config/config.yml```) :
 
 ```yml
-# Enable LibrinfoDocrineBundle event listeners
+# Enable SilDocrineBundle event listeners
 librinfo_doctrine:
     orm:
         default:

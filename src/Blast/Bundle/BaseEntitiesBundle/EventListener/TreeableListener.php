@@ -10,14 +10,14 @@
  * file that was distributed with this source code.
  */
 
-namespace Blast\BaseEntitiesBundle\EventListener;
+namespace Blast\Bundle\BaseEntitiesBundle\EventListener;
 
 use Doctrine\Common\EventSubscriber;
 use Doctrine\ORM\Event\LoadClassMetadataEventArgs;
 use Doctrine\ORM\Mapping\ClassMetadata;
-use Blast\BaseEntitiesBundle\EventListener\Traits\ClassChecker;
+use Blast\Bundle\BaseEntitiesBundle\EventListener\Traits\ClassChecker;
 use Psr\Log\LoggerAwareInterface;
-use Blast\BaseEntitiesBundle\EventListener\Traits\Logger;
+use Blast\Bundle\BaseEntitiesBundle\EventListener\Traits\Logger;
 
 class TreeableListener implements LoggerAwareInterface, EventSubscriber
 {
@@ -42,7 +42,7 @@ class TreeableListener implements LoggerAwareInterface, EventSubscriber
 
         $reflectionClass = $metadata->getReflectionClass();
 
-        if (!$reflectionClass || !$this->hasTrait($reflectionClass, 'Blast\BaseEntitiesBundle\Entity\Traits\Treeable')) {
+        if (!$reflectionClass || !$this->hasTrait($reflectionClass, 'Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Treeable')) {
             return;
         } // return if current entity doesn't use Treeable trait
 
@@ -67,7 +67,7 @@ class TreeableListener implements LoggerAwareInterface, EventSubscriber
         }
 
         if (!$metadata->customRepositoryClassName) {
-            $metadata->setCustomRepositoryClass('Blast\BaseEntitiesBundle\Entity\Repository\TreeableRepository');
+            $metadata->setCustomRepositoryClass('Blast\Bundle\BaseEntitiesBundle\Entity\Repository\TreeableRepository');
         }
     }
 }

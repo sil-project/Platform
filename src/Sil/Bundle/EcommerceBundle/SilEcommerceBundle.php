@@ -10,13 +10,13 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EcommerceBundle;
+namespace Sil\Bundle\EcommerceBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Librinfo\EcommerceBundle\DependencyInjection\SyliusTaxCalculationStrategiesCompilerPass;
+use Sil\Bundle\EcommerceBundle\DependencyInjection\SyliusTaxCalculationStrategiesCompilerPass;
 
-class LibrinfoEcommerceBundle extends Bundle
+class SilEcommerceBundle extends Bundle
 {
     public function build(ContainerBuilder $container)
     {

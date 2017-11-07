@@ -10,10 +10,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\MediaBundle\Imagine\PathResolver;
+namespace Sil\Bundle\MediaBundle\Imagine\PathResolver;
 
 use Doctrine\ORM\EntityManager;
-use Librinfo\MediaBundle\Entity\File;
+use Sil\Bundle\MediaBundle\Entity\File;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class DefaultResolver implements PathResolverInterface
@@ -36,7 +36,7 @@ class DefaultResolver implements PathResolverInterface
     public function resolvePath($id)
     {
         try {
-            $repo = $this->em->getRepository('LibrinfoMediaBundle:File');
+            $repo = $this->em->getRepository('SilMediaBundle:File');
 
             if (!$this->cacheFile) {
                 /* @var $this->cacheFile File */

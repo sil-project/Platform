@@ -10,11 +10,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EcommerceBundle\EmailManager;
+namespace Sil\Bundle\EcommerceBundle\EmailManager;
 
 use Doctrine\ORM\EntityManager;
-use Librinfo\EcommerceBundle\Factory\InvoiceFactoryInterface;
-use Librinfo\EcommerceBundle\Services\OrderInvoiceManager;
+use Sil\Bundle\EcommerceBundle\Factory\InvoiceFactoryInterface;
+use Sil\Bundle\EcommerceBundle\Services\OrderInvoiceManager;
 use Sylius\Bundle\CoreBundle\Mailer\Emails;
 use Sylius\Bundle\ShopBundle\EmailManager\OrderEmailManagerInterface;
 use Sylius\Component\Core\Model\OrderInterface;

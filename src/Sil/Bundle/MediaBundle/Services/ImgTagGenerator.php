@@ -10,9 +10,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\MediaBundle\Services;
+namespace Sil\Bundle\MediaBundle\Services;
 
-use Librinfo\MediaBundle\Entity\File;
+use Sil\Bundle\MediaBundle\Entity\File;
 
 /**
  * Description of ImgTagGenerator.

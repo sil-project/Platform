@@ -10,9 +10,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Blast\BaseEntitiesBundle\Entity\Repository\Tree;
+namespace Blast\Bundle\BaseEntitiesBundle\Entity\Repository\Tree;
 
-use Blast\BaseEntitiesBundle\Entity\Traits\Tree\NodeInterface;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Tree\NodeInterface;
 use Doctrine\ORM\QueryBuilder;
 
 trait Tree

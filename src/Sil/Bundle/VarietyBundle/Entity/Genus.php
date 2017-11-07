@@ -10,14 +10,14 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\VarietiesBundle\Entity;
+namespace Sil\Bundle\VarietyBundle\Entity;
 
-use AppBundle\Entity\OuterExtension\LibrinfoVarietiesBundle\GenusExtension;
-use Blast\BaseEntitiesBundle\Entity\Traits\BaseEntity;
-use Blast\BaseEntitiesBundle\Entity\Traits\Descriptible;
-use Blast\BaseEntitiesBundle\Entity\Traits\Nameable;
-use Blast\BaseEntitiesBundle\Entity\Traits\Timestampable;
-use Blast\OuterExtensionBundle\Entity\Traits\OuterExtensible;
+use AppBundle\Entity\OuterExtension\SilVarietyBundle\GenusExtension;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\BaseEntity;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Descriptible;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Nameable;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Timestampable;
+use Blast\Bundle\OuterExtensionBundle\Entity\Traits\OuterExtensible;
 
 /**
  * Genus.
@@ -43,7 +43,7 @@ class Genus
     private $alias;
 
     /**
-     * @var \Librinfo\VarietiesBundle\Entity\Family
+     * @var \Sil\Bundle\VarietyBundle\Entity\Family
      */
     private $family;
 
@@ -122,11 +122,11 @@ class Genus
     /**
      * Set family.
      *
-     * @param \Librinfo\VarietiesBundle\Entity\Family $family
+     * @param \Sil\Bundle\VarietyBundle\Entity\Family $family
      *
      * @return Genus
      */
-    public function setFamily(\Librinfo\VarietiesBundle\Entity\Family $family = null)
+    public function setFamily(\Sil\Bundle\VarietyBundle\Entity\Family $family = null)
     {
         $this->family = $family;
 
@@ -136,7 +136,7 @@ class Genus
     /**
      * Get family.
      *
-     * @return \Librinfo\VarietiesBundle\Entity\Family
+     * @return \Sil\Bundle\VarietyBundle\Entity\Family
      */
     public function getFamily()
     {
@@ -146,11 +146,11 @@ class Genus
     /**
      * Alias for addSpecies.
      *
-     * @param \Librinfo\VarietiesBundle\Entity\Species $species
+     * @param \Sil\Bundle\VarietyBundle\Entity\Species $species
      *
-     * @return \Librinfo\VarietiesBundle\Entity\Genus
+     * @return \Sil\Bundle\VarietyBundle\Entity\Genus
      */
-    public function addSpeciese(\Librinfo\VarietiesBundle\Entity\Species $species)
+    public function addSpeciese(\Sil\Bundle\VarietyBundle\Entity\Species $species)
     {
         $species->setGenus($this);
         $this->specieses->add($species);
@@ -161,11 +161,11 @@ class Genus
     /**
      * Add species.
      *
-     * @param \Librinfo\VarietiesBundle\Entity\Species $species
+     * @param \Sil\Bundle\VarietyBundle\Entity\Species $species
      *
      * @return Genus
      */
-    public function addSpecies(\Librinfo\VarietiesBundle\Entity\Species $species)
+    public function addSpecies(\Sil\Bundle\VarietyBundle\Entity\Species $species)
     {
         $species->setGenus($this);
         $this->specieses->add($species);
@@ -176,11 +176,11 @@ class Genus
     /**
      * Remove speciese.
      *
-     * @param \Librinfo\VarietiesBundle\Entity\Species $species
+     * @param \Sil\Bundle\VarietyBundle\Entity\Species $species
      *
      * @return bool tRUE if this collection contained the specified element, FALSE otherwise
      */
-    public function removeSpecies(\Librinfo\VarietiesBundle\Entity\Species $species)
+    public function removeSpecies(\Sil\Bundle\VarietyBundle\Entity\Species $species)
     {
         return $this->specieses->removeElement($species);
     }

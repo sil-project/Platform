@@ -1,2 +1,2 @@
-Librinfo\SeedBatchBundle\Entity\PlotSearchIndex:
+Sil\Bundle\SeedBatchBundle\Entity\PlotSearchIndex:
     type: entity

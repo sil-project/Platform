@@ -10,10 +10,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EcommerceBundle\Factory;
+namespace Sil\Bundle\EcommerceBundle\Factory;
 
-use Librinfo\CRMBundle\CodeGenerator\CustomerCodeGenerator;
-use Librinfo\CRMBundle\Entity\Organism;
+use Sil\Bundle\CRMBundle\CodeGenerator\CustomerCodeGenerator;
+use Sil\Bundle\CRMBundle\Entity\Organism;
 use Sylius\Component\Resource\Factory\FactoryInterface;
 
 /**

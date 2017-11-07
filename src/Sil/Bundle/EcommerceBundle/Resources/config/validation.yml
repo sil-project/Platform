@@ -21,7 +21,7 @@ Sylius\Component\Product\Model\ProductTranslation:
                 max: 255
                 maxMessage: librinfo.product_name.too_long
 
-Librinfo\EcommerceBundle\Entity\Product:
+Sil\Bundle\EcommerceBundle\Entity\Product:
     constraints:
         - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: code
     properties:

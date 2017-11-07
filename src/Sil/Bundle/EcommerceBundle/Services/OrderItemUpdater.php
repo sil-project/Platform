@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EcommerceBundle\Services;
+namespace Sil\Bundle\EcommerceBundle\Services;
 
 use Doctrine\ORM\EntityManager;
 use Sylius\Component\Order\Modifier\OrderItemQuantityModifierInterface;
@@ -18,7 +18,7 @@ use Symfony\Component\Translation\TranslatorInterface;
 use Sylius\Bundle\MoneyBundle\Formatter\MoneyFormatterInterface;
 use SM\Factory\Factory;
 use Sylius\Component\Order\Processor\CompositeOrderProcessor;
-use Librinfo\EcommerceBundle\StateMachine\OrderTransitions;
+use Sil\Bundle\EcommerceBundle\StateMachine\OrderTransitions;
 
 /**
  * Manage order item quantity.
@@ -98,7 +98,7 @@ class OrderItemUpdater
     {
         $remove = false;
         $lastItem = false;
-        $orderRepo = $this->em->getRepository('LibrinfoEcommerceBundle:Order');
+        $orderRepo = $this->em->getRepository('SilEcommerceBundle:Order');
         $itemRepo = $this->em->getRepository($this->orderItemClass);
 
         $order = $orderRepo->find($orderId);

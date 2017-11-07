@@ -10,15 +10,15 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\SeedBatchBundle\Entity;
+namespace Sil\Bundle\SeedBatchBundle\Entity;
 
-use Blast\BaseEntitiesBundle\Entity\Traits\BaseEntity;
-use Blast\BaseEntitiesBundle\Entity\Traits\Descriptible;
-use Blast\BaseEntitiesBundle\Entity\Traits\Nameable;
-use Blast\BaseEntitiesBundle\Entity\Traits\Timestampable;
-use Blast\OuterExtensionBundle\Entity\Traits\OuterExtensible;
-use Librinfo\MediaBundle\Entity\File;
-use AppBundle\Entity\OuterExtension\LibrinfoSeedBatchBundle\CertificationTypeExtension;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\BaseEntity;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Descriptible;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Nameable;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Timestampable;
+use Blast\Bundle\OuterExtensionBundle\Entity\Traits\OuterExtensible;
+use Sil\Bundle\MediaBundle\Entity\File;
+use AppBundle\Entity\OuterExtension\SilSeedBatchBundle\CertificationTypeExtension;
 
 /**
  * CertificationType.
@@ -91,7 +91,7 @@ class CertificationType
     /**
      * Set logo.
      *
-     * @param \Librinfo\MediaBundle\Entity\File $logo
+     * @param \Sil\Bundle\MediaBundle\Entity\File $logo
      *
      * @return CertificationType
      */
@@ -108,9 +108,9 @@ class CertificationType
     }
 
     /**
-     * alias for LibrinfoMediaBundle/CRUDController::handleFiles().
+     * alias for SilMediaBundle/CRUDController::handleFiles().
      *
-     * @param \Librinfo\MediaBundle\Entity\File $logo
+     * @param \Sil\Bundle\MediaBundle\Entity\File $logo
      */
     public function setLibrinfoFile(File $logo = null)
     {
@@ -120,7 +120,7 @@ class CertificationType
     /**
      * Get logo.
      *
-     * @return \Librinfo\MediaBundle\Entity\File
+     * @return \Sil\Bundle\MediaBundle\Entity\File
      */
     public function getLogo()
     {

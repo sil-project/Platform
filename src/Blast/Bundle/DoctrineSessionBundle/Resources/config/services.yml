@@ -19,7 +19,7 @@ services:
 #    sylius.storage.locale.
 
     blast_doctrine_session.handler.doctrine_orm:
-        class: Blast\DoctrineSessionBundle\Handler\DoctrineORMHandler
+        class: Blast\Bundle\DoctrineSessionBundle\Handler\DoctrineORMHandler
         arguments: [ '@doctrine', '%blast_doctrine_session_class%']
 
     blast_doctrine_handler:

@@ -1,4 +1,4 @@
-{% extends "LibrinfoEmailBundle:CRUD:show_field_emails_list.html.twig" %}
+{% extends "SilEmailBundle:CRUD:show_field_emails_list.html.twig" %}
 
 {% block send_new_email %}
     <form method="GET" action="{{ path('admin_librinfo_email_email_create') }}" id="send-email-form">
@@ -18,7 +18,7 @@
             {% if object.positions|length %}
                 <optgroup label="{{ object.isIndividual ? 'librinfo.label.individuals'|trans : 'librinfo.label.organizations'|trans }}">
                 {% for position in object.positions if position.email %}
-                    <option data-recipient-class="Librinfo\CRMBundle\Entity\Position" value="{{ position.id }}">
+                    <option data-recipient-class="Sil\Bundle\CRMBundle\Entity\Position" value="{{ position.id }}">
                         {{ position }} &lt;{{ position.email }}&gt;
                     </option>
                 {% endfor %}

@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Blast\UtilsBundle\Form\DataTransformer;
+namespace Blast\Bundle\UtilsBundle\Form\DataTransformer;
 
 use Symfony\Component\Form\DataTransformerInterface;
 

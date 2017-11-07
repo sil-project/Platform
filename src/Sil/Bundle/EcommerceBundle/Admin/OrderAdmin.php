@@ -10,13 +10,13 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EcommerceBundle\Admin;
+namespace Sil\Bundle\EcommerceBundle\Admin;
 
-use Blast\CoreBundle\Admin\CoreAdmin;
-use Librinfo\EcommerceBundle\Form\Type\OrderAddressType;
+use Blast\Bundle\CoreBundle\Admin\CoreAdmin;
+use Sil\Bundle\EcommerceBundle\Form\Type\OrderAddressType;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Route\RouteCollection;
-use Librinfo\EcommerceBundle\Entity\OrderInterface;
+use Sil\Bundle\EcommerceBundle\Entity\OrderInterface;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
@@ -260,7 +260,7 @@ class OrderAdmin extends CoreAdmin
     public function prePersist($object)
     {
         // 3
-        /** @var Librinfo\EcommerceBundle\Entity\Order $order */
+        /** @var Sil\Bundle\EcommerceBundle\Entity\Order $order */
         $order = $object;
 
         // Hum why call Parent ?

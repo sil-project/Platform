@@ -10,9 +10,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Blast\UtilsBundle\Hook\Hooks\Layout;
+namespace Blast\Bundle\UtilsBundle\Hook\Hooks\Layout;
 
-use Blast\UtilsBundle\Hook\Component\AbstractHook;
+use Blast\Bundle\UtilsBundle\Hook\Component\AbstractHook;
 
 class Javascripts extends AbstractHook
 {

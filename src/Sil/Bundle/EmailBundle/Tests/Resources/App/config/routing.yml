@@ -16,5 +16,5 @@ blast_core:
     prefix:   /"%librinfo.url_prefix%"
 
 email:
-    resource: "@LibrinfoEmailBundle/Resources/config/routing.yml"
+    resource: "@SilEmailBundle/Resources/config/routing.yml"
     prefix:   /"%librinfo.url_prefix%"

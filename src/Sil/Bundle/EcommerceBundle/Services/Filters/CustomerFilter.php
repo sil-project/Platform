@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EcommerceBundle\Services\Filters;
+namespace Sil\Bundle\EcommerceBundle\Services\Filters;
 
 use Sonata\AdminBundle\Form\Type\Filter\ChoiceType;
 

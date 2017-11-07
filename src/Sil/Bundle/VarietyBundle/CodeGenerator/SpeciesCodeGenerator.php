@@ -10,12 +10,12 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\VarietiesBundle\CodeGenerator;
+namespace Sil\Bundle\VarietyBundle\CodeGenerator;
 
 use Doctrine\ORM\EntityManager;
-use Blast\CoreBundle\CodeGenerator\CodeGeneratorInterface;
-use Librinfo\VarietiesBundle\Entity\Species;
-use Blast\CoreBundle\Exception\InvalidEntityCodeException;
+use Blast\Bundle\CoreBundle\CodeGenerator\CodeGeneratorInterface;
+use Sil\Bundle\VarietyBundle\Entity\Species;
+use Blast\Bundle\CoreBundle\Exception\InvalidEntityCodeException;
 
 class SpeciesCodeGenerator implements CodeGeneratorInterface
 {
@@ -24,7 +24,7 @@ class SpeciesCodeGenerator implements CodeGeneratorInterface
      */
     private static $em;
 
-    const ENTITY_CLASS = 'Librinfo\VarietiesBundle\Entity\Species';
+    const ENTITY_CLASS = 'Sil\Bundle\VarietyBundle\Entity\Species';
     const ENTITY_FIELD = 'code';
 
     public static function setEntityManager(EntityManager $em)
@@ -115,7 +115,7 @@ class SpeciesCodeGenerator implements CodeGeneratorInterface
             return !in_array($code, $existingCodes);
         }
 
-        $repo = self::$em->getRepository('Librinfo\VarietiesBundle\Entity\Species');
+        $repo = self::$em->getRepository('Sil\Bundle\VarietyBundle\Entity\Species');
         $query = $repo->createQueryBuilder('s')->where('s.code = :code')->setParameter('code', $code);
         if ($speciesId) {
             $query->andWhere('s.id != :id')->setParameter('id', $speciesId);

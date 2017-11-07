@@ -10,9 +10,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EmailCRMBundle\Entity\OuterExtension;
+namespace Sil\Bundle\EmailCRMBundle\Entity\OuterExtension;
 
 trait HasEmailMessages
 {
-    use \Librinfo\EmailBundle\Entity\OuterExtension\HasEmailMessages;
+    use \Sil\Bundle\EmailBundle\Entity\OuterExtension\HasEmailMessages;
 }

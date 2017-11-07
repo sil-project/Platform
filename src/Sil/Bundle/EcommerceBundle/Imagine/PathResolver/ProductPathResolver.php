@@ -10,12 +10,12 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EcommerceBundle\Imagine\PathResolver;
+namespace Sil\Bundle\EcommerceBundle\Imagine\PathResolver;
 
-use Librinfo\MediaBundle\Imagine\PathResolver\PathResolverInterface;
-use Librinfo\MediaBundle\Imagine\PathResolver\DefaultResolver;
+use Sil\Bundle\MediaBundle\Imagine\PathResolver\PathResolverInterface;
+use Sil\Bundle\MediaBundle\Imagine\PathResolver\DefaultResolver;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Librinfo\MediaBundle\Entity\File;
+use Sil\Bundle\MediaBundle\Entity\File;
 
 class ProductPathResolver extends DefaultResolver implements PathResolverInterface
 {
@@ -79,8 +79,8 @@ class ProductPathResolver extends DefaultResolver implements PathResolverInterfa
 
         $subQb
             ->select('f')
-            ->from('LibrinfoEcommerceBundle:ProductImage', 'pi')
-            ->join('LibrinfoMediaBundle:File', 'f', 'WITH', 'pi.realFile = f')
+            ->from('SilEcommerceBundle:ProductImage', 'pi')
+            ->join('SilMediaBundle:File', 'f', 'WITH', 'pi.realFile = f')
             ->where('pi.path = :path')
             ->setParameter('path', $path);
 
@@ -89,7 +89,7 @@ class ProductPathResolver extends DefaultResolver implements PathResolverInterfa
         if (!$file) {
             $qb
                 ->select('f')
-                ->from('LibrinfoMediaBundle:File', 'f')
+                ->from('SilMediaBundle:File', 'f')
                 ->where('f.path = :path')
                 ->setParameter('path', $path);
 

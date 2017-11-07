@@ -10,9 +10,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\VarietiesBundle\Entity\OuterExtension;
+namespace Sil\Bundle\VarietyBundle\Entity\OuterExtension;
 
-use Librinfo\VarietiesBundle\Entity\Variety;
+use Sil\Bundle\VarietyBundle\Entity\Variety;
 
 trait HasVariety
 {

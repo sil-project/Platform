@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Blast\DoctrinePgsqlBundle\Datagrid;
+namespace Blast\Bundle\DoctrinePgsqlBundle\Datagrid;
 
 use Doctrine\DBAL\Types\Type;
 use Doctrine\ORM\Query;
@@ -47,7 +47,7 @@ class ProxyQuery extends BaseProxyQuery
 
         // Use ILIKE instead of LIKE for Postgresql
         if ('pdo_pgsql' == $queryBuilder->getEntityManager()->getConnection()->getDriver()->getName()) {
-            $this->setHint(Query::HINT_CUSTOM_OUTPUT_WALKER, 'Blast\DoctrinePgsqlBundle\DoctrineExtensions\BlastWalker');
+            $this->setHint(Query::HINT_CUSTOM_OUTPUT_WALKER, 'Blast\Bundle\DoctrinePgsqlBundle\DoctrineExtensions\BlastWalker');
         }
 
         $query = $this->getFixedQueryBuilder($queryBuilder)->getQuery();
@@ -124,7 +124,7 @@ class ProxyQuery extends BaseProxyQuery
 
         // Use ILIKE instead of LIKE for Postgresql
         if ('pdo_pgsql' == $queryBuilderId->getEntityManager()->getConnection()->getDriver()->getName()) {
-            $this->setHint(Query::HINT_CUSTOM_OUTPUT_WALKER, 'Blast\DoctrinePgsqlBundle\DoctrineExtensions\BlastWalker');
+            $this->setHint(Query::HINT_CUSTOM_OUTPUT_WALKER, 'Blast\Bundle\DoctrinePgsqlBundle\DoctrineExtensions\BlastWalker');
         }
 
         $query = $queryBuilderId->getQuery();

@@ -10,9 +10,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Blast\UtilsBundle\Hook\Component;
+namespace Blast\Bundle\UtilsBundle\Hook\Component;
 
-use Blast\CoreBundle\Profiler\Collector;
+use Blast\Bundle\CoreBundle\Profiler\Collector;
 
 class Registry
 {

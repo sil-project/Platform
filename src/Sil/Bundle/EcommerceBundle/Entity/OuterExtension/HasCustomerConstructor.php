@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EcommerceBundle\Entity\OuterExtension;
+namespace Sil\Bundle\EcommerceBundle\Entity\OuterExtension;
 
 use Doctrine\Common\Collections\ArrayCollection;
 

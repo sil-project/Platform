@@ -1,4 +1,4 @@
-Librinfo\SonataSyliusUserBundle\Entity\SonataGroup:
+Sil\Bundle\SonataSyliusUserBundle\Entity\SonataGroup:
     type:  entity
     fields:
         name:
@@ -9,4 +9,4 @@ Librinfo\SonataSyliusUserBundle\Entity\SonataGroup:
     manyToMany:
         users:
             mappedBy: groups
-            targetEntity: Librinfo\SonataSyliusUserBundle\Entity\SonataUser
+            targetEntity: Sil\Bundle\SonataSyliusUserBundle\Entity\SonataUser

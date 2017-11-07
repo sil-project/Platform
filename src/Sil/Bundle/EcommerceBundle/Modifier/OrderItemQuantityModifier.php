@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EcommerceBundle\Modifier;
+namespace Sil\Bundle\EcommerceBundle\Modifier;
 
 use Sylius\Component\Order\Modifier\OrderItemQuantityModifierInterface;
 use Sylius\Component\Order\Model\OrderItemInterface;

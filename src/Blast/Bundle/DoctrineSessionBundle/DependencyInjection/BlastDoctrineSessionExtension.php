@@ -10,11 +10,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Blast\DoctrineSessionBundle\DependencyInjection;
+namespace Blast\Bundle\DoctrineSessionBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\FileLoader;
-use Blast\CoreBundle\DependencyInjection\BlastCoreExtension;
+use Blast\Bundle\CoreBundle\DependencyInjection\BlastCoreExtension;
 
 /**
  * This is the class that loads and manages your bundle configuration.
@@ -28,7 +28,7 @@ class BlastDoctrineSessionExtension extends BlastCoreExtension
      */
     public function doLoad(ContainerBuilder $container, FileLoader $loader, array $config)
     {
-        $container->setParameter('blast_doctrine_session_class', 'Blast\DoctrineSessionBundle\Entity\Session');
+        $container->setParameter('blast_doctrine_session_class', 'Blast\Bundle\DoctrineSessionBundle\Entity\Session');
 
         return $this;
     }

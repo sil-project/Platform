@@ -10,14 +10,14 @@
  * file that was distributed with this source code.
  */
 
-namespace Blast\BaseEntitiesBundle\EventListener;
+namespace Blast\Bundle\BaseEntitiesBundle\EventListener;
 
 use Doctrine\Common\EventSubscriber;
 use Doctrine\Common\Persistence\Event\LifecycleEventArgs;
 use Doctrine\ORM\Event\PreUpdateEventArgs;
-use Blast\BaseEntitiesBundle\EventListener\Traits\Logger;
+use Blast\Bundle\BaseEntitiesBundle\EventListener\Traits\Logger;
 use Psr\Log\LoggerAwareInterface;
-use Blast\BaseEntitiesBundle\EventListener\Traits\ClassChecker;
+use Blast\Bundle\BaseEntitiesBundle\EventListener\Traits\ClassChecker;
 
 class NormalizeListener implements LoggerAwareInterface, EventSubscriber
 {

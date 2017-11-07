@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Blast\UtilsBundle\Hook\Event;
+namespace Blast\Bundle\UtilsBundle\Hook\Event;
 
 use Symfony\Component\EventDispatcher\Event;
 

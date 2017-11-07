@@ -20,7 +20,7 @@
         "symfony",
         "media"
     ],
-    "homepage": "https://github.com/libre-informatique/SymfonyLibrinfoMediaBundle",
+    "homepage": "https://github.com/libre-informatique/SymfonySilMediaBundle",
     "authors": [
         {
             "name": "Romain SANCHEZ",
@@ -33,7 +33,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Librinfo\\MediaBundle\\": "/"
+            "Librinfo\\MediaBundle\\": "."
         }
     }
 }

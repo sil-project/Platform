@@ -10,14 +10,14 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\VarietiesBundle\Entity;
+namespace Sil\Bundle\VarietyBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use Blast\BaseEntitiesBundle\Entity\Traits\Tree\NodeInterface;
-use Blast\BaseEntitiesBundle\Entity\Traits\BaseEntity;
-use Blast\BaseEntitiesBundle\Entity\Traits\Nameable;
-use Blast\BaseEntitiesBundle\Entity\Traits\NestedTreeable;
-use Blast\BaseEntitiesBundle\Entity\Traits\Jsonable;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Tree\NodeInterface;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\BaseEntity;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Nameable;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\NestedTreeable;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Jsonable;
 
 /**
  * PlantCategory.
@@ -83,11 +83,11 @@ class PlantCategory implements \JsonSerializable
     /**
      * Add variety.
      *
-     * @param \Librinfo\VarietiesBundle\Entity\Variety $variety
+     * @param \Sil\Bundle\VarietyBundle\Entity\Variety $variety
      *
      * @return PlantCategory
      */
-    public function addVariety(\Librinfo\VarietiesBundle\Entity\Variety $variety)
+    public function addVariety(\Sil\Bundle\VarietyBundle\Entity\Variety $variety)
     {
         $this->varieties[] = $variety;
 
@@ -97,11 +97,11 @@ class PlantCategory implements \JsonSerializable
     /**
      * Remove variety.
      *
-     * @param \Librinfo\VarietiesBundle\Entity\Variety $variety
+     * @param \Sil\Bundle\VarietyBundle\Entity\Variety $variety
      *
      * @return bool tRUE if this collection contained the specified element, FALSE otherwise
      */
-    public function removeVariety(\Librinfo\VarietiesBundle\Entity\Variety $variety)
+    public function removeVariety(\Sil\Bundle\VarietyBundle\Entity\Variety $variety)
     {
         return $this->varieties->removeElement($variety);
     }
@@ -119,11 +119,11 @@ class PlantCategory implements \JsonSerializable
     /**
      * Add species.
      *
-     * @param \Librinfo\VarietiesBundle\Entity\Species $species
+     * @param \Sil\Bundle\VarietyBundle\Entity\Species $species
      *
      * @return PlantCategory
      */
-    public function addSpecies(\Librinfo\VarietiesBundle\Entity\Species $species)
+    public function addSpecies(\Sil\Bundle\VarietyBundle\Entity\Species $species)
     {
         $this->species[] = $species;
 
@@ -133,11 +133,11 @@ class PlantCategory implements \JsonSerializable
     /**
      * Remove species.
      *
-     * @param \Librinfo\VarietiesBundle\Entity\Species $species
+     * @param \Sil\Bundle\VarietyBundle\Entity\Species $species
      *
      * @return bool tRUE if this collection contained the specified element, FALSE otherwise
      */
-    public function removeSpecies(\Librinfo\VarietiesBundle\Entity\Species $species)
+    public function removeSpecies(\Sil\Bundle\VarietyBundle\Entity\Species $species)
     {
         return $this->species->removeElement($species);
     }

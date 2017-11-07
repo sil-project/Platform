@@ -1,10 +1,10 @@
 services:
     blast_core.label.strategy.librinfo_email:
-        class: Blast\CoreBundle\Translator\LibrinfoLabelTranslatorStrategy
-        arguments: ['Librinfo\EmailBundle']
+        class: Blast\Bundle\CoreBundle\Translator\LibrinfoLabelTranslatorStrategy
+        arguments: ['Sil\Bundle\EmailBundle']
     
     librinfo_email.sender:
-        class: Librinfo\EmailBundle\Services\Sender
+        class: Sil\Bundle\EmailBundle\Services\Sender
         arguments:
             - '@doctrine.orm.entity_manager'
             - '@librinfo_email.tracking'
@@ -14,21 +14,21 @@ services:
             - '@librinfo.email.address_manager'
 
     librinfo_email.tracking:
-        class: Librinfo\EmailBundle\Services\Tracking
+        class: Sil\Bundle\EmailBundle\Services\Tracking
         arguments: [ '@router' ]
 
     librinfo_email.stats:
-        class: Librinfo\EmailBundle\Services\EmailStats
+        class: Sil\Bundle\EmailBundle\Services\EmailStats
 
     librinfo_email.inline_attachments:
-        class: Librinfo\EmailBundle\Services\InlineAttachments
+        class: Sil\Bundle\EmailBundle\Services\InlineAttachments
 
     librinfo.email.address_manager:
-        class: Librinfo\EmailBundle\Services\AddressManager
+        class: Sil\Bundle\EmailBundle\Services\AddressManager
 
 ### SwiftMailer database spool ###
     swiftmailer.mailer.spool_mailer.spool.db:
-        class: Librinfo\EmailBundle\Services\SwiftMailer\Spool\DbSpool
+        class: Sil\Bundle\EmailBundle\Services\SwiftMailer\Spool\DbSpool
         arguments:
             - '@router'
             - '@doctrine.orm.entity_manager'
@@ -36,7 +36,7 @@ services:
 ### SONATA BLOCKS ###
 
     librinfo.email.block.emails_list:
-        class: Librinfo\EmailBundle\Block\EmailsListBlock
+        class: Sil\Bundle\EmailBundle\Block\EmailsListBlock
         arguments:
             - 'librinfo.email.block.emails_list'
             - '@templating'

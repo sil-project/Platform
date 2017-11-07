@@ -10,10 +10,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EmailBundle\Block;
+namespace Sil\Bundle\EmailBundle\Block;
 
 use Doctrine\ORM\EntityManager;
-use Librinfo\EmailBundle\Entity\Email;
+use Sil\Bundle\EmailBundle\Entity\Email;
 use Sonata\BlockBundle\Block\BlockContextInterface;
 use Sonata\BlockBundle\Block\Service\TextBlockService;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -58,7 +58,7 @@ class EmailsListBlock extends TextBlockService
     {
         $resolver->setDefaults(array(
             'content'       => 'Insert your custom content here',
-            'template'      => 'LibrinfoEmailBundle:Block:block_emails_list.html.twig',
+            'template'      => 'SilEmailBundle:Block:block_emails_list.html.twig',
             'target_entity' => null,
             'max_results'   => 20,
         ));

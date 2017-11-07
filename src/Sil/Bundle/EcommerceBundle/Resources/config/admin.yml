@@ -7,8 +7,8 @@
 services:
 
     librinfo_ecommerce.admin.product:
-        class: Librinfo\EcommerceBundle\Admin\ProductAdmin
-        arguments: [~, Librinfo\EcommerceBundle\Entity\Product, LibrinfoEcommerceBundle:ProductCRUD]
+        class: Sil\Bundle\EcommerceBundle\Admin\ProductAdmin
+        arguments: [~, Sil\Bundle\EcommerceBundle\Entity\Product, SilEcommerceBundle:ProductCRUD]
         tags:
             - name: sonata.admin
               manager_type: orm
@@ -16,11 +16,11 @@ services:
               label: librinfo.ecommercebundle.admin.product.product
               label_translator_strategy: blast_core.label.strategy.librinfo_ecommerce
         calls:
-            - [ setTemplate, [ edit, LibrinfoEcommerceBundle:ProductAdmin:edit.html.twig ] ]
+            - [ setTemplate, [ edit, SilEcommerceBundle:ProductAdmin:edit.html.twig ] ]
 
     librinfo_ecommerce.admin.product_variant:
-        class: Librinfo\EcommerceBundle\Admin\ProductVariantAdmin
-        arguments: [~, Librinfo\EcommerceBundle\Entity\ProductVariant, LibrinfoEcommerceBundle:ProductVariantCRUD]
+        class: Sil\Bundle\EcommerceBundle\Admin\ProductVariantAdmin
+        arguments: [~, Sil\Bundle\EcommerceBundle\Entity\ProductVariant, SilEcommerceBundle:ProductVariantCRUD]
         tags:
             - name: sonata.admin
               manager_type: orm
@@ -28,11 +28,11 @@ services:
               label: librinfo.ecommercebundle.admin.product.product_variant
               label_translator_strategy: blast_core.label.strategy.librinfo_ecommerce
         calls:
-            - [ setTemplate, [ edit, LibrinfoEcommerceBundle:ProductVariantAdmin:edit.html.twig ] ]
+            - [ setTemplate, [ edit, SilEcommerceBundle:ProductVariantAdmin:edit.html.twig ] ]
 
     librinfo_ecommerce.admin.product_variant_embedded:
-        class: Librinfo\EcommerceBundle\Admin\ProductVariantEmbeddedAdmin
-        arguments: [~, Librinfo\EcommerceBundle\Entity\ProductVariant, LibrinfoEcommerceBundle:ProductVariantCRUD]
+        class: Sil\Bundle\EcommerceBundle\Admin\ProductVariantEmbeddedAdmin
+        arguments: [~, Sil\Bundle\EcommerceBundle\Entity\ProductVariant, SilEcommerceBundle:ProductVariantCRUD]
         tags:
             - name: sonata.admin
               manager_type: orm
@@ -40,11 +40,11 @@ services:
               label: librinfo.ecommercebundle.admin.product.product_variant
               label_translator_strategy: blast_core.label.strategy.librinfo_ecommerce
         calls:
-            - [ setTemplate, [ edit, LibrinfoEcommerceBundle:ProductVariantAdmin:edit.html.twig ] ]
+            - [ setTemplate, [ edit, SilEcommerceBundle:ProductVariantAdmin:edit.html.twig ] ]
 
     librinfo_ecommerce_option.admin.product:
-        class: Librinfo\EcommerceBundle\Admin\ProductOptionAdmin
-        arguments: [~, Librinfo\EcommerceBundle\Entity\ProductOption, BlastCoreBundle:CRUD]
+        class: Sil\Bundle\EcommerceBundle\Admin\ProductOptionAdmin
+        arguments: [~, Sil\Bundle\EcommerceBundle\Entity\ProductOption, BlastCoreBundle:CRUD]
         tags:
             - name: sonata.admin
               manager_type: orm
@@ -53,8 +53,8 @@ services:
               label_translator_strategy: blast_core.label.strategy.librinfo_ecommerce
 
     librinfo_ecommerce_option_value.admin.product:
-        class: Librinfo\EcommerceBundle\Admin\ProductOptionValueAdmin
-        arguments: [~, Librinfo\EcommerceBundle\Entity\ProductOptionValue, BlastCoreBundle:CRUD]
+        class: Sil\Bundle\EcommerceBundle\Admin\ProductOptionValueAdmin
+        arguments: [~, Sil\Bundle\EcommerceBundle\Entity\ProductOptionValue, BlastCoreBundle:CRUD]
         tags:
             - name: sonata.admin
               manager_type: orm
@@ -63,8 +63,8 @@ services:
               label_translator_strategy: blast_core.label.strategy.librinfo_ecommerce
 
     librinfo_ecommerce.admin.product_attribute:
-        class: Librinfo\EcommerceBundle\Admin\ProductAttributeAdmin
-        arguments: [~, Librinfo\EcommerceBundle\Entity\ProductAttribute, BlastCoreBundle:CRUD]
+        class: Sil\Bundle\EcommerceBundle\Admin\ProductAttributeAdmin
+        arguments: [~, Sil\Bundle\EcommerceBundle\Entity\ProductAttribute, BlastCoreBundle:CRUD]
         tags:
             - name: sonata.admin
               manager_type: orm
@@ -73,8 +73,8 @@ services:
               label_translator_strategy: blast_core.label.strategy.librinfo_ecommerce
 
     librinfo_ecommerce.admin.customer:
-        class: Librinfo\EcommerceBundle\Admin\CustomerAdmin
-        arguments: [~, %sylius.model.customer.class%, LibrinfoCRMBundle:OrganismAdmin]
+        class: Sil\Bundle\EcommerceBundle\Admin\CustomerAdmin
+        arguments: [~, %sylius.model.customer.class%, SilCRMBundle:OrganismAdmin]
         tags:
             - name: sonata.admin
               manager_type: orm
@@ -83,12 +83,12 @@ services:
               label_translator_strategy: blast_core.label.strategy.librinfo_ecommerce
         calls:
             - [setCodeGenerator, ['@librinfo_crm.code_generator.customer']]
-            - [ setTemplate, [edit, LibrinfoCRMBundle:OrganismAdmin:edit.html.twig]]
-            - [ setTemplate, [show, LibrinfoCRMBundle:OrganismAdmin:show.html.twig]]
+            - [ setTemplate, [edit, SilCRMBundle:OrganismAdmin:edit.html.twig]]
+            - [ setTemplate, [show, SilCRMBundle:OrganismAdmin:show.html.twig]]
 
     librinfo_ecommerce.admin.order:
-        class: Librinfo\EcommerceBundle\Admin\OrderAdmin
-        arguments: [~, Librinfo\EcommerceBundle\Entity\Order, LibrinfoEcommerceBundle:OrderCRUD]
+        class: Sil\Bundle\EcommerceBundle\Admin\OrderAdmin
+        arguments: [~, Sil\Bundle\EcommerceBundle\Entity\Order, SilEcommerceBundle:OrderCRUD]
         tags:
             - name: sonata.admin
               manager_type: orm
@@ -96,11 +96,11 @@ services:
               label: librinfo.ecommercebundle.admin.order
               label_translator_strategy: blast_core.label.strategy.librinfo_ecommerce
         calls:
-            - [ setTemplate, [edit, LibrinfoEcommerceBundle:OrderAdmin/Create:create.html.twig]]
+            - [ setTemplate, [edit, SilEcommerceBundle:OrderAdmin/Create:create.html.twig]]
 
     librinfo_ecommerce.admin.payment:
-        class: Librinfo\EcommerceBundle\Admin\PaymentAdmin
-        arguments: [~, Librinfo\EcommerceBundle\Entity\Payment, LibrinfoEcommerceBundle:PaymentCRUD]
+        class: Sil\Bundle\EcommerceBundle\Admin\PaymentAdmin
+        arguments: [~, Sil\Bundle\EcommerceBundle\Entity\Payment, SilEcommerceBundle:PaymentCRUD]
         tags:
             - name: sonata.admin
               manager_type: orm
@@ -109,8 +109,8 @@ services:
               label_translator_strategy: blast_core.label.strategy.librinfo_ecommerce
 
     librinfo_ecommerce.admin.payment_method:
-        class: Librinfo\EcommerceBundle\Admin\PaymentMethodAdmin
-        arguments: [~, Sylius\Component\Core\Model\PaymentMethod, LibrinfoEcommerceBundle:PaymentCRUD]
+        class: Sil\Bundle\EcommerceBundle\Admin\PaymentMethodAdmin
+        arguments: [~, Sylius\Component\Core\Model\PaymentMethod, SilEcommerceBundle:PaymentCRUD]
         tags:
             - name: sonata.admin
               manager_type: orm
@@ -119,8 +119,8 @@ services:
               label_translator_strategy: blast_core.label.strategy.librinfo_ecommerce
 
     librinfo_ecommerce.admin.sales_journal:
-        class: Librinfo\EcommerceBundle\Admin\SalesJournalAdmin
-        arguments: [~, Librinfo\EcommerceBundle\Entity\SalesJournalItem, BlastCoreBundle:CRUD]
+        class: Sil\Bundle\EcommerceBundle\Admin\SalesJournalAdmin
+        arguments: [~, Sil\Bundle\EcommerceBundle\Entity\SalesJournalItem, BlastCoreBundle:CRUD]
         tags:
             - name: sonata.admin
               manager_type: orm
@@ -129,8 +129,8 @@ services:
               label_translator_strategy: blast_core.label.strategy.librinfo_ecommerce
 
     librinfo_ecommerce.admin.customer_group:
-        class: Librinfo\EcommerceBundle\Admin\CustomerGroupAdmin
-        arguments: [~, Librinfo\EcommerceBundle\Entity\CustomerGroup, BlastCoreBundle:CRUD]
+        class: Sil\Bundle\EcommerceBundle\Admin\CustomerGroupAdmin
+        arguments: [~, Sil\Bundle\EcommerceBundle\Entity\CustomerGroup, BlastCoreBundle:CRUD]
         tags:
             - name: sonata.admin
               manager_type: orm
@@ -139,7 +139,7 @@ services:
               label_translator_strategy: blast_core.label.strategy.librinfo_ecommerce
 
     librinfo_ecommerce.admin.channel_pricing:
-        class: Librinfo\EcommerceBundle\Admin\ChannelPricingAdmin
+        class: Sil\Bundle\EcommerceBundle\Admin\ChannelPricingAdmin
         arguments: [~, Sylius\Component\Core\Model\ChannelPricing, BlastCoreBundle:CRUD]
         tags:
             - name: sonata.admin
@@ -149,8 +149,8 @@ services:
               label_translator_strategy: blast_core.label.strategy.librinfo_ecommerce
 
     librinfo_ecommerce.admin.tax_rate:
-        class: Librinfo\EcommerceBundle\Admin\TaxRateAdmin
-        arguments: [~, Librinfo\EcommerceBundle\Entity\TaxRate, BlastCoreBundle:CRUD]
+        class: Sil\Bundle\EcommerceBundle\Admin\TaxRateAdmin
+        arguments: [~, Sil\Bundle\EcommerceBundle\Entity\TaxRate, BlastCoreBundle:CRUD]
         tags:
             - name: sonata.admin
               manager_type: orm
@@ -159,7 +159,7 @@ services:
               label_translator_strategy: blast_core.label.strategy.librinfo_ecommerce
 
     librinfo_ecommerce.admin.tax_category:
-        class: Librinfo\EcommerceBundle\Admin\TaxCategoryAdmin
+        class: Sil\Bundle\EcommerceBundle\Admin\TaxCategoryAdmin
         arguments: [~, Sylius\Component\Taxation\Model\TaxCategory, BlastCoreBundle:CRUD]
         tags:
             - name: sonata.admin
@@ -169,8 +169,8 @@ services:
               label_translator_strategy: blast_core.label.strategy.librinfo_ecommerce
 
     librinfo_ecommerce.admin.zone:
-        class: Blast\CoreBundle\Admin\GenericAdmin
-        arguments: [~, Librinfo\EcommerceBundle\Entity\Zone, BlastCoreBundle:CRUD]
+        class: Blast\Bundle\CoreBundle\Admin\GenericAdmin
+        arguments: [~, Sil\Bundle\EcommerceBundle\Entity\Zone, BlastCoreBundle:CRUD]
         tags:
             - name: sonata.admin
               manager_type: orm
@@ -179,8 +179,8 @@ services:
               label_translator_strategy: blast_core.label.strategy.librinfo_ecommerce
 
     librinfo_ecommerce.admin.taxon:
-        class: Librinfo\EcommerceBundle\Admin\TaxonAdmin
-        arguments: [~, Librinfo\EcommerceBundle\Entity\Taxon, BlastCoreBundle:CRUD]
+        class: Sil\Bundle\EcommerceBundle\Admin\TaxonAdmin
+        arguments: [~, Sil\Bundle\EcommerceBundle\Entity\Taxon, BlastCoreBundle:CRUD]
         tags:
             - name: sonata.admin
               manager_type: orm
@@ -189,8 +189,8 @@ services:
               label_translator_strategy: blast_core.label.strategy.librinfo_ecommerce
 
     librinfo_ecommerce.admin.invoice:
-        class: Librinfo\EcommerceBundle\Admin\InvoiceAdmin
-        arguments: [~, Librinfo\EcommerceBundle\Entity\Invoice, LibrinfoEcommerceBundle:InvoiceCRUD]
+        class: Sil\Bundle\EcommerceBundle\Admin\InvoiceAdmin
+        arguments: [~, Sil\Bundle\EcommerceBundle\Entity\Invoice, SilEcommerceBundle:InvoiceCRUD]
         tags:
             - name: sonata.admin
               manager_type: orm
@@ -199,8 +199,8 @@ services:
               label_translator_strategy: blast_core.label.strategy.librinfo_ecommerce
 
     librinfo_ecommerce.admin.channel:
-        class: Librinfo\EcommerceBundle\Admin\ChannelAdmin
-        arguments: [~, Librinfo\EcommerceBundle\Entity\Channel, BlastCoreBundle:CRUD]
+        class: Sil\Bundle\EcommerceBundle\Admin\ChannelAdmin
+        arguments: [~, Sil\Bundle\EcommerceBundle\Entity\Channel, BlastCoreBundle:CRUD]
         tags:
             - name: sonata.admin
               manager_type: orm
@@ -209,8 +209,8 @@ services:
               label_translator_strategy: blast_core.label.strategy.librinfo_ecommerce
 
     librinfo_ecommerce.admin.shipping_method:
-        class: Librinfo\EcommerceBundle\Admin\ShippingMethodAdmin
-        arguments: [~, Librinfo\EcommerceBundle\Entity\ShippingMethod, BlastCoreBundle:CRUD]
+        class: Sil\Bundle\EcommerceBundle\Admin\ShippingMethodAdmin
+        arguments: [~, Sil\Bundle\EcommerceBundle\Entity\ShippingMethod, BlastCoreBundle:CRUD]
         tags:
             - name: sonata.admin
               manager_type: orm
@@ -219,7 +219,7 @@ services:
               label_translator_strategy: blast_core.label.strategy.librinfo_ecommerce
 
 #    librinfo_ecommerce.admin.shipping_category:
-#        class: Librinfo\EcommerceBundle\Admin\ShippingCategoryAdmin
+#        class: Sil\Bundle\EcommerceBundle\Admin\ShippingCategoryAdmin
 #        arguments: [~, Sylius\Component\Shipping\Model\ShippingCategory, BlastCoreBundle:CRUD]
 #        tags:
 #            - name: sonata.admin
@@ -229,7 +229,7 @@ services:
 #              label_translator_strategy: blast_core.label.strategy.librinfo_ecommerce
 
     librinfo_ecommerce.admin.shipping_method_translation:
-        class: Librinfo\EcommerceBundle\Admin\ShippingMethodTranslationAdmin
+        class: Sil\Bundle\EcommerceBundle\Admin\ShippingMethodTranslationAdmin
         arguments: [~, Sylius\Component\Shipping\Model\ShippingMethodTranslation, BlastCoreBundle:CRUD]
         tags:
             - name: sonata.admin
@@ -239,7 +239,7 @@ services:
               label_translator_strategy: blast_core.label.strategy.librinfo_ecommerce
 
     librinfo_ecommerce.admin.shop_user:
-        class: Librinfo\EcommerceBundle\Admin\ShopUserAdmin
+        class: Sil\Bundle\EcommerceBundle\Admin\ShopUserAdmin
         arguments: [~, Sylius\Component\Core\Model\ShopUser, BlastCoreBundle:CRUD]
         tags:
             - name: sonata.admin

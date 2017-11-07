@@ -1,2 +1,2 @@
-Librinfo\EcommerceBundle\Entity\Payment:
+Sil\Bundle\EcommerceBundle\Entity\Payment:
     type: entity

@@ -1,5 +1,5 @@
 <td width="50%">
-    {% include('LibrinfoEcommerceBundle:OrderAdmin:_state_label.html.twig') with {'category': 'shipping', 'value': shipment.state} %}
+    {% include('SilEcommerceBundle:OrderAdmin:_state_label.html.twig') with {'category': 'shipping', 'value': shipment.state} %}
     &nbsp;<strong>{{ shipment.method }}</strong> ({{ getShipmentCost(shipment) }})
     <br>
     <i class="fa fa-globe"></i>&nbsp;{{ shipment.method.zone }}

@@ -1,2 +1,2 @@
-Librinfo\EcommerceBundle\Entity\Zone:
+Sil\Bundle\EcommerceBundle\Entity\Zone:
     type: entity

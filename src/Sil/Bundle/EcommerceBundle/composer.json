@@ -26,7 +26,7 @@
         "sonata",
         "symfony"
     ],
-    "homepage": "https://github.com/libre-informatique/SymfonyLibrinfoEcommerceBundle",
+    "homepage": "https://github.com/libre-informatique/SymfonySilEcommerceBundle",
     "authors": [
         {
             "name": "Marcos Bezerra de Menezes",
@@ -39,7 +39,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Librinfo\\EcommerceBundle\\": "/"
+            "Librinfo\\EcommerceBundle\\": "."
         }
     }
 }

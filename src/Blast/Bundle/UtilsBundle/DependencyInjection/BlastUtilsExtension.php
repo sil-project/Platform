@@ -10,9 +10,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Blast\UtilsBundle\DependencyInjection;
+namespace Blast\Bundle\UtilsBundle\DependencyInjection;
 
-use Blast\CoreBundle\DependencyInjection\BlastCoreExtension;
+use Blast\Bundle\CoreBundle\DependencyInjection\BlastCoreExtension;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\FileLoader;
 

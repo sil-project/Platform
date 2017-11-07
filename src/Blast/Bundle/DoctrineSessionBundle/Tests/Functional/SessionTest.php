@@ -10,16 +10,16 @@
  * file that was distributed with this source code.
  */
 
-namespace  Blast\DoctrineSessionBundle\Tests\Functional;
+namespace  Blast\Bundle\DoctrineSessionBundle\Tests\Functional;
 
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\HttpFoundation\Session\Storage\NativeSessionStorage;
-use Blast\DoctrineSessionBundle\Handler\DoctrineORMHandler;
+use Blast\Bundle\DoctrineSessionBundle\Handler\DoctrineORMHandler;
 use Symfony\Component\HttpFoundation\Session\Session;
 
 /*
  * @todo: check if Entity\Session why (it need to) implement SessionInterface
- use Blast\DoctrineSessionBundle\Entity\Session;
+ use Blast\Bundle\DoctrineSessionBundle\Entity\Session;
 */
 
 /*
@@ -60,7 +60,7 @@ class SessionTest extends KernelTestCase
         $this->entitymanager = $this->registrymanager
                              ->getManager();
 
-        $this->sessionclass = 'Blast\DoctrineSessionBundle\Entity\Session';
+        $this->sessionclass = 'Blast\Bundle\DoctrineSessionBundle\Entity\Session';
         $this->doctrinehandler = new DoctrineORMHandler($this->registrymanager, $this->sessionclass);
 
         /*

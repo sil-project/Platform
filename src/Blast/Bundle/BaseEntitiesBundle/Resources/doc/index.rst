@@ -20,7 +20,7 @@ In a Traits, we will define the default implementation of methods and/or attribu
 
 .. code-block:: php
 
-  namespace Blast\BaseEntitiesBundle\Entity\Traits;
+  namespace Blast\Bundle\BaseEntitiesBundle\Entity\Traits;
 
   trait BaseEntity
   {
@@ -43,9 +43,9 @@ See the previous Entity using this Trait :
 
 .. code-block:: php
 
-  namespace Librinfo\CRMBundle\Entity;
+  namespace Sil\Bundle\CRMBundle\Entity;
 
-  use Blast\BaseEntitiesBundle\Entity\Traits\BaseEntity;
+  use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\BaseEntity;
 
   /**
    * Category
@@ -77,9 +77,9 @@ you just have to override it as if it where a parent class.
 
 .. code-block:: php
 
-  namespace Librinfo\CRMBundle\Entity;
+  namespace Sil\Bundle\CRMBundle\Entity;
 
-  use Blast\BaseEntitiesBundle\Entity\Traits\BaseEntity;
+  use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\BaseEntity;
 
   /**
    * Category
@@ -110,7 +110,7 @@ Here's a simplified example of Timestampable EventSubscriber :
 
 .. code-block:: php
 
-  namespace Blast\BaseEntitiesBundle\EventListener;
+  namespace Blast\Bundle\BaseEntitiesBundle\EventListener;
 
   use DateTime;
   use Doctrine\Common\EventSubscriber;
@@ -144,7 +144,7 @@ Here's a simplified example of Timestampable EventSubscriber :
           /** @var ClassMetadata $metadata */
           $metadata = $eventArgs->getClassMetadata();
 
-          if (!$this->hasTrait($metadata->getReflectionClass(), 'Blast\BaseEntitiesBundle\Entity\Traits\Timestampable'))
+          if (!$this->hasTrait($metadata->getReflectionClass(), 'Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Timestampable'))
               return; // return if current entity doesn't use Timestampable trait
 
           // [...]
@@ -201,7 +201,7 @@ Let's take a usefull example :
       {
           $entity = $eventArgs->getObject();
 
-          if (!$this->hasTrait($entity, 'Blast\BaseEntitiesBundle\Entity\Traits\Timestampable'))
+          if (!$this->hasTrait($entity, 'Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Timestampable'))
               return;
 
           $user = $this->tokenStorage->getToken()->getUser(); // Using SF 2.6 TokenStorage service to retreive current user
@@ -229,7 +229,7 @@ To enable this functionnality on an entity :
 
   namespace MyBundle\Entity;
 
-  use Blast\BaseEntitiesBundle\Entity\Traits\Searchable;
+  use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Searchable;
 
   class Contact
   {
@@ -244,7 +244,7 @@ To enable this functionnality on an entity :
 
   namespace MyBundle\Entity;
 
-  use Blast\BaseEntitiesBundle\Entity\SearchIndexEntity;
+  use Blast\Bundle\BaseEntitiesBundle\Entity\SearchIndexEntity;
 
   class ContactSearchIndex extends SearchIndexEntity
   {

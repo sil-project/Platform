@@ -10,9 +10,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EmailBundle\Controller;
+namespace Sil\Bundle\EmailBundle\Controller;
 
-use Librinfo\MediaBundle\Controller\CRUDController as BaseCRUDController;
+use Sil\Bundle\MediaBundle\Controller\CRUDController as BaseCRUDController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -365,7 +365,7 @@ class CRUDController extends BaseCRUDController
     protected function handleTemplate($email)
     {
         if ($email->getIsTemplate() && $email->getNewTemplateName()) {
-            $template = new \Librinfo\EmailBundle\Entity\EmailTemplate();
+            $template = new \Sil\Bundle\EmailBundle\Entity\EmailTemplate();
             $template->setContent($email->getContent());
             $template->setName($email->getNewTemplateName());
             $this->manager->persist($template);

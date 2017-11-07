@@ -10,16 +10,16 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\VarietiesBundle\Entity;
+namespace Sil\Bundle\VarietyBundle\Entity;
 
-use AppBundle\Entity\OuterExtension\LibrinfoVarietiesBundle\VarietyExtension;
-use Blast\BaseEntitiesBundle\Entity\Traits\BaseEntity;
-use Blast\BaseEntitiesBundle\Entity\Traits\Descriptible;
-use Blast\BaseEntitiesBundle\Entity\Traits\Nameable;
-use Blast\BaseEntitiesBundle\Entity\Traits\Timestampable;
-use Blast\OuterExtensionBundle\Entity\Traits\OuterExtensible;
+use AppBundle\Entity\OuterExtension\SilVarietyBundle\VarietyExtension;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\BaseEntity;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Descriptible;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Nameable;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Timestampable;
+use Blast\Bundle\OuterExtensionBundle\Entity\Traits\OuterExtensible;
 use Doctrine\Common\Collections\ArrayCollection;
-use Librinfo\MediaBundle\Entity\File;
+use Sil\Bundle\MediaBundle\Entity\File;
 
 /**
  * Variety.
@@ -182,12 +182,12 @@ class Variety
     private $children;
 
     /**
-     * @var \Librinfo\VarietiesBundle\Entity\Variety
+     * @var \Sil\Bundle\VarietyBundle\Entity\Variety
      */
     private $parent;
 
     /**
-     * @var \Librinfo\VarietiesBundle\Entity\Species
+     * @var \Sil\Bundle\VarietyBundle\Entity\Species
      */
     private $species;
 
@@ -640,11 +640,11 @@ class Variety
     /**
      * Set parent.
      *
-     * @param \Librinfo\VarietiesBundle\Entity\Variety $parent
+     * @param \Sil\Bundle\VarietyBundle\Entity\Variety $parent
      *
      * @return Variety
      */
-    public function setParent(\Librinfo\VarietiesBundle\Entity\Variety $parent = null)
+    public function setParent(\Sil\Bundle\VarietyBundle\Entity\Variety $parent = null)
     {
         $this->parent = $parent;
 
@@ -654,7 +654,7 @@ class Variety
     /**
      * Get parent.
      *
-     * @return \Librinfo\VarietiesBundle\Entity\Variety
+     * @return \Sil\Bundle\VarietyBundle\Entity\Variety
      */
     public function getParent()
     {
@@ -664,11 +664,11 @@ class Variety
     /**
      * Add child.
      *
-     * @param \Librinfo\VarietiesBundle\Entity\Variety $child
+     * @param \Sil\Bundle\VarietyBundle\Entity\Variety $child
      *
      * @return Variety
      */
-    public function addChild(\Librinfo\VarietiesBundle\Entity\Variety $child)
+    public function addChild(\Sil\Bundle\VarietyBundle\Entity\Variety $child)
     {
         $this->children[] = $child;
 
@@ -678,11 +678,11 @@ class Variety
     /**
      * Remove child.
      *
-     * @param \Librinfo\VarietiesBundle\Entity\Variety $child
+     * @param \Sil\Bundle\VarietyBundle\Entity\Variety $child
      *
      * @return bool tRUE if this collection contained the specified element, FALSE otherwise
      */
-    public function removeChild(\Librinfo\VarietiesBundle\Entity\Variety $child)
+    public function removeChild(\Sil\Bundle\VarietyBundle\Entity\Variety $child)
     {
         return $this->children->removeElement($child);
     }
@@ -700,11 +700,11 @@ class Variety
     /**
      * Set species.
      *
-     * @param \Librinfo\VarietiesBundle\Entity\Species $species
+     * @param \Sil\Bundle\VarietyBundle\Entity\Species $species
      *
      * @return Variety
      */
-    public function setSpecies(\Librinfo\VarietiesBundle\Entity\Species $species = null)
+    public function setSpecies(\Sil\Bundle\VarietyBundle\Entity\Species $species = null)
     {
         $this->species = $species;
 
@@ -714,7 +714,7 @@ class Variety
     /**
      * Get species.
      *
-     * @return \Librinfo\VarietiesBundle\Entity\Species
+     * @return \Sil\Bundle\VarietyBundle\Entity\Species
      */
     public function getSpecies()
     {
@@ -728,11 +728,11 @@ class Variety
     /**
      * Add plantCategory.
      *
-     * @param \Librinfo\VarietiesBundle\Entity\PlantCategory $plantCategory
+     * @param \Sil\Bundle\VarietyBundle\Entity\PlantCategory $plantCategory
      *
      * @return Variety
      */
-    public function addPlantCategory(\Librinfo\VarietiesBundle\Entity\PlantCategory $plantCategory)
+    public function addPlantCategory(\Sil\Bundle\VarietyBundle\Entity\PlantCategory $plantCategory)
     {
         $this->plant_categories[] = $plantCategory;
 
@@ -742,11 +742,11 @@ class Variety
     /**
      * Remove plantCategory.
      *
-     * @param \Librinfo\VarietiesBundle\Entity\PlantCategory $plantCategory
+     * @param \Sil\Bundle\VarietyBundle\Entity\PlantCategory $plantCategory
      *
      * @return bool tRUE if this collection contained the specified element, FALSE otherwise
      */
-    public function removePlantCategory(\Librinfo\VarietiesBundle\Entity\PlantCategory $plantCategory)
+    public function removePlantCategory(\Sil\Bundle\VarietyBundle\Entity\PlantCategory $plantCategory)
     {
         return $this->plant_categories->removeElement($plantCategory);
     }
@@ -1148,11 +1148,11 @@ class Variety
     /**
      * Set variety.
      *
-     * @param \Librinfo\VarietiesBundle\Entity\Variety $variety
+     * @param \Sil\Bundle\VarietyBundle\Entity\Variety $variety
      *
      * @return Strain
      */
-    public function setVariety(\Librinfo\VarietiesBundle\Entity\Variety $variety = null)
+    public function setVariety(\Sil\Bundle\VarietyBundle\Entity\Variety $variety = null)
     {
         $this->variety = $variety;
 
@@ -1162,7 +1162,7 @@ class Variety
     /**
      * Get variety.
      *
-     * @return \Librinfo\VarietiesBundle\Entity\Variety
+     * @return \Sil\Bundle\VarietyBundle\Entity\Variety
      */
     public function getVariety()
     {
@@ -1172,11 +1172,11 @@ class Variety
     /**
      * Add professionalDescription.
      *
-     * @param \Librinfo\VarietiesBundle\Entity\VarietyDescriptionProfessional $professionalDescription
+     * @param \Sil\Bundle\VarietyBundle\Entity\VarietyDescriptionProfessional $professionalDescription
      *
      * @return Variety
      */
-    public function addProfessionalDescription(\Librinfo\VarietiesBundle\Entity\VarietyDescriptionProfessional $professionalDescription)
+    public function addProfessionalDescription(\Sil\Bundle\VarietyBundle\Entity\VarietyDescriptionProfessional $professionalDescription)
     {
         $this->professional_descriptions[] = $professionalDescription;
 
@@ -1186,11 +1186,11 @@ class Variety
     /**
      * Remove professionalDescription.
      *
-     * @param \Librinfo\VarietiesBundle\Entity\VarietyDescriptionProfessional $professionalDescription
+     * @param \Sil\Bundle\VarietyBundle\Entity\VarietyDescriptionProfessional $professionalDescription
      *
      * @return bool tRUE if this collection contained the specified element, FALSE otherwise
      */
-    public function removeProfessionalDescription(\Librinfo\VarietiesBundle\Entity\VarietyDescriptionProfessional $professionalDescription)
+    public function removeProfessionalDescription(\Sil\Bundle\VarietyBundle\Entity\VarietyDescriptionProfessional $professionalDescription)
     {
         return $this->professional_descriptions->removeElement($professionalDescription);
     }
@@ -1235,11 +1235,11 @@ class Variety
     /**
      * Add amateurDescription.
      *
-     * @param \Librinfo\VarietiesBundle\Entity\VarietyDescriptionAmateur amateurDescription
+     * @param \Sil\Bundle\VarietyBundle\Entity\VarietyDescriptionAmateur amateurDescription
      *
      * @return Variety
      */
-    public function addAmateurDescription(\Librinfo\VarietiesBundle\Entity\VarietyDescriptionAmateur $amateurDescription)
+    public function addAmateurDescription(\Sil\Bundle\VarietyBundle\Entity\VarietyDescriptionAmateur $amateurDescription)
     {
         $this->amateur_descriptions[] = $amateurDescription;
 
@@ -1249,11 +1249,11 @@ class Variety
     /**
      * Remove amateurDescription.
      *
-     * @param \Librinfo\VarietiesBundle\Entity\VarietyDescriptionAmateur $amateurDescription
+     * @param \Sil\Bundle\VarietyBundle\Entity\VarietyDescriptionAmateur $amateurDescription
      *
      * @return bool tRUE if this collection contained the specified element, FALSE otherwise
      */
-    public function removeAmateurDescription(\Librinfo\VarietiesBundle\Entity\VarietyDescriptionAmateur $amateurDescription)
+    public function removeAmateurDescription(\Sil\Bundle\VarietyBundle\Entity\VarietyDescriptionAmateur $amateurDescription)
     {
         return $this->amateur_descriptions->removeElement($amateurDescription);
     }
@@ -1298,11 +1298,11 @@ class Variety
     /**
      * Add productionDescription.
      *
-     * @param \Librinfo\VarietiesBundle\Entity\VarietyDescriptionProduction $productionDescription
+     * @param \Sil\Bundle\VarietyBundle\Entity\VarietyDescriptionProduction $productionDescription
      *
      * @return Variety
      */
-    public function addProductionDescription(\Librinfo\VarietiesBundle\Entity\VarietyDescriptionProduction $productionDescription)
+    public function addProductionDescription(\Sil\Bundle\VarietyBundle\Entity\VarietyDescriptionProduction $productionDescription)
     {
         $this->production_descriptions[] = $productionDescription;
 
@@ -1312,11 +1312,11 @@ class Variety
     /**
      * Remove productionDescription.
      *
-     * @param \Librinfo\VarietiesBundle\Entity\VarietyDescriptionProduction $productionDescription
+     * @param \Sil\Bundle\VarietyBundle\Entity\VarietyDescriptionProduction $productionDescription
      *
      * @return bool tRUE if this collection contained the specified element, FALSE otherwise
      */
-    public function removeProductionDescription(\Librinfo\VarietiesBundle\Entity\VarietyDescriptionProduction $productionDescription)
+    public function removeProductionDescription(\Sil\Bundle\VarietyBundle\Entity\VarietyDescriptionProduction $productionDescription)
     {
         return $this->production_descriptions->removeElement($productionDescription);
     }
@@ -1361,11 +1361,11 @@ class Variety
     /**
      * Add commercialDescription.
      *
-     * @param \Librinfo\VarietiesBundle\Entity\VarietyDescriptionCommercial $commercialDescription
+     * @param \Sil\Bundle\VarietyBundle\Entity\VarietyDescriptionCommercial $commercialDescription
      *
      * @return Variety
      */
-    public function addCommercialDescription(\Librinfo\VarietiesBundle\Entity\VarietyDescriptionCommercial $commercialDescription)
+    public function addCommercialDescription(\Sil\Bundle\VarietyBundle\Entity\VarietyDescriptionCommercial $commercialDescription)
     {
         $this->commercial_descriptions[] = $commercialDescription;
 
@@ -1375,11 +1375,11 @@ class Variety
     /**
      * Remove commercialDescription.
      *
-     * @param \Librinfo\VarietiesBundle\Entity\VarietyDescriptionCommercial $commercialDescription
+     * @param \Sil\Bundle\VarietyBundle\Entity\VarietyDescriptionCommercial $commercialDescription
      *
      * @return bool tRUE if this collection contained the specified element, FALSE otherwise
      */
-    public function removeCommercialDescription(\Librinfo\VarietiesBundle\Entity\VarietyDescriptionCommercial $commercialDescription)
+    public function removeCommercialDescription(\Sil\Bundle\VarietyBundle\Entity\VarietyDescriptionCommercial $commercialDescription)
     {
         return $this->commercial_descriptions->removeElement($commercialDescription);
     }
@@ -1424,11 +1424,11 @@ class Variety
     /**
      * Add plantDescription.
      *
-     * @param \Librinfo\VarietiesBundle\Entity\VarietyDescriptionPlant $plantDescription
+     * @param \Sil\Bundle\VarietyBundle\Entity\VarietyDescriptionPlant $plantDescription
      *
      * @return Variety
      */
-    public function addPlantDescription(\Librinfo\VarietiesBundle\Entity\VarietyDescriptionPlant $plantDescription)
+    public function addPlantDescription(\Sil\Bundle\VarietyBundle\Entity\VarietyDescriptionPlant $plantDescription)
     {
         $this->plant_descriptions[] = $plantDescription;
 
@@ -1438,11 +1438,11 @@ class Variety
     /**
      * Remove plantDescription.
      *
-     * @param \Librinfo\VarietiesBundle\Entity\VarietyDescriptionPlant $plantDescription
+     * @param \Sil\Bundle\VarietyBundle\Entity\VarietyDescriptionPlant $plantDescription
      *
      * @return bool tRUE if this collection contained the specified element, FALSE otherwise
      */
-    public function removePlantDescription(\Librinfo\VarietiesBundle\Entity\VarietyDescriptionPlant $plantDescription)
+    public function removePlantDescription(\Sil\Bundle\VarietyBundle\Entity\VarietyDescriptionPlant $plantDescription)
     {
         return $this->plant_descriptions->removeElement($plantDescription);
     }
@@ -1487,11 +1487,11 @@ class Variety
     /**
      * Add cultureDescription.
      *
-     * @param \Librinfo\VarietiesBundle\Entity\VarietyDescriptionCulture $cultureDescription
+     * @param \Sil\Bundle\VarietyBundle\Entity\VarietyDescriptionCulture $cultureDescription
      *
      * @return Variety
      */
-    public function addCultureDescription(\Librinfo\VarietiesBundle\Entity\VarietyDescriptionCulture $cultureDescription)
+    public function addCultureDescription(\Sil\Bundle\VarietyBundle\Entity\VarietyDescriptionCulture $cultureDescription)
     {
         $this->culture_descriptions[] = $cultureDescription;
 
@@ -1501,11 +1501,11 @@ class Variety
     /**
      * Remove cultureDescription.
      *
-     * @param \Librinfo\VarietiesBundle\Entity\VarietyDescriptionCulture $cultureDescription
+     * @param \Sil\Bundle\VarietyBundle\Entity\VarietyDescriptionCulture $cultureDescription
      *
      * @return bool tRUE if this collection contained the specified element, FALSE otherwise
      */
-    public function removeCultureDescription(\Librinfo\VarietiesBundle\Entity\VarietyDescriptionCulture $cultureDescription)
+    public function removeCultureDescription(\Sil\Bundle\VarietyBundle\Entity\VarietyDescriptionCulture $cultureDescription)
     {
         return $this->culture_descriptions->removeElement($cultureDescription);
     }
@@ -1550,11 +1550,11 @@ class Variety
     /**
      * Add innerDescription.
      *
-     * @param \Librinfo\VarietiesBundle\Entity\VarietyDescriptionInner $innerDescription
+     * @param \Sil\Bundle\VarietyBundle\Entity\VarietyDescriptionInner $innerDescription
      *
      * @return Variety
      */
-    public function addInnerDescription(\Librinfo\VarietiesBundle\Entity\VarietyDescriptionInner $innerDescription)
+    public function addInnerDescription(\Sil\Bundle\VarietyBundle\Entity\VarietyDescriptionInner $innerDescription)
     {
         $this->inner_descriptions[] = $innerDescription;
 
@@ -1564,11 +1564,11 @@ class Variety
     /**
      * Remove innerDescription.
      *
-     * @param \Librinfo\VarietiesBundle\Entity\VarietyDescriptionInner $innerDescription
+     * @param \Sil\Bundle\VarietyBundle\Entity\VarietyDescriptionInner $innerDescription
      *
      * @return bool tRUE if this collection contained the specified element, FALSE otherwise
      */
-    public function removeInnerDescription(\Librinfo\VarietiesBundle\Entity\VarietyDescriptionInner $innerDescription)
+    public function removeInnerDescription(\Sil\Bundle\VarietyBundle\Entity\VarietyDescriptionInner $innerDescription)
     {
         return $this->inner_descriptions->removeElement($innerDescription);
     }
@@ -1598,7 +1598,7 @@ class Variety
     }
 
     /**
-     * alias for LibrinfoMediaBundle/CRUDController::handleFiles().
+     * alias for SilMediaBundle/CRUDController::handleFiles().
      *
      * @param File $file
      *
@@ -1614,7 +1614,7 @@ class Variety
     }
 
     /**
-     * alias for LibrinfoMediaBundle/CRUDController::handleFiles().
+     * alias for SilMediaBundle/CRUDController::handleFiles().
      *
      * @param File $file
      *

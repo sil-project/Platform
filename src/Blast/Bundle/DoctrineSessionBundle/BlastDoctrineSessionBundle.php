@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Blast\DoctrineSessionBundle;
+namespace Blast\Bundle\DoctrineSessionBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 

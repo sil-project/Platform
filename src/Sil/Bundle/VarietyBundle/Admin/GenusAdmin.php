@@ -10,9 +10,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\VarietiesBundle\Admin;
+namespace Sil\Bundle\VarietyBundle\Admin;
 
-use Blast\CoreBundle\Admin\CoreAdmin;
+use Blast\Bundle\CoreBundle\Admin\CoreAdmin;
 
 class GenusAdmin extends CoreAdmin
 {

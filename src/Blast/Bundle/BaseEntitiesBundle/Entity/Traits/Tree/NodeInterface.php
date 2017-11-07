@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Blast\BaseEntitiesBundle\Entity\Traits\Tree;
+namespace Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Tree;
 
 use Doctrine\Common\Collections\Collection;
 

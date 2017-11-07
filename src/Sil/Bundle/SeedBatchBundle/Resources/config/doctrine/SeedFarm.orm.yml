@@ -1,4 +1,4 @@
-Librinfo\SeedBatchBundle\Entity\SeedFarm:
+Sil\Bundle\SeedBatchBundle\Entity\SeedFarm:
     type: entity
 
     fields:
@@ -7,7 +7,7 @@ Librinfo\SeedBatchBundle\Entity\SeedFarm:
 
     oneToMany:
         seedBatches:
-            targetEntity: Librinfo\SeedBatchBundle\Entity\SeedBatch
+            targetEntity: Sil\Bundle\SeedBatchBundle\Entity\SeedBatch
             mappedBy: seedFarm
 
     uniqueConstraints:

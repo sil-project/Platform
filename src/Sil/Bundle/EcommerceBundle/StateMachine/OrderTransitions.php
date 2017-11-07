@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EcommerceBundle\StateMachine;
+namespace Sil\Bundle\EcommerceBundle\StateMachine;
 
 class OrderTransitions
 {

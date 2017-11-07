@@ -10,9 +10,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\MediaBundle\Controller;
+namespace Sil\Bundle\MediaBundle\Controller;
 
-use Blast\CoreBundle\Controller\CRUDController as BaseCRUDController;
+use Blast\Bundle\CoreBundle\Controller\CRUDController as BaseCRUDController;
 
 /**
  * Class CRUDController.
@@ -289,7 +289,7 @@ class CRUDController extends BaseCRUDController
         $rc = new \ReflectionClass($object);
         $className = $rc->getShortName();
 
-        $repo = $this->manager->getRepository('LibrinfoMediaBundle:File');
+        $repo = $this->manager->getRepository('SilMediaBundle:File');
 
         if ($remove = $request->get('remove_files')) {
             foreach ($remove as $key => $id) {

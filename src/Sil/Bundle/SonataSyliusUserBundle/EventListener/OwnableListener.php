@@ -10,13 +10,13 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\SonataSyliusUserBundle\EventListener;
+namespace Sil\Bundle\SonataSyliusUserBundle\EventListener;
 
-use Blast\BaseEntitiesBundle\EventListener\Traits\ClassChecker;
+use Blast\Bundle\BaseEntitiesBundle\EventListener\Traits\ClassChecker;
 use Doctrine\Common\EventSubscriber;
 use Doctrine\ORM\Event\LoadClassMetadataEventArgs;
 use Doctrine\ORM\Mapping\ClassMetadata;
-use Librinfo\SonataSyliusUserBundle\Entity\Traits\Ownable;
+use Sil\Bundle\SonataSyliusUserBundle\Entity\Traits\Ownable;
 use Monolog\Logger;
 use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerInterface;

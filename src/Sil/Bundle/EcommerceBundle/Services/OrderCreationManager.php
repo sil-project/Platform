@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EcommerceBundle\Services;
+namespace Sil\Bundle\EcommerceBundle\Services;
 
 use Doctrine\ORM\EntityManager;
 use SM\Factory\Factory as SMFactory;
@@ -18,8 +18,8 @@ use Sylius\Component\Core\OrderPaymentStates;
 use Sylius\Component\Core\OrderPaymentTransitions;
 use Sylius\Component\Core\OrderShippingStates;
 use Sylius\Component\Core\OrderShippingTransitions;
-use Librinfo\EcommerceBundle\Entity\OrderInterface;
-use Librinfo\EcommerceBundle\Modifier\LimitingOrderItemQuantityModifier;
+use Sil\Bundle\EcommerceBundle\Entity\OrderInterface;
+use Sil\Bundle\EcommerceBundle\Modifier\LimitingOrderItemQuantityModifier;
 use Sylius\Component\Payment\PaymentTransitions;
 use Sylius\Component\Shipping\ShipmentTransitions;
 use Symfony\Component\PropertyAccess\Exception\NoSuchPropertyException;

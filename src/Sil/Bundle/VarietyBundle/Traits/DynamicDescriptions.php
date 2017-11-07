@@ -10,10 +10,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\VarietiesBundle\Traits;
+namespace Sil\Bundle\VarietyBundle\Traits;
 
 use Sonata\AdminBundle\Form\FormMapper;
-use Librinfo\VarietiesBundle\EventListener\VarietyDescriptionsFormEventSubscriber;
+use Sil\Bundle\VarietyBundle\EventListener\VarietyDescriptionsFormEventSubscriber;
 
 trait DynamicDescriptions
 {

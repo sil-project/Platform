@@ -26,7 +26,7 @@
         "CRM",
         "Email"
     ],
-    "homepage": "https://github.com/libre-informatique/SymfonyLibrinfoEmailCRMBundle",
+    "homepage": "https://github.com/libre-informatique/SymfonySilEmailCRMBundle",
     "authors": [
         {
             "name": "Marcos Bezerra de Menezes",
@@ -39,7 +39,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Librinfo\\EmailCRMBundle\\": "/"
+            "Librinfo\\EmailCRMBundle\\": "."
         }
     }
 }

@@ -10,13 +10,13 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\MediaBundle\Imagine\Loader;
+namespace Sil\Bundle\MediaBundle\Imagine\Loader;
 
 use Liip\ImagineBundle\Binary\BinaryInterface;
 use Liip\ImagineBundle\Binary\Loader\LoaderInterface;
 use Liip\ImagineBundle\Model\Binary;
 use Doctrine\ORM\EntityManager;
-use Librinfo\MediaBundle\Imagine\PathResolver\PathResolverInterface;
+use Sil\Bundle\MediaBundle\Imagine\PathResolver\PathResolverInterface;
 
 class DbLoader implements LoaderInterface
 {

@@ -10,11 +10,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Blast\UtilsBundle\EventListener;
+namespace Blast\Bundle\UtilsBundle\EventListener;
 
 use Doctrine\Common\EventSubscriber;
 use Doctrine\Common\EventArgs;
-use Blast\UtilsBundle\Entity\CustomFilter;
+use Blast\Bundle\UtilsBundle\Entity\CustomFilter;
 
 class LoadClassMetadataListener implements EventSubscriber
 {

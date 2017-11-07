@@ -10,11 +10,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EcommerceBundle\Entity;
+namespace Sil\Bundle\EcommerceBundle\Entity;
 
 use Sylius\Component\Core\Model\ShippingMethod as BaseShippingMethod;
-//use Blast\OuterExtensionBundle\Entity\Traits\OuterExtensible;
-use Blast\BaseEntitiesBundle\Entity\Traits\Stringable;
+//use Blast\Bundle\OuterExtensionBundle\Entity\Traits\OuterExtensible;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Stringable;
 
 class ShippingMethod extends BaseShippingMethod
 {

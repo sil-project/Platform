@@ -1,4 +1,4 @@
-Librinfo\VarietiesBundle\Entity\Species:
+Sil\Bundle\VarietyBundle\Entity\Species:
     type: entity
     table: species
     blast:
@@ -37,7 +37,7 @@ Librinfo\VarietiesBundle\Entity\Species:
             nullable: true
     manyToMany:
         plant_categories:
-            targetEntity: Librinfo\VarietiesBundle\Entity\PlantCategory
+            targetEntity: Sil\Bundle\VarietyBundle\Entity\PlantCategory
             inversedBy: species
             joinTable:
                 name: librinfo_varieties_species_category
@@ -49,13 +49,13 @@ Librinfo\VarietiesBundle\Entity\Species:
                         referencedColumnName: id
     manyToOne:
         genus:
-            targetEntity: Librinfo\VarietiesBundle\Entity\Genus
+            targetEntity: Sil\Bundle\VarietyBundle\Entity\Genus
             inversedBy: specieses
             joinColumn:
                 name: genus_id
             cascade: [ persist ]
         parent_species:
-            targetEntity: Librinfo\VarietiesBundle\Entity\Species
+            targetEntity: Sil\Bundle\VarietyBundle\Entity\Species
             inversedBy: subspecieses
             joinColumn:
                 name: parent_species_id
@@ -63,11 +63,11 @@ Librinfo\VarietiesBundle\Entity\Species:
 
     oneToMany:
         varieties:
-            targetEntity: Librinfo\VarietiesBundle\Entity\Variety
+            targetEntity: Sil\Bundle\VarietyBundle\Entity\Variety
             mappedBy: species
             cascade: [ persist ]
         subspecieses:
-            targetEntity: Librinfo\VarietiesBundle\Entity\Species
+            targetEntity: Sil\Bundle\VarietyBundle\Entity\Species
             mappedBy: parent_species
             cascade: [ persist ]
 

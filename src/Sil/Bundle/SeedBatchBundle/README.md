@@ -1,4 +1,4 @@
-# SymfonyLibrinfoSeedBatchBundle
+# SymfonySilSeedBatchBundle
 
 [![Build Status](https://travis-ci.org/libre-informatique/SeedBatchBundle.svg?branch=master)](https://travis-ci.org/libre-informatique/SeedBatchBundle)
 [![Coverage Status](https://coveralls.io/repos/github/libre-informatique/SeedBatchBundle/badge.svg?branch=master)](https://coveralls.io/github/libre-informatique/SeedBatchBundle?branch=master)

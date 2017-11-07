@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Blast\UtilsBundle\Twig\Extensions;
+namespace Blast\Bundle\UtilsBundle\Twig\Extensions;
 
 use Html2Text\Html2Text;
 

@@ -10,11 +10,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Blast\UtilsBundle\Form\Type;
+namespace Blast\Bundle\UtilsBundle\Form\Type;
 
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\AbstractType as BaseAbstractType;
-use Blast\UtilsBundle\Form\DataTransformer\CheckboxTransformer;
+use Blast\Bundle\UtilsBundle\Form\DataTransformer\CheckboxTransformer;
 
 class CustomCheckboxType extends BaseAbstractType
 {

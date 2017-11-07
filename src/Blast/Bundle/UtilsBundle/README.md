@@ -42,7 +42,7 @@ This class will manage rendering of the hook content by setting `view parameters
 
 namespace MyBundle\Hook\MyCustomHook;
 
-use Blast\UtilsBundle\Hook\AbstractHook;
+use Blast\Bundle\UtilsBundle\Hook\AbstractHook;
 
 class MyCustomHookExample extends AbstractHook
 {
@@ -129,7 +129,7 @@ doctrine:
     orm:
         # ...
         resolve_target_entities:
-            Blast\CoreBundle\Model\UserInterface: MyBundle\Entity\MyUser
+            Blast\Bundle\CoreBundle\Model\UserInterface: MyBundle\Entity\MyUser
 ```
 
 If you're using Sylius, setting the doctrine.orm `resolve_target_entities` key will not work because Sylius is already using this system. You can declare your Interface / Entity replacement within `SyliusResource` configuration :
@@ -141,7 +141,7 @@ sylius_resource:
         blast.utils: # this is an arbitrary key
             classes:
                 model: MyBundle\Entity\MyUser
-                interface: Blast\CoreBundle\Model\UserInterface
+                interface: Blast\Bundle\CoreBundle\Model\UserInterface
 ```
 
 ### Blast User Interface
@@ -160,7 +160,7 @@ sylius_resource:
         blast.utils:
             classes:
                 model: MyBundle\Entity\MyRealUser
-                interface: Blast\CoreBundle\Model\UserInterface
+                interface: Blast\Bundle\CoreBundle\Model\UserInterface
 ```
 
 #### Using Syfony's Doctrine target entity resolver :
@@ -171,5 +171,5 @@ doctrine:
     orm:
         #...
         resolve_target_entities:
-            Blast\CoreBundle\Model\UserInterface: MyBundle\Entity\MyRealUser
+            Blast\Bundle\CoreBundle\Model\UserInterface: MyBundle\Entity\MyRealUser
 ```

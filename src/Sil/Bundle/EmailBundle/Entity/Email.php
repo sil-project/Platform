@@ -10,16 +10,16 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EmailBundle\Entity;
+namespace Sil\Bundle\EmailBundle\Entity;
 
-use AppBundle\Entity\OuterExtension\LibrinfoEmailBundle\EmailExtension;
-use Blast\BaseEntitiesBundle\Entity\Traits\BaseEntity;
-use Blast\BaseEntitiesBundle\Entity\Traits\Loggable;
-use Blast\BaseEntitiesBundle\Entity\Traits\Searchable;
-use Blast\BaseEntitiesBundle\Entity\Traits\Timestampable;
-use Blast\OuterExtensionBundle\Entity\Traits\OuterExtensible;
+use AppBundle\Entity\OuterExtension\SilEmailBundle\EmailExtension;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\BaseEntity;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Loggable;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Searchable;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Timestampable;
+use Blast\Bundle\OuterExtensionBundle\Entity\Traits\OuterExtensible;
 use Doctrine\Common\Collections\ArrayCollection;
-use Librinfo\MediaBundle\Entity\File;
+use Sil\Bundle\MediaBundle\Entity\File;
 
 /**
  * Email.
@@ -363,7 +363,7 @@ class Email extends Spoolable
     /**
      * Add attachment.
      *
-     * @param \Librinfo\MediaBundle\Entity\File $attachment
+     * @param \Sil\Bundle\MediaBundle\Entity\File $attachment
      *
      * @return Email
      */
@@ -382,7 +382,7 @@ class Email extends Spoolable
     /**
      * Remove attachment.
      *
-     * @param \Librinfo\MediaBundle\Entity\File $attachment
+     * @param \Sil\Bundle\MediaBundle\Entity\File $attachment
      *
      * @return bool tRUE if this collection contained the specified element, FALSE otherwise
      */
@@ -515,11 +515,11 @@ class Email extends Spoolable
     /**
      * Add receipt.
      *
-     * @param \Librinfo\EmailBundle\Entity\EmailReceipt $receipt
+     * @param \Sil\Bundle\EmailBundle\Entity\EmailReceipt $receipt
      *
      * @return Email
      */
-    public function addReceipt(\Librinfo\EmailBundle\Entity\EmailReceipt $receipt)
+    public function addReceipt(\Sil\Bundle\EmailBundle\Entity\EmailReceipt $receipt)
     {
         $this->receipts[] = $receipt;
 
@@ -529,11 +529,11 @@ class Email extends Spoolable
     /**
      * Remove receipt.
      *
-     * @param \Librinfo\EmailBundle\Entity\EmailReceipt $receipt
+     * @param \Sil\Bundle\EmailBundle\Entity\EmailReceipt $receipt
      *
      * @return bool TRUE if this collection contained the specified element, FALSE otherwise
      */
-    public function removeReceipt(\Librinfo\EmailBundle\Entity\EmailReceipt $receipt)
+    public function removeReceipt(\Sil\Bundle\EmailBundle\Entity\EmailReceipt $receipt)
     {
         return $this->receipts->removeElement($receipt);
     }
@@ -551,11 +551,11 @@ class Email extends Spoolable
     /**
      * Add link.
      *
-     * @param \Librinfo\EmailBundle\Entity\EmailLink $link
+     * @param \Sil\Bundle\EmailBundle\Entity\EmailLink $link
      *
      * @return Email
      */
-    public function addLink(\Librinfo\EmailBundle\Entity\EmailLink $link)
+    public function addLink(\Sil\Bundle\EmailBundle\Entity\EmailLink $link)
     {
         $this->links[] = $link;
 
@@ -565,11 +565,11 @@ class Email extends Spoolable
     /**
      * Remove link.
      *
-     * @param \Librinfo\EmailBundle\Entity\EmailLink $link
+     * @param \Sil\Bundle\EmailBundle\Entity\EmailLink $link
      *
      * @return bool TRUE if this collection contained the specified element, FALSE otherwise
      */
-    public function removeLink(\Librinfo\EmailBundle\Entity\EmailLink $link)
+    public function removeLink(\Sil\Bundle\EmailBundle\Entity\EmailLink $link)
     {
         return $this->links->removeElement($link);
     }

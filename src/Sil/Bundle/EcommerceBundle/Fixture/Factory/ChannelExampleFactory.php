@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EcommerceBundle\Fixture\Factory;
+namespace Sil\Bundle\EcommerceBundle\Fixture\Factory;
 
 use Sylius\Bundle\CoreBundle\Fixture\Factory\ChannelExampleFactory as BaseFactory;
 use Sylius\Component\Core\Model\ChannelInterface;

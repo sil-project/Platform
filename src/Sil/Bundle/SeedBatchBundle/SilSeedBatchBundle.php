@@ -10,10 +10,15 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EmailBundle;
+namespace Sil\Bundle\SeedBatchBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
 
-class LibrinfoEmailBundle extends Bundle
+class SilSeedBatchBundle extends Bundle
 {
+    public function build(ContainerBuilder $container)
+    {
+        parent::build($container);
+    }
 }

@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Blast\UtilsBundle\Form\Type;
+namespace Blast\Bundle\UtilsBundle\Form\Type;
 
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormInterface;
@@ -18,9 +18,9 @@ use Symfony\Component\Form\FormView;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\OptionsResolver\Options;
 use Doctrine\ORM\EntityManager;
-use Blast\CoreBundle\Form\AbstractType as BaseAbstractType;
-use Blast\UtilsBundle\Form\ChoiceLoader\CustomChoiceChoiceLoader;
-use Blast\UtilsBundle\Form\DataTransformer\MultipleChoiceTransformer;
+use Blast\Bundle\CoreBundle\Form\AbstractType as BaseAbstractType;
+use Blast\Bundle\UtilsBundle\Form\ChoiceLoader\CustomChoiceChoiceLoader;
+use Blast\Bundle\UtilsBundle\Form\DataTransformer\MultipleChoiceTransformer;
 
 class CustomChoiceType extends BaseAbstractType
 {
@@ -48,7 +48,7 @@ class CustomChoiceType extends BaseAbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $manager = $this->manager;
-        $defaultClass = '\Blast\UtilsBundle\Entity\SelectChoice';
+        $defaultClass = '\Blast\Bundle\UtilsBundle\Entity\SelectChoice';
 
         $choiceLoader = function (Options $options) use ($manager) {
             return new CustomChoiceChoiceLoader($manager, $options);

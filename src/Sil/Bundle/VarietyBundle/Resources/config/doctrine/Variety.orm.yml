@@ -1,5 +1,5 @@
 
-Librinfo\VarietiesBundle\Entity\Variety:
+Sil\Bundle\VarietyBundle\Entity\Variety:
     type: entity
     table: variety
     blast:
@@ -123,36 +123,36 @@ Librinfo\VarietiesBundle\Entity\Variety:
             mappedBy: parent
             cascade: [persist, remove]
         professional_descriptions:
-            targetEntity: Librinfo\VarietiesBundle\Entity\VarietyDescriptionProfessional
+            targetEntity: Sil\Bundle\VarietyBundle\Entity\VarietyDescriptionProfessional
             mappedBy: variety
             cascade: [ persist , remove]
         amateur_descriptions:
-            targetEntity: Librinfo\VarietiesBundle\Entity\VarietyDescriptionAmateur
+            targetEntity: Sil\Bundle\VarietyBundle\Entity\VarietyDescriptionAmateur
             mappedBy: variety
             cascade: [ persist , remove]
         production_descriptions:
-            targetEntity: Librinfo\VarietiesBundle\Entity\VarietyDescriptionProduction
+            targetEntity: Sil\Bundle\VarietyBundle\Entity\VarietyDescriptionProduction
             mappedBy: variety
             cascade: [ persist , remove]
         commercial_descriptions:
-            targetEntity: Librinfo\VarietiesBundle\Entity\VarietyDescriptionCommercial
+            targetEntity: Sil\Bundle\VarietyBundle\Entity\VarietyDescriptionCommercial
             mappedBy: variety
             cascade: [ persist , remove]
         plant_descriptions:
-            targetEntity: Librinfo\VarietiesBundle\Entity\VarietyDescriptionPlant
+            targetEntity: Sil\Bundle\VarietyBundle\Entity\VarietyDescriptionPlant
             mappedBy: variety
             cascade: [ persist , remove]
         culture_descriptions:
-            targetEntity: Librinfo\VarietiesBundle\Entity\VarietyDescriptionCulture
+            targetEntity: Sil\Bundle\VarietyBundle\Entity\VarietyDescriptionCulture
             mappedBy: variety
             cascade: [ persist , remove]
         inner_descriptions:
-            targetEntity: Librinfo\VarietiesBundle\Entity\VarietyDescriptionInner
+            targetEntity: Sil\Bundle\VarietyBundle\Entity\VarietyDescriptionInner
             mappedBy: variety
             cascade: [ persist , remove]
     manyToMany:
         plant_categories:
-            targetEntity: Librinfo\VarietiesBundle\Entity\PlantCategory
+            targetEntity: Sil\Bundle\VarietyBundle\Entity\PlantCategory
             inversedBy: varieties
             joinTable:
                 name: librinfo_varieties_variety_category
@@ -163,7 +163,7 @@ Librinfo\VarietiesBundle\Entity\Variety:
                     variety_id:
                         referencedColumnName: id
         images:
-            targetEntity: \Librinfo\MediaBundle\Entity\File
+            targetEntity: \Sil\Bundle\MediaBundle\Entity\File
             joinTable:
                 name: librinfo_variety_file
                 joinColumns:
@@ -181,7 +181,7 @@ Librinfo\VarietiesBundle\Entity\Variety:
             targetEntity: Variety
             inversedBy: children
         species:
-            targetEntity: Librinfo\VarietiesBundle\Entity\Species
+            targetEntity: Sil\Bundle\VarietyBundle\Entity\Species
             inversedBy: varieties
             joinColumn:
                 name: species_id

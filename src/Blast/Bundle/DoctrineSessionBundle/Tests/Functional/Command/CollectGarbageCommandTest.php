@@ -12,7 +12,7 @@
 
 namespace Blast\Tests\Functional;
 
-use Blast\TestsBundle\Functional\BlastTestCase;
+use Blast\Bundle\TestsBundle\Functional\BlastTestCase;
 
 class CollectGarbageCommandTest extends BlastTestCase
 {

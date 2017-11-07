@@ -10,9 +10,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EcommerceBundle\Admin;
+namespace Sil\Bundle\EcommerceBundle\Admin;
 
-use Blast\CoreBundle\Admin\Traits\HandlesRelationsAdmin;
+use Blast\Bundle\CoreBundle\Admin\Traits\HandlesRelationsAdmin;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Route\RouteCollection;
 use Sonata\AdminBundle\Show\ShowMapper;
@@ -38,14 +38,14 @@ class ProductAdmin extends SyliusGenericAdmin
             $list = array_merge(
                 $list,
                 [
-                    ['template' => 'LibrinfoEcommerceBundle:CRUD:list__action_shop_link.html.twig'],
+                    ['template' => 'SilEcommerceBundle:CRUD:list__action_shop_link.html.twig'],
                 ]
             );
         } elseif ($action === 'edit') {
             $list = array_merge(
                 $list,
                 [
-                    ['template' => 'LibrinfoEcommerceBundle:CRUD:global__action_shop_link.html.twig'],
+                    ['template' => 'SilEcommerceBundle:CRUD:global__action_shop_link.html.twig'],
                 ]
             );
         }

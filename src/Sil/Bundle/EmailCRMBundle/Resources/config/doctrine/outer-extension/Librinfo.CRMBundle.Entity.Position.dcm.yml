@@ -1,7 +1,7 @@
-Librinfo\CRMBundle\Entity\Position:
+Sil\Bundle\CRMBundle\Entity\Position:
     type: entity
 
     manyToMany:
         emailMessages:
-            targetEntity: Librinfo\EmailBundle\Entity\Email
+            targetEntity: Sil\Bundle\EmailBundle\Entity\Email
             mappedBy: individuals

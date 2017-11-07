@@ -29,7 +29,7 @@
         "species",
         "variety"
     ],
-    "homepage": "https://github.com/libre-informatique/SymfonyLibrinfoVarietiesBundle",
+    "homepage": "https://github.com/libre-informatique/SymfonySilVarietyBundle",
     "authors": [
         {
             "name": "Marcos Bezerra de Menezes",
@@ -40,12 +40,12 @@
             "homepage": "http://www.libre-informatique.fr/"
         }
     ],
-    "autoload": {
-        "psr-4": {
-            "Librinfo\\VarietiesBundle\\": "/"
-        }
-    },
     "suggest": {
         "libre-informatique/crm-bundle": "Manage contacts, organisms and more..."
+    },
+    "autoload": {
+        "psr-4": {
+            "Librinfo\\VarietyBundle\\": "."
+        }
     }
 }

@@ -10,13 +10,13 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EcommerceBundle\Controller;
+namespace Sil\Bundle\EcommerceBundle\Controller;
 
-use Librinfo\MediaBundle\Controller\CRUDController;
+use Sil\Bundle\MediaBundle\Controller\CRUDController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Librinfo\EcommerceBundle\Entity\Product;
-use Librinfo\EcommerceBundle\Entity\ProductImage;
+use Sil\Bundle\EcommerceBundle\Entity\Product;
+use Sil\Bundle\EcommerceBundle\Entity\ProductImage;
 
 /**
  * @author Marcos Bezerra de Menezes <marcos.bezerra@libre-informatique.fr>
@@ -52,7 +52,7 @@ class ProductCRUDController extends CRUDController
         $rc = new \ReflectionClass($object);
         $className = $rc->getShortName();
 
-        $repo = $this->manager->getRepository('LibrinfoMediaBundle:File');
+        $repo = $this->manager->getRepository('SilMediaBundle:File');
 
         if (null !== $remove = $request->get('remove_files')) {
             foreach ($remove as $key => $id) {
@@ -108,14 +108,14 @@ class ProductCRUDController extends CRUDController
         $image = $this
             ->getDoctrine()
             ->getManager()
-            ->getRepository('LibrinfoEcommerceBundle:ProductImage')
+            ->getRepository('SilEcommerceBundle:ProductImage')
             ->findOneBy(['realFile' => $imageId]);
 
         if ($image) {
             $product = $this
                 ->getDoctrine()
                 ->getManager()
-                ->getRepository('LibrinfoEcommerceBundle:Product')
+                ->getRepository('SilEcommerceBundle:Product')
                 ->findOneBy(['id' => $image->getOwner()]);
 
             foreach ($product->getImages() as $img) {

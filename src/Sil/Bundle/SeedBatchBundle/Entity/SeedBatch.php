@@ -10,15 +10,15 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\SeedBatchBundle\Entity;
+namespace Sil\Bundle\SeedBatchBundle\Entity;
 
-use AppBundle\Entity\OuterExtension\LibrinfoSeedBatchBundle\SeedBatchExtension;
-use Blast\BaseEntitiesBundle\Entity\Traits\BaseEntity;
-use Blast\BaseEntitiesBundle\Entity\Traits\Descriptible;
-use Blast\BaseEntitiesBundle\Entity\Traits\Loggable;
-use Blast\BaseEntitiesBundle\Entity\Traits\Searchable;
-use Blast\BaseEntitiesBundle\Entity\Traits\Timestampable;
-use Blast\OuterExtensionBundle\Entity\Traits\OuterExtensible;
+use AppBundle\Entity\OuterExtension\SilSeedBatchBundle\SeedBatchExtension;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\BaseEntity;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Descriptible;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Loggable;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Searchable;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Timestampable;
+use Blast\Bundle\OuterExtensionBundle\Entity\Traits\OuterExtensible;
 
 /**
  * SeedBatch.
@@ -34,22 +34,22 @@ class SeedBatch
         Searchable;
 
     /**
-     * @var \Librinfo\VarietiesBundle\Entity\Variety
+     * @var \Sil\Bundle\VarietiesBundle\Entity\Variety
      */
     private $variety;
 
     /**
-     * @var \Librinfo\CRMBundle\Entity\Organism
+     * @var \Sil\Bundle\CRMBundle\Entity\Organism
      */
     private $producer;
 
     /**
-     * @var \Librinfo\SeedBatchBundle\Entity\Plot
+     * @var \Sil\Bundle\SeedBatchBundle\Entity\Plot
      */
     private $plot;
 
     /**
-     * @var \Librinfo\SeedBatchBundle\Entity\SeedFarm
+     * @var \Sil\Bundle\SeedBatchBundle\Entity\SeedFarm
      */
     private $seedFarm;
 
@@ -299,11 +299,11 @@ class SeedBatch
     /**
      * Set seedFarm.
      *
-     * @param \Librinfo\SeedBatchBundle\Entity\SeedFarm $seedFarm
+     * @param \Sil\Bundle\SeedBatchBundle\Entity\SeedFarm $seedFarm
      *
      * @return SeedBatch
      */
-    public function setSeedFarm(\Librinfo\SeedBatchBundle\Entity\SeedFarm $seedFarm = null)
+    public function setSeedFarm(\Sil\Bundle\SeedBatchBundle\Entity\SeedFarm $seedFarm = null)
     {
         $this->seedFarm = $seedFarm;
 
@@ -313,7 +313,7 @@ class SeedBatch
     /**
      * Get seedFarm.
      *
-     * @return \Librinfo\SeedBatchBundle\Entity\SeedFarm
+     * @return \Sil\Bundle\SeedBatchBundle\Entity\SeedFarm
      */
     public function getSeedFarm()
     {
@@ -323,11 +323,11 @@ class SeedBatch
     /**
      * Set variety.
      *
-     * @param \Librinfo\VarietiesBundle\Entity\Variety $variety
+     * @param \Sil\Bundle\VarietiesBundle\Entity\Variety $variety
      *
      * @return SeedBatch
      */
-    public function setVariety(\Librinfo\VarietiesBundle\Entity\Variety $variety = null)
+    public function setVariety(\Sil\Bundle\VarietiesBundle\Entity\Variety $variety = null)
     {
         $this->variety = $variety;
 
@@ -337,7 +337,7 @@ class SeedBatch
     /**
      * Get variety.
      *
-     * @return \Librinfo\VarietiesBundle\Entity\Variety
+     * @return \Sil\Bundle\VarietiesBundle\Entity\Variety
      */
     public function getVariety()
     {
@@ -347,11 +347,11 @@ class SeedBatch
     /**
      * Set producer.
      *
-     * @param \Librinfo\CRMBundle\Entity\Organism $producer
+     * @param \Sil\Bundle\CRMBundle\Entity\Organism $producer
      *
      * @return SeedBatch
      */
-    public function setProducer(\Librinfo\CRMBundle\Entity\Organism $producer = null)
+    public function setProducer(\Sil\Bundle\CRMBundle\Entity\Organism $producer = null)
     {
         $this->producer = $producer;
 
@@ -361,11 +361,11 @@ class SeedBatch
     /**
      * Set Organisme (Producer in fact).
      *
-     * @param \Librinfo\CRMBundle\Entity\Organism $producer
+     * @param \Sil\Bundle\CRMBundle\Entity\Organism $producer
      *
      * @return Plot
      */
-    public function setOrganism(\Librinfo\CRMBundle\Entity\Organism $producer = null)
+    public function setOrganism(\Sil\Bundle\CRMBundle\Entity\Organism $producer = null)
     {
         $this->setProducer($producer);
 
@@ -375,7 +375,7 @@ class SeedBatch
     /**
      * Get producer.
      *
-     * @return \Librinfo\CRMBundle\Entity\Organism
+     * @return \Sil\Bundle\CRMBundle\Entity\Organism
      */
     public function getProducer()
     {
@@ -385,11 +385,11 @@ class SeedBatch
     /**
      * Set plot.
      *
-     * @param \Librinfo\SeedBatchBundle\Entity\Plot $plot
+     * @param \Sil\Bundle\SeedBatchBundle\Entity\Plot $plot
      *
      * @return SeedBatch
      */
-    public function setPlot(\Librinfo\SeedBatchBundle\Entity\Plot $plot = null)
+    public function setPlot(\Sil\Bundle\SeedBatchBundle\Entity\Plot $plot = null)
     {
         $this->plot = $plot;
 
@@ -399,7 +399,7 @@ class SeedBatch
     /**
      * Get plot.
      *
-     * @return \Librinfo\SeedBatchBundle\Entity\Plot
+     * @return \Sil\Bundle\SeedBatchBundle\Entity\Plot
      */
     public function getPlot()
     {

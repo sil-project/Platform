@@ -10,13 +10,13 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EcommerceBundle\Controller;
+namespace Sil\Bundle\EcommerceBundle\Controller;
 
 //use Sylius\Component\Core\PaymentTransitions;
 //use Sylius\Component\Core\ShipmentTransitions;
-use Blast\CoreBundle\Controller\CRUDController;
+use Blast\Bundle\CoreBundle\Controller\CRUDController;
 use Sonata\AdminBundle\Datagrid\ProxyQueryInterface;
-use Librinfo\EcommerceBundle\StateMachine\OrderTransitions;
+use Sil\Bundle\EcommerceBundle\StateMachine\OrderTransitions;
 use Sylius\Component\Payment\PaymentTransitions;
 use Sylius\Component\Shipping\ShipmentTransitions;
 use Symfony\Component\HttpFoundation\RedirectResponse;

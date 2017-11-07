@@ -1,6 +1,6 @@
 {% if admin.hasRoute('send') and not object.sent %}
-    <a href="{{ admin.generateObjectUrl('send', object) }}" class="btn btn-sm btn-default" title="{{ 'Send'|trans({}, 'LibrinfoEmailBundle') }}">
+    <a href="{{ admin.generateObjectUrl('send', object) }}" class="btn btn-sm btn-default" title="{{ 'Send'|trans({}, 'SilEmailBundle') }}">
         <i class="fa fa-paper-plane"></i>
-        {{ 'action_send'|trans({}, 'LibrinfoEmailBundle') }}
+        {{ 'action_send'|trans({}, 'SilEmailBundle') }}
     </a>
 {% endif %}

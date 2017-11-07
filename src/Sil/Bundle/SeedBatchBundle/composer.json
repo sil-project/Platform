@@ -22,7 +22,7 @@
         "sonata",
         "symfony"
     ],
-    "homepage": "https://github.com/libre-informatique/SymfonyLibrinfoSeedBatchBundle",
+    "homepage": "https://github.com/libre-informatique/SymfonySilSeedBatchBundle",
     "authors": [
         {
             "name": "Marcos BEZERRA DE MENEZES",
@@ -35,7 +35,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Librinfo\\SeedBatchBundle\\": "/"
+            "Librinfo\\SeedBatchBundle\\": "."
         }
     }
 }

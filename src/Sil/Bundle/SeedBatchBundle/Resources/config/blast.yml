@@ -7,7 +7,7 @@ parameters:
 # SEED BATCH
 ##############
 
-        Librinfo\SeedBatchBundle\Entity\SeedBatch:
+        Sil\Bundle\SeedBatchBundle\Entity\SeedBatch:
             Sonata\AdminBundle\Show\ShowMapper:
                 forceTabs: true
                 remove:
@@ -54,7 +54,7 @@ parameters:
                     form_tab_general:
                         form_group_general:
                             code:
-                                type: Blast\CoreBundle\Form\Type\EntityCodeType
+                                type: Blast\Bundle\CoreBundle\Form\Type\EntityCodeType
                                 required: true
                             seedFarm:
                                 type: sonata_type_model
@@ -67,9 +67,9 @@ parameters:
                                     admin_code: librinfo_varieties.admin.variety
                                     translation_domain: messages
                             producer:
-                                type: Blast\BaseEntitiesBundle\Form\Type\SearchIndexAutocompleteType
+                                type: Blast\Bundle\BaseEntitiesBundle\Form\Type\SearchIndexAutocompleteType
                                 property: fulltextName
-                                callback: [Librinfo\SeedBatchBundle\Admin\SeedProducerAdmin, producerAutocompleteCallback]
+                                callback: [Sil\Bundle\SeedBatchBundle\Admin\SeedProducerAdmin, producerAutocompleteCallback]
                                 required: true
                                 _options:
                                     admin_code: librinfo_seedbatch.admin.seed_producer
@@ -81,7 +81,7 @@ parameters:
                             plot:
                                 type: sonata_type_model_autocomplete
                                 property: [name, code, producer.name]  # TODO: producer.name has no effect, WHY ???
-                                to_string_callback: Librinfo\SeedBatchBundle\Admin\PlotAdmin::autocompleteToString
+                                to_string_callback: Sil\Bundle\SeedBatchBundle\Admin\PlotAdmin::autocompleteToString
                                 required: true
                                 _options:
                                     admin_code: librinfo_seedbatch.admin.plot
@@ -158,7 +158,7 @@ parameters:
 # SEED BATCH EMBEDDED
 #######################
 
-        Librinfo\SeedBatchBundle\Admin\SeedBatchEmbeddedAdmin:
+        Sil\Bundle\SeedBatchBundle\Admin\SeedBatchEmbeddedAdmin:
             Sonata\AdminBundle\Show\ShowMapper:
                 add: ~
             Sonata\AdminBundle\Form\FormMapper:
@@ -194,7 +194,7 @@ parameters:
                             producer:
                                 type: sonata_type_model_autocomplete
                                 property: name
-                                callback: [Librinfo\SeedBatchBundle\Admin\SeedProducerAdmin, producerAutocompleteCallback]
+                                callback: [Sil\Bundle\SeedBatchBundle\Admin\SeedProducerAdmin, producerAutocompleteCallback]
                                 _options:
                                     admin_code: librinfo_seedbatch.admin.seed_producer
                             productionYear: ~
@@ -225,12 +225,12 @@ parameters:
                         form_group_history:
                             createdBy:
                                 type: entity
-                                class: Librinfo\SonataSyliusUserBundle\Entity\SonataUser
+                                class: Sil\Bundle\SonataSyliusUserBundle\Entity\SonataUser
                                 disabled: true
                                 required: false
                             updatedBy:
                                 type: entity
-                                class: Librinfo\SonataSyliusUserBundle\Entity\SonataUser
+                                class: Sil\Bundle\SonataSyliusUserBundle\Entity\SonataUser
                                 disabled: true
                                 required: false
                             createdAt:
@@ -264,7 +264,7 @@ parameters:
 # PLOT
 ########
 
-        Librinfo\SeedBatchBundle\Entity\Plot:
+        Sil\Bundle\SeedBatchBundle\Entity\Plot:
             Sonata\AdminBundle\Show\ShowMapper:
                 forceTabs: true
                 remove:
@@ -276,7 +276,7 @@ parameters:
                             producer:
                                 admin_code: librinfo_seedbatch.admin.seed_producer
                             certifications:
-                                template: LibrinfoSeedBatchBundle:PlotAdmin:show_field_certifications.html.twig
+                                template: SilSeedBatchBundle:PlotAdmin:show_field_certifications.html.twig
                     _options:
                         tabsOrder: [form_group_general, form_group_specifics]
             Sonata\AdminBundle\Form\FormMapper:
@@ -292,12 +292,12 @@ parameters:
                                 type: sonata_type_model_autocomplete
                                 property: name
                                 required: true
-                                callback: [Librinfo\SeedBatchBundle\Admin\SeedProducerAdmin, producerAutocompleteCallback]
+                                callback: [Sil\Bundle\SeedBatchBundle\Admin\SeedProducerAdmin, producerAutocompleteCallback]
                                 _options:
                                     admin_code: librinfo_seedbatch.admin.seed_producer
                             name: ~
                             code:
-                                type: Blast\CoreBundle\Form\Type\EntityCodeType
+                                type: Blast\Bundle\CoreBundle\Form\Type\EntityCodeType
                                 attr:
                                     required: true
                             description: ~
@@ -340,7 +340,7 @@ parameters:
 # PLOT (EMBEDDED)
 ##################
 
-        Librinfo\SeedBatchBundle\Admin\PlotEmbeddedAdmin:
+        Sil\Bundle\SeedBatchBundle\Admin\PlotEmbeddedAdmin:
             Sonata\AdminBundle\Show\ShowMapper:
                 add: ~
             Sonata\AdminBundle\Form\FormMapper:
@@ -389,7 +389,7 @@ parameters:
 # SEED FARM
 #############
 
-        Librinfo\SeedBatchBundle\Entity\SeedFarm:
+        Sil\Bundle\SeedBatchBundle\Entity\SeedFarm:
             Sonata\AdminBundle\Show\ShowMapper:
                 forceTabs: true
                 remove:
@@ -410,7 +410,7 @@ parameters:
                         form_group_general:
                             name: ~
                             code:
-                                type: Blast\CoreBundle\Form\Type\EntityCodeType
+                                type: Blast\Bundle\CoreBundle\Form\Type\EntityCodeType
                             description: ~
                         _options:
                             groupsOrder: [form_group_general, form_group_main_address]
@@ -442,14 +442,14 @@ parameters:
 # ORGANISM
 ############
 
-        Librinfo\SeedBatchBundle\Admin\OrganismAdmin:
+        Sil\Bundle\SeedBatchBundle\Admin\OrganismAdmin:
             Sonata\AdminBundle\Show\ShowMapper:
-                titleTemplate: LibrinfoSeedBatchBundle:OrganismAdmin:show_title.html.twig
+                titleTemplate: SilSeedBatchBundle:OrganismAdmin:show_title.html.twig
                 add:
                     show_tab_general:
                         '':
                             isSeedProducer:
-                                template: 'LibrinfoCRMBundle:CRUD:show_field_seedProducer.html.twig'
+                                template: 'SilCRMBundle:CRUD:show_field_seedProducer.html.twig'
                             _options:
                                 fieldsOrder:
                                     - fulltextName
@@ -489,7 +489,7 @@ parameters:
                                 type: checkbox
                                 required: false
                             seedProducerCode:
-                                type: Blast\CoreBundle\Form\Type\EntityCodeType
+                                type: Blast\Bundle\CoreBundle\Form\Type\EntityCodeType
                                 attr:
                                     placeholder: librinfo.placeholder.seed_producer_code
                                 only_not_new: true
@@ -562,7 +562,7 @@ parameters:
 # SEED PRODUCER
 ################
 
-        Librinfo\SeedBatchBundle\Admin\SeedProducerAdmin:
+        Sil\Bundle\SeedBatchBundle\Admin\SeedProducerAdmin:
             Sonata\AdminBundle\Datagrid\ListMapper:
                 remove:
                     customerCode: ~
@@ -587,7 +587,7 @@ parameters:
 # CERTIFICATION
 ###############
 
-        Librinfo\SeedBatchBundle\Entity\Certification:
+        Sil\Bundle\SeedBatchBundle\Entity\Certification:
             # SHOW
             Sonata\AdminBundle\Show\ShowMapper:
                 remove:
@@ -678,7 +678,7 @@ parameters:
 # CERTIFICATION TYPE
 ####################
 
-        Librinfo\SeedBatchBundle\Entity\CertificationType:
+        Sil\Bundle\SeedBatchBundle\Entity\CertificationType:
             # SHOW
             Sonata\AdminBundle\Show\ShowMapper:
                 remove:
@@ -706,7 +706,7 @@ parameters:
                             code:
                                 required: true
                             logo:
-                                type: Librinfo\MediaBundle\Form\Type\DropzoneType
+                                type: Sil\Bundle\MediaBundle\Form\Type\DropzoneType
                                 required: false
                                 multipleFiles: false
                             description:
@@ -734,7 +734,7 @@ parameters:
 # CERTIFYING BODY
 ####################
 
-        Librinfo\SeedBatchBundle\Entity\CertifyingBody:
+        Sil\Bundle\SeedBatchBundle\Entity\CertifyingBody:
             # SHOW
             Sonata\AdminBundle\Show\ShowMapper:
                 forceTabs: true

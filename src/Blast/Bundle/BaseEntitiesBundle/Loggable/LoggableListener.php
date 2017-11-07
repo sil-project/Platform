@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Blast\BaseEntitiesBundle\Loggable;
+namespace Blast\Bundle\BaseEntitiesBundle\Loggable;
 
 use Gedmo\Loggable\LoggableListener as BaseLoggableListener;
 

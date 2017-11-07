@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EcommerceBundle\DependencyInjection;
+namespace Sil\Bundle\EcommerceBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
@@ -35,16 +35,16 @@ class Configuration implements ConfigurationInterface
                 ->arrayNode('code_generator')
                     ->addDefaultsIfNotSet()
                     ->children()
-                        ->scalarNode('product')->defaultValue('Librinfo\EcommerceBundle\CodeGenerator\ProductCodeGenerator')->end()
-                        ->scalarNode('product_variant')->defaultValue('Librinfo\EcommerceBundle\CodeGenerator\ProductVariantCodeGenerator')->end()
-                        ->scalarNode('product_variant_embedded')->defaultValue('Librinfo\EcommerceBundle\CodeGenerator\ProductVariantCodeGenerator')->end()
-                        ->scalarNode('invoice')->defaultValue('Librinfo\EcommerceBundle\CodeGenerator\InvoiceCodeGenerator')->end()
+                        ->scalarNode('product')->defaultValue('Sil\Bundle\EcommerceBundle\CodeGenerator\ProductCodeGenerator')->end()
+                        ->scalarNode('product_variant')->defaultValue('Sil\Bundle\EcommerceBundle\CodeGenerator\ProductVariantCodeGenerator')->end()
+                        ->scalarNode('product_variant_embedded')->defaultValue('Sil\Bundle\EcommerceBundle\CodeGenerator\ProductVariantCodeGenerator')->end()
+                        ->scalarNode('invoice')->defaultValue('Sil\Bundle\EcommerceBundle\CodeGenerator\InvoiceCodeGenerator')->end()
                     ->end()
                 ->end()
                 ->arrayNode('invoice')
                     ->addDefaultsIfNotSet()
                     ->children()
-                        ->scalarNode('template')->defaultValue('LibrinfoEcommerceBundle:Invoice:default.html.twig')->end()
+                        ->scalarNode('template')->defaultValue('SilEcommerceBundle:Invoice:default.html.twig')->end()
                     ->end()
                 ->end()
             ->end();

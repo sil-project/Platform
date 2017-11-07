@@ -4,7 +4,7 @@
 </a>
 <p class="navbar-text" style="color: #EEE">{{ object.checkoutCompletedAt|format_date }}</p>
 <p class="navbar-text" style="color: #EEE">
-    {% include('LibrinfoEcommerceBundle:OrderAdmin:_state_label.html.twig') with {'category': 'order', 'value': object.state} %}
+    {% include('SilEcommerceBundle:OrderAdmin:_state_label.html.twig') with {'category': 'order', 'value': object.state} %}
 </p>
 <p class="navbar-text" style="color: #EEE">{{ money.convertAndFormat(object.total) }}</p>
 <p class="navbar-text" style="color: #EEE">{{ object.currencyCode }}</p>

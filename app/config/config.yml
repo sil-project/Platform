@@ -3,8 +3,22 @@ imports:
     - { resource: security.yml }
     - { resource: services.yml }
 
-# Put parameters here that don't need to change on each machine where the app is deployed
-# https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
+    # BLAST Bundles
+
+    - { resource: "@BlastResourceBundle/Resources/config/app/config.yml" }
+
+    # SIL Bundles
+
+    - { resource: "@SilSonataSyliusUserBundle/Resources/config/app/config.yml" }
+    - { resource: "@SilEmailBundle/Resources/config/app/config.yml" }
+    - { resource: "@SilSeedBatchBundle/Resources/config/app/config.yml" }
+    - { resource: "@SilEcommerceBundle/Resources/config/app/config.yml" }
+    - { resource: "@SilCRMBundle/Resources/config/app/config.yml" }
+    - { resource: "@SilMediaBundle/Resources/config/app/config.yml" }
+    - { resource: "@SilSyliusPayboxBundle/Resources/config/app/config.yml" }
+    - { resource: "@SilManufacturingBundle/Resources/config/app/config.yml" }
+    - { resource: "@SilStockBundle/Resources/config/app/config.yml" }
+
 parameters:
     locale: en
 

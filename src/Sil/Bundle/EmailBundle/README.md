@@ -1,4 +1,4 @@
-# SymfonyLibrinfoEmailBundle
+# SymfonySilEmailBundle
 
 [![Travis](https://img.shields.io/travis/libre-informatique/EmailBundle.svg?style=flat-square)][travis]
 [![Coveralls](https://img.shields.io/coveralls/libre-informatique/EmailBundle.svg?style=flat-square)][coveralls]
@@ -27,7 +27,7 @@ public function registerBundles()
         // ...
             
         // the libre-informatique bundles
-        new Librinfo\EmailBundle\LibrinfoEmailBundle(),
+        new Sil\Bundle\EmailBundle\SilEmailBundle(),
             
         // your personal bundles
         // ...
@@ -56,14 +56,14 @@ public function registerBundles()
             new Sonata\IntlBundle\SonataIntlBundle(),
 
             // Blast
-            new Blast\OuterExtensionBundle\BlastOuterExtensionBundle(),
-            new Blast\CoreBundle\BlastCoreBundle(),
+            new Blast\Bundle\OuterExtensionBundle\BlastOuterExtensionBundle(),
+            new Blast\Bundle\CoreBundle\BlastCoreBundle(),
             new lbr\BlastTestBundle\BlastTestBundle(),
-            new Blast\BaseEntitiesBundle\BlastBaseEntitiesBundle(),
-            new Blast\UtilsBundle\BlastUtilsBundle(),
+            new Blast\Bundle\BaseEntitiesBundle\BlastBaseEntitiesBundle(),
+            new Blast\Bundle\UtilsBundle\BlastUtilsBundle(),
 
             // Attachments
-            new Librinfo\MediaBundle\LibrinfoMediaBundle(), 
+            new Sil\Bundle\MediaBundle\SilMediaBundle(), 
           
             // Wisiwig editor
             new Stfalcon\Bundle\TinymceBundle\StfalconTinymceBundle(),
@@ -91,7 +91,7 @@ blast_core:
     prefix:   /admin
 
 email:
-    resource: "@LibrinfoEmailBundle/Resources/config/routing.yml"
+    resource: "@SilEmailBundle/Resources/config/routing.yml"
     prefix: /admin
 ```
 
@@ -126,7 +126,7 @@ twig:
         - 'BlastCoreBundle:Admin/Form:fields.html.twig'
         - 'BlastUtilsBundle:Form:fields.html.twig'
         - 'BlastBaseEntitiesBundle:Form:fields.html.twig'
-        - 'LibrinfoMediaBundle:Form:fields.html.twig'
+        - 'SilMediaBundle:Form:fields.html.twig'
 ```
 
 ### Spooling

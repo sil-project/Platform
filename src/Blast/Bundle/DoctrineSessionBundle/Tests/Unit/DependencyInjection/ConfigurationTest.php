@@ -10,9 +10,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Blast\DoctrineSessionBundle\DependencyInjection\Test\Unit;
+namespace Blast\Bundle\DoctrineSessionBundle\DependencyInjection\Test\Unit;
 
-use Blast\DoctrineSessionBundle\DependencyInjection\Configuration;
+use Blast\Bundle\DoctrineSessionBundle\DependencyInjection\Configuration;
 use PHPUnit\Framework\TestCase;
 
 class ConfigurationTest extends TestCase
@@ -33,7 +33,7 @@ class ConfigurationTest extends TestCase
     }
 
     /**
-     * @covers \Blast\DoctrineSessionBundle\DependencyInjection\Configuration::getConfigTreeBuilder
+     * @covers \Blast\Bundle\DoctrineSessionBundle\DependencyInjection\Configuration::getConfigTreeBuilder
      */
     public function testGetConfigTreeBuilder()
     {

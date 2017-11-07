@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\VarietiesBundle\Entity;
+namespace Sil\Bundle\VarietyBundle\Entity;
 
 /**
  * VarietyDescription.
@@ -25,14 +25,14 @@ class VarietyDescription extends GenericDescription
     const DESCRIPTION_PROFESSIONAL = 'professional';
 
     /**
-     * @var \Librinfo\VarietiesBundle\Entity\Variety
+     * @var \Sil\Bundle\VarietyBundle\Entity\Variety
      */
     protected $variety;
 
     /**
      * Set variety.
      *
-     * @param \Librinfo\VarietiesBundle\Entity\Variety $variety
+     * @param \Sil\Bundle\VarietyBundle\Entity\Variety $variety
      *
      * @return VarietyDescription
      */
@@ -46,7 +46,7 @@ class VarietyDescription extends GenericDescription
     /**
      * Get variety.
      *
-     * @return \Librinfo\VarietiesBundle\Entity\Variety
+     * @return \Sil\Bundle\VarietyBundle\Entity\Variety
      */
     public function getVariety()
     {

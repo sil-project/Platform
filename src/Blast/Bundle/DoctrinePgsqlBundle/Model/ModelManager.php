@@ -10,10 +10,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Blast\DoctrinePgsqlBundle\Model;
+namespace Blast\Bundle\DoctrinePgsqlBundle\Model;
 
 use Sonata\DoctrineORMAdminBundle\Model\ModelManager as BaseModelManager;
-use Blast\DoctrinePgsqlBundle\Datagrid\ProxyQuery;
+use Blast\Bundle\DoctrinePgsqlBundle\Datagrid\ProxyQuery;
 
 class ModelManager extends BaseModelManager
 {

@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\SonataSyliusUserBundle\Entity;
+namespace Sil\Bundle\SonataSyliusUserBundle\Entity;
 
 /**
  * @author Johannes M. Schmitt <schmittjoh@gmail.com>

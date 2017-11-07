@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Blast\BaseEntitiesBundle\Controller;
+namespace Blast\Bundle\BaseEntitiesBundle\Controller;
 
 use Sonata\AdminBundle\Controller\CoreController;
 use Sonata\AdminBundle\Admin\AdminInterface;

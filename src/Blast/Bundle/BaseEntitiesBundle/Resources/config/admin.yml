@@ -1,8 +1,8 @@
 services:
 
     blast_base_entities.admin.search_index_entity:
-        class: Blast\BaseEntitiesBundle\Admin\SearchIndexEntityAdmin
-        arguments: [~, Blast\BaseEntitiesBundle\Entity\SearchIndexEntity, BlastCoreBundle:CRUD]
+        class: Blast\Bundle\BaseEntitiesBundle\Admin\SearchIndexEntityAdmin
+        arguments: [~, Blast\Bundle\BaseEntitiesBundle\Entity\SearchIndexEntity, BlastCoreBundle:CRUD]
         tags:
             - name: sonata.admin
               manager_type: orm

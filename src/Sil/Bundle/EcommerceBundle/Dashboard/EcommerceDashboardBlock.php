@@ -10,12 +10,12 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EcommerceBundle\Dashboard;
+namespace Sil\Bundle\EcommerceBundle\Dashboard;
 
-use Blast\CoreBundle\Dashboard\AbstractDashboardBlock;
-use Librinfo\EcommerceBundle\Dashboard\Stats\Misc;
-use Librinfo\EcommerceBundle\Dashboard\Stats\Sales;
-use Librinfo\EcommerceBundle\Dashboard\Stats\OrdersToProcess;
+use Blast\Bundle\CoreBundle\Dashboard\AbstractDashboardBlock;
+use Sil\Bundle\EcommerceBundle\Dashboard\Stats\Misc;
+use Sil\Bundle\EcommerceBundle\Dashboard\Stats\Sales;
+use Sil\Bundle\EcommerceBundle\Dashboard\Stats\OrdersToProcess;
 
 class EcommerceDashboardBlock extends AbstractDashboardBlock
 {

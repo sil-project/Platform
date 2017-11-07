@@ -10,13 +10,13 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EcommerceBundle\EventListener;
+namespace Sil\Bundle\EcommerceBundle\EventListener;
 
 use DateTime;
 use Doctrine\ORM\Event\LifecycleEventArgs;
 use Sylius\Component\Core\Model\ShopUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
-use Librinfo\SonataSyliusUserBundle\EventListener\TraceableListener as BaseTraceableListener;
+use Sil\Bundle\SonataSyliusUserBundle\EventListener\TraceableListener as BaseTraceableListener;
 
 class TraceableListener extends BaseTraceableListener
 {
@@ -29,7 +29,7 @@ class TraceableListener extends BaseTraceableListener
     {
         $entity = $eventArgs->getObject();
 
-        if (!$this->hasTrait($entity, 'Librinfo\SonataSyliusUserBundle\Entity\Traits\Traceable')) {
+        if (!$this->hasTrait($entity, 'Sil\Bundle\SonataSyliusUserBundle\Entity\Traits\Traceable')) {
             return;
         }
 
@@ -54,7 +54,7 @@ class TraceableListener extends BaseTraceableListener
     {
         $entity = $eventArgs->getObject();
 
-        if (!$this->hasTrait($entity, 'Blast\BaseEntitiesBundle\Entity\Traits\Traceable')) {
+        if (!$this->hasTrait($entity, 'Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Traceable')) {
             return;
         }
 

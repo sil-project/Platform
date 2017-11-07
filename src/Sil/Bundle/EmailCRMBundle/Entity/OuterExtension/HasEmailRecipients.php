@@ -10,11 +10,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EmailCRMBundle\Entity\OuterExtension;
+namespace Sil\Bundle\EmailCRMBundle\Entity\OuterExtension;
 
 trait HasEmailRecipients
 {
-    use \Librinfo\CRMBundle\Entity\OuterExtension\HasOrganisms;
-    use \Librinfo\CRMBundle\Entity\OuterExtension\HasPositions;
-    use \Librinfo\CRMBundle\Entity\OuterExtension\HasContacts;
+    use \Sil\Bundle\CRMBundle\Entity\OuterExtension\HasOrganisms;
+    use \Sil\Bundle\CRMBundle\Entity\OuterExtension\HasPositions;
+    use \Sil\Bundle\CRMBundle\Entity\OuterExtension\HasContacts;
 }

@@ -10,11 +10,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Blast\UtilsBundle;
+namespace Blast\Bundle\UtilsBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Blast\UtilsBundle\DependencyInjection\HookCompilerPass;
+use Blast\Bundle\UtilsBundle\DependencyInjection\HookCompilerPass;
 
 class BlastUtilsBundle extends Bundle
 {

@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Blast\BaseEntitiesBundle\Doctrine\ORM\Mapping;
+namespace Blast\Bundle\BaseEntitiesBundle\Doctrine\ORM\Mapping;
 
 use Doctrine\ORM\Mapping\ClassMetadata;
 

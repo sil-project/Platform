@@ -18,8 +18,8 @@ use DateTimeInterface;
 use DateTime;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
-use Blast\BaseEntitiesBundle\Entity\Traits\Guidable;
-use Blast\BaseEntitiesBundle\Entity\Traits\Timestampable;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Guidable;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Timestampable;
 use DomainException;
 
 /**

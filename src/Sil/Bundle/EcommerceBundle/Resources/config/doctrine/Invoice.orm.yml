@@ -1,4 +1,4 @@
-Librinfo\EcommerceBundle\Entity\Invoice:
+Sil\Bundle\EcommerceBundle\Entity\Invoice:
     type: entity
     fields:
         number:
@@ -23,7 +23,7 @@ Librinfo\EcommerceBundle\Entity\Invoice:
 
     manyToOne:
         order:
-            targetEntity: Librinfo\EcommerceBundle\Entity\Order
+            targetEntity: Sil\Bundle\EcommerceBundle\Entity\Order
             inversedBy: invoices
             joinColumn:
                 name: order_id

@@ -11,26 +11,26 @@ parameters:
 
 services:
     blast_core.label.strategy.librinfo_ecommerce:
-        class: Blast\CoreBundle\Translator\LibrinfoLabelTranslatorStrategy
-        arguments: ['Librinfo\EcommerceBundle']
+        class: Blast\Bundle\CoreBundle\Translator\LibrinfoLabelTranslatorStrategy
+        arguments: ['Sil\Bundle\EcommerceBundle']
 
 # ENTITY CODE GENERATORS
     librinfo_ecommerce.code_generator.product:
-        class: Librinfo\EcommerceBundle\CodeGenerator\ProductCodeGenerator
+        class: Sil\Bundle\EcommerceBundle\CodeGenerator\ProductCodeGenerator
         factory:   ['@blast_core.code_generator_factory', create]
         arguments: ['%librinfo_ecommerce.code_generator.product%', '@doctrine.orm.entity_manager']
         tags:
             - { name: blast.entity_code_generator }
 
     librinfo_ecommerce.code_generator.product_variant:
-        class: Librinfo\EcommerceBundle\CodeGenerator\ProductVariantCodeGenerator
+        class: Sil\Bundle\EcommerceBundle\CodeGenerator\ProductVariantCodeGenerator
         factory:   ['@blast_core.code_generator_factory', create]
         arguments: ['%librinfo_ecommerce.code_generator.product_variant%', '@doctrine.orm.entity_manager']
         tags:
             - { name: blast.entity_code_generator }
 
     librinfo_ecommerce.code_generator.invoice:
-        class: Librinfo\EcommerceBundle\CodeGenerator\InvoiceCodeGenerator
+        class: Sil\Bundle\EcommerceBundle\CodeGenerator\InvoiceCodeGenerator
         factory:   ['@blast_core.code_generator_factory', create]
         arguments: ['%librinfo_ecommerce.code_generator.invoice%', '@doctrine.orm.entity_manager']
         tags:
@@ -39,27 +39,27 @@ services:
 # FORM TYPES
 
     librinfo_ecommerce.form.type.order_state:
-        class: Librinfo\EcommerceBundle\Form\Type\OrderStateType
+        class: Sil\Bundle\EcommerceBundle\Form\Type\OrderStateType
         tags:
             - { name: form.type, alias: librinfo_type_order_state }
 
     librinfo_ecommerce.form.type.payment_state:
-        class: Librinfo\EcommerceBundle\Form\Type\PaymentStateType
+        class: Sil\Bundle\EcommerceBundle\Form\Type\PaymentStateType
         tags:
             - { name: form.type, alias: librinfo_type_payment_state }
 
     librinfo_ecommerce.form.type.shipping_state:
-        class: Librinfo\EcommerceBundle\Form\Type\ShippingStateType
+        class: Sil\Bundle\EcommerceBundle\Form\Type\ShippingStateType
         tags:
             - { name: form.type, alias: librinfo_type_shipping_state }
 
     librinfo_ecommerce.form.type.price_cents:
-        class: Librinfo\EcommerceBundle\Form\Type\PriceCentsType
+        class: Sil\Bundle\EcommerceBundle\Form\Type\PriceCentsType
         tags:
             - { name: form.type, alias: librinfo_type_price_cents }
 
     librinfo_ecommerce.form.type.taxon_list:
-        class: Librinfo\EcommerceBundle\Form\Type\TaxonListType
+        class: Sil\Bundle\EcommerceBundle\Form\Type\TaxonListType
         tags:
             - { name: form.type, alias: librinfo_type_taxon_list }
         arguments:
@@ -67,7 +67,7 @@ services:
             - '%sylius.model.taxon.class%'
 
     librinfo_ecommerce.form.type.product_taxon_list:
-        class: Librinfo\EcommerceBundle\Form\Type\ProductTaxonListType
+        class: Sil\Bundle\EcommerceBundle\Form\Type\ProductTaxonListType
         tags:
             - { name: form.type, alias: librinfo_type_product_taxon_list }
         arguments:
@@ -77,7 +77,7 @@ services:
             - '%sylius.model.taxon.class%'
 
     librinfo_ecommerce.form.type.product_channels:
-        class: Librinfo\EcommerceBundle\Form\Type\ProductChannelsType
+        class: Sil\Bundle\EcommerceBundle\Form\Type\ProductChannelsType
         tags:
             - { name: form.type, alias: librinfo_type_product_channels }
         arguments:
@@ -87,7 +87,7 @@ services:
 
 
     librinfo_ecommerce.form.type.shipping_method_channels:
-        class: Librinfo\EcommerceBundle\Form\Type\ShippingMethodChannelsType
+        class: Sil\Bundle\EcommerceBundle\Form\Type\ShippingMethodChannelsType
         tags:
             - { name: form.type, alias: librinfo_type_shipping_method_channels }
         arguments:
@@ -98,7 +98,7 @@ services:
 # EMAIL MANAGERS
 
     librinfo_ecommerce.email_manager.order:
-        class: Librinfo\EcommerceBundle\EmailManager\OrderEmailManager
+        class: Sil\Bundle\EcommerceBundle\EmailManager\OrderEmailManager
         arguments:
             - '@sylius.email_sender'
             - '@librinfo_ecommerce.order_invoice_manager'
@@ -107,12 +107,12 @@ services:
 # ORDER MANAGERS
 
     librinfo_ecommerce.order_customer_manager:
-        class: Librinfo\EcommerceBundle\Services\OrderCustomerManager
+        class: Sil\Bundle\EcommerceBundle\Services\OrderCustomerManager
         arguments:
             - '@doctrine.orm.entity_manager'
 
     librinfo_ecommerce.order_manager:
-        class: Librinfo\EcommerceBundle\Services\OrderManager
+        class: Sil\Bundle\EcommerceBundle\Services\OrderManager
         arguments:
             - '@doctrine.orm.entity_manager'
         calls:
@@ -120,7 +120,7 @@ services:
             - [setOrderNumberAssigner, ['@sylius.order_number_assigner']]
 
     librinfo_ecommerce.order_invoice_manager:
-        class: Librinfo\EcommerceBundle\Services\OrderInvoiceManager
+        class: Sil\Bundle\EcommerceBundle\Services\OrderInvoiceManager
         arguments:
             - '@doctrine.orm.entity_manager'
         calls:
@@ -131,7 +131,7 @@ services:
 # @TODO remove service_container and calls all the needed service
 
     librinfo_ecommerce.order_creation_manager:
-        class: Librinfo\EcommerceBundle\Services\OrderCreationManager
+        class: Sil\Bundle\EcommerceBundle\Services\OrderCreationManager
         arguments:
             - '@doctrine.orm.entity_manager'
         calls:
@@ -149,16 +149,16 @@ services:
 # EVENT LISTENERS
 
     librinfo_ecommerce.listener.sylius_guidable:
-        class: Librinfo\EcommerceBundle\EventListener\SyliusGuidableListener
+        class: Sil\Bundle\EcommerceBundle\EventListener\SyliusGuidableListener
         tags:
             - { name: doctrine.event_subscriber, priority: -10 }
         calls:
             - [setLogger, ['@logger']]
-            - [setClassAnalyser, [Blast\CoreBundle\Tools\Reflection\ClassAnalyzer]]
+            - [setClassAnalyser, [Blast\Bundle\CoreBundle\Tools\Reflection\ClassAnalyzer]]
 
     # service override
     sylius.listener.order_complete:
-        class: Librinfo\EcommerceBundle\EventListener\OrderCompleteListener
+        class: Sil\Bundle\EcommerceBundle\EventListener\OrderCompleteListener
         tags:
             - { name: kernel.event_listener, event: sylius.order.post_complete, method: sendConfirmationEmail }
         arguments:
@@ -169,7 +169,7 @@ services:
 # SYLIUS INSTALLER
 
     librinfo_ecommerce.sylius.setup.currency:
-        class: Librinfo\EcommerceBundle\Services\Sylius\Setup\CurrencySetup
+        class: Sil\Bundle\EcommerceBundle\Services\Sylius\Setup\CurrencySetup
         arguments:
             - '@sylius.repository.currency'
             - '@sylius.factory.currency'
@@ -178,14 +178,14 @@ services:
 # SYLIUS FACTORIES
 
     librinfo_ecommerce.sylius.factory.customer:
-        class: Librinfo\EcommerceBundle\Factory\CustomerFactory
+        class: Sil\Bundle\EcommerceBundle\Factory\CustomerFactory
         decorates: 'sylius.factory.customer'
         arguments:
             - '@librinfo_ecommerce.sylius.factory.customer.inner'
             - '@librinfo_crm.code_generator.customer'
 
     librinfo_ecommerce.factory.invoice:
-        class: Librinfo\EcommerceBundle\Factory\InvoiceFactory
+        class: Sil\Bundle\EcommerceBundle\Factory\InvoiceFactory
         arguments:
             - '@librinfo_ecommerce.code_generator.invoice'
             - '@knp_snappy.pdf'
@@ -196,7 +196,7 @@ services:
 # SYLIUS FIXTURES & FIXTURE FACTORIES
 
     librinfo_ecommerce.sylius.fixture.channel:
-        class: Librinfo\EcommerceBundle\Fixture\ChannelFixture
+        class: Sil\Bundle\EcommerceBundle\Fixture\ChannelFixture
         arguments:
             - '@sylius.manager.channel'
             - '@librinfo_ecommerce.sylius.fixture.example_factory.channel'
@@ -204,7 +204,7 @@ services:
             - { name: sylius_fixtures.fixture }
 
     librinfo_ecommerce.sylius.fixture.customer:
-        class: Librinfo\EcommerceBundle\Fixture\CustomerFixture
+        class: Sil\Bundle\EcommerceBundle\Fixture\CustomerFixture
         arguments:
             - '@doctrine.orm.default_entity_manager'
             - '@librinfo_crm.code_generator.customer'
@@ -212,7 +212,7 @@ services:
             - { name: sylius_fixtures.fixture }
 
     librinfo_ecommerce.sylius.fixture.example_factory.channel:
-        class: Librinfo\EcommerceBundle\Fixture\Factory\ChannelExampleFactory
+        class: Sil\Bundle\EcommerceBundle\Fixture\Factory\ChannelExampleFactory
         arguments:
             - '@sylius.factory.channel'
             - '@sylius.repository.locale'
@@ -225,33 +225,33 @@ services:
 # TODO: refactor this since it does not work well with SonataSyliusUserBundle
 
 #    librinfo_user.listener.traceable:
-#        class: Librinfo\EcommerceBundle\EventListener\TraceableListener
+#        class: Sil\Bundle\EcommerceBundle\EventListener\TraceableListener
 #        tags:
 #            - { name: doctrine.event_subscriber }
 #        calls:
 #            - [setLogger,['@logger']]
 #            - [setTokenStorage, ['@security.token_storage']]
-#            - [setUserClass, [Librinfo\EcommerceBundle\Entity\AdminUser]]
-#            - [setClassAnalyser, [Blast\CoreBundle\Tools\Reflection\ClassAnalyzer]]
+#            - [setUserClass, [Sil\Bundle\EcommerceBundle\Entity\AdminUser]]
+#            - [setClassAnalyser, [Blast\Bundle\CoreBundle\Tools\Reflection\ClassAnalyzer]]
 #
 #    librinfo_user.listener.ownable:
-#        class: Librinfo\SonataSyliusUserBundle\EventListener\OwnableListener
+#        class: Sil\Bundle\SonataSyliusUserBundle\EventListener\OwnableListener
 #        tags:
 #            - { name: doctrine.event_subscriber }
 #        calls:
 #            - [setLogger,['@logger']]
 #            - [setTokenStorage, ['@security.token_storage']]
-#            - [setUserClass, [Librinfo\EcommerceBundle\Entity\AdminUser]]
-#            - [setClassAnalyser, [Blast\CoreBundle\Tools\Reflection\ClassAnalyzer]]
+#            - [setUserClass, [Sil\Bundle\EcommerceBundle\Entity\AdminUser]]
+#            - [setClassAnalyser, [Blast\Bundle\CoreBundle\Tools\Reflection\ClassAnalyzer]]
 
     imagine.data.loader.resolver.default:
-        class: Librinfo\EcommerceBundle\Imagine\PathResolver\ProductPathResolver
+        class: Sil\Bundle\EcommerceBundle\Imagine\PathResolver\ProductPathResolver
         calls:
             - [setEm, ['@doctrine.orm.entity_manager'] ]
             - [setWebDir, ['%assetic.read_from%'] ]
 
     librinfo_ecommerce.media.events.listener:
-        class: Librinfo\EcommerceBundle\EventListener\UploadControllerEventListener
+        class: Sil\Bundle\EcommerceBundle\EventListener\UploadControllerEventListener
         calls:
             - [setEm, ["@doctrine.orm.entity_manager"]]
         tags:
@@ -260,7 +260,7 @@ services:
             - { name: kernel.event_listener, event: librinfo.events.media.removeEntity, method: removeEntity, priority: 10 }
 
     librinfo_ecommerce.order.updater:
-        class: Librinfo\EcommerceBundle\Services\OrderUpdater
+        class: Sil\Bundle\EcommerceBundle\Services\OrderUpdater
         arguments:
             - '@doctrine.orm.entity_manager'
             - '@sylius.context.channel'
@@ -271,7 +271,7 @@ services:
             - '@sylius.order_processing.order_processor.composite'
 
     librinfo_ecommerce.order.item_updater:
-        class: Librinfo\EcommerceBundle\Services\OrderItemUpdater
+        class: Sil\Bundle\EcommerceBundle\Services\OrderItemUpdater
         arguments:
             - '@doctrine.orm.entity_manager'
             - '@sylius.order_item_quantity_modifier'
@@ -282,17 +282,17 @@ services:
             - '@sylius.order_processing.order_processor.composite'
 
     librinfo.ecommerce.filters.customer:
-        class: Librinfo\EcommerceBundle\Services\Filters\CustomerFilter
+        class: Sil\Bundle\EcommerceBundle\Services\Filters\CustomerFilter
 
     sylius.controller.shop.homepage:
-        class: Librinfo\EcommerceBundle\Controller\SyliusHomepageController
+        class: Sil\Bundle\EcommerceBundle\Controller\SyliusHomepageController
         calls:
             - [setTemplating, ['@templating']]
             - [setChannelContext, ['@sylius.context.channel']]
             - [setFallbackChannelCode, ['%sylius_fallback_channel_code%']]
 
     librinfo.ecommerce.sylius_shop_request_listener:
-        class: Librinfo\EcommerceBundle\EventListener\SyliusRequestChannelContext
+        class: Sil\Bundle\EcommerceBundle\EventListener\SyliusRequestChannelContext
         calls:
             - [setFallbackChannelCode, ['%sylius_fallback_channel_code%']]
             - [setChannelRepository, ['@sylius.repository.channel']]
@@ -300,26 +300,26 @@ services:
             - { name: sylius.context.channel.request_based.resolver }
 
     librinfo_ecommerce.form.type.address_type_extension:
-        class: Librinfo\EcommerceBundle\Form\Type\Checkout\AddressTypeExtension
+        class: Sil\Bundle\EcommerceBundle\Form\Type\Checkout\AddressTypeExtension
         tags:
             - { name: form.type_extension, extended_type: Sylius\Bundle\AddressingBundle\Form\Type\AddressType}
 
     librinfo_ecommerce.form.type.customer_guest_type_extension:
-        class: Librinfo\EcommerceBundle\Form\Type\Checkout\CustomerGuestTypeExtension
+        class: Sil\Bundle\EcommerceBundle\Form\Type\Checkout\CustomerGuestTypeExtension
         calls:
             - [setValidator, ['@validator']]
         tags:
             - { name: form.type_extension, extended_type: Sylius\Bundle\CoreBundle\Form\Type\Customer\CustomerGuestType }
 
     librinfo_ecommerce.form.type.order_address_type:
-        class: Librinfo\EcommerceBundle\Form\Type\OrderAddressType
+        class: Sil\Bundle\EcommerceBundle\Form\Type\OrderAddressType
         calls:
             - [setAddressClass, ['%sylius.model.address.class%']]
         tags:
             - { name: form.type }
 
     librinfo_ecommerce.twig.shipment_cost:
-        class: Librinfo\EcommerceBundle\Twig\ShipmentCost
+        class: Sil\Bundle\EcommerceBundle\Twig\ShipmentCost
         calls:
             - [setShippingCalculator, ['@sylius.shipping_calculator']]
             - [setMoneyFormater, ['@sylius.money_formatter']]
@@ -327,20 +327,20 @@ services:
             - { name: twig.extension }
 
     sylius.provider.product_variants_prices:
-        class: Librinfo\EcommerceBundle\Services\ProductVariantsPricesProvider
+        class: Sil\Bundle\EcommerceBundle\Services\ProductVariantsPricesProvider
         arguments: ["@sylius.calculator.product_variant_price"]
 
     librinfo_ecommerce.twig.product_variant_collection_helper:
-        class: Librinfo\EcommerceBundle\Twig\ProductVariantCollectionHelper
+        class: Sil\Bundle\EcommerceBundle\Twig\ProductVariantCollectionHelper
         tags:
             - { name: twig.extension }
 
     librinfo_ecommerce.order_item_quantity_modifier:
-        class: Librinfo\EcommerceBundle\Modifier\OrderItemQuantityModifier
+        class: Sil\Bundle\EcommerceBundle\Modifier\OrderItemQuantityModifier
         arguments: ["@sylius.factory.order_item_unit"]
 
     librinfo_ecommerce.order_item_quantity_modifier.limiting:
-        class: Librinfo\EcommerceBundle\Modifier\LimitingOrderItemQuantityModifier
+        class: Sil\Bundle\EcommerceBundle\Modifier\LimitingOrderItemQuantityModifier
         decorates: sylius.order_item_quantity_modifier.limiting
         decoration_priority: 254
         arguments: ["@sylius.order_item_quantity_modifier.limiting.inner", 9999]
@@ -348,20 +348,20 @@ services:
             - [setBulkOrderItemQuantityModifier,["@librinfo_ecommerce.order_item_quantity_modifier"]]
 
     librinfo_ecommerce.event_listener.sylius_order_item_controller:
-        class: Librinfo\EcommerceBundle\EventListener\SyliusOrderItemControllerListener
+        class: Sil\Bundle\EcommerceBundle\EventListener\SyliusOrderItemControllerListener
         tags:
             - { name: kernel.event_listener, event: sylius.order_item.pre_add, method: onOrderItemAddToCart }
 
     librinfo_ecommerce.listener.payement:
-        class: Librinfo\EcommerceBundle\EventListener\PaymentMappingListener
+        class: Sil\Bundle\EcommerceBundle\EventListener\PaymentMappingListener
         calls:
             - [setLogger, ['@logger']]
-            - [setClassAnalyser, [Blast\CoreBundle\Tools\Reflection\ClassAnalyzer]]
+            - [setClassAnalyser, [Blast\Bundle\CoreBundle\Tools\Reflection\ClassAnalyzer]]
         tags:
             - { name: doctrine.event_subscriber, connection: default }
 
     librinfo_ecommerce.form.type.customer_guest_extension:
-        class: Librinfo\EcommerceBundle\Form\Type\CustomerGuestTypeExtension
+        class: Sil\Bundle\EcommerceBundle\Form\Type\CustomerGuestTypeExtension
         arguments:
             - '@sylius.repository.customer'
             - '@sylius.factory.customer'
@@ -371,20 +371,20 @@ services:
 # SALES JOURNAL
 
     librinfo_ecommerce.sales_journal.service:
-        class: Librinfo\EcommerceBundle\SalesJournal\SalesJournalService
+        class: Sil\Bundle\EcommerceBundle\SalesJournal\SalesJournalService
         calls:
             - [setSalesJournalItemFactory, ['@librinfo_ecommerce.sales_journal.sales_journal_item.factory']]
             - [setOrderHandler, ['@librinfo_ecommerce.sales_journal.handler.order_handler']]
             - [setPaymentHandler, ['@librinfo_ecommerce.sales_journal.handler.payment_handler']]
 
     librinfo_ecommerce.repository.sales_journal_item:
-        class: Librinfo\EcommerceBundle\Repository\SalesJournalItemRepository
+        class: Sil\Bundle\EcommerceBundle\Repository\SalesJournalItemRepository
         factory: ['@doctrine.orm.default_entity_manager', getRepository]
         arguments:
-            - Librinfo\EcommerceBundle\Entity\SalesJournalItem
+            - Sil\Bundle\EcommerceBundle\Entity\SalesJournalItem
 
     librinfo_ecommerce.sales_journal.sales_journal_item.factory:
-        class: Librinfo\EcommerceBundle\SalesJournal\Factory\SalesJournalItemFactory
+        class: Sil\Bundle\EcommerceBundle\SalesJournal\Factory\SalesJournalItemFactory
 
     librinfo_ecommerce.sales_journal.handler.abstract_handler:
         abstract: true
@@ -394,7 +394,7 @@ services:
 
     librinfo_ecommerce.sales_journal.handler.order_handler:
         parent: librinfo_ecommerce.sales_journal.handler.abstract_handler
-        class: Librinfo\EcommerceBundle\SalesJournal\Handler\OrderHandler
+        class: Sil\Bundle\EcommerceBundle\SalesJournal\Handler\OrderHandler
         calls:
             - [setOrderItemStrategy, ['@librinfo_ecommerce.sales_journal.strategy.order_item.strategy']]
             - [setOrderAdjustmentStrategy, ['@librinfo_ecommerce.sales_journal.strategy.order_adjustment.strategy']]
@@ -402,32 +402,32 @@ services:
 
     librinfo_ecommerce.sales_journal.handler.payment_handler:
         parent: librinfo_ecommerce.sales_journal.handler.abstract_handler
-        class: Librinfo\EcommerceBundle\SalesJournal\Handler\PaymentHandler
+        class: Sil\Bundle\EcommerceBundle\SalesJournal\Handler\PaymentHandler
         calls:
             - [setPaymentStrategy, ['@librinfo_ecommerce.sales_journal.strategy.payment.strategy']]
             - [setCustomerStrategy, ['@librinfo_ecommerce.sales_journal.strategy.customer.strategy']]
 
     librinfo_ecommerce.sales_journal.strategy.order_item.strategy:
-        class: Librinfo\EcommerceBundle\SalesJournal\Strategy\OrderItemStrategy
+        class: Sil\Bundle\EcommerceBundle\SalesJournal\Strategy\OrderItemStrategy
 
     librinfo_ecommerce.sales_journal.strategy.order_adjustment.strategy:
-        class: Librinfo\EcommerceBundle\SalesJournal\Strategy\OrderAdjustmentStrategy
+        class: Sil\Bundle\EcommerceBundle\SalesJournal\Strategy\OrderAdjustmentStrategy
 
     librinfo_ecommerce.sales_journal.strategy.payment.strategy:
-        class: Librinfo\EcommerceBundle\SalesJournal\Strategy\PaymentStrategy
+        class: Sil\Bundle\EcommerceBundle\SalesJournal\Strategy\PaymentStrategy
 
     librinfo_ecommerce.sales_journal.strategy.customer.strategy:
-        class: Librinfo\EcommerceBundle\SalesJournal\Strategy\CustomerStrategy
+        class: Sil\Bundle\EcommerceBundle\SalesJournal\Strategy\CustomerStrategy
 
     sylius.taxation.order_item_units_taxes_applicator:
-        class:  Librinfo\EcommerceBundle\Tax\OrderItemUnitsTaxesApplicator
+        class:  Sil\Bundle\EcommerceBundle\Tax\OrderItemUnitsTaxesApplicator
         arguments:
             - "@sylius.tax_calculator"
             - "@sylius.factory.adjustment"
             - "@sylius.tax_rate_resolver"
 
     sylius.taxation.order_items_taxes_applicator:
-        class: Librinfo\EcommerceBundle\Tax\OrderItemsTaxesApplicator
+        class: Sil\Bundle\EcommerceBundle\Tax\OrderItemsTaxesApplicator
         arguments:
             - "@sylius.tax_calculator"
             - "@sylius.factory.adjustment"

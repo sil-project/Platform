@@ -10,10 +10,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Blast\UtilsBundle\Entity;
+namespace Blast\Bundle\UtilsBundle\Entity;
 
-use Blast\BaseEntitiesBundle\Entity\Traits\BaseEntity;
-use Blast\BaseEntitiesBundle\Entity\Traits\Jsonable;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\BaseEntity;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Jsonable;
 
 /**
  * SelectChoice.

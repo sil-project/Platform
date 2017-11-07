@@ -1,4 +1,4 @@
-Librinfo\CRMBundle\Entity\Organism:
+Sil\Bundle\CRMBundle\Entity\Organism:
     type: entity
 
     fields:
@@ -13,12 +13,12 @@ Librinfo\CRMBundle\Entity\Organism:
 
     oneToMany:
         seedBatches:
-            targetEntity: Librinfo\SeedBatchBundle\Entity\SeedBatch
+            targetEntity: Sil\Bundle\SeedBatchBundle\Entity\SeedBatch
             mappedBy: producer
             cascade: [ persist, remove ]
             orphanRemoval: true
         plots:
-            targetEntity: Librinfo\SeedBatchBundle\Entity\Plot
+            targetEntity: Sil\Bundle\SeedBatchBundle\Entity\Plot
             mappedBy: producer
             cascade: [ persist, remove ]
             orphanRemoval: true

@@ -1,4 +1,4 @@
-Librinfo\SeedBatchBundle\Entity\SeedFarm:
+Sil\Bundle\SeedBatchBundle\Entity\SeedFarm:
     sf{1..5}:
         code: 'SF<current()>'
         name: 'Seed Farm Demo <current()>'

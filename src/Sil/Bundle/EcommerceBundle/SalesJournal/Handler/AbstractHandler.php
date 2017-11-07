@@ -10,10 +10,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EcommerceBundle\SalesJournal\Handler;
+namespace Sil\Bundle\EcommerceBundle\SalesJournal\Handler;
 
-use Librinfo\EcommerceBundle\SalesJournal\Factory\SalesJournalItemFactory;
-use Librinfo\EcommerceBundle\Repository\SalesJournalItemRepository;
+use Sil\Bundle\EcommerceBundle\SalesJournal\Factory\SalesJournalItemFactory;
+use Sil\Bundle\EcommerceBundle\Repository\SalesJournalItemRepository;
 
 abstract class AbstractHandler
 {

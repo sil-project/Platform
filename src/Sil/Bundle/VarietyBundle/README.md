@@ -1,8 +1,8 @@
-# SymfonyLibrinfoVarietiesBundle
+# SymfonySilVarietyBundle
 
-[![Build Status](https://travis-ci.org/libre-informatique/VarietiesBundle.svg?branch=master)](https://travis-ci.org/libre-informatique/VarietiesBundle)
-[![Coverage Status](https://coveralls.io/repos/github/libre-informatique/VarietiesBundle/badge.svg?branch=master)](https://coveralls.io/github/libre-informatique/VarietiesBundle?branch=master)
-[![License](https://img.shields.io/github/license/libre-informatique/VarietiesBundle.svg?style=flat-square)](./LICENCE.md)
+[![Build Status](https://travis-ci.org/libre-informatique/VarietyBundle.svg?branch=master)](https://travis-ci.org/libre-informatique/VarietyBundle)
+[![Coverage Status](https://coveralls.io/repos/github/libre-informatique/VarietyBundle/badge.svg?branch=master)](https://coveralls.io/github/libre-informatique/VarietyBundle?branch=master)
+[![License](https://img.shields.io/github/license/libre-informatique/VarietyBundle.svg?style=flat-square)](./LICENCE.md)
 
 [![Latest Stable Version](https://poser.pugx.org/libre-informatique/varieties-bundle/v/stable)](https://packagist.org/packages/libre-informatique/varieties-bundle)
 [![Latest Unstable Version](https://poser.pugx.org/libre-informatique/varieties-bundle/v/unstable)](https://packagist.org/packages/libre-informatique/varieties-bundle)
@@ -108,16 +108,16 @@ public function registerBundles()
             new Sonata\AdminBundle\SonataAdminBundle(),
             new Sonata\IntlBundle\SonataIntlBundle(),
             # blast
-            new Blast\CoreBundle\BlastCoreBundle(),
-            new Blast\OuterExtensionBundle\BlastOuterExtensionBundle(),
-            new Blast\BaseEntitiesBundle\BlastBaseEntitiesBundle(),
-            new Blast\UtilsBundle\BlastUtilsBundle(),
+            new Blast\Bundle\CoreBundle\BlastCoreBundle(),
+            new Blast\Bundle\OuterExtensionBundle\BlastOuterExtensionBundle(),
+            new Blast\Bundle\BaseEntitiesBundle\BlastBaseEntitiesBundle(),
+            new Blast\Bundle\UtilsBundle\BlastUtilsBundle(),
             # bundle
-            new Librinfo\VarietiesBundle\LibrinfoVarietiesBundle(),
-            new Librinfo\MediaBundle\LibrinfoMediaBundle(),
+            new Sil\Bundle\VarietyBundle\SilVarietyBundle(),
+            new Sil\Bundle\MediaBundle\SilMediaBundle(),
             new Stfalcon\Bundle\TinymceBundle\StfalconTinymceBundle(),
             # sylius
-            new Librinfo\SonataSyliusUserBundle\SonataSyliusUserBundle(),
+            new Sil\Bundle\SonataSyliusUserBundle\SonataSyliusUserBundle(),
         ];
 ```
 app\config\routing.yml
@@ -139,21 +139,21 @@ blast_core:
     resource: "@BlastCoreBundle/Resources/config/routing.yml" 
     prefix:   /admin
 librinfo_media:
-    resource: "@LibrinfoMediaBundle/Resources/config/routing.yml"
+    resource: "@SilMediaBundle/Resources/config/routing.yml"
 ```
 
 ```bash
 bin/console blast:generate:extension-containers -d
 ```
-src\AppBundle\Entity\LibreVarietiesBundle\VarietyExtension.php
+src\AppBundle\Entity\LibreVarietyBundle\VarietyExtension.php
 ```php
 <?php
 
-namespace AppBundle\Entity\OuterExtension\LibrinfoVarietiesBundle;
+namespace AppBundle\Entity\OuterExtension\SilVarietyBundle;
 
 trait VarietyExtension
 {
-    use \Librinfo\MediaBundle\Entity\OuterExtension\HasImages;
+    use \Sil\Bundle\MediaBundle\Entity\OuterExtension\HasImages;
 }
 ```
 app\config\services.yml

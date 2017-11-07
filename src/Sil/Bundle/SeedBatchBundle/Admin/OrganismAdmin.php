@@ -10,10 +10,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\SeedBatchBundle\Admin;
+namespace Sil\Bundle\SeedBatchBundle\Admin;
 
-use Librinfo\CRMBundle\Entity\Organism;
-use Librinfo\EmailCRMBundle\Admin\OrganismAdmin as BaseOrganismAdmin;
+use Sil\Bundle\CRMBundle\Entity\Organism;
+use Sil\Bundle\EmailCRMBundle\Admin\OrganismAdmin as BaseOrganismAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;

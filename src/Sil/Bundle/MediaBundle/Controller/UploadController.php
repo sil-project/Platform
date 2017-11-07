@@ -10,15 +10,15 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\MediaBundle\Controller;
+namespace Sil\Bundle\MediaBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Librinfo\MediaBundle\Entity\File;
+use Sil\Bundle\MediaBundle\Entity\File;
 use Symfony\Component\EventDispatcher\GenericEvent;
-use Librinfo\MediaBundle\Events\UploadControllerEventListener;
+use Sil\Bundle\MediaBundle\Events\UploadControllerEventListener;
 
 class UploadController extends Controller
 {
@@ -62,7 +62,7 @@ class UploadController extends Controller
         }
 
         $manager = $this->getDoctrine()->getManager();
-        $repo = $this->getDoctrine()->getRepository('LibrinfoMediaBundle:File');
+        $repo = $this->getDoctrine()->getRepository('SilMediaBundle:File');
 
         $file = $repo->findOneBy([
             'id'    => $fileId,
@@ -94,7 +94,7 @@ class UploadController extends Controller
      */
     public function loadAction(Request $request)
     {
-        $repo = $this->getDoctrine()->getRepository('LibrinfoMediaBundle:File');
+        $repo = $this->getDoctrine()->getRepository('SilMediaBundle:File');
         $files = [];
 
         foreach ($request->get('load_files') as $key => $id) {

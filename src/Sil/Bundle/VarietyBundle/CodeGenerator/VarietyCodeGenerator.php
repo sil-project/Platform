@@ -10,12 +10,12 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\VarietiesBundle\CodeGenerator;
+namespace Sil\Bundle\VarietyBundle\CodeGenerator;
 
 use Doctrine\ORM\EntityManager;
-use Blast\CoreBundle\CodeGenerator\CodeGeneratorInterface;
-use Librinfo\VarietiesBundle\Entity\Variety;
-use Blast\CoreBundle\Exception\InvalidEntityCodeException;
+use Blast\Bundle\CoreBundle\CodeGenerator\CodeGeneratorInterface;
+use Sil\Bundle\VarietyBundle\Entity\Variety;
+use Blast\Bundle\CoreBundle\Exception\InvalidEntityCodeException;
 
 class VarietyCodeGenerator implements CodeGeneratorInterface
 {
@@ -24,7 +24,7 @@ class VarietyCodeGenerator implements CodeGeneratorInterface
      */
     private static $em;
 
-    const ENTITY_CLASS = 'Librinfo\VarietiesBundle\Entity\Variety';
+    const ENTITY_CLASS = 'Sil\Bundle\VarietyBundle\Entity\Variety';
     const ENTITY_FIELD = 'code';
 
     public static function setEntityManager(EntityManager $em)
@@ -146,7 +146,7 @@ class VarietyCodeGenerator implements CodeGeneratorInterface
             return !in_array($code, $existingCodes);
         }
 
-        $repo = self::$em->getRepository('Librinfo\VarietiesBundle\Entity\Variety');
+        $repo = self::$em->getRepository('Sil\Bundle\VarietyBundle\Entity\Variety');
         $query = $repo->createQueryBuilder('v')
                ->where('v.code = :code')
                ->setParameter('code', $code);

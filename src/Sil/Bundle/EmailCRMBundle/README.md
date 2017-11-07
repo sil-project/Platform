@@ -1,4 +1,4 @@
-# SymfonyLibrinfoEmailCRMBundle
+# SymfonySilEmailCRMBundle
 
 
 [![Build Status](https://travis-ci.org/libre-informatique/EmailCRMBundle.svg?branch=master)](https://travis-ci.org/libre-informatique/EmailCRMBundle)
@@ -11,7 +11,7 @@
 
 CRM bundle for Symfony with Email management
 
-This bundle leverages the full potential of both [SymfonyLibrinfoEmailBundle](https://github.com/libre-informatique/SymfonyLibrinfoEmailBundle) and [SymfonyLibrinfoCRMBundle](https://github.com/libre-informatique/SymfonyLibrinfoCRMBundle)
+This bundle leverages the full potential of both [SymfonySilEmailBundle](https://github.com/libre-informatique/SymfonySilEmailBundle) and [SymfonySilCRMBundle](https://github.com/libre-informatique/SymfonySilCRMBundle)
 
 It is also a proof of concept of how **it is possible** to override the entity mapping of a Symfony bundle, using the new Design Pattern "Outer Extension" (still a WIP in the Libre Informatique's lab, for the moment)! New article coming soon about how we did it...
 
@@ -29,7 +29,7 @@ namespace AppBundle\Entity\Extension;
 
 trait ContactExtension
 {
-    use \Librinfo\EmailCRMBundle\Entity\Traits\HasEmailMessages;
+    use \Sil\Bundle\EmailCRMBundle\Entity\Traits\HasEmailMessages;
 }
 
 ```
@@ -40,7 +40,7 @@ namespace AppBundle\Entity\Extension;
 
 trait PositionExtension
 {
-    use \Librinfo\EmailCRMBundle\Entity\Traits\HasEmailMessages;
+    use \Sil\Bundle\EmailCRMBundle\Entity\Traits\HasEmailMessages;
 }
 
 ```
@@ -51,7 +51,7 @@ namespace AppBundle\Entity\Extension;
 
 trait OrganismExtension
 {
-    use \Librinfo\EmailCRMBundle\Entity\Traits\HasEmailMessages;
+    use \Sil\Bundle\EmailCRMBundle\Entity\Traits\HasEmailMessages;
 }
 
 ```
@@ -62,9 +62,9 @@ namespace AppBundle\Entity\Extension;
 
 trait EmailExtension
 {
-    use \Librinfo\EmailCRMBundle\Entity\Traits\HasEmailRecipients;
+    use \Sil\Bundle\EmailCRMBundle\Entity\Traits\HasEmailRecipients;
 }
 
 ```
-... and now the entities of [SymfonyLibrinfoEmailBundle](https://github.com/libre-informatique/SymfonyLibrinfoEmailBundle) and 
-[SymfonyLibrinfoCRMBundle](https://github.com/libre-informatique/SymfonyLibrinfoCRMBundle) are linked from outer space!
+... and now the entities of [SymfonySilEmailBundle](https://github.com/libre-informatique/SymfonySilEmailBundle) and 
+[SymfonySilCRMBundle](https://github.com/libre-informatique/SymfonySilCRMBundle) are linked from outer space!

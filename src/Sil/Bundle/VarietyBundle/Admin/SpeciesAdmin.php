@@ -10,11 +10,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\VarietiesBundle\Admin;
+namespace Sil\Bundle\VarietyBundle\Admin;
 
 use Sonata\CoreBundle\Validator\ErrorElement;
-use Blast\CoreBundle\Admin\CoreAdmin;
-use Librinfo\VarietiesBundle\Entity\Species;
+use Blast\Bundle\CoreBundle\Admin\CoreAdmin;
+use Sil\Bundle\VarietyBundle\Entity\Species;
 
 class SpeciesAdmin extends CoreAdmin
 {

@@ -10,10 +10,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EcommerceBundle\Entity;
+namespace Sil\Bundle\EcommerceBundle\Entity;
 
-use Blast\BaseEntitiesBundle\Entity\Traits\BaseEntity;
-use Blast\BaseEntitiesBundle\Entity\Traits\Timestampable;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\BaseEntity;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Timestampable;
 
 /**
  * Invoice Entity.
@@ -202,7 +202,7 @@ class Invoice
      *
      * @return Invoice
      */
-    public function setOrder(\Librinfo\EcommerceBundle\Entity\Order $order = null)
+    public function setOrder(\Sil\Bundle\EcommerceBundle\Entity\Order $order = null)
     {
         $this->order = $order;
 

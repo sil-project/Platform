@@ -1,49 +1,49 @@
 # Change Log
 
-## [0.5.2](https://github.com/libre-informatique/VarietiesBundle/tree/0.5.2) (2017-10-19)
-[Full Changelog](https://github.com/libre-informatique/VarietiesBundle/compare/0.5.1...0.5.2)
+## [0.5.2](https://github.com/libre-informatique/VarietyBundle/tree/0.5.2) (2017-10-19)
+[Full Changelog](https://github.com/libre-informatique/VarietyBundle/compare/0.5.1...0.5.2)
 
 **Merged pull requests:**
 
-- Lisem fix & features [\#26](https://github.com/libre-informatique/VarietiesBundle/pull/26) ([FanchTheSystem](https://github.com/FanchTheSystem))
-- Label Translation Strategy Update [\#25](https://github.com/libre-informatique/VarietiesBundle/pull/25) ([FanchTheSystem](https://github.com/FanchTheSystem))
+- Lisem fix & features [\#26](https://github.com/libre-informatique/VarietyBundle/pull/26) ([FanchTheSystem](https://github.com/FanchTheSystem))
+- Label Translation Strategy Update [\#25](https://github.com/libre-informatique/VarietyBundle/pull/25) ([FanchTheSystem](https://github.com/FanchTheSystem))
 
-## [0.5.1](https://github.com/libre-informatique/VarietiesBundle/tree/0.5.1) (2017-09-15)
-[Full Changelog](https://github.com/libre-informatique/VarietiesBundle/compare/0.4.5...0.5.1)
-
-**Merged pull requests:**
-
-- Lisem fix & features [\#24](https://github.com/libre-informatique/VarietiesBundle/pull/24) ([FanchTheSystem](https://github.com/FanchTheSystem))
-- Lisem fix & features [\#23](https://github.com/libre-informatique/VarietiesBundle/pull/23) ([FanchTheSystem](https://github.com/FanchTheSystem))
-
-## [0.4.5](https://github.com/libre-informatique/VarietiesBundle/tree/0.4.5) (2017-07-28)
-[Full Changelog](https://github.com/libre-informatique/VarietiesBundle/compare/0.4.4...0.4.5)
+## [0.5.1](https://github.com/libre-informatique/VarietyBundle/tree/0.5.1) (2017-09-15)
+[Full Changelog](https://github.com/libre-informatique/VarietyBundle/compare/0.4.5...0.5.1)
 
 **Merged pull requests:**
 
-- Wip test [\#20](https://github.com/libre-informatique/VarietiesBundle/pull/20) ([ghost](https://github.com/ghost))
-- Lisem fix & features [\#17](https://github.com/libre-informatique/VarietiesBundle/pull/17) ([FanchTheSystem](https://github.com/FanchTheSystem))
-- Wip lisem [\#14](https://github.com/libre-informatique/VarietiesBundle/pull/14) ([FanchTheSystem](https://github.com/FanchTheSystem))
+- Lisem fix & features [\#24](https://github.com/libre-informatique/VarietyBundle/pull/24) ([FanchTheSystem](https://github.com/FanchTheSystem))
+- Lisem fix & features [\#23](https://github.com/libre-informatique/VarietyBundle/pull/23) ([FanchTheSystem](https://github.com/FanchTheSystem))
 
-## [0.4.4](https://github.com/libre-informatique/VarietiesBundle/tree/0.4.4) (2017-06-27)
-[Full Changelog](https://github.com/libre-informatique/VarietiesBundle/compare/0.4.3...0.4.4)
-
-## [0.4.3](https://github.com/libre-informatique/VarietiesBundle/tree/0.4.3) (2017-06-14)
-[Full Changelog](https://github.com/libre-informatique/VarietiesBundle/compare/0.4.2...0.4.3)
+## [0.4.5](https://github.com/libre-informatique/VarietyBundle/tree/0.4.5) (2017-07-28)
+[Full Changelog](https://github.com/libre-informatique/VarietyBundle/compare/0.4.4...0.4.5)
 
 **Merged pull requests:**
 
-- Add First Phpunit Test \(\#8\) [\#10](https://github.com/libre-informatique/VarietiesBundle/pull/10) ([FanchTheSystem](https://github.com/FanchTheSystem))
-- Phpunit [\#8](https://github.com/libre-informatique/VarietiesBundle/pull/8) ([erwanrolland](https://github.com/erwanrolland))
-- New README.md [\#6](https://github.com/libre-informatique/VarietiesBundle/pull/6) ([erwanrolland](https://github.com/erwanrolland))
+- Wip test [\#20](https://github.com/libre-informatique/VarietyBundle/pull/20) ([ghost](https://github.com/ghost))
+- Lisem fix & features [\#17](https://github.com/libre-informatique/VarietyBundle/pull/17) ([FanchTheSystem](https://github.com/FanchTheSystem))
+- Wip lisem [\#14](https://github.com/libre-informatique/VarietyBundle/pull/14) ([FanchTheSystem](https://github.com/FanchTheSystem))
 
-## [0.4.2](https://github.com/libre-informatique/VarietiesBundle/tree/0.4.2) (2017-05-05)
-[Full Changelog](https://github.com/libre-informatique/VarietiesBundle/compare/0.2...0.4.2)
+## [0.4.4](https://github.com/libre-informatique/VarietyBundle/tree/0.4.4) (2017-06-27)
+[Full Changelog](https://github.com/libre-informatique/VarietyBundle/compare/0.4.3...0.4.4)
 
-## [0.2](https://github.com/libre-informatique/VarietiesBundle/tree/0.2) (2017-03-07)
-[Full Changelog](https://github.com/libre-informatique/VarietiesBundle/compare/0.1...0.2)
+## [0.4.3](https://github.com/libre-informatique/VarietyBundle/tree/0.4.3) (2017-06-14)
+[Full Changelog](https://github.com/libre-informatique/VarietyBundle/compare/0.4.2...0.4.3)
 
-## [0.1](https://github.com/libre-informatique/VarietiesBundle/tree/0.1) (2017-02-15)
+**Merged pull requests:**
+
+- Add First Phpunit Test \(\#8\) [\#10](https://github.com/libre-informatique/VarietyBundle/pull/10) ([FanchTheSystem](https://github.com/FanchTheSystem))
+- Phpunit [\#8](https://github.com/libre-informatique/VarietyBundle/pull/8) ([erwanrolland](https://github.com/erwanrolland))
+- New README.md [\#6](https://github.com/libre-informatique/VarietyBundle/pull/6) ([erwanrolland](https://github.com/erwanrolland))
+
+## [0.4.2](https://github.com/libre-informatique/VarietyBundle/tree/0.4.2) (2017-05-05)
+[Full Changelog](https://github.com/libre-informatique/VarietyBundle/compare/0.2...0.4.2)
+
+## [0.2](https://github.com/libre-informatique/VarietyBundle/tree/0.2) (2017-03-07)
+[Full Changelog](https://github.com/libre-informatique/VarietyBundle/compare/0.1...0.2)
+
+## [0.1](https://github.com/libre-informatique/VarietyBundle/tree/0.1) (2017-02-15)
 
 
 \* *This Change Log was automatically generated by [github_changelog_generator](https://github.com/skywinder/Github-Changelog-Generator)*

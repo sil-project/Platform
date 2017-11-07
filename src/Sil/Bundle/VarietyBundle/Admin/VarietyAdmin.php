@@ -10,14 +10,14 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\VarietiesBundle\Admin;
+namespace Sil\Bundle\VarietyBundle\Admin;
 
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
 use Sonata\AdminBundle\Route\RouteCollection;
-use Blast\CoreBundle\Admin\CoreAdmin;
-use Blast\CoreBundle\Admin\Traits\HandlesRelationsAdmin;
-use Librinfo\VarietiesBundle\Traits\DynamicDescriptions;
+use Blast\Bundle\CoreBundle\Admin\CoreAdmin;
+use Blast\Bundle\CoreBundle\Admin\Traits\HandlesRelationsAdmin;
+use Sil\Bundle\VarietyBundle\Traits\DynamicDescriptions;
 
 class VarietyAdmin extends CoreAdmin
 {
@@ -48,7 +48,7 @@ class VarietyAdmin extends CoreAdmin
     {
         return array_merge(
             parent::getFormTheme(),
-            array('LibrinfoVarietiesBundle:VarietyAdmin:form_theme.html.twig')
+            array('SilVarietyBundle:VarietyAdmin:form_theme.html.twig')
         );
     }
 

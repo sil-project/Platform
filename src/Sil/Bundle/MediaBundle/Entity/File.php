@@ -10,13 +10,13 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\MediaBundle\Entity;
+namespace Sil\Bundle\MediaBundle\Entity;
 
 use Symfony\Component\HttpFoundation\File\UploadedFile;
-use Blast\BaseEntitiesBundle\Entity\Traits\BaseEntity;
-use Blast\OuterExtensionBundle\Entity\Traits\OuterExtensible;
-use Blast\BaseEntitiesBundle\Entity\Traits\Jsonable;
-use AppBundle\Entity\OuterExtension\LibrinfoMediaBundle\FileExtension;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\BaseEntity;
+use Blast\Bundle\OuterExtensionBundle\Entity\Traits\OuterExtensible;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Jsonable;
+use AppBundle\Entity\OuterExtension\SilMediaBundle\FileExtension;
 
 /**
  * File.
@@ -66,7 +66,7 @@ class File implements \JsonSerializable
     /**
      * @param UploadedFile $file
      *
-     * @return \Librinfo\MediaBundle\Entity\File
+     * @return \Sil\Bundle\MediaBundle\Entity\File
      */
     public function setFile($file = null)
     {

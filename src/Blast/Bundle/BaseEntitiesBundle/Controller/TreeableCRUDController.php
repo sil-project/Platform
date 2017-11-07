@@ -10,9 +10,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Blast\BaseEntitiesBundle\Controller;
+namespace Blast\Bundle\BaseEntitiesBundle\Controller;
 
-use Librinfo\CRMBundle\Entity\Category;
+use Sil\Bundle\CRMBundle\Entity\Category;
 use Sonata\AdminBundle\Controller\CRUDController;
 use Symfony\Component\HttpFoundation\Request;
 

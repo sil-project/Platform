@@ -16,7 +16,7 @@ namespace Sil\Bundle\StockBundle\Domain\Entity;
 
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
-use Blast\BaseEntitiesBundle\Entity\Traits\Guidable;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Guidable;
 use InvalidArgumentException;
 
 /**

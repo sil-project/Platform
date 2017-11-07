@@ -10,11 +10,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EcommerceBundle\CodeGenerator;
+namespace Sil\Bundle\EcommerceBundle\CodeGenerator;
 
 use Doctrine\ORM\EntityManager;
-use Blast\CoreBundle\CodeGenerator\CodeGeneratorInterface;
-use Librinfo\EcommerceBundle\Entity\Invoice;
+use Blast\Bundle\CoreBundle\CodeGenerator\CodeGeneratorInterface;
+use Sil\Bundle\EcommerceBundle\Entity\Invoice;
 
 /**
  * Sequencial invoice number generator (9 digits).
@@ -23,7 +23,7 @@ use Librinfo\EcommerceBundle\Entity\Invoice;
  */
 class InvoiceCodeGenerator implements CodeGeneratorInterface
 {
-    const ENTITY_CLASS = 'Librinfo\EcommerceBundle\Entity\Invoice';
+    const ENTITY_CLASS = 'Sil\Bundle\EcommerceBundle\Entity\Invoice';
     const ENTITY_FIELD = 'number';
 
     // TODO: this should be in app configuration:

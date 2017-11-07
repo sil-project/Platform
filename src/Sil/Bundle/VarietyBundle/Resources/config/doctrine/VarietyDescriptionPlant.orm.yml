@@ -1,9 +1,9 @@
 
-Librinfo\VarietiesBundle\Entity\VarietyDescriptionPlant:
+Sil\Bundle\VarietyBundle\Entity\VarietyDescriptionPlant:
     type: entity
     manyToOne:
         variety:
-            targetEntity: Librinfo\VarietiesBundle\Entity\Variety
+            targetEntity: Sil\Bundle\VarietyBundle\Entity\Variety
             inversedBy: plant_descriptions
             joinColumn:
                 name: variety_id

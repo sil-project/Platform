@@ -1,4 +1,4 @@
-Librinfo\SeedBatchBundle\Entity\CertificationType:
+Sil\Bundle\SeedBatchBundle\Entity\CertificationType:
     type: entity
     fields:
         code:
@@ -8,7 +8,7 @@ Librinfo\SeedBatchBundle\Entity\CertificationType:
 
     oneToOne:
         logo:
-            targetEntity: Librinfo\MediaBundle\Entity\File
+            targetEntity: Sil\Bundle\MediaBundle\Entity\File
             joinColumn:
                 name: logo_id
                 referencedColumnName: id

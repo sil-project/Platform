@@ -10,10 +10,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Blast\UtilsBundle\Entity;
+namespace Blast\Bundle\UtilsBundle\Entity;
 
-use Blast\BaseEntitiesBundle\Entity\Traits\BaseEntity;
-use Blast\CoreBundle\Model\UserInterface;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\BaseEntity;
+use Blast\Bundle\CoreBundle\Model\UserInterface;
 
 /**
  * CustomFilter.

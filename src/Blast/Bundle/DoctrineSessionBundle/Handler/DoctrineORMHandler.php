@@ -10,9 +10,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Blast\DoctrineSessionBundle\Handler;
+namespace Blast\Bundle\DoctrineSessionBundle\Handler;
 
-use Blast\DoctrineSessionBundle\Entity\Session;
+use Blast\Bundle\DoctrineSessionBundle\Entity\Session;
 use Doctrine\Common\Persistence\ManagerRegistry;
 
 /**

@@ -10,9 +10,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\SeedBatchBundle\Entity;
+namespace Sil\Bundle\SeedBatchBundle\Entity;
 
-use Blast\BaseEntitiesBundle\Entity\SearchIndexEntity;
+use Blast\Bundle\BaseEntitiesBundle\Entity\SearchIndexEntity;
 
 class PlotSearchIndex extends SearchIndexEntity
 {

@@ -2,60 +2,60 @@ services:
 
     ######### FORM TYPES ###########
     blast_utils.form.type.tinymce:
-        class: Blast\UtilsBundle\Form\Type\TinyMceType
+        class: Blast\Bundle\UtilsBundle\Form\Type\TinyMceType
         tags:
             - { name: form.type, alias: blast_tinymce }
 
     blast_utils.form.type.customchoice:
-        class: Blast\UtilsBundle\Form\Type\CustomChoiceType
+        class: Blast\Bundle\UtilsBundle\Form\Type\CustomChoiceType
         tags:
             - { name: form.type, alias: blast_custom_choice }
         arguments: [ '@doctrine.orm.entity_manager' ]
 
     blast_utils.form.type.customcheckbox:
-        class: Blast\UtilsBundle\Form\Type\CustomCheckboxType
+        class: Blast\Bundle\UtilsBundle\Form\Type\CustomCheckboxType
         tags:
             - { name: form.type, alias: blast_custom_checkbox }
 
     blast_utils.form.type.uniquefield:
-        class: Blast\UtilsBundle\Form\Type\UniqueFieldType
+        class: Blast\Bundle\UtilsBundle\Form\Type\UniqueFieldType
         tags:
             - { name: form.type, alias: blast_unique_field }
 
     #########  TWIG EXTENSIONS ############
     blast_utils.twig.base_extension:
-        class: Blast\UtilsBundle\Twig\Extensions\BaseExtension
+        class: Blast\Bundle\UtilsBundle\Twig\Extensions\BaseExtension
         tags: [{ name: twig.extension }]
         calls:
             - [setRouter,['@router']]
 
     blast_utils.twig_extension.html2text:
-        class: Blast\UtilsBundle\Twig\Extensions\Html2textExtension
+        class: Blast\Bundle\UtilsBundle\Twig\Extensions\Html2textExtension
         tags:
             - { name: twig.extension }
 
     #########  HOOK SYSTEM ############
     blast_utils.hook.registry:
-        class: Blast\UtilsBundle\Hook\Component\Registry
+        class: Blast\Bundle\UtilsBundle\Hook\Component\Registry
         calls:
             - [setProfiler,['@blast_core.profiler.collector']]
 
     blast_utils.hooks.abstract_hook:
         abstract: true
-        class: Blast\UtilsBundle\Hook\Component\AbstractHook
+        class: Blast\Bundle\UtilsBundle\Hook\Component\AbstractHook
         calls:
             - [setRequestStack, ['@request_stack']]
             - [setEm, ['@doctrine.orm.entity_manager']]
 
     blast_utils.twig.hook:
-        class: Blast\UtilsBundle\Twig\Extensions\Hook
+        class: Blast\Bundle\UtilsBundle\Twig\Extensions\Hook
         calls:
             - [setEventDispatcher, ['@event_dispatcher']]
         tags:
             - { name: twig.extension }
 
     blast_utils.hook.listener:
-        class: Blast\UtilsBundle\Hook\Component\Event\HookListener
+        class: Blast\Bundle\UtilsBundle\Hook\Component\Event\HookListener
         calls:
             - [setRegistry, ['@blast_utils.hook.registry']]
             - [setTemplating, ['@templating']]
@@ -63,7 +63,7 @@ services:
             - { name: kernel.event_listener, event: blast.hook, method: onBlastHook }
 
     blast_utils.listener.classmetadata:
-        class: Blast\UtilsBundle\EventListener\LoadClassMetadataListener
+        class: Blast\Bundle\UtilsBundle\EventListener\LoadClassMetadataListener
         calls:
             - [setParameters, ['%blast_utils%']]
         tags:
@@ -73,19 +73,19 @@ services:
     #########  HOOKS ############
     blast_utils.hooks.layout.javascripts:
         parent: blast_utils.hooks.abstract_hook
-        class: Blast\UtilsBundle\Hook\Hooks\Layout\Javascripts
+        class: Blast\Bundle\UtilsBundle\Hook\Hooks\Layout\Javascripts
         tags:
             - { name: blast.hook, hook: layout.javascripts, template: BlastUtilsBundle:Hook/Layout:javascripts.html.twig }
 
     blast_utils.hooks.layout.stylesheets:
         parent: blast_utils.hooks.abstract_hook
-        class: Blast\UtilsBundle\Hook\Hooks\Layout\Stylesheets
+        class: Blast\Bundle\UtilsBundle\Hook\Hooks\Layout\Stylesheets
         tags:
             - { name: blast.hook, hook: layout.stylesheets, template:BlastUtilsBundle:Hook/Layout:stylesheets.html.twig  }
 
     blast_utils.hooks.custom_filters.dropdown:
         parent: blast_utils.hooks.abstract_hook
-        class: Blast\UtilsBundle\Hook\Hooks\CustomFilters\Dropdown
+        class: Blast\Bundle\UtilsBundle\Hook\Hooks\CustomFilters\Dropdown
         calls:
             - [setTokenStorage, ['@security.token_storage']]
             - [setParameters, ['%blast_utils%']]
@@ -94,7 +94,7 @@ services:
 
     blast_utils.hooks.custom_filters.save:
         parent: blast_utils.hooks.abstract_hook
-        class: Blast\UtilsBundle\Hook\Hooks\CustomFilters\Save
+        class: Blast\Bundle\UtilsBundle\Hook\Hooks\CustomFilters\Save
         calls:
             - [setParameters, ['%blast_utils%']]
         tags:

@@ -14,8 +14,8 @@ declare(strict_types=1);
 
 namespace Sil\Bundle\StockBundle\Domain\Entity;
 
-use Blast\BaseEntitiesBundle\Entity\Traits\Guidable;
-use Blast\BaseEntitiesBundle\Entity\Traits\Timestampable;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Guidable;
+use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Timestampable;
 use DomainException;
 
 /**

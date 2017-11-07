@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Blast\BaseEntitiesBundle\Loggable\Mapping\Event\Adapter;
+namespace Blast\Bundle\BaseEntitiesBundle\Loggable\Mapping\Event\Adapter;
 
 use Gedmo\Mapping\Event\Adapter\ORM as BaseAdapterORM;
 use Gedmo\Loggable\Mapping\Event\LoggableAdapter;

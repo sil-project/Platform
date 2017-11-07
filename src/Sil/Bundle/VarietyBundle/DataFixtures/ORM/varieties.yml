@@ -1,4 +1,4 @@
-Librinfo\VarietiesBundle\Entity\Family:
+Sil\Bundle\VarietyBundle\Entity\Family:
     fam_user (template):
         createdBy: "@user_fixture"
         updatedBy: "@user_fixture"
@@ -12,7 +12,7 @@ Librinfo\VarietiesBundle\Entity\Family:
         latin_name: Solanaceae Juss.
 
 
-Librinfo\VarietiesBundle\Entity\Genus:
+Sil\Bundle\VarietyBundle\Entity\Genus:
     gen_user (template):
         created_by: "@user_marcos"
         updated_by: "@user_fixture"
@@ -28,7 +28,7 @@ Librinfo\VarietiesBundle\Entity\Genus:
         family: "@fam_solanacees"
 
 
-Librinfo\VarietiesBundle\Entity\Species:
+Sil\Bundle\VarietyBundle\Entity\Species:
     spe_coriandre:
         name (unique): coriandre
         latin_name: coriandrum sativum
@@ -56,7 +56,7 @@ Librinfo\VarietiesBundle\Entity\Species:
         genus: "@gen_solanum"
 
 
-Librinfo\VarietiesBundle\Entity\Variety:
+Sil\Bundle\VarietyBundle\Entity\Variety:
     var_coriandre:
         name (unique): Coriandre
         latin_name: coriandrum sativum

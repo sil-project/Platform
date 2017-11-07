@@ -1,4 +1,4 @@
-Librinfo\SeedBatchBundle\Entity\Plot:
+Sil\Bundle\SeedBatchBundle\Entity\Plot:
     type: entity
 
     fields:
@@ -8,17 +8,17 @@ Librinfo\SeedBatchBundle\Entity\Plot:
 
     oneToMany:
         seedBatches:
-            targetEntity: Librinfo\SeedBatchBundle\Entity\SeedBatch
+            targetEntity: Sil\Bundle\SeedBatchBundle\Entity\SeedBatch
             mappedBy: plot
         certifications:
-            targetEntity: Librinfo\SeedBatchBundle\Entity\Certification
+            targetEntity: Sil\Bundle\SeedBatchBundle\Entity\Certification
             mappedBy: plot
             cascade: [ persist, remove ]
             orphanRemoval: true
             
     manyToOne:
         producer:
-            targetEntity: Librinfo\CRMBundle\Entity\Organism
+            targetEntity: Sil\Bundle\CRMBundle\Entity\Organism
             inversedBy: plots
             joinColumn:
                 name: producer_id

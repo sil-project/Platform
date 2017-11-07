@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EmailCRMBundle\Entity\OuterExtension\LibrinfoEmailBundle;
+namespace Sil\Bundle\EmailCRMBundle\Entity\OuterExtension\SilEmailBundle;
 
 use Doctrine\Common\Collections\Collection;
 

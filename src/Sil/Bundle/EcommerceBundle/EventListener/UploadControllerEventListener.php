@@ -10,13 +10,13 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EcommerceBundle\EventListener;
+namespace Sil\Bundle\EcommerceBundle\EventListener;
 
 use Symfony\Component\EventDispatcher\GenericEvent;
 use Doctrine\ORM\EntityManager;
-use Librinfo\MediaBundle\Events\UploadControllerEventListener as BaseUploadControllerEventListener;
-use Librinfo\EcommerceBundle\Entity\ProductImage;
-use Librinfo\MediaBundle\Entity\File;
+use Sil\Bundle\MediaBundle\Events\UploadControllerEventListener as BaseUploadControllerEventListener;
+use Sil\Bundle\EcommerceBundle\Entity\ProductImage;
+use Sil\Bundle\MediaBundle\Entity\File;
 
 class UploadControllerEventListener extends BaseUploadControllerEventListener
 {
@@ -27,7 +27,7 @@ class UploadControllerEventListener extends BaseUploadControllerEventListener
 
     public function preGetEntity(GenericEvent $event)
     {
-        $repo = $this->em->getRepository('LibrinfoEcommerceBundle:ProductImage');
+        $repo = $this->em->getRepository('SilEcommerceBundle:ProductImage');
 
         $productImage = $repo->findOneBy(['id'=>$event->getSubject()['context']['id']]);
 
@@ -48,7 +48,7 @@ class UploadControllerEventListener extends BaseUploadControllerEventListener
     public function removeEntity(GenericEvent $event)
     {
         $file = $event->getSubject();
-        $repo = $this->em->getRepository('LibrinfoEcommerceBundle:ProductImage');
+        $repo = $this->em->getRepository('SilEcommerceBundle:ProductImage');
         $productImage = $repo->findOneBy(['realFile' => $file]);
 
         if ($productImage !== null) {

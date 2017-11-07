@@ -10,9 +10,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EmailCRMBundle\Services;
+namespace Sil\Bundle\EmailCRMBundle\Services;
 
-use Librinfo\EmailBundle\Services\AddressManager as BaseAddressManager;
+use Sil\Bundle\EmailBundle\Services\AddressManager as BaseAddressManager;
 
 /**
  * AddressManager is used to manage addresses as service (librinfo.email.address_manager).

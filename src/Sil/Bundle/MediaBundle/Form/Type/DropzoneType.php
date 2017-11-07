@@ -10,10 +10,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\MediaBundle\Form\Type;
+namespace Sil\Bundle\MediaBundle\Form\Type;
 
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Blast\CoreBundle\Form\AbstractType as BaseAbstractType;
+use Blast\Bundle\CoreBundle\Form\AbstractType as BaseAbstractType;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\Form\FormInterface;
 
@@ -31,7 +31,7 @@ class DropzoneType extends BaseAbstractType
     {
         $resolver->setDefault('mediaContext', 'default');
         $resolver->setDefault('multipleFiles', true);
-        $resolver->setDefault('dropzoneTemplate', 'LibrinfoMediaBundle:dropzone:dropzone_template.mustache.twig');
+        $resolver->setDefault('dropzoneTemplate', 'SilMediaBundle:dropzone:dropzone_template.mustache.twig');
 
         $resolver->setAllowedTypes('mediaContext', 'string');
         $resolver->setAllowedTypes('dropzoneTemplate', 'string');

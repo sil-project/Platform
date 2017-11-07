@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EcommerceBundle\Twig;
+namespace Sil\Bundle\EcommerceBundle\Twig;
 
 use Sylius\Component\Shipping\Calculator\DelegatingCalculatorInterface;
 use Sylius\Bundle\MoneyBundle\Formatter\MoneyFormatter;

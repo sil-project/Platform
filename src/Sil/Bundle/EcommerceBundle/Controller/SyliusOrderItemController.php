@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EcommerceBundle\Controller;
+namespace Sil\Bundle\EcommerceBundle\Controller;
 
 use Sylius\Bundle\OrderBundle\Controller\OrderItemController as BaseOrderItemController;
 use FOS\RestBundle\View\View;

@@ -1,4 +1,4 @@
 services:
     sonata.admin.manager.orm:
-        class: Blast\DoctrinePgsqlBundle\Model\ModelManager
+        class: Blast\Bundle\DoctrinePgsqlBundle\Model\ModelManager
         arguments: ['@doctrine']

@@ -10,9 +10,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\SeedBatchBundle\Admin;
+namespace Sil\Bundle\SeedBatchBundle\Admin;
 
-use Blast\CoreBundle\Admin\Traits\EmbeddedAdmin;
+use Blast\Bundle\CoreBundle\Admin\Traits\EmbeddedAdmin;
 
 class SeedBatchEmbeddedAdmin extends SeedBatchAdmin
 {

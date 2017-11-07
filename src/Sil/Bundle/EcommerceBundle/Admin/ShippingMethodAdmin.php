@@ -10,10 +10,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\EcommerceBundle\Admin;
+namespace Sil\Bundle\EcommerceBundle\Admin;
 
 use Sonata\AdminBundle\Form\FormMapper;
-use Librinfo\EcommerceBundle\Form\Type\PriceCentsType;
+use Sil\Bundle\EcommerceBundle\Form\Type\PriceCentsType;
 
 class ShippingMethodAdmin extends SyliusGenericAdmin
 {

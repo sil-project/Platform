@@ -90,7 +90,7 @@ librinfo:
     ui:
         commercial_tab_title: Informations variété
 
-    varietiesbundle:
+    VarietyBundle:
         admin:
             variety_description_inner: Description spécifique
             family: Famille
