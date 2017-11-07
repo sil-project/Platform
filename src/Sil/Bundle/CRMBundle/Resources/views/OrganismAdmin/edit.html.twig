@@ -1,0 +1,32 @@
+{#
+
+This file is part of the Sonata package.
+
+(c) Baptiste SIMON <beta@e-glop.net>
+(c) Marcos Bezerra de Menezes <marcos.bezerra@libre-informatique.fr>
+(c) Libre Informatique [http://www.libre-informatique.fr/]
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+
+#}
+
+{% extends 'BlastCoreBundle:CRUD:base_edit.html.twig' %}
+
+{% block form %}
+    {{ parent() }}
+
+    <div class="js-data"
+         id="organism-form-data"
+         data-unique-id="{{ form.vars.id }}"
+         data-customer-error="{{ form.customerCode is defined and form.customerCode.vars.errors|length ? 'false' : 'true' }}"
+         data-supplier-error="{{ form.supplierCode is defined and form.supplierCode.vars.errors|length ? 'false' : 'true' }}"
+    ></div>
+{% endblock %}
+
+{% block bottom_js %}
+    {{ parent() }}
+    <script type="text/javascript" src="{{ asset('bundles/librinfocrm/js/organism.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/librinfocrm/js/zipCity.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/librinfocrm/js/npai.js') }}"></script>
+{% endblock %}

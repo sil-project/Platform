@@ -1,0 +1,62 @@
+{#
+
+This file is part of Libre Informatique packages..
+
+(c) Marcos BEZERRA DE MENEZES <marcos.bezerra@libre-informatique.fr>
+(c) Libre Informatique [http://www.libre-informatique.fr/]
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+
+#}
+
+<script>
+
+// Add handles column to the list table
+$(".content table.sonata-ba-list thead > tr").each(function(){
+    $(this).prepend('<td>&nbsp;</td>');
+});
+$(".content table.sonata-ba-list tbody > tr").each(function(){
+    $(this).prepend('<td class="sortable-handle"><span aria-hidden="true" class="glyphicon glyphicon-move"></span></td>');
+});
+
+$(".content table.sonata-ba-list tbody").sortable({
+    cursor: 'move',
+    delay: 150,
+    axis: 'y',
+    update: function(event, ui) {
+        var $this = $(this);
+        var objectId = ui.item.find('td[objectid]').attr('objectid');
+
+        var prevRank = parseInt( ui.item.prev().find('td.sonata-ba-list-field-sort_rank').text() );
+        var nextRank = parseInt( ui.item.next().find('td.sonata-ba-list-field-sort_rank').text() );
+
+        $.ajax({
+            url: '{{ path('blast_base_entities_move_sortable') }}',
+            type: 'post',
+            data: {
+                admin_code: '{{ admin.code }}',
+                id:         objectId,
+                prev_rank:  isNaN(prevRank) ? 0 : prevRank,
+                next_rank:  isNaN(nextRank) ? 0 : nextRank
+            },
+            success: function(json){
+                if ( json.reload )
+                  location.reload();
+                if ( json.status !== "OK" ) {
+                    alert('An error occurred (02)', 'error');
+                    $this.sortable( "cancel" );
+                }
+                else {
+                    ui.item.find('td.sonata-ba-list-field-sort_rank').text(json.new_rank);
+                }
+            },
+            error: function(){
+                alert('An error occurred (01)', 'error');
+                //location.reload();
+                $this.sortable( "cancel" );
+            }
+        });
+    }
+});
+</script>

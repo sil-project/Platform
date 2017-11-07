@@ -1,0 +1,13 @@
+
+
+blast:
+    baseentitiesbundle: ~
+        
+
+
+
+'form_group_address': 'Adresse'
+'form_group_email': 'Email'
+'form_group_communication': 'Communication'
+'form_group_phones': 'Numéros de téléphone'
+'form_group_description': 'Description'

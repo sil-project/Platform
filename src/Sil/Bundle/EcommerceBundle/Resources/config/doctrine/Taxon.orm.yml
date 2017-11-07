@@ -1,0 +1,6 @@
+Librinfo\EcommerceBundle\Entity\Taxon:
+    type: entity
+    oneToMany:
+        images:
+            targetEntity: Sylius\Component\Core\Model\TaxonImage
+            mappedBy: owner

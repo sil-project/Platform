@@ -1,0 +1,28 @@
+Librinfo\CRMBundle\Entity\Organism:
+    type: entity
+#    repositoryClass: Librinfo\EmailCRMBundle\Entity\Repository\OrganismRepository
+    fields:
+        emailCanonical:
+            type: string
+            nullable: false
+            unique: true
+    oneToOne:
+        user:
+            targetEntity: Sylius\Component\Core\Model\ShopUser
+            mappedBy: customer
+            cascade: [all]
+
+    oneToMany:
+        orders:
+            targetEntity: Librinfo\EcommerceBundle\Entity\Order
+            mappedBy: customer
+            cascade: [persist, remove]
+        addresses:
+            targetEntity: Librinfo\CRMBundle\Entity\Address
+            mappedBy: customer
+            cascade: [ persist ]
+
+    manyToOne:
+        group:
+            targetEntity: Librinfo\EcommerceBundle\Entity\CustomerGroup
+            inversedBy: customers

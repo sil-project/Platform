@@ -1,0 +1,40 @@
+{
+    "name": "blast-project/doctrine-pgsql-bundle",
+    "type": "symfony-bundle",
+    "description": "This bundle extends the Postgresql functionalities of Doctrine and Sonata projects",
+    "require": {
+        "php": ">=7.1",
+        "symfony/symfony": ">=3.2",
+        "sonata-project/admin-bundle": ">=3.1",
+        "sonata-project/doctrine-orm-admin-bundle": ">=3.1",
+        "oro/doctrine-extensions": ">=1.2"
+    },
+    "require-dev": {
+        "symfony/phpunit-bridge": ">=3.2",
+        "phpunit/phpunit": "^6.4"
+    },
+    "license": "LGPL-3.0",
+    "keywords": [
+        "blast",
+        "doctrine",
+        "symfony",
+        "sonata",
+        "Postgresql"
+    ],
+    "homepage": "https://github.com/blast-project/DoctrinePgsqlBundle",
+    "authors": [
+        {
+            "name": "Marcos BEZERRA de MENEZES",
+            "email": "marcos.bezerra@libre-informatique.fr"
+        },
+        {
+            "name": "Libre Informatique",
+            "homepage": "http://www.libre-informatique.fr/"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Blast\\DoctrinePgsqlBundle\\": "/"
+        }
+    }
+}

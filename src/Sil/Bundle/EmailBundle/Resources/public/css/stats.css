@@ -1,0 +1,30 @@
+
+.link_row{
+    
+    padding-bottom: 20px;
+}
+
+.stats{
+
+    display: inline-block;
+    padding: 40px;
+}
+
+.stat_label{
+    
+    font-style: italic;
+    font-size: 1.7rem;
+}
+
+.link{
+    
+  color: #9bb5ca;
+  font-weight: bold;
+}
+
+.link_value{
+    
+    color: #6994B4;
+    font-weight: bold;
+    font-size: 1.7rem;
+}

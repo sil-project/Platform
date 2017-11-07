@@ -1,0 +1,38 @@
+<html {% block html_attributes %}{% endblock %}>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    {% stylesheets
+    'bundles/sonatacore/vendor/bootstrap/dist/css/bootstrap.min.css'
+    'bundles/sonatacore/vendor/components-font-awesome/css/font-awesome.min.css'
+    'bundles/sonatacore/vendor/ionicons/css/ionicons.min.css'
+    'bundles/sonataadmin/vendor/admin-lte/dist/css/AdminLTE.css'
+    'bundles/sonatacore/vendor/select2/select2.css'
+    'bundles/sonatacore/vendor/select2/select2-bootstrap.css'
+    output='css/empty_layout.css' filter="cssrewrite" %}
+    <link href="{{ asset_url }}" rel="stylesheet"/>
+    {% endstylesheets %}
+
+    {% block stylesheets %}{% endblock %}
+
+    {% javascripts
+    'bundles/sonataadmin/vendor/jquery/dist/jquery.min.js'
+    'bundles/sonatacore/vendor/moment/min/moment.min.js'
+    'bundles/sonatacore/vendor/bootstrap/dist/js/bootstrap.min.js'
+    'bundles/sonatacore/vendor/select2/select2.min.js'
+    'bundles/sonatacore/vendor/select2/select2_locale_fr.js'
+    output="js/empty_layout.js" %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body {% block body_attributes %}class="sonata-bc skin-blue fixed"{% endblock %}>
+
+{% block content %}
+
+{% endblock %}
+
+</body>
+</html>

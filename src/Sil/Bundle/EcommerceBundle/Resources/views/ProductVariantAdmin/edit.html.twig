@@ -1,0 +1,15 @@
+{% extends 'BlastCoreBundle:CRUD:base_edit.html.twig' %}
+
+{% block sonata_form_actions %}
+    {% if admin.product is null %}
+        <button class="btn btn-success" type="submit" name="btn_create_for_product">
+            <i class="fa fa-plus-circle" aria-hidden="true"></i>{{ 'librinfo.button.continue'|trans }}
+        </button>
+    {% else %}
+        {{ parent() }}
+    {% endif %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}

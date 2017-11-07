@@ -1,0 +1,8 @@
+Librinfo\CRMBundle\Entity\Role:
+    type: entity
+    fields: ~
+    manyToMany:
+        contactGroups:
+            targetEntity: Librinfo\CRMBundle\Entity\OrganismGroup
+            mappedBy: roles
+

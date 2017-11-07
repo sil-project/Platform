@@ -1,0 +1,32 @@
+Sil\Bundle\StockBundle\Domain\Entity\Location:
+    type: mappedSuperclass
+    repositoryClass: Sil\Bundle\StockBundle\Doctrine\ORM\LocationRepository
+    fields:
+        name:
+            type: string
+        code:
+            type: string(64)
+            unique: true
+            nullable: false
+        typeValue:
+            type: string(64)
+            nullable: false
+        managed:
+            type: boolean
+            nullable: false
+            options:
+                default: TRUE
+    
+    manyToOne:
+        warehouse: 
+            targetEntity: Warehouse
+            inversedBy: locations
+            joinColumn:
+                name: wharehouse_id
+                referencedColumnName: id
+    
+    oneToMany:
+        stockUnits:
+          targetEntity: StockUnit
+          mappedBy: location
+          cascade: ["remove", "persist"]

@@ -1,0 +1,7 @@
+{% extends 'SonataAdminBundle:CRUD:base_show_field.html.twig' %}
+
+{% import '@SyliusUi/Macro/flags.html.twig' as flags %}
+
+{% block field_value %}
+    {{ flags.fromLocaleCode(object.localeCode) }}{{ object.localeCode|locale }}
+{% endblock %}

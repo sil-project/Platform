@@ -1,0 +1,45 @@
+default: # see available parameters with command : app/console debug:container --parameters | grep sonata.admin
+    sonata_block.blocks:
+        default:
+            sonata.admin.block.admin_list:
+                contexts: ["admin"]
+                cache: ~
+                settings: []
+        replace:
+            sonata.admin.block.admin_list:
+                contexts: ["cms","admin"]
+                cache: ~
+                settings: []
+            sonata.user.block.menu:
+                contexts: ["cms","admin"]
+                cache: ~
+                settings: []
+            sonata.user.block.account:
+                contexts: ["cms","admin"]
+                cache: ~
+                settings: []
+            sonata.block.service.text:
+                contexts: ["cms","admin"]
+                cache: ~
+                settings: []
+    sonata.admin.configuration.templates:
+        default:
+            layout: SonataAdminBundle::standard_layout.html.twig
+            user_block: SonataAdminBundle:Core:user_block.html.twig
+            list: SonataAdminBundle:CRUD:list.html.twig
+            show: SonataAdminBundle:CRUD:show.html.twig
+            edit: SonataAdminBundle:CRUD:edit.html.twig
+        replace:
+            layout: BlastCoreBundle::standard_layout.html.twig
+            user_block: BlastCoreBundle:Block:user_block.html.twig
+            list: BlastCoreBundle:CRUD:base_list.html.twig
+            show: BlastCoreBundle:CRUD:base_show.html.twig
+            edit: BlastCoreBundle:CRUD:base_edit.html.twig
+
+#    sonata_doctrine_orm_admin.templates:
+#        default:
+#            form:
+#                - SonataDoctrineORMAdminBundle:Admin/Form:form_admin_fields.html.twig
+#        replace:
+#            form:
+#                - BlastCoreBundle:Admin/Form:admin_forms.html.twig

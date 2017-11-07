@@ -1,0 +1,17 @@
+Librinfo\EmailBundle\Entity\EmailLink:
+    type: entity
+    fields:
+        destination: 
+            type:    text
+        address:
+            type:    string
+        date:
+            type:    datetime
+            nullable: true
+    manyToOne:
+        email:
+            targetEntity: Librinfo\EmailBundle\Entity\Email
+            inversedBy: links
+            joinColumn:
+                name: email_id
+            cascade: [ persist ]

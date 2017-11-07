@@ -1,0 +1,192 @@
+
+Librinfo\VarietiesBundle\Entity\Variety:
+    type: entity
+    table: variety
+    blast:
+        loggable: true
+    fields:
+        latin_name:
+            type:     string(255)
+            nullable: true
+        alias:
+            type:     string(255)
+            nullable: true
+        code:
+            type:     string(15)
+            # TODO: not nullable
+            nullable: true
+        # cycle végétatif
+        life_cycle:
+            type:     string(20)
+            nullable: true
+        # inscrit au catalogue officiel
+        official:
+            type:     boolean
+            nullable: true
+        # nom au catalogue officiel
+        official_name:
+            type:     string(255)
+            nullable: true
+        # date d'inscription au catalogue officiel
+        official_date_in:
+            type:     date
+            nullable: true
+        # date de radiation du catalogue officiel
+        official_date_out:
+            type:     date
+            nullable: true
+        # mainteneur au catalogue officiel
+        official_maintainer:
+            type:     string
+            nullable: true
+        # taux de germination légal (si inscrit au catalogue officiel) (%)
+        legal_germination_rate:
+            type:     integer
+            nullable: true
+        # statut règlementaire
+        regulatory_status:
+            type:     string(255)
+            nullable: true
+        # taux de germination AS (%)
+        germination_rate:
+            type:     integer
+            nullable: true
+         #  conseils de sélection
+        selection_advice:
+            type: string(255)
+            nullable: true
+        # critères de sélection
+        selection_criteria:
+            type: string
+            nullable: true
+        # conseils de production, extraction
+        misc_advice:
+            type: string
+            nullable: true
+        # poids de mille graines - PMG (grammes)
+        tkw:
+            type:     float
+            nullable: true
+        # durée de vie théorique de la graine (années)
+        seed_lifespan:
+            type:     integer
+            nullable: true
+        # durée de levée dans les conditions naturelles (jours)
+        raise_duration:
+            type:     integer
+            nullable: true
+        # rendement par porte-graines (nombre de graines ou poids ?)
+        seedhead_yield:
+            type:     integer
+            nullable: true
+        # distance sur la ligne (cm)
+        distance_on_line:
+            type:     integer
+            nullable: true
+        # écartement des lignes (cm)
+        distance_between_lines:
+            type:     integer
+            nullable: true
+        # densité au m²
+        plant_density:
+            type:     integer
+            nullable: true
+        # surface pour produire 1kg graines (m²)
+        area_per_kg:
+            type:     integer
+            nullable: true
+        # nombre de porte-graines pour produire 1kg graines
+        seedheads_per_kg:
+            type:     integer
+            nullable: true
+        # besoins semence de base pour produire 1kg (grammes)
+        base_seed_per_kg:
+            type:     integer
+            nullable: true
+        # maladies transmises
+        transmitted_diseases:
+            type: string(255)
+            nullable: true
+        # Caractéristiques particulières de la souche
+        strain_characteristics:
+            type: string(255)
+            nullable: true
+        isStrain:
+            type: boolean
+            nullable: true
+        plant_type:
+            type:     string
+            nullable: true
+    oneToMany:
+        children:
+            targetEntity: Variety
+            mappedBy: parent
+            cascade: [persist, remove]
+        professional_descriptions:
+            targetEntity: Librinfo\VarietiesBundle\Entity\VarietyDescriptionProfessional
+            mappedBy: variety
+            cascade: [ persist , remove]
+        amateur_descriptions:
+            targetEntity: Librinfo\VarietiesBundle\Entity\VarietyDescriptionAmateur
+            mappedBy: variety
+            cascade: [ persist , remove]
+        production_descriptions:
+            targetEntity: Librinfo\VarietiesBundle\Entity\VarietyDescriptionProduction
+            mappedBy: variety
+            cascade: [ persist , remove]
+        commercial_descriptions:
+            targetEntity: Librinfo\VarietiesBundle\Entity\VarietyDescriptionCommercial
+            mappedBy: variety
+            cascade: [ persist , remove]
+        plant_descriptions:
+            targetEntity: Librinfo\VarietiesBundle\Entity\VarietyDescriptionPlant
+            mappedBy: variety
+            cascade: [ persist , remove]
+        culture_descriptions:
+            targetEntity: Librinfo\VarietiesBundle\Entity\VarietyDescriptionCulture
+            mappedBy: variety
+            cascade: [ persist , remove]
+        inner_descriptions:
+            targetEntity: Librinfo\VarietiesBundle\Entity\VarietyDescriptionInner
+            mappedBy: variety
+            cascade: [ persist , remove]
+    manyToMany:
+        plant_categories:
+            targetEntity: Librinfo\VarietiesBundle\Entity\PlantCategory
+            inversedBy: varieties
+            joinTable:
+                name: librinfo_varieties_variety_category
+                joinColumns:
+                    plant_category_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    variety_id:
+                        referencedColumnName: id
+        images:
+            targetEntity: \Librinfo\MediaBundle\Entity\File
+            joinTable:
+                name: librinfo_variety_file
+                joinColumns:
+                    variety_id:
+                        referencedColumnName: id
+                        onDelete: CASCADE
+                inverseJoinColumns:
+                    file_id:
+                        referencedColumnName: id
+                        onDelete: CASCADE
+                        unique: true
+            cascade: [persist, remove]
+    manyToOne:
+        parent:
+            targetEntity: Variety
+            inversedBy: children
+        species:
+            targetEntity: Librinfo\VarietiesBundle\Entity\Species
+            inversedBy: varieties
+            joinColumn:
+                name: species_id
+            cascade: [ persist ]
+
+    uniqueConstraints:
+        variety_name_idx:
+            columns: [ name ]

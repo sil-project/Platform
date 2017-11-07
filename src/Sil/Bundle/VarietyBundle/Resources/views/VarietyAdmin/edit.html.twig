@@ -1,0 +1,34 @@
+{% extends 'LibrinfoMediaBundle:CRUD:edit.html.twig' %}
+
+{% block sonata_form_actions %}
+    {{ parent() }}
+    {% if admin.id(object) is not null %}
+        {% if not object.isStrain %}
+            <a class="btn btn-info" href="{{ admin.generateObjectUrl('strain', object) }}" type="submit"><i class="fa fa-sitemap"></i> {{ 'Create strain'|trans() }}</a>
+        {% endif %}
+        <a class="btn btn-info" href="{{ admin.generateObjectUrl('duplicate', object) }}"><i class="fa fa-files-o"></i> {{ 'Duplicate'|trans() }}</a>
+    {% endif %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {% include 'BlastUtilsBundle:Form:tinymce_init.html.twig' %}
+    <script>
+        
+        {# TODO: Externalize this js script #}
+        
+        $(document).ready(function () {
+
+        {% if object.isStrain %}
+            $('*[strain_disabled]').prop('disabled', true);
+
+            $('form:not(.sidebar-form)').on('submit', function(){
+                $('*[strain_disabled]').prop('disabled', false);
+            });
+        {% else %}
+            $('*[strain_field]').parents('.form-group').prop('disabled', true).hide();
+        {% endif %}
+        });
+    </script>
+    <script type="text/javascript" src="{{ asset('bundles/librinfovarieties/js/inherit.js') }}"></script>
+{% endblock %}

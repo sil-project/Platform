@@ -1,0 +1,44 @@
+{
+    "name": "libre-informatique/crm-bundle",
+    "type": "symfony-bundle",
+    "description": "CRM Bundle for Symfony",
+    "require": {
+        "php": ">=7.1",
+        "symfony/symfony": ">=3.2",
+        "stof/doctrine-extensions-bundle": ">=1.2",
+        "jeroendesloovere/vcard-bundle": ">=1.2",
+        "sparkling/vat-bundle": ">=0.1",
+        "blast-project/core-bundle": "self.version",
+        "blast-project/outer-extension-bundle": "self.version",
+        "blast-project/base-entities-bundle": "self.version",
+        "blast-project/utils-bundle": "self.version",
+        "friendsofsymfony/jsrouting-bundle": ">=1.6"
+    },
+    "require-dev": {
+        "symfony/phpunit-bridge": ">=3.2",
+        "phpunit/phpunit": "^6.4"
+    },
+    "license": "LGPL-3.0",
+    "keywords": [
+        "e-venement",
+        "libio",
+        "sonata",
+        "symfony"
+    ],
+    "homepage": "https://github.com/libre-informatique/SymfonyLibrinfoCRMBundle",
+    "authors": [
+        {
+            "name": "Baptiste SIMON",
+            "email": "baptiste.simon@libre-informatique.fr"
+        },
+        {
+            "name": "Libre Informatique",
+            "homepage": "http://www.libre-informatique.fr/"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Librinfo\\CRMBundle\\": "/"
+        }
+    }
+}

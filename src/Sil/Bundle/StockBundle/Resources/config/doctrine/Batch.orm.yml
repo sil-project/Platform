@@ -1,0 +1,8 @@
+Sil\Bundle\StockBundle\Domain\Entity\Batch:
+    type: mappedSuperclass
+    
+    fields:
+        code:
+            type: string(64)
+            unique: true
+            nullable: false

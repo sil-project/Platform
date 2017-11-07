@@ -1,0 +1,16 @@
+Librinfo\VarietiesBundle\Entity\Species:
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+            fields: [code]
+            message: 'This code is already used by another species.'
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+            fields: [name]
+            message: 'This name is already used by another species.'
+    properties:
+        parent_species:
+            - Expression:
+                expression: "!this.hasGrandParentSpecies()"
+                message: "A species cannot be a sub-species of a sub-species"
+            - Expression:
+                expression: "!( this.hasParentSpecies() && this.hasSubspecieses() )"
+                message: "A species cannot be both a sub-species and a parent species"

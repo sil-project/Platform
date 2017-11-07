@@ -1,0 +1,20 @@
+{#
+
+This file is part of the Sonata package.
+
+(c) Baptiste SIMON <beta@e-glop.net>
+(c) Marcos Bezerra de Menezes <marcos.bezerra@libre-informatique.fr>
+(c) Romain SANCHEZ <romain.sanchez@libre-informatique.fr>
+(c) Libre Informatique [http://www.libre-informatique.fr/]
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+
+#}
+
+{% extends 'LibrinfoMediaBundle:CRUD:edit.html.twig' %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript" src="{{ asset('bundles/librinfovarieties/js/inherit.js') }}"></script>
+{% endblock %}

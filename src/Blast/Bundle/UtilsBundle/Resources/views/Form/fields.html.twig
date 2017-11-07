@@ -1,0 +1,31 @@
+
+{% block blast_tinymce_widget %}
+    {% spaceless %}
+        <textarea class="tinymce form-control" id="{{ id }}" name="{{ full_name }}" data-theme="advanced">{{ value }}</textarea>
+    {% endspaceless%}
+{% endblock %}
+
+{% block blast_custom_choice_widget %}
+    {% spaceless %}
+        {{ block('choice_widget') }}
+        {% if is_filter == false %}
+            <a id="{{ id }}_add_choice" class="add-choice editable editable-click inline-input" href="#"><i class="fa fa-plus-circle"></i></a>
+            {% block customchoice_script %}
+                {% include 'BlastUtilsBundle:Script:custom_choice_script.js.twig' %}
+            {% endblock %}
+        {% endif %}
+    {% endspaceless %}
+{% endblock %}
+
+{% block blast_unique_field_widget %}
+    {% set attr = attr|merge({
+        'class'             : attr.class|default('') ~ ' blast-unique-field',
+        'data-class'        : sonata_admin.admin.class,
+        'data-admin-code'   : sonata_admin.admin.code,
+        'data-field'        : sonata_admin.name,
+        'data-url'          : path('blast_utils.unique_field.check_availability'),
+        'data-return-link'  : return_link
+    }) %}
+
+    {{ block('form_widget') }}
+{% endblock %}

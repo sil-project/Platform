@@ -1,0 +1,7 @@
+{% if admin.hasRoute('strain') and object.isStrain == false %}
+    
+    <a href="{{ admin.generateObjectUrl('strain', object) }}" class="btn btn-sm btn-default" title="{{ 'Create strain'|trans() }}">
+        <i class="fa fa-sitemap"></i>
+        {{ 'action_strain'|trans() }}
+    </a>
+{% endif %}

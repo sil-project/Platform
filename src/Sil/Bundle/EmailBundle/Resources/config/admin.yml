@@ -1,0 +1,47 @@
+services:
+    librinfo_email.admin.email:
+        class: Librinfo\EmailBundle\Admin\EmailAdmin
+        arguments: [~, Librinfo\EmailBundle\Entity\Email, LibrinfoEmailBundle:CRUD]
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              group: admin
+              label: librinfo.emailbundle.admin.email 
+              label_translator_strategy: blast_core.label.strategy.librinfo_email
+        calls:
+            - [ setTemplate, [edit, LibrinfoEmailBundle:CRUD:email_edit.html.twig]]
+            - [ setTemplate, [show, LibrinfoEmailBundle:CRUD:email_show.html.twig]]
+            
+    librinfo_email.admin.email_template:
+        class: Librinfo\EmailBundle\Admin\EmailTemplateAdmin
+        arguments: [~, Librinfo\EmailBundle\Entity\EmailTemplate, BlastCoreBundle:CRUD]
+        tags:
+            -  name: sonata.admin
+               manager_type: orm
+               group: admin
+               label: librinfo.emailbundle.admin.emailtemplate
+               label_translator_strategy: blast_core.label.strategy.librinfo_email
+        calls:
+        #    - [ setTemplate, [edit, LibrinfoEmailBundle:CRUD:email_template_edit.html.twig]]
+            - [ setTemplate, [edit, LibrinfoEmailBundle:CRUD:email_edit.html.twig]]
+
+    librinfo_email.admin.email_receipt:
+        class: Librinfo\EmailBundle\Admin\EmailReceipt
+        arguments: [~, Librinfo\EmailBundle\Entity\EmailReceipt, BlastCoreBundle:CRUD]
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              group: admin
+              label: librinfo.emailbundle.admin.emailreceipt 
+              label_translator_strategy: blast_core.label.strategy.librinfo_email
+
+    librinfo_email.admin.email_link:
+        class: Librinfo\EmailBundle\Admin\EmailLink
+        arguments: [~, Librinfo\EmailBundle\Entity\EmailLink, BlastCoreBundle:CRUD]
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              group: admin
+              label: librinfo.emailbundle.admin.emaillink 
+              label_translator_strategy: blast_core.label.strategy.librinfo_email
+

@@ -1,0 +1,9 @@
+
+Librinfo\VarietiesBundle\Entity\VarietyDescriptionCommercial:
+    type: entity
+    manyToOne:
+        variety:
+            targetEntity: Librinfo\VarietiesBundle\Entity\Variety
+            inversedBy: commercial_descriptions
+            joinColumn:
+                name: variety_id

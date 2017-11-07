@@ -1,0 +1,10 @@
+Librinfo\EmailBundle\Entity\Email:
+    type: entity
+
+    manyToMany:
+        individuals:
+            targetEntity: Librinfo\CRMBundle\Entity\Position
+            inversedBy: emailMessages
+        organizations:
+            targetEntity: Librinfo\CRMBundle\Entity\Organism
+            inversedBy: emailMessages

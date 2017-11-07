@@ -1,0 +1,11 @@
+Librinfo\EcommerceBundle\Entity\TaxRate:
+    type: entity
+    blast:
+        loggable: true
+        #    manyToOne:
+#        zone:
+#            targetEntity: Sylius\Component\Addressing\Model\ZoneInterface
+#            joinColumn:
+#                name: zone_id
+#                referencedColumnName: id
+#                nullable: false

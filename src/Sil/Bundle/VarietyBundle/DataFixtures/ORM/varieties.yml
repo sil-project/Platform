@@ -1,0 +1,91 @@
+Librinfo\VarietiesBundle\Entity\Family:
+    fam_user (template):
+        createdBy: "@user_fixture"
+        updatedBy: "@user_fixture"
+
+    fam_apiacees (extends fam_user):
+        name (unique): Apiacées
+        latin_name: Apiaceae
+        alias: Ombellifères (Umbelliferae)
+    fam_solanacees:
+        name (unique): Solanacées
+        latin_name: Solanaceae Juss.
+
+
+Librinfo\VarietiesBundle\Entity\Genus:
+    gen_user (template):
+        created_by: "@user_marcos"
+        updated_by: "@user_fixture"
+
+    gen_coriandrum (extends gen_user):
+        name (unique): coriandrum
+        family: "@fam_apiacees"
+    gen_daucus:
+        name (unique): daucus
+        family: "@fam_apiacees"
+    gen_solanum:
+        name (unique): solanum
+        family: "@fam_solanacees"
+
+
+Librinfo\VarietiesBundle\Entity\Species:
+    spe_coriandre:
+        name (unique): coriandre
+        latin_name: coriandrum sativum
+        alias: coriandre cultivée
+        code: COR
+        genus: "@gen_coriandrum"
+    spe_carotte:
+        name (unique): carotte
+        latin_name: Daucus carota
+        alias: faux chervis, gironille, pastenade, moulette, passenaille, patenaille
+        code: CAR
+        genus: "@gen_coriandrum"
+    sub_spe_carotte:
+        name (unique): carotte cultivée
+        latin_name: Daucus carota subsp. sativus
+        alias: faux chervis, gironille, pastenade, moulette, passenaille, patenaille
+        code: CAR
+        genus: "@gen_coriandrum"
+        parentSpecies: "@spe_carotte"
+    spe_tomate:
+        name (unique): tomate
+        latin_name: Solanum lycopersicum L.
+        alias: pomme d'amour, pomme d'or
+        code: TOM
+        genus: "@gen_solanum"
+
+
+Librinfo\VarietiesBundle\Entity\Variety:
+    var_coriandre:
+        name (unique): Coriandre
+        latin_name: coriandrum sativum
+        alias: coriandre cultivée
+        code: COR
+        species: "@spe_coriandre"
+    var_carotte_nantaise:
+        name (unique): Carotte nantaise
+        latin_name: Daucus carota subsp. sativus var sativus
+        alias: carotte de l'Ouest
+        code: OUE
+        species: "@sub_spe_carotte"
+    var_carotte_est:
+        name (unique): Carotte de l'Est
+        latin_name: Daucus carota subsp. sativus var atrorubens
+        code: EST
+        species: "@sub_spe_carotte"
+        description: >
+            Cette variété est le plus communément cultivée en Asie ;
+            elle se caractérise par des organes de réserve pourpres ou jaunes,
+            exceptionnellement jaunâtres ou jaune-orange et par des feuilles
+            vert glauque relativement peu découpées.
+    var_tomate_st_pierre:
+        name (unique): Tomate Saint Pierre
+        latin_name: Lycopersicum esculentum
+        code: STP
+        species: "@spe_tomate"
+    var_tomate_merveille_marches:
+        name (unique): Tomate merveille des marchés
+        latin_name: Lycopersicum esculentum
+        code: MMA
+        species: "@spe_tomate"

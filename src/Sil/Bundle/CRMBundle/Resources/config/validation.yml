@@ -1,0 +1,41 @@
+Librinfo\CRMBundle\Entity\Contact:
+    constraints:
+        - Callback: validateName
+
+Librinfo\CRMBundle\Entity\Organism:
+    properties:
+        iban:
+            - Iban:
+                message: This is not a valid International Bank Account Number (IBAN).
+        positions:
+            - Valid: ~
+        email:
+            - NotNull:
+                groups: [librinfo_ecommerce_organism]
+            - Email:
+                groups: [librinfo_ecommerce_organism]
+
+Librinfo\CRMBundle\Entity\Position:
+    properties:
+        individual:
+            - Valid: ~
+
+Librinfo\CRMBundle\Entity\Address:
+    properties:
+        organism:
+            - Valid: ~
+        firstName:
+            - NotNull:
+                groups: [librinfo_ecommerce_address]
+        lastName:
+            - NotNull:
+                groups: [librinfo_ecommerce_address]
+        postCode:
+            - NotNull:
+                groups: [librinfo_ecommerce_address]
+        city:
+            - NotNull:
+                groups: [librinfo_ecommerce_address]
+        street:
+            - NotNull:
+                groups: [librinfo_ecommerce_address]

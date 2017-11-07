@@ -1,0 +1,5 @@
+{# Do not include delete button for orders after checkout completed: #}
+
+{% if object.state == 'cart' %} {# TODO: use class constants #}
+    {% include 'SonataAdminBundle:CRUD:list__action_delete.html.twig' %}
+{% endif %}

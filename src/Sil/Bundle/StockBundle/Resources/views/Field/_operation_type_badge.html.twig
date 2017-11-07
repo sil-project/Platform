@@ -1,0 +1,20 @@
+{% block field %}
+
+    {% set colors = {
+        'internalTransfer': 'gray', 
+        'receipt': 'maroon',
+        'shipping': 'blue'
+    } %}
+
+    {% set icons = {
+        'internalTransfer': 'cube', 
+        'receipt': 'industry', 
+        'shipping': 'user',
+    } %}
+    {% set type = value.value %}
+    <span class="label bg-{{ colors[type]|default('black')  }}">
+        <i class="fa fa-{{ icons[type]|default('question') }}"></i>
+        {{ ('sil.stock.operation_type.' ~ type)|trans }}
+    </span>
+
+{% endblock %}

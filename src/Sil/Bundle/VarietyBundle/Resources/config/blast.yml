@@ -1,0 +1,1177 @@
+parameters:
+    blast:
+##########
+# FAMILY
+##########
+
+        Librinfo\VarietiesBundle\Entity\Family:
+            Sonata\AdminBundle\Show\ShowMapper:
+                remove:
+                    name: ~
+                    description: ~
+                    createdAt: ~
+                    updatedAt: ~
+                add:
+                    form_group_general:
+                        '':
+                            name: ~
+                            latin_name: ~
+                            alias: ~
+                            description: ~
+                            genuses:
+                                admin_code: librinfo_varieties.admin.genus
+                    form_group_specifics:
+                        form_group_misc:
+                            createdAt: ~
+                            updatedAt: ~
+                            createdBy: ~
+                            updatedBy: ~
+                    _options:
+                        tabsOrder: [form_group_general, form_group_specifics]
+                    _helper_links:
+                        - url: https://framacalc.org/libio_validation_varietes
+                          title: Framacalc de validation (Variétés)
+                          class: framacalc
+
+            Sonata\AdminBundle\Form\FormMapper:
+                remove:
+                   name: ~
+                add:
+                    form_group_general:
+                        '':
+                            name:
+                                type: Blast\UtilsBundle\Form\Type\UniqueFieldType
+                                return_link: true
+                                required: true
+                                attr:
+                                    class: inline-block
+                            latin_name:
+                                type: Blast\UtilsBundle\Form\Type\UniqueFieldType
+                                return_link: true
+                                required: false
+                                attr:
+                                    class: inline-block
+                            alias:
+                                type: text
+                                required: false
+                                attr:
+                                    class: new-line
+                                    width: 50
+                            description:
+                                required: false
+                                type: Blast\UtilsBundle\Form\Type\TinyMceType
+                                attr:
+                                    class: new-line
+                                    height: 200
+                    # form_group_genuses:
+                    #     '':
+                    #         genuses:
+                    #             type: sonata_type_collection
+                    #             by_reference: false
+                    #             type_options:
+                    #                 required: false
+                    #                 btn_add: false
+                    #                 delete: false
+                    #             required: false
+                    #             label: false
+                    #             _options:
+                    #                 edit: inline
+                    #                 inline: table
+                    #                 allow_delete: false
+                    #                 admin_code: librinfo_varieties.admin.genus_embedded
+                    _options:
+                        tabsOrder: [form_group_general, form_group_genuses]
+                    _helper_links:
+                        - url: https://framacalc.org/libio_validation_varietes
+                          title: Framacalc de validation (Variétés)
+                          class: framacalc
+
+            Sonata\AdminBundle\Datagrid\ListMapper:
+                remove:
+                    name: ~
+                    createdAt: ~
+                add:
+                    name:
+                        identifier: true
+                    latin_name: ~
+                    alias: ~
+                    genuses:
+                        admin_code: librinfo_varieties.admin.genus
+                    _export_formats:
+                        csv: [name, latinName, alias, description, createdAt, updatedAt]
+                        xls: csv
+                        json: csv
+                        xml: csv
+                    _helper_links:
+                        - url: https://framacalc.org/libio_validation_varietes
+                          title: Framacalc de validation (Variétés)
+                          class: framacalc
+            Sonata\AdminBundle\Datagrid\DatagridMapper:
+                add:
+                    name: ~
+                    genuses.name: ~
+
+##########
+# GENUS
+##########
+
+        Librinfo\VarietiesBundle\Entity\Genus:
+            Sonata\AdminBundle\Show\ShowMapper:
+                remove: [description, createdAt, updatedAt]
+                add:
+                    form_group_general:
+                        '':
+                            latin_name: ~
+                            alias: ~
+                            description: ~
+                            specieses:
+                                admin_code: librinfo_varieties.admin.species
+                    form_group_specifics:
+                        form_group_misc:
+                            createdAt: ~
+                            updatedAt: ~
+                            createdBy: ~
+                            updatedBy: ~
+                    _options:
+                        tabsOrder: [form_group_general, form_group_specieses, form_group_specifics]
+                    _helper_links:
+                        - url: https://framacalc.org/libio_validation_varietes
+                          title: Framacalc de validation (Variétés)
+                          class: framacalc
+
+            Sonata\AdminBundle\Form\FormMapper:
+                add:
+                    form_tab_general:
+                        '':
+                            family:
+                                type: sonata_type_model
+                                required: true
+                                attr:
+                                    class: new-line
+                                    width: 30
+                            name:
+                                type: Blast\UtilsBundle\Form\Type\UniqueFieldType
+                                return_link: true
+                                required: true
+                                attr:
+                                    class: inline-block
+                            latin_name:
+                                type: Blast\UtilsBundle\Form\Type\UniqueFieldType
+                                return_link: true
+                                required: false
+                                attr:
+                                    class: inline-block
+                            alias:
+                                type: text
+                                required: false
+                                attr:
+                                    class: new-line
+                                    width: 50
+                            description:
+                                required: false
+                                type: Blast\UtilsBundle\Form\Type\TinyMceType
+                                attr:
+                                    class: new-line
+                                    height: 200
+                    # form_tab_specieses:
+                    #     '':
+                    #         specieses:
+                    #             type: sonata_type_collection
+                    #             by_reference: false
+                    #             type_options:
+                    #                 required: false
+                    #                 btn_add: false
+                    #                 delete: false
+                    #             required: false
+                    #             label: false
+                    #             _options:
+                    #                 edit: inline
+                    #                 # inline: table
+                    #                 allow_delete: false
+                    #                 admin_code: librinfo_varieties.admin.species_embedded
+                    _options:
+                        tabsOrder: [form_tab_general]
+                    _helper_links:
+                        - url: https://framacalc.org/libio_validation_varietes
+                          title: Framacalc de validation (Variétés)
+                          class: framacalc
+
+            Sonata\AdminBundle\Datagrid\ListMapper:
+                remove:
+                    createdAt: ~
+                add:
+                    name:
+                        identifier: true
+                    latin_name: ~
+                    alias: ~
+                    family: ~
+                    description: ~
+                    specieses:
+                        admin_code: librinfo_varieties.admin.species
+                    _options:
+                        fieldsOrder:
+                            - name
+                            - latin_name
+                            - alias
+                            - family
+                            - specieses
+                            - description
+                    _export_formats:
+                        csv: [name, latinName, alias, family, description, createdAt, updatedAt]
+                        xls: csv
+                        json: csv
+                        xml: csv
+                    _helper_links:
+                        - url: https://framacalc.org/libio_validation_varietes
+                          title: Framacalc de validation (Variétés)
+                          class: framacalc
+
+            Sonata\AdminBundle\Datagrid\DatagridMapper:
+                add:
+                    name: ~
+                    specieses.name: ~
+                    family.name: ~
+
+#################
+# PLANT CATEGORY
+#################
+
+        Librinfo\VarietiesBundle\Entity\PlantCategory:
+            Sonata\AdminBundle\Show\ShowMapper:
+                _copy: Sonata\AdminBundle\Form\FormMapper
+                add:
+                    _helper_links:
+                        - url: https://framacalc.org/libio_validation_varietes
+                          title: Framacalc de validation (Variétés)
+                          class: framacalc
+
+            Sonata\AdminBundle\Form\FormMapper:
+                remove:
+                    name: ~
+                add:
+                    form_group_general:
+                        '':
+                            name:
+                                type: Blast\UtilsBundle\Form\Type\UniqueFieldType
+                                required: true
+                                attr:
+                                    class: inline-block
+                                    width: 45
+                            code:
+                                type: text
+                                required: true
+                                attr:
+                                    class: inline-block
+                                    width: 45
+                            treeParent:
+                                type: Blast\BaseEntitiesBundle\Form\Type\NestedTreeableType
+                                class: Librinfo\VarietiesBundle\Entity\PlantCategory
+                                required: false
+                                placeholder: ''
+                    _helper_links:
+                        - url: https://framacalc.org/libio_validation_varietes
+                          title: Framacalc de validation (Variétés)
+                          class: framacalc
+
+            Sonata\AdminBundle\Datagrid\ListMapper:
+                remove:
+                    name: ~
+                add:
+                    name:
+                        identifier: true
+                        template: BlastBaseEntitiesBundle:CRUD:list_field_treeable.html.twig
+                    _helper_links:
+                        - url: https://framacalc.org/libio_validation_varietes
+                          title: Framacalc de validation (Variétés)
+                          class: framacalc
+
+##########
+# SPECIES
+##########
+
+        Librinfo\VarietiesBundle\Entity\Species:
+            Sonata\AdminBundle\Show\ShowMapper:
+                remove:
+                    description: ~
+                    name: ~
+                add:
+                    form_tab_general:
+                        '':
+                            name: ~
+                            code: ~
+                            latin_name: ~
+                            alias: ~
+                            genus:
+                                admin_code: librinfo_varieties.admin.genus
+                            parent_species:
+                                admin_code: librinfo_varieties.admin.species_embedded
+                            subspecieses:
+                                admin_code: librinfo_varieties.admin.species_embedded
+                            plant_categories: ~
+                            life_cycle:
+                                type: trans
+                                catalogue: varieties
+                            varieties:
+                                admin_code: librinfo_varieties.admin.variety
+                            description:
+                                template: BlastCoreBundle:CRUD:show_field_tinymce.html.twig
+                            legal_germination_rate: ~
+                            seed_lifespan: ~
+                            raise_duration: ~
+                            tkw: ~
+                    _helper_links:
+                        - url: https://framacalc.org/libio_validation_varietes
+                          title: Framacalc de validation (Variétés)
+                          class: framacalc
+
+            Sonata\AdminBundle\Form\FormMapper:
+                remove:
+                    description: ~
+                add:
+                    form_tab_general:
+                        form_group_identification:
+                            genus:
+                                type: sonata_type_model
+                                _options:
+                                    admin_code: librinfo_varieties.admin.genus
+                                attr:
+                                    class: inline-block
+                                    width: 50
+                            parent_species:
+                                type: sonata_type_model_autocomplete
+                                property: name
+                                required: false
+                                _options:
+                                    admin_code: librinfo_varieties.admin.species_embedded
+                                attr:
+                                    class: inline-block
+                                    width: 50
+                            code:
+                                type: Blast\CoreBundle\Form\Type\EntityCodeType
+                                required: true
+                                attr:
+                                    class: inline-block
+                                    width: 50
+                            name:
+                                type: Blast\UtilsBundle\Form\Type\UniqueFieldType
+                                return_link: true
+                                attr:
+                                    class: inline-block
+                                    width: 50
+                            latin_name:
+                                type: Blast\UtilsBundle\Form\Type\UniqueFieldType
+                                return_link: true
+                                required: false
+                                attr:
+                                    class: inline-block
+                                    width: 50
+                            alias:
+                                type: text
+                                required: false
+                                attr:
+                                    class: inline-block
+                                    width: 50
+                            plant_categories:
+                                type: Blast\BaseEntitiesBundle\Form\Type\NestedTreeableType
+                                class: Librinfo\VarietiesBundle\Entity\PlantCategory
+                                required: false
+                                multiple: true
+                                attr:
+                                    class: new-line
+                                    width: 50
+                                _options:
+                                    btn_add: true
+                            _options:
+                                fieldsOrder:
+                                    - genus
+                                    - parent_species
+                                    - name
+                                    - code
+                                    - latin_name
+                                    - alias
+                                    - plant_categories
+                        form_group_description:
+                            description:
+                                required: false
+                                type: Blast\UtilsBundle\Form\Type\TinyMceType
+                                attr:
+                                    class: new-line
+                                    height: 200
+                            legal_germination_rate:
+                                attr:
+                                    class: inline-block
+                                    width: 50
+                            germination_rate:
+                                attr:
+                                    class: new-line-after
+                                    width: 50
+                            raise_duration:
+                                attr:
+                                    class: inline-block
+                                    width: 50
+                            tkw:
+                                help: librinfo.help.tkw
+                                attr:
+                                    class: inline-block
+                                    width: 50
+                            life_cycle:
+                                type: Librinfo\VarietiesBundle\Form\Type\LifeCycleType
+                                required: false
+                                attr:
+                                    class: inline-block
+                                    width: 50
+                            seed_lifespan:
+                                type: text
+                                required: false
+                                attr:
+                                    class: new-line-after
+                                    width: 50
+                            _options:
+                                fieldsOrder:
+                                    - description
+                                    - legal_germination_rate
+                                    - germination_rate
+                                    - raise_duration
+                                    - tkw
+                                    - life_cycle
+                        _options:
+                            groupsOrder:
+                                - form_group_identification
+                                - form_group_description
+                    _helper_links:
+                        - url: https://framacalc.org/libio_validation_varietes
+                          title: Framacalc de validation (Variétés)
+                          class: framacalc
+
+            Sonata\AdminBundle\Datagrid\ListMapper:
+                remove:
+                    createdAt: ~
+                add:
+                    code:
+                        identifier: true
+                    name:
+                        identifier: true
+                    latin_name: ~
+                    alias: ~
+                    _options:
+                        fieldsOrder:
+                            - code
+                            - name
+                            - latin_name
+                            - alias
+                    _export_formats:
+                        csv: [name, latinName, alias, description, createdAt, updatedAt]
+                        xls: csv
+                        json: csv
+                        xml: csv
+                    _helper_links:
+                        - url: https://framacalc.org/libio_validation_varietes
+                          title: Framacalc de validation (Variétés)
+                          class: framacalc
+
+            Sonata\AdminBundle\Datagrid\DatagridMapper:
+                add:
+                    code: ~
+                    name: ~
+                    latin_name: ~
+                    alias: ~
+                    description: ~
+
+###################
+# SPECIES EMBEDDED
+###################
+
+        Librinfo\VarietiesBundle\Admin\SpeciesEmbeddedAdmin:
+            Sonata\AdminBundle\Show\ShowMapper:
+                add: ~
+            Sonata\AdminBundle\Form\FormMapper:
+                remove:
+                    createdBy: ~
+                    createdAt: ~
+                    updatedBy: ~
+                    updatedAt: ~
+                    genus: ~
+                    parent_species: ~
+                    code: ~
+                    name: ~
+                    latin_name: ~
+                    alias: ~
+                    description: ~
+                    plant_categories: ~
+                    legal_germination_rate: ~
+                    raise_duration: ~
+                    tkw: ~
+                    life_cycle: ~
+                add:
+                    '':
+                        form_group_general:
+                            genus:
+                                type: sonata_type_model
+                                _options:
+                                    admin_code: librinfo_varieties.admin.genus
+                                attr:
+                                    class: new-line
+                                    width: 30
+                            parent_species:
+                                type: sonata_type_model_autocomplete
+                                property: name
+                                required: false
+                                _options:
+                                    admin_code: librinfo_varieties.admin.species_embedded
+                                attr:
+                                    class: new-line
+                                    width: 30
+                            code:
+                                type: Blast\CoreBundle\Form\Type\EntityCodeType
+                                required: true
+                                attr:
+                                    class: new-line
+                                    width: 30
+                            name:
+                                type: Blast\UtilsBundle\Form\Type\UniqueFieldType
+                                return_link: true
+                                attr:
+                                    class: inline-block
+                            latin_name:
+                                type: Blast\UtilsBundle\Form\Type\UniqueFieldType
+                                return_link: true
+                                required: false
+                                attr:
+                                    class: inline-block
+                                    width: 30
+                            alias:
+                                type: text
+                                required: false
+                                attr:
+                                    class: inline-block
+                                    width: 50
+                            description:
+                                required: false
+                                type: Blast\UtilsBundle\Form\Type\TinyMceType
+                                attr:
+                                    class: new-line
+                                    height: 200
+
+                            plant_categories:
+                                type: Blast\BaseEntitiesBundle\Form\Type\NestedTreeableType
+                                class: Librinfo\VarietiesBundle\Entity\PlantCategory
+                                required: false
+                                multiple: true
+                                attr:
+                                    class: new-line
+                                    width: 50
+                                _options:
+                                    btn_add: true
+                            legal_germination_rate:
+                                attr:
+                                    class: inline-block
+                            raise_duration:
+                                attr:
+                                    class: inline-block
+                            tkw:
+                                help: librinfo.help.tkw
+                                attr:
+                                    class: new-line
+                                    width: 30
+                            life_cycle:
+                                type: Librinfo\VarietiesBundle\Form\Type\LifeCycleType
+                                required: false
+                                attr:
+                                    class: new-line
+                                    width: 50
+                            _options:
+                                fieldsOrder:
+                                    - genus
+                                    - parent_species
+                                    - name
+                                    - latin_name
+                                    - alias
+                                    - code
+                                    - description
+                                    - plant_categories
+                                    - legal_germination_rate
+                                    - raise_duration
+                                    - tkw
+                                    - life_cycle
+
+            Sonata\AdminBundle\Datagrid\ListMapper:
+                add: ~
+            Sonata\AdminBundle\Datagrid\DatagridMapper:
+                add: ~
+
+
+
+###############
+# VARIETY
+###############
+
+        Librinfo\VarietiesBundle\Entity\Variety:
+            Sonata\AdminBundle\Show\ShowMapper:
+                titleTemplate: LibrinfoVarietiesBundle:VarietyAdmin:show_title.html.twig
+                forceTabs: true
+                remove:
+                    description: ~
+                    name: ~
+                add:
+                    form_tab_general:
+                        form_group_general:
+                            name: ~
+                            code: ~
+                            species:
+                                admin_code: librinfo_varieties.admin.species
+                            parent:
+                                admin_code: librinfo_varieties.admin.variety
+                            latin_name: ~
+                            alias: ~
+                            code: ~
+                            plant_categories: ~
+                            several_strains:
+                                type: boolean
+                            legal_germination_rate: ~
+                            germination_rate: ~
+                            tkw: ~
+                            seed_lifespan: ~
+                            raise_duration: ~
+                            transmitted_diseases: ~
+                            life_cycle: ~
+                            regulatory_status: ~
+                            description:
+                                template: BlastUtilsBundle:CRUD:show_field_tinymce.html.twig
+
+                        form_group_offical_catalogue:
+                            official: ~
+                            official_name: ~
+                            official_date_in: ~
+                            official_date_out: ~
+                            official_maintainer: ~
+                    form_tab_seeds_production:
+                        '':
+                            seedhead_yield: ~
+                            area_per_kg: ~
+                            seedheads_per_kg: ~
+                            base_seed_per_kg: ~
+                        form_group_density:
+                            distance_on_line: ~
+                            distance_between_lines: ~
+                        form_group_selection:
+                            selection_advice: ~
+                            selection_criteria: ~
+                    form_tab_inner:
+                        form_group_inner:
+                    form_tab_professional:
+                        form_group_professional:
+                            professional_descriptions: ~
+                    form_tab_production:
+                        form_group_production:
+                            production_descriptions: ~
+                    form_tab_commercial:
+                        form_group_commercial:
+                            commercial_descriptions: ~
+                    form_tab_plant:
+                        form_group_plant:
+                            plant_descriptions: ~
+                    form_tab_culture:
+                        form_group_culture:
+                            culture_descriptions: ~
+                    form_tab_amateur:
+                        form_group_amateur:
+                            amateur_descriptions: ~
+                    form_tab_strains:
+                        '':
+                            children:
+                                admin_code: librinfo_varieties.admin.variety
+                    form_tab_images:
+                        '':
+                            images:
+                                template: LibrinfoMediaBundle:CRUD:show_images.html.twig
+                    _options:
+                        tabsOrder:
+                            - form_tab_general
+                            - form_tab_seeds_production
+                            - form_tab_inner
+                            - form_tab_plant
+                            - form_tab_culture
+                            - form_tab_commercial
+                            - form_tab_production
+                            - form_tab_professional
+                            - form_tab_amateur
+                            - form_tab_strains
+                            - form_tab_images
+            Sonata\AdminBundle\Form\FormMapper:
+                titleTemplate: LibrinfoVarietiesBundle:VarietyAdmin:edit_title.html.twig
+                remove:
+                    description: ~
+                    legal_germination_rate: ~
+                    germination_rate: ~
+                    tkw: ~
+                    seed_lifespan: ~
+                    raise_duration: ~
+                    transmitted_diseases: ~
+                    life_cycle: ~
+                    regulatory_status: ~
+                    species: ~
+                    isStrain: ~
+                    parent: ~
+                    name: ~
+                    latin_name: ~
+                    alias: ~
+                    code: ~
+                    plant_categories: ~
+                add:
+                    form_tab_general:
+                        form_group_identification:
+                            isStrain:
+                                required: false
+                                type: checkbox
+                                attr:
+                                    strain_field: true
+                                    strain_disabled: true
+                            species:
+                                type: sonata_type_model
+                                placeholder: ''
+                                required: true
+                                attr:
+                                    class: inline-block
+                                    width: 50
+                                    strain_disabled: true
+                                    inherit: source
+                                _options:
+                                    admin_code: librinfo_varieties.admin.species
+                            plant_type:
+                                type: Blast\UtilsBundle\Form\Type\CustomChoiceType
+                                choices_field: plant_type
+                                blast_choices:
+                                    - Feuille
+                                    - Fruit
+                                    - Racine
+                                    - Fleur
+                                attr:
+                                    class: inline-block
+                                    width: 50
+                            parent:
+                                type: sonata_type_model
+                                placeholder: ''
+                                required: false
+                                attr:
+                                    class: new-line
+                                    width: 30
+                                    strain_field: true
+                                    strain_disabled: true
+                                _options:
+                                    admin_code: librinfo_varieties.admin.variety
+                            name:
+                                type: Blast\UtilsBundle\Form\Type\UniqueFieldType
+                                return_link: true
+                                required: true
+                                attr:
+                                    class: inline-block
+                                    width: 50
+                            latin_name:
+                                type: Blast\UtilsBundle\Form\Type\UniqueFieldType
+                                return_link: true
+                                required: true
+                                attr:
+                                    class: inline-block
+                                    width: 50
+                                    inherit: target
+                            alias:
+                                type: text
+                                required: false
+                                attr:
+                                    class: inline-block
+                                    width: 50
+                                    inherit: target
+                            code:
+                                type: Blast\CoreBundle\Form\Type\EntityCodeType
+                                required: true
+                                attr:
+                                    class: inline-block
+                                    width: 50
+                            plant_categories:
+                                type: Blast\BaseEntitiesBundle\Form\Type\NestedTreeableType
+                                class: Librinfo\VarietiesBundle\Entity\PlantCategory
+                                required: false
+                                multiple: true
+                                attr:
+                                    class: new-line-after
+                                    width: 50
+                                    inherit: target
+                                _options:
+                                    btn_add: true
+                            _options:
+                                fieldsOrder:
+                                    - species
+                                    - plant_type
+                                    - plant_categories
+                                    - isStrain
+                                    - parent
+                                    - name
+                                    - code
+                                    - latin_name
+                                    - alias
+                        form_group_description:
+                            description:
+                                required: false
+                                type: Blast\UtilsBundle\Form\Type\TinyMceType
+                                attr:
+                                    class: new-line
+                                    height: 200
+                            legal_germination_rate:
+                                help: librinfo.help.legal_germination_rate
+                                attr:
+                                    class: inline-block
+                                    inherit: target
+                                    width: 33
+                            germination_rate:
+                                help: librinfo.help.germination_rate
+                                attr:
+                                    class: inline-block
+                                    width: 33
+                            tkw:
+                                help: librinfo.help.tkw
+                                attr:
+                                    class: inline-block
+                                    width: 33
+                                    inherit: target
+                            seed_lifespan:
+                                help: librinfo.help.seed_lifespan
+                                attr:
+                                    class: inline-block
+                                    width: 50
+                                    inherit: target
+                            raise_duration:
+                                help: librinfo.help.raise_duration
+                                attr:
+                                    class: inline-block
+                                    width: 50
+                                    inherit: target
+                            transmitted_diseases:
+                                required: false
+                                type: text
+                                attr:
+                                    class: new-line
+                                    width: 100
+                            life_cycle:
+                                type: Librinfo\VarietiesBundle\Form\Type\LifeCycleType
+                                required: false
+                                attr:
+                                    class: inline-block
+                                    width: 50
+                                    inherit: target
+                            regulatory_status:
+                                required: false
+                                type: Blast\UtilsBundle\Form\Type\CustomChoiceType
+                                choices_field: regulatory_status
+                                blast_choices:
+                                   - Contrôlé
+                                   - Non contrôlé
+                                attr:
+                                    class: inline-block
+                                    width: 50
+                                    inherit: target
+                            _options:
+                                fieldsOrder:
+                                    - description
+                                    - legal_germination_rate
+                                    - germination_rate
+                                    - tkw
+                                    - seed_lifespan
+                                    - raise_duration
+                                    - transmitted_diseases
+                                    - life_cycle
+                                    - regulatory_status
+                        form_group_offical_catalogue:
+                            _options:
+                                class: col-md-6
+                            official: ~
+                            official_name:
+                                attr:
+                                    class: new-line
+                                    width: 30
+                            official_date_in:
+                                type: sonata_type_date_picker
+                                required: false
+                                attr:
+                                    class: inline-block
+                            official_date_out:
+                                type: sonata_type_date_picker
+                                required: false
+                                attr:
+                                    class: inline-block
+                            official_maintainer:
+                                attr:
+                                    class: new-line
+                                    width: 30
+                        _options:
+                            groupsOrder:
+                                - form_group_identification
+                                - form_group_description
+                                - form_group_offical_catalogue
+                    form_tab_inner:
+                        form_group_inner:
+                    form_tab_professional:
+                        form_group_professional:
+                            professional_descriptions:
+                                type: sonata_type_collection
+                                by_reference: true
+                                required: true
+                                btn_add: false
+                                label: false
+                                modifiable: false
+                                type_options:
+                                    required: false
+                                    delete: false
+                                    btn_add: false
+                                    label: false
+                    form_tab_production:
+                        form_group_production:
+                            production_descriptions:
+                                type: sonata_type_collection
+                                by_reference: true
+                                required: true
+                                btn_add: false
+                                label: false
+                                modifiable: false
+                                type_options:
+                                    required: false
+                                    delete: false
+                                    btn_add: false
+                                    label: false
+                    form_tab_commercial:
+                        form_group_commercial:
+                            commercial_descriptions:
+                                type: sonata_type_collection
+                                by_reference: true
+                                required: true
+                                btn_add: false
+                                label: false
+                                modifiable: false
+                                type_options:
+                                    required: false
+                                    delete: false
+                                    btn_add: false
+                                    label: false
+                    form_tab_plant:
+                        form_group_plant:
+                            plant_descriptions:
+                                type: sonata_type_collection
+                                by_reference: true
+                                required: true
+                                btn_add: false
+                                label: false
+                                modifiable: false
+                                type_options:
+                                    required: false
+                                    delete: false
+                                    btn_add: false
+                                    label: false
+                    form_tab_culture:
+                        form_group_culture:
+                            culture_descriptions:
+                                type: sonata_type_collection
+                                by_reference: true
+                                required: true
+                                btn_add: false
+                                label: false
+                                modifiable: false
+                                type_options:
+                                    required: false
+                                    delete: false
+                                    btn_add: false
+                                    label: false
+                    form_tab_amateur:
+                        form_group_amateur:
+                            amateur_descriptions:
+                                type: sonata_type_collection
+                                by_reference: true
+                                required: true
+                                btn_add: false
+                                label: false
+                                modifiable: false
+                                type_options:
+                                    required: false
+                                    delete: false
+                                    btn_add: false
+                                    label: false
+                    form_tab_seeds_production:
+                        '':
+                            seedhead_yield:
+                                help: librinfo.help.seedhead_yield
+                                required: false
+                                attr:
+                                    class: inline-block
+                                    width: 50
+                            area_per_kg:
+                                required: false
+                                help: librinfo.help.area_per_kg
+                                attr:
+                                    class: inline-block
+                                    width: 50
+                            seedheads_per_kg:
+                                required: false
+                                attr:
+                                    class: inline-block
+                                    width: 50
+                                help: librinfo.help.seedheads_per_kg
+                            base_seed_per_kg:
+                                required: false
+                                attr:
+                                    class: inline-block
+                                    width: 50
+                                help: librinfo.help.base_seed_per_kg
+                        form_group_density:
+                            distance_on_line:
+                                required: false
+                                type: integer
+                                help: librinfo.help.distance_on_line
+                                attr:
+                                    class: inline-block
+                                    width: 50
+                            distance_between_lines:
+                                required: false
+                                type: integer
+                                help: librinfo.help.distance_between_lines
+                                attr:
+                                    class: inline-block
+                                    width: 50
+                        form_group_selection:
+                            selection_advice:
+                                type: textarea
+                                required: false
+                            selection_criteria:
+                                type: textarea
+                                required: false
+                        form_group_misc:
+                            misc_advice:
+                                type: textarea
+                                required: false
+                    form_tab_images:
+                        '':
+                            images:
+                                type: Librinfo\MediaBundle\Form\Type\DropzoneType
+                                required: false
+                    _options:
+                        tabsOrder:
+                            - form_tab_general
+                            - form_tab_seeds_production
+                            - form_tab_inner
+                            - form_tab_plant
+                            - form_tab_culture
+                            - form_tab_commercial
+                            - form_tab_production
+                            - form_tab_professional
+                            - form_tab_amateur
+                            - form_tab_images
+            Sonata\AdminBundle\Datagrid\DatagridMapper:
+                add:
+                    species:
+                        admin_code: librinfo_varieties.admin.species
+                    name: ~
+                    code: ~
+                    latin_name: ~
+                    code: ~
+                    alias: ~
+                    parent:
+                        admin_code: librinfo_varieties.admin.variety
+                    plant_categories: ~
+                    legal_germination_rate: ~
+                    germination_rate: ~
+                    tkw: ~
+                    seed_lifespan: ~
+                    raise_duration: ~
+                    transmitted_diseases:
+                        global_search: false
+                    life_cycle:
+                        global_search: false
+                    regulatory_status:
+                        global_search: false
+                    description: ~
+                    official: ~
+                    official_name: ~
+                    official_date_in: ~
+                    official_date_out: ~
+                    official_maintainer:
+                        global_search: false
+                    seedhead_yield: ~
+                    area_per_kg: ~
+                    seedheads_per_kg: ~
+                    base_seed_per_kg: ~
+                    distance_on_line: ~
+                    distance_between_lines: ~
+                    selection_advice:
+                        global_search: false
+                    selection_criteria:
+                        global_search: false
+                    professional_descriptions:
+                        type: doctrine_orm_librinfo_variety_description
+                    amateur_descriptions:
+                        type: doctrine_orm_librinfo_variety_description
+                    production_descriptions:
+                        type: doctrine_orm_librinfo_variety_description
+                    commercial_descriptions:
+                        type: doctrine_orm_librinfo_variety_description
+                    plant_descriptions:
+                        type: doctrine_orm_librinfo_variety_description
+                    culture_descriptions:
+                        type: doctrine_orm_librinfo_variety_description
+                    inner_descriptions:
+                        type: doctrine_orm_librinfo_variety_description
+
+            Sonata\AdminBundle\Datagrid\ListMapper:
+                remove:
+                    name: ~
+                    createdAt: ~
+                add:
+                    name:
+                        identifier: true
+                        template: LibrinfoVarietiesBundle:VarietyAdmin:list_field_name.html.twig
+                    code:
+                        identifier: true
+                        template: LibrinfoVarietiesBundle:VarietyAdmin:list_field_code.html.twig
+                    latin_name: ~
+                    is_strain:
+                        type: boolean
+                    several_strains:
+                        type: boolean
+                    _actions:
+                        strain:
+                            template: LibrinfoVarietiesBundle:CRUD:list__action_strain.html.twig
+                    _options:
+                        fieldsOrder:
+                            - code
+                            - name
+                            - latin_name
+                            - is_strain
+                            - several_strains
+                    _export_formats:
+                        csv: [name, latinName, alias, species.name, description, createdAt, updatedAt]
+                        xls: csv
+                        json: csv
+                        xml: csv
+#####################
+# VARIETY DESCRIPTION
+#####################
+
+        Librinfo\VarietiesBundle\Entity\VarietyDescription:
+            Sonata\AdminBundle\Show\ShowMapper:
+                add:
+#                    field: ~
+#                    value: ~
+            Sonata\AdminBundle\Form\FormMapper:
+                add:
+                    form_group_general:
+                        '':
+                            fieldset:
+                                type: hidden
+                                label_render: false
+                            field:
+                                type: hidden
+                                label_render: false
+                            value: ~
+            Sonata\AdminBundle\Datagrid\ListMapper:
+                add:
+                    fieldsdet: ~
+            Sonata\AdminBundle\Datagrid\DatagridMapper:
+                add:
+                    fieldset:
+                        type: doctrine_orm_string

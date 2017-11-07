@@ -1,0 +1,90 @@
+body {
+    color: #333;
+    font-family: sans-serif;
+    font-size: 16px;
+}
+table {
+    width: 100%;
+    max-width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+td, th {
+    color: #333;
+    padding: 3px 10px;
+    border-collapse: collapse;
+}
+
+/* HEADER */
+
+header {
+    background-color: rgb(60, 141, 188);
+    margin-bottom: 5em;
+}
+header td {
+    color: white;
+}
+#company {
+    width: 70%;
+}
+#invoice-title {
+    width: 30%;
+    font-weight: bold;
+    font-size: 150%;
+    text-align: right;
+}
+#company-name {
+    font-weight: bold;
+    font-size: 120%;
+}
+
+/* INVOICE DETAILS */
+
+#invoice-details {
+    margin: 5em 0;
+}
+#invoice-number {
+    text-align: right;
+}
+#customer address {
+    display: inline-block;
+    padding: 10px;
+    border: 1px solid #999;
+    font-style: normal;
+    
+}
+
+/* SUMMARY */
+
+table#summary {
+    border-width: 0;
+    margin: 5em 0 2em;
+}
+#summary td, #summary th {
+    font-size: 0.9em;
+    border: 1pt solid #999;
+}
+#summary thead th {
+    text-align: left;
+    background-color: #333;
+    color: white;
+}
+.product-name {
+    font-weight: bold;
+}
+#items-total {
+    padding: 10px;
+    background-color: #ddd;
+}
+#total {
+    padding: 10px;
+    background-color: #ddd;
+}
+
+/* FOOTER */
+
+footer {
+    font-size: 0.85em;
+    color: #999;
+    text-align: center;
+}

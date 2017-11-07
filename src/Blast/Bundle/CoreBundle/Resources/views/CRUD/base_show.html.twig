@@ -1,0 +1,89 @@
+{% extends 'SonataAdminBundle:CRUD:base_show.html.twig' %}
+
+{% import 'BlastCoreBundle:CRUD:base_show_macro.html.twig' as blast_show_helper %}
+
+{% block tab_menu_navbar_header %}
+    {% spaceless %}
+    {% if admin.helperLinks('show')|length > 0 %}
+        <div class="helper-links navbar-header">
+        {% for link in admin.helperLinks('show') %}
+            <a href="{{ link.url }}" class="navbar-brand {{ link.class is defined ? link.class : '' }}" title="{{ link.title is defined ? link.title : '' }}" target="_blank">
+                {{ link.label is defined ? link.label|raw : ' ' }}
+            </a>
+        {% endfor %}
+        </div>
+    {% endif %}
+    {% endspaceless %}
+
+    {{ parent() }}
+{% endblock %}
+
+{% block title %}
+    {% if admin.titles.show is defined %}
+        {{ admin.titles.show|trans() }}
+    {% else %}
+        {# {{ admin.label|trans() }}: {{ admin.toString(object)|truncate(15) }} #}
+        {{ admin.label|trans() }}: {{ admin.toString(object) }}
+    {% endif %}
+{% endblock %}
+
+{% block navbar_title %}
+    {% if admin.titleTemplates.show is defined and admin.titleTemplates.show %}
+        {% include admin.titleTemplates.show %}
+    {% else %}
+        {{ block('title') }}
+    {% endif %}
+{% endblock %}
+
+{% block show %}
+    <div class="sonata-ba-view">
+
+        {{ sonata_block_render_event('sonata.admin.show.top', { 'admin': admin, 'object': object }) }}
+
+        {% set has_tab = (admin.showtabs|length == 1 and admin.showtabs|keys[0] != 'default') or admin.showtabs|length > 1 %}
+
+        {% if has_tab %}
+            <div class="nav-tabs-custom">
+                <ul class="nav nav-tabs" role="tablist">
+                    {% for name, show_tab in admin.showtabs %}
+                        <li data-tab-name="{{show_tab.name}}" class="{{show_tab.class}} {% if loop.first %}active{% endif %}">
+                            <a href="#tab_{{ admin.uniqid }}_{{ loop.index }}" data-toggle="tab">
+                                <i class="fa fa-exclamation-circle has-errors hide"></i>
+                                {{ admin.trans(name, {}, show_tab.translation_domain) }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+
+                <div class="tab-content">
+                    {% for code, show_tab in admin.showtabs %}
+                        <div
+                            class="tab-pane fade{% if loop.first %} in active{% endif %}"
+                            id="tab_{{ admin.uniqid }}_{{ loop.index }}"
+                        >
+                            <div class="box-body container-fluid">
+                                <div class="sonata-ba-collapsed-fields">
+                                    {% if show_tab.description != false %}
+                                        <p>{{ show_tab.description|raw }}</p>
+                                    {% endif %}
+
+                                    {{ blast_show_helper.render_groups(admin, object, elements, show_tab.groups, has_tab) }}
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% elseif admin.showtabs is iterable %}
+            {{ blast_show_helper.render_groups(admin, object, elements, admin.showtabs.default.groups, has_tab) }}
+        {% endif %}
+
+    </div>
+
+    {{ sonata_block_render_event('sonata.admin.show.bottom', { 'admin': admin, 'object': object }) }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript" src="{{ asset('bundles/blastcore/js/showView.js') }}"></script>
+{% endblock javascripts %}

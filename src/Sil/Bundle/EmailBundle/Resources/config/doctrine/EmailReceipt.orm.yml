@@ -1,0 +1,15 @@
+Librinfo\EmailBundle\Entity\EmailReceipt:
+    type: entity
+    fields:
+        address:
+            type: string
+        date:
+            type: datetime
+            nullable: true
+    manyToOne:
+        email:
+            targetEntity: Librinfo\EmailBundle\Entity\Email
+            inversedBy: receipts
+            joinColumn:
+                name: email_id
+            cascade: [ persist ]

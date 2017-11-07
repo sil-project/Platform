@@ -1,0 +1,34 @@
+
+{% extends 'BlastCoreBundle:CRUD:base_edit.html.twig' %}
+
+{% block form %}
+    {{ parent() }}
+    {{ block('dropzone_messages') }}
+{#    {{ block('dropzone_template') }}#}
+{% endblock %}
+
+{% block dropzone_messages %}
+    <div class="js-i18n" data-source="dropzone.defaultMessage" data-target="{{ 'dropzone.defaultMessage'|trans() }}"></div>
+    <div class="js-i18n" data-source="dropzone.fallbackMessage" data-target="{{ 'dropzone.fallbackMessage'|trans() }}"></div>
+    <div class="js-i18n" data-source="dropzone.fallbackText" data-target="{{ 'dropzone.fallbackText'|trans() }}"></div>
+    <div class="js-i18n" data-source="dropzone.invalidFileType" data-target="{{ 'dropzone.invalidFileType'|trans() }}"></div>
+    <div class="js-i18n" data-source="dropzone.fileTooBig" data-target="{{ 'dropzone.fileTooBig'|trans() }}"></div>
+    <div class="js-i18n" data-source="dropzone.responseError" data-target="{{ 'dropzone.responseError'|trans() }}"></div>
+    <div class="js-i18n" data-source="dropzone.maxFilesExceeded" data-target="{{ 'dropzone.maxFilesExceeded'|trans() }}"></div>
+{% endblock %}
+
+{#{% block dropzone_template %}
+    {% include 'LibrinfoMediaBundle:dropzone:dropzone_template.mustache.twig' %}
+{% endblock %}#}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('bundles/librinfomedia/css/dropzone.css') }}" type="text/css" rel="stylesheet"/>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript" src="{{ asset('bundles/librinfomedia/js/dropzone.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/librinfomedia/js/vendor/mustache.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/librinfomedia/js/upload.js') }}"></script>
+{% endblock %}

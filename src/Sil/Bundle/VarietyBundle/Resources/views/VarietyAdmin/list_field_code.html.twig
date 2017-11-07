@@ -1,0 +1,8 @@
+{% extends 'SonataAdminBundle:CRUD:base_list_field.html.twig' %}
+
+{% block field %}
+    {% if object.species %}
+        <span style="color:#AAA">{{ object.species.code}}</span>
+    {% endif %}
+    {{ object.code}}
+{% endblock %}

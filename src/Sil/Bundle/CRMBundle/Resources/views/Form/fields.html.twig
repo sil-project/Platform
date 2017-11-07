@@ -1,0 +1,30 @@
+{% extends 'SonataAdminBundle:Form:form_admin_fields.html.twig' %}
+
+{% block form_widget_simple %}
+    {{ parent() }}
+    {% if form.vars.name == 'email' %}
+        {% include('LibrinfoCRMBundle:Form:email.html.twig') %}
+    {% elseif form.vars.name == 'vat' %}
+        {% include('LibrinfoCRMBundle:Form:vat.html.twig') %}
+    {% endif %}
+{% endblock form_widget_simple %}
+
+{% block librinfo_zip_city_widget %}
+    {% include 'LibrinfoCRMBundle:Form/Type:zip_city.html.twig' %}
+{% endblock librinfo_zip_city_widget %}
+
+{% block sonata_admin_orm_one_to_many_widget %}
+    {% include 'LibrinfoCRMBundle:Form/Type:default_contact_details.html.twig' %}
+{% endblock %}
+
+{% block librinfo_main_address_widget %}
+    {% include 'LibrinfoCRMBundle:Form/Type:main_address.html.twig' %}
+{% endblock librinfo_main_address_widget %}
+
+{% block librinfo_main_phone_widget %}
+    {% include 'LibrinfoCRMBundle:Form/Type:main_phone.html.twig' %}
+{% endblock librinfo_main_phone_widget %}
+
+{% block librinfo_fake_email_widget %}
+    {% include 'LibrinfoCRMBundle:Form/Type:fake_email.html.twig' %}
+{% endblock librinfo_fake_email_widget %}

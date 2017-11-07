@@ -1,0 +1,33 @@
+Sil\Bundle\ManufacturingBundle\Domain\Entity\Bom:
+    type: mappedSuperclass
+    repositoryClass: Sil\Bundle\ManufacturingBundle\Doctrine\ORM\BomRepository
+    fields:
+        code:
+            type: string(64)
+            unique: true
+            nullable: false
+        qtyValue:
+            type: decimal
+            precision: 15
+            scale: 5
+            
+    manyToOne:
+        qtyUom: 
+            targetEntity: Sil\Bundle\StockBundle\Domain\Entity\Uom
+            joinColumn:
+                name: qty_uom_id
+                referencedColumnName: id
+                nullable: false
+        stockItem: 
+            targetEntity: Sil\Bundle\StockBundle\Domain\Entity\StockItemInterface
+            joinColumn:
+                name: stockitem_id
+                referencedColumnName: id
+                nullable: false
+                
+    oneToMany:
+        lines:
+          targetEntity: BomLine
+          mappedBy: bom
+          cascade: ["remove", "persist"]
+    

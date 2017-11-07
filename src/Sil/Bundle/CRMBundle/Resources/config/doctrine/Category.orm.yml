@@ -1,0 +1,10 @@
+Librinfo\CRMBundle\Entity\Category:
+    type: entity
+
+    fields: ~
+
+    oneToMany:
+        organisms:
+            targetEntity: Librinfo\CRMBundle\Entity\Organism
+            mappedBy: category
+            cascade: [ persist ]

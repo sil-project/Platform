@@ -1,0 +1,22 @@
+Blast\UtilsBundle\Entity\CustomFilter:
+    type: entity
+    table: blast_custom_filters
+    repositoryClass: Blast\UtilsBundle\Repository\CustomFilterRepository
+    blast:
+        loggable:     true
+    fields:
+        name:
+            type: string
+            length: 255
+        routeName:
+            type: string
+            length: 255
+        routeParameters:
+            type: text
+            nullable: true
+        filterParameters:
+            type: text
+            nullable: true
+    manyToOne:
+        user:
+            targetEntity: Blast\CoreBundle\Model\UserInterface

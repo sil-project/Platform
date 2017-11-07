@@ -1,0 +1,43 @@
+{% if app.request.query.get('filter') != null %}
+    <div class="box-footer customFilterBox">
+        {% if currentFilter != null %}
+            <form action="{{ path('blast_utils.custom_filters.delete') }}" method="POST">
+                <div class="input-group col-lg-3 pull-right">
+                    <input type="hidden" name="filterId" value="{{ currentFilter.id }}"/>
+                    <input type="text" name="" value="{{ currentFilter.name }}" class="form-control" disabled="disabled"/>
+                    {% if currentFilter.user != null %}
+                        <span class="input-group-btn">
+                            <a href="#" onClick="customFilters.deleteForm.submitForm(this);" class="btn btn-danger pull-right">
+                                <i class="fa fa-trash"></i>
+                                {{ 'Delete filter'|trans }}
+                            </a>
+                        </span>
+                    {% else %}
+                        <span class="input-group-btn">
+                            <a href="#" class="btn btn-primary pull-right disabled">
+                                <i class="fa fa-save"></i>
+                                {{ 'Save current filter'|trans }}
+                            </a>
+                        </span>
+                    {% endif %}
+                </div>
+            </form>
+        {% else %}
+            <form action="{{ path('blast_utils.custom_filters.save') }}" method="POST">
+                <input type="hidden" name="routeName" value="{{ app.request.get('_route') }}"/>
+                <input type="hidden" name="routeParameters" value="{{ app.request.get('_route_params')|json_encode }}"/>
+                <input type="hidden" name="filterParameters" value="{{ app.request.query.get('filter')|json_encode }}"/>
+
+                <div class="input-group col-lg-3 pull-right">
+                    <input type="text" name="filterName" value="" class="form-control" placeholder="{{ 'Custom filter name'|trans }}" required/>
+                    <span class="input-group-btn">
+                        <a href="#" onClick="customFilters.saveForm.submitForm(this);" class="btn btn-primary pull-right">
+                            <i class="fa fa-save"></i>
+                            {{ 'Save current filter'|trans }}
+                        </a>
+                    </span>
+                </div>
+            </form>
+        {% endif %}
+    </div>
+{% endif %}

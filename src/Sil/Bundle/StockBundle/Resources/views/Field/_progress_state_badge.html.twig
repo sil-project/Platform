@@ -1,0 +1,26 @@
+{% block field %}
+
+    {% set colors = {
+        'draft': 'gray', 
+        'confirmed': 'maroon', 
+        'partially_available': 'orange', 
+        'available': 'blue',
+        'done': 'green',
+        'cancel': 'red'
+    } %}
+
+    {% set icons = {
+         'draft': 'pencil-square-o', 
+        'confirmed': 'calendar-check-o', 
+        'partially_available': 'hourglass-3', 
+        'available': 'thumbs-o-up',
+        'done': 'check',
+        'cancel': 'ban'
+    } %}
+    {% set state = value.value %}
+    <span class="label bg-{{ colors[state]|default('black')  }}">
+        <i class="fa fa-{{ icons[state]|default('question') }}"></i>
+        {{ ('sil.stock.progress_state.' ~ state)|trans }}
+    </span>
+
+{% endblock %}

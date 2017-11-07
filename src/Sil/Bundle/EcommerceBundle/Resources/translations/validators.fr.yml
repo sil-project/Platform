@@ -1,0 +1,15 @@
+librinfo:
+    product_slug:
+        not_unique: Ce slug produit est déjà utilisé
+    product_code:
+        not_unique: Ce code produit est déjà utilisé par un autre produit
+    product_variant_code:
+        not_unique: Ce code de variante de produit est déjà utilisé par une autre variante
+    channel_code:
+        not_unique: Le code du canal doit être unique, le code « %code% » est déjà utilisé
+    channel_name:
+        not_unique: Le nom du canal doit être unique, le nom « %name% » est déjà utilisé
+    order_payment:
+        not_null: Il faut séléctionner au moins un mode de paiement
+    order_shipping:
+        not_null: Il faut séléctionner au moins un mode de livraison

@@ -1,0 +1,4 @@
+Librinfo\SeedBatchBundle\Entity\Plot:
+    properties:
+        code:
+            - NotBlank: ~

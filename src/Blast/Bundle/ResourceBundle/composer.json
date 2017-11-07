@@ -1,0 +1,34 @@
+{
+    "name": "blast-project/resource-bundle",
+    "type": "symfony-bundle",
+    "description": "",
+    "require": {
+        "php": ">=7.1",
+        "symfony/symfony": ">=3.2"
+    },
+    "require-dev": {
+        "symfony/phpunit-bridge": ">=3.2",
+        "phpunit/phpunit": "^6.4"
+    },
+    "license": "LGPL-3.0",
+    "keywords": [
+        "blast",
+        "symfony"
+    ],
+    "homepage": "https://github.com/blast-project/ResourceBundle",
+    "authors": [
+        {
+            "name": "Glenn CAVARLÉ",
+            "email": "glenn.cavarle@libre-informatique.fr"
+        },
+        {
+            "name": "Libre Informatique",
+            "homepage": "http://www.libre-informatique.fr/"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Blast\\Bundle\\ResourceBundle\\": "/"
+        }
+    }
+}

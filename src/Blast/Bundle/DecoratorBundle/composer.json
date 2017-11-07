@@ -1,0 +1,42 @@
+{
+    "name": "libre-informatique/decorator-bundle",
+    "type": "symfony-bundle",
+    "description": "This is the basis of a GUI for Libre Informatique Symfony2 projects",
+    "require": {
+        "php": ">=7.1",
+        "symfony/symfony": ">=3.2",
+        "sonata-project/doctrine-orm-admin-bundle": ">=3.1",
+        "blast-project/core-bundle": "self.version",
+        "friendsofsymfony/jsrouting-bundle": ">=1.6"
+    },
+    "require-dev": {
+        "symfony/phpunit-bridge": ">=3.2",
+        "phpunit/phpunit": "^6.4"
+    },
+    "license": "GPL-3.0",
+    "keywords": [
+        "e-venement",
+        "libio",
+        "sonata",
+        "symfony"
+    ],
+    "homepage": "https://github.com/libre-informatique/SymfonyBlastCoreBundle",
+    "authors": [
+        {
+            "name": "Baptiste SIMON",
+            "email": "baptiste.simon@libre-informatique.fr"
+        },
+        {
+            "name": "Libre Informatique",
+            "homepage": "http://www.libre-informatique.fr/"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Librinfo\\DecoratorBundle\\": "/"
+        }
+    },
+    "suggest": {
+        "libre-informatique/crm-bundle": "Manage contacts, organisms and more..."
+    }
+}

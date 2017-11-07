@@ -1,0 +1,33 @@
+{% extends 'SonataAdminBundle:CRUD:base_show_field.html.twig' %}
+
+{% block field_value %}
+    <div id="invoices">
+        {% include 'LibrinfoEcommerceBundle:OrderAdmin/Show:_invoices_inner.html.twig' %}
+    </div>
+    <div id="generating-invoice" style="display: none">{{ 'librinfo.label.generating_invoice'|trans }}</div>
+
+    <script type="text/javascript">
+        // Ajax call to generate invoice
+        $(document).ready(function(){
+            $('#generate-invoice').on('click', function(){
+                $('#invoices').hide();
+                $('#generating-invoice').show();
+                $.ajax( $(this).data('url') )
+                    .done(function(data) { $('#invoices').html(data.html); })
+                    .fail(function(jqXHR, textStatus) { alert(textStatus); })
+                    .always(function() {
+                        $('#generating-invoice').hide();
+                        $('#invoices').show();
+                    });
+                return false;
+            });
+        })
+    </script>
+{% endblock %}
+
+
+
+
+
+
+

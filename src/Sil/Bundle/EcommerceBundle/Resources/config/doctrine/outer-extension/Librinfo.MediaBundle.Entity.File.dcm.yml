@@ -1,0 +1,15 @@
+Librinfo\MediaBundle\Entity\File:
+    type: entity
+    fields:
+        path:
+            type: string
+            nullable: true
+            unique: true 
+        type:
+            type: string
+            nullable: true
+            unique: false 
+    manyToOne:
+        owner:
+            targetEntity: Librinfo\EcommerceBundle\Entity\Product
+            inversedBy: images

@@ -1,0 +1,17 @@
+Librinfo\SeedBatchBundle\Entity\SeedFarm:
+    type: entity
+
+    fields:
+        code:
+            type:       string(255)
+
+    oneToMany:
+        seedBatches:
+            targetEntity: Librinfo\SeedBatchBundle\Entity\SeedBatch
+            mappedBy: seedFarm
+
+    uniqueConstraints:
+        name_idx:
+            columns: [ name ]
+        code_idx:
+            columns: [ code ]

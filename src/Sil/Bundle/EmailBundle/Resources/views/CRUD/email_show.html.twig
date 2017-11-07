@@ -1,0 +1,27 @@
+
+{% extends 'BlastCoreBundle:CRUD:base_show.html.twig' %}
+
+{% block show %}
+    {{ parent() }}
+    {% if admin.id(object) is not null %}
+        <a class="btn btn-info" href="{{ admin.generateObjectUrl('duplicate', object) }}"><i class="fa fa-files-o"></i> {{ 'Duplicate'|trans({}, 'LibrinfoEmailBundle') }}</a>
+    {% endif %}
+    
+    {% if stats is defined %}
+        <div id="email-stats" class="js-data" data-stats='{{ stats|json_encode()|raw }}'></div>
+    {% endif %}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('bundles/librinfoemail/css/stats.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    {% if stats is defined %}      
+        <script type="text/javascript" src="{{ asset('bundles/librinfoemail/js/jquery.classyloader.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('bundles/librinfoemail/js/stats.js') }}"></script>
+    {% endif %}
+{% endblock %}

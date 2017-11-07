@@ -1,0 +1,18 @@
+Librinfo\SeedBatchBundle\Entity\CertificationType:
+    type: entity
+    fields:
+        code:
+            type: string
+            length: 255
+            unique: true
+
+    oneToOne:
+        logo:
+            targetEntity: Librinfo\MediaBundle\Entity\File
+            joinColumn:
+                name: logo_id
+                referencedColumnName: id
+                nullable: true
+                onDelete: SET NULL
+            cascade: [persist, remove]
+            oprhanRemoval: true

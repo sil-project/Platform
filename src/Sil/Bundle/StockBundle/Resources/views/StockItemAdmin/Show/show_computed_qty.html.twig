@@ -1,0 +1,6 @@
+{% extends 'SonataAdminBundle:CRUD:base_show_field.html.twig' %}
+
+{% set methodFromFieldName = (field_description.name[:1]|upper ~ field_description.name[1:]) %}
+{% block field %}
+    {{ attribute(admin, methodFromFieldName, [object]) }}
+{% endblock %}

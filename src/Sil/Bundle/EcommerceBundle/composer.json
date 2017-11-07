@@ -1,0 +1,45 @@
+{
+    "name": "libre-informatique/ecommerce-bundle",
+    "type": "symfony-bundle",
+    "description": "Bridge bundle between librinfo bundles and sylius",
+    "require": {
+        "php": ">=7.1",
+        "symfony/symfony": ">=3.3",
+        "blast-project/core-bundle": "self.version",
+        "blast-project/base-entities-bundle": "self.version",
+        "blast-project/utils-bundle": "self.version",
+        "blast-project/outer-extension-bundle": "self.version",
+        "sylius/sylius": "^1.0",
+        "libre-informatique/sonata-sylius-user-bundle": "self.version",
+        "libre-informatique/crm-bundle": "self.version",
+        "knplabs/knp-snappy-bundle": "^1.0",
+        "h4cc/wkhtmltopdf-amd64": "^0.12.3"
+    },
+    "require-dev": {
+        "symfony/phpunit-bridge": ">=3.2",
+        "phpunit/phpunit": "^6.4"
+    },
+    "license": "LGPL-3.0",
+    "keywords": [
+        "e-commerce",
+        "libio",
+        "sonata",
+        "symfony"
+    ],
+    "homepage": "https://github.com/libre-informatique/SymfonyLibrinfoEcommerceBundle",
+    "authors": [
+        {
+            "name": "Marcos Bezerra de Menezes",
+            "email": "marcos.bezerra@libre-informatique.fr"
+        },
+        {
+            "name": "Libre Informatique",
+            "homepage": "http://www.libre-informatique.fr/"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Librinfo\\EcommerceBundle\\": "/"
+        }
+    }
+}

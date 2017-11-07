@@ -1,0 +1,25 @@
+
+            
+{% extends 'SonataAdminBundle:CRUD:base_show_field.html.twig' %}
+
+
+{% macro shipping_method_render_array(value) %}
+  {% from _self import shipping_method_render_array %}
+  {% import "@SyliusShop/Common/Macro/money.html.twig" as money %}
+  {% if value is iterable %}
+    
+      {% for key, val in value %}
+      {% if val is iterable %}
+        <ul><li>{{ key }} : {{ shipping_method_render_array(val) }}</li></ul>
+      {%  else %}
+         {{ money.convertAndFormat(val) }}
+      {%  endif %}
+    {% endfor %}
+    
+  {%  endif %}
+{% endmacro %}
+
+{% block field%}
+  {% from _self import shipping_method_render_array %}
+  {{ shipping_method_render_array(value) }}
+{% endblock %}

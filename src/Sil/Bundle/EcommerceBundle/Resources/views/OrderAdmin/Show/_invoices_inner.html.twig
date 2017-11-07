@@ -1,0 +1,27 @@
+{% import "@SyliusShop/Common/Macro/money.html.twig" as money %}
+
+{% if object.invoices|length > 0 %}
+<table class="table">
+    <tbody>
+        {% for invoice in object.invoices %}
+            <tr class="sonata-ba-view-container">
+                <th>
+                    <a href="{{ path('admin_librinfo_ecommerce_invoice_showFile', {id: invoice.id}) }}" target="_blank">{{ invoice.number}}</a>
+                </th>
+                <td>
+                    {{ invoice.createdAt|format_date }}
+                </td>
+                <td>
+                    {{ money.convertAndFormat(invoice.total) }}
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endif %}
+
+{% if object.invoices|length == 0 and object.checkoutState == "completed" %}
+    <a href="#" id="generate-invoice" data-url="{{ path('admin_librinfo_ecommerce_invoice_generate', {order_id: object.id}) }}">
+        {{ 'librinfo.action.generate_invoice'|trans }}
+    </a>
+{% endif %}

@@ -1,0 +1,21 @@
+<td>
+{% if sonata_block_exists('librinfo.email.block.emails_list') %}
+    {{ sonata_block_render({'type': 'librinfo.email.block.emails_list'}, {'target_entity': object}) }}
+{% endif %}
+
+{% block send_new_email %}
+    {% if object.email %}
+        <form method="GET" action="{{ path('admin_librinfo_email_email_create') }}" id='send-email-form'>
+            <label>Envoyer un email à {{ object.email }}</label>
+            <input type="hidden" name="force_user" value="1">
+            <input type="hidden" name="recipient_class" value="{{ admin.class }}">
+            <input type="hidden" name="recipient_ids[]" value="{{ object.id }}">
+            <input type="hidden" name="from_admin" value="{{ admin.code }}">
+            <input type="hidden" name="from_id" value="{{ object.id }}">
+            <input type="submit" value="Créer" class="btn btn-small btn-primary">
+        </form>
+    {% endif %}
+{% endblock %}
+
+</td>
+

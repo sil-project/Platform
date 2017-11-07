@@ -1,0 +1,45 @@
+services:
+    blast_core.label.strategy.librinfo_email:
+        class: Blast\CoreBundle\Translator\LibrinfoLabelTranslatorStrategy
+        arguments: ['Librinfo\EmailBundle']
+    
+    librinfo_email.sender:
+        class: Librinfo\EmailBundle\Services\Sender
+        arguments:
+            - '@doctrine.orm.entity_manager'
+            - '@librinfo_email.tracking'
+            - '@librinfo_email.inline_attachments'
+            - '@swiftmailer.mailer.direct_mailer'
+            - '@swiftmailer.mailer.spool_mailer'
+            - '@librinfo.email.address_manager'
+
+    librinfo_email.tracking:
+        class: Librinfo\EmailBundle\Services\Tracking
+        arguments: [ '@router' ]
+
+    librinfo_email.stats:
+        class: Librinfo\EmailBundle\Services\EmailStats
+
+    librinfo_email.inline_attachments:
+        class: Librinfo\EmailBundle\Services\InlineAttachments
+
+    librinfo.email.address_manager:
+        class: Librinfo\EmailBundle\Services\AddressManager
+
+### SwiftMailer database spool ###
+    swiftmailer.mailer.spool_mailer.spool.db:
+        class: Librinfo\EmailBundle\Services\SwiftMailer\Spool\DbSpool
+        arguments:
+            - '@router'
+            - '@doctrine.orm.entity_manager'
+            - '%kernel.environment%'
+### SONATA BLOCKS ###
+
+    librinfo.email.block.emails_list:
+        class: Librinfo\EmailBundle\Block\EmailsListBlock
+        arguments:
+            - 'librinfo.email.block.emails_list'
+            - '@templating'
+        calls:
+            - [setManager, ['@doctrine.orm.entity_manager']]
+        tags: [{ name: sonata.block }]

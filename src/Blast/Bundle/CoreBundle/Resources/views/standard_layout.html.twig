@@ -1,0 +1,100 @@
+{#
+
+This file is part of the Libre Informatique CoreBundle package.
+
+(c) Baptiste SIMON <baptiste.simon _AT_ libre-informatique.fr>
+(c) Libre Informatique [http://www.libre-informatique.fr/]
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+
+#}
+
+{% extends 'SonataAdminBundle::standard_layout.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('bundles/blastcore/css/edit.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('bundles/blastcore/css/list.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('bundles/blastcore/css/main.css') }}"/>
+    {{ blast_hook('layout.stylesheets') }}
+{% endblock %}
+
+{% block sonata_wrapper %}
+    {{ parent() }}
+    {% block bottom_js %}{% endblock %}
+{% endblock %}
+
+{% block notice %}
+    {% include 'SonataCoreBundle:FlashMessage:render.html.twig' %}
+    <div id="flash-success" class="js-flash alert alert-success alert-dismissable" style="display:none;">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <p class="flash-content"></p>
+    </div>
+    <div id="flash-warning" class="js-flash alert alert-warning alert-dismissable" style="display:none;">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <p class="flash-content"></p>
+    </div>
+    <div id="flash-error" class="js-flash alert alert-error alert-dismissable" style="display:none;">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <p class="flash-content"></p>
+    </div>
+{% endblock %}
+
+{% block sonata_sidebar_search %}
+    <form action="{{ path('blast_admin_search') }}" method="GET" class="sidebar-form" role="search">
+        <div id="custom-search-admins">
+            <select name="admin" multiple data-placeholder="{{ 'Search categories'| trans() }}">
+                {% for admin in getGlobalSearchAdmins() %}
+                    <option value="{{ admin }}">{{ admin_pool.getAdminByAdminCode(admin).label|trans() }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="custom-search-form">
+            <input type="text" name="q" value="{{ app.request.get('q') }}" class="form-control" data-placeholder="{{ 'search_query'| trans() }}">
+        </div>
+    </form>
+{% endblock sonata_sidebar_search %}
+
+{% block javascripts %}
+    {# Temporary fix for fr_FR locale scripts #}
+    {% block sonata_javascript_config %}
+        {{ parent() }}
+    {% endblock %}
+
+    {% block sonata_javascript_pool %}
+        {{ parent() }}
+    {% endblock %}
+
+    {% set locale = app.request.locale %}
+
+    <script src="{{ asset('bundles/bazingajstranslation/js/translator.min.js') }}"></script>
+    <script>
+        Translator.locale = '{{locale[:2]}}';
+    </script>
+    <script src="{{ url('bazinga_jstranslation_js', { 'domain': 'messages' }) }}?locales={{locale[:2]}}"></script>
+
+    {# localize moment #}
+    {% if locale[: 2] != 'en' %}
+        {% if locale == 'fr_FR' %}{% set locale = 'fr' %}{% endif %}
+        <script src="{{ asset('bundles/sonatacore/vendor/moment/locale/' ~ locale|replace({'_':'-'}) ~ '.js') }}"></script>
+    {% endif %}
+
+    {# localize select2 #}
+    {% if sonata_admin.adminPool.getOption('use_select2') %}
+        {% if locale == 'pt' %}{% set locale = 'pt_PT' %}{% endif %}
+
+        {# omit default EN locale #}
+        {% if locale[: 2] != 'en' %}
+            <script src="{{ asset('bundles/sonatacore/vendor/select2/select2_locale_' ~ locale|replace({'_':'-'}) ~ '.js') }}"></script>
+        {% endif %}
+    {% endif %}
+    {# end fix #}
+    <script src="{{ asset('bundles/blastcore/js/_bootbox.min.js') }}"></script>
+    <script src="{{ asset('bundles/blastcore/js/flashes.js') }}"></script>
+    <script src="{{ asset('bundles/blastcore/js/globalSearch.js') }}"></script>
+    <script src="{{ asset('bundles/blastcore/js/tabNavigation.js') }}"></script>
+    <script src="{{ asset('bundles/blastcore/js/deleteCheckboxCollection.js') }}"></script>
+    <script src="{{ asset('bundles/blastcore/js/confirm.js') }}"></script>
+
+    {{ blast_hook('layout.javascripts') }}
+{% endblock javascripts %}

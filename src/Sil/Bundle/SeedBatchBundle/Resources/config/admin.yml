@@ -1,0 +1,113 @@
+services:
+ 
+    librinfo_seedbatch.admin.organism:
+        class: Librinfo\SeedBatchBundle\Admin\OrganismAdmin
+        arguments: [~, Librinfo\CRMBundle\Entity\Organism, LibrinfoSeedBatchBundle:OrganismAdmin]
+        tags:
+            -   name: sonata.admin
+                manager_type: orm
+                group: Customers Relationship Management
+                label: librinfo.seedbatchbundle.admin.organism
+                label_translator_strategy: blast_core.label.strategy.librinfo_seedbatch
+        calls:
+            - [ setTemplate, [edit, LibrinfoSeedBatchBundle:OrganismAdmin:edit.html.twig]]
+            - [ setTemplate, [show, LibrinfoCRMBundle:OrganismAdmin:show.html.twig]]
+
+    librinfo_seedbatch.admin.seed_producer:
+        class: Librinfo\SeedBatchBundle\Admin\SeedProducerAdmin
+        arguments: [~, Librinfo\CRMBundle\Entity\Organism, LibrinfoSeedBatchBundle:OrganismAdmin]
+        tags:
+            -   name: sonata.admin
+                manager_type: orm
+                group: Customers Relationship Management
+                label: librinfo.seedbatchbundle.admin.organism
+                label_translator_strategy: blast_core.label.strategy.librinfo_seedbatch
+        calls:
+            - [ setTemplate, [edit, LibrinfoSeedBatchBundle:OrganismAdmin:edit.html.twig]]
+            - [ setTemplate, [show, LibrinfoCRMBundle:OrganismAdmin:show.html.twig]]
+
+    librinfo_seedbatch.admin.seedfarm:
+        class: Librinfo\SeedBatchBundle\Admin\SeedFarmAdmin
+        arguments: [~, Librinfo\SeedBatchBundle\Entity\SeedFarm, BlastCoreBundle:CRUD]
+        tags:
+            -   name: sonata.admin
+                manager_type: orm
+                group: Seed Batches
+                label: librinfo.seedbatchbundle.admin.seed_farm
+                label_translator_strategy: blast_core.label.strategy.librinfo_seedbatch
+
+    librinfo_seedbatch.admin.seedbatch:
+        class: Librinfo\SeedBatchBundle\Admin\SeedBatchAdmin
+        arguments: [~, Librinfo\SeedBatchBundle\Entity\SeedBatch, BlastCoreBundle:CRUD]
+        tags:
+            -   name: sonata.admin
+                manager_type: orm
+                group: Seed Batches
+                label: librinfo.seedbatchbundle.admin.seed_batch
+                label_translator_strategy: blast_core.label.strategy.librinfo_seedbatch
+        calls:
+            - [ setTemplate, [edit, LibrinfoSeedBatchBundle:SeedBatchAdmin:edit.html.twig]]
+
+    librinfo_seedbatch.admin.seedbatch_embedded:
+        class: Librinfo\SeedBatchBundle\Admin\SeedBatchEmbeddedAdmin
+        arguments: [~, Librinfo\SeedBatchBundle\Entity\SeedBatch, BlastCoreBundle:CRUD]
+        tags:
+            -   name: sonata.admin
+                manager_type: orm
+                group: Seed Batches
+                label: librinfo.seedbatchbundle.admin.seedbatch
+                label_translator_strategy: blast_core.label.strategy.librinfo_seedbatch
+
+    librinfo_seedbatch.admin.plot:
+        class: Librinfo\SeedBatchBundle\Admin\PlotAdmin
+        arguments: [~, Librinfo\SeedBatchBundle\Entity\Plot, BlastCoreBundle:CRUD]
+        tags:
+            -   name: sonata.admin
+                manager_type: orm
+                group: Seed Batches
+                label: librinfo.seedbatchbundle.admin.plot
+                label_translator_strategy: blast_core.label.strategy.librinfo_seedbatch
+
+    librinfo_seedbatch.admin.plot_embedded:
+        class: Librinfo\SeedBatchBundle\Admin\PlotEmbeddedAdmin
+        arguments: [~, Librinfo\SeedBatchBundle\Entity\Plot, BlastCoreBundle:CRUD]
+        tags:
+            -   name: sonata.admin
+                manager_type: orm
+                group: Seed Batches
+                label: librinfo.seedbatchbundle.admin.plot
+                label_translator_strategy: blast_core.label.strategy.librinfo_seedbatch
+
+    librinfo_seed_batch.admin.certification:
+        class: Librinfo\SeedBatchBundle\Admin\CertificationAdmin
+        arguments: [~, Librinfo\SeedBatchBundle\Entity\Certification, BlastCoreBundle:CRUD]
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              group: admin
+              label: Certification
+              label_translator_strategy: blast_core.label.strategy.librinfo_seedbatch
+
+    librinfo_seed_batch.admin.certification_type:
+        class: Librinfo\SeedBatchBundle\Admin\CertificationTypeAdmin
+        arguments: [~, Librinfo\SeedBatchBundle\Entity\CertificationType, LibrinfoMediaBundle:CRUD]
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              group: admin
+              label: CertificationType
+              label_translator_strategy: blast_core.label.strategy.librinfo_seedbatch
+        calls:
+            - [ setTemplate, [ edit, LibrinfoMediaBundle:CRUD:edit.html.twig ] ]
+
+    librinfo_seed_batch.admin.certifying_body:
+        class: Librinfo\SeedBatchBundle\Admin\CertifyingBodyAdmin
+        arguments: [~, Librinfo\SeedBatchBundle\Entity\CertifyingBody, LibrinfoMediaBundle:CRUD]
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              group: admin
+              label: librinfo.seedbatchbundle.admin.certifying_body
+              label_translator_strategy: blast_core.label.strategy.librinfo_seedbatch
+        calls:
+            - [ setTemplate, [ edit, LibrinfoMediaBundle:CRUD:edit.html.twig ] ]

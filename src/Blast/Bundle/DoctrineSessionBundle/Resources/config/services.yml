@@ -1,0 +1,27 @@
+services:
+
+# TODO: the following services have been deactivated because they conflict with Sylius services:
+#
+#Circular reference detected for service "session",
+#path:
+#    cache_warmer ->
+#    twig ->
+#    sonata.core.flashmessage.twig.extension ->
+#    sonata.core.flashmessage.manager ->
+#    session ->
+#    session.storage.native ->
+#    blast_doctrine_session.handler.doctrine_orm ->
+#    doctrine.dbal.default_connection ->
+#    sylius.translation.translatable_listener.doctrine.orm ->
+#    sylius.translatable_entity_locale_assigner ->
+#    sylius.context.locale ->
+#    sylius.context.locale.storage_based ->
+#    sylius.storage.locale.
+
+    blast_doctrine_session.handler.doctrine_orm:
+        class: Blast\DoctrineSessionBundle\Handler\DoctrineORMHandler
+        arguments: [ '@doctrine', '%blast_doctrine_session_class%']
+
+    blast_doctrine_handler:
+        alias: blast_doctrine_session.handler.doctrine_orm
+

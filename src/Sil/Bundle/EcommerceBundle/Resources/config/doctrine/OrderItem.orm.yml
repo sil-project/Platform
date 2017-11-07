@@ -1,0 +1,8 @@
+Librinfo\EcommerceBundle\Entity\OrderItem:
+    type: entity
+    fields:
+        bulk:
+            type: boolean
+            nullable: false
+            options:
+                default: false

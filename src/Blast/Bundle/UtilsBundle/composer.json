@@ -1,0 +1,50 @@
+{
+    "name": "blast-project/utils-bundle",
+    "type": "symfony-bundle",
+    "description": "All kinds of goodies for the BlastCoreBundle",
+    "require": {
+        "php": ">=7.1",
+        "symfony/symfony": ">=3.2",
+        "sonata-project/doctrine-orm-admin-bundle": ">=3.1",
+        "blast-project/core-bundle": "self.version",
+        "stfalcon/tinymce-bundle": ">=2.1"
+    },
+    "require-dev": {
+        "symfony/phpunit-bridge": ">=3.2",
+        "phpunit/phpunit": "^6.4"
+    },
+    "license": "LGPL-3.0",
+    "keywords": [
+        "utils",
+        "blast",
+        "sonata",
+        "symfony"
+    ],
+    "homepage": "https://github.com/blast-project/UtilsBundle",
+    "authors": [
+        {
+            "name": "Baptiste SIMON",
+            "email": "baptiste.simon@libre-informatique.fr"
+        },
+        {
+            "name": "Marcos Bezerra de Menezes",
+            "email": "marcos.bezerrademenezes@libre-informatique.fr"
+        },
+        {
+            "name": "Romain SANCHEZ",
+            "email": "romain.sanchez@libre-informatique.fr"
+        },
+        {
+            "name": "Libre Informatique",
+            "homepage": "http://www.libre-informatique.fr/"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Blast\\UtilsBundle\\": "/"
+        }
+    },
+    "suggest": {
+        "blast-project/outer-extension-bundle": "Extend your doctrine entities from the outside"
+    }
+}

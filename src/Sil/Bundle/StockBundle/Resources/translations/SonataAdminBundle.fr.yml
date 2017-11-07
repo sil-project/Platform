@@ -1,0 +1,15 @@
+librinfo:
+   
+    menu_label:
+        stock_management: Stocks
+        stock_management_settings: Stocks
+        items: Articles
+        operations: Opérations sur les stocks
+        movements: Mouvements de stock
+        warehouses: Entrepôts
+        locations: Emplacements
+        uom_types: Catégories d'unité de mesure
+        uoms: Unités de mesure
+        operation_types: Types d'opération
+        location_types: Types d'emplacement
+

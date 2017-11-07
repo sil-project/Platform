@@ -1,0 +1,249 @@
+# Copyright (C) 2015-2016 Libre Informatique
+#
+# This file is licenced under the GNU GPL v3.
+# For the full copyright and license information, please view the LICENSE
+# file that was distributed with this source code.
+
+services:
+
+    librinfo_ecommerce.admin.product:
+        class: Librinfo\EcommerceBundle\Admin\ProductAdmin
+        arguments: [~, Librinfo\EcommerceBundle\Entity\Product, LibrinfoEcommerceBundle:ProductCRUD]
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              group: admin
+              label: librinfo.ecommercebundle.admin.product.product
+              label_translator_strategy: blast_core.label.strategy.librinfo_ecommerce
+        calls:
+            - [ setTemplate, [ edit, LibrinfoEcommerceBundle:ProductAdmin:edit.html.twig ] ]
+
+    librinfo_ecommerce.admin.product_variant:
+        class: Librinfo\EcommerceBundle\Admin\ProductVariantAdmin
+        arguments: [~, Librinfo\EcommerceBundle\Entity\ProductVariant, LibrinfoEcommerceBundle:ProductVariantCRUD]
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              group: admin
+              label: librinfo.ecommercebundle.admin.product.product_variant
+              label_translator_strategy: blast_core.label.strategy.librinfo_ecommerce
+        calls:
+            - [ setTemplate, [ edit, LibrinfoEcommerceBundle:ProductVariantAdmin:edit.html.twig ] ]
+
+    librinfo_ecommerce.admin.product_variant_embedded:
+        class: Librinfo\EcommerceBundle\Admin\ProductVariantEmbeddedAdmin
+        arguments: [~, Librinfo\EcommerceBundle\Entity\ProductVariant, LibrinfoEcommerceBundle:ProductVariantCRUD]
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              group: admin
+              label: librinfo.ecommercebundle.admin.product.product_variant
+              label_translator_strategy: blast_core.label.strategy.librinfo_ecommerce
+        calls:
+            - [ setTemplate, [ edit, LibrinfoEcommerceBundle:ProductVariantAdmin:edit.html.twig ] ]
+
+    librinfo_ecommerce_option.admin.product:
+        class: Librinfo\EcommerceBundle\Admin\ProductOptionAdmin
+        arguments: [~, Librinfo\EcommerceBundle\Entity\ProductOption, BlastCoreBundle:CRUD]
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              group: admin
+              label: librinfo.ecommercebundle.admin.product.product_option
+              label_translator_strategy: blast_core.label.strategy.librinfo_ecommerce
+
+    librinfo_ecommerce_option_value.admin.product:
+        class: Librinfo\EcommerceBundle\Admin\ProductOptionValueAdmin
+        arguments: [~, Librinfo\EcommerceBundle\Entity\ProductOptionValue, BlastCoreBundle:CRUD]
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              group: admin
+              label: librinfo.ecommercebundle.admin.product.product_option_value
+              label_translator_strategy: blast_core.label.strategy.librinfo_ecommerce
+
+    librinfo_ecommerce.admin.product_attribute:
+        class: Librinfo\EcommerceBundle\Admin\ProductAttributeAdmin
+        arguments: [~, Librinfo\EcommerceBundle\Entity\ProductAttribute, BlastCoreBundle:CRUD]
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              group: admin
+              label: librinfo.ecommercebundle.admin.product.product_attribute
+              label_translator_strategy: blast_core.label.strategy.librinfo_ecommerce
+
+    librinfo_ecommerce.admin.customer:
+        class: Librinfo\EcommerceBundle\Admin\CustomerAdmin
+        arguments: [~, %sylius.model.customer.class%, LibrinfoCRMBundle:OrganismAdmin]
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              group: Customers Relationship Management
+              label: librinfo.ecommercebundle.admin.crm.customer
+              label_translator_strategy: blast_core.label.strategy.librinfo_ecommerce
+        calls:
+            - [setCodeGenerator, ['@librinfo_crm.code_generator.customer']]
+            - [ setTemplate, [edit, LibrinfoCRMBundle:OrganismAdmin:edit.html.twig]]
+            - [ setTemplate, [show, LibrinfoCRMBundle:OrganismAdmin:show.html.twig]]
+
+    librinfo_ecommerce.admin.order:
+        class: Librinfo\EcommerceBundle\Admin\OrderAdmin
+        arguments: [~, Librinfo\EcommerceBundle\Entity\Order, LibrinfoEcommerceBundle:OrderCRUD]
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              group: admin
+              label: librinfo.ecommercebundle.admin.order
+              label_translator_strategy: blast_core.label.strategy.librinfo_ecommerce
+        calls:
+            - [ setTemplate, [edit, LibrinfoEcommerceBundle:OrderAdmin/Create:create.html.twig]]
+
+    librinfo_ecommerce.admin.payment:
+        class: Librinfo\EcommerceBundle\Admin\PaymentAdmin
+        arguments: [~, Librinfo\EcommerceBundle\Entity\Payment, LibrinfoEcommerceBundle:PaymentCRUD]
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              group: admin
+              label: librinfo.ecommercebundle.admin.payment
+              label_translator_strategy: blast_core.label.strategy.librinfo_ecommerce
+
+    librinfo_ecommerce.admin.payment_method:
+        class: Librinfo\EcommerceBundle\Admin\PaymentMethodAdmin
+        arguments: [~, Sylius\Component\Core\Model\PaymentMethod, LibrinfoEcommerceBundle:PaymentCRUD]
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              group: admin
+              label: librinfo.ecommercebundle.admin.payment_method
+              label_translator_strategy: blast_core.label.strategy.librinfo_ecommerce
+
+    librinfo_ecommerce.admin.sales_journal:
+        class: Librinfo\EcommerceBundle\Admin\SalesJournalAdmin
+        arguments: [~, Librinfo\EcommerceBundle\Entity\SalesJournalItem, BlastCoreBundle:CRUD]
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              group: admin
+              label: librinfo.ecommercebundle.admin.sales_journal
+              label_translator_strategy: blast_core.label.strategy.librinfo_ecommerce
+
+    librinfo_ecommerce.admin.customer_group:
+        class: Librinfo\EcommerceBundle\Admin\CustomerGroupAdmin
+        arguments: [~, Librinfo\EcommerceBundle\Entity\CustomerGroup, BlastCoreBundle:CRUD]
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              group: Customers Relationship Management
+              label: librinfo.ecommercebundle.admin.customer_group
+              label_translator_strategy: blast_core.label.strategy.librinfo_ecommerce
+
+    librinfo_ecommerce.admin.channel_pricing:
+        class: Librinfo\EcommerceBundle\Admin\ChannelPricingAdmin
+        arguments: [~, Sylius\Component\Core\Model\ChannelPricing, BlastCoreBundle:CRUD]
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              group: admin
+              label: librinfo.ecommercebundle.admin.Channel
+              label_translator_strategy: blast_core.label.strategy.librinfo_ecommerce
+
+    librinfo_ecommerce.admin.tax_rate:
+        class: Librinfo\EcommerceBundle\Admin\TaxRateAdmin
+        arguments: [~, Librinfo\EcommerceBundle\Entity\TaxRate, BlastCoreBundle:CRUD]
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              group: admin
+              label: librinfo.ecommercebundle.admin.TaxRate
+              label_translator_strategy: blast_core.label.strategy.librinfo_ecommerce
+
+    librinfo_ecommerce.admin.tax_category:
+        class: Librinfo\EcommerceBundle\Admin\TaxCategoryAdmin
+        arguments: [~, Sylius\Component\Taxation\Model\TaxCategory, BlastCoreBundle:CRUD]
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              group: admin
+              label: librinfo.ecommercebundle.admin.TaxCategory
+              label_translator_strategy: blast_core.label.strategy.librinfo_ecommerce
+
+    librinfo_ecommerce.admin.zone:
+        class: Blast\CoreBundle\Admin\GenericAdmin
+        arguments: [~, Librinfo\EcommerceBundle\Entity\Zone, BlastCoreBundle:CRUD]
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              group: admin
+              label: librinfo.ecommercebundle.admin.Zone
+              label_translator_strategy: blast_core.label.strategy.librinfo_ecommerce
+
+    librinfo_ecommerce.admin.taxon:
+        class: Librinfo\EcommerceBundle\Admin\TaxonAdmin
+        arguments: [~, Librinfo\EcommerceBundle\Entity\Taxon, BlastCoreBundle:CRUD]
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              group: admin
+              label: librinfo.ecommercebundle.admin.Taxon
+              label_translator_strategy: blast_core.label.strategy.librinfo_ecommerce
+
+    librinfo_ecommerce.admin.invoice:
+        class: Librinfo\EcommerceBundle\Admin\InvoiceAdmin
+        arguments: [~, Librinfo\EcommerceBundle\Entity\Invoice, LibrinfoEcommerceBundle:InvoiceCRUD]
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              group: admin
+              label: librinfo.ecommercebundle.admin.Invoice
+              label_translator_strategy: blast_core.label.strategy.librinfo_ecommerce
+
+    librinfo_ecommerce.admin.channel:
+        class: Librinfo\EcommerceBundle\Admin\ChannelAdmin
+        arguments: [~, Librinfo\EcommerceBundle\Entity\Channel, BlastCoreBundle:CRUD]
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              group: admin
+              label: librinfo.ecommercebundle.admin.channel
+              label_translator_strategy: blast_core.label.strategy.librinfo_ecommerce
+
+    librinfo_ecommerce.admin.shipping_method:
+        class: Librinfo\EcommerceBundle\Admin\ShippingMethodAdmin
+        arguments: [~, Librinfo\EcommerceBundle\Entity\ShippingMethod, BlastCoreBundle:CRUD]
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              group: admin
+              label: librinfo.ecommercebundle.admin.shipping_method
+              label_translator_strategy: blast_core.label.strategy.librinfo_ecommerce
+
+#    librinfo_ecommerce.admin.shipping_category:
+#        class: Librinfo\EcommerceBundle\Admin\ShippingCategoryAdmin
+#        arguments: [~, Sylius\Component\Shipping\Model\ShippingCategory, BlastCoreBundle:CRUD]
+#        tags:
+#            - name: sonata.admin
+#              manager_type: orm
+#              group: admin
+#              label: librinfo.ecommercebundle.admin.shipping_category
+#              label_translator_strategy: blast_core.label.strategy.librinfo_ecommerce
+
+    librinfo_ecommerce.admin.shipping_method_translation:
+        class: Librinfo\EcommerceBundle\Admin\ShippingMethodTranslationAdmin
+        arguments: [~, Sylius\Component\Shipping\Model\ShippingMethodTranslation, BlastCoreBundle:CRUD]
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              group: admin
+              label: librinfo.ecommercebundle.admin.shipping_method_translation
+              label_translator_strategy: blast_core.label.strategy.librinfo_ecommerce
+
+    librinfo_ecommerce.admin.shop_user:
+        class: Librinfo\EcommerceBundle\Admin\ShopUserAdmin
+        arguments: [~, Sylius\Component\Core\Model\ShopUser, BlastCoreBundle:CRUD]
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              group: admin
+              label: librinfo.ecommercebundle.admin.shop_user
+              label_translator_strategy: blast_core.label.strategy.librinfo_ecommerce

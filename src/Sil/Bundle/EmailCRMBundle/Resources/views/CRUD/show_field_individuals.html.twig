@@ -1,0 +1,9 @@
+{% extends "LibrinfoCRMBundle:CRUD:show_field_organism_positions.html.twig" %}
+
+{% block organization %}
+    {% if organism_admin.isGranted('SHOW') %}
+        <a href="{{ path('admin_librinfo_emailcrm_organism_show', {'id': position.individual.id}) }}">{{ position.individual|render_relation_element(elems['individual']) }}</a>
+    {% else %}
+        {{ position.individual|render_relation_element(elems['contact']) }}
+    {% endif %}
+{% endblock %}

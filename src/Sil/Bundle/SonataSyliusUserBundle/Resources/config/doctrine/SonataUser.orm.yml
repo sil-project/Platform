@@ -1,0 +1,32 @@
+# Copyright (C) 2015-2017 Libre Informatique
+#
+# This file is licenced under the GNU GPL v3.
+# For the full copyright and license information, please view the LICENSE
+# file that was distributed with this source code.
+
+Librinfo\SonataSyliusUserBundle\Entity\SonataUser:
+    type: mappedSuperclass
+    fields:
+        firstName:
+            type: string
+            length: 255
+            nullable: true
+        lastName:
+            type: string
+            length: 255
+            nullable: true
+        localeCode:
+            type: string
+            length: 12
+    manyToMany:
+        groups:
+            inversedBy: users
+            targetEntity: Librinfo\SonataSyliusUserBundle\Entity\SonataGroup
+            joinTable:
+                name: librinfo_user_groups_users
+                joinColumns:
+                    user_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    group_id:
+                        referencedColumnName: id

@@ -1,0 +1,72 @@
+services:
+
+    blast_core.label.strategy.librinfo_crm:
+        class: Blast\CoreBundle\Translator\LibrinfoLabelTranslatorStrategy
+        arguments: ['Librinfo\CRMBundle']
+
+    security.access.circle_voter:
+        class:      Librinfo\CRMBundle\Security\Authorization\Voter\CircleVoter
+        public:     false
+        tags:
+            - { name: security.voter }
+
+    # sonata.admin.exporter:
+    #     class: Librinfo\CRMBundle\Admin\Exporter
+    #     calls:
+    #         - [setTokenStorage, ['@security.token_storage']]
+    #         - [setTranslator, ['@translator']]
+    #         - [setTwig, ['@twig']]
+    #         - [setRouter, ['@router']]
+
+    # repository as a service
+    librinfo_crm.repository.circle:
+        class: Doctrine\ORM\EntityRepository
+        factory: ['@doctrine', getRepository]
+        arguments:
+            - Librinfo\CRMBundle\Entity\Circle
+
+    librinfo_crm.app_circles:
+        class: Librinfo\CRMBundle\Services\AppCirclesService
+        arguments: ['@librinfo_crm.repository.circle']
+
+# ENTITY CODE GENERATORS
+
+    librinfo_crm.code_generator.supplier:
+        class: Librinfo\VarietiesBundle\CodeGenerator\SupplierCodeGenerator
+        factory:   ['@blast_core.code_generator_factory', create]
+        arguments: ['%librinfo_crm.code_generator.supplier%', '@doctrine.orm.entity_manager']
+        tags:
+            - { name: blast.entity_code_generator }
+
+    librinfo_crm.code_generator.customer:
+        class: Librinfo\VarietiesBundle\CodeGenerator\CustomerCodeGenerator
+        factory:   ['@blast_core.code_generator_factory', create]
+        arguments: ['%librinfo_crm.code_generator.customer%', '@doctrine.orm.entity_manager']
+        tags:
+            - { name: blast.entity_code_generator }
+
+### FORM TYPES ###
+
+    librinfo_crm.form.type.zipcity:
+        class: Librinfo\CRMBundle\Form\Type\ZipCityType
+        tags:
+            - { name: form.type, alias: librinfo_zip_city }
+
+    librinfo_crm.form.type.main_address:
+        class: Librinfo\CRMBundle\Form\Type\MainAddressType
+        tags:
+            - { name: form.type, alias: librinfo_main_address }
+
+    librinfo_crm.form.type.main_phone:
+        class: Librinfo\CRMBundle\Form\Type\MainPhoneType
+        tags:
+            - { name: form.type, alias: librinfo_main_phone }
+
+    librinfo_crm.form.type.fake_email:
+        class: Librinfo\CRMBundle\Form\Type\FakeEmailType
+        tags:
+            - { name: form.type, alias: librinfo_fake_email }
+
+### BLAST CALLBACKS ###
+    librinfo.crm.filters.customer:
+        class: Librinfo\CRMBundle\Services\Filters\OrganismFilter

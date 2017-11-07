@@ -1,0 +1,113 @@
+parameters:
+    blast:
+
+###############
+# BOM
+###############
+
+        Sil\Bundle\ManufacturingBundle\Domain\Entity\Bom:
+            Sonata\AdminBundle\Form\FormMapper:
+                add:
+                    sil.manufacturing.bom.form.tab.general:
+                        
+                        sil.manufacturing.bom.form.group.description:
+                            stockItem:
+                                choice_label: name
+                            qty:
+                                type: Sil\Bundle\StockBundle\Form\Type\UomQtyFormType
+                                
+                        sil.manufacturing.bom.form.group.lines:
+                            lines:
+                                label: false
+                                type: sonata_type_collection
+                                by_reference: false
+                                _options:
+                                    admin_code: sil_manufacturing.admin.bom_line
+                                    edit: inline
+                                    inline: table
+                    _options:
+                        tabsOrder:
+                            - sil.manufacturing.bom.form.tab.general
+                            - form_tab_history
+                            
+            Sonata\AdminBundle\Show\ShowMapper:
+                titleTemplate: SilManufacturingBundle:BomAdmin/Show:show_title.html.twig
+                forceTabs: true
+                add:
+                    sil.manufacturing.bom.show.tab.general:
+                        
+                        sil.manufacturing.bom.show.group.description:
+                            code: ~
+                            stockItem:
+                                associated_property: name
+                            qty: ~
+                        sil.manufacturing.operation.show.group.lines:
+                            lines: 
+                                template: SilManufacturingBundle:BomAdmin/Show:show_lines.html.twig
+                    _options:
+                        tabsOrder:
+                            - sil.manufacturing.bom.show.tab.general
+                            - show_tab_history
+                            
+            Sonata\AdminBundle\Datagrid\ListMapper:
+                remove:
+                    createdAt: ~
+                    updatedAt: ~
+                add:
+                    code:
+                        identifier: true
+                    stockItem:
+                        associated_property: name
+                    qty: ~
+                    
+                    
+            Sonata\AdminBundle\Datagrid\DatagridMapper:
+                add: ~
+                
+####################
+# BOM LINES
+####################
+
+        Sil\Bundle\ManufacturingBundle\Domain\Entity\BomLine:
+            Sonata\AdminBundle\Form\FormMapper:
+                add:
+                    sil.manufacturing.bom_line.form.tab.general:
+                        
+                        sil.manufacturing.bom_line.form.group.description:
+                            stockItem:
+                                choice_label: name
+                            qty:
+                                type: Sil\Bundle\StockBundle\Form\Type\UomQtyFormType
+                       
+                    _options:
+                        tabsOrder:
+                            - sil.manufacturing.bom_line.form.tab.general
+                            - form_tab_history
+                            
+            Sonata\AdminBundle\Show\ShowMapper:
+                forceTabs: true
+                add:
+                    sil.manufacturing.bom_line.show.tab.general:
+                        
+                        sil.manufacturing.bom_line.show.group.description:
+                            stockItem:
+                                associated_property: name
+                            qty: ~
+                           
+                    _options:
+                        tabsOrder:
+                            - sil.manufacturing.bom_line.show.tab.general
+                            - show_tab_history
+                            
+            Sonata\AdminBundle\Datagrid\ListMapper:
+                remove:
+                    createdAt: ~
+                    updatedAt: ~
+                add:
+                    stockItem:
+                        associated_property: name
+                    qty: ~
+                    
+            Sonata\AdminBundle\Datagrid\DatagridMapper:
+                add: ~
+                

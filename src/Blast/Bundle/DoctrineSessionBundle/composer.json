@@ -1,0 +1,66 @@
+{
+    "name": "blast-project/doctrine-session-bundle",
+    "type": "symfony-bundle",
+    "description": "Store your Symfony sessions in database through doctrine",
+    "require": {
+        "php": ">=7.1",
+        "symfony/symfony": ">=3.2",
+        "doctrine/doctrine-bundle": ">=1.6"
+    },
+    "require-dev": {
+        "symfony/phpunit-bridge": ">=3.2",
+        "sonata-project/doctrine-orm-admin-bundle": ">=3.1",
+        "blast-project/core-bundle": "self.version",
+        "blast-project/tests-bundle": "self.version",
+        "symfony/console": ">=3.2",
+        "phpunit/phpunit": "^6.4"
+    },
+    "scripts": {
+        "test": [
+    	    "phpunit"
+    	],
+        "test-full": [
+    	    "@composer install",
+    	    "@test-mysql",
+    	    "@test-sqlite",
+    	    "@test-postgresql"
+    	],
+        "test-mysql": [
+    	    "php -r \"copy('Tests/Resources/App/config/config_test_mysql.yml', 'Tests/Resources/App/config/config_test.yml');\"",
+    	    "@test"
+        ],
+        "test-postgresql": [
+    	    "php -r \"copy('Tests/Resources/App/config/config_test_postgresql.yml', 'Tests/Resources/App/config/config_test.yml');\"",
+    	    "@test"
+        ],
+        "test-sqlite": [
+    	    "php -r \"copy('Tests/Resources/App/config/config_test_sqlite.yml', 'Tests/Resources/App/config/config_test.yml');\"",
+    	    "@test"
+        ]
+    },
+    "license": "LGPL-3.0",
+    "keywords": [
+        "symfony",
+        "doctrine",
+        "blast"
+    ],
+    "homepage": "https://github.com/blast-project/BaseEntitiesBundle",
+    "authors": [
+        {
+            "name": "Romain SANCHEZ",
+            "email": "romain.sanchez@libre-informatique.fr"
+        },
+        {
+            "name": "Libre Informatique",
+            "homepage": "http://www.libre-informatique.fr/"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Blast\\DoctrineSessionBundle\\": "/"
+        }
+    },
+    "suggest": {
+        "blast-project/core-bundle": "Define sonata admins in yml and more"
+    }
+}

@@ -1,0 +1,58 @@
+{#
+    DO NOT APPLY AUTO FORMATTING ON THIS FILE !!!
+#}
+
+{% spaceless %}
+{% set code %}
+{% for key, field in fields %}
+    {% if key == 0 %}
+    {{- field }}: ~
+    {% else %}
+                    {{ field }}: ~
+    {% endif %}
+{% endfor %}
+{% endset %}
+{# #}
+{% set listcode %}
+{% for key, field in fields %}
+    {% if key == 0 %}
+    {{- field }}: ~
+    {% else %}
+            {{ field }}: ~
+    {% endif %}
+{% endfor %}
+{% endset %}
+{# #}
+{% if oldCode == '' %}
+parameters:
+    blast:
+{% endif %}
+{{- oldCode }}
+
+################################################################################
+# {{ entity }}
+################################################################################
+
+        {{ fqcn }}:
+            # SHOW
+            Sonata\AdminBundle\Show\ShowMapper:
+                add:
+                    show_tab_general:
+                        show_group_general:
+                        {{ code }}
+            # FORM
+            Sonata\AdminBundle\Form\FormMapper:
+                add:
+                    form_tab_general:
+                        form_group_general:
+                        {{ code }}
+            # LIST
+            Sonata\AdminBundle\Datagrid\ListMapper:
+                add:
+                {{ listcode }}
+
+            # FILTERS
+            Sonata\AdminBundle\Datagrid\DatagridMapper:
+                add:
+                {{ listcode }}
+{% endspaceless %}

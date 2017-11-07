@@ -1,0 +1,37 @@
+Librinfo\SeedBatchBundle\Entity\Certification:
+    type: entity
+    blast:
+        loggable: true
+    fields:
+        code:
+            type: string
+            length: 255
+            unique: true
+        certificationDate:
+            type: date
+            column: certification_date
+            nullable: true
+        startDate:
+            type: date
+            column: start_date
+            nullable: true
+        expiryDate:
+            type: date
+            column: expiry_date
+            nullable: true
+        url:
+            type: string
+            length: 255
+            nullable: true
+    lifecycleCallbacks: {  }
+
+    manyToOne:
+        plot:
+            targetEntity: Librinfo\SeedBatchBundle\Entity\Plot
+            inversedBy: certifications
+            cascade: [ persist ]
+        certificationType:
+            targetEntity: Librinfo\SeedBatchBundle\Entity\CertificationType
+        certifyingBody:
+            targetEntity: Librinfo\SeedBatchBundle\Entity\CertifyingBody
+

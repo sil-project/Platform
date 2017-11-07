@@ -1,0 +1,65 @@
+Librinfo\EmailBundle\Entity\Email:
+    type: entity
+    blast:
+        loggable: true
+    fields:
+        field_from:
+            type:       string(255)
+            nullable:   false
+        field_to:
+            type:       string(255)
+            nullable:   false
+        field_cc:
+            type:       string(255)
+            nullable:   true
+        field_bcc:
+            type:       string(255)
+            nullable:   true
+        field_subject:
+            type:       string(255)
+            nullable:   true
+        content:
+            type:       text
+            nullable:   true
+        textContent:
+            type:       text
+            nullable:   false
+        sent:
+            type:       boolean
+            nullable:   true
+        tracking:
+            type:       boolean
+            nullable: true
+    manyToMany:
+        attachments:
+            targetEntity: \Librinfo\MediaBundle\Entity\File
+            joinTable:
+                name: librinfo_email_file
+                joinColumns:
+                    email_id:
+                        referencedColumnName: id
+                        onDelete: CASCADE
+                inverseJoinColumns:
+                    file_id:
+                        referencedColumnName: id
+                        onDelete: CASCADE
+                        unique: true
+            cascade: [persist, remove]
+            orphanRemoval: true
+    oneToMany:
+        receipts:
+            targetEntity: EmailReceipt
+            mappedBy: email
+            cascade: [persist, merge, remove]
+            orphanRemoval:  true
+        links:
+            targetEntity: EmailLink
+            mappedBy: email
+            cascade: [persist, merge, remove]
+            orphanRemoval:  true
+    oneToOne:
+        template:
+          targetEntity: EmailTemplate
+          joinColumn:
+            name: template_id
+            referencedColumnName: id

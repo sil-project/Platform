@@ -1,0 +1,24 @@
+Librinfo\CRMBundle\Entity\Organism:
+    type: entity
+
+    fields:
+        seedProducerCode:
+            type:       string
+            length:     255
+            nullable:   true
+        seedProducer:
+            type:        boolean
+            options:
+                default: false
+
+    oneToMany:
+        seedBatches:
+            targetEntity: Librinfo\SeedBatchBundle\Entity\SeedBatch
+            mappedBy: producer
+            cascade: [ persist, remove ]
+            orphanRemoval: true
+        plots:
+            targetEntity: Librinfo\SeedBatchBundle\Entity\Plot
+            mappedBy: producer
+            cascade: [ persist, remove ]
+            orphanRemoval: true

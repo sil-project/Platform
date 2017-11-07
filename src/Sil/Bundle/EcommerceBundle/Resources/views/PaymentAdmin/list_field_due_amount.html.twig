@@ -1,0 +1,14 @@
+{% extends 'SonataAdminBundle:CRUD:base_list_field.html.twig' %}
+
+{% import "@SyliusShop/Common/Macro/money.html.twig" as money %}
+
+{% block field %}
+
+    {% if object.state == constant('STATE_COMPLETED',object) or object.state == constant('STATE_REFUNDED',object) %}
+        <span class="label bg-green">{{ money.convertAndFormat(0) }}</span>
+    {% else %}
+        <span class="label bg-red">{{ money.convertAndFormat(object.amount) }}</span>
+    {% endif %}
+
+
+{% endblock %}

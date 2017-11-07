@@ -1,0 +1,11 @@
+
+{% extends 'LibrinfoMediaBundle:dropzone:dropzone_template.mustache.twig' %}
+
+{% block buttons %}
+    {{ parent() }}
+
+    <button class="btn btn-info setAsCover" title="{{'librinfo.button.setAsCover'|trans}}">
+        <i class="fa fa-check-circle"></i>
+        <i class="fa fa-picture-o"></i>
+    </button>
+{% endblock %}

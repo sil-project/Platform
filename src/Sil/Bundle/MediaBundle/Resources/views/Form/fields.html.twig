@@ -1,0 +1,36 @@
+
+{% block librinfo_dropzone_widget %}
+
+    {% set dropzoneId = id|split('_')[0] ~ 'drop' %}
+
+    {% if value is iterable %}
+        {% for file in value%}
+            <input type="hidden" name="load_files[]" value="{{ file.id }}" data-dropzone-id="{{ dropzoneId}}"/>
+        {% endfor %}
+    {% elseif value is not null %}
+        <input type="hidden" name="load_files[]" value="{{ value.id }}" data-dropzone-id="{{ dropzoneId }}"/>
+    {% endif %}
+    {% spaceless %}
+        <div id="{{ dropzoneId }}" class="dropzone add_files" data-librinfo-dropzone='{{ {
+            id:  dropzoneId,
+            context: mediaContext,
+            multipleFiles: multipleFiles,
+            routes: {
+                upload: path('librinfo_media.upload'),
+                load:   path('librinfo_media.load'),
+                remove: path('librinfo_media.remove')~'/',
+            }
+        }|json_encode()|raw }}'>
+        </div>
+        <div class="dropzone-btn">
+            <button class="btn btn-success btn-sm sonata-ba-action add_files">
+                <i class="glyphicon glyphicon-plus"></i>
+                {{ 'Add files'|trans() }}
+            </button>
+        </div>
+    {% endspaceless %}
+
+    {% block dropzone_template %}
+        {% include dropzoneTemplate %}
+    {% endblock %}
+{% endblock %}

@@ -1,0 +1,8 @@
+Librinfo\EcommerceBundle\Entity\ProductVariant:
+    type: entity
+    fields:
+        enabled:
+            type: boolean
+            nullable: false
+            options:
+                default: true

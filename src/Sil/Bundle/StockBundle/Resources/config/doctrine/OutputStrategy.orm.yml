@@ -1,0 +1,15 @@
+Sil\Bundle\StockBundle\Domain\Entity\OutputStrategy:
+    type: mappedSuperclass
+    
+    fields:
+        name:
+            type: string(255)
+            unique: true
+            nullable: false
+        description:
+            type: string(255)
+            nullable: true
+        orderBy:
+            type: array
+            nullable: false
+

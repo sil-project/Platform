@@ -1,0 +1,45 @@
+{
+    "name": "blast-project/base-entities-bundle",
+    "type": "symfony-bundle",
+    "description": "Base behaviors for Doctrine Entities in Libre Informatique Symfony2 projects",
+    "require": {
+        "php": ">=7.1",
+        "blast-project/core-bundle": "self.version",
+        "stof/doctrine-extensions-bundle": ">=1.2"
+    },
+    "require-dev": {
+        "symfony/phpunit-bridge": ">=3.2",
+        "phpunit/phpunit": "^6.4"
+    },
+    "license": "LGPL-3.0",
+    "keywords": [
+        "e-venement",
+        "libio",
+        "symfony",
+        "doctrine",
+        "sonata admin"
+    ],
+    "homepage": "https://github.com/blast-project/BaseEntitiesBundle",
+    "authors": [
+        {
+            "name": "Baptiste SIMON",
+            "email": "baptiste.simon@libre-informatique.fr"
+        },
+        {
+            "name": "Romain SANCHEZ",
+            "email": "romain.sanchez@libre-informatique.fr"
+        },
+        {
+            "name": "Libre Informatique",
+            "homepage": "http://www.libre-informatique.fr/"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Blast\\BaseEntitiesBundle\\": "/"
+        }
+    },
+    "suggest": {
+        "libre-informatique/crm-bundle": "Manage contacts, organisms and more..."
+    }
+}

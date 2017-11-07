@@ -1,0 +1,6 @@
+Librinfo\EcommerceBundle\Entity\CustomerGroup:
+    type: entity
+    oneToMany:
+        customers:
+            targetEntity: Sylius\Component\Customer\Model\CustomerInterface
+            mappedBy: group

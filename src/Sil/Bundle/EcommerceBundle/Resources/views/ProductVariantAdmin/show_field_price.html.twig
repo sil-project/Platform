@@ -1,0 +1,7 @@
+{% extends 'SonataAdminBundle:CRUD:base_show_field.html.twig' %}
+
+{% import "@SyliusShop/Common/Macro/money.html.twig" as money %}
+
+{% block field_value %}
+    {{ money.calculatePrice(object) }}
+{% endblock %}

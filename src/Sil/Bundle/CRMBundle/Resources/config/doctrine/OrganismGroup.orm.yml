@@ -1,0 +1,20 @@
+Librinfo\CRMBundle\Entity\OrganismGroup:
+    type:  entity
+    manyToOne:
+        organism:
+            targetEntity: Librinfo\CRMBundle\Entity\Organism
+            joinColumn:
+                name: organism_id
+                referencedColumnName: id
+    manyToMany:
+        roles:
+            targetEntity: Librinfo\CRMBundle\Entity\Role
+            inversedBy: contactGroups
+            joinTable:
+                name: ~
+                joinColumns:
+                    role_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    organism_group_id:
+                        referencedColumnName: id

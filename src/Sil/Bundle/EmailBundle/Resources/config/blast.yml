@@ -1,0 +1,272 @@
+
+parameters:
+    blast:
+######  Email ##########
+        Librinfo\EmailBundle\Entity\Email:
+            Sonata\AdminBundle\Datagrid\ListMapper:
+                remove:
+                    createdAt: ~
+                add:
+                    field_to: ~
+                    field_subject: ~
+                    sent: ~
+                    _actions:
+                        send:
+                            template: LibrinfoEmailBundle:CRUD:list__action_send.html.twig
+                    _options:
+                        fieldsOrder:
+                            - field_to
+                            - field_subject
+                            - sent
+                    _export_formats:
+                        csv: [ field_from, field_to, field_subject, field_cc, field_bcc, textContent, createdAt, updatedAt]
+                        xls: csv
+                        json: csv
+                        xml: csv
+                    _helper_links:
+                        - url: https://framacalc.org/libio_validation_crm
+                          title: Framacalc de validation (CRM)
+                          class: framacalc
+            Sonata\AdminBundle\Show\ShowMapper:
+                add:
+                    form_tab_general:
+                        form_group_general:
+                            field_to: ~
+                            field_cc: ~
+                            field_bcc: ~
+                            field_subject: ~
+
+                            textContent:
+                                type: textarea
+                        form_group_attachments:
+                            attachments:
+                                template: LibrinfoMediaBundle:CRUD:show_images.html.twig
+                        form_group_tracking:
+                            stats:
+                                template: LibrinfoEmailBundle:CRUD:show_field_stats.html.twig
+                        _options:
+                            groupsOrder:
+                            - form_group_general
+                            - form_group_attachments
+                            - form_group_tracking
+                            - from_group_misc
+                    _helper_links:
+                        - url: https://framacalc.org/libio_validation_crm
+                          title: Framacalc de validation (CRM)
+                          class: framacalc
+            Sonata\AdminBundle\Form\FormMapper:
+                add:
+                    form_tab_general:
+                        form_group_general:
+                            field_from:
+                                type: text
+                                required: true
+                            field_to:
+                                type: text
+                                required: true
+                                help: librinfo.help.field_to
+                            field_subject:
+                                type: text
+                                required: false
+                            field_cc:
+                                type: text
+                                required: false
+                            field_bcc:
+                                type: text
+                                required: false
+                            template:
+                                attr:
+                                    class: template_select
+                            content:
+                                type: Blast\UtilsBundle\Form\Type\TinyMceType
+                            attachments:
+                                type: Librinfo\MediaBundle\Form\Type\DropzoneType
+                                required: false
+                                dropzoneTemplate: LibrinfoEmailBundle:dropzone:dropzone_template.mustache.twig
+                            _options:
+                                fieldsOrder:
+                                    - field_from
+                                    - field_to
+                                    - field_cc
+                                    - field_bcc
+                                    - field_subject
+                                    - template
+                                    - content
+                                    - attachments
+                        form_group_options:
+                            isTemplate:
+                                type: checkbox
+                                required: false
+                            newTemplateName:
+                                type: text
+                                required: false
+                            isTest:
+                                type: checkbox
+                                required: false
+                                attr:
+                                    class: is_test
+                            testAddress:
+                                type: text
+                                required: false
+                            tracking:
+                                type: checkbox
+                                required: false
+                    _options:
+                        tabsOrder: [ form_group_general, form_group_specifics ]
+                    _helper_links:
+                        - url: https://framacalc.org/libio_validation_crm
+                          title: Framacalc de validation (CRM)
+                          class: framacalc
+            Sonata\AdminBundle\Datagrid\DatagridMapper:
+                add:
+                    field_to: ~
+                    field_subject: ~
+                    content: ~
+                    sent: ~
+                    createdAt: ~
+                    updatedAt: ~
+                    _options:
+                        fieldsOrder:
+                            - field_to
+                            - field_subject
+
+########## EmailTemplate ##########
+
+        Librinfo\EmailBundle\Entity\EmailTemplate:
+            Sonata\AdminBundle\Show\ShowMapper:
+                _copy: Sonata\AdminBundle\Form\FormMapper
+            Sonata\AdminBundle\Form\FormMapper:
+                add:
+                    form_group_general:
+                        '':
+                            name:
+                                type: text
+                            content:
+                                type: textarea
+                                attr:
+                                    class: tinymce
+                                    data-theme: advanced
+                    _options:
+                            tabsOrder: [form_group_general, form_group_specifics]
+            Sonata\AdminBundle\Datagrid\ListMapper:
+                remove:
+                    createdAt: ~
+                add:
+                    name: ~
+                    content: ~
+
+
+######  HasEmailMessages ##########
+
+        AppBundle\Entity\Traits\HasEmailMessages:
+            Sonata\AdminBundle\Show\ShowMapper:
+                add:
+                    show_tab_emails:
+                        '':
+                            email_history:
+                                template: LibrinfoEmailBundle:CRUD:show_field_emails_list.html.twig
+                                mapped: false
+
+################
+#   EMAILABLE  #
+################
+
+        Blast\BaseEntitiesBundle\Entity\Traits\Emailable:
+            Sonata\AdminBundle\Show\ShowMapper:
+                add:
+                    form_group_general:
+                        '':
+                            email:
+                                template: LibrinfoEmailBundle:CRUD:show_field_email.html.twig
+
+################################################################################
+# EmailReceipt
+################################################################################
+
+        Librinfo\EmailBundle\Entity\EmailReceipt:
+            # SHOW
+            Sonata\AdminBundle\Show\ShowMapper:
+                add:
+                    show_tab_general:
+                        show_group_general:
+                            address: ~
+                            date: ~
+                            id: ~
+
+            # FORM
+            Sonata\AdminBundle\Form\FormMapper:
+                add:
+                    form_tab_general:
+                        form_group_general:
+                            address: ~
+                            date:
+                                type: sonata_type_datetime_picker
+                                attr:
+                                    readonly: true
+                                disabled: true
+                                required: false
+                                dp_side_by_side: true
+                            id: ~
+
+            # LIST
+            Sonata\AdminBundle\Datagrid\ListMapper:
+                add:
+                    address: ~
+                    date: ~
+                    id: ~
+
+
+            # FILTERS
+            Sonata\AdminBundle\Datagrid\DatagridMapper:
+                add:
+                    address: ~
+                    date: ~
+                    id: ~
+
+################################################################################
+# EmailLink
+################################################################################
+
+        Librinfo\EmailBundle\Entity\EmailLink:
+            # SHOW
+            Sonata\AdminBundle\Show\ShowMapper:
+                add:
+                    show_tab_general:
+                        show_group_general:
+                            destination: ~
+                            address: ~
+                            date: ~
+                            id: ~
+
+            # FORM
+            Sonata\AdminBundle\Form\FormMapper:
+                add:
+                    form_tab_general:
+                        form_group_general:
+                            destination: ~
+                            address: ~
+                            date:
+                                type: sonata_type_datetime_picker
+                                attr:
+                                    readonly: true
+                                disabled: true
+                                required: false
+                                dp_side_by_side: true
+                            id: ~
+
+            # LIST
+            Sonata\AdminBundle\Datagrid\ListMapper:
+                add:
+                    destination: ~
+                    address: ~
+                    date: ~
+                    id: ~
+
+
+            # FILTERS
+            Sonata\AdminBundle\Datagrid\DatagridMapper:
+                add:
+                    destination: ~
+                    address: ~
+                    date: ~
+                    id: ~

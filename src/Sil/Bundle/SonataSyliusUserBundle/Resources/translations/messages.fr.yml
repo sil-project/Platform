@@ -1,0 +1,29 @@
+
+
+librinfo:
+    sonatasyliususerbundle:
+        _action: Actions
+        username: Nom d'utilisateur
+        email: Email
+        expiresat: Expire le
+        firstname: Prénom
+        lastname: Nom
+        lastlogin: Dernière connexion
+        locked: Vérouillé
+        roles: Rôles
+        sonatauser_list: Utilisateurs
+        enabled: Actif
+        expired: Expiré
+        first_password: Nouveau mot de passe
+        second_password: Confirmez le mot de passe
+        sonatauser_create: Créer un utilisateur
+        admin:
+            sonata_user: Utilisateur
+
+    sonata_syius_user:
+            admin:
+                sonata_user: Utilisateur
+
+User account is locked.: Compte utilisateur désactivé
+form_group_password: Mot de passe
+form_group_roles: Rôles

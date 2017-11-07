@@ -1,0 +1,44 @@
+winzou_state_machine:
+    sylius_order:
+        states:
+            cart: ~
+            draft: ~
+            new: ~
+            cancelled: ~
+            fulfilled: ~
+        transitions:
+            cancel: # append draft state
+                from: [draft]
+                to: cancelled
+            create_draft: # add new transition
+                from: [cart]
+                to: draft
+            confirm: # add new transition
+                from: [draft]
+                to: new
+        callbacks:
+            before:
+                sylius_save_addresses_on_customer:
+                    on:   ["create"]
+                    do:   ["@librinfo_ecommerce.order_customer_manager", "associateUserAndAddress"]
+                    args: ["object"]
+            after:
+                librinfo_ecommerce_order_validated:
+                    on:   ["fulfill"]
+                    do:   ["@librinfo_ecommerce.order_manager", "validateOrder"]
+                    args: ["object"]
+                librinfo_ecommerce_order_generate_debit_invoice:
+                    on:   ["create","confirm"]
+                    do:   ["@librinfo_ecommerce.order_invoice_manager", "generateDebitInvoice"]
+                    args: ["object"]
+                librinfo_ecommerce_order_generate_credit_note:
+                    on:   ["cancel"]
+                    do:   ["@librinfo_ecommerce.order_invoice_manager", "generateCreditInvoice"]
+                    args: ["object"]
+    sylius_payment:
+        callbacks:
+            after:
+                librinfo_ecommerce_payment_done:
+                    on:   ["complete"]
+                    do:   ["@librinfo_ecommerce.sales_journal.service", "tracePayment"]
+                    args: ["object.getOrder()","object"]

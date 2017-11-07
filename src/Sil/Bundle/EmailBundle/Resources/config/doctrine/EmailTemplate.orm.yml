@@ -1,0 +1,8 @@
+Librinfo\EmailBundle\Entity\EmailTemplate:
+    type: entity
+    fields:
+        name:
+            type: string
+            nullable: false
+        content:
+            type: text

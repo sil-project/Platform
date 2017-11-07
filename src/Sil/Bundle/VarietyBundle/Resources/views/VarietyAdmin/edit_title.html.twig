@@ -1,0 +1,32 @@
+{% if action == 'edit' %}
+    {% set speciesAdminLibrinfo = admin_pool.getAdminByAdminCode('librinfo_varieties.admin.species') %}
+
+    {% if object.isStrain %}
+    {#
+        <a class="navbar-brand" href="{{ speciesAdminLibrinfo.generateObjectUrl('edit', object.species) }}">
+            {{ admin.toString(object.species) }}
+        </a>
+        <span class="navbar-brand">/</span>
+    #}
+        <a class="navbar-brand" href="{{ admin.generateObjectUrl('edit', object.parent) }}">
+            {{ admin.toString(object.parent) }}
+        </a>
+        <span class="navbar-brand">/</span>
+        <a class="navbar-brand" href="{{ admin.generateObjectUrl('edit', object) }}">
+            {{ 'Strain'|trans() }}: {{ admin.toString(object) }}
+        </a>
+    {% else %}
+    {#
+        <a class="navbar-brand" href="{{ speciesAdminLibrinfo.generateObjectUrl('edit', object.species) }}">
+            {{ admin.toString(object.species) }}
+        </a>
+        <span class="navbar-brand">/</span>
+    #}
+        <a class="navbar-brand" href="{{ admin.generateObjectUrl('edit', object) }}">
+            {{ admin.toString(object) }}
+        </a>
+    {% endif %}
+
+{% else %}
+    {{ 'librinfo.new_variety.label'| trans() }}
+{% endif %}

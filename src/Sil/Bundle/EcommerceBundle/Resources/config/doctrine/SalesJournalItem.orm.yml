@@ -1,0 +1,28 @@
+Librinfo\EcommerceBundle\Entity\SalesJournalItem:
+    type: entity
+    repositoryClass: Librinfo\EcommerceBundle\Repository\SalesJournalItemRepository
+    fields:
+        operationDate:
+            type: datetime
+            nullable: false
+        account:
+            type: string
+            length: 64
+            nullable: false
+        label:
+            type: string
+            length: 255
+            nullable: false
+        debit:
+            type: integer
+            nullable: false
+        credit:
+            type: integer
+            nullable: false
+    manyToOne:
+        order:
+            targetEntity: Librinfo\EcommerceBundle\Entity\Order
+        invoice:
+            targetEntity: Librinfo\EcommerceBundle\Entity\Invoice
+        payment:
+            targetEntity: Librinfo\EcommerceBundle\Entity\Payment

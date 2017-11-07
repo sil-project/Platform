@@ -1,0 +1,32 @@
+Librinfo\EcommerceBundle\Entity\Invoice:
+    type: entity
+    fields:
+        number:
+            type: string
+            nullable: false
+            unique: true
+        mimeType:
+            type: string
+            nullable: true
+        size:
+            type: integer
+            nullable: true
+        file:
+            type: text
+            nullable: false
+        total:
+            type: integer
+            nullable: false
+        type:
+            type: integer
+            nullable: false
+
+    manyToOne:
+        order:
+            targetEntity: Librinfo\EcommerceBundle\Entity\Order
+            inversedBy: invoices
+            joinColumn:
+                name: order_id
+                referencedColumnName: id
+                nullable: true
+                onDelete: SET NULL

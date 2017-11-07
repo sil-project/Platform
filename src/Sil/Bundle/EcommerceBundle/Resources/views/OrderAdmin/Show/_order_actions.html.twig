@@ -1,0 +1,57 @@
+{% extends 'SonataAdminBundle:CRUD:base_show_field.html.twig' %}
+
+{% block name %}{% endblock %}
+
+{% block field_value %}
+    <div class="row">
+
+        {% if sm_can(object, 'confirm', 'sylius_order') %}
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="col-md-6">
+                    <span>
+                        {{ 'librinfo.label.confirm_this_order'|trans }}:
+                    </span>
+                </div>
+                <div class="col-md-6">
+                    <a href="{{ path('admin_librinfo_ecommerce_order_confirmOrder',{id: object.id})}}" class="btn btn-default confirmable" data-confirm-title="{{ 'librinfo.help.confirm_confirmOrder'|trans}}">
+                        {{ 'librinfo.label.confirm_order'|trans }}&nbsp;<i class="fa fa-paper-plane"></i>
+                    </a>
+                </div>
+            </div>
+        {% endif %}
+
+        {% if sm_can(object, 'fulfill', 'sylius_order') %}
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="col-md-6">
+                    <span>
+                        {{ 'librinfo.label.fulfill_this_order'|trans }}:
+                    </span>
+                </div>
+                <div class="col-md-6">
+                    <a href="{{ path('admin_librinfo_ecommerce_order_validateOrder',{id: object.id})}}" class="btn btn-success confirmable" data-confirm-title="{{ 'librinfo.help.confirm_validate'|trans}}">
+                        {{ 'librinfo.label.fulfill_order'|trans }}&nbsp;<i class="fa fa-check"></i>
+                    </a>
+                </div>
+            </div>
+        {% endif %}
+
+        {% if sm_can(object, 'cancel', 'sylius_order') %}
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="col-md-6">
+                    <span>
+                        {{ 'librinfo.label.cancel_this_order'|trans }}:
+                    </span>
+                </div>
+                <div class="col-md-6">
+                    <a href="{{ path('admin_librinfo_ecommerce_order_cancelOrder',{id: object.id})}}" class="btn btn-danger confirmable" data-confirm-title="{{ 'librinfo.help.confirm_cancel'|trans}}">
+                        {{ 'librinfo.label.cancel_order'|trans }}&nbsp;<i class="fa fa-ban"></i>
+                    </a>
+                </div>
+            </div>
+        {% endif %}
+
+        {% if sm_state(object, 'sylius_order') == 'fulfilled' %}
+            <span>{{ 'librinfo.help.order_is_fulfilled'|trans }}</span>
+        {% endif %}
+    </div>
+{% endblock %}

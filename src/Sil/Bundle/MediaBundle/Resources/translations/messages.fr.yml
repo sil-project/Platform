@@ -1,0 +1,12 @@
+librinfo:
+    mediabundle: ~
+
+'Add files': 'Ajouter des fichiers'
+dropzone:
+   defaultMessage: 'Glissez vos fichiers ici'
+   fallbackMessage: 'Votre navigateur ne supporte pas l''upload par glisser/déposer'
+   fallbackText: ''
+   invalidFileType: 'Type de fichier non autorisé'
+   fileTooBig: 'Taille maximum depassée'
+   responseError: 'Une erreur est survenue'
+   maxFilesExceeded: 'Le nombre maximum de fichier est atteint'

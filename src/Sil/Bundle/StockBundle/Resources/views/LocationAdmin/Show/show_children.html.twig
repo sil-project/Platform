@@ -1,0 +1,48 @@
+{% extends 'SonataAdminBundle:CRUD:base_show_field.html.twig' %}
+
+{% set location_admin = field_description.admin %}
+{% set fields = location_admin.show.elements %}
+
+
+{% block field %}
+
+
+    <div class="blast-show-collection" data-field-name="{{ field_description.name }}">
+
+        <div class="box box-primary">
+            <div class="box-header">
+                <h4 class="box-title">{{ 'sil.stock.location.show.group.children'|trans }}</h4>
+            </div>
+            {%if value is not empty  %}
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>{{ 'sil.stock.location.show.label.type'|trans }}</th>
+                            <th>{{ 'sil.stock.location.show.label.code'|trans }}</th>
+                            <th>{{ 'sil.stock.location.show.label.name'|trans }}</th>
+                        </tr>   
+                    </thead>
+                    <tbody>
+                        {% for location in value %}
+                            <tr class="sonata-ba-view-container">
+                                <td>{% include('SilStockBundle:Field:_location_type_badge.html.twig') with {'value': location.type} %}</td>
+                                <td>
+                                    {% set route = field_description.options.route.name|default(null) %}
+                                    <a class="sonata-link-identifier" 
+                                       href="{{ admin.generateObjectUrl(route, location, field_description.options.route.parameters) }}">
+                                        {{ location.code}}
+                                    </a>
+                                </td>
+                                <td>{{ location.name }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <i class="fa fa-info-circle"></i> {{ 'sil.stock.location.message.no_children'|trans }}
+            {% endif %}
+        </div>
+    </div>
+
+
+{% endblock %}

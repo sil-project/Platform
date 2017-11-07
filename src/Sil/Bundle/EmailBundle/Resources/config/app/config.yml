@@ -1,0 +1,12 @@
+blast_base_entities:
+    entity_search_indexes:
+        Librinfo\EmailBundle\Entity\EmailTemplate:
+            fields:
+                - name
+                - content
+        Librinfo\EmailBundle\Entity\Email:
+            fields:
+                - field_to
+                - field_subject
+                - textContent
+                - sent

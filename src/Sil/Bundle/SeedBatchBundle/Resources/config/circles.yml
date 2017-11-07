@@ -1,0 +1,16 @@
+seed_producers:
+    id: b907691c-963f-4a7c-9098-5a95335cf21d
+    name: Producteur de semences
+    code: PRO
+    color: blue
+    description: Producteur de semences
+    translatable: true
+    type: Producteur
+organic_certificator:
+    id: d474c5df-49fa-460b-8951-dafff97bbfc4
+    name: Organic Certificator
+    code: OC
+    color: ~
+    description: librinfo.circle_description.organic_certificator
+    translatable: true
+    type: Autres

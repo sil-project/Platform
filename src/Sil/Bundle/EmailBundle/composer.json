@@ -1,0 +1,46 @@
+{
+    "name": "libre-informatique/email-bundle",
+    "type": "symfony-bundle",
+    "description": "Email Bundle for Symfony",
+    "require": {
+        "php": ">=7.1",
+        "symfony/symfony": ">=3.2",
+        "blast-project/core-bundle": "self.version",
+        "blast-project/base-entities-bundle": "self.version",
+        "blast-project/outer-extension-bundle": "self.version",
+        "blast-project/utils-bundle": "self.version",
+        "libre-informatique/media-bundle": "self.version",
+        "stfalcon/tinymce-bundle": ">=2.1",
+        "html2text/html2text": ">=4.0",
+        "symfony/swiftmailer-bundle": "^3.0",
+        "friendsofsymfony/jsrouting-bundle": ">=1.6"
+    },
+    "require-dev": {
+        "symfony/phpunit-bridge": ">=3.2",
+        "phpunit/phpunit": "^6.4"
+    },
+    "license": "LGPL-3.0",
+    "keywords": [
+        "email",
+        "spool",
+        "e-venement",
+        "sonata",
+        "symfony"
+    ],
+    "homepage": "https://github.com/libre-informatique/SymfonyLibrinfoEmailBundle",
+    "authors": [
+        {
+            "name": "Romain SANCHEZ",
+            "email": "romain.sanchez@libre-informatique.fr"
+        },
+        {
+            "name": "Libre Informatique",
+            "homepage": "http://www.libre-informatique.fr/"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Librinfo\\EmailBundle\\": "/"
+        }
+    }
+}

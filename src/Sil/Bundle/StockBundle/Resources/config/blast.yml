@@ -1,0 +1,508 @@
+parameters:
+    blast:
+
+##############
+# OPERATIONS
+##############
+
+        Sil\Bundle\StockBundle\Domain\Entity\Operation:
+            Sonata\AdminBundle\Form\FormMapper:
+                add:
+                    sil.stock.operation.form.tab.general:
+                        
+                        sil.stock.operation.form.group.description:
+                                                            
+                            dummy_1:
+                                type: hidden
+                                mapped: false
+                            
+                                
+                        sil.stock.operation.form.group.locations:
+                            
+                             dummy_2:
+                                type: hidden
+                                mapped: false
+                           
+                            
+                        
+                        sil.stock.operation.form.group.movements:
+                            _options:
+                                class: col-md-12
+                            movements:
+                                label: false
+                                type: sonata_type_collection
+                                by_reference: false
+                                _options:
+                                    admin_code: sil_stock.admin.movement
+                                    edit: inline
+                                    inline: table
+                    _options:
+                        tabsOrder:
+                            - sil.stock.operation.form.tab.general
+                            - form_tab_history
+                            
+            Sonata\AdminBundle\Show\ShowMapper:
+                titleTemplate: SilStockBundle:OperationAdmin/Show:show_title.html.twig
+                forceTabs: true
+                add:
+                    sil.stock.operation.show.tab.general:
+                        
+                        sil.stock.operation.show.group.description:
+                            code: ~
+                            type: 
+                                template: SilStockBundle:Field:show_operation_type_field.html.twig
+                            partner:
+                                associated_property: fulltextName
+                                admin_code: librinfo_seedbatch.admin.organism
+                            expectedAt: ~
+                            completedAt: ~
+                            state:
+                                template: SilStockBundle:Field:show_progress_state_field.html.twig
+                                
+                        sil.stock.operation.show.group.locations:
+                            srcLocation:
+                                associated_property: name
+                            destLocation:
+                                associated_property: name
+                                
+                        sil.stock.operation.show.group.movements:
+                            _options:
+                                class: col-md-12
+                            movements: 
+                                template: SilStockBundle:OperationAdmin/Show:show_movements.html.twig
+                            
+                    _options:
+                        tabsOrder:
+                            - sil.stock.operation.show.tab.general
+                            - show_tab_history
+                            
+            Sonata\AdminBundle\Datagrid\ListMapper:
+                remove:
+                    createdAt: ~
+                    updatedAt: ~
+                add:
+                    code:
+                        identifier: true
+                    type: 
+                        template: SilStockBundle:Field:list_operation_type_field.html.twig
+                    partner:
+                        associated_property: fulltextName
+                        admin_code: librinfo_seedbatch.admin.organism
+                    expectedAt: ~
+                    completedAt: ~
+                    srcLocation:
+                        associated_property: name
+                    destLocation:
+                        associated_property: name
+                    state:
+                        template: SilStockBundle:Field:list_progress_state_field.html.twig
+                    
+            Sonata\AdminBundle\Datagrid\DatagridMapper:
+                add: ~
+                
+
+##############
+# MOVEMENTS
+##############
+
+        Sil\Bundle\StockBundle\Domain\Entity\Movement:
+            Sonata\AdminBundle\Form\FormMapper:
+                remove:
+                    createdAt: ~
+                    updatedAt: ~
+                add:
+                    sil.stock.movement.form.tab.general:
+                        
+                        sil.stock.movement.form.group.general:
+                            stockItem:
+                                choice_label: name
+                            batch:
+                                choice_label: code
+                            qty:
+                                type: Sil\Bundle\StockBundle\Form\Type\UomQtyFormType
+                    _options:
+                        tabsOrder:
+                            - sil.stock.movement.form.tab.general
+                            - form_tab_history
+                            
+            Sonata\AdminBundle\Show\ShowMapper:
+                forceTabs: true
+                add:
+                    sil.stock.movement.show.tab.general:
+                        
+                        sil.stock.movement.show.group.general:
+                            code: ~
+                            expectedAt: ~
+                            completedAt: ~
+                            stockItem:
+                                associated_property: name
+                            qty: ~
+                            srcLocation:
+                                associated_property: name
+                            destLocation:
+                                associated_property: name
+                            state:
+                                template: SilStockBundle:Field:show_progress_state_field.html.twig
+                    _options:
+                        tabsOrder:
+                            - sil.stock.movement.show.tab.general
+                            - show_tab_history
+                            
+            Sonata\AdminBundle\Datagrid\ListMapper:
+                add: 
+                    code:
+                        identifier: true
+                    expectedAt: ~
+                    completedAt: ~
+                    stockItem:
+                        associated_property: name
+                    qty: ~
+                    srcLocation:
+                        associated_property: name
+                    destLocation:
+                        associated_property: name
+                    state:
+                        template: SilStockBundle:Field:list_progress_state_field.html.twig
+                    
+                        
+            Sonata\AdminBundle\Datagrid\DatagridMapper:
+                add:
+                    code: ~
+                    stockItem.name: ~
+                    qtyValue: ~
+                    qtyUom.name: ~
+                    srcLocation.name: ~
+                    destLocation.name: ~
+                        
+##############
+# WAREHOUSES
+##############
+
+        Sil\Bundle\StockBundle\Domain\Entity\Warehouse:
+            Sonata\AdminBundle\Form\FormMapper:
+                add:
+                    sil.stock.warehouse.form.tab.general:
+                        
+                        sil.stock.warehouse.form.group.general:
+                            code: ~
+                            name: ~
+                            
+            Sonata\AdminBundle\Show\ShowMapper:
+                forceTabs: true
+                add:
+                    sil.stock.warehouse.show.tab.general:
+                        
+                        sil.stock.warehouse.show.group.general:
+                            code: ~
+                            name: ~
+                            
+            Sonata\AdminBundle\Datagrid\ListMapper:
+                add: 
+                    code: ~
+                    name: ~
+            Sonata\AdminBundle\Datagrid\DatagridMapper:
+                add: 
+                    code: ~
+                    name: ~                 
+                        
+##############
+# LOCATIONS
+##############
+
+        Sil\Bundle\StockBundle\Domain\Entity\Location:
+            Sonata\AdminBundle\Form\FormMapper:
+                add:
+                    sil.stock.location.form.tab.general:
+                        
+                        sil.stock.location.form.group.general:
+                            code:
+                                required: true
+                            name: 
+                                required: true
+                            managed: ~
+                            type:
+                                type: Sil\Bundle\StockBundle\Form\Type\LocationTypeFormType
+                            treeParent:
+                                type: Sil\Bundle\StockBundle\Form\Type\LocationChoiceFormType
+                                choice_label: getIndentedName
+                                required: false
+                            warehouse:
+                                choice_label: name
+                                required: true
+                        
+                            
+            Sonata\AdminBundle\Show\ShowMapper:
+                forceTabs: false
+                add:
+                    sil.stock.location.show.tab.general:
+                        
+                        sil.stock.location.show.group.general:
+                            code: ~
+                            name: ~
+                            type:
+                                template: SilStockBundle:Field:show_location_type_field.html.twig
+                            managed: ~
+                            treeParent:
+                                associated_property: name
+                            warehouse:
+                                associated_property: name
+                                
+                        sil.stock.location.show.group.children:
+                            children:
+                                label: false
+                                mapped: false
+                                template: SilStockBundle:LocationAdmin\Show:show_children.html.twig
+                    
+                    sil.stock.location.show.tab.stocks:
+                        
+                        sil.stock.location.show.group.stockunits:
+                            stockUnits:
+                                template: SilStockBundle:LocationAdmin\Show:show_stock_units.html.twig 
+                            
+            Sonata\AdminBundle\Datagrid\ListMapper:
+                add: 
+                    codePath:
+                        identifier: true
+                        
+                    indentedName: ~
+                    type:
+                        template: SilStockBundle:Field:list_location_type_field.html.twig
+                    managed: ~
+                    warehouse:
+                        associated_property: name
+                     
+            Sonata\AdminBundle\Datagrid\DatagridMapper:
+                add: ~
+
+
+##############
+# UOM TYPES
+##############
+
+        Sil\Bundle\StockBundle\Domain\Entity\UomType:
+            Sonata\AdminBundle\Form\FormMapper:
+                add:
+                    sil.stock.uom_type.form.tab.general:
+                        
+                        sil.stock.uom_type.form.group.general:
+                            name: ~
+                            
+            Sonata\AdminBundle\Show\ShowMapper:
+                forceTabs: true
+                add:
+                    sil.stock.uom_type.show.tab.general:
+                        
+                        sil.stock.uom_type.show.group.general:
+                            name: ~                               
+                            
+            Sonata\AdminBundle\Datagrid\ListMapper:
+                add: 
+                    name: 
+                        identifier: true
+                     
+            Sonata\AdminBundle\Datagrid\DatagridMapper:
+                add: 
+                    name: ~           
+                    
+##############
+# UOMS
+##############
+
+        Sil\Bundle\StockBundle\Domain\Entity\Uom:
+            Sonata\AdminBundle\Form\FormMapper:
+                add:
+                    sil.stock.uom.form.tab.general:
+                        
+                        sil.stock.uom.form.group.general:
+                            name: ~
+                            type:
+                                choice_label: name
+                                
+                            factor: ~
+                            rounding: ~
+                    
+                    _options:
+                        tabsOrder:
+                            - sil.stock.uom.form.tab.general
+                            - show_tab_history
+                            
+            Sonata\AdminBundle\Show\ShowMapper:
+                forceTabs: true
+                add:
+                    sil.stock.uom.show.tab.general:
+                        
+                        sil.stock.uom.show.group.general:
+                            name: ~
+                            type:
+                                associated_property: name
+                            factor: ~
+                            rounding: ~                              
+                    
+                    _options:
+                        tabsOrder:
+                            - sil.stock.uom.show.tab.general
+                            - show_tab_history   
+                            
+            Sonata\AdminBundle\Datagrid\ListMapper:
+                add: 
+                    name: ~
+                    type:
+                        associated_property: name
+                    rounding: ~
+                     
+            Sonata\AdminBundle\Datagrid\DatagridMapper:
+                add: 
+                    name: ~
+                    type:
+                        associated_property: name
+                    factor: ~
+                    rounding: ~
+                    
+##############
+# STOCK ITEMS
+##############
+
+        Sil\Bundle\StockBundle\Domain\Entity\StockItem:
+            
+            Sonata\AdminBundle\Form\FormMapper:
+                add:
+                    sil.stock.stock_item.form.tab.general:
+                        
+                        sil.stock.stock_item.form.group.general:
+                            code: ~
+                            name: ~
+                            uom:
+                                choice_label: name
+                            outputStrategy:
+                                choice_label: name
+                    
+                    _options:
+                        tabsOrder:
+                            - sil.stock.stock_item.form.tab.general
+                            - show_tab_history        
+                            
+            Sonata\AdminBundle\Show\ShowMapper:
+                titleTemplate: SilStockBundle:StockItemAdmin/Show:show_title.html.twig
+                forceTabs: true
+                add:
+                    sil.stock.stock_item.show.tab.general:
+                        
+                        sil.stock.stock_item.show.group.general:
+                            code: ~   
+                            name: ~
+                            uom:
+                                associated_property: name
+                            outputStrategy:
+                                associated_property: name
+                            inStockQty:
+                                mapped: false
+                                template: SilStockBundle:StockItemAdmin/Show:show_computed_qty.html.twig
+                            reservedQty:
+                                mapped: false
+                                template: SilStockBundle:StockItemAdmin/Show:show_computed_qty.html.twig
+                            availableQty:
+                                mapped: false
+                                template: SilStockBundle:StockItemAdmin/Show:show_computed_qty.html.twig
+                    
+                    sil.stock.stock_item.show.tab.stocks:
+                        
+                        sil.stock.stock_item.show.group.stocks:
+                            locations:
+                                mapped: false
+                                template: SilStockBundle:StockItemAdmin/Show:show_stock_locations.html.twig
+                                
+                    _options:
+                        tabsOrder:
+                            - sil.stock.stock_item.show.tab.general
+                            - sil.stock.stock_item.show.tab.stocks
+                            - show_tab_history
+                        
+                                
+                            
+            Sonata\AdminBundle\Datagrid\ListMapper:
+                add: 
+                    code:
+                        identifier: true
+                    name: ~
+                    uom:
+                        associated_property: name
+                    outputStrategy:
+                        associated_property: name
+                     
+            Sonata\AdminBundle\Datagrid\DatagridMapper:
+                add: 
+                    name: ~
+                    code: ~    
+                    uom.name: ~
+                    outputStrategy.name: ~
+            
+    ##############
+    # STOCK UNITS
+    ##############
+
+        Sil\Bundle\StockBundle\Domain\Entity\StockUnit:
+            Sonata\AdminBundle\Form\FormMapper:
+                
+                add:
+                    sil.stock.stock_unit.form.tab.general:
+                         
+                        sil.stock.stock_unit.form.group.general:
+                            stockItem:
+                                choice_label: name
+                                attr:
+                                    disabled: disabled
+                                    class: inline-block
+                                    width: 50
+                            batch:
+                                choice_label: code
+                                attr:
+                                    class: inline-block
+                                    width: 50
+                            location:
+                                choice_label: name
+                                serviceCallback: [sil.stock.filter.location, filterByInternal, query_builder]
+                                attr:
+                                    class: inline-block
+                                    width: 50
+                            qty:
+                                type: Sil\Bundle\StockBundle\Form\Type\UomQtyFormType
+                                attr:
+                                    class: inline-block form-inline
+                                    width: 50
+                    _options:
+                        tabsOrder:
+                            - sil.stock.stock_unit.form.tab.general
+                            - show_tab_history
+                             
+            
+            Sonata\AdminBundle\Show\ShowMapper:
+                forceTabs: true
+                add:
+                    sil.stock.stock_unit.show.tab.general:
+                         
+                        sil.stock.stock_unit.show.group.general:
+                            code: ~
+                            stockItem:
+                                associated_property: name
+                            batch:
+                                associated_property: code
+                            location:
+                                associated_property: name
+                            qty: ~
+                            
+                            
+                    _options:
+                        tabsOrder:
+                            - sil.stock.stock_unit.show.tab.general
+                            - show_tab_history
+                            
+            Sonata\AdminBundle\Datagrid\ListMapper:
+                add: 
+                    code: ~
+                    stockItem:
+                        associated_property: name
+                    batch:
+                        associated_property: code
+                    location:
+                        associated_property: name
+                    qty: ~

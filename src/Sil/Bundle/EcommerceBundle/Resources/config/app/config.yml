@@ -1,0 +1,196 @@
+# Copyright (C) 2015-2016 Libre Informatique
+#
+# This file is licenced under the GNU GPL v3.
+# For the full copyright and license information, please view the LICENSE
+# file that was distributed with this source code.
+
+parameters:
+    sonata.core.flashmessage.manager.class: Librinfo\EcommerceBundle\Services\FlashManager
+
+imports:
+     - { resource: "state_machine.yml" }
+
+doctrine:
+    orm:
+        mappings:
+            SyliusProductBundle:
+                type: xml
+                prefix: Sylius\Component\Product\Model
+                dir: Resources/config/doctrine/model
+
+sylius_product:
+    driver: doctrine/orm
+    resources:
+        product:
+            classes:
+                model: Librinfo\EcommerceBundle\Entity\Product
+        product_variant:
+            classes:
+                model: Librinfo\EcommerceBundle\Entity\ProductVariant
+        product_option:
+            classes:
+                model: Librinfo\EcommerceBundle\Entity\ProductOption
+        product_option_value:
+            classes:
+                model: Librinfo\EcommerceBundle\Entity\ProductOptionValue
+
+sylius_review:
+    resources:
+        product:
+            subject: "%sylius.model.product.class%"
+            review:
+                classes:
+                    model: Librinfo\EcommerceBundle\Entity\ProductReview
+            reviewer:
+                classes:
+                    model: Librinfo\CRMBundle\Entity\Organism
+
+sylius_order:
+    resources:
+        order:
+            classes:
+                model: Librinfo\EcommerceBundle\Entity\Order
+        order_item:
+            classes:
+                model: Librinfo\EcommerceBundle\Entity\OrderItem
+                controller: Librinfo\EcommerceBundle\Controller\SyliusOrderItemController
+
+sylius_taxation:
+    resources:
+        tax_rate:
+            classes:
+                model: Librinfo\EcommerceBundle\Entity\TaxRate
+
+
+sylius_channel:
+    driver: doctrine/orm
+    resources:
+        channel:
+            classes:
+                repository: Librinfo\EcommerceBundle\Repository\ChannelRepository
+
+sylius_attribute:
+    resources:
+        product:
+            subject: Librinfo\EcommerceBundle\Entity\Product
+            attribute:
+                classes:
+                    model: Librinfo\EcommerceBundle\Entity\ProductAttribute
+
+sylius_customer:
+    driver: doctrine/orm
+    resources:
+        # customer:
+        #     classes:
+        #         model: Librinfo\CRMBundle\Entity\Organism
+        customer_group:
+            classes:
+                model: Librinfo\EcommerceBundle\Entity\CustomerGroup
+
+sylius_addressing:
+    resources:
+        address:
+            classes:
+                model: Librinfo\CRMBundle\Entity\Address
+        zone:
+            classes:
+                model: Librinfo\EcommerceBundle\Entity\Zone
+
+sylius_user:
+    resources:
+        admin:
+            user:
+                classes:
+                    model: Librinfo\SonataSyliusUserBundle\Entity\SonataUser
+
+sylius_core:
+    resources:
+        product_image:
+            classes:
+                model: Librinfo\EcommerceBundle\Entity\ProductImage
+
+sylius_taxonomy:
+    resources:
+        taxon:
+            classes:
+                model: Librinfo\EcommerceBundle\Entity\Taxon
+
+sylius_taxonomy:
+    resources:
+        taxon:
+            classes:
+                model: Librinfo\EcommerceBundle\Entity\Taxon
+
+sylius_shipping:
+    driver: doctrine/orm
+    resources:
+        shipping_method:
+            classes:
+                model: Librinfo\EcommerceBundle\Entity\ShippingMethod
+
+sylius_payment:
+    driver: doctrine/orm
+    resources:
+        payment:
+            classes:
+                model: Librinfo\EcommerceBundle\Entity\Payment
+
+sylius_shop:
+    # resources:
+    #     checkout_address:
+    #         templates:
+    #             form: LibrinfoEcommerceBundle:Checkout:address.html.twig
+
+    checkout_resolver:
+        pattern: /checkout/.+
+        route_map:
+            empty_order:
+                route: sylius_shop_cart_summary
+            cart:
+                route: sylius_shop_checkout_address_override
+            addressed:
+                route: sylius_shop_checkout_select_shipping
+            shipping_selected:
+                route: sylius_shop_checkout_select_payment
+            shipping_skipped:
+                route: sylius_shop_checkout_select_payment
+            payment_selected:
+                route: sylius_shop_checkout_complete
+            payment_skipped:
+                route: sylius_shop_checkout_complete
+
+fos_rest:
+    exception: ~
+    view:
+        formats:
+            json: true
+            xml:  true
+        empty_content: 204
+
+liip_imagine:
+    filter_sets:
+        sylius_shop_product_original: ~
+        sylius_shop_product_tiny_thumbnail:
+            filters:
+                thumbnail: { size: [64, 64], mode: outbound, allow_upscale: true }
+        sylius_shop_product_small_thumbnail:
+            filters:
+                thumbnail: { size: [150, 112], mode: outbound, allow_upscale: true }
+        sylius_shop_product_thumbnail:
+            filters:
+                thumbnail: { size: [260, 260], mode: outbound, allow_upscale: true }
+        sylius_shop_product_large_thumbnail:
+            filters:
+                thumbnail: { size: [550, 412], mode: outbound, allow_upscale: true }
+
+knp_snappy:
+    #process_timeout: 20 # In seconds
+    pdf:
+        enabled: true
+        #        binary:  /usr/bin/xvfb-run /usr/bin/wkhtmltopdf
+        binary:  %kernel.project_dir%/bin/wkhtmltopdf-amd64
+        options: []
+    image:
+        enabled: false
+        binary:  /usr/bin/wkhtmltoimage
+        options: []

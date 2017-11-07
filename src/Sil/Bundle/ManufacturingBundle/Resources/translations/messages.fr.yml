@@ -1,0 +1,76 @@
+sil:
+    manufacturing:
+
+        menu_label:
+            manufacturing: Fabrication
+            bom: Nomenclatures
+
+
+        ##############
+        # BOM
+        ##############
+        bom:
+            breadcrumb:
+                link:
+                    create: Nouvelle nomenclature
+                    list: Nomenclatures
+            show:
+                tab:
+                    general: Général
+                group:
+                    description: Description
+                action:
+                    
+                label:
+                    bom: Nomenclatures
+                    code: Référence
+                    stock_item: Article à produire
+                    qty: Quantité en sortie de fabrication
+                    lines: Composition
+                    created_at: Date de création
+                    updated_at: Date de mise à jour
+            form:
+                tab:
+                    general: Général
+                group:
+                    description: Description
+                    lines: Composition
+               
+                label:
+                    code: Référence
+                    stock_item: Article à produire
+                    qty: Quantité en sortie de production
+                    
+            list:
+                label:
+                    bom: Liste des nomenclatures
+                    stock_item: Article à produire
+                    created_at: Date de création
+                    code: Référence
+                    qty: Quantité
+                    action: Actions
+ 
+        ###################
+        # BOM LINE
+        ###################
+        bom_line:
+            breadcrumb:
+                link:
+                    create: Nouvelle Ligne de nomenclature
+                    list: Lignes de nomenclature
+            show:
+                label:
+                    stock_item: Article
+                    qty: Quantité
+            form:
+                tab:
+                    general: Général
+                group:
+                    general: ''
+               
+                label:
+                    stock_item: Article
+                    qty: Quantité
+            list:
+                label:
+                    

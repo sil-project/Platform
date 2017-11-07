@@ -1,0 +1,11 @@
+sonata_admin:
+    dashboard:
+        groups:
+                  
+            sil.menu.manufacturing:
+                label: librinfo.menu_label.manufacturing
+                icon:  '<i class="fa fa-industry"></i>'
+                items:
+                    - label: librinfo.menu_label.bom
+                      route: admin_manufacturing_bom_list        
+          

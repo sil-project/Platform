@@ -1,0 +1,6 @@
+Sil\Bundle\StockBundle\Domain\Entity\Partner:
+    type: mappedSuperclass
+    repositoryClass: Sil\Bundle\StockBundle\Doctrine\ORM\PartnerRepository
+    fields:
+        fulltextName:
+            type: string

@@ -1,0 +1,21 @@
+{% block images %}
+<table class="table image-gallery">
+    <tbody>
+        <tr>
+    {% for img in value %}
+        {% block img %}
+            {% set name = img.name | slice(0, 25) %}
+            <th>
+                {{ img | generateImgTag(150, 150) }}
+                {% if img.name | length > 24 %}
+                    {% set name = name ~ '...' %}
+                {% endif %}
+                <p>{{ name }}</p>
+            </th>
+        {% endblock %}
+    {% endfor %}
+        </tr>
+    </tbody>
+</table>
+<link rel="stylesheet" href="{{ asset('bundles/librinfomedia/css/show_images.css') }}" />
+{% endblock %}

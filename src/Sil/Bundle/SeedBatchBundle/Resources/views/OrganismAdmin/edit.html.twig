@@ -1,0 +1,98 @@
+{#
+
+This file is part of the Sonata package.
+
+(c) Baptiste SIMON <beta@e-glop.net>
+(c) Marcos Bezerra de Menezes <marcos.bezerra@libre-informatique.fr>
+(c) Libre Informatique [http://www.libre-informatique.fr/]
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+
+#}
+
+{% extends 'LibrinfoCRMBundle:OrganismAdmin:edit.html.twig' %}
+
+{% block bottom_js %}
+
+    {{ parent() }}
+
+    <script>
+        $(document).ready(function(){
+            var prefix = "{{ form.vars.id }}_";
+
+            // ************* Seed Producer ***************
+
+            var seedProducer = $('#' + prefix + 'seedProducer');
+            var circles = $('#' + prefix + 'circles');
+            var seedProducerCircleId = "{{ librinfo_app_circles.seed_producers.id|e('js') }}";
+
+            function checkedSeedProducer(event) {
+                // A seed producer must be in the seed producers circle
+                var selectedCircles = circles.select2('val');
+                if (selectedCircles[seedProducerCircleId] === undefined)
+                    circles.select2('val', selectedCircles.concat([seedProducerCircleId]));
+            }
+
+            function uncheckedSeedProducer(event) {
+                // Remove from the seed producers circle
+                var selectedCircles = circles.select2('val');
+                var index = selectedCircles.indexOf(seedProducerCircleId);
+                if (index !== -1) {
+                    selectedCircles.splice(index, 1);
+                    circles.select2('val', selectedCircles);
+                }
+            }
+
+            function changedCircles(event) {
+                if (event.added !== undefined && event.added.id == seedProducerCircleId)
+                    seedProducer.iCheck('check');
+                else if (event.removed !== undefined && event.removed.id == seedProducerCircleId)
+                    seedProducer.iCheck('uncheck');
+            }
+
+            // Init checkbox
+            if (circles.select2('val').indexOf(seedProducerCircleId) !== -1)
+                seedProducer.iCheck('check');
+
+            // event handlers
+            seedProducer.on('ifChecked', checkedSeedProducer);
+            seedProducer.on('ifUnchecked', uncheckedSeedProducer);
+            circles.on('change', changedCircles);
+
+            // ************ Seed Producer Code ***************
+
+            // Move things around...
+            var seedProducer_container = $('#sonata-ba-field-container-' + prefix + 'seedProducer');
+            seedProducer_container.addClass('form-inline');
+            seedProducer_container.find('.sonata-ba-field').css({display: 'inline-block', minWidth: '200px'});
+            seedProducer_container.find('label').css({'margin-left': '0', 'margin-right': '1em'});
+            var seedProducer_code_container = $('#sonata-ba-field-container-' + prefix + 'seedProducerCode');
+            seedProducer_code_container.find('input').css({display: 'inline-block'}).appendTo(seedProducer_container);
+            seedProducer_code_container.find('a').appendTo(seedProducer_container);
+            seedProducer_code_container.find('div.loader').appendTo(seedProducer_container);
+            seedProducer_code_container.remove();
+
+            function toggleSeedProducerCode(){
+                var $code = $('#' + prefix + 'seedProducerCode');
+                var $link = $('#' + prefix + 'seedProducerCode_generate_code');
+                if( $('#' + prefix + 'seedProducer').prop('checked') ) {
+                    $('label[for=' + prefix + 'seedProducerCode').addClass('required');
+                    if ($code.data('old') !== undefined)
+                        $code.val($code.data('old'));
+                    $code.show().prop('required', true);
+                    $link.show();
+                }
+                else {
+                    $('label[for=' + prefix + 'seedProducerCode').removeClass('required');
+                    $code.hide().prop('required', false).data('old', $code.val()).val('');
+                    $link.hide();
+                }
+            }
+
+            toggleSeedProducerCode();
+            $('#' + prefix + 'seedProducer').on('ifChanged', toggleSeedProducerCode);
+
+        });
+    </script>
+{% endblock %}

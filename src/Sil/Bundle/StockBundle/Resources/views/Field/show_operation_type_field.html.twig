@@ -1,0 +1,5 @@
+{% extends 'SonataAdminBundle:CRUD:base_show_field.html.twig' %}
+
+{% block field_value %}
+    {% include('SilStockBundle:Field:_operation_type_badge.html.twig') with {'value': object.type} %}
+{% endblock %}

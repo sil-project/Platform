@@ -1,0 +1,8 @@
+Librinfo\CRMBundle\Entity\Organism:
+    type: entity
+    repositoryClass: Librinfo\EmailCRMBundle\Entity\Repository\OrganismRepository
+
+    manyToMany:
+        emailMessages:
+            targetEntity: Librinfo\EmailBundle\Entity\Email
+            mappedBy: organizations

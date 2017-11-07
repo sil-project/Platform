@@ -1,0 +1,38 @@
+{% import "@SyliusShop/Common/Macro/money.html.twig" as money %}
+
+<td width="50%">
+    <strong>
+        {% include('LibrinfoEcommerceBundle:OrderAdmin:_state_label.html.twig') with {'category': 'payment', 'value': payment.state} %}
+        &nbsp;{{ payment.method }}
+        <br>
+        <span id="{{payment.id}}" class="order_payment_total">{{ money.convertAndFormat(payment.amount) }}</span>
+    </strong>
+</td>
+<td width="50%">
+
+    {% if sm_can(payment, 'complete', 'sylius_payment') %}
+        <div>
+            <form action="{{ path('admin_librinfo_ecommerce_order_updatePayment',{id: object.id}) }}" method="post" novalidate>
+                <input type="hidden" name="_action" value="complete"/>
+                <input type="hidden" name="_paymentId" value="{{ payment.id }}"/>
+                <a href="#" onclick="$(this).closest('form').submit()" class="btn btn-success pull-right confirmable" data-confirm-action="triggerClick">
+                    {{ 'sylius.ui.complete'|trans }}&nbsp;
+                    <i class="fa fa-check"></i>
+                </a>
+            </form>
+        </div>
+    {% endif %}
+
+    {% if sm_can(payment, 'refund', 'sylius_payment') %}
+        <div>
+            <form action="{{ path('admin_librinfo_ecommerce_order_updatePayment',{id: object.id}) }}" method="post" novalidate>
+                <input type="hidden" name="_action" value="refund"/>
+                <input type="hidden" name="_paymentId" value="{{ payment.id }}"/>
+                <a href="#" onclick="$(this).closest('form').submit()" class="btn btn-warning pull-right confirmable" data-confirm-action="triggerClick">
+                    {{ 'sylius.ui.refund'|trans }}&nbsp;
+                    <i class="fa fa-undo"></i>
+                </a>
+            </form>
+        </div>
+    {% endif %}
+</td>

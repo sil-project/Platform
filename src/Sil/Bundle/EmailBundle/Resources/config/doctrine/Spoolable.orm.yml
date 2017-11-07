@@ -1,0 +1,15 @@
+Librinfo\EmailBundle\Entity\Spoolable:
+    type: mappedSuperclass
+    fields:
+        message:
+            type:       text
+            nullable:   true
+        messageId:
+            type:       string(255)
+            nullable:   true
+        status:
+            type:       string(255)
+            nullable:   true
+        environment:
+            type:       string(255)
+            nullable:   true

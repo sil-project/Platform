@@ -1,0 +1,90 @@
+{% extends 'BlastCoreBundle:CRUD:base_edit.html.twig' %}
+
+{% block sonata_head_title %}
+
+    {% if _title is not empty %}
+        {{ _title|striptags|raw }}
+    {% else %}
+        {% if action is defined %}
+            -
+            {% for menu in breadcrumbs_builder.breadcrumbs(admin, action) %}
+                {% if not loop.first %}
+                    {% if loop.index != 2 %}
+                        &gt;
+                    {% endif %}
+
+                    {%- set translation_domain = menu.extra('translation_domain', 'messages') -%}
+                    {%- set label = menu.label -%}
+                    {%- if translation_domain is not same as(false) -%}
+                        {%- set label = label|trans(menu.extra('translation_params', {}), translation_domain) -%}
+                    {%- endif -%}
+
+                    {{ label }}
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    {% endif %}
+
+    - {{ 'Admin'|trans({}, 'SonataAdminBundle') }}
+{% endblock %}
+
+{% block title %}
+    {% if admin.titles.form is defined %}
+        {{ admin.titles.form|trans() }}
+    {% elseif admin.id(object) is not null %}
+        {# {{ "title_edit"|trans({'%name%': admin.toString(object)|truncate(15) }, 'SonataAdminBundle') }} #}
+        {{ "title_edit"|trans({'%name%': admin.toString(object) }, 'SonataAdminBundle') }}
+    {% else %}
+        {{ "title_create"|trans({}, 'SonataAdminBundle') }} {{ admin.classnameLabel }}
+    {% endif %}
+{% endblock %}
+
+
+
+
+{% block formactions %}
+    <div class="sonata-ba-form-actions well well-small form-actions">
+        {% block sonata_form_actions %}
+            {% if app.request.isxmlhttprequest %}
+                {% if admin.id(object) is not null %}
+                    <button type="submit" class="btn btn-success" name="btn_update">
+                        <i class="fa fa-save" aria-hidden="true"></i> 
+                        {{ 'sil.stock.action.update'|trans }}
+                    </button>
+                {% else %}
+                    <button type="submit" class="btn btn-success" name="btn_create">
+                        <i class="fa fa-plus-circle" aria-hidden="true"></i> 
+                        {{ 'sil.stock.action.create'|trans }}
+                    </button>
+                {% endif %}
+            {% else %}
+                
+                {% if admin.id(object) is not null %}
+                    {% if admin.hasroute('list') and admin.isGranted('LIST') %}
+                        <button type="submit" class="btn btn-success" name="btn_update_and_list">
+                            <i class="fa fa-save"></i> 
+                            {{ 'sil.stock.action.update_and_return_to_list'|trans }}
+                        </button>
+                    {% endif %}
+
+                    {% if admin.hasroute('delete') and admin.isGranted('DELETE', object) %}
+                        
+                        <a class="btn btn-default" href="{{ admin.generateObjectUrl('show', object) }}">
+                            <i class="fa fa-remove" aria-hidden="true"></i> 
+                            {{ 'sil.stock.action.cancel'|trans }}
+                        </a>
+                    {% endif %}
+
+                {% else %}
+                    {% if admin.hasroute('list') and admin.isGranted('LIST') %}
+                        <button type="submit" class="btn btn-success" name="btn_create_and_list">
+                            <i class="fa fa-save"></i>
+                            {{ 'sil.stock.action.create_and_return_to_list'|trans }}
+                        </button>
+                    {% endif %}
+                    
+                {% endif %}
+            {% endif %}
+        {% endblock %}
+    </div>
+{% endblock formactions %}

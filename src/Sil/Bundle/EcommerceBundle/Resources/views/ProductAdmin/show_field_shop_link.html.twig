@@ -1,0 +1,8 @@
+{% extends 'SonataAdminBundle:CRUD:base_show_field.html.twig' %}
+
+{% block field %}
+    <a href="{{ path('sylius_shop_product_show', {slug: object.slug}) }}" target="_blank">
+        {{ absolute_url(path('sylius_shop_product_show', {slug: object.slug})) }}
+        <i class="fa fa-external-link" aria-hidden="true"></i>
+    </a>
+{% endblock %}

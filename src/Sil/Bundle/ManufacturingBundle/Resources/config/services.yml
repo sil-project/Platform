@@ -1,0 +1,23 @@
+services:
+  
+    sil.manufacturing.code_generator.bom:
+        class: Sil\Bundle\ManufacturingBundle\Domain\Generator\BomCodeGenerator
+    
+ 
+    
+    ####################
+    # ORM REPOSITORIES #
+    ####################
+    
+    sil.manufacturing.repository.bom:
+        class:  Sil\Bundle\ManufacturingBundle\Doctrine\ORM\BomRepository
+        factory: ['@doctrine.orm.default_entity_manager', getRepository]
+        arguments:
+            - Sil\Bundle\ManufacturingBundle\Domain\Entity\Bom
+    
+    sil.manufacturing.repository.bom_line:
+        class:  Sil\Bundle\ManufacturingBundle\Doctrine\ORM\BomLineRepository
+        factory: ['@doctrine.orm.default_entity_manager', getRepository]
+        arguments:
+            - Sil\Bundle\ManufacturingBundle\Domain\Entity\BomLine
+  

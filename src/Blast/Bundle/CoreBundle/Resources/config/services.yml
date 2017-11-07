@@ -1,0 +1,95 @@
+services:
+
+    sonata.admin.admin_exporter:
+        class: Blast\CoreBundle\Admin\AdminExporter
+        arguments: ['@sonata.exporter.exporter']
+        calls:
+            - [setTokenStorage, ['@security.token_storage']]
+            - [setTranslator, ['@translator']]
+            - [setTwig, ['@twig']]
+            - [setRouter, ['@router']]
+
+    sonata.exporter.exporter:
+        class: Blast\CoreBundle\Exporter\Exporter
+
+
+#    blast_core.label.strategy.librinfo:
+#        class: Blast\CoreBundle\Translator\LibrinfoLabelTranslatorStrategy
+
+    ######### FORM TYPES ###########
+    blast_core.form.type.entity_code:
+        class: Blast\CoreBundle\Form\Type\EntityCodeType
+        tags:
+            - { name: form.type, alias: librinfo_entitycode }
+
+
+    #########  ENTITY CODE GENERATORS ############
+    blast_core.code_generator_factory:
+        class: Blast\CoreBundle\CodeGenerator\CodeGeneratorFactory
+    blast_core.code_generators:
+        class: Blast\CoreBundle\CodeGenerator\CodeGeneratorRegistry
+
+    ############ TWIG EXTENSIONS ##########
+    blast_core.extension.global_search:
+        class: Blast\CoreBundle\Twig\GlobalSearchExtension
+        public: false
+        arguments: ['@service_container']
+        tags:
+            - { name: twig.extension }
+
+    blast_core.extension.global_search:
+        class: Blast\CoreBundle\Twig\GlobalSearchExtension
+        public: false
+        arguments: ['@service_container']
+        tags:
+            - { name: twig.extension }
+
+    ############ PROFILER ##########
+    blast_core.profiler.collector:
+        class: Blast\CoreBundle\Profiler\Collector
+
+    blast_core.profiler.admin_collector:
+        class: Blast\CoreBundle\Profiler\AdminCollector
+        calls:
+            - [setCollector,['@blast_core.profiler.collector']]
+        tags:
+             -
+                name:     data_collector
+                template: 'BlastCoreBundle:Profiler/AdminCollector:toolbar.html.twig'
+                id:       'blast.admin_collector'
+        public: false
+
+    ############ DASHBOARD ##########
+    blast_core.dashboard.registry:
+        class: Blast\CoreBundle\Dashboard\DashboardBlockRegistry
+
+    blast_core.dashboard.main_block:
+        class: Blast\CoreBundle\Dashboard\DashboardSonataBlock
+        arguments:
+            - blast_core.dashboard.main_block
+            - "@templating"
+        calls:
+            - [ setRegistry, ["@blast_core.dashboard.registry"]]
+        tags:
+            - { name: sonata.block }
+
+    blast_core.dashboard.block:
+        abstract: true
+        class: Blast\CoreBundle\Dashboard\AbstractDashboardBlock
+        calls:
+            - [ setTemplating, ["@templating"]]
+            - [ setContainer, ["@service_container"]]
+
+    ############ HOOK ##########
+    blast_core.twig.fake_hook:
+        class: Blast\CoreBundle\Twig\FakeHook
+        arguments:
+            - '@service_container'
+            - '%kernel.environment%'
+        tags:
+            - { name: twig.extension }
+
+    blast_core.doctrine.orm.cascading_relation_checker:
+        class: Blast\CoreBundle\Doctrine\ORM\CascadingRelationChecker
+        calls:
+            - [setEm, ['@doctrine.orm.entity_manager']]

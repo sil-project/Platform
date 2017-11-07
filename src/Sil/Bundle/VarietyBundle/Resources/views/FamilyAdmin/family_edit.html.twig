@@ -1,0 +1,7 @@
+
+{% extends 'BlastCoreBundle:CRUD:base_edit.html.twig' %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {% include 'BlastUtilsBundle:Form:tinymce_init.html.twig' %}
+{% endblock %}

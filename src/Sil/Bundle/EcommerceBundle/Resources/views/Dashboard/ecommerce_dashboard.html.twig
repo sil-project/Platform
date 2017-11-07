@@ -1,0 +1,127 @@
+{% extends 'BlastCoreBundle:Dashboard:dashboardBlock.html.twig' %}
+
+{% import "@SyliusShop/Common/Macro/money.html.twig" as money %}
+
+{% block block_classes %}col-lg-12{% endblock block_classes %}
+
+{% block title %}
+    {{ 'librinfo.label.dashboard_title'|trans }}
+{% endblock title %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-lg-4 col-md-12">
+            <h4 class="text-center">{{ 'librinfo.label.sales_amount'|trans }}</h4>
+            <canvas id="dashboard-ecommerce-sales-amount"></canvas>
+        </div>
+        <div class="col-lg-4 col-md-12 table-responsive">
+            <h4 class="text-center">{{ 'librinfo.ecommercebundle.last_commands'|trans }}</h4>
+            <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                    <tr>
+                        <th>
+                            {{ 'librinfo.ecommercebundle.order_number'|trans }}
+                        </th>
+                        <th>
+                            {{ 'librinfo.ecommercebundle.customer'|trans }}
+                        </th>
+                        <th class="text-right">
+                            {{ 'librinfo.ecommercebundle.amount'|trans }}
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for order in lastOrdersToProcess %}
+                        <tr>
+                            <td>
+                                <a href="{{ path('admin_librinfo_ecommerce_order_show', {'id': order.id}) }}">
+                                    {{ order.number }}
+                                </a>
+                            </td>
+                            <td>
+                                {{ order.customer }}
+                            </td>
+                            <td class="text-right">
+                                {{ money.convertAndFormat(order.total) }}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    <tr>
+                        <td colspan="100%" class="text-center">
+                            <a href="{{ path('admin_librinfo_ecommerce_order_list') }}">
+                                {{ 'librinfo.ecommercebundle.manage_orders'|trans }}
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-lg-4 col-md-12 table-responsive">
+            <h4 class="text-center">{{ 'librinfo.ecommercebundle.misc_stats'|trans }}</h4>
+            <table class="table table-bordered table-striped table-condensed">
+                <tbody>
+                    {% for stat in miscStats %}
+                        <tr>
+                            <td>
+                                {{ stat.label|trans }}
+                            </td>
+                            <td class="text-right">
+                                {{ stat.value }}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock content %}
+
+{% block graphScripts %}
+    <script>
+        var dashboardEcommerceSalesChartDOM = $("#dashboard-ecommerce-sales-amount");
+
+        var dashboardEcommerceSalesChartData = {
+            "datasets": [
+                {
+                    "label": "{{ 'librinfo.label.sales_amount'|trans|raw }} (€)",
+                    "data": {{ salesAmountData|json_encode|raw }},
+                    "fill": true,
+                    "backgroundColor": "rgba(60, 141, 188, 0.2)",
+                    "borderColor": "rgba(60, 141, 188, 1)",
+                    "lineTension": 0.2
+                }
+            ]
+        };
+
+        var dashboardEcommerceSalesChart = new Chart(dashboardEcommerceSalesChartDOM, {
+            type: 'line',
+            data: dashboardEcommerceSalesChartData,
+            options: {
+                legend: {
+                    display: false
+                },
+                scales: {
+                    xAxes: [
+                        {
+                            type: 'time',
+                            display: true,
+                            time: {
+                                unit: 'month',
+                                displayFormats: {
+                                    month: 'MMM YYYY'
+                                }
+                            }
+                        }
+                    ],
+                    yAxes: [
+                        {
+                            ticks: {
+                                suggestedMin: 0
+                            }
+                        }
+                    ]
+                }
+            }
+        });
+    </script>
+{% endblock graphScripts %}

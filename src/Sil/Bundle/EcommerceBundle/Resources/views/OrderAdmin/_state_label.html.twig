@@ -1,0 +1,106 @@
+{% if category == 'order' %}
+
+    {% set colors = {
+        'cancelled': 'orange',
+        'cart':      'gray',
+        'fulfilled': 'green',
+        'new':       'blue',
+        'draft':     'gray',
+    } %}
+
+    {% set icons = {
+        'cancelled':  'ban',
+        'cart':       'shopping-cart',
+        'fulfilled':  'check',
+        'new':        'clock-o',
+        'draft':      'file-o'
+    } %}
+
+{% elseif category == 'order_payment' %}
+
+    {% set colors = {
+        'awaiting_payment':   'blue',
+        'cart':               'gray',
+        'cancelled':          'orange',
+        'paid':               'green',
+        'completed':          'green',
+        'partially_paid':     'orange',
+        'partially_refunded': 'orange',
+        'refunded':           'purple',
+        'new':                'blue'
+    } %}
+
+    {% set icons = {
+        'awaiting_payment':   'clock-o',
+        'cart':               'shopping-cart',
+        'cancelled':          'ban',
+        'paid':               'check',
+        'completed':          'check',
+        'partially_paid':     'check',
+        'partially_refunded': 'reply-all',
+        'refunded':           'reply-all',
+        'new':                'clock-o'
+    } %}
+
+{% elseif category == 'payment' %}
+
+    {% set colors = {
+        'cart':               'gray',
+        'new':                'blue',
+        'processing':         'blue',
+        'completed':          'green',
+        'failed':             'red',
+        'cancelled':          'orange',
+        'refunded':           'orange',
+    } %}
+
+    {% set icons = {
+        'cart':               'shopping-cart',
+        'new':                'clock-o',
+        'processing':         'clock-o',
+        'completed':          'check',
+        'failed':             'ban',
+        'cancelled':          'ban',
+        'refunded':           'reply-all',
+    } %}
+
+{% elseif category == 'order_shipping' %}
+
+    {% set colors = {
+        'cancelled':         'orange',
+        'cart':              'gray',
+        'ready':             'blue',
+        'partially_shipped': 'orange',
+        'shipped':           'green'
+    } %}
+
+    {% set icons = {
+        'cancelled':         'ban',
+        'cart':              'shopping-cart',
+        'ready':             'clock-o',
+        'partially_shipped': 'clock-o',
+        'shipped':           'truck'
+    } %}
+
+{% elseif category == 'shipping' %}
+
+    {% set colors = {
+        'cancelled': 'orange',
+        'cart':      'gray',
+        'ready':     'blue',
+        'shipped':   'green'
+    } %}
+
+    {% set icons = {
+        'cancelled': 'ban',
+        'cart':      'shopping-cart',
+        'ready':     'clock-o',
+        'shipped':   'truck'
+    } %}
+
+{% endif %}
+
+<span class="label bg-{{ colors[value]|default('black')  }}">
+    <i class="fa fa-{{ icons[value]|default('question') }}"></i>
+    {{ ('librinfo.' ~ category ~ '_state.' ~ value)|trans }}
+</span>

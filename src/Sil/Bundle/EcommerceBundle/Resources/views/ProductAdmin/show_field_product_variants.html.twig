@@ -1,0 +1,91 @@
+{% extends 'BlastCoreBundle:CRUD:base_show_field.html.twig' %}
+
+{% import "@SyliusShop/Common/Macro/money.html.twig" as money %}
+
+{% block field %}
+    <table class="table table-striped table-compact">
+        <thead>
+            <tr>
+                <th>
+                    {{ 'librinfo.ecommercebundle.name'|trans }}
+                </th>
+                <th>
+                    {{ 'librinfo.ecommercebundle.code'|trans }}
+                </th>
+                <th>
+                    {{ 'librinfo.ecommercebundle.optionValues'|trans }}
+                </th>
+                <th>
+                    {{ 'librinfo.ecommercebundle.taxCategory'|trans }}
+                </th>
+                <th class="text-right">
+                    {{ 'librinfo.ecommercebundle.prices'|trans }}
+                </th>
+                <th class="text-right">
+                    <i class="fa fa-cogs"></i>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+
+    {% for variant in value %}
+        <tr>
+            <td>
+                {{ variant.name }}
+            </td>
+            <td>
+                {{ variant.code }}
+            </td>
+            <td>
+                <ul class="list-inline">
+                {% for optionValue in variant.optionValues %}
+                    <li>
+                        <span class="label label-primary">{{ optionValue }}</span>
+                    </li>
+                {% endfor %}
+                </ul>
+            </td>
+            <td>
+                {{ variant.taxCategory }}
+            </td>
+            <td class="text-right">
+                <ul class="list-unstyled">
+                {% for price in variant.channelPricings %}
+                    <li>
+                        {{ price.channelCode }} <span class="badge">{{ money.convertAndFormat(price.price) }}</span>
+                    </li>
+                {% endfor %}
+                </ul>
+            </td>
+            <td>
+                <div class="btn-group pull-right">
+                    <a href="{{ path('admin_librinfo_ecommerce_productvariant_edit', {'id': variant.id})}}" class="btn btn-sm btn-default edit_link openInModal" title="{{ 'action_edit'|trans({}, 'SonataAdminBundle') }}">
+                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                    </a>
+                    {#
+                    <a href="{{ path('admin_librinfo_ecommerce_productvariant_delete', {'id': variant.id})}}" class="btn btn-sm btn-danger delete_link confirmable" title="{{ 'action_delete'|trans({}, 'SonataAdminBundle') }}">
+                        <i class="fa fa-trash" aria-hidden="true"></i>
+                    </a>
+                    #}
+                </div>
+            </td>
+        </tr>
+
+    {% else %}
+        <tr>
+            <td colspan="100%" class="text-center">
+                {{ 'librinfo.ecommercebundle.no_product_variants' }}
+            </td>
+        </tr>
+    {% endfor %}
+
+        </tbody>
+    </table>
+
+    <script>
+        jQuery(document).on('li-modal.success',function() {
+            window.location.reload();
+        });
+    </script>
+
+{% endblock %}

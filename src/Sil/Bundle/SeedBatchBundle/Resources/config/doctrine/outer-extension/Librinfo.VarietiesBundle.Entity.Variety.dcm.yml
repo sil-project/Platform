@@ -1,0 +1,7 @@
+Librinfo\VarietiesBundle\Entity\Variety:
+    type: entity
+
+    oneToMany:
+        seedBatches:
+            targetEntity: Librinfo\SeedBatchBundle\Entity\SeedBatch
+            mappedBy: variety

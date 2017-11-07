@@ -1,0 +1,102 @@
+librinfo:
+    msg:
+        no_emails_available: 'Aucun email'
+        sending_email: 'Envoi en cours...'
+    link:
+        email_list: 'Liste des emails'
+    error:
+        send_email_error: 'Erreur lors de l''envoi de l''email'
+    help:
+        field_to: 'Expéditeurs séparés par « ; » (ex: user1@test.com;user2@test.com)'
+    emailbundle:
+        _action: Action
+        address: Adresses
+        attachments: Pièces jointe
+        circles: Groupes
+        content: Contenu
+        createdat: Créé le 
+        createdby: Crée par
+        date: Date
+        destination: Destinataire
+        email_create: Créer un email
+        email_list: Liste des emails
+        emaillink_create: Créer un lien
+        emaillink_list: Liste des liens
+        emailreceipt_create: Créer une récéption ?
+        emailreceipt_list: Liste des emails réçus
+        emailtemplate_create: 'Créer un modèle d''email'
+        emailtemplate_list: 'Liste des modèle d''email'
+        field_bcc: Destinataires en copie cachée
+        field_cc: Destinataires en copie
+        field_from: Expéditeur
+        field_subject: Objet
+        field_to: Destinataires
+        id: Identifiant
+        istemplate: Enregistrer comme modèle
+        istest: Envoi de Test
+        name: Nom
+        newtemplatename: Nom du modèle
+        sent: Envoyé
+        sent: Envoyé
+        stats: Suivi
+        template: Modèle
+        testaddress: Addresse de test 
+        textcontent: Contenu
+        tracking: Suivi
+        updatedat: Modifié le
+        updatedby: Modifié par
+
+
+
+librinfo_email:
+    flash:
+        message_not_sent: 'Message non envoyé'
+        message_sent: 'Message envoyé avec succès'
+        
+'Email': 'Email'
+'Email List': 'Liste Emails'
+'Field From': 'Expéditeur'
+'Field To': 'Destinataires'
+'Field Cc': 'Cc'
+'Field Bcc': 'Bcc'
+'Field Subject': 'Objet'
+'Content': 'Contenu'
+'Text Content': 'Contenu texte'
+'Sent': 'Envoyé'
+'Tracking': 'Suivi'
+'Attachments': 'Pièces jointes'
+'Template': 'Modèle'
+'Is Template': 'Enregistrer comme modèle'
+'Is Test': 'Envoi de Test'
+'Test Address': 'Addresse de test'
+'New Template Name': 'Nom du modèle'
+'form_group_options': 'Options'
+'form_group_position': 'Fonction'
+'form_group_sales': 'Ventes'
+'form_group_ticketing': 'Billetterie'
+'form_group_phones': 'Numéros de téléphone'
+'form_group_members': 'Membres'
+'Updated At': 'Modifié le'
+'Created At': 'Créé le'
+'Updated By': 'Modifié par'
+'Created By': 'Créé par'
+'Add files': 'Ajouter des fichiers'
+'Send': 'Envoyer'
+'Duplicate': 'Dupliquer'
+'action_send': 'Envoyer'
+'action_duplicate': 'Dupliquer'
+'Read receipts': 'Accusé de réceptions'
+'Links clicked': 'Liens suivis'
+'Most clicked link:': 'Lien le plus suivi:'
+'Least clicked link:': 'Lien le moins suivi:'
+'form_group_tracking': 'Suivi'
+'Stats': 'Statistiques'
+'EmailTemplate': 'Modèles'
+'Name': 'Nom'
+'show_tab_emails': 'Emails'
+'form_group_attachments': 'Pièces jointes'
+'Email Create': 'Nouvel email'
+'Tracking is not enabled for this email': 'Le suivi n''est pas activé pour cet email'
+'No links clicked': 'Aucun lien suivi'
+'Message not sent': 'Message non envoyé'
+'Message sent': 'Message envoyé'

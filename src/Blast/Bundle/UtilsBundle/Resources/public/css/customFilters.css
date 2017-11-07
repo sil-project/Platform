@@ -1,0 +1,15 @@
+.sonata-filter-form {
+    padding-top: 1em;
+}
+
+.customFilterBox {
+    background: #F1F5FA;
+}
+
+nav .filterList .dropdown-menu > li.selectedFilter,
+nav .filterList .dropdown-menu > li.selectedFilter:hover,
+nav .filterList .dropdown-menu > li.selectedFilter > a
+nav .filterList .dropdown-menu > li.selectedFilter > a:hover {
+    background-color: #e1e3e9;
+    color: #444;
+}

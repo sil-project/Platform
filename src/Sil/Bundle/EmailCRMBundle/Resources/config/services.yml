@@ -1,0 +1,30 @@
+services:
+
+    blast_core.label.strategy.librinfo_emailcrm:
+        class: Blast\CoreBundle\Translator\LibrinfoLabelTranslatorStrategy
+        arguments: ['Librinfo\EmailCRMBundle']
+
+    librinfo_email.sender:
+        class: Librinfo\EmailCRMBundle\Services\Sender
+        arguments:
+            - '@doctrine.orm.entity_manager'
+            - '@librinfo_email.tracking'
+            - '@librinfo_email.inline_attachments'
+            - '@swiftmailer.mailer.direct_mailer'
+            - '@swiftmailer.mailer.spool_mailer'
+            - '@librinfo.email.address_manager'
+
+    librinfo.email.address_manager:
+        class: Librinfo\EmailCRMBundle\Services\AddressManager
+
+    librinfo_email_crm.replacements:
+        class: Librinfo\EmailCRMBundle\Services\SwiftMailer\DecoratorPlugin\Replacements
+        arguments: [ '@doctrine.orm.entity_manager' ]
+
+    swiftmailer.mailer.spool_mailer.spool.db:
+        class: Librinfo\EmailCRMBundle\Services\SwiftMailer\Spool\DbSpool
+        arguments:
+            - '@router'
+            - '@doctrine.orm.entity_manager'
+            - '%kernel.environment%'
+            - '@librinfo.email.address_manager'

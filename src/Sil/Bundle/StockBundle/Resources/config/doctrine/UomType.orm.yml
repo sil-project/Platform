@@ -1,0 +1,13 @@
+Sil\Bundle\StockBundle\Domain\Entity\UomType:
+    type: mappedSuperclass
+    repositoryClass: Sil\Bundle\StockBundle\Doctrine\ORM\UomTypeRepository
+    fields:
+        name:
+            type: string(64)
+            unique: true
+            nullable: false
+    
+    oneToMany:
+        uoms:
+          targetEntity: Uom
+          mappedBy: type

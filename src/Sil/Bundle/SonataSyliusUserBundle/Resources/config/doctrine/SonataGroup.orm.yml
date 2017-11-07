@@ -1,0 +1,12 @@
+Librinfo\SonataSyliusUserBundle\Entity\SonataGroup:
+    type:  entity
+    fields:
+        name:
+            type: string
+            nullable: false
+        roles:
+            type: array
+    manyToMany:
+        users:
+            mappedBy: groups
+            targetEntity: Librinfo\SonataSyliusUserBundle\Entity\SonataUser

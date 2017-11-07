@@ -1,0 +1,42 @@
+{% extends 'SonataAdminBundle:CRUD:base_show_field.html.twig' %}
+
+{% block field %}
+    {% set locations = admin.getLocationsByItem(object) %}
+
+    <div class="blast-show-collection" data-field-name="{{ field_description.name }}">
+
+        {% for location in locations %}
+            <div class="box box-primary">
+                <div class="box-header">
+                    <h4 class="box-title"><small>[{{ location.codePath }}]</small> 
+                        <strong>{{ location.name }} ({{ admin.getInStockQtyByLocation(object, location)}})</strong>
+                    </h4>
+                </div>
+                <table class="table table-bordered sonata-ba-list">
+                    <thead>
+                        <tr>
+                            <th class="sonata-ba-list-field-header-text">{{ 'sil.stock.stock_unit.show.label.created_at'|trans }}</th>
+                            <th class="sonata-ba-list-field-header-text">{{ 'sil.stock.stock_unit.show.label.code'|trans }}</th>
+                            <th class="sonata-ba-list-field-header-text">{{ 'sil.stock.stock_unit.show.label.batch'|trans }}</th>
+                            <th class="sonata-ba-list-field-header-text">{{ 'sil.stock.stock_unit.show.label.qty'|trans }}</th>
+                        </tr>   
+                    </thead>
+                    <tbody>
+
+                        {% for unit in location.stockUnits %}
+
+                            <tr class="sonata-ba-view-container">
+                                <td><small>{{ unit.createdAt|date('d/m/Y H:i')}}</small></td>
+                                <td><small>{{ unit.code}}</small></td>
+                                <td><small>{{ unit.batch }}</small></td>
+                                <td><small>{{ unit.qty}}</small></td>
+                            </tr>
+                        {% endfor %}
+
+                    </tbody>
+                </table>
+            </div>
+        {% endfor %}
+
+    </div>
+{% endblock %}

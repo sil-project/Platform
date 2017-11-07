@@ -1,0 +1,13 @@
+
+blast:
+    utilsbundle: ~
+
+'already exists': 'existe déjà'
+'Edit object': 'Editer l''objet'
+'Save current filter': 'Enregistrer le filtre'
+'Custom filter successfully saved': Filtre personnalisé enregistré
+'Custom filter name': Nom du filtre personnalisé
+'Delete filter': Supprimer le filtre
+'Global filters': Filtres généraux
+'Custom filters': Filtres personnels
+'no filters': aucun filtre

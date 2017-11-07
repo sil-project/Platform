@@ -1,0 +1,45 @@
+{
+    "name": "libre-informatique/email-crm-bundle",
+    "type": "symfony-bundle",
+    "description": "CRM Bundle for Symfony with Email management",
+    "require": {
+        "php": ">=7.1",
+        "symfony/symfony": ">=3.2",
+        "blast-project/core-bundle": "self.version",
+        "blast-project/base-entities-bundle": "self.version",
+        "blast-project/outer-extension-bundle": "self.version",
+        "blast-project/utils-bundle": "self.version",
+        "libre-informatique/media-bundle": "self.version",
+        "libre-informatique/email-bundle": "self.version",
+        "libre-informatique/crm-bundle": "self.version"
+    },
+    "require-dev": {
+        "symfony/phpunit-bridge": ">=3.2",
+        "phpunit/phpunit": "^6.4"
+    },
+    "license": "LGPL-3.0",
+    "keywords": [
+        "e-venement",
+        "libio",
+        "sonata",
+        "symfony",
+        "CRM",
+        "Email"
+    ],
+    "homepage": "https://github.com/libre-informatique/SymfonyLibrinfoEmailCRMBundle",
+    "authors": [
+        {
+            "name": "Marcos Bezerra de Menezes",
+            "email": "marcos.bezerra@libre-informatique.fr"
+        },
+        {
+            "name": "Libre Informatique",
+            "homepage": "http://www.libre-informatique.fr/"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Librinfo\\EmailCRMBundle\\": "/"
+        }
+    }
+}

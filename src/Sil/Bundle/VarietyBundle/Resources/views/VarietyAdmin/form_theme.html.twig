@@ -1,0 +1,27 @@
+{% extends 'BlastCoreBundle:Admin/Form:fields.html.twig' %}
+
+{% block data %}
+
+    {% if sonata_admin.admin.classnameLabel == 'Variety' %}
+        data = [
+           {
+            name:  '{{ uniqid }}[name]',
+            value: $('#{{ uniqid }}_name').val()
+           },
+           {
+            name:  '{{ uniqid }}[parent]',
+            value: $('#{{ uniqid }}_parent').val()
+           },
+           {
+            name:  '{{ uniqid }}[isStrain]',
+            value: $('#{{ uniqid }}_isStrain').prop('checked')
+           },
+           {
+            name:  '{{ uniqid }}[species]',
+            value: $('#{{ uniqid }}_species').val()
+           }
+        ];
+    {% else %}
+        {{ parent() }}
+    {% endif %}
+{% endblock %}

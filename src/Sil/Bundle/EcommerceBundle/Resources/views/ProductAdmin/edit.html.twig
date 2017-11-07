@@ -1,0 +1,57 @@
+{% extends 'LibrinfoMediaBundle:CRUD:edit.html.twig' %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script>
+        $(document).ready(function(){
+
+            /* Product slug lock/unlock */
+
+            var $slug = $('input[type=text]').filter(function(){return this.id.match(/^[a-z0-9]+_slug$/)});
+            $('<div class="input-group-addon" style="cursor: pointer"><i class="fa fa-lock"></i></div>')
+                .insertBefore($slug)
+                .on('click', toggleSlugLock);
+            $slug.attr('readonly', true).attr('style', 'width: 500px');
+            $slug.closest('div').addClass('input-group');
+
+            function toggleSlugLock(event) {
+                var readonly = $slug.attr('readonly') !== undefined;
+                $slug.attr('readonly', !readonly);
+                if ( readonly )
+                    $(this).find('i').removeClass('fa-lock').addClass('fa-unlock');
+                else
+                    $(this).find('i').removeClass('fa-unlock').addClass('fa-lock');
+            }
+
+            /* Update product slug when product name is changed */
+
+            var $slugSpin = $('<div class="input-group-addon"><i class="fa fa-refresh fa-spin fa-fw"></i></div>').insertAfter($slug).hide();
+            var $name = $('input[type=text]').filter(function(){return this.id.match(/^[a-z0-9]+_name$/)});
+            var slugTimeout;
+            $name.on('input', function() {
+                clearTimeout(slugTimeout);
+                slugTimeout = setTimeout(function() {
+                    updateSlug($name);
+                }, 1000);
+            });
+
+            function updateSlug($element) {
+                $slugSpin.show();
+                $.ajax({
+                    type: "GET",
+                    url: "{{ path('admin_librinfo_ecommerce_product_generateProductSlug') }}",
+                    data: { name: $element.val() },
+                    dataType: "json",
+                    accept: "application/json",
+                    success: function(data) {
+                        $slug.val(data.slug);
+                        $slugSpin.hide();
+                    }
+                });
+            }
+        });
+    </script>
+
+    {% include 'BlastUtilsBundle:Form:tinymce_init.html.twig' %}
+{% endblock %}

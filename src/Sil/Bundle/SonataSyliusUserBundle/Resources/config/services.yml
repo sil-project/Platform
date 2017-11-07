@@ -1,0 +1,55 @@
+# Copyright (C) 2015-2017 Libre Informatique
+#
+# This file is licenced under the GNU GPL v3.
+# For the full copyright and license information, please view the LICENSE
+# file that was distributed with this source code.
+
+parameters:
+    sonata_sylius_user.user.class: Librinfo\SonataSyliusUserBundle\Entity\SonataUser
+
+services:
+    blast_core.label.strategy.librinfo_sonata_sylius_user:
+        class: Blast\CoreBundle\Translator\LibrinfoLabelTranslatorStrategy
+        arguments: ['Librinfo\SonataSyliusUserBundle']
+
+### DOCTRINE EVENT LISTENERS ###
+
+    # Canonicalization of emails and usernames
+    sonata_sylius_user.listener.canonicalizer:
+        class: Librinfo\SonataSyliusUserBundle\EventListener\CanonicalizerListener
+        arguments:
+            - "@sylius.canonicalizer"
+        tags:
+            - { name: doctrine.event_listener, event: prePersist }
+            - { name: doctrine.event_listener, event: preUpdate }
+
+    # Traceable Doctrine mapping and behavior
+    sonata_sylius_user.listener.traceable:
+        class: Librinfo\SonataSyliusUserBundle\EventListener\TraceableListener
+        tags:
+            - { name: doctrine.event_subscriber }
+        calls:
+            - [setLogger,['@logger']]
+            - [setTokenStorage, ['@security.token_storage']]
+            - [setUserClass, ['%sonata_sylius_user.user.class%']]
+            - [setClassAnalyser, [Blast\CoreBundle\Tools\Reflection\ClassAnalyzer]]
+
+    # Ownable Doctrine mapping
+    sonata_sylius_user.listener.ownable:
+        class: Librinfo\SonataSyliusUserBundle\EventListener\OwnableListener
+        tags:
+            - { name: doctrine.event_subscriber }
+        calls:
+            - [setLogger,['@logger']]
+            - [setTokenStorage, ['@security.token_storage']]
+            - [setUserClass, ['%sonata_sylius_user.user.class%']]
+            - [setClassAnalyser, [Blast\CoreBundle\Tools\Reflection\ClassAnalyzer]]
+
+    # Set GUID primary keys for Sylius entities (and child classes)
+    sonata_sylius_user.listener.sylius_guidable:
+        class: Librinfo\SonataSyliusUserBundle\EventListener\SyliusGuidableListener
+        tags:
+            - { name: doctrine.event_subscriber }
+        calls:
+            - [setLogger, ['@logger']]
+            - [setClassAnalyser, [Blast\CoreBundle\Tools\Reflection\ClassAnalyzer]]

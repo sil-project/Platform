@@ -1,0 +1,7 @@
+
+'A species cannot be both a sub-species and a parent species': 'Une espèce ne peut être à la fois une sous-espèce et une espèce parente.'
+'This code is already used by another species.': 'Ce code est déjà utilisé par une autre espèce.'
+'Wrong species code format': 'Mauvais format pour le code espèce'
+'annual': 'Plante annuelle'
+'biennial': 'Plante bisannuelle'
+'perennial': 'Plante vivace'

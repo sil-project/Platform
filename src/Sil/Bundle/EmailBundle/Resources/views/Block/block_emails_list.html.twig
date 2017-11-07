@@ -1,0 +1,125 @@
+{% extends sonata_block.templates.block_base %}
+
+{# TODO: create an embedded Email admin and generate the list view to include here #}
+
+{% block block %}
+    <table class="table table-bordered table-striped sonata-ba-list emails-history">
+        <thead>
+            <tr>
+                <th>Expéditeur</th>
+                <th>Destinataires</th>
+                <th>Objet</th>
+                <th>Envoyé</th>
+                <th>Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for email in emails %}
+                <tr data-email-id="{{ email.id }}">
+                    <td>{{ email.fieldFrom }}</td>
+                    <td>
+                        {{ 'librinfo.label.email_to'|trans }}: {{ email.fieldTo }}
+                        {% if email.fieldCc %}
+                            <br>{{ 'librinfo.label.email_cc'|trans }}: {{ email.fieldCc }}
+                        {% endif %}
+                        {% if email.fieldBcc %}
+                            <br>{{ 'librinfo.label.email_bcc'|trans }}: {{ email.fieldBcc }}
+                        {% endif %}
+                    </td>
+                    <td>{{ email.fieldSubject }}</td>
+                    <td class="email-status">
+                        {% spaceless %}
+                            <span class="label label-success email-sent-status" style="display: {{ email.sent ? 'inline' : 'none' }}">
+                                {%- trans from 'SonataAdminBundle' %}label_type_yes{% endtrans -%}
+                            </span>
+                            <span class="label label-danger email-not-sent-status" style="display: {{ email.sent ? 'none' : 'inline' }}">
+                                {%- trans from 'SonataAdminBundle' %}label_type_no{% endtrans -%}
+                            </span>
+                            <span class="email-sending-status" style="display: none">{{ 'librinfo.msg.sending_email'|trans }}</span>
+                        {% endspaceless %}
+                    </td>
+                    <td>{{ email.updatedAt|date('d/m/Y H:i') }}</td>
+                    <td class="email-actions">
+                        <div class="btn-group">
+                            <a title="Afficher" class="btn btn-sm btn-default view_link" href="{{ path('admin_librinfo_email_email_show', {'id': email.id}) }}">
+                                <i class="fa fa-search-plus"></i>
+                                Afficher
+                            </a>
+                            {% if not email.sent %}
+                                <a href="{{ path('admin_librinfo_email_email_send') }}"
+                                   class="btn btn-sm btn-default ajax-send-email"
+                                   title="{{ 'Send'|trans({}, 'LibrinfoEmailBundle') }}">
+                                    <i class="fa fa-paper-plane"></i>
+                                    {{ 'action_send'|trans({}, 'LibrinfoEmailBundle') }}
+                                </a>
+                            {% endif %}
+                        </div>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="4">{{ 'librinfo.msg.no_emails_available'|trans }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <script>
+        $(function() {
+            $('.ajax-send-email').click(function(){
+                var url = $(this).attr('href');
+                var emailId = $(this).closest('tr').data('email-id');
+                setEmailStatus(emailId, 'sending');
+                $.ajax({
+                    type: 'POST',
+                    url: url,
+                    data: {id: emailId},
+                    dataType: 'json',
+                    success: function(data){
+                        if (data.status == 'OK')
+                            setEmailStatus(emailId, 'sent');
+                        else {
+                            setEmailStatus(emailId, data.sent ? 'sent' : 'not-sent');
+                            alert(data.error);
+                        }
+                    },
+                    error: function(data){
+                        setEmailStatus(emailId, 'error');
+                        alert('{{ 'librinfo.error.send_email_error'|trans|e('js') }}');
+                    }
+                });
+                return false;
+            });
+
+            function setEmailStatus(emailId, status) {
+                var sendLink = $('tr[data-email-id=' + emailId + '] a.ajax-send-email');
+                var sentMsg = $('tr[data-email-id=' + emailId + '] .email-sent-status');
+                var notSentMsg = $('tr[data-email-id=' + emailId + '] .email-not-sent-status');
+                var sendingMsg = $('tr[data-email-id=' + emailId + '] .email-sending-status');
+                switch(status) {
+                    case 'sending':
+                        sendLink.hide();
+                        sentMsg.hide();
+                        notSentMsg.hide();
+                        sendingMsg.show();
+                        break;
+                    case 'sent':
+                        sendingMsg.hide();
+                        notSentMsg.hide();
+                        sentMsg.show();
+                        break;
+                    case 'not-sent':
+                        sendingMsg.hide();
+                        sentMsg.hide();
+                        notSentMsg.show();
+                        sendLink.show();
+                        break;
+                    case 'error':
+                        sendingMsg.text('{{ 'librinfo.error.send_email_error'|trans|e('js') }}');
+                        break;
+                }
+            }
+        })
+    </script>
+{% endblock %}

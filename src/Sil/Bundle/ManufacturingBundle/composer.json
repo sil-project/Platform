@@ -1,0 +1,43 @@
+{
+    "name": "sil-project/manufacturing-bundle",
+    "type": "symfony-bundle",
+    "description": "",
+    "license": "LGPL-3.0",
+    "keywords": [],
+    "homepage": "https://github.com/sil-project/ManufacturingBundle",
+    "authors": [
+        {
+            "name": "Glenn Cavarlé",
+            "email": "glenn.cavarle@libre-informatique.fr"
+        },
+        {
+            "name": "Libre Informatique",
+            "homepage": "http://www.libre-informatique.fr/"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Sil\\Bundle\\ManufacturingBundle\\": "/"
+        }
+    },
+    "require": {
+        "php": ">=7.1",
+        "symfony/symfony": ">=3.2",
+        "blast-project/core-bundle": "self.version",
+        "blast-project/base-entities-bundle": "self.version",
+        "blast-project/resource-bundle": "self.version",
+        "sil-project/stock-bundle": "self.version"
+
+    },
+    "require-dev": {
+        "symfony/phpunit-bridge": ">=3.2",
+        "phpunit/phpunit": "^6.4"
+    },
+    "scripts": {
+        "phpunit-install": [
+            "wget https://phar.phpunit.de/phpunit-5.7.phar --output-document=bin/phpunit",
+            "chmod u+x bin/phpunit"
+        ]
+    },
+    "suggest": {}
+}

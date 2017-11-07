@@ -1,0 +1,5 @@
+{% extends 'SonataAdminBundle:CRUD:base_list_field.html.twig' %}
+
+{% block field %}
+    {% include('LibrinfoEcommerceBundle:OrderAdmin:_state_label.html.twig') with {'category': 'order', 'value': object.state} %}
+{% endblock %}

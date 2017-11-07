@@ -1,0 +1,169 @@
+parameters:
+    librinfo_crm.admin.address.entity.class: Librinfo\CRMBundle\Entity\Address
+
+services:
+
+    librinfo_crm.admin.organism_embedded:
+        class: Librinfo\CRMBundle\Admin\OrganismEmbeddedAdmin
+        arguments: [~, Librinfo\CRMBundle\Entity\Organism, BlastCoreBundle:CRUD]
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              group: admin
+              label: librinfo.crmbundle.admin.organism_embedded
+              label_translator_strategy: blast_core.label.strategy.librinfo_crm
+
+    librinfo_crm.admin.individual:
+        class: Librinfo\CRMBundle\Admin\IndividualAdmin
+        arguments: [~, Librinfo\CRMBundle\Entity\Organism, LibrinfoCRMBundle:OrganismAdmin]
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              group: Customers Relationship Management
+              label: librinfo.crmbundle.admin.individual
+              label_translator_strategy: blast_core.label.strategy.librinfo_crm
+        calls:
+            - [ setTemplate, [edit, LibrinfoCRMBundle:OrganismAdmin:edit.html.twig]]
+            - [ setTemplate, [show, LibrinfoCRMBundle:OrganismAdmin:show.html.twig]]
+
+    librinfo_crm.admin.organization:
+        class: Librinfo\CRMBundle\Admin\OrganizationAdmin
+        arguments: [~, Librinfo\CRMBundle\Entity\Organism, LibrinfoCRMBundle:OrganismAdmin]
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              group: Customers Relationship Management
+              label: librinfo.crmbundle.admin.organization
+              label_translator_strategy: blast_core.label.strategy.librinfo_crm
+        calls:
+            - [ setTemplate, [edit, LibrinfoCRMBundle:OrganismAdmin:edit.html.twig]]
+            - [ setTemplate, [show, LibrinfoCRMBundle:OrganismAdmin:show.html.twig]]
+
+    librinfo_crm.admin.organism:
+        class: Librinfo\CRMBundle\Admin\OrganismAdmin
+        arguments: [~, Librinfo\CRMBundle\Entity\Organism, LibrinfoCRMBundle:OrganismAdmin]
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              group: Customers Relationship Management
+              label: librinfo.crmbundle.admin.organism
+              label_translator_strategy: blast_core.label.strategy.librinfo_crm
+        calls:
+            - [ setTemplate, [edit, LibrinfoCRMBundle:OrganismAdmin:edit.html.twig]]
+            - [ setTemplate, [show, LibrinfoCRMBundle:OrganismAdmin:show.html.twig]]
+
+    librinfo_crm.admin.customer:
+        class: Librinfo\CRMBundle\Admin\CustomerAdmin
+        arguments: [~, Librinfo\CRMBundle\Entity\Organism, LibrinfoCRMBundle:OrganismAdmin]
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              group: Customers Relationship Management
+              label: librinfo.crmbundle.admin.customer
+              label_translator_strategy: blast_core.label.strategy.librinfo_crm
+        calls:
+            - [ setCodeGenerator, ['@librinfo_crm.code_generator.customer'] ]
+            - [ setTemplate, [edit, LibrinfoCRMBundle:OrganismAdmin:edit.html.twig] ]
+            - [ setTemplate, [show, LibrinfoCRMBundle:OrganismAdmin:show.html.twig] ]
+
+    librinfo_crm.admin.organism_phone:
+        class: Librinfo\CRMBundle\Admin\OrganismPhoneAdmin
+        arguments: [~, Librinfo\CRMBundle\Entity\OrganismPhone, BlastCoreBundle:CRUD]
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              group: Customers Relationship Management
+              label: librinfo.crmbundle.admin.organism_phone
+              label_translator_strategy: blast_core.label.strategy.librinfo_crm
+
+    librinfo_crm.admin.category:
+        class: Librinfo\CRMBundle\Admin\CategoryAdmin
+        arguments: [~, Librinfo\CRMBundle\Entity\Category, BlastCoreBundle:CRUD]
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              group: Customers Relationship Management
+              label: librinfo.crmbundle.admin.category
+              label_translator_strategy: blast_core.label.strategy.librinfo_crm
+
+    librinfo_crm.admin.role:
+        class: Librinfo\CRMBundle\Admin\RoleAdmin
+        arguments: [~, Librinfo\CRMBundle\Entity\Role, BlastCoreBundle:CRUD]
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              group: Customers Relationship Management
+              label: librinfo.crmbundle.admin.role
+              label_translator_strategy: blast_core.label.strategy.librinfo_crm
+
+    librinfo_crm.admin.organism_group:
+        class: Librinfo\CRMBundle\Admin\OrganismGroupAdmin
+        arguments: [~, Librinfo\CRMBundle\Entity\OrganismGroup, BlastCoreBundle:CRUD]
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              group: Customers Relationship Management
+              label: librinfo.crmbundle.admin.organism_group
+              label_translator_strategy: blast_core.label.strategy.librinfo_crm
+
+    librinfo_crm.admin.circle:
+        class: Librinfo\CRMBundle\Admin\CircleAdmin
+        arguments: [~, Librinfo\CRMBundle\Entity\Circle, LibrinfoCRMBundle:CircleAdmin]
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              group: Customers Relationship Management
+              label: librinfo.crmbundle.admin.circle
+              label_translator_strategy: blast_core.label.strategy.librinfo_crm
+
+    librinfo_crm.admin.position:
+        class: Librinfo\CRMBundle\Admin\PositionAdmin
+        arguments: [~, Librinfo\CRMBundle\Entity\Position, BlastCoreBundle:CRUD]
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              group: Customers Relationship Management
+              label: librinfo.crmbundle.admin.position
+              label_translator_strategy: blast_core.label.strategy.librinfo_crm
+
+    librinfo_crm.admin.position_type:
+        class: Librinfo\CRMBundle\Admin\PositionTypeAdmin
+        arguments: [~, Librinfo\CRMBundle\Entity\PositionType, BlastCoreBundle:CRUD]
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              group: Customers Relationship Management
+              label: librinfo.crmbundle.admin.position_type
+              label_translator_strategy: blast_core.label.strategy.librinfo_crm
+
+    librinfo_crm.admin.phone_type:
+        class: Librinfo\CRMBundle\Admin\PhoneTypeAdmin
+        arguments: [~, Librinfo\CRMBundle\Entity\PhoneType, BlastCoreBundle:CRUD]
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              group: Customers Relationship Management
+              label: librinfo.crmbundle.admin.phone_type
+              label_translator_strategy: blast_core.label.strategy.librinfo_crm
+
+    librinfo_crm.admin.city:
+        class: Librinfo\CRMBundle\Admin\CityAdmin
+        arguments: [~, Librinfo\CRMBundle\Entity\City, LibrinfoCRMBundle:CityAdmin]
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              group: Customers Relationship Management
+              label: librinfo.crmbundle.admin.city
+              label_translator_strategy: blast_core.label.strategy.librinfo_crm
+
+    librinfo_crm.admin.address:
+        class: Librinfo\CRMBundle\Admin\AddressAdmin
+        arguments: [~, %librinfo_crm.admin.address.entity.class%, BlastCoreBundle:CRUD]
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              group: admin
+              label: librinfo.crmbundle.admin.address
+              label_translator_strategy: blast_core.label.strategy.librinfo_crm
+        calls:
+            - [ setTemplate, [edit, LibrinfoCRMBundle:AddressAdmin:edit.html.twig]]

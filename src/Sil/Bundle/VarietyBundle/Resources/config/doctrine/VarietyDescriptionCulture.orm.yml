@@ -1,0 +1,9 @@
+
+Librinfo\VarietiesBundle\Entity\VarietyDescriptionCulture:
+    type: entity
+    manyToOne:
+        variety:
+            targetEntity: Librinfo\VarietiesBundle\Entity\Variety
+            inversedBy: culture_descriptions
+            joinColumn:
+                name: variety_id

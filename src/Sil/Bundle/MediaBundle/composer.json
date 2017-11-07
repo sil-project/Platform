@@ -1,0 +1,39 @@
+{
+    "name": "libre-informatique/media-bundle",
+    "type": "symfony-bundle",
+    "description": "Media Bundle for Symfony",
+    "require": {
+        "php": ">=7.1",
+        "symfony/symfony": ">=3.2",
+        "symfony/event-dispatcher": ">=3.2",
+        "blast-project/core-bundle": "self.version"
+    },
+    "require-dev": {
+        "symfony/phpunit-bridge": ">=3.2",
+        "phpunit/phpunit": "^6.4"
+    },
+    "license": "LGPL-3.0",
+    "keywords": [
+        "e-venement",
+        "libio",
+        "sonata",
+        "symfony",
+        "media"
+    ],
+    "homepage": "https://github.com/libre-informatique/SymfonyLibrinfoMediaBundle",
+    "authors": [
+        {
+            "name": "Romain SANCHEZ",
+            "email": "romain.sanchez@libre-informatique.fr"
+        },
+        {
+            "name": "Libre Informatique",
+            "homepage": "http://www.libre-informatique.fr/"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Librinfo\\MediaBundle\\": "/"
+        }
+    }
+}

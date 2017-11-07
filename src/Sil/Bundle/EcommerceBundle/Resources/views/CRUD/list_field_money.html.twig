@@ -1,0 +1,11 @@
+{% extends 'SonataAdminBundle:CRUD:base_list_field.html.twig' %}
+
+{% import "@SyliusShop/Common/Macro/money.html.twig" as money %}
+
+{% block field %}
+    {% if value == 0 %}
+        <em class="text-muted" style="opacity:0.3">{{ money.convertAndFormat(value) }}</em>
+    {% else %}
+        {{ money.convertAndFormat(value) }}
+    {% endif %}
+{% endblock %}

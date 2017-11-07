@@ -1,0 +1,127 @@
+{#
+
+This file is part of the Libre Informatique DecoratorBundle package.
+
+(c) Baptiste SIMON <baptiste.simon _AT_ libre-informatique.fr>
+(c) Libre Informatique [http://www.libre-informatique.fr/]
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+
+#}
+
+{% extends 'BlastCoreBundle::standard_layout.html.twig' %}
+
+{% block meta_tags %}
+    {{ parent() }}
+    <link rel="icon" type="image/png" href="{{ asset('bundles/librinfodecorator/li-favicon.png') }}" />
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('bundles/librinfodecorator/css/skin-blue.css') }}" />
+    <link rel="stylesheet" href="{{ asset('bundles/librinfodecorator/css/spinkit-folding-cube.css') }}" />
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        // cf https://almsaeedstudio.com/themes/AdminLTE/documentation/index.html#adminlte-options
+        var AdminLTEOptions = { animationSpeed: 150 };
+    </script>
+    {{ parent() }}
+    <script type="text/javascript" src="{{ asset('bundles/librinfodecorator/js/main.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/librinfodecorator/js/inline-block.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/librinfodecorator/js/Chart.min.js') }}"></script>
+    <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
+{% endblock %}
+
+{% block body_attributes %}
+    class="{% block body_classes %}sonata-bc skin-blue fixed librinfo{% endblock %}"
+{% endblock %}
+
+{% block sonata_top_nav_menu %}
+
+    <div class="navbar-right">
+        <ul class="nav navbar-nav">
+            <li class="dropdown user-menu">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-user">
+                    {% include admin_pool.getTemplate('user_block') %}
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+{% endblock %}
+
+{% block logo %}
+    {% spaceless %}
+        <a class="logo" href="{{ url('sonata_admin_dashboard') }}">
+            {% if 'single_image' == admin_pool.getOption('title_mode') or 'both' == admin_pool.getOption('title_mode') %}
+                {% if 'bundles/sonataadmin/logo_title.png' == admin_pool.titlelogo %}
+                    <img src="{{ asset('bundles/librinfodecorator/logo-li.png') }}" alt="Libre Informatique">
+                {% else %}
+                    <img src="{{ asset(admin_pool.titlelogo) }}" alt="{{ admin_pool.title }}">
+                {% endif %}
+            {% endif %}
+            {% if 'single_text' == admin_pool.getOption('title_mode') or 'both' == admin_pool.getOption('title_mode') %}
+                {% if 'Sonata Admin' == admin_pool.title %}
+                    <span>Libre Informatique</span>
+                {% else %}
+                    <span>{{ admin_pool.title }}</span>
+                {% endif %}
+            {% endif %}
+        </a>
+    {% endspaceless %}
+{% endblock %}
+
+{% block sonata_page_content %}
+    <section class="content-header">
+        {{ block('sonata_page_content_header') }}
+
+        <div id="extra-content">
+            {% block extra_content %}{% endblock %}
+        </div>
+
+        <div id="fixed-tabs" class="nav-tabs-custom">
+            {% block tabs %}{% endblock %}
+        </div>
+
+    </section>
+
+    <section class="content">
+        {{ block('sonata_admin_content') }}
+    </section>
+
+    <div class="modal fade li-modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg" style="width: 90%; height: 85%; padding: 0px;" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">&nbsp;</h4>
+                </div>
+                <div class="modal-body">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-right" data-dismiss="modal">{{'read_less'|trans({},'SonataAdminBundle')}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock sonata_page_content %}
+
+{% block side_bar_after_nav %}
+
+{% endblock side_bar_after_nav %}
+
+{% block tab_menu_navbar_header %}
+    {% if _navbar_title is not empty %}
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">{{ _navbar_title|raw }}</a>
+        </div>
+    {% endif %}
+{% endblock %}

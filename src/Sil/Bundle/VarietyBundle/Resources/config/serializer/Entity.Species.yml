@@ -1,0 +1,16 @@
+Librinfo\VarietiesBundle\Entity\Species:
+    properties:
+        varieties:
+            exclude: true
+        createdAt:
+            exclude: true
+        createdBy:
+            exclude: true
+        updatedAt:
+            exclude: true
+        updatedBy:
+            exclude: true
+        plant_categories: 
+                expose: true
+                map:
+                    plant_category: id

@@ -1,0 +1,11 @@
+services:
+
+    librinfo_sonata_sylius_user.admin.sonata_user:
+        class: Librinfo\SonataSyliusUserBundle\Admin\SonataUserAdmin
+        arguments: [~, Librinfo\SonataSyliusUserBundle\Entity\SonataUser, BlastCoreBundle:CRUD]
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              group: admin
+              label: librinfo.sonata_sylius_user.admin.sonata_user
+              label_translator_strategy: blast_core.label.strategy.librinfo_sonata_sylius_user
