@@ -16,11 +16,13 @@ use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\BaseEntity;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Descriptible;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Nameable;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Timestampable;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Family.
  */
-class Family
+class Family implements FamilyInterface
 {
     use BaseEntity,
         Nameable,
@@ -39,7 +41,7 @@ class Family
     protected $alias;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
+     * @var Collection
      */
     protected $genuses;
 
@@ -48,18 +50,13 @@ class Family
      */
     public function __construct()
     {
-        $this->initCollections();
+        $this->genuses = new ArrayCollection();
     }
 
     public function __clone()
     {
         $this->id = null;
         $this->initCollections();
-    }
-
-    public function initCollections()
-    {
-        $this->genuses = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -113,11 +110,11 @@ class Family
     /**
      * Add genus.
      *
-     * @param \Sil\Bundle\VarietyBundle\Entity\Genus $genus
+     * @param Genus $genus
      *
      * @return Family
      */
-    public function addGenus(\Sil\Bundle\VarietyBundle\Entity\Genus $genus)
+    public function addGenus(Genus $genus)
     {
         $genus->setFamily($this);
         $this->genuses->add($genus);
@@ -128,11 +125,11 @@ class Family
     /**
      * Remove genus.
      *
-     * @param \Sil\Bundle\VarietyBundle\Entity\Genus $genus
+     * @param Genus $genus
      *
      * @return bool tRUE if this collection contained the specified element, FALSE otherwise
      */
-    public function removeGenus(\Sil\Bundle\VarietyBundle\Entity\Genus $genus)
+    public function removeGenus(Genus $genus)
     {
         return $this->genuses->removeElement($genus);
     }

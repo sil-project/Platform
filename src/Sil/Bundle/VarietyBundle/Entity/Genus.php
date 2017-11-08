@@ -16,6 +16,8 @@ use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\BaseEntity;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Descriptible;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Nameable;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Timestampable;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Genus.
@@ -39,12 +41,12 @@ class Genus
     protected $alias;
 
     /**
-     * @var \Sil\Bundle\VarietyBundle\Entity\Family
+     * @var Family
      */
     protected $family;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
+     * @var Collection
      */
     protected $specieses;
 
@@ -64,7 +66,7 @@ class Genus
 
     public function initCollections()
     {
-        $this->specieses = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->specieses = new ArrayCollection();
     }
 
     /**
@@ -118,11 +120,11 @@ class Genus
     /**
      * Set family.
      *
-     * @param \Sil\Bundle\VarietyBundle\Entity\Family $family
+     * @param Family $family
      *
      * @return Genus
      */
-    public function setFamily(\Sil\Bundle\VarietyBundle\Entity\Family $family = null)
+    public function setFamily(Family $family = null)
     {
         $this->family = $family;
 
@@ -132,7 +134,7 @@ class Genus
     /**
      * Get family.
      *
-     * @return \Sil\Bundle\VarietyBundle\Entity\Family
+     * @return Family
      */
     public function getFamily()
     {
@@ -142,11 +144,11 @@ class Genus
     /**
      * Alias for addSpecies.
      *
-     * @param \Sil\Bundle\VarietyBundle\Entity\Species $species
+     * @param Species $species
      *
-     * @return \Sil\Bundle\VarietyBundle\Entity\Genus
+     * @return Genus
      */
-    public function addSpeciese(\Sil\Bundle\VarietyBundle\Entity\Species $species)
+    public function addSpeciese(Species $species)
     {
         $species->setGenus($this);
         $this->specieses->add($species);
@@ -157,11 +159,11 @@ class Genus
     /**
      * Add species.
      *
-     * @param \Sil\Bundle\VarietyBundle\Entity\Species $species
+     * @param Species $species
      *
      * @return Genus
      */
-    public function addSpecies(\Sil\Bundle\VarietyBundle\Entity\Species $species)
+    public function addSpecies(Species $species)
     {
         $species->setGenus($this);
         $this->specieses->add($species);
@@ -172,11 +174,11 @@ class Genus
     /**
      * Remove speciese.
      *
-     * @param \Sil\Bundle\VarietyBundle\Entity\Species $species
+     * @param Species $species
      *
-     * @return bool tRUE if this collection contained the specified element, FALSE otherwise
+     * @return bool TRUE if this collection contained the specified element, FALSE otherwise
      */
-    public function removeSpecies(\Sil\Bundle\VarietyBundle\Entity\Species $species)
+    public function removeSpecies(Species $species)
     {
         return $this->specieses->removeElement($species);
     }

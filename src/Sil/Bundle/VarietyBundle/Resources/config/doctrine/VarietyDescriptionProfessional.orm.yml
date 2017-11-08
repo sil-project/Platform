@@ -3,7 +3,7 @@ Sil\Bundle\VarietyBundle\Entity\VarietyDescriptionProfessional:
     type: entity
     manyToOne:
         variety:
-            targetEntity: Sil\Bundle\VarietyBundle\Entity\Variety
+            targetEntity: Sil\Bundle\VarietyBundle\Entity\VarietyInterface
             inversedBy: professional_descriptions
             joinColumn:
                 name: variety_id

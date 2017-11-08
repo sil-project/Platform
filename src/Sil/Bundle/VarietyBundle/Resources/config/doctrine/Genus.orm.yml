@@ -13,7 +13,7 @@ Sil\Bundle\VarietyBundle\Entity\Genus:
 
     manyToOne:
         family:
-            targetEntity: Sil\Bundle\VarietyBundle\Entity\Family
+            targetEntity: Sil\Bundle\VarietyBundle\Entity\FamilyInterface
             inversedBy: genuses
             joinColumn:
                 name: family_id

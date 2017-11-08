@@ -1,6 +1,5 @@
 Sil\Bundle\VarietyBundle\Entity\Family:
     type: mappedSuperclass
-    table: family
     blast:
         loggable: true
     fields:

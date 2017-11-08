@@ -22,7 +22,7 @@ use Sil\Bundle\MediaBundle\Entity\File;
 /**
  * Variety.
  */
-class Variety
+class Variety implements VarietyInterface
 {
     use Nameable {
         getName as getNameTrait;

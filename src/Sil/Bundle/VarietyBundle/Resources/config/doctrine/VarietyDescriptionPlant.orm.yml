@@ -3,7 +3,7 @@ Sil\Bundle\VarietyBundle\Entity\VarietyDescriptionPlant:
     type: entity
     manyToOne:
         variety:
-            targetEntity: Sil\Bundle\VarietyBundle\Entity\Variety
+            targetEntity: Sil\Bundle\VarietyBundle\Entity\VarietyInterface
             inversedBy: plant_descriptions
             joinColumn:
                 name: variety_id
