@@ -31,7 +31,7 @@ trait HasSeedBatchesTrait
      */
     public function addSeedBatch($seedBatch)
     {
-        $this->seedBatches[] = $seedBatch;
+        $this->seedBatches->add($seedBatch);
 
         if (method_exists(get_class($this), 'setProducer')) {
             $seedBatch->setProducer($this);

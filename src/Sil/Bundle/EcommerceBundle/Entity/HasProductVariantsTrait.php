@@ -1,5 +1,4 @@
 <?php
-
 /*
  * This file is part of the Blast Project package.
  *
@@ -9,18 +8,18 @@
  * For the full copyright and license information, please view the LICENSE.md
  * file that was distributed with this source code.
  */
-
-namespace Sil\Bundle\EcommerceBundle\Entity\OuterExtension;
+namespace Sil\Bundle\EcommerceBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Sil\Bundle\EcommerceBundle\Entity\ProductVariant;
 
 /**
- * @author Marcos Bezerra de Menezes <marcos.bezerra@libre-informatique.fr>
+ * 
  */
-trait HasProductVariants
+trait HasProductVariantsTrait
 {
+
     /**
      * @var Collection
      */

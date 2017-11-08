@@ -1,5 +1,4 @@
 <?php
-
 /*
  * This file is part of the Blast Project package.
  *
@@ -9,27 +8,21 @@
  * For the full copyright and license information, please view the LICENSE.md
  * file that was distributed with this source code.
  */
+namespace Sil\Bundle\EcommerceBundle\Entity;
 
-namespace Sil\Bundle\EcommerceBundle\Entity\OuterExtension;
-
-use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Sil\Bundle\EcommerceBundle\Entity\Product;
 
 /**
  * @author Marcos Bezerra de Menezes <marcos.bezerra@libre-informatique.fr>
  */
-trait HasProducts
+trait HasProductsTrait
 {
+
     /**
      * @var Collection
      */
     private $products;
-
-    public function initProducts()
-    {
-        $this->products = new ArrayCollection();
-    }
 
     /**
      * @param Product $product
@@ -39,8 +32,6 @@ trait HasProducts
     public function addProduct(Product $product)
     {
         $this->products->add($product);
-
-        $this->setOwningSideRelation($product);
 
         return $this;
     }
@@ -58,7 +49,7 @@ trait HasProducts
     }
 
     /**
-     * @return Collection
+     * @return Collection|Product[]
      */
     public function getProducts()
     {
