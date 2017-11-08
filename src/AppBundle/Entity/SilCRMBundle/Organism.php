@@ -29,7 +29,6 @@ use DateTimeInterface;
 class Organism extends BaseOrganism implements CustomerInterface
 {
     use ToggleableTrait,
-        HasCustomerConstructor,
         HasPlotsTrait,
         HasSeedBatchesTrait;
 
