@@ -49,13 +49,13 @@ Sil\Bundle\VarietyBundle\Entity\Species:
                         referencedColumnName: id
     manyToOne:
         genus:
-            targetEntity: Sil\Bundle\VarietyBundle\Entity\Genus
+            targetEntity: Sil\Bundle\VarietyBundle\Entity\GenusInterface
             inversedBy: specieses
             joinColumn:
                 name: genus_id
             cascade: [ persist ]
         parent_species:
-            targetEntity: Sil\Bundle\VarietyBundle\Entity\Species
+            targetEntity: Sil\Bundle\VarietyBundle\Entity\SpeciesInterface
             inversedBy: subspecieses
             joinColumn:
                 name: parent_species_id
@@ -63,11 +63,11 @@ Sil\Bundle\VarietyBundle\Entity\Species:
 
     oneToMany:
         varieties:
-            targetEntity: Sil\Bundle\VarietyBundle\Entity\Variety
+            targetEntity: Sil\Bundle\VarietyBundle\Entity\VarietyInterface
             mappedBy: species
             cascade: [ persist ]
         subspecieses:
-            targetEntity: Sil\Bundle\VarietyBundle\Entity\Species
+            targetEntity: Sil\Bundle\VarietyBundle\Entity\SpeciesInterface
             mappedBy: parent_species
             cascade: [ persist ]
 

@@ -22,7 +22,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 /**
  * Species.
  */
-class Species implements \JsonSerializable
+class Species implements \JsonSerializable, SpeciesInterface
 {
     use BaseEntity,
         Nameable,

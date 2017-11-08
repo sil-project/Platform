@@ -2,12 +2,26 @@ doctrine:
     orm:
         resolve_target_entities:
 
+            # BlastCoreBundle
+
+            Blast\Bundle\CoreBundle\Model\UserInterface:                  AppBundle\Entity\SilSonataSyliusUserBundle\SonataUser
+
+            # SilSonataSyliusUserBundle
+
+            Sil\Bundle\SonataSyliusUserBundle\Entity\SonataUserInterface: AppBundle\Entity\SilSonataSyliusUserBundle\SonataUser
+
+            # SilCRMBundle
+
+            Sil\Bundle\CRMBundle\Entity\OrganismInterface:                AppBundle\Entity\SilCRMBundle\Organism
+
             # SilStockBundle
 
-            Sil\Bundle\StockBundle\Domain\Entity\PartnerInterface:    Sil\Bundle\CRMBundle\Entity\Organism
-            Sil\Bundle\StockBundle\Domain\Entity\StockItemInterface:  Sil\Bundle\EcommerceBundle\Entity\Product
+            Sil\Bundle\StockBundle\Domain\Entity\PartnerInterface:        AppBundle\Entity\SilCRMBundle\Organism
+            Sil\Bundle\StockBundle\Domain\Entity\StockItemInterface:      Sil\Bundle\EcommerceBundle\Entity\Product
 
             # SilVarietyBundle
 
-            Sil\Bundle\VarietyBundle\Entity\FamilyInterface:          AppBundle\Entity\SilVarietyBundle\Family
-            Sil\Bundle\VarietyBundle\Entity\VarietyInterface:         AppBundle\Entity\SilVarietyBundle\Variety
+            Sil\Bundle\VarietyBundle\Entity\FamilyInterface:              AppBundle\Entity\SilVarietyBundle\Family
+            Sil\Bundle\VarietyBundle\Entity\VarietyInterface:             AppBundle\Entity\SilVarietyBundle\Variety
+            Sil\Bundle\VarietyBundle\Entity\SpeciesInterface:             AppBundle\Entity\SilVarietyBundle\Species
+            Sil\Bundle\VarietyBundle\Entity\GenusInterface:               AppBundle\Entity\SilVarietyBundle\Genus

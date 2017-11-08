@@ -7,8 +7,8 @@ Sil\Bundle\VarietyBundle\Entity\PlantCategory:
             nullable: true
     manyToMany:
         species:
-            targetEntity: Sil\Bundle\VarietyBundle\Entity\Species
+            targetEntity: Sil\Bundle\VarietyBundle\Entity\SpeciesInterface
             mappedBy: plant_categories
         varieties:
-            targetEntity: Sil\Bundle\VarietyBundle\Entity\Variety
-            mappedBy: plant_categories   
+            targetEntity: Sil\Bundle\VarietyBundle\Entity\VarietyInterface
+            mappedBy: plant_categories

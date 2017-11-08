@@ -119,7 +119,7 @@ Sil\Bundle\VarietyBundle\Entity\Variety:
             nullable: true
     oneToMany:
         children:
-            targetEntity: Sil\Bundle\VarietyBundle\Entity\Variety
+            targetEntity: Sil\Bundle\VarietyBundle\Entity\VarietyInterface
             mappedBy: parent
             cascade: [persist, remove]
         professional_descriptions:
@@ -178,10 +178,10 @@ Sil\Bundle\VarietyBundle\Entity\Variety:
             cascade: [persist, remove]
     manyToOne:
         parent:
-            targetEntity: Variety
+            targetEntity: Sil\Bundle\VarietyBundle\Entity\VarietyInterface
             inversedBy: children
         species:
-            targetEntity: Sil\Bundle\VarietyBundle\Entity\Species
+            targetEntity: Sil\Bundle\VarietyBundle\Entity\SpeciesInterface
             inversedBy: varieties
             joinColumn:
                 name: species_id

@@ -58,13 +58,10 @@ Sil\Bundle\SeedBatchBundle\Entity\SeedBatch:
                 name: seed_farm_id
                 referencedColumnName: id
         variety:
-            targetEntity: Sil\Bundle\VarietyBundle\Entity\Variety
+            targetEntity: Sil\Bundle\VarietyBundle\Entity\VarietyInterface
             inversedBy: seedBatches
-            joinColumn:
-                name: variety_id
-                referencedColumnName: id
         producer:
-            targetEntity: Sil\Bundle\CRMBundle\Entity\Organism
+            targetEntity: Sil\Bundle\CRMBundle\Entity\OrganismInterface
             inversedBy: seedBatches
             joinColumn:
                 name: producer_id
@@ -75,6 +72,3 @@ Sil\Bundle\SeedBatchBundle\Entity\SeedBatch:
             joinColumn:
                 name: plot_id
                 referencedColumnName: id
-
-
-

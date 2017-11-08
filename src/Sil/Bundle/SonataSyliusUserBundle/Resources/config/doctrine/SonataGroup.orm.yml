@@ -9,4 +9,4 @@ Sil\Bundle\SonataSyliusUserBundle\Entity\SonataGroup:
     manyToMany:
         users:
             mappedBy: groups
-            targetEntity: Sil\Bundle\SonataSyliusUserBundle\Entity\SonataUser
+            targetEntity: Sil\Bundle\SonataSyliusUserBundle\Entity\SonataUserInterface

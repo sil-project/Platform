@@ -15,10 +15,10 @@ Sil\Bundle\SeedBatchBundle\Entity\Plot:
             mappedBy: plot
             cascade: [ persist, remove ]
             orphanRemoval: true
-            
+
     manyToOne:
         producer:
-            targetEntity: Sil\Bundle\CRMBundle\Entity\Organism
+            targetEntity: Sil\Bundle\CRMBundle\Entity\OrganismInterface
             inversedBy: plots
             joinColumn:
                 name: producer_id

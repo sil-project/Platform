@@ -1,6 +1,6 @@
 AppBundle\Entity\SilVarietyBundle\Variety:
     type: entity
-    
+
     oneToMany:
         products:
             targetEntity: AppBundle\Entity\SilEcommerceBundle\Product
@@ -10,7 +10,10 @@ AppBundle\Entity\SilVarietyBundle\Variety:
             mappedBy: variety
             cascade: [ persist, remove ]
             orphanRemoval: true
-            
+        seedBatches:
+            targetEntity: Sil\Bundle\VarietyBundle\Entity\VarietyInterface
+            mappedBy: variety
+
     manyToMany:
         packagings:
             targetEntity: AppBundle\Entity\SilEcommerceBundle\ProductOptionValue

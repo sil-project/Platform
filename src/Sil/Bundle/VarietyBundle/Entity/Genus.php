@@ -22,7 +22,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 /**
  * Genus.
  */
-class Genus
+class Genus implements GenusInterface
 {
     use BaseEntity,
         Nameable,
