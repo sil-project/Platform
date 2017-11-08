@@ -38,7 +38,7 @@ class SonataGroup implements SonataGroupInterface
     /**
      * @var Collection
      */
-    private $users;
+    protected $users;
 
     /**
      * @param string $name

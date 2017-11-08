@@ -24,12 +24,12 @@ class UomQty
     /**
      * @var Uom
      */
-    private $uom;
+    protected $uom;
 
     /**
      * @var float
      */
-    private $value;
+    protected $value;
 
     public function __construct(Uom $uom, float $value)
     {

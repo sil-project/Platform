@@ -22,7 +22,7 @@ trait HasProductsTrait
     /**
      * @var Collection
      */
-    private $products;
+    protected $products;
 
     /**
      * @param Product $product

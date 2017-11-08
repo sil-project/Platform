@@ -24,12 +24,12 @@ class ProgressState
     /**
      * @var string
      */
-    private $value;
+    protected $value;
 
     /**
      * @var ProgressStateMachine
      */
-    private $stateMachine;
+    protected $stateMachine;
 
     /**
      * @return ProgressState

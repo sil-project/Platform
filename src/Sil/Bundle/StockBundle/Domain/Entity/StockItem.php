@@ -26,22 +26,22 @@ class StockItem implements StockItemInterface
     /**
      * @var string
      */
-    private $name;
+    protected $name;
 
     /**
      * @var string
      */
-    private $code;
+    protected $code;
 
     /**
      * @var Uom
      */
-    private $uom;
+    protected $uom;
 
     /**
      * @var OutputStrategy
      */
-    private $outputStrategy;
+    protected $outputStrategy;
 
     /**
      * @param string $name

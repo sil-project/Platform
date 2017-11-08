@@ -28,12 +28,12 @@ class UomType
     /**
      * @var string
      */
-    private $name;
+    protected $name;
 
     /**
      * @var Collection|Uom[]
      */
-    private $uoms;
+    protected $uoms;
 
     /**
      * @param string $name

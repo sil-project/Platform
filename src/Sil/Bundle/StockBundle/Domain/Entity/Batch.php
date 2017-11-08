@@ -26,12 +26,12 @@ class Batch implements BatchInterface
     /**
      * @var string
      */
-    private $code;
+    protected $code;
 
     /**
      * @var int
      */
-    private $number;
+    protected $number;
 
     public function __construct(string $code)
     {

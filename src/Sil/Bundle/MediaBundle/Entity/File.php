@@ -27,32 +27,32 @@ class File implements \JsonSerializable
     /**
      * @var string
      */
-    private $name;
+    protected $name;
 
     /**
      * @var string
      */
-    private $mimeType;
+    protected $mimeType;
 
     /**
      * @var float
      */
-    private $size;
+    protected $size;
 
     /**
      * @var UploadedFile file
      */
-    private $file;
+    protected $file;
 
     /**
      * @var object
      */
-    private $parent;
+    protected $parent;
 
     /**
      * @var bool
      */
-    private $owned;
+    protected $owned;
 
     public function __construct()
     {

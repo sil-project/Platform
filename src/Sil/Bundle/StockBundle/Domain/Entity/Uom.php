@@ -27,31 +27,31 @@ class Uom
     /**
      * @var string
      */
-    private $name;
+    protected $name;
 
     /**
      * @var UomType
      */
-    private $type;
+    protected $type;
 
     /**
      * @var float
      */
-    private $factor = 1;
+    protected $factor = 1;
 
     /**
      * Rounding precision.
      *
      * @var int
      */
-    private $rounding = 4;
+    protected $rounding = 4;
 
     /**
      * Enable/disable the unit of measure without deleting it.
      *
      * @var bool
      */
-    private $active = true;
+    protected $active = true;
 
     /**
      * @param UomType $type

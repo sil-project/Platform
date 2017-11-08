@@ -22,7 +22,7 @@ class Order extends BaseOrder implements OrderInterface
     /**
      * @var Collection
      */
-    private $invoices;
+    protected $invoices;
 
     public function __construct()
     {

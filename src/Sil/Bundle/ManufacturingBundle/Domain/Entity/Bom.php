@@ -31,27 +31,27 @@ class Bom
     /**
      * @var string
      */
-    private $code;
+    protected $code;
 
     /**
      * @var StockItemInterface
      */
-    private $stockItem;
+    protected $stockItem;
 
     /**
      * @var float
      */
-    private $qtyValue = 0;
+    protected $qtyValue = 0;
 
     /**
      * @var Uom
      */
-    private $qtyUom;
+    protected $qtyUom;
 
     /**
      * @var Collection|BomLine[]
      */
-    private $lines;
+    protected $lines;
 
     public function __construct()
     {
