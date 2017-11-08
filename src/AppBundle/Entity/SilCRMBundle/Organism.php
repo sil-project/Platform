@@ -39,12 +39,12 @@ class Organism extends BaseOrganism implements CustomerInterface
     /**
      * @var string
      */
-    private $seedProducerCode;
+    protected $seedProducerCode;
 
     /**
      * @var bool
      */
-    private $seedProducer = false;
+    protected $seedProducer = false;
 
     public function __construct()
     {

@@ -55,8 +55,8 @@ class GuidableListener implements LoggerAwareInterface, EventSubscriber
             return;
         }
 
-        // Do not generate id mapping twice for entities that extend a MappedSuperclass
-        if ($metadata->isMappedSuperclass) {
+        // @TODO: This check is not good
+        if (count($metadata->getIdentifier()) > 0) {
             return;
         }
 
@@ -70,14 +70,15 @@ class GuidableListener implements LoggerAwareInterface, EventSubscriber
             return;
         }
 
-        $this->logger->debug('[GuidableListener] Entering GuidableListener for « loadClassMetadata » event', [$metadata->getReflectionClass()->getName()]);
-
         // Don't apply twice the uuid mapping
         if ($metadata->idGenerator instanceof UuidGenerator) {
             return;
         }
 
+        $this->logger->debug('[GuidableListener] Entering GuidableListener for « loadClassMetadata » event', [$metadata->getReflectionClass()->getName()]);
+
         $metadata->mapField($this->fieldMappingConfiguration);
+
         $metadata->setIdGenerator(new UuidGenerator());
 
         $this->logger->debug(

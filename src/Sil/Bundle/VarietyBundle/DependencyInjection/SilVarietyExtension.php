@@ -22,7 +22,7 @@ use Blast\Bundle\CoreBundle\DependencyInjection\BlastCoreExtension;
  *
  * To learn more see {@link http://symfony.com/doc/current/cookbook/bundles/extension.html}
  */
-class SilVarietiesExtension extends BlastCoreExtension
+class SilVarietyExtension extends BlastCoreExtension
 {
     /**
      * {@inheritdoc}
