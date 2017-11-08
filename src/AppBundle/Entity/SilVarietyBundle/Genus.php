@@ -1,4 +1,5 @@
 <?php
+
 /*
  * This file is part of the Sil Project.
  *
@@ -8,6 +9,7 @@
  * For the full copyright and license information, please view the LICENSE.md
  * file that was distributed with this source code.
  */
+
 namespace AppBundle\Entity\SilVarietyBundle;
 
 use Sil\Bundle\VarietyBundle\Entity\Genus as BaseGenus;
@@ -18,6 +20,5 @@ use Sil\Bundle\SonataSyliusUserBundle\Entity\Traits\Traceable;
  */
 class Genus extends BaseGenus
 {
-
     use Traceable;
 }

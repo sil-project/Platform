@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the Lisem Project.
+ * This file is part of the Sil Project.
  *
  * Copyright (C) 2015-2017 Libre Informatique
  *
@@ -12,7 +12,6 @@
 
 namespace AppBundle;
 
-use AppBundle\DependencyInjection\Compiler\ServicesPass;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 

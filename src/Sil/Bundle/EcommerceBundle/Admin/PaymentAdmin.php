@@ -1,11 +1,11 @@
 <?php
 
 /*
- * This file is part of the Blast Project package.
+ * This file is part of the Sil Project.
  *
  * Copyright (C) 2015-2017 Libre Informatique
  *
- * This file is licenced under the GNU LGPL v3.
+ * This file is licenced under the GNU GPL v3.
  * For the full copyright and license information, please view the LICENSE.md
  * file that was distributed with this source code.
  */
@@ -84,7 +84,7 @@ class PaymentAdmin extends SyliusGenericAdmin
     {
         return [
             'order.number'                                              => 'order.number',
-            $this->trans('sil.ecommercebundle.invoice_number')     => 'order.getLastDebitInvoice.number',
+            $this->trans('sil.ecommercebundle.invoice_number')          => 'order.getLastDebitInvoice.number',
             'order.customer'                                            => 'order.customer',
             'order.channel'                                             => 'order.channel',
             'method'                                                    => 'method',

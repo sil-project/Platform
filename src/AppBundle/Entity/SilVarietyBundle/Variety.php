@@ -1,4 +1,5 @@
 <?php
+
 /*
  * This file is part of the Sil Project.
  *
@@ -8,6 +9,7 @@
  * For the full copyright and license information, please view the LICENSE.md
  * file that was distributed with this source code.
  */
+
 namespace AppBundle\Entity\SilVarietyBundle;
 
 use Sil\Bundle\VarietyBundle\Entity\Variety as BaseVariety;
@@ -16,15 +18,10 @@ use Sil\Bundle\SeedBatchBundle\Entity\HasSeedBatchesTrait;
 use Sil\Bundle\EcommerceBundle\Entity\HasProductsTrait;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
-use AppBundle\Entity\SilVarietyBundle\ChannelDescription;
 use Sil\Bundle\EcommerceBundle\Entity\ProductOption;
 
-/**
- *
- */
 class Variety extends BaseVariety
 {
-
     use Traceable,
         HasSeedBatchesTrait,
         HasProductsTrait;
@@ -39,9 +36,6 @@ class Variety extends BaseVariety
      */
     protected $packagings;
 
-    /**
-     * 
-     */
     public function __construct()
     {
         parent::__construct();

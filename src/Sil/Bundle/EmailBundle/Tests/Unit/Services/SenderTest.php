@@ -1,11 +1,11 @@
 <?php
 
 /*
- * This file is part of the Blast Project package.
+ * This file is part of the Sil Project.
  *
  * Copyright (C) 2015-2017 Libre Informatique
  *
- * This file is licenced under the GNU LGPL v3.
+ * This file is licenced under the GNU GPL v3.
  * For the full copyright and license information, please view the LICENSE.md
  * file that was distributed with this source code.
  */
@@ -30,7 +30,7 @@ class SenderTest extends TestCase
     protected $spoolMailerMock;
     protected $mail;
     protected $messageMock;
-      
+
     protected function setUp()
     {
         $this->spoolMailerMock = $this->createMock(\Swift_Mailer::class);
@@ -38,7 +38,7 @@ class SenderTest extends TestCase
         $this->messageMock = $this->createMock(\Swift_Message::class);
         $this->inlineAttachmentsHandlerMock = $this->createMock('Sil\Bundle\EmailBundle\Services\InlineAttachments');
         $this->managerMock = $this->createMock('Doctrine\ORM\EntityManager');
-             
+
         $this->mail = new Email();
         $this->mail->setFieldFrom('testfrom@test.com');
         $this->mail->setFieldSubject('test');

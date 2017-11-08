@@ -14,7 +14,7 @@ namespace AppBundle\Entity\SilCRMBundle;
 
 use Sil\Bundle\CRMBundle\Entity\Address as BaseAddress;
 use Sylius\Component\Customer\Model\CustomerInterface;
-use \DateTimeInterface;
+use DateTimeInterface;
 
 class Address extends BaseAddress
 {
@@ -38,7 +38,9 @@ class Address extends BaseAddress
      */
     public function getCreatedAt(): ?DateTimeInterface
     {
-        dump('ici');die;
+        dump('ici');
+        die;
+
         return $this->createdAt;
     }
 

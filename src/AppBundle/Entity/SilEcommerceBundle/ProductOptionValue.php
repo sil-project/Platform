@@ -1,4 +1,5 @@
 <?php
+
 /*
  * This file is part of the Sil Project.
  *
@@ -8,16 +9,13 @@
  * For the full copyright and license information, please view the LICENSE.md
  * file that was distributed with this source code.
  */
+
 namespace AppBundle\Entity\SilEcommerceBundle;
 
 use Sil\Bundle\EcommerceBundle\Entity\ProductOptionValue as BaseProductOptionValue;
 
-/**
- * 
- */
 class ProductOptionValue extends BaseProductOptionValue
 {
-
     /**
      * @return bool
      */
@@ -32,10 +30,11 @@ class ProductOptionValue extends BaseProductOptionValue
     public function getQuantity()
     {
         $match = [];
-        if ( $this->isPackaging() && preg_match('/^([0-9]+)(G|S)$/',
-                $this->code, $match) ) {
+        if ($this->isPackaging() && preg_match('/^([0-9]+)(G|S)$/',
+                $this->code, $match)) {
             return (int) $match[1];
         }
+
         return 0;
     }
 
@@ -45,10 +44,11 @@ class ProductOptionValue extends BaseProductOptionValue
     public function getUnit()
     {
         $match = [];
-        if ( $this->isPackaging() && preg_match('/^([0-9]+)(G|S)$/',
-                $this->code, $match) ) {
+        if ($this->isPackaging() && preg_match('/^([0-9]+)(G|S)$/',
+                $this->code, $match)) {
             return $match[2] == 'S' ? 'seeds' : 'grams';
         }
+
         return '';
     }
 

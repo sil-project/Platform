@@ -1,13 +1,15 @@
 <?php
+
 /*
- * This file is part of the Blast Project package.
+ * This file is part of the Sil Project.
  *
  * Copyright (C) 2015-2017 Libre Informatique
  *
- * This file is licenced under the GNU LGPL v3.
+ * This file is licenced under the GNU GPL v3.
  * For the full copyright and license information, please view the LICENSE.md
  * file that was distributed with this source code.
  */
+
 namespace Sil\Bundle\StockBundle\Doctrine\ORM;
 
 use Sil\Bundle\StockBundle\Domain\Repository\LocationRepositoryInterface;
@@ -21,7 +23,6 @@ use Sil\Bundle\StockBundle\Domain\Entity\StockItemInterface;
  */
 class LocationRepository extends ResourceRepository implements LocationRepositoryInterface
 {
-
     public function createQueryBuilder($alias, $indexBy = null)
     {
         $qb = parent::createQueryBuilder($alias, $indexBy);
@@ -72,7 +73,7 @@ class LocationRepository extends ResourceRepository implements LocationRepositor
             ->where('su.stockItem = :item')
             ->setParameter('item', $item);
 
-        if ( null !== $locationType ) {
+        if (null !== $locationType) {
             $qb
                 ->andWhere('l.typeValue = :locationType')
                 ->setParameter('locationType', $locationType);
