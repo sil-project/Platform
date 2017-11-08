@@ -17,7 +17,7 @@ trait Labelable
     /**
      * @var string
      */
-    private $label;
+    protected $label;
 
     /**
      * @param string $label

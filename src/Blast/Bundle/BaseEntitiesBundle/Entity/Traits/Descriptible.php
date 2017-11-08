@@ -17,7 +17,7 @@ trait Descriptible
     /**
      * @var string
      */
-    private $description;
+    protected $description;
 
     /**
      * @param string $description

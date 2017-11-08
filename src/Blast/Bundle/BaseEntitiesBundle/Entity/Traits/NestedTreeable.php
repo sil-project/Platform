@@ -19,32 +19,32 @@ trait NestedTreeable
     /**
      * @var int
      */
-    private $treeLft;
+    protected $treeLft;
 
     /**
      * @var int
      */
-    private $treeRgt;
+    protected $treeRgt;
 
     /**
      * @var int
      */
-    private $treeLvl;
+    protected $treeLvl;
 
     /**
      * @var \Entity\Category
      */
-    private $treeRoot;
+    protected $treeRoot;
 
     /**
      * @var \Entity\Category
      */
-    private $treeParent;
+    protected $treeParent;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
-    private $treeChildren;
+    protected $treeChildren;
 
     /**
      * Set treeLft.

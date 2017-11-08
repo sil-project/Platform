@@ -17,7 +17,7 @@ trait Nameable
     /**
      * @var string
      */
-    private $name = '';
+    protected $name = '';
 
     /**
      * @param string $name

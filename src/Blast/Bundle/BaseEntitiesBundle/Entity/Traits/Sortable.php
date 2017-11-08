@@ -17,7 +17,7 @@ trait Sortable
     /**
      * @var string
      */
-    private $sortRank;
+    protected $sortRank;
 
     /**
      * @param string $sortRank

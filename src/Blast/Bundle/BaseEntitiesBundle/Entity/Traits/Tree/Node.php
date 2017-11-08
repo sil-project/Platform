@@ -22,12 +22,12 @@ trait Node
     /**
      * @var ArrayCollection the children in the tree
      */
-    private $childNodes;
+    protected $childNodes;
 
     /**
      * @var NodeInterface the parent in the tree
      */
-    private $parentNode;
+    protected $parentNode;
 
     protected $materializedPath = '';
 

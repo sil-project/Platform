@@ -48,6 +48,13 @@ class GuidableListener implements LoggerAwareInterface, EventSubscriber
         /** @var ClassMetadata $metadata */
         $metadata = $eventArgs->getClassMetadata();
 
+        $reflectionClass = $metadata->getReflectionClass();
+
+        // Don't process if cannot use ReflexionClass
+        if (!$reflectionClass) {
+            return;
+        }
+
         // Do not generate id mapping twice for entities that extend a MappedSuperclass
         if ($metadata->isMappedSuperclass) {
             return;
@@ -58,21 +65,12 @@ class GuidableListener implements LoggerAwareInterface, EventSubscriber
             return;
         }
 
-        // Check if parents already have the Guidable trait
-        foreach ($metadata->parentClasses as $parent) {
-            if ($this->classAnalyzer->hasTrait($parent, 'Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Guidable')) {
-                return;
-            }
+        // return if the current entity doesn't use Guidable trait
+        if (!$this->hasTrait($reflectionClass, 'Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Guidable')) {
+            return;
         }
 
         $this->logger->debug('[GuidableListener] Entering GuidableListener for « loadClassMetadata » event', [$metadata->getReflectionClass()->getName()]);
-
-        $reflectionClass = $metadata->getReflectionClass();
-
-        // return if the current entity doesn't use Guidable trait
-        if (!$reflectionClass || !$this->hasTrait($reflectionClass, 'Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Guidable')) {
-            return;
-        }
 
         // Don't apply twice the uuid mapping
         if ($metadata->idGenerator instanceof UuidGenerator) {
