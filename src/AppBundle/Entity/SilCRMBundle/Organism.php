@@ -15,7 +15,6 @@ use Sil\Bundle\SeedBatchBundle\Entity\HasPlotsTrait;
 use Sil\Bundle\SeedBatchBundle\Entity\HasSeedBatchesTrait;
 use Sylius\Component\Core\Model\CustomerInterface;
 
-use Sil\Bundle\EcommerceBundle\Entity\OuterExtension\HasCustomerConstructor;
 use Sylius\Component\Core\Model\AddressInterface;
 use Sylius\Component\Core\Model\ShopUserInterface;
 use Sylius\Component\Customer\Model\CustomerGroupInterface;
