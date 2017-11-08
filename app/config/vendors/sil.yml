@@ -1,0 +1,47 @@
+sylius_user:
+    driver: doctrine/orm
+    resources:
+        sonata:
+            user:
+                classes:
+                    model: AppBundle\Entity\SilSonataSyliusUserBundle\SonataUser
+                    repository: Sylius\Bundle\UserBundle\Doctrine\ORM\UserRepository
+                    # TODO:
+                    form: Sylius\Bundle\CoreBundle\Form\Type\User\AdminUserType
+                    interface: Sylius\Component\User\Model\UserInterface
+                    controller: Sylius\Bundle\UserBundle\Controller\UserController
+                    factory: Sylius\Component\Resource\Factory\Factory
+                templates: 'SyliusUserBundle:User'
+                resetting:
+                    token:
+                        ttl: P1D
+                        length: 16
+                        field_name: passwordResetToken
+                    pin:
+                        length: 4
+                        field_name: passwordResetToken
+                verification:
+                    token:
+                        length: 16
+                        field_name: emailVerificationToken
+        oauth:
+            user:
+                classes:
+                    model: Sylius\Component\User\Model\UserOAuth
+                    interface: Sylius\Component\User\Model\UserOAuthInterface
+                    controller: Sylius\Bundle\ResourceBundle\Controller\ResourceController
+                    factory: Sylius\Component\Resource\Factory\Factory
+                    form: Sylius\Bundle\UserBundle\Form\Type\UserType
+                templates: 'SyliusUserBundle:User'
+                resetting:
+                    token:
+                        ttl: P1D
+                        length: 16
+                        field_name: passwordResetToken
+                    pin:
+                        length: 4
+                        field_name: passwordResetToken
+                verification:
+                    token:
+                        length: 16
+                        field_name: emailVerificationToken

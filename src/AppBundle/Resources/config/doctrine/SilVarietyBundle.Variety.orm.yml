@@ -11,7 +11,7 @@ AppBundle\Entity\SilVarietyBundle\Variety:
             cascade: [ persist, remove ]
             orphanRemoval: true
         seedBatches:
-            targetEntity: Sil\Bundle\VarietyBundle\Entity\VarietyInterface
+            targetEntity: Sil\Bundle\SeedBatchBundle\Entity\SeedBatch
             mappedBy: variety
 
     manyToMany:

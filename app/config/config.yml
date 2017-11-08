@@ -7,6 +7,7 @@ imports:
 
     - { resource: vendors/doctrine.yml }
     - { resource: vendors/blast.yml }
+    - { resource: vendors/sil.yml }
     - { resource: vendors/sonata_block.yml }
     - { resource: vendors/sylius.yml }
 
@@ -22,7 +23,11 @@ imports:
     # SIL Bundles
 
     - { resource: "@SilSonataSyliusUserBundle/Resources/config/app/config.yml" }
-    - { resource: "@SilEmailBundle/Resources/config/app/config.yml" }
+
+    # The following file is overriden in app/config/vendors/sil.yml
+    #
+    # - { resource: "@SilEmailBundle/Resources/config/app/config.yml" }
+
     - { resource: "@SilSeedBatchBundle/Resources/config/app/config.yml" }
     - { resource: "@SilEcommerceBundle/Resources/config/app/config.yml" }
     - { resource: "@SilCRMBundle/Resources/config/app/config.yml" }

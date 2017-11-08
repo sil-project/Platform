@@ -3,7 +3,7 @@ AppBundle\Entity\SilCRMBundle\Address:
 
     manyToOne:
         customer:
-            targetEntity: Sil\Bundle\CRMBundle\Entity\Organism
+            targetEntity: Sil\Bundle\CRMBundle\Entity\OrganismInterface
             inversedBy: addresses
             joinColumn:
                 name: organism_id

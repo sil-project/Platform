@@ -13,8 +13,15 @@
 namespace AppBundle\Entity\SilSonataSyliusUserBundle;
 
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Guidable;
+use Sil\Bundle\SonataSyliusUserBundle\Entity\SonataUser as BaseSonataUser;
+use Sylius\Component\Core\Model\CustomerInterface;
 
-class SonataUser
+class SonataUser extends BaseSonataUser
 {
     use Guidable;
+
+    /**
+     * @var CustomerInterface
+     */
+    protected $customer;
 }

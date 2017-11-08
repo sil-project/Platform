@@ -1,3 +1,2 @@
 AppBundle\Entity\SilSonataSyliusUserBundle\SonataUser:
     type: entity
-    

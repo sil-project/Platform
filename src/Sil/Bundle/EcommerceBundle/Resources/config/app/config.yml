@@ -96,12 +96,12 @@ sylius_addressing:
             classes:
                 model: Sil\Bundle\EcommerceBundle\Entity\Zone
 
-sylius_user:
-    resources:
-        admin:
-            user:
-                classes:
-                    model: Sil\Bundle\SonataSyliusUserBundle\Entity\SonataUser
+# sylius_user:
+#     resources:
+#         admin:
+#             user:
+#                 classes:
+#                     model: Sil\Bundle\SonataSyliusUserBundle\Entity\SonataUserInterface
 
 sylius_core:
     resources:

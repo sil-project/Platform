@@ -1,0 +1,2 @@
+AppBundle\Entity\SilEcommerceBundle\ProductOptionValue:
+    type: entity

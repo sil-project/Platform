@@ -7,3 +7,8 @@ AppBundle\Entity\ChannelDescription:
             type: string
         title:
             type: string
+
+    manyToOne:
+        variety:
+            targetEntity: Sil\Bundle\VarietyBundle\Entity\VarietyInterface
+            inversedBy: channelDescriptions
