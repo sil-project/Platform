@@ -13,9 +13,8 @@ namespace AppBundle\Entity\SilCRMBundle;
 use Sil\Bundle\CRMBundle\Entity\Organism as BaseOrganism;
 use Sil\Bundle\SeedBatchBundle\Entity\HasPlotsTrait;
 use Sil\Bundle\SeedBatchBundle\Entity\HasSeedBatchesTrait;
-use Sylius\Component\Core\Model\CustomerInterface;
 
-use Sylius\Component\Core\Model\AddressInterface;
+use Sil\Bundle\CRMBundle\Entity\AddressInterface;
 use Sylius\Component\Core\Model\ShopUserInterface;
 use Sylius\Component\Customer\Model\CustomerGroupInterface;
 use Sylius\Component\Customer\Model\CustomerInterface;
@@ -908,7 +907,7 @@ class Organism extends BaseOrganism implements CustomerInterface
      *
      * @return self
      */
-    public function setDefaultAddress(?AddressInterface $defaultAddress): void
+    public function setDefaultAddress(?AddressInterface $defaultAddress = null): void
     {
         $this->defaultAddress = $defaultAddress;
 
