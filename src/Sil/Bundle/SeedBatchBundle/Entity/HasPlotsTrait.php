@@ -1,4 +1,5 @@
 <?php
+
 /*
  * This file is part of the Sil Project.
  *
@@ -8,13 +9,13 @@
  * For the full copyright and license information, please view the LICENSE.md
  * file that was distributed with this source code.
  */
+
 namespace Sil\Bundle\SeedBatchBundle\Entity;
 
 use Doctrine\Common\Collections\Collection;
 
 trait HasPlotsTrait
 {
-
     /**
      * @var Collection
      */
