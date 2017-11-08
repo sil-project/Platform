@@ -23,7 +23,7 @@ class Partner implements PartnerInterface
 {
     use Guidable;
 
-    private $fulltextName;
+    protected $fulltextName;
 
     public function getFulltextName()
     {

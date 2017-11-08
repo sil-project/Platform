@@ -34,62 +34,62 @@ class Movement implements ProgressStateAwareInterface
     /**
      * @var string
      */
-    private $code;
+    protected $code;
 
     /**
      * @var DateTimeInterface
      */
-    private $completedAt;
+    protected $completedAt;
 
     /**
      * @var DateTimeInterface
      */
-    private $expectedAt;
+    protected $expectedAt;
 
     /**
      * @var StockItemInterface
      */
-    private $stockItem;
+    protected $stockItem;
 
     /**
      * @var float
      */
-    private $qtyValue = 0;
+    protected $qtyValue = 0;
 
     /**
      * @var Uom
      */
-    private $qtyUom;
+    protected $qtyUom;
 
     /**
      * @var Operation
      */
-    private $operation;
+    protected $operation;
 
     /**
      * @var Location
      */
-    private $srcLocation;
+    protected $srcLocation;
 
     /**
      * @var Location
      */
-    private $destLocation;
+    protected $destLocation;
 
     /**
      * @var string
      */
-    private $stateValue;
+    protected $stateValue;
 
     /**
      * @var BatchInterface
      */
-    private $batch;
+    protected $batch;
 
     /**
      * @var Collection|StockUnit[]
      */
-    private $reservedStockUnits;
+    protected $reservedStockUnits;
 
     /**
      * @param string             $code

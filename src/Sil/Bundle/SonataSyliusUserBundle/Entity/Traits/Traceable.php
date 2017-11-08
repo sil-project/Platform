@@ -19,12 +19,12 @@ trait Traceable
     /**
      * @var UserInterface
      */
-    private $createdBy = null;
+    protected $createdBy = null;
 
     /**
      * @var UserInterface
      */
-    private $updatedBy = null;
+    protected $updatedBy = null;
 
     /**
      * @return UserInterface

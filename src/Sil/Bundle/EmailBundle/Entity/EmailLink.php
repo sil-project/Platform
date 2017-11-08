@@ -24,22 +24,22 @@ class EmailLink
     /**
      * @var string
      */
-    private $destination;
+    protected $destination;
 
     /**
      * @var string
      */
-    private $address;
+    protected $address;
 
     /**
      * @var \DateTime
      */
-    private $date;
+    protected $date;
 
     /**
      * @var \Sil\Bundle\EmailBundle\Entity\Email
      */
-    private $email;
+    protected $email;
 
     /**
      * Set destination.

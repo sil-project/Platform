@@ -26,17 +26,17 @@ class OutputStrategy
     /**
      * @var string
      */
-    private $name;
+    protected $name;
 
     /**
      * @var string
      */
-    private $description;
+    protected $description;
 
     /**
      * @var array
      */
-    private $orderBy;
+    protected $orderBy;
 
     /**
      * @param string $name

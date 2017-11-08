@@ -19,7 +19,7 @@ trait Ownable
     /**
      * @var UserInterface
      */
-    private $owner = null;
+    protected $owner = null;
 
     /**
      * @return UserInterface

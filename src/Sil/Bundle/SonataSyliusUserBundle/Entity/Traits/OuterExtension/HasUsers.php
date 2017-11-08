@@ -21,7 +21,7 @@ trait HasUsers
     /**
      * @var Collection
      */
-    private $users;
+    protected $users;
 
     /**
      * @param UserInterface $user

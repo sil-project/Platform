@@ -27,22 +27,22 @@ class BomLine
     /**
      * @var Bom
      */
-    private $bom;
+    protected $bom;
 
     /**
      * @var StockItemInterface
      */
-    private $stockItem;
+    protected $stockItem;
 
     /**
      * @var float
      */
-    private $qtyValue = 0;
+    protected $qtyValue = 0;
 
     /**
      * @var Uom
      */
-    private $qtyUom;
+    protected $qtyUom;
 
     /**
      * @return Bom

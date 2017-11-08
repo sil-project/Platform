@@ -25,7 +25,7 @@ class OperationType
     /**
      * @var string
      */
-    private $value;
+    protected $value;
 
     public static function internalTransfer()
     {
@@ -48,7 +48,7 @@ class OperationType
     }
 
     /**
-     * 
+     *
      * @return bool
      */
     public function isInternalTransfer(): bool
@@ -57,7 +57,7 @@ class OperationType
     }
 
     /**
-     * 
+     *
      * @return bool
      */
     public function isReceipt(): bool
@@ -66,7 +66,7 @@ class OperationType
     }
 
     /**
-     * 
+     *
      * @return bool
      */
     public function isShipping(): bool

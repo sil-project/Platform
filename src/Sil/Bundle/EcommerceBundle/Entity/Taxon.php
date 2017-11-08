@@ -23,7 +23,7 @@ class Taxon extends BaseTaxon implements TaxonInterface
 {
     use Stringable;
 
-    private $images;
+    protected $images;
 
     public function initTaxon()
     {

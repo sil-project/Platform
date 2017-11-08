@@ -28,7 +28,7 @@ class LocationType
     /**
      * @var string
      */
-    private $value;
+    protected $value;
 
     public static function internal()
     {

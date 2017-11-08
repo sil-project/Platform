@@ -31,32 +31,32 @@ class Location
     /**
      * @var string
      */
-    private $name;
+    protected $name;
 
     /**
      * @var string
      */
-    private $code;
+    protected $code;
 
     /**
      * @var string
      */
-    private $typeValue;
+    protected $typeValue;
 
     /**
      * @var Warehouse
      */
-    private $warehouse;
+    protected $warehouse;
 
     /**
      * @var bool
      */
-    private $managed = true;
+    protected $managed = true;
 
     /**
      * @var Collection|StockUnit[]
      */
-    private $stockUnits;
+    protected $stockUnits;
 
     public static function createDefault(string $code, string $name,
         LocationType $type)

@@ -32,87 +32,87 @@ class Email extends Spoolable
     /**
      * @var string
      */
-    private $field_from;
+    protected $field_from;
 
     /**
      * @var string
      */
-    private $field_to;
+    protected $field_to;
 
     /**
      * @var string
      */
-    private $field_cc;
+    protected $field_cc;
 
     /**
      * @var string
      */
-    private $field_bcc;
+    protected $field_bcc;
 
     /**
      * @var string
      */
-    private $field_subject;
+    protected $field_subject;
 
     /**
      * @var string
      */
-    private $content;
+    protected $content;
 
     /**
      * @var string
      */
-    private $textContent;
+    protected $textContent;
 
     /**
      * @var bool
      */
-    private $sent;
+    protected $sent;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
-    private $attachments;
+    protected $attachments;
 
     /**
      * @var bool
      */
-    private $isTest;
+    protected $isTest;
 
     /**
      * @var string
      */
-    private $testAddress;
+    protected $testAddress;
 
     /**
      * @var bool
      */
-    private $isTemplate;
+    protected $isTemplate;
 
     /**
      * @var string
      */
-    private $newTemplateName;
+    protected $newTemplateName;
 
     /**
      * @var EmailTemplate
      */
-    private $template;
+    protected $template;
 
     /**
      * @var bool
      */
-    private $tracking;
+    protected $tracking;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
-    private $receipts;
+    protected $receipts;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
-    private $links;
+    protected $links;
 
     public function initCollections()
     {

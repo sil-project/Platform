@@ -21,42 +21,42 @@ class SalesJournalItem
     /**
      * @var \DateTimeInterface
      */
-    private $operationDate;
+    protected $operationDate;
 
     /**
      * @var string
      */
-    private $account = 'N/A';
+    protected $account = 'N/A';
 
     /**
      * @var string
      */
-    private $label;
+    protected $label;
 
     /**
      * @var int
      */
-    private $debit = 0;
+    protected $debit = 0;
 
     /**
      * @var int
      */
-    private $credit = 0;
+    protected $credit = 0;
 
     /**
      * @var Order
      */
-    private $order;
+    protected $order;
 
     /**
      * @var Invoice
      */
-    private $invoice;
+    protected $invoice;
 
     /**
      * @var Payment
      */
-    private $payment;
+    protected $payment;
 
     public function __construct()
     {

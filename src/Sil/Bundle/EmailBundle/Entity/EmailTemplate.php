@@ -30,12 +30,12 @@ class EmailTemplate
     /**
      * @var string
      */
-    private $name;
+    protected $name;
 
     /**
      * @var string
      */
-    private $content;
+    protected $content;
 
     /**
      * Set name.

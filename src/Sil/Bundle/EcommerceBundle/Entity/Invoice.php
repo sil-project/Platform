@@ -33,37 +33,37 @@ class Invoice
     /**
      * @var string
      */
-    private $number;
+    protected $number;
 
     /**
      * @var string
      */
-    private $mimeType;
+    protected $mimeType;
 
     /**
      * @var int
      */
-    private $size;
+    protected $size;
 
     /**
      * @var string
      */
-    private $file;
+    protected $file;
 
     /**
      * @var Order
      */
-    private $order;
+    protected $order;
 
     /**
      * @var int
      */
-    private $total;
+    protected $total;
 
     /**
      * @var int
      */
-    private $type = self::TYPE_DEBIT;
+    protected $type = self::TYPE_DEBIT;
 
     /**
      * Called by __toString().

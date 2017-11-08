@@ -34,47 +34,47 @@ class Operation implements ProgressStateAwareInterface
     /**
      * @var string
      */
-    private $code;
+    protected $code;
 
     /**
      * @var DateTimeInterface
      */
-    private $expectedAt;
+    protected $expectedAt;
 
     /**
      * @var DateTimeInterface
      */
-    private $completedAt;
+    protected $completedAt;
 
     /**
      * @var string
      */
-    private $stateValue;
+    protected $stateValue;
 
     /**
      * @var Location
      */
-    private $srcLocation;
+    protected $srcLocation;
 
     /**
      * @var Location
      */
-    private $destLocation;
+    protected $destLocation;
 
     /**
      * @var string
      */
-    private $typeValue;
+    protected $typeValue;
 
     /**
      * @var PartnerInterface
      */
-    private $partner;
+    protected $partner;
 
     /**
      * @var Collection|Movement[]
      */
-    private $movements;
+    protected $movements;
 
     public static function createDefault(string $code, Location $srcLocation,
         Location $destLocation, OperationType $type)

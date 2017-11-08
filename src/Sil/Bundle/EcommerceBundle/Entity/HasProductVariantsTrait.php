@@ -15,7 +15,7 @@ use Doctrine\Common\Collections\Collection;
 use Sil\Bundle\EcommerceBundle\Entity\ProductVariant;
 
 /**
- * 
+ *
  */
 trait HasProductVariantsTrait
 {
@@ -23,7 +23,7 @@ trait HasProductVariantsTrait
     /**
      * @var Collection
      */
-    private $productVariants;
+    protected $productVariants;
 
     public function initProductVariants()
     {

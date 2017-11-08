@@ -29,17 +29,17 @@ class Warehouse
     /**
      * @var string
      */
-    private $name;
+    protected $name;
 
     /**
      * @var string
      */
-    private $code;
+    protected $code;
 
     /**
      * @var Collection|Location[]
      */
-    private $locations;
+    protected $locations;
 
     public static function createDefault(string $code, string $name)
     {

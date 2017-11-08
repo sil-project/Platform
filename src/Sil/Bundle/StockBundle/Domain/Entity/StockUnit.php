@@ -29,37 +29,37 @@ class StockUnit
     /**
      * @var string
      */
-    private $code;
+    protected $code;
 
     /**
      * @var float
      */
-    private $qtyValue = 0;
+    protected $qtyValue = 0;
 
     /**
      * @var Uom
      */
-    private $qtyUom;
+    protected $qtyUom;
 
     /**
      * @var StockItemInterface
      */
-    private $stockItem;
+    protected $stockItem;
 
     /**
      * @var Location
      */
-    private $location;
+    protected $location;
 
     /**
      * @var BatchInterface
      */
-    private $batch;
+    protected $batch;
 
     /**
      * @var Movement
      */
-    private $reservationMovement;
+    protected $reservationMovement;
 
     /**
      * @param string             $code
