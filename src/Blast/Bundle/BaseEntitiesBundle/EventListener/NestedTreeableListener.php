@@ -1,11 +1,11 @@
 <?php
 
 /*
- * This file is part of the Blast Project package.
+ * This file is part of the Sil Project.
  *
  * Copyright (C) 2015-2017 Libre Informatique
  *
- * This file is licenced under the GNU LGPL v3.
+ * This file is licenced under the GNU GPL v3.
  * For the full copyright and license information, please view the LICENSE.md
  * file that was distributed with this source code.
  */
@@ -25,10 +25,21 @@ class NestedTreeableListener extends TreeListener implements LoggerAwareInterfac
 
     public function loadClassMetadata(EventArgs $eventArgs)
     {
-        $meta = $eventArgs->getClassMetadata();
-        $reflectionClass = $meta->getReflectionClass();
+        $metadata = $eventArgs->getClassMetadata();
 
-        if (!$reflectionClass || !$this->hasTrait($reflectionClass, 'Blast\Bundle\BaseEntitiesBundle\Entity\Traits\NestedTreeable')) {
+        $reflectionClass = $metadata->getReflectionClass();
+
+        // Don't process if cannot use ReflexionClass
+        if (!$reflectionClass) {
+            return;
+        }
+
+        // Don't process superMappedClass
+        if ($metadata->isMappedSuperclass) {
+            return;
+        }
+
+        if (!$this->hasTrait($reflectionClass, 'Blast\Bundle\BaseEntitiesBundle\Entity\Traits\NestedTreeable')) {
             return;
         } // return if current entity doesn't use NestedTreeable trait
 
@@ -54,32 +65,32 @@ class NestedTreeableListener extends TreeListener implements LoggerAwareInterfac
             ],
         ];
 
-        if (!$meta->hasField('treeLft')) {
-            $meta->mapField([
+        if (!$metadata->hasField('treeLft')) {
+            $metadata->mapField([
                 'fieldName' => 'treeLft',
                 'type'      => 'integer',
                 'gedmo'     => ['treeLeft'],
             ]);
         }
 
-        if (!$meta->hasField('treeRgt')) {
-            $meta->mapField([
+        if (!$metadata->hasField('treeRgt')) {
+            $metadata->mapField([
                 'fieldName' => 'treeRgt',
                 'type'      => 'integer',
                 'gedmo'     => 'treeRight',
             ]);
         }
 
-        if (!$meta->hasField('treeLvl')) {
-            $meta->mapField([
+        if (!$metadata->hasField('treeLvl')) {
+            $metadata->mapField([
                 'fieldName' => 'treeLvl',
                 'type'      => 'integer',
                 'gedmo'     => 'treeLevel',
             ]);
         }
 
-        if (!$meta->hasAssociation('treeChildren')) {
-            $meta->mapOneToMany([
+        if (!$metadata->hasAssociation('treeChildren')) {
+            $metadata->mapOneToMany([
                 'fieldName'    => 'treeChildren',
                 'targetEntity' => $fqcn,
                 'mappedBy'     => 'treeParent',
@@ -88,8 +99,8 @@ class NestedTreeableListener extends TreeListener implements LoggerAwareInterfac
             ]);
         }
 
-        if (!$meta->hasAssociation('treeRoot')) {
-            $meta->mapManyToOne([
+        if (!$metadata->hasAssociation('treeRoot')) {
+            $metadata->mapManyToOne([
                 'fieldName'    => 'treeRoot',
                 'targetEntity' => $fqcn,
                 'join_column'  => [
@@ -101,8 +112,8 @@ class NestedTreeableListener extends TreeListener implements LoggerAwareInterfac
             ]);
         }
 
-        if (!$meta->hasAssociation('treeParent')) {
-            $meta->mapManyToOne([
+        if (!$metadata->hasAssociation('treeParent')) {
+            $metadata->mapManyToOne([
                 'fieldName'    => 'treeParent',
                 'targetEntity' => $fqcn,
                 'inversedBy'   => 'treeChildren',
@@ -115,12 +126,12 @@ class NestedTreeableListener extends TreeListener implements LoggerAwareInterfac
             ]);
         }
 
-        if (!$meta->customRepositoryClassName) {
-            $meta->setCustomRepositoryClass('Gedmo\Tree\Entity\Repository\NestedTreeRepository');
+        if (!$metadata->customRepositoryClassName) {
+            $metadata->setCustomRepositoryClass('Gedmo\Tree\Entity\Repository\NestedTreeRepository');
         }
 
-        if (isset(self::$configurations[$this->name][$meta->name]) && self::$configurations[$this->name][$meta->name]) {
-            $this->getStrategy($om, $meta->name)->processMetadataLoad($om, $meta);
+        if (isset(self::$configurations[$this->name][$metadata->name]) && self::$configurations[$this->name][$metadata->name]) {
+            $this->getStrategy($om, $metadata->name)->processMetadataLoad($om, $metadata);
         }
     }
 }

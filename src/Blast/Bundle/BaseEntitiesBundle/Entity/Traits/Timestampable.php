@@ -20,12 +20,12 @@ trait Timestampable
     /**
      * @var DateTime
      */
-    private $createdAt = null;
+    protected $createdAt = null;
 
     /**
      * @var DateTime
      */
-    private $updatedAt = null;
+    protected $updatedAt = null;
 
     /**
      * @return DateTime

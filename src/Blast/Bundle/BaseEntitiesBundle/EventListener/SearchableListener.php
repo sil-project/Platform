@@ -1,11 +1,11 @@
 <?php
 
 /*
- * This file is part of the Blast Project package.
+ * This file is part of the Sil Project.
  *
  * Copyright (C) 2015-2017 Libre Informatique
  *
- * This file is licenced under the GNU LGPL v3.
+ * This file is licenced under the GNU GPL v3.
  * For the full copyright and license information, please view the LICENSE.md
  * file that was distributed with this source code.
  */
@@ -38,9 +38,6 @@ class SearchableListener implements EventSubscriber
     {
         return [
             'loadClassMetadata',
-            //'prePersist',
-            //'preUpdate',
-            //'preFlush',
             'onFlush',
         ];
     }
@@ -51,26 +48,26 @@ class SearchableListener implements EventSubscriber
         $metadata = $eventArgs->getClassMetadata();
 
         $reflectionClass = $metadata->getReflectionClass();
+
+        // Don't process if cannot use ReflexionClass
         if (!$reflectionClass) {
             return;
         }
 
-        // Check if parents already have the Searchable trait
-        foreach ($metadata->parentClasses as $parent) {
-            if ($this->classAnalyzer->hasTrait($parent, 'Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Searchable')) {
-                return;
-            }
+        // Don't process superMappedClass
+        if ($metadata->isMappedSuperclass) {
+            return;
         }
 
-        // Add oneToMany mapping to entities that have the Searchable trait
         if ($this->hasTrait($reflectionClass, 'Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Searchable')) {
+            // Add oneToMany mapping to entities that have the Searchable trait
             $this->logger->debug('[SearchableListener] Entering SearchableListener for « loadClassMetadata » event: entity ' . $reflectionClass->getName());
 
             $metadata->mapOneToMany([
                 'targetEntity' => $reflectionClass->getShortName() . 'SearchIndex',
                 'fieldName'    => 'searchIndexes',
                 'mappedBy'     => 'object',
-                'cascade'      => ['persist','remove'],
+                'cascade'      => ['persist', 'remove'],
             ]);
         }
 
@@ -83,7 +80,7 @@ class SearchableListener implements EventSubscriber
                 'targetEntity' => str_replace('SearchIndex', '', $reflectionClass->getName()),
                 'fieldName'    => 'object',
                 'inversedBy'   => 'searchIndexes',
-                'cascade'      => ['persist','remove'],
+                'cascade'      => ['persist', 'remove'],
             ]);
         }
     }

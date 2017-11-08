@@ -19,7 +19,7 @@ trait Treeable
 {
     use Node;
 
-    private $sortMaterializedPath;
+    protected $sortMaterializedPath;
 
     public function setChildNodeOf(NodeInterface $node)
     {

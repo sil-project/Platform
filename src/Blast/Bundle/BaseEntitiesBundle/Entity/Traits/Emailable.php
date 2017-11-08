@@ -17,17 +17,17 @@ trait Emailable
     /**
      * @var string
      */
-    private $email;
+    protected $email;
 
     /**
      * @var bool
      */
-    private $emailNpai = false;
+    protected $emailNpai = false;
 
     /**
      * @var bool
      */
-    private $emailNoNewsletter = false;
+    protected $emailNoNewsletter = false;
 
     /**
      * @return string

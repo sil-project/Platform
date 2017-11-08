@@ -19,37 +19,37 @@ trait Addressable
     /**
      * @var string
      */
-    private $address;
+    protected $address;
 
     /**
      * @var string
      */
-    private $zip;
+    protected $zip;
 
     /**
      * @var string
      */
-    private $city;
+    protected $city;
 
     /**
      * @var string
      */
-    private $country;
+    protected $country;
 
     /**
      * @var bool
      */
-    private $npai = false;
+    protected $npai = false;
 
     /**
      * @var string
      */
-    private $vcardUid;
+    protected $vcardUid;
 
     /**
      * @var bool
      */
-    private $confirmed = true;
+    protected $confirmed = true;
 
     /**
      * @return string
