@@ -1,26 +1,21 @@
 <?php
 
 /*
- * This file is part of the Blast Project package.
+ * This file is part of the Sil Project.
  *
  * Copyright (C) 2015-2017 Libre Informatique
  *
- * This file is licenced under the GNU LGPL v3.
+ * This file is licenced under the GNU GPL v3.
  * For the full copyright and license information, please view the LICENSE.md
  * file that was distributed with this source code.
  */
 
 namespace Sil\Bundle\EcommerceBundle\Entity;
 
-/* @todo reference to AppBundle should be removed */
-use AppBundle\Entity\OuterExtension\SilEcommerceBundle\ProductOptionValueExtension;
-use Blast\Bundle\OuterExtensionBundle\Entity\Traits\OuterExtensible;
 use Sylius\Component\Product\Model\ProductOptionValue as BaseProductOptionValue;
 
 class ProductOptionValue extends BaseProductOptionValue
 {
-    use OuterExtensible, ProductOptionValueExtension;
-
     /**
      * @return string "Option name: OptionValue value"
      */

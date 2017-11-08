@@ -1,0 +1,12 @@
+AppBundle\Entity\SilCRMBundle\Address:
+    type: entity
+
+    manyToOne:
+        customer:
+            targetEntity: Sil\Bundle\CRMBundle\Entity\Organism
+            inversedBy: addresses
+            joinColumn:
+                name: organism_id
+                referencedColumnName: id
+                nullable: true
+                onDelete: SET NULL

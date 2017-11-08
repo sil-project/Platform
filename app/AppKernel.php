@@ -45,8 +45,6 @@ class AppKernel extends Kernel
             new Sylius\Bundle\ResourceBundle\SyliusResourceBundle(),
             new Sylius\Bundle\GridBundle\SyliusGridBundle(),
             new Sylius\Bundle\FixturesBundle\SyliusFixturesBundle(),
-            new Sylius\Bundle\PayumBundle\SyliusPayumBundle(), // must be added after PayumBundle.
-            new Sylius\Bundle\ThemeBundle\SyliusThemeBundle(), // must be added after FrameworkBundle
 
             // -------------------------------------------------------------------------------------
             // Symfony bundles
@@ -121,6 +119,8 @@ class AppKernel extends Kernel
             // Sylius main bundles
             // -------------------------------------------------------------------------------------
 
+            new Sylius\Bundle\PayumBundle\SyliusPayumBundle(), // must be added after PayumBundle.
+            new Sylius\Bundle\ThemeBundle\SyliusThemeBundle(), // must be added after FrameworkBundle
             new Sylius\Bundle\AdminBundle\SyliusAdminBundle(),
             new Sylius\Bundle\ShopBundle\SyliusShopBundle(),
             new Sylius\Bundle\AdminApiBundle\SyliusAdminApiBundle(),

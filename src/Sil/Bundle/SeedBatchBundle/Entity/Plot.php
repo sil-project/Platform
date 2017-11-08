@@ -13,14 +13,12 @@
 namespace Sil\Bundle\SeedBatchBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use AppBundle\Entity\OuterExtension\SilSeedBatchBundle\PlotExtension;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Addressable;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\BaseEntity;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Descriptible;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Loggable;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Searchable;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Timestampable;
-use Blast\Bundle\OuterExtensionBundle\Entity\Traits\OuterExtensible;
 
 /**
  * Plot.
@@ -28,8 +26,6 @@ use Blast\Bundle\OuterExtensionBundle\Entity\Traits\OuterExtensible;
 class Plot
 {
     use BaseEntity,
-        PlotExtension,
-        OuterExtensible,
         Addressable,
         Timestampable,
         Loggable,

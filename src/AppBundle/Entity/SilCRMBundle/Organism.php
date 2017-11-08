@@ -10,15 +10,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Sil\Bundle\EcommerceBundle\Entity;
+namespace AppBundle\Entity\SilCRMBundle;
 
-use Sylius\Component\Core\Model\Channel as BaseChannel;
-use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Stringable;
+use Sil\Bundle\CRMBundle\Entity\Organism as BaseOrganism;
 
-/**
- * @author Romain SANCHEZ <romain.sanchez@libre-informatique.fr>
- */
-class Channel extends BaseChannel
+class Organism extends BaseOrganism
 {
-    use Stringable;
 }

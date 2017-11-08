@@ -13,7 +13,6 @@
 namespace Sil\Bundle\EcommerceBundle\Entity;
 
 use Sylius\Component\Core\Model\ShippingMethod as BaseShippingMethod;
-//use Blast\Bundle\OuterExtensionBundle\Entity\Traits\OuterExtensible;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Stringable;
 
 class ShippingMethod extends BaseShippingMethod

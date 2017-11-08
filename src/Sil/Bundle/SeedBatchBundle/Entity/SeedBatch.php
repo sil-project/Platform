@@ -1,24 +1,22 @@
 <?php
 
 /*
- * This file is part of the Blast Project package.
+ * This file is part of the Sil Project.
  *
  * Copyright (C) 2015-2017 Libre Informatique
  *
- * This file is licenced under the GNU LGPL v3.
+ * This file is licenced under the GNU GPL v3.
  * For the full copyright and license information, please view the LICENSE.md
  * file that was distributed with this source code.
  */
 
 namespace Sil\Bundle\SeedBatchBundle\Entity;
 
-use AppBundle\Entity\OuterExtension\SilSeedBatchBundle\SeedBatchExtension;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\BaseEntity;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Descriptible;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Loggable;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Searchable;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Timestampable;
-use Blast\Bundle\OuterExtensionBundle\Entity\Traits\OuterExtensible;
 
 /**
  * SeedBatch.
@@ -26,15 +24,13 @@ use Blast\Bundle\OuterExtensionBundle\Entity\Traits\OuterExtensible;
 class SeedBatch
 {
     use BaseEntity,
-        SeedBatchExtension,
-        OuterExtensible,
         Timestampable,
         Loggable,
         Descriptible,
         Searchable;
 
     /**
-     * @var \Sil\Bundle\VarietiesBundle\Entity\Variety
+     * @var \Sil\Bundle\VarietyBundle\Entity\Variety
      */
     private $variety;
 
@@ -323,11 +319,11 @@ class SeedBatch
     /**
      * Set variety.
      *
-     * @param \Sil\Bundle\VarietiesBundle\Entity\Variety $variety
+     * @param \Sil\Bundle\VarietyBundle\Entity\Variety $variety
      *
      * @return SeedBatch
      */
-    public function setVariety(\Sil\Bundle\VarietiesBundle\Entity\Variety $variety = null)
+    public function setVariety(\Sil\Bundle\VarietyBundle\Entity\Variety $variety = null)
     {
         $this->variety = $variety;
 
@@ -337,7 +333,7 @@ class SeedBatch
     /**
      * Get variety.
      *
-     * @return \Sil\Bundle\VarietiesBundle\Entity\Variety
+     * @return \Sil\Bundle\VarietyBundle\Entity\Variety
      */
     public function getVariety()
     {

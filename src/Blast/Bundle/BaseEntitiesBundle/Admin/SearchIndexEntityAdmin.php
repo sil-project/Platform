@@ -12,7 +12,7 @@
 
 namespace Blast\Bundle\BaseEntitiesBundle\Admin;
 
-use Blast\Bundle\Bundle\CoreBundle\Admin\CoreAdmin;
+use Blast\Bundle\CoreBundle\Admin\CoreAdmin;
 
 class SearchIndexEntityAdmin extends CoreAdmin
 {

@@ -41,9 +41,9 @@ sylius_review:
             review:
                 classes:
                     model: Sil\Bundle\EcommerceBundle\Entity\ProductReview
-            reviewer:
-                classes:
-                    model: Sil\Bundle\CRMBundle\Entity\Organism
+            # reviewer:
+            #     classes:
+            #         model: Sil\Bundle\CRMBundle\Entity\Organism
 
 sylius_order:
     resources:
@@ -89,9 +89,9 @@ sylius_customer:
 
 sylius_addressing:
     resources:
-        address:
-            classes:
-                model: Sil\Bundle\CRMBundle\Entity\Address
+        # address:
+        #     classes:
+        #         model: Sil\Bundle\CRMBundle\Entity\Address
         zone:
             classes:
                 model: Sil\Bundle\EcommerceBundle\Entity\Zone

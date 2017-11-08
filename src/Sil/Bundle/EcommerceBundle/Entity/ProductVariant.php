@@ -12,17 +12,11 @@
 
 namespace Sil\Bundle\EcommerceBundle\Entity;
 
-/* @todo reference to AppBundle should be removed */
-use AppBundle\Entity\OuterExtension\SilEcommerceBundle\ProductVariantExtension;
-use Blast\Bundle\OuterExtensionBundle\Entity\Traits\OuterExtensible;
 use Sylius\Component\Core\Model\ProductVariant as BaseProductVariant;
 use Doctrine\Common\Collections\ArrayCollection;
 
 class ProductVariant extends BaseProductVariant
 {
-    use OuterExtensible,
-    ProductVariantExtension;
-
     /**
      * Allow enabling of product variant.
      *
@@ -34,7 +28,7 @@ class ProductVariant extends BaseProductVariant
     {
         parent::__construct();
         $this->initCollections();
-        $this->initOuterExtendedClasses();
+        
         $this->translations = new ArrayCollection();
     }
 

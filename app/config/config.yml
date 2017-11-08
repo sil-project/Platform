@@ -12,6 +12,7 @@ imports:
 
     - { resource: "@BlastResourceBundle/Resources/config/app/config.yml" }
     - { resource: "@BlastUtilsBundle/Resources/config/app/config.yml" }
+    - { resource: "@BlastBaseEntitiesBundle/Resources/config/app/config.yml" }
 
     # SIL Bundles
 
@@ -22,8 +23,15 @@ imports:
     - { resource: "@SilCRMBundle/Resources/config/app/config.yml" }
     - { resource: "@SilMediaBundle/Resources/config/app/config.yml" }
     - { resource: "@SilSyliusPayboxBundle/Resources/config/app/config.yml" }
-    - { resource: "@SilManufacturingBundle/Resources/config/app/config.yml" }
+
     - { resource: "@SilStockBundle/Resources/config/app/config.yml" }
+    - { resource: "@SilStockBundle/Resources/config/services.yml" }
+    - { resource: "@SilStockBundle/Resources/config/admin.yml" }
+
+    - { resource: "@SilManufacturingBundle/Resources/config/app/config.yml" }
+    - { resource: "@SilManufacturingBundle/Resources/config/services.yml" }
+    - { resource: "@SilManufacturingBundle/Resources/config/admin.yml" }
+
 
 parameters:
     locale: en
@@ -44,9 +52,7 @@ framework:
     default_locale: '%locale%'
     trusted_hosts: ~
     session:
-        # https://symfony.com/doc/current/reference/configuration/framework.html#handler-id
-        handler_id: session.handler.native_file
-        save_path: '%kernel.project_dir%/var/sessions/%kernel.environment%'
+        handler_id: blast_doctrine_handler
     fragments: ~
     http_method_override: true
     assets: ~
@@ -61,23 +67,83 @@ twig:
 # Doctrine Configuration
 doctrine:
     dbal:
-        driver: pdo_mysql
-        host: '%database_host%'
-        port: '%database_port%'
-        dbname: '%database_name%'
-        user: '%database_user%'
-        password: '%database_password%'
-        charset: UTF8
+        default_connection: default
+        connections:
+            default:
+                driver:   pdo_pgsql
+                host:     "%database_host%"
+                port:     "%database_port%"
+                dbname:   "%database_name%"
+                user:     "%database_user%"
+                password: "%database_password%"
+                charset:  UTF8
+            session:
+                driver:   pdo_pgsql
+                host:     "%database_host%"
+                port:     "%database_port%"
+                dbname:   "%database_name%"
+                user:     "%database_user%"
+                password: "%database_password%"
+                charset:  UTF8
 
     orm:
-        auto_generate_proxy_classes: '%kernel.debug%'
-        naming_strategy: doctrine.orm.naming_strategy.underscore
-        auto_mapping: true
+        default_entity_manager: default
+        auto_generate_proxy_classes: "%kernel.debug%"
+        entity_managers:
+            default:
+                connection: default
+                naming_strategy: blast.resource.doctrine.orm.naming_strategy.underscored_bundle_prefix
+                auto_mapping: true
+                mappings:
+                    BlastBaseEntitiesBundle:
+                        type: yml
+                    SilVarietyBundle:
+                        type: yml
+                    SilSeedBatchBundle:
+                        type: yml
+                    SilCRMBundle:
+                        type: yml
+                    SilEcommerceBundle:
+                        type: yml
+                    gedmo_loggable:
+                        type: annotation
+                        prefix: Gedmo\Loggable\Entity
+                        dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Loggable/Entity"
+                        alias: GedmoLoggable # (optional) it will default to the name set for the mappingmapping
+                        is_bundle: false
+                dql:
+                    string_functions:
+                        ilike: Blast\DoctrinePgsqlBundle\DoctrineExtensions\Functions\Ilike
+                        concat_ws: Oro\ORM\Query\AST\Functions\String\ConcatWs
+            session:
+                connection: session
+                naming_strategy: blast.resource.doctrine.orm.naming_strategy.underscored_bundle_prefix
+                auto_mapping: false # Only one entity manager can have auto_mappping set to true
+                mappings:
+                    BlastDoctrineSessionBundle:
+                        type: yml
+        resolve_target_entities:
+            Sil\Bundle\StockBundle\Domain\Entity\PartnerInterface:  Sil\Bundle\CRMBundle\Entity\Organism
+            Sil\Bundle\StockBundle\Domain\Entity\StockItemInterface:  Sil\Bundle\EcommerceBundle\Entity\Product
 
 # Swiftmailer Configuration
 swiftmailer:
-    transport: '%mailer_transport%'
-    host: '%mailer_host%'
-    username: '%mailer_user%'
-    password: '%mailer_password%'
-    spool: { type: memory }
+    default_mailer: direct_mailer
+    mailers:
+        direct_mailer:
+            transport: "%mailer_transport%"
+            host:      "%mailer_host%" # removed for gmail
+            port:      "%mailer_port%"
+            username:  "%mailer_user%"
+            password:  "%mailer_password%"
+            delivery_addresses: ['jardinenvie@lisem.eu']
+            disable_delivery:  "%mailer_disable_delivery%"
+        spool_mailer:
+            transport: "%mailer_transport%"
+            host:      "%mailer_host%" # removed for gmail
+            port:      "%mailer_port%"
+            username:  "%mailer_user%"
+            password:  "%mailer_password%"
+            spool: { type: db }
+            delivery_addresses: ['jardinenvie@lisem.eu']
+            disable_delivery:  "%mailer_disable_delivery%"

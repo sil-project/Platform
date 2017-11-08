@@ -1,4 +1,4 @@
-Sil\Bundle\VarietiesBundle\Entity\Variety:
+Sil\Bundle\VarietyBundle\Entity\Variety:
     type: entity
 
     oneToMany:
