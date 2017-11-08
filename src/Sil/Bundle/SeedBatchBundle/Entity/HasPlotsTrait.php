@@ -10,12 +10,12 @@
  * file that was distributed with this source code.
  */
 
-namespace Sil\Bundle\SeedBatchBundle\Entity\OuterExtension;
+namespace Sil\Bundle\SeedBatchBundle\Entity;
 
 use Doctrine\Common\Collections\Collection;
 use Sil\Bundle\SeedBatchBundle\Entity\Plot;
 
-trait HasPlots
+trait HasPlotsTrait
 {
     /**
      * @var Collection

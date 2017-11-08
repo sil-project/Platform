@@ -10,37 +10,37 @@
  * file that was distributed with this source code.
  */
 
-namespace Sil\Bundle\VarietyBundle\Entity\OuterExtension;
+namespace Sil\Bundle\SeedBatchBundle\Entity;
 
-use Sil\Bundle\VarietyBundle\Entity\Variety;
+use Sil\Bundle\SeedBatchBundle\Entity\SeedBatch;
 
-trait HasVariety
+trait HasSeedBatchTrait
 {
     /**
-     * @var Variety
+     * @var SeedBatch
      */
-    private $variety;
+    private $seedBatch;
 
     /**
-     * Get variety.
+     * Get seed batch.
      *
-     * @return Variety
+     * @return SeedBatch
      */
-    public function getVariety()
+    public function getSeedBatch()
     {
-        return $this->variety;
+        return $this->seedBatch;
     }
 
     /**
-     * Set variety.
+     * Set seed batch.
      *
-     * @param Variety $variety
+     * @param SeedBatch $seedBatch
      *
      * @return self
      */
-    public function setVariety($variety)
+    public function setSeedBatch($seedBatch)
     {
-        $this->variety = $variety;
+        $this->seedBatch = $seedBatch;
 
         return $this;
     }

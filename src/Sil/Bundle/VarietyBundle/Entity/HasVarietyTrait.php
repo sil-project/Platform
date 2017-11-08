@@ -1,5 +1,4 @@
 <?php
-
 /*
  * This file is part of the Blast Project package.
  *
@@ -9,38 +8,38 @@
  * For the full copyright and license information, please view the LICENSE.md
  * file that was distributed with this source code.
  */
+namespace Sil\Bundle\VarietyBundle\Entity;
 
-namespace Sil\Bundle\SeedBatchBundle\Entity\OuterExtension;
+use Sil\Bundle\VarietyBundle\Entity\Variety;
 
-use Sil\Bundle\SeedBatchBundle\Entity\SeedBatch;
-
-trait HasSeedBatch
+trait HasVarietyTrait
 {
-    /**
-     * @var SeedBatch
-     */
-    private $seedBatch;
 
     /**
-     * Get seed batch.
-     *
-     * @return SeedBatch
+     * @var Variety
      */
-    public function getSeedBatch()
+    private $variety;
+
+    /**
+     * Get variety.
+     *
+     * @return Variety
+     */
+    public function getVariety()
     {
-        return $this->seedBatch;
+        return $this->variety;
     }
 
     /**
-     * Set seed batch.
+     * Set variety.
      *
-     * @param SeedBatch $seedBatch
+     * @param Variety $variety
      *
      * @return self
      */
-    public function setSeedBatch($seedBatch)
+    public function setVariety($variety)
     {
-        $this->seedBatch = $seedBatch;
+        $this->variety = $variety;
 
         return $this;
     }
