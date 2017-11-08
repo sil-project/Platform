@@ -5,6 +5,7 @@ imports:
 
     # Vendors
 
+    - { resource: vendors/doctrine.yml }
     - { resource: vendors/blast.yml }
     - { resource: vendors/sonata_block.yml }
     - { resource: vendors/sylius.yml }
@@ -126,9 +127,6 @@ doctrine:
                 mappings:
                     BlastDoctrineSessionBundle:
                         type: yml
-        resolve_target_entities:
-            Sil\Bundle\StockBundle\Domain\Entity\PartnerInterface:  Sil\Bundle\CRMBundle\Entity\Organism
-            Sil\Bundle\StockBundle\Domain\Entity\StockItemInterface:  Sil\Bundle\EcommerceBundle\Entity\Product
 
 # Swiftmailer Configuration
 swiftmailer:

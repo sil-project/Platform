@@ -1,0 +1,13 @@
+doctrine:
+    orm:
+        resolve_target_entities:
+
+            # SilStockBundle
+
+            Sil\Bundle\StockBundle\Domain\Entity\PartnerInterface:    Sil\Bundle\CRMBundle\Entity\Organism
+            Sil\Bundle\StockBundle\Domain\Entity\StockItemInterface:  Sil\Bundle\EcommerceBundle\Entity\Product
+
+            # SilVarietyBundle
+
+            Sil\Bundle\VarietyBundle\Entity\FamilyInterface:          AppBundle\Entity\SilVarietyBundle\Family
+            Sil\Bundle\VarietyBundle\Entity\VarietyInterface:         AppBundle\Entity\SilVarietyBundle\Variety
