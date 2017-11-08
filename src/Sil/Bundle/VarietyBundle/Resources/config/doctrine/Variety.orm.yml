@@ -1,6 +1,6 @@
 
 Sil\Bundle\VarietyBundle\Entity\Variety:
-    type: entity
+    type: mappedSuperclass
     table: variety
     blast:
         loggable: true

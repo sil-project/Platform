@@ -33,17 +33,17 @@ class PlantCategory implements \JsonSerializable
     /**
      * @var string
      */
-    private $code;
+    protected $code;
 
     /**
      * @var \Doctrine\Common\Collections\ArrayCollection
      */
-    private $species;
+    protected $species;
 
     /**
      * @var \Doctrine\Common\Collections\ArrayCollection
      */
-    private $varieties;
+    protected $varieties;
 
     /**
      * Constructor.

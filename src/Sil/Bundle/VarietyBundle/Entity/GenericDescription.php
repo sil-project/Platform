@@ -24,17 +24,17 @@ class GenericDescription
     /**
      * @var string
      */
-    private $fieldset;
+    protected $fieldset;
 
     /**
      * @var string
      */
-    private $field;
+    protected $field;
 
     /**
      * @var string
      */
-    private $value;
+    protected $value;
 
     /**
      * Set fieldset.

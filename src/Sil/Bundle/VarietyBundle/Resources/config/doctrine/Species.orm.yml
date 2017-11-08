@@ -1,5 +1,5 @@
 Sil\Bundle\VarietyBundle\Entity\Species:
-    type: entity
+    type: mappedSuperclass
     table: species
     blast:
         loggable: true

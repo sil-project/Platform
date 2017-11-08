@@ -32,12 +32,12 @@ class Variety extends BaseVariety
     /**
      * @var Collection|ChannelDescription[]
      */
-    private $channelDescriptions;
+    protected $channelDescriptions;
 
     /**
      * @var Collection|ProductOption[]
      */
-    private $packagings;
+    protected $packagings;
 
     /**
      * 

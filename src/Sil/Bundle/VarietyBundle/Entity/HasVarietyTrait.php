@@ -18,7 +18,7 @@ trait HasVarietyTrait
     /**
      * @var Variety
      */
-    private $variety;
+    protected $variety;
 
     /**
      * Get variety.

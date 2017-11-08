@@ -31,17 +31,17 @@ class Family
     /**
      * @var string
      */
-    private $latin_name;
+    protected $latin_name;
 
     /**
      * @var string
      */
-    private $alias;
+    protected $alias;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
-    private $genuses;
+    protected $genuses;
 
     /**
      * Constructor.

@@ -34,77 +34,77 @@ class Species implements \JsonSerializable
     /**
      * @var string
      */
-    private $latin_name;
+    protected $latin_name;
 
     /**
      * @var string
      */
-    private $alias;
+    protected $alias;
 
     /**
      * @var string
      */
-    private $code;
+    protected $code;
 
     /**
      * @var string
      */
-    private $life_cycle;
+    protected $life_cycle;
 
     /**
      * @var int
      */
-    private $legal_germination_rate = 0;
+    protected $legal_germination_rate = 0;
 
     /**
      * @var int
      */
-    private $germination_rate = 0;
+    protected $germination_rate = 0;
 
     /**
      * @var int
      */
-    private $seed_lifespan;
+    protected $seed_lifespan;
 
     /**
      * @var int
      */
-    private $raise_duration;
+    protected $raise_duration;
 
     /**
      * @var float
      */
-    private $tkw;
+    protected $tkw;
 
     /**
      * @var string
      */
-    private $regulatory_status;
+    protected $regulatory_status;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
-    private $varieties;
+    protected $varieties;
 
     /**
      * @var \Sil\Bundle\VarietyBundle\Entity\Genus
      */
-    private $genus;
+    protected $genus;
 
     /**
      * @var \Sil\Bundle\VarietyBundle\Entity\Species
      */
-    private $parent_species;
+    protected $parent_species;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
-    private $subspecieses;
+    protected $subspecieses;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
-    private $plant_categories;
+    protected $plant_categories;
 
     /**
      * Constructor.

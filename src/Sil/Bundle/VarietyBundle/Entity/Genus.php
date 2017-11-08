@@ -31,22 +31,22 @@ class Genus
     /**
      * @var string
      */
-    private $latin_name;
+    protected $latin_name;
 
     /**
      * @var string
      */
-    private $alias;
+    protected $alias;
 
     /**
      * @var \Sil\Bundle\VarietyBundle\Entity\Family
      */
-    private $family;
+    protected $family;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
-    private $specieses;
+    protected $specieses;
 
     /**
      * Constructor.

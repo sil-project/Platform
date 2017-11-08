@@ -8,7 +8,7 @@
  * For the full copyright and license information, please view the LICENSE.md
  * file that was distributed with this source code.
  */
-namespace AppBundle\Entity\SilVarietyBundle;
+namespace AppBundle\Entity;
 
 use Sil\Bundle\VarietyBundle\Entity\HasVarietyTrait;
 
@@ -23,7 +23,7 @@ class ChannelDescription
     /**
      * @var Channel
      */
-    private $channel;
+    protected $channel;
 
     function __construct()
     {
