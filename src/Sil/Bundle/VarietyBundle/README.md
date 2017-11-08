@@ -138,7 +138,7 @@ _sonata_admin:
 blast_core:
     resource: "@BlastCoreBundle/Resources/config/routing.yml" 
     prefix:   /admin
-librinfo_media:
+sil_media:
     resource: "@SilMediaBundle/Resources/config/routing.yml"
 ```
 

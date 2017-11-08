@@ -29,7 +29,7 @@ class Configuration implements ConfigurationInterface
     {
         $treeBuilder = new TreeBuilder();
 
-        $rootNode = $treeBuilder->root('librinfo_email');
+        $rootNode = $treeBuilder->root('sil_email');
 
         return $treeBuilder;
     }

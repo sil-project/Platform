@@ -9,11 +9,11 @@
 
 
     {% if sm_can(shipment, 'ship', 'sylius_shipment') %}
-        <form action="{{ path('admin_librinfo_ecommerce_order_updateShipping',{id: object.id}) }}" method="POST" novalidate>
+        <form action="{{ path('admin_sil_ecommerce_order_updateShipping',{id: object.id}) }}" method="POST" novalidate>
             <input type="hidden" name="_action" value="ship"/>
             <input type="hidden" name="_shipmentId" value="{{ shipment.id }}"/>
             <a href="#" onclick="$(this).closest('form').submit()" class="btn btn-success pull-right confirmable" data-confirm-action="triggerClick">
-                {{'librinfo.label.ship'|trans}}&nbsp;
+                {{'sil.label.ship'|trans}}&nbsp;
                 <i class="fa fa-paper-plane"></i>
             </a>
             <div class="input-group">

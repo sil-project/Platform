@@ -21,7 +21,7 @@
                 .data('file-id')
             ;
 
-            $.post(Routing.generate('admin_librinfo_ecommerce_product_setAsCoverImage'),{imageId: id}, function (data) {
+            $.post(Routing.generate('admin_sil_ecommerce_product_setAsCoverImage'),{imageId: id}, function (data) {
                 $('.setAsCover').removeClass('cover');
                 button.addClass('cover');
             });

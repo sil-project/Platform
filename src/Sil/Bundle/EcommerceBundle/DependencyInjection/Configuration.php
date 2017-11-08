@@ -28,7 +28,7 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('librinfo_ecommerce');
+        $rootNode = $treeBuilder->root('sil_ecommerce');
 
         $rootNode
             ->children()

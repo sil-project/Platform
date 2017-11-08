@@ -28,7 +28,7 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('librinfo_seed_batch');
+        $rootNode = $treeBuilder->root('sil_seed_batch');
 
         // Here you should define the parameters that are allowed to
         // configure your bundle. See the documentation linked above for

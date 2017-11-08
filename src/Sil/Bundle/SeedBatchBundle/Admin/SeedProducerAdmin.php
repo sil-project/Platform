@@ -16,8 +16,8 @@ use Sonata\AdminBundle\Admin\AbstractAdmin;
 
 class SeedProducerAdmin extends OrganismAdmin
 {
-    protected $baseRouteName = 'admin_librinfo_seedbatch_seedProducer';
-    protected $baseRoutePattern = 'librinfo/seedbatch/seed-producer';
+    protected $baseRouteName = 'admin_sil_seedbatch_seedProducer';
+    protected $baseRoutePattern = 'sil/seedbatch/seed-producer';
 
     /**
      * The label class name  (used in the title/breadcrumb ...).
@@ -43,7 +43,7 @@ class SeedProducerAdmin extends OrganismAdmin
     public function getNewInstance()
     {
         $object = parent::getNewInstance();
-        $seedProducersCircle = $this->getConfigurationPool()->getContainer()->get('librinfo_crm.app_circles')->getCircle('seed_producers');
+        $seedProducersCircle = $this->getConfigurationPool()->getContainer()->get('sil_crm.app_circles')->getCircle('seed_producers');
 
         $object->setSeedProducer(true);
         $object->addCircle($seedProducersCircle);

@@ -8,7 +8,7 @@ parameters:
     sonata_sylius_user.user.class: Sil\Bundle\SonataSyliusUserBundle\Entity\SonataUser
 
 services:
-    blast_core.label.strategy.librinfo_sonata_sylius_user:
+    blast_core.label.strategy.sil_sonata_sylius_user:
         class: Blast\Bundle\CoreBundle\Translator\LibrinfoLabelTranslatorStrategy
         arguments: ['Sil\Bundle\SonataSyliusUserBundle']
 

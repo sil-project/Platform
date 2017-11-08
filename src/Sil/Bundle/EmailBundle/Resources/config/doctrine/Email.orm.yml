@@ -34,7 +34,7 @@ Sil\Bundle\EmailBundle\Entity\Email:
         attachments:
             targetEntity: \Sil\Bundle\MediaBundle\Entity\File
             joinTable:
-                name: librinfo_email_file
+                name: sil_email_file
                 joinColumns:
                     email_id:
                         referencedColumnName: id

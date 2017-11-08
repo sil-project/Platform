@@ -1,6 +1,6 @@
 
 
-librinfo:
+sil:
     sonatasyliususerbundle:
         _action: Actions
         username: Nom d'utilisateur

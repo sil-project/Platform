@@ -1,5 +1,5 @@
 {% if action == 'edit' %}
-    {% set speciesAdminLibrinfo = admin_pool.getAdminByAdminCode('librinfo_varieties.admin.species') %}
+    {% set speciesAdminLibrinfo = admin_pool.getAdminByAdminCode('sil_varieties.admin.species') %}
 
     {% if object.isStrain %}
     {#
@@ -28,5 +28,5 @@
     {% endif %}
 
 {% else %}
-    {{ 'librinfo.new_variety.label'| trans() }}
+    {{ 'sil.new_variety.label'| trans() }}
 {% endif %}

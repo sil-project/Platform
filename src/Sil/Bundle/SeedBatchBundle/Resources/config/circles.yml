@@ -11,6 +11,6 @@ organic_certificator:
     name: Organic Certificator
     code: OC
     color: ~
-    description: librinfo.circle_description.organic_certificator
+    description: sil.circle_description.organic_certificator
     translatable: true
     type: Autres

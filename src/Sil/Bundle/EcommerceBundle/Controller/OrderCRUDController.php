@@ -88,8 +88,8 @@ class OrderCRUDController extends CRUDController
         // dump((new \ReflectionClass($object))->getMethods());
         //  die("DiE!");
 
-        $newOrder = $this->container->get('librinfo_ecommerce.order_creation_manager')->duplicateOrder($object);
-        $this->container->get('librinfo_ecommerce.order_creation_manager')->saveOrder($newOrder);
+        $newOrder = $this->container->get('sil_ecommerce.order_creation_manager')->duplicateOrder($object);
+        $this->container->get('sil_ecommerce.order_creation_manager')->saveOrder($newOrder);
         // return $this->showAction($newOrder); /* Why show action does not work ? */
         return new RedirectResponse(
             $this->admin->generateUrl('show', ['id' => $newOrder->getId()])
@@ -195,11 +195,11 @@ class OrderCRUDController extends CRUDController
             /* @todo : state Machine manipulation should be done in service */
             if ($action === OrderTransitions::TRANSITION_FULFILL || $action === OrderTransitions::TRANSITION_CONFIRM) {
                 $this->container
-                    ->get('librinfo_ecommerce.order_creation_manager')
+                    ->get('sil_ecommerce.order_creation_manager')
                     ->assignNumber($selectedModel);
 
                 $this->container
-                    ->get('librinfo_ecommerce.order_creation_manager')
+                    ->get('sil_ecommerce.order_creation_manager')
                     ->initNewPayment($selectedModel);
             }
             $stateMachine = $stateMachineFactory->get($selectedModel, OrderTransitions::GRAPH);

@@ -63,7 +63,7 @@ class AnyChannelsType extends AbstractType
 
     public function getBlockPrefix()
     {
-        return 'librinfo_type_any_channels';
+        return 'sil_type_any_channels';
     }
 
     /**

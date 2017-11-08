@@ -40,14 +40,14 @@ parameters:
                                 multiple: true
                                 required: false
                                 _options:
-                                    admin_code: librinfo_crm.admin.organism
+                                    admin_code: sil_crm.admin.organism
                             individuals:
                                 type: Blast\Bundle\BaseEntitiesBundle\Form\Type\SearchIndexAutocompleteType
                                 callback: Sil\Bundle\CRMBundle\Admin\PositionAdmin::individualsCallback
                                 multiple: true
                                 required: false
                                 _options:
-                                    admin_code: librinfo_crm.admin.organism
+                                    admin_code: sil_crm.admin.organism
                             _options:
                                 fieldsOrder:
                                     - field_from
@@ -64,17 +64,17 @@ parameters:
                 add:
                     individuals:
                         type: doctrine_orm_model_autocomplete
-                        admin_code: librinfo_crm.admin.organism
+                        admin_code: sil_crm.admin.organism
                         multiple: true
                         field_options:
                             property: label
-                            admin_code: librinfo_email.admin.email
+                            admin_code: sil_email.admin.email
                             callback: Sil\Bundle\CRMBundle\Admin\PositionAdmin::individualsCallback
                     organizations:
                         type: doctrine_orm_model_autocomplete
-                        admin_code: librinfo_crm.admin.organism
+                        admin_code: sil_crm.admin.organism
                         multiple: true
                         field_options:
                             property: title
-                            admin_code: librinfo_email.admin.email
+                            admin_code: sil_email.admin.email
                             callback: Sil\Bundle\CRMBundle\Admin\PositionAdmin::organizationsCallback

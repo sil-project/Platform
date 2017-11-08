@@ -14,14 +14,14 @@
 
 {% block stylesheets %}
     {{ parent() }}
-    <link href="{{ asset('bundles/librinfoemail/css/stats.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('bundles/silemail/css/stats.css') }}" type="text/css" rel="stylesheet" />
 {% endblock %}
 
 {% block javascripts %}
     {{ parent() }}
 
     {% if stats is defined %}      
-        <script type="text/javascript" src="{{ asset('bundles/librinfoemail/js/jquery.classyloader.min.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('bundles/librinfoemail/js/stats.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('bundles/silemail/js/jquery.classyloader.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('bundles/silemail/js/stats.js') }}"></script>
     {% endif %}
 {% endblock %}

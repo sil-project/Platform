@@ -36,14 +36,14 @@ class SilVarietiesExtension extends BlastCoreExtension
         $loader->load('services.yml');
         $loader->load('admin.yml');
 
-        $container->setParameter('librinfo_varieties', $config);
+        $container->setParameter('sil_varieties', $config);
 
         // Entity code generators
-        $container->setParameter('librinfo_varieties.code_generator.species',
-            $container->getParameter('librinfo_varieties')['code_generator']['species']
+        $container->setParameter('sil_varieties.code_generator.species',
+            $container->getParameter('sil_varieties')['code_generator']['species']
         );
-        $container->setParameter('librinfo_varieties.code_generator.variety',
-            $container->getParameter('librinfo_varieties')['code_generator']['variety']
+        $container->setParameter('sil_varieties.code_generator.variety',
+            $container->getParameter('sil_varieties')['code_generator']['variety']
         );
 
         if ($container->getParameter('kernel.environment') == 'test') {

@@ -40,7 +40,7 @@ class DropzoneType extends BaseAbstractType
 
     public function getBlockPrefix()
     {
-        return 'librinfo_dropzone';
+        return 'sil_dropzone';
     }
 
     public function buildView(FormView $view, FormInterface $form, array $options)

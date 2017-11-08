@@ -38,14 +38,14 @@ class CRUDController extends BaseCRUDController
                 return new JsonResponse(array(
                     'status' => 'NOK',
                     'sent'   => true,
-                    'error'  => 'librinfo_email.error.email_already_sent',
+                    'error'  => 'sil_email.error.email_already_sent',
                 ));
             }
 
             return new RedirectResponse($this->admin->generateUrl('list', $this->admin->getFilterParameters()));
         }
 
-        $sender = $this->get('librinfo_email.sender');
+        $sender = $this->get('sil_email.sender');
         $error = false;
 
         try {
@@ -65,12 +65,12 @@ class CRUDController extends BaseCRUDController
         if ($error) {
             $this->addFlash(
                 'sonata_flash_error',
-                $this->get('translator')->trans('librinfo_email.flash.message_not_sent') . ': ' . $error
+                $this->get('translator')->trans('sil_email.flash.message_not_sent') . ': ' . $error
             );
         } else {
             $this->addFlash(
                 'sonata_flash_success',
-                $this->get('translator')->trans('librinfo_email.flash.message_sent')
+                $this->get('translator')->trans('sil_email.flash.message_sent')
             );
         }
 
@@ -103,7 +103,7 @@ class CRUDController extends BaseCRUDController
         $this->admin->setSubject($object);
 
         if ($object->getTracking()) {
-            $twigArray['stats'] = $this->get('librinfo_email.stats')->getStats($object);
+            $twigArray['stats'] = $this->get('sil_email.stats')->getStats($object);
         }
 
         return $this->render($this->admin->getTemplate('show'), $twigArray, null);
@@ -353,7 +353,7 @@ class CRUDController extends BaseCRUDController
     protected function handleTest($email)
     {
         if ($email->getIsTest() && $email->getTestAddress()) {
-            $this->get('librinfo_email.sender')->send($email);
+            $this->get('sil_email.sender')->send($email);
         }
     }
 

@@ -77,7 +77,7 @@ class ProductTaxonListType extends AbstractType
 
     public function getBlockPrefix()
     {
-        return 'librinfo_type_product_taxon_list';
+        return 'sil_type_product_taxon_list';
     }
 
     /**

@@ -37,12 +37,12 @@ class VarietyDescriptionFilterType extends BaseAbstractType
     {
         $fieldSet = explode('_', $options['fieldset'])[0];
 
-        $librinfoOptions = array(
+        $silOptions = array(
             'fieldset' => $fieldSet,
             'required' => false,
         );
 
-        $builder->add('Field', VarietyDescriptionType::class, array_merge($librinfoOptions, $options['field_options']));
+        $builder->add('Field', VarietyDescriptionType::class, array_merge($silOptions, $options['field_options']));
         $builder->add('Value', 'text', array_merge(array('required' => false), $options['field_options']));
     }
 
@@ -62,6 +62,6 @@ class VarietyDescriptionFilterType extends BaseAbstractType
 
     public function getBlockPrefix()
     {
-        return 'librinfo_variety_description_filter';
+        return 'sil_variety_description_filter';
     }
 }

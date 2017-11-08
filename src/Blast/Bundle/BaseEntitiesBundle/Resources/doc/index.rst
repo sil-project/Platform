@@ -259,8 +259,8 @@ To enable this functionnality on an entity :
     type: entity
 
 
-This bundle comes with a ``librinfo:update:search`` console command to batch-update the search indexes :
+This bundle comes with a ``blast:update:search`` console command to batch-update the search indexes :
 
 .. code-block:: bash
 
-  php app/console librinfo:update:search MyBundle:MyEntity
+  php app/console blast:update:search MyBundle:MyEntity

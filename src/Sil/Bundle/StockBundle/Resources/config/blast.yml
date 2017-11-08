@@ -53,7 +53,7 @@ parameters:
                                 template: SilStockBundle:Field:show_operation_type_field.html.twig
                             partner:
                                 associated_property: fulltextName
-                                admin_code: librinfo_seedbatch.admin.organism
+                                admin_code: sil_seedbatch.admin.organism
                             expectedAt: ~
                             completedAt: ~
                             state:
@@ -87,7 +87,7 @@ parameters:
                         template: SilStockBundle:Field:list_operation_type_field.html.twig
                     partner:
                         associated_property: fulltextName
-                        admin_code: librinfo_seedbatch.admin.organism
+                        admin_code: sil_seedbatch.admin.organism
                     expectedAt: ~
                     completedAt: ~
                     srcLocation:

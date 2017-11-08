@@ -14,7 +14,7 @@ Sil\Bundle\EcommerceBundle\Entity\ProductImage:
             orphanRemoval: true
             inversedBy: images
             joinTable:
-                name: librinfo_ecommerce_productimage__productvariants
+                name: sil_ecommerce_productimage__productvariants
                 joinColumns:
                     joinColumn:
                         name: image_id

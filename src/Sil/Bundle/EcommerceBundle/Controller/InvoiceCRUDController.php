@@ -117,7 +117,7 @@ class InvoiceCRUDController extends CRUDController
             throw new \Exception('Invoice has already been generated');
         }
 
-        $invoiceFactory = $this->container->get('librinfo_ecommerce.factory.invoice');
+        $invoiceFactory = $this->container->get('sil_ecommerce.factory.invoice');
         $invoice = $invoiceFactory->createForOrder($order);
         $manager->persist($invoice);
         $manager->flush();

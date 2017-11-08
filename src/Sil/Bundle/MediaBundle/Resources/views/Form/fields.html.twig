@@ -1,5 +1,5 @@
 
-{% block librinfo_dropzone_widget %}
+{% block sil_dropzone_widget %}
 
     {% set dropzoneId = id|split('_')[0] ~ 'drop' %}
 
@@ -11,14 +11,14 @@
         <input type="hidden" name="load_files[]" value="{{ value.id }}" data-dropzone-id="{{ dropzoneId }}"/>
     {% endif %}
     {% spaceless %}
-        <div id="{{ dropzoneId }}" class="dropzone add_files" data-librinfo-dropzone='{{ {
+        <div id="{{ dropzoneId }}" class="dropzone add_files" data-sil-dropzone='{{ {
             id:  dropzoneId,
             context: mediaContext,
             multipleFiles: multipleFiles,
             routes: {
-                upload: path('librinfo_media.upload'),
-                load:   path('librinfo_media.load'),
-                remove: path('librinfo_media.remove')~'/',
+                upload: path('sil_media.upload'),
+                load:   path('sil_media.load'),
+                remove: path('sil_media.remove')~'/',
             }
         }|json_encode()|raw }}'>
         </div>

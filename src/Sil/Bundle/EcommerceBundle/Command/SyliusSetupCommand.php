@@ -47,7 +47,7 @@ final class SyliusSetupCommand extends AbstractInstallCommand
     protected function configure()
     {
         $this
-            ->setName('librinfo:sylius:setup')
+            ->setName('sil:sylius:setup')
             ->setDescription('Sylius configuration setup for the LiSem project.')
             ->setHelp(
                 <<<EOT
@@ -63,7 +63,7 @@ EOT
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         //$currency = $this->get('sylius.setup.currency')->setup($input, $output, $this->getHelper('question'));
-        $currency = $this->get('librinfo_ecommerce.sylius.setup.currency')->setup($input, $output, $this->getHelper('question'));
+        $currency = $this->get('sil_ecommerce.sylius.setup.currency')->setup($input, $output, $this->getHelper('question'));
         $locale = $this->get('sylius.setup.locale')->setup($input, $output);
         $this->get('sylius.setup.channel')->setup($locale, $currency);
         $this->setupAdministratorUser($input, $output, $locale->getCode());

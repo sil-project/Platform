@@ -20,7 +20,7 @@ final class CustomerSuiteFixture extends AbstractResourceFixture
      */
     public function getName(): string
     {
-        return 'librinfo_customer';
+        return 'sil_customer';
     }
 
     /**

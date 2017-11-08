@@ -1,7 +1,7 @@
 {% extends "SilEmailBundle:CRUD:show_field_emails_list.html.twig" %}
 
 {% block send_new_email %}
-    <form method="GET" action="{{ path('admin_librinfo_email_email_create') }}" id="send-email-form">
+    <form method="GET" action="{{ path('admin_sil_email_email_create') }}" id="send-email-form">
         <label>Envoyer un email à</label>
         <input type="hidden" name="force_user" value="1">
         <input type="hidden" name="recipient_class" value="{{ admin.class }}">
@@ -9,14 +9,14 @@
         <input type="hidden" name="from_id" value="{{ object.id }}">
         <select id="new-email-recipients" name="recipient_ids" style="width: auto; height: auto;">
             {% if object.email %}
-                <optgroup label="{{ 'librinfo.label.organism'|trans }}">
+                <optgroup label="{{ 'sil.label.organism'|trans }}">
                 <option data-recipient-class="{{ admin.class }}" value="{{ object.id }}" selected="selected">
                     {{ object.name }} &lt;{{ object.email }}&gt;
                 </option>
             {% endif %}
 
             {% if object.positions|length %}
-                <optgroup label="{{ object.isIndividual ? 'librinfo.label.individuals'|trans : 'librinfo.label.organizations'|trans }}">
+                <optgroup label="{{ object.isIndividual ? 'sil.label.individuals'|trans : 'sil.label.organizations'|trans }}">
                 {% for position in object.positions if position.email %}
                     <option data-recipient-class="Sil\Bundle\CRMBundle\Entity\Position" value="{{ position.id }}">
                         {{ position }} &lt;{{ position.email }}&gt;

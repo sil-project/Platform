@@ -38,7 +38,7 @@ class SpeciesAdmin extends CoreAdmin
      */
     public function validateSpeciesCode(ErrorElement $errorElement, $object)
     {
-        $generator = $this->getConfigurationPool()->getContainer()->get('librinfo_varieties.code_generator.species');
+        $generator = $this->getConfigurationPool()->getContainer()->get('sil_varieties.code_generator.species');
         if (!$generator->validate($object->getCode())) {
             $errorElement
                 ->with('code')

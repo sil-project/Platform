@@ -29,8 +29,8 @@ class OrderAdmin extends CoreAdmin
 {
     /* @todo : remove this useless protected attributes */
 
-    protected $baseRouteName = 'admin_librinfo_ecommerce_order';
-    protected $baseRoutePattern = 'librinfo/ecommerce/order';
+    protected $baseRouteName = 'admin_sil_ecommerce_order';
+    protected $baseRoutePattern = 'sil/ecommerce/order';
     protected $classnameLabel = 'Order';
     protected $datagridValues = [
         '_page'       => 1,
@@ -55,12 +55,12 @@ class OrderAdmin extends CoreAdmin
 
         $actions['cancel'] = [
             'ask_confirmation' => true,
-            'label'            => 'librinfo.label.cancel_order',
+            'label'            => 'sil.label.cancel_order',
         ];
 
         $actions['validate'] = [
             'ask_confirmation' => true,
-            'label'            => 'librinfo.label.fulfill_order',
+            'label'            => 'sil.label.fulfill_order',
         ];
 
         return $actions;
@@ -117,7 +117,7 @@ class OrderAdmin extends CoreAdmin
                 $form = $event->getForm();
 
                 $orderCreationTools = $this->getConfigurationPool()->getContainer()
-                    ->get('librinfo_ecommerce.order_creation_manager');
+                    ->get('sil_ecommerce.order_creation_manager');
                 $order = $admin->getSubject();
 
                 if (isset($data['channel'])) {
@@ -139,7 +139,7 @@ class OrderAdmin extends CoreAdmin
                         ->getQuery()->getResult();
 
                     $form->add('payment', PaymentMethodChoiceType::class, [
-                        'label'    => 'librinfo.label.payment_method',
+                        'label'    => 'sil.label.payment_method',
                         'multiple' => false,
                         'mapped'   => false,
                         'required' => true,
@@ -160,7 +160,7 @@ class OrderAdmin extends CoreAdmin
                         ->getQuery()->getResult();
 
                     $form->add('shipment', ShippingMethodChoiceType::class, [
-                        'label'    => 'librinfo.label.shipping_method',
+                        'label'    => 'sil.label.shipping_method',
                         'multiple' => false,
                         'mapped'   => false,
                         'required' => true,
@@ -201,7 +201,7 @@ class OrderAdmin extends CoreAdmin
                     }
                 }
 
-                /* @todo: add a tools to set payment from form in 'librinfo_ecommerce.order_creation_manager' */
+                /* @todo: add a tools to set payment from form in 'sil_ecommerce.order_creation_manager' */
                 if (isset($data['payment'])) {
                     $paymentCode = $data['payment'];
 
@@ -222,7 +222,7 @@ class OrderAdmin extends CoreAdmin
                     $order->addPayment($payment);
                 }
 
-                /* @todo: add a tools to set shipment from form in 'librinfo_ecommerce.order_creation_manager' */
+                /* @todo: add a tools to set shipment from form in 'sil_ecommerce.order_creation_manager' */
                 if (isset($data['shipment'])) {
                     $shipmentCode = $data['shipment'];
 
@@ -248,7 +248,7 @@ class OrderAdmin extends CoreAdmin
     {
         // 1
         $order = $this->getConfigurationPool()->getContainer()
-            ->get('librinfo_ecommerce.order_creation_manager')
+            ->get('sil_ecommerce.order_creation_manager')
             ->createOrder();
 
         return $order;
@@ -267,11 +267,11 @@ class OrderAdmin extends CoreAdmin
         parent::prePersist($order);
 
         $this->getConfigurationPool()->getContainer()
-            ->get('librinfo_ecommerce.order_customer_manager')
+            ->get('sil_ecommerce.order_customer_manager')
             ->associateUserAndAddress($order);
 
         $this->getConfigurationPool()->getContainer()
-            ->get('librinfo_ecommerce.order_creation_manager')
+            ->get('sil_ecommerce.order_creation_manager')
             ->saveOrder($order);
     }
 }

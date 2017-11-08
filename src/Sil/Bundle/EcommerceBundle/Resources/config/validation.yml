@@ -2,24 +2,24 @@ Sylius\Component\Product\Model\ProductTranslation:
     constraints:
         - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
             fields: slug
-            message: librinfo.product_slug.not_unique
+            message: sil.product_slug.not_unique
     properties:
         slug:
             - NotBlank:
-                message: librinfo.product_slug.empty
+                message: sil.product_slug.empty
             - Length:
                 min: 3
-                minMessage: librinfo.product_slug.too_short
+                minMessage: sil.product_slug.too_short
                 max: 255
-                maxMessage: librinfo.product_slug.too_long
+                maxMessage: sil.product_slug.too_long
         name:
             - NotBlank:
-                message: librinfo.product_name.empty
+                message: sil.product_name.empty
             - Length:
                 min: 3
-                minMessage: librinfo.product_name.too_short
+                minMessage: sil.product_name.too_short
                 max: 255
-                maxMessage: librinfo.product_name.too_long
+                maxMessage: sil.product_name.too_long
 
 Sil\Bundle\EcommerceBundle\Entity\Product:
     constraints:

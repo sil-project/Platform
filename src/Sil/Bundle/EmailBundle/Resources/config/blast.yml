@@ -64,7 +64,7 @@ parameters:
                             field_to:
                                 type: text
                                 required: true
-                                help: librinfo.help.field_to
+                                help: sil.help.field_to
                             field_subject:
                                 type: text
                                 required: false

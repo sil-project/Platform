@@ -1,5 +1,5 @@
 
-librinfo:
+sil:
     action:
         add_variant: Ajouter une déclinaison
         edit: Modifier

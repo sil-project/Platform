@@ -120,7 +120,7 @@ class RawQueries extends AbstractStats
 
         $sql = "
             SELECT
-                'librinfo.ecommercebundle.sales_of_current_year' as label,
+                'sil.ecommercebundle.sales_of_current_year' as label,
                 sum(o.total) as value
             FROM
                 " . $this->orderTableName . ' o
@@ -147,7 +147,7 @@ class RawQueries extends AbstractStats
 
         $sql = "
             SELECT
-                'librinfo.ecommercebundle.taxes_of_current_year' as label,
+                'sil.ecommercebundle.taxes_of_current_year' as label,
                 sum(a.amount) as value
             FROM
                 " . $this->orderTableName . ' o
@@ -186,7 +186,7 @@ class RawQueries extends AbstractStats
 
         $sql = "
             SELECT
-                'librinfo.ecommercebundle.total_sales' as label,
+                'sil.ecommercebundle.total_sales' as label,
                 sum(o.total) as value
             FROM
                 " . $this->orderTableName . ' o
@@ -211,7 +211,7 @@ class RawQueries extends AbstractStats
 
         $sql = "
             SELECT
-                'librinfo.ecommercebundle.total_taxes' as label,
+                'sil.ecommercebundle.total_taxes' as label,
                 sum(a.amount) as value
             FROM
                 " . $this->orderTableName . ' o

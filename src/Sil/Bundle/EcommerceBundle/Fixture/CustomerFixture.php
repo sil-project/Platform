@@ -46,7 +46,7 @@ class CustomerFixture extends AbstractFixture implements FixtureInterface
 
     public function getName(): string
     {
-        return 'librinfo_customer_customer';
+        return 'sil_customer_customer';
     }
 
     public function load(array $options): void

@@ -36,7 +36,7 @@ class PriceCentsType extends AbstractType
 
     public function getBlockPrefix()
     {
-        return 'librinfo_type_price_cents';
+        return 'sil_type_price_cents';
     }
 
     public function buildForm(\Symfony\Component\Form\FormBuilderInterface $builder, array $options)

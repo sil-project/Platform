@@ -26,7 +26,7 @@ class VarietyDescriptionAdmin extends CoreAdmin
      */
     protected function configureFormFields(FormMapper $formMapper)
     {
-        $vd_config = $this->getConfigurationPool()->getContainer()->getParameter('librinfo_varieties')['variety_descriptions'];
+        $vd_config = $this->getConfigurationPool()->getContainer()->getParameter('sil_varieties')['variety_descriptions'];
 
         if (!$this->subject) {
             $this->subject = $this->formFieldDescriptions['fieldset']->getAdmin()->getSubject();
@@ -52,11 +52,11 @@ class VarietyDescriptionAdmin extends CoreAdmin
         }
 
         if (!isset($options['label']) || !$options['label']) {
-            $options['label'] = sprintf('librinfo_description_%s_%s', $fieldset, $field);
+            $options['label'] = sprintf('sil_description_%s_%s', $fieldset, $field);
         }
 
         if (!isset($options['help']) || !$options['help']) {
-            $options['help'] = sprintf('librinfo.help.%s', $field);
+            $options['help'] = sprintf('sil.help.%s', $field);
         }
 
         if ($this->subject->getValue() === '') {

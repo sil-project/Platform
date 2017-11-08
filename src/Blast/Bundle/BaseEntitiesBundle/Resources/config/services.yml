@@ -7,7 +7,7 @@ services:
 # doctrine.event_subscriber tags are added in BlastBaseEntitiesExtension.php
 # ###################################################################################
 
-    blast_core.label.strategy.librinfo_baseentities:
+    blast_core.label.strategy.blast_baseentities:
         class: Blast\Bundle\CoreBundle\Translator\LibrinfoLabelTranslatorStrategy
         arguments: ['Blast\Bundle\BaseEntitiesBundle']
 

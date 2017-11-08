@@ -14,14 +14,14 @@ file that was distributed with this source code.
 
 {% block field %}
     <a class="email-link" href="#">{{ value }}</a>
-    <form method="GET" action="{{ path('admin_librinfo_email_email_create') }}" id="send-email-form">
+    <form method="GET" action="{{ path('admin_sil_email_email_create') }}" id="send-email-form">
         <input type="hidden" name="force_user" value="1">
         <input type="hidden" name="recipients[]" value="{{ value }}">
     </form>
     {% if ( object.emailNpai ) %}
-        <span class="label label-danger">{{ 'librinfo.label.npai'|trans }}</span>
+        <span class="label label-danger">{{ 'sil.label.npai'|trans }}</span>
     {% endif %}
     {% if ( object.emailNoNewsletter ) %}
-        <span class="label label-danger">{{ 'librinfo.label.email_no_newsletter'|trans }}</span>
+        <span class="label label-danger">{{ 'sil.label.email_no_newsletter'|trans }}</span>
     {% endif %}
 {% endblock %}

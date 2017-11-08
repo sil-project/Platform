@@ -45,7 +45,7 @@ class PlotCodeGenerator implements CodeGeneratorInterface
     {
         $producer = $plot->getProducer();
         if (!$producer) {
-            throw new InvalidEntityCodeException('librinfo.error.missing_producer');
+            throw new InvalidEntityCodeException('sil.error.missing_producer');
         }
         $repo = self::$em->getRepository(Plot::class);
         $regexp = sprintf('^(\d{%d})$', self::$length);

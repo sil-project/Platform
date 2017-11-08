@@ -33,7 +33,7 @@ class ProductVariantAdmin extends SyliusGenericAdmin
     /**
      * @var string
      */
-    protected $productAdminCode = 'librinfo_ecommerce.admin.product';
+    protected $productAdminCode = 'sil_ecommerce.admin.product';
 
     /**
      * {@inheritdoc}
@@ -70,7 +70,7 @@ class ProductVariantAdmin extends SyliusGenericAdmin
                     'choice_label'  => 'fullName',
                 ],
                 [
-                    'admin_code' => 'librinfo_ecommerce_option_value.admin.product',
+                    'admin_code' => 'sil_ecommerce_option_value.admin.product',
                 ]
             );
         }
@@ -185,7 +185,7 @@ class ProductVariantAdmin extends SyliusGenericAdmin
             if (count($qb->getQuery()->getResult()) != 0) {
                 $errorElement
                     ->with('code')
-                    ->addViolation('librinfo.product_variant_code.not_unique')
+                    ->addViolation('sil.product_variant_code.not_unique')
                     ->end();
             }
         }

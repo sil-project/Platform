@@ -1,37 +1,37 @@
 services:
 
 
-    blast_core.label.strategy.librinfo_seedbatch:
+    blast_core.label.strategy.sil_seedbatch:
         class: Blast\Bundle\CoreBundle\Translator\LibrinfoLabelTranslatorStrategy
         arguments: ['Sil\Bundle\SeedBatchBundle']
 
   
 # ENTITY CODE GENERATORS
 
-    librinfo_seed_batch.code_generator.seed_producer:
+    sil_seed_batch.code_generator.seed_producer:
         class: Sil\Bundle\SeedBatchBundle\CodeGenerator\SeedProducerCodeGenerator
         factory:   ['@blast_core.code_generator_factory', create]
-        arguments: ['%librinfo_seed_batch.code_generator.seed_producer%', '@doctrine.orm.entity_manager']
+        arguments: ['%sil_seed_batch.code_generator.seed_producer%', '@doctrine.orm.entity_manager']
         tags:
             - { name: blast.entity_code_generator }
 
-    librinfo_seed_batch.code_generator.plot:
+    sil_seed_batch.code_generator.plot:
         class: Sil\Bundle\SeedBatchBundle\CodeGenerator\PlotCodeGenerator
         factory:   ['@blast_core.code_generator_factory', create]
-        arguments: ['%librinfo_seed_batch.code_generator.plot%', '@doctrine.orm.entity_manager']
+        arguments: ['%sil_seed_batch.code_generator.plot%', '@doctrine.orm.entity_manager']
         tags:
             - { name: blast.entity_code_generator }
 
-    librinfo_seed_batch.code_generator.seed_farm:
+    sil_seed_batch.code_generator.seed_farm:
         class: Sil\Bundle\SeedBatchBundle\CodeGenerator\SeedFarmCodeGenerator
         factory:   ['@blast_core.code_generator_factory', create]
-        arguments: ['%librinfo_seed_batch.code_generator.seed_farm%', '@doctrine.orm.entity_manager']
+        arguments: ['%sil_seed_batch.code_generator.seed_farm%', '@doctrine.orm.entity_manager']
         tags:
             - { name: blast.entity_code_generator }
 
-    librinfo_seed_batch.code_generator.seed_batch:
+    sil_seed_batch.code_generator.seed_batch:
         class: Sil\Bundle\SeedBatchBundle\CodeGenerator\SeedBatchCodeGenerator
         factory:   ['@blast_core.code_generator_factory', create]
-        arguments: ['%librinfo_seed_batch.code_generator.seed_batch%', '@doctrine.orm.entity_manager']
+        arguments: ['%sil_seed_batch.code_generator.seed_batch%', '@doctrine.orm.entity_manager']
         tags:
             - { name: blast.entity_code_generator }

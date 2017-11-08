@@ -40,7 +40,7 @@
                 $slugSpin.show();
                 $.ajax({
                     type: "GET",
-                    url: "{{ path('admin_librinfo_ecommerce_product_generateProductSlug') }}",
+                    url: "{{ path('admin_sil_ecommerce_product_generateProductSlug') }}",
                     data: { name: $element.val() },
                     dataType: "json",
                     accept: "application/json",

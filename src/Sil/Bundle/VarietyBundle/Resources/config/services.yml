@@ -2,54 +2,54 @@ services:
 
 # SYMFONY CUSTOM FORM TYPES
 
-    blast_core.label.strategy.librinfo_varieties:
+    blast_core.label.strategy.sil_varieties:
         class: Blast\Bundle\CoreBundle\Translator\LibrinfoLabelTranslatorStrategy
         arguments: ['Sil\Bundle\VarietyBundle']
 
-    librinfo_varieties.form.type.life_cycle:
+    sil_varieties.form.type.life_cycle:
         class: Sil\Bundle\VarietyBundle\Form\Type\LifeCycleType
         tags:
-            - { name: form.type, alias: librinfo_varieties_lifecycle }
+            - { name: form.type, alias: sil_varieties_lifecycle }
 
-    librinfo_varieties.form.type.variety_description:
+    sil_varieties.form.type.variety_description:
         class: Sil\Bundle\VarietyBundle\Form\Type\VarietyDescriptionType
         tags:
-            - { name: form.type, alias: librinfo_variety_description }
+            - { name: form.type, alias: sil_variety_description }
         arguments: [ '@doctrine.orm.entity_manager' ]
 
-    librinfo_varieties.form.type.variety_description_filter:
+    sil_varieties.form.type.variety_description_filter:
         class: Sil\Bundle\VarietyBundle\Form\Type\VarietyDescriptionFilterType
         tags:
-            - { name: form.type, alias: librinfo_variety_description_filter }
+            - { name: form.type, alias: sil_variety_description_filter }
         arguments: [ '@doctrine.orm.entity_manager' ]
 
 # FILTERS
 
-    librinfo_varieties.filter.type.variety_description_filter:
+    sil_varieties.filter.type.variety_description_filter:
         class: Sil\Bundle\VarietyBundle\Filter\VarietyDescriptionFilter
         tags:
-            - { name: sonata.admin.filter.type, alias: doctrine_orm_librinfo_variety_description }
+            - { name: sonata.admin.filter.type, alias: doctrine_orm_sil_variety_description }
 
 # ENTITY CODE GENERATORS
 
-    librinfo_varieties.code_generator.species:
+    sil_varieties.code_generator.species:
         class: Sil\Bundle\VarietyBundle\CodeGenerator\SpeciesCodeGenerator
         factory:   ['@blast_core.code_generator_factory', create]
-        arguments: ['%librinfo_varieties.code_generator.species%', '@doctrine.orm.entity_manager']
+        arguments: ['%sil_varieties.code_generator.species%', '@doctrine.orm.entity_manager']
         tags:
             - { name: blast.entity_code_generator }
 
-    librinfo_varieties.code_generator.variety:
+    sil_varieties.code_generator.variety:
         class: Sil\Bundle\VarietyBundle\CodeGenerator\VarietyCodeGenerator
         factory:   ['@blast_core.code_generator_factory', create]
-        arguments: ['%librinfo_varieties.code_generator.variety%', '@doctrine.orm.entity_manager']
+        arguments: ['%sil_varieties.code_generator.variety%', '@doctrine.orm.entity_manager']
         tags:
             - { name: blast.entity_code_generator }
 
-    librinfo_varieties.twig.variety_description:
+    sil_varieties.twig.variety_description:
         class: Sil\Bundle\VarietyBundle\Twig\VarietyDescription
         calls:
-            - [setVarietyConfig, ['%librinfo_varieties%']]
+            - [setVarietyConfig, ['%sil_varieties%']]
             - [setTranslator, ['@translator']]
         tags:
             - { name: twig.extension }

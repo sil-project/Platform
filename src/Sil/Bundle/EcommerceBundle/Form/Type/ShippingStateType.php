@@ -27,10 +27,10 @@ class ShippingStateType extends AbstractType
     {
         $choices = function (Options $options) {
             $choices = [
-            'librinfo.shipping_state.cart'      => ShipmentInterface::STATE_CART,
-            'librinfo.shipping_state.ready'     => ShipmentInterface::STATE_READY,
-            'librinfo.shipping_state.shipped'   => ShipmentInterface::STATE_SHIPPED,
-            'librinfo.shipping_state.cancelled' => ShipmentInterface::STATE_CANCELLED,
+            'sil.shipping_state.cart'      => ShipmentInterface::STATE_CART,
+            'sil.shipping_state.ready'     => ShipmentInterface::STATE_READY,
+            'sil.shipping_state.shipped'   => ShipmentInterface::STATE_SHIPPED,
+            'sil.shipping_state.cancelled' => ShipmentInterface::STATE_CANCELLED,
             ];
             if ($options['no_cart']) {
                 unset($choices[ShipmentInterface::STATE_CART]);
@@ -61,6 +61,6 @@ class ShippingStateType extends AbstractType
 
     public function getBlockPrefix()
     {
-        return 'librinfo_type_shipping_state';
+        return 'sil_type_shipping_state';
     }
 }

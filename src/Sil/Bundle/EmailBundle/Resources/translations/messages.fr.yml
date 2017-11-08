@@ -1,4 +1,4 @@
-librinfo:
+sil:
     msg:
         no_emails_available: 'Aucun email'
         sending_email: 'Envoi en cours...'
@@ -48,7 +48,7 @@ librinfo:
 
 
 
-librinfo_email:
+sil_email:
     flash:
         message_not_sent: 'Message non envoyé'
         message_sent: 'Message envoyé avec succès'

@@ -2,6 +2,6 @@
 
 {% block field_value %}
     <p class="notes-value">{{ value|nl2br }}</p>
-    <a href="#" class="notes-inline-edit" data-object-id="{{ object.id }}" data-field='{{ field_description.name }}' data-url="{{ path('librinfo_ecommerce.order.inline_edit') }}">{{ 'librinfo.action.edit'|trans }}</a>
-    <script type="text/javascript" src="{{ asset('bundles/librinfoecommerce/js/notes_inline_edit.js') }}"></script>
+    <a href="#" class="notes-inline-edit" data-object-id="{{ object.id }}" data-field='{{ field_description.name }}' data-url="{{ path('sil_ecommerce.order.inline_edit') }}">{{ 'sil.action.edit'|trans }}</a>
+    <script type="text/javascript" src="{{ asset('bundles/silecommerce/js/notes_inline_edit.js') }}"></script>
 {% endblock %}

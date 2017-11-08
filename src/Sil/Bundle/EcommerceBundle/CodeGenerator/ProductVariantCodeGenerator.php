@@ -44,10 +44,10 @@ class ProductVariantCodeGenerator implements CodeGeneratorInterface
     public static function generate($productVariant)
     {
         if (!$product = $productVariant->getProduct()) {
-            throw new InvalidEntityCodeException('librinfo.error.missing_product');
+            throw new InvalidEntityCodeException('sil.error.missing_product');
         }
         if (!$productCode = $product->getCode()) {
-            throw new InvalidEntityCodeException('librinfo.error.missing_product_code');
+            throw new InvalidEntityCodeException('sil.error.missing_product_code');
         }
         // TODO: improve this (use productVariant name or optionValues...) and handle code unicity
         return sprintf('%s-%s', $productCode, strtoupper($productVariant->getName()));

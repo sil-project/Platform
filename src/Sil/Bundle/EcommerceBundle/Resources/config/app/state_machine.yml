@@ -20,25 +20,25 @@ winzou_state_machine:
             before:
                 sylius_save_addresses_on_customer:
                     on:   ["create"]
-                    do:   ["@librinfo_ecommerce.order_customer_manager", "associateUserAndAddress"]
+                    do:   ["@sil_ecommerce.order_customer_manager", "associateUserAndAddress"]
                     args: ["object"]
             after:
-                librinfo_ecommerce_order_validated:
+                sil_ecommerce_order_validated:
                     on:   ["fulfill"]
-                    do:   ["@librinfo_ecommerce.order_manager", "validateOrder"]
+                    do:   ["@sil_ecommerce.order_manager", "validateOrder"]
                     args: ["object"]
-                librinfo_ecommerce_order_generate_debit_invoice:
+                sil_ecommerce_order_generate_debit_invoice:
                     on:   ["create","confirm"]
-                    do:   ["@librinfo_ecommerce.order_invoice_manager", "generateDebitInvoice"]
+                    do:   ["@sil_ecommerce.order_invoice_manager", "generateDebitInvoice"]
                     args: ["object"]
-                librinfo_ecommerce_order_generate_credit_note:
+                sil_ecommerce_order_generate_credit_note:
                     on:   ["cancel"]
-                    do:   ["@librinfo_ecommerce.order_invoice_manager", "generateCreditInvoice"]
+                    do:   ["@sil_ecommerce.order_invoice_manager", "generateCreditInvoice"]
                     args: ["object"]
     sylius_payment:
         callbacks:
             after:
-                librinfo_ecommerce_payment_done:
+                sil_ecommerce_payment_done:
                     on:   ["complete"]
-                    do:   ["@librinfo_ecommerce.sales_journal.service", "tracePayment"]
+                    do:   ["@sil_ecommerce.sales_journal.service", "tracePayment"]
                     args: ["object.getOrder()","object"]

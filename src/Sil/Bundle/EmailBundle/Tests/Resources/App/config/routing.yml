@@ -13,8 +13,8 @@ _sonata_admin:
 
 blast_core:
     resource: "@BlastCoreBundle/Resources/config/routing.yml"
-    prefix:   /"%librinfo.url_prefix%"
+    prefix:   /"%sil.url_prefix%"
 
 email:
     resource: "@SilEmailBundle/Resources/config/routing.yml"
-    prefix:   /"%librinfo.url_prefix%"
+    prefix:   /"%sil.url_prefix%"

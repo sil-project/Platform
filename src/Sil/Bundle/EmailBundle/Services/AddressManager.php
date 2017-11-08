@@ -13,7 +13,7 @@
 namespace Sil\Bundle\EmailBundle\Services;
 
 /**
- * AddressManager is used to manage addresses as service (librinfo.email.address_manager).
+ * AddressManager is used to manage addresses as service (sil.email.address_manager).
  */
 class AddressManager
 {

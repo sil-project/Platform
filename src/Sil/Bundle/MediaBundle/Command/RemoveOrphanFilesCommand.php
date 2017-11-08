@@ -27,7 +27,7 @@ class RemoveOrphanFilesCommand extends ContainerAwareCommand
     protected function configure()
     {
         $this
-            ->setName('librinfo:remove:orphan-files')
+            ->setName('sil:remove:orphan-files')
             ->setDescription('Deletes all files that are not linked to any entity from the database')
         ;
     }

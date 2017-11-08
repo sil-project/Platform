@@ -1,6 +1,6 @@
 {% import '@SyliusUi/Macro/flags.html.twig' as flags %}
 {% import "@SyliusShop/Common/Macro/money.html.twig" as money %}
-    {{ 'librinfo.label.order'|trans() }} #{{ admin.toString(object) }}
+    {{ 'sil.label.order'|trans() }} #{{ admin.toString(object) }}
 </a>
 <p class="navbar-text" style="color: #EEE">{{ object.checkoutCompletedAt|format_date }}</p>
 <p class="navbar-text" style="color: #EEE">
@@ -10,7 +10,7 @@
 <p class="navbar-text" style="color: #EEE">{{ object.currencyCode }}</p>
 <p class="navbar-text" style="color: #EEE">{{ flags.fromLocaleCode(object.localeCode) }}{{ object.localeCode|locale }}</p>
 <p class="navbar-text" style="color: #EEE">
-    {{ 'librinfo.label.purchased_from'|trans }}
+    {{ 'sil.label.purchased_from'|trans }}
     <strong>{{ object.channel }}</strong>
 </p>
 <a href="#">

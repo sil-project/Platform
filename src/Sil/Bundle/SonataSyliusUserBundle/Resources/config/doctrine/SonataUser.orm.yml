@@ -23,7 +23,7 @@ Sil\Bundle\SonataSyliusUserBundle\Entity\SonataUser:
             inversedBy: users
             targetEntity: Sil\Bundle\SonataSyliusUserBundle\Entity\SonataGroup
             joinTable:
-                name: librinfo_user_groups_users
+                name: sil_user_groups_users
                 joinColumns:
                     user_id:
                         referencedColumnName: id

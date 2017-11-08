@@ -16,6 +16,6 @@ class ShippingMethodChannelsType extends AnyChannelsType
 {
     public function getBlockPrefix()
     {
-        return 'librinfo_type_shipping_method_channels';
+        return 'sil_type_shipping_method_channels';
     }
 }

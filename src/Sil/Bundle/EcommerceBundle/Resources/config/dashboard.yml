@@ -2,47 +2,47 @@ services:
 
     # BLOCKS
 
-    librinfo_ecommerce.dashboard.main:
+    sil_ecommerce.dashboard.main:
         parent: blast_core.dashboard.block
         class: Sil\Bundle\EcommerceBundle\Dashboard\EcommerceDashboardBlock
         arguments:
             - 'SilEcommerceBundle:Dashboard:ecommerce_dashboard.html.twig'
         calls:
-            - [setSalesStats, ['@librinfo_ecommerce.dashboard.stats.sales']]
-            - [setOrderToProcessStats, ['@librinfo_ecommerce.dashboard.stats.order_to_process']]
-            - [setMiscStats, ['@librinfo_ecommerce.dashboard.stats.misc']]
+            - [setSalesStats, ['@sil_ecommerce.dashboard.stats.sales']]
+            - [setOrderToProcessStats, ['@sil_ecommerce.dashboard.stats.order_to_process']]
+            - [setMiscStats, ['@sil_ecommerce.dashboard.stats.misc']]
         tags:
             - { name: blast.dashboard_block }
 
     # STATS TOOLS
 
-    librinfo_ecommerce.dashboard.stats.abstract_stats:
+    sil_ecommerce.dashboard.stats.abstract_stats:
         abstract: true
         calls:
             - [setDoctrine, ['@doctrine']]
             - [setConnection, ['@database_connection']]
 
-    librinfo_ecommerce.dashboard.stats.raw_queries:
-        parent: librinfo_ecommerce.dashboard.stats.abstract_stats
+    sil_ecommerce.dashboard.stats.raw_queries:
+        parent: sil_ecommerce.dashboard.stats.abstract_stats
         class: Sil\Bundle\EcommerceBundle\Dashboard\Stats\RawQueries
 
     # STATS
 
-    librinfo_ecommerce.dashboard.stats.sales:
-        parent: librinfo_ecommerce.dashboard.stats.abstract_stats
+    sil_ecommerce.dashboard.stats.sales:
+        parent: sil_ecommerce.dashboard.stats.abstract_stats
         class: Sil\Bundle\EcommerceBundle\Dashboard\Stats\Sales
         calls:
-            - [setRawQueries, ['@librinfo_ecommerce.dashboard.stats.raw_queries']]
+            - [setRawQueries, ['@sil_ecommerce.dashboard.stats.raw_queries']]
 
-    librinfo_ecommerce.dashboard.stats.order_to_process:
-        parent: librinfo_ecommerce.dashboard.stats.abstract_stats
+    sil_ecommerce.dashboard.stats.order_to_process:
+        parent: sil_ecommerce.dashboard.stats.abstract_stats
         class: Sil\Bundle\EcommerceBundle\Dashboard\Stats\OrdersToProcess
 
-    librinfo_ecommerce.dashboard.stats.misc:
-        parent: librinfo_ecommerce.dashboard.stats.abstract_stats
+    sil_ecommerce.dashboard.stats.misc:
+        parent: sil_ecommerce.dashboard.stats.abstract_stats
         class: Sil\Bundle\EcommerceBundle\Dashboard\Stats\Misc
         calls:
-            - [setRawQueries, ['@librinfo_ecommerce.dashboard.stats.raw_queries']]
+            - [setRawQueries, ['@sil_ecommerce.dashboard.stats.raw_queries']]
             - [setMoneyFormatter, ['@sylius.money_formatter']]
             - [setCurrencyContext, ['@sylius.context.currency']]
             - [setLocaleContext, ['@sylius.context.locale']]

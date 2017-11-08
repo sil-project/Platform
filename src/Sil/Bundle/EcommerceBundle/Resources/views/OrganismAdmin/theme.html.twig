@@ -67,14 +67,14 @@
                                         </div>
                                         {% if sonata_admin.admin.subject.defaultAddress and nested_group_field.vars.value.id and nested_group_field.vars.value.id != sonata_admin.admin.subject.defaultAddress.id %}
                                             <a href="{{ path(
-                                                'librinfo_ecommerce.ajax.set_customer_default_address',
+                                                'sil_ecommerce.ajax.set_customer_default_address',
                                                 {
                                                     'customerId': sonata_admin.admin.subject.id,
                                                     'addressId': nested_group_field.vars.value.id
                                                 }
                                             )
                                             }}">
-                                                {{ 'librinfo.label.set_default_customer_address'|trans() }}
+                                                {{ 'sil.label.set_default_customer_address'|trans() }}
                                             </a>
                                         {% endif %}
                                         {% if nested_group_field['_delete'] is defined %}

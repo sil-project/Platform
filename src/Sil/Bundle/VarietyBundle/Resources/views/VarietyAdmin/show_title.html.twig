@@ -1,5 +1,5 @@
 
-{% set speciesAdminLibrinfo = admin_pool.getAdminByAdminCode('librinfo_varieties.admin.species') %}
+{% set speciesAdminLibrinfo = admin_pool.getAdminByAdminCode('sil_varieties.admin.species') %}
 
 {% if object.isStrain %}
     <a class="navbar-brand" href="{{ speciesAdminLibrinfo.generateObjectUrl('show', object.species) }}">

@@ -76,7 +76,7 @@ class OrderEmailManager implements OrderEmailManagerInterface
         $invoice = $this->orderInvoiceManager->generateDebitInvoice($order);
 
         // write invoice contents (pdf) in a temporary file
-        $temp_file = sys_get_temp_dir() . '/librinfo_invoice_' . $invoice->getNumber() . '.pdf';
+        $temp_file = sys_get_temp_dir() . '/sil_invoice_' . $invoice->getNumber() . '.pdf';
         if (file_exists($temp_file)) {
             unlink($temp_file);
         }

@@ -7,19 +7,19 @@
         <thead>
             <tr>
                 <th>
-                    {{ 'librinfo.ecommercebundle.name'|trans }}
+                    {{ 'sil.ecommercebundle.name'|trans }}
                 </th>
                 <th>
-                    {{ 'librinfo.ecommercebundle.code'|trans }}
+                    {{ 'sil.ecommercebundle.code'|trans }}
                 </th>
                 <th>
-                    {{ 'librinfo.ecommercebundle.optionValues'|trans }}
+                    {{ 'sil.ecommercebundle.optionValues'|trans }}
                 </th>
                 <th>
-                    {{ 'librinfo.ecommercebundle.taxCategory'|trans }}
+                    {{ 'sil.ecommercebundle.taxCategory'|trans }}
                 </th>
                 <th class="text-right">
-                    {{ 'librinfo.ecommercebundle.prices'|trans }}
+                    {{ 'sil.ecommercebundle.prices'|trans }}
                 </th>
                 <th class="text-right">
                     <i class="fa fa-cogs"></i>
@@ -59,11 +59,11 @@
             </td>
             <td>
                 <div class="btn-group pull-right">
-                    <a href="{{ path('admin_librinfo_ecommerce_productvariant_edit', {'id': variant.id})}}" class="btn btn-sm btn-default edit_link openInModal" title="{{ 'action_edit'|trans({}, 'SonataAdminBundle') }}">
+                    <a href="{{ path('admin_sil_ecommerce_productvariant_edit', {'id': variant.id})}}" class="btn btn-sm btn-default edit_link openInModal" title="{{ 'action_edit'|trans({}, 'SonataAdminBundle') }}">
                         <i class="fa fa-pencil" aria-hidden="true"></i>
                     </a>
                     {#
-                    <a href="{{ path('admin_librinfo_ecommerce_productvariant_delete', {'id': variant.id})}}" class="btn btn-sm btn-danger delete_link confirmable" title="{{ 'action_delete'|trans({}, 'SonataAdminBundle') }}">
+                    <a href="{{ path('admin_sil_ecommerce_productvariant_delete', {'id': variant.id})}}" class="btn btn-sm btn-danger delete_link confirmable" title="{{ 'action_delete'|trans({}, 'SonataAdminBundle') }}">
                         <i class="fa fa-trash" aria-hidden="true"></i>
                     </a>
                     #}
@@ -74,7 +74,7 @@
     {% else %}
         <tr>
             <td colspan="100%" class="text-center">
-                {{ 'librinfo.ecommercebundle.no_product_variants' }}
+                {{ 'sil.ecommercebundle.no_product_variants' }}
             </td>
         </tr>
     {% endfor %}

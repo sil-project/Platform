@@ -1,9 +1,9 @@
 {% if object is defined %}
     <a href="{{ path('sylius_shop_product_show', {slug: object.slug}) }}"
        class="btn btn-sm btn-default"
-       title="{{ 'librinfo.action.product_shop_link'|trans() }}"
+       title="{{ 'sil.action.product_shop_link'|trans() }}"
        target="_blank">
         <i class="fa fa-external-link"></i>
-        {{ 'librinfo.action.product_shop_link'|trans() }}
+        {{ 'sil.action.product_shop_link'|trans() }}
     </a>
 {% endif %}

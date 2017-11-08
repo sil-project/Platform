@@ -71,6 +71,6 @@ class TaxonListType extends AbstractType
 
     public function getBlockPrefix()
     {
-        return 'librinfo_type_taxon_list';
+        return 'sil_type_taxon_list';
     }
 }

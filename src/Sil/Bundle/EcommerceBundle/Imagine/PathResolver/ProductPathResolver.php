@@ -38,7 +38,7 @@ class ProductPathResolver extends DefaultResolver implements PathResolverInterfa
                 $webPath = $this->webDir . '/' . $path;
 
                 if (!is_file($webPath)) {
-                    $webPath = $this->webDir . '/bundles/librinfoecommerce/img/default-product-picture.png';
+                    $webPath = $this->webDir . '/bundles/silecommerce/img/default-product-picture.png';
                 }
 
                 $fakeFile = new File();

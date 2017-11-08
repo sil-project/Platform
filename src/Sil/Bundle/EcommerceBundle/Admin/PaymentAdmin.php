@@ -20,8 +20,8 @@ class PaymentAdmin extends SyliusGenericAdmin
 {
     /* @todo : remove this useless protected attributes */
 
-    protected $baseRouteName = 'admin_librinfo_ecommerce_payment';
-    protected $baseRoutePattern = 'librinfo/ecommerce/payment';
+    protected $baseRouteName = 'admin_sil_ecommerce_payment';
+    protected $baseRoutePattern = 'sil/ecommerce/payment';
     protected $classnameLabel = 'Payment';
 
     public function createQuery($context = 'list')
@@ -84,7 +84,7 @@ class PaymentAdmin extends SyliusGenericAdmin
     {
         return [
             'order.number'                                              => 'order.number',
-            $this->trans('librinfo.ecommercebundle.invoice_number')     => 'order.getLastDebitInvoice.number',
+            $this->trans('sil.ecommercebundle.invoice_number')     => 'order.getLastDebitInvoice.number',
             'order.customer'                                            => 'order.customer',
             'order.channel'                                             => 'order.channel',
             'method'                                                    => 'method',

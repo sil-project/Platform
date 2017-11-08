@@ -62,7 +62,7 @@ class Tracking
         preg_match_all('!<a\s(.*)href="(https{0,1}://.*)"(.*)>(.*)</a>!U', $content, $links, PREG_SET_ORDER);
 
         foreach ($links as $link) {
-            $url = $this->router->generate('librinfo_email.track_links', [
+            $url = $this->router->generate('sil_email.track_links', [
                 'emailId'     => $emailId,
                 'recipient'   => base64_encode($address),
                 'destination' => base64_encode($link[2]),
@@ -93,7 +93,7 @@ class Tracking
     private function getTracker($address, $emailId)
     {
         $url = $this->router->generate(
-            'librinfo_email.track_opens',
+            'sil_email.track_opens',
             [
                 'emailId'   => $emailId,
                 'recipient' => base64_encode($address),

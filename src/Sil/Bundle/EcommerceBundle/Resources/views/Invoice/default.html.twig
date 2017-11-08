@@ -5,7 +5,7 @@
         <title>facture</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         {% block stylesheets %}
-            <link rel="stylesheet" href="{{ base_dir ~ asset('bundles/librinfoecommerce/css/default-invoice.css') }}"/>
+            <link rel="stylesheet" href="{{ base_dir ~ asset('bundles/silecommerce/css/default-invoice.css') }}"/>
         {% endblock %}
     </head>
 
@@ -66,7 +66,7 @@
         <table id="summary">
             <thead>
                 <tr>
-                    <th class="sylius-table-column-item">{{ 'librinfo.label.product'|trans }}</th>
+                    <th class="sylius-table-column-item">{{ 'sil.label.product'|trans }}</th>
                     <th class="two wide center aligned sylius-table-column-unit_price">{{ 'sylius.ui.unit_price'|trans }}</th>
                     <th class="two wide center aligned sylius-table-column-discounted_unit_price">{{ 'sylius.ui.discounted_unit_price'|trans }}</th>
                     <th class="one wide center aligned sylius-table-column-quantity">{{ 'sylius.ui.quantity'|trans }}</th>

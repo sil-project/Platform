@@ -17,8 +17,8 @@ use Sonata\AdminBundle\Route\RouteCollection;
 class PaymentMethodAdmin extends SyliusGenericAdmin
 {
     /* @todo : remove this useless protected attributes */
-    protected $baseRouteName = 'admin_librinfo_ecommerce_payment_method';
-    protected $baseRoutePattern = 'librinfo/ecommerce/payment_method';
+    protected $baseRouteName = 'admin_sil_ecommerce_payment_method';
+    protected $baseRoutePattern = 'sil/ecommerce/payment_method';
     protected $classnameLabel = 'PaymentMethod';
 
     public function createQuery($context = 'list')

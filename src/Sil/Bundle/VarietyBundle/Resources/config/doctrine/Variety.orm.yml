@@ -155,7 +155,7 @@ Sil\Bundle\VarietyBundle\Entity\Variety:
             targetEntity: Sil\Bundle\VarietyBundle\Entity\PlantCategory
             inversedBy: varieties
             joinTable:
-                name: librinfo_varieties_variety_category
+                name: sil_varieties_variety_category
                 joinColumns:
                     plant_category_id:
                         referencedColumnName: id
@@ -165,7 +165,7 @@ Sil\Bundle\VarietyBundle\Entity\Variety:
         images:
             targetEntity: \Sil\Bundle\MediaBundle\Entity\File
             joinTable:
-                name: librinfo_variety_file
+                name: sil_variety_file
                 joinColumns:
                     variety_id:
                         referencedColumnName: id

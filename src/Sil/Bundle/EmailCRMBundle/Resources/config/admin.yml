@@ -1,13 +1,13 @@
 services:
-    librinfo_emailcrm.admin.organism:
+    sil_emailcrm.admin.organism:
         class: Sil\Bundle\EmailCRMBundle\Admin\OrganismAdmin
         arguments: [~, Sil\Bundle\CRMBundle\Entity\Organism, SilCRMBundle:OrganismAdmin]
         tags:
             -   name: sonata.admin
                 manager_type: orm
                 group: Customers Relationship Management
-                label: librinfo.emailcrmbundle.admin.organism
-                label_translator_strategy: blast_core.label.strategy.librinfo_emailcrm
+                label: sil.emailcrmbundle.admin.organism
+                label_translator_strategy: blast_core.label.strategy.sil_emailcrm
         calls:
             - [ setTemplate, [edit, SilCRMBundle:OrganismAdmin:edit.html.twig]]
             - [ setTemplate, [show, SilCRMBundle:OrganismAdmin:show.html.twig]]

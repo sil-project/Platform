@@ -1,14 +1,14 @@
 services:
 ### TWIG EXTENSIONS ###    
-    librinfo_media.twig_extension.img_tag_generator:
+    sil_media.twig_extension.img_tag_generator:
         class: Sil\Bundle\MediaBundle\Twig\Extension\GenerateImgTagExtension
         tags:
             - { name: twig.extension }
 ### FORM TYPES ###
-    librinfo_media.form.type.dropzone:
+    sil_media.form.type.dropzone:
         class: Sil\Bundle\MediaBundle\Form\Type\DropzoneType
         tags:
-            - { name: form.type, alias: librinfo_dropzone }
+            - { name: form.type, alias: sil_dropzone }
             
     imagine.data.loader.db_loader:
         class: Sil\Bundle\MediaBundle\Imagine\Loader\DbLoader
@@ -25,10 +25,10 @@ services:
         calls:
             - [setEm, ['@doctrine.orm.entity_manager'] ]
 
-    librinfo_media.events.listener:
+    sil_media.events.listener:
         class: Sil\Bundle\MediaBundle\Events\UploadControllerEventListener
         calls:
             - [setEm, ["@doctrine.orm.entity_manager"]]
         tags:
-            - { name: kernel.event_listener, event: librinfo.events.media.load.preGetEntity, method: preGetEntity, priority: 0 }
-            - { name: kernel.event_listener, event: librinfo.events.media.load.postGetEntity, method: postGetEntity, priority: 0 }
+            - { name: kernel.event_listener, event: sil.events.media.load.preGetEntity, method: preGetEntity, priority: 0 }
+            - { name: kernel.event_listener, event: sil.events.media.load.postGetEntity, method: postGetEntity, priority: 0 }

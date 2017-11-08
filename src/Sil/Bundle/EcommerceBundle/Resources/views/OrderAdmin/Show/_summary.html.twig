@@ -3,7 +3,7 @@
 <table id="order-summary" class="table table-bordered table-condensed">
     <thead>
         <tr>
-            <th class="sylius-table-column-item">{{ 'librinfo.label.product'|trans }}</th>
+            <th class="sylius-table-column-item">{{ 'sil.label.product'|trans }}</th>
             <th class="two wide center aligned sylius-table-column-unit_price">{{ 'sylius.ui.unit_price'|trans }}</th>
             <th class="two wide center aligned sylius-table-column-discounted_unit_price">{{ 'sylius.ui.discounted_unit_price'|trans }}</th>
             <th class="one wide center aligned sylius-table-column-quantity">{{ 'sylius.ui.quantity'|trans }}</th>
@@ -31,9 +31,9 @@
         id="add-to-order"
         class="btn btn-primary pull-right"
         href="#"
-        data-url="{{ path('admin_librinfo_ecommerce_product_list') }}"
-        data-variants-url="{{ path('admin_librinfo_ecommerce_productvariant_list') }}"
-        data-add-product-url="{{ path('librinfo_ecommerce.order.add_product') }}"
+        data-url="{{ path('admin_sil_ecommerce_product_list') }}"
+        data-variants-url="{{ path('admin_sil_ecommerce_productvariant_list') }}"
+        data-add-product-url="{{ path('sil_ecommerce.order.add_product') }}"
         data-btn-text="{{ 'Add'|trans }}"
         data-title=" {{ 'Products'|trans }}"
         data-order-id="{{ order.id }}"
@@ -42,6 +42,6 @@
     </a>
 {% endif %}
 
-<link rel="stylesheet" href="{{ asset('bundles/librinfoecommerce/css/update-order.css') }}" />
-<script type="text/javascript" src="{{ asset('bundles/librinfoecommerce/js/update-order.js') }}"></script>
-<script type="text/javascript" src="{{ asset('bundles/librinfoecommerce/js/update-cart-item.js') }}"></script>
+<link rel="stylesheet" href="{{ asset('bundles/silecommerce/css/update-order.css') }}" />
+<script type="text/javascript" src="{{ asset('bundles/silecommerce/js/update-order.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/silecommerce/js/update-cart-item.js') }}"></script>

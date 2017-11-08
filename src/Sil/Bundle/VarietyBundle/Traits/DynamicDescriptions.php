@@ -23,7 +23,7 @@ trait DynamicDescriptions
     protected function configureDynamicDescriptions($formMapper)
     {
         // Manage dynamic descriptions according to configuration settings
-        $config = $this->getConfigurationPool()->getContainer()->getParameter('librinfo_varieties')['variety_descriptions'];
+        $config = $this->getConfigurationPool()->getContainer()->getParameter('sil_varieties')['variety_descriptions'];
         $admin = $this;
 
         $formMapper->getFormBuilder()->addEventSubscriber(new VarietyDescriptionsFormEventSubscriber($admin, $config));
@@ -31,7 +31,7 @@ trait DynamicDescriptions
 
     protected function configureShowDescriptions($showMapper)
     {
-        $config = $this->getConfigurationPool()->getContainer()->getParameter('librinfo_varieties')['variety_descriptions'];
+        $config = $this->getConfigurationPool()->getContainer()->getParameter('sil_varieties')['variety_descriptions'];
 
         foreach ($config as $fieldset => $fields) {
             if (!$this->getSubject()) {
@@ -56,7 +56,7 @@ trait DynamicDescriptions
                 $name = $fieldset . '||' . $desc->getField();
                 $type = 'text';
                 $options = array();
-                $options['label'] = sprintf('librinfo_description_%s_%s', $fieldset, $field);
+                $options['label'] = sprintf('sil_description_%s_%s', $fieldset, $field);
 
                 if (isset($fields[$field]) && isset($fields[$field]['show'])) {
                     if (isset($fields[$field]['show']['type'])) {

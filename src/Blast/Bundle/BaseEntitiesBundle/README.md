@@ -57,7 +57,7 @@ Activate the listeners you need in your application  (add those lines to ```app/
 
 ```yml
 # Enable SilDocrineBundle event listeners
-librinfo_doctrine:
+blast_doctrine:
     orm:
         default:
             naming: true

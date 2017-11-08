@@ -63,9 +63,9 @@ parameters:
                                 type: repeated
                                 required: false
                                 first_options:
-                                    label: librinfo.sonatasyliususerbundle.first_password
+                                    label: sil.sonatasyliususerbundle.first_password
                                 second_options:
-                                    label: librinfo.sonatasyliususerbundle.second_password
+                                    label: sil.sonatasyliususerbundle.second_password
                         form_group_roles:
                             roles: ~
             Sonata\AdminBundle\Show\ShowMapper:

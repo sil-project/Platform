@@ -27,7 +27,7 @@ function templateSelect() {
 //retrieves template content and inserts it into tinymce editor
 function getTemplate(templateId) {
 
-    $.get(Routing.generate('librinfo_email.getTemplate',{'templateId': templateId}), function (data) {
+    $.get(Routing.generate('sil_email.getTemplate',{'templateId': templateId}), function (data) {
 
         tinyMceInsert(data);
     });
@@ -60,7 +60,7 @@ function inline() {
 
         event.preventDefault();
 
-        $.get(Routing.generate('librinfo_email.insert',{'fileId': id}), function (data) {
+        $.get(Routing.generate('sil_email.insert',{'fileId': id}), function (data) {
 
             tinyMceInsert(data);
         });

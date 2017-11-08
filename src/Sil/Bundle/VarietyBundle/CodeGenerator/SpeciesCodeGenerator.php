@@ -43,7 +43,7 @@ class SpeciesCodeGenerator implements CodeGeneratorInterface
     public static function generate($species, $existingCodes = null)
     {
         if (!$species->getName()) {
-            throw new InvalidEntityCodeException('librinfo.error.missing_species_name');
+            throw new InvalidEntityCodeException('sil.error.missing_species_name');
         }
         // Unaccent, remove marks and punctuation, uppercase
         $translit = transliterator_transliterate(

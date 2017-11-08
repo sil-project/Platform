@@ -43,13 +43,13 @@ class VarietyCodeGenerator implements CodeGeneratorInterface
     public static function generate($variety, $existingCodes = null)
     {
         if (!$variety->getName()) {
-            throw new InvalidEntityCodeException('librinfo.error.missing_variety_name');
+            throw new InvalidEntityCodeException('sil.error.missing_variety_name');
         }
         if ($variety->getIsStrain() && !$variety->getParent()) {
-            throw new InvalidEntityCodeException('librinfo.error.missing_strain_parent');
+            throw new InvalidEntityCodeException('sil.error.missing_strain_parent');
         }
         if (!$variety->getSpecies()) {
-            throw new InvalidEntityCodeException('librinfo.error.missing_species');
+            throw new InvalidEntityCodeException('sil.error.missing_species');
         }
         $name = preg_replace('/^' . $variety->getSpecies()->getName() . ' /', '', $variety->getName());
 

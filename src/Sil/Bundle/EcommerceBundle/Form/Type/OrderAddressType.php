@@ -32,7 +32,7 @@ class OrderAddressType extends BaseType
     {
         $builder
             ->add('email', EmailType::class, [
-                'label'       => 'librinfo.label.email',
+                'label'       => 'sil.label.email',
                 'required'    => true,
                 'mapped'      => false,
                 'constraints' => [
@@ -40,7 +40,7 @@ class OrderAddressType extends BaseType
                 ],
             ])
             ->add('firstName', TextType::class, [
-                'label'    => 'librinfo.label.first_name',
+                'label'    => 'sil.label.first_name',
                 'required' => true,
                 'attr'     => [
                     'class'    => 'inline-block',
@@ -51,7 +51,7 @@ class OrderAddressType extends BaseType
                 ],
             ])
             ->add('lastName', TextType::class, [
-                'label'    => 'librinfo.label.last_name',
+                'label'    => 'sil.label.last_name',
                 'required' => true,
                 'attr'     => [
                     'class'    => 'new-line-after',
@@ -63,30 +63,30 @@ class OrderAddressType extends BaseType
             ])
             ->add('company', TextType::class, [
                 'required' => false,
-                'label'    => 'librinfo.label.company',
+                'label'    => 'sil.label.company',
                 'mapped'   => false,
             ])
             ->add('street', TextType::class, [
                 'required'    => true,
-                'label'       => 'librinfo.label.street',
+                'label'       => 'sil.label.street',
                 'constraints' => [
                     new NotNull(),
                 ],
             ])
             ->add('countryCode', CountryCodeChoiceType::class, [
                 'required'    => true,
-                'label'       => 'librinfo.label.country_code',
+                'label'       => 'sil.label.country_code',
                 'constraints' => [
                     new NotNull(),
                 ],
             ])
             ->add('provinceName', TextType::class, [
                 'required' => false,
-                'label'    => 'librinfo.label.province_name',
+                'label'    => 'sil.label.province_name',
             ])
             ->add('city', TextType::class, [
                 'required' => true,
-                'label'    => 'librinfo.label.city',
+                'label'    => 'sil.label.city',
                 'attr'     => [
                     'class' => 'inline-block',
                     'width' => 50,
@@ -97,7 +97,7 @@ class OrderAddressType extends BaseType
             ])
             ->add('postCode', TextType::class, [
                 'required' => true,
-                'label'    => 'librinfo.label.post_code',
+                'label'    => 'sil.label.post_code',
                 'attr'     => [
                     'class' => 'inline-block',
                     'width' => 50,
@@ -112,7 +112,7 @@ class OrderAddressType extends BaseType
             $builder
                 ->add('useSameAddressForBilling', CheckboxType::class, [
                     'required' => false,
-                    'label'    => 'librinfo.label.useSameAddressForBilling',
+                    'label'    => 'sil.label.useSameAddressForBilling',
                     'mapped'   => false,
                 ]);
         }

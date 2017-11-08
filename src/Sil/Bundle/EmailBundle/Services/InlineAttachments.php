@@ -34,7 +34,7 @@ class InlineAttachments
                     ->setContentType($img[2])
                     ->setDisposition('inline')
                     ->setBody(base64_decode($img[3]))
-                    ->setId("img$i.$i@librinfo_email")
+                    ->setId("img$i.$i@sil_email")
             ;
 
             // embedding the image

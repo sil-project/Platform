@@ -44,49 +44,49 @@ class SeedBatchCodeGenerator implements CodeGeneratorInterface
     public static function generate($seedBatch)
     {
         if (!$seedFarm = $seedBatch->getSeedFarm()) {
-            throw new InvalidEntityCodeException('librinfo.error.missing_seed_farm');
+            throw new InvalidEntityCodeException('sil.error.missing_seed_farm');
         }
         if (!$seedFarmCode = $seedFarm->getCode()) {
-            throw new InvalidEntityCodeException('librinfo.error.missing_seed_farm_code');
+            throw new InvalidEntityCodeException('sil.error.missing_seed_farm_code');
         }
         $variety = $seedBatch->getVariety();
         if (!$variety) {
-            throw new InvalidEntityCodeException('librinfo.error.missing_variety');
+            throw new InvalidEntityCodeException('sil.error.missing_variety');
         }
         if (!$varietyCode = $variety->getCode()) {
-            throw new InvalidEntityCodeException('librinfo.error.missing_variety_code');
+            throw new InvalidEntityCodeException('sil.error.missing_variety_code');
         }
         $species = $variety->getSpecies();
         if (!$species) {
-            throw new InvalidEntityCodeException('librinfo.error.missing_species');
+            throw new InvalidEntityCodeException('sil.error.missing_species');
         }
         if (!$speciesCode = $species->getCode()) {
-            throw new InvalidEntityCodeException('librinfo.error.missing_species_code');
+            throw new InvalidEntityCodeException('sil.error.missing_species_code');
         }
         $producer = $seedBatch->getProducer();
         if (!$producer) {
-            throw new InvalidEntityCodeException('librinfo.error.missing_producer');
+            throw new InvalidEntityCodeException('sil.error.missing_producer');
         }
         if (!$producerCode = $producer->getSeedProducerCode()) {
-            throw new InvalidEntityCodeException('librinfo.error.missing_producer_code');
+            throw new InvalidEntityCodeException('sil.error.missing_producer_code');
         }
         $productionYear = (int) $seedBatch->getProductionYear();
         if (!$productionYear) {
-            throw new InvalidEntityCodeException('librinfo.error.missing_production_year');
+            throw new InvalidEntityCodeException('sil.error.missing_production_year');
         }
         // if ($productionYear < 2000 || $productionYear > 2099) {
         if ($productionYear < 1) {
-            throw new InvalidEntityCodeException('librinfo.error.invalid_production_year');
+            throw new InvalidEntityCodeException('sil.error.invalid_production_year');
         }
         // TODO: test if year is too far in the future ?
 
         $batchNumber = $seedBatch->getBatchNumber();
         if (!$batchNumber) {
-            throw new InvalidEntityCodeException('librinfo.error.missing_batch_number');
+            throw new InvalidEntityCodeException('sil.error.missing_batch_number');
         }
         // if ($batchNumber < 1 || $batchNumber > 99) {
         if ($batchNumber < 1) {
-            throw new InvalidEntityCodeException('librinfo.error.invalid_batch_number');
+            throw new InvalidEntityCodeException('sil.error.invalid_batch_number');
         }
 
         return sprintf(

@@ -5,28 +5,28 @@
 {% block block_classes %}col-lg-12{% endblock block_classes %}
 
 {% block title %}
-    {{ 'librinfo.label.dashboard_title'|trans }}
+    {{ 'sil.label.dashboard_title'|trans }}
 {% endblock title %}
 
 {% block content %}
     <div class="row">
         <div class="col-lg-4 col-md-12">
-            <h4 class="text-center">{{ 'librinfo.label.sales_amount'|trans }}</h4>
+            <h4 class="text-center">{{ 'sil.label.sales_amount'|trans }}</h4>
             <canvas id="dashboard-ecommerce-sales-amount"></canvas>
         </div>
         <div class="col-lg-4 col-md-12 table-responsive">
-            <h4 class="text-center">{{ 'librinfo.ecommercebundle.last_commands'|trans }}</h4>
+            <h4 class="text-center">{{ 'sil.ecommercebundle.last_commands'|trans }}</h4>
             <table class="table table-bordered table-striped table-condensed">
                 <thead>
                     <tr>
                         <th>
-                            {{ 'librinfo.ecommercebundle.order_number'|trans }}
+                            {{ 'sil.ecommercebundle.order_number'|trans }}
                         </th>
                         <th>
-                            {{ 'librinfo.ecommercebundle.customer'|trans }}
+                            {{ 'sil.ecommercebundle.customer'|trans }}
                         </th>
                         <th class="text-right">
-                            {{ 'librinfo.ecommercebundle.amount'|trans }}
+                            {{ 'sil.ecommercebundle.amount'|trans }}
                         </th>
                     </tr>
                 </thead>
@@ -34,7 +34,7 @@
                     {% for order in lastOrdersToProcess %}
                         <tr>
                             <td>
-                                <a href="{{ path('admin_librinfo_ecommerce_order_show', {'id': order.id}) }}">
+                                <a href="{{ path('admin_sil_ecommerce_order_show', {'id': order.id}) }}">
                                     {{ order.number }}
                                 </a>
                             </td>
@@ -48,8 +48,8 @@
                     {% endfor %}
                     <tr>
                         <td colspan="100%" class="text-center">
-                            <a href="{{ path('admin_librinfo_ecommerce_order_list') }}">
-                                {{ 'librinfo.ecommercebundle.manage_orders'|trans }}
+                            <a href="{{ path('admin_sil_ecommerce_order_list') }}">
+                                {{ 'sil.ecommercebundle.manage_orders'|trans }}
                             </a>
                         </td>
                     </tr>
@@ -57,7 +57,7 @@
             </table>
         </div>
         <div class="col-lg-4 col-md-12 table-responsive">
-            <h4 class="text-center">{{ 'librinfo.ecommercebundle.misc_stats'|trans }}</h4>
+            <h4 class="text-center">{{ 'sil.ecommercebundle.misc_stats'|trans }}</h4>
             <table class="table table-bordered table-striped table-condensed">
                 <tbody>
                     {% for stat in miscStats %}
@@ -83,7 +83,7 @@
         var dashboardEcommerceSalesChartData = {
             "datasets": [
                 {
-                    "label": "{{ 'librinfo.label.sales_amount'|trans|raw }} (€)",
+                    "label": "{{ 'sil.label.sales_amount'|trans|raw }} (€)",
                     "data": {{ salesAmountData|json_encode|raw }},
                     "fill": true,
                     "backgroundColor": "rgba(60, 141, 188, 0.2)",

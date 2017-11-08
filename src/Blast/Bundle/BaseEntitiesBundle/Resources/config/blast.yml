@@ -158,7 +158,7 @@ parameters:
 #                    form_tab_general:
 #                        '':
 #                            parentNode: ~
-#                                type: librinfo_baseentities_treeable  # ???
+#                                type: blast_baseentities_treeable  # ???
 
         Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Sortable:
             Sonata\AdminBundle\Datagrid\ListMapper:

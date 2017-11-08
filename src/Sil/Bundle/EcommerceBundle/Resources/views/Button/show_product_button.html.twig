@@ -1,7 +1,7 @@
 
 {% if admin.hasAccess('show') and admin.hasRoute('show') %}
     <li>
-        <a class="sonata-action-element" href="{{ path('admin_librinfo_ecommerce_product_show', {'id': object.product.id}) }}">
+        <a class="sonata-action-element" href="{{ path('admin_sil_ecommerce_product_show', {'id': object.product.id}) }}">
             <i class="fa fa-eye" aria-hidden="true"></i>
             {{ 'link_action_show_product'|trans({}, 'SonataAdminBundle') }}
         </a>

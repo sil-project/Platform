@@ -19,12 +19,12 @@
                 <tr data-email-id="{{ email.id }}">
                     <td>{{ email.fieldFrom }}</td>
                     <td>
-                        {{ 'librinfo.label.email_to'|trans }}: {{ email.fieldTo }}
+                        {{ 'sil.label.email_to'|trans }}: {{ email.fieldTo }}
                         {% if email.fieldCc %}
-                            <br>{{ 'librinfo.label.email_cc'|trans }}: {{ email.fieldCc }}
+                            <br>{{ 'sil.label.email_cc'|trans }}: {{ email.fieldCc }}
                         {% endif %}
                         {% if email.fieldBcc %}
-                            <br>{{ 'librinfo.label.email_bcc'|trans }}: {{ email.fieldBcc }}
+                            <br>{{ 'sil.label.email_bcc'|trans }}: {{ email.fieldBcc }}
                         {% endif %}
                     </td>
                     <td>{{ email.fieldSubject }}</td>
@@ -36,18 +36,18 @@
                             <span class="label label-danger email-not-sent-status" style="display: {{ email.sent ? 'none' : 'inline' }}">
                                 {%- trans from 'SonataAdminBundle' %}label_type_no{% endtrans -%}
                             </span>
-                            <span class="email-sending-status" style="display: none">{{ 'librinfo.msg.sending_email'|trans }}</span>
+                            <span class="email-sending-status" style="display: none">{{ 'sil.msg.sending_email'|trans }}</span>
                         {% endspaceless %}
                     </td>
                     <td>{{ email.updatedAt|date('d/m/Y H:i') }}</td>
                     <td class="email-actions">
                         <div class="btn-group">
-                            <a title="Afficher" class="btn btn-sm btn-default view_link" href="{{ path('admin_librinfo_email_email_show', {'id': email.id}) }}">
+                            <a title="Afficher" class="btn btn-sm btn-default view_link" href="{{ path('admin_sil_email_email_show', {'id': email.id}) }}">
                                 <i class="fa fa-search-plus"></i>
                                 Afficher
                             </a>
                             {% if not email.sent %}
-                                <a href="{{ path('admin_librinfo_email_email_send') }}"
+                                <a href="{{ path('admin_sil_email_email_send') }}"
                                    class="btn btn-sm btn-default ajax-send-email"
                                    title="{{ 'Send'|trans({}, 'SilEmailBundle') }}">
                                     <i class="fa fa-paper-plane"></i>
@@ -59,7 +59,7 @@
                 </tr>
             {% else %}
                 <tr>
-                    <td colspan="4">{{ 'librinfo.msg.no_emails_available'|trans }}</td>
+                    <td colspan="4">{{ 'sil.msg.no_emails_available'|trans }}</td>
                 </tr>
             {% endfor %}
         </tbody>
@@ -86,7 +86,7 @@
                     },
                     error: function(data){
                         setEmailStatus(emailId, 'error');
-                        alert('{{ 'librinfo.error.send_email_error'|trans|e('js') }}');
+                        alert('{{ 'sil.error.send_email_error'|trans|e('js') }}');
                     }
                 });
                 return false;
@@ -116,7 +116,7 @@
                         sendLink.show();
                         break;
                     case 'error':
-                        sendingMsg.text('{{ 'librinfo.error.send_email_error'|trans|e('js') }}');
+                        sendingMsg.text('{{ 'sil.error.send_email_error'|trans|e('js') }}');
                         break;
                 }
             }

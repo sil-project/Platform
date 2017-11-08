@@ -38,7 +38,7 @@ class VarietyDescriptionType extends BaseAbstractType
 
     public function getBlockPrefix()
     {
-        return 'librinfo_variety_description';
+        return 'sil_variety_description';
     }
 
     public function configureOptions(OptionsResolver $resolver)

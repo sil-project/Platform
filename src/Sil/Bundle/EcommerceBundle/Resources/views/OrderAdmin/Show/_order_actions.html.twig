@@ -9,12 +9,12 @@
             <div class="col-md-6 col-sm-6 col-xs-12">
                 <div class="col-md-6">
                     <span>
-                        {{ 'librinfo.label.confirm_this_order'|trans }}:
+                        {{ 'sil.label.confirm_this_order'|trans }}:
                     </span>
                 </div>
                 <div class="col-md-6">
-                    <a href="{{ path('admin_librinfo_ecommerce_order_confirmOrder',{id: object.id})}}" class="btn btn-default confirmable" data-confirm-title="{{ 'librinfo.help.confirm_confirmOrder'|trans}}">
-                        {{ 'librinfo.label.confirm_order'|trans }}&nbsp;<i class="fa fa-paper-plane"></i>
+                    <a href="{{ path('admin_sil_ecommerce_order_confirmOrder',{id: object.id})}}" class="btn btn-default confirmable" data-confirm-title="{{ 'sil.help.confirm_confirmOrder'|trans}}">
+                        {{ 'sil.label.confirm_order'|trans }}&nbsp;<i class="fa fa-paper-plane"></i>
                     </a>
                 </div>
             </div>
@@ -24,12 +24,12 @@
             <div class="col-md-6 col-sm-6 col-xs-12">
                 <div class="col-md-6">
                     <span>
-                        {{ 'librinfo.label.fulfill_this_order'|trans }}:
+                        {{ 'sil.label.fulfill_this_order'|trans }}:
                     </span>
                 </div>
                 <div class="col-md-6">
-                    <a href="{{ path('admin_librinfo_ecommerce_order_validateOrder',{id: object.id})}}" class="btn btn-success confirmable" data-confirm-title="{{ 'librinfo.help.confirm_validate'|trans}}">
-                        {{ 'librinfo.label.fulfill_order'|trans }}&nbsp;<i class="fa fa-check"></i>
+                    <a href="{{ path('admin_sil_ecommerce_order_validateOrder',{id: object.id})}}" class="btn btn-success confirmable" data-confirm-title="{{ 'sil.help.confirm_validate'|trans}}">
+                        {{ 'sil.label.fulfill_order'|trans }}&nbsp;<i class="fa fa-check"></i>
                     </a>
                 </div>
             </div>
@@ -39,19 +39,19 @@
             <div class="col-md-6 col-sm-6 col-xs-12">
                 <div class="col-md-6">
                     <span>
-                        {{ 'librinfo.label.cancel_this_order'|trans }}:
+                        {{ 'sil.label.cancel_this_order'|trans }}:
                     </span>
                 </div>
                 <div class="col-md-6">
-                    <a href="{{ path('admin_librinfo_ecommerce_order_cancelOrder',{id: object.id})}}" class="btn btn-danger confirmable" data-confirm-title="{{ 'librinfo.help.confirm_cancel'|trans}}">
-                        {{ 'librinfo.label.cancel_order'|trans }}&nbsp;<i class="fa fa-ban"></i>
+                    <a href="{{ path('admin_sil_ecommerce_order_cancelOrder',{id: object.id})}}" class="btn btn-danger confirmable" data-confirm-title="{{ 'sil.help.confirm_cancel'|trans}}">
+                        {{ 'sil.label.cancel_order'|trans }}&nbsp;<i class="fa fa-ban"></i>
                     </a>
                 </div>
             </div>
         {% endif %}
 
         {% if sm_state(object, 'sylius_order') == 'fulfilled' %}
-            <span>{{ 'librinfo.help.order_is_fulfilled'|trans }}</span>
+            <span>{{ 'sil.help.order_is_fulfilled'|trans }}</span>
         {% endif %}
     </div>
 {% endblock %}

@@ -14,13 +14,13 @@ file that was distributed with this source code.
 
 {% block meta_tags %}
     {{ parent() }}
-    <link rel="icon" type="image/png" href="{{ asset('bundles/librinfodecorator/li-favicon.png') }}" />
+    <link rel="icon" type="image/png" href="{{ asset('bundles/blastdecorator/li-favicon.png') }}" />
 {% endblock %}
 
 {% block stylesheets %}
     {{ parent() }}
-    <link rel="stylesheet" href="{{ asset('bundles/librinfodecorator/css/skin-blue.css') }}" />
-    <link rel="stylesheet" href="{{ asset('bundles/librinfodecorator/css/spinkit-folding-cube.css') }}" />
+    <link rel="stylesheet" href="{{ asset('bundles/blastdecorator/css/skin-blue.css') }}" />
+    <link rel="stylesheet" href="{{ asset('bundles/blastdecorator/css/spinkit-folding-cube.css') }}" />
 {% endblock %}
 
 {% block javascripts %}
@@ -29,15 +29,15 @@ file that was distributed with this source code.
         var AdminLTEOptions = { animationSpeed: 150 };
     </script>
     {{ parent() }}
-    <script type="text/javascript" src="{{ asset('bundles/librinfodecorator/js/main.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('bundles/librinfodecorator/js/inline-block.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('bundles/librinfodecorator/js/Chart.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/blastdecorator/js/main.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/blastdecorator/js/inline-block.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/blastdecorator/js/Chart.min.js') }}"></script>
     <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
     <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
 {% endblock %}
 
 {% block body_attributes %}
-    class="{% block body_classes %}sonata-bc skin-blue fixed librinfo{% endblock %}"
+    class="{% block body_classes %}sonata-bc skin-blue fixed blast{% endblock %}"
 {% endblock %}
 
 {% block sonata_top_nav_menu %}
@@ -62,7 +62,7 @@ file that was distributed with this source code.
         <a class="logo" href="{{ url('sonata_admin_dashboard') }}">
             {% if 'single_image' == admin_pool.getOption('title_mode') or 'both' == admin_pool.getOption('title_mode') %}
                 {% if 'bundles/sonataadmin/logo_title.png' == admin_pool.titlelogo %}
-                    <img src="{{ asset('bundles/librinfodecorator/logo-li.png') }}" alt="Libre Informatique">
+                    <img src="{{ asset('bundles/blastdecorator/logo-li.png') }}" alt="Libre Informatique">
                 {% else %}
                     <img src="{{ asset(admin_pool.titlelogo) }}" alt="{{ admin_pool.title }}">
                 {% endif %}

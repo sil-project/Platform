@@ -30,7 +30,7 @@ class CustomerController extends ResourceController
     {
         $admin = $this->container
             ->get('sonata.admin.pool')
-            ->getAdminByAdminCode('librinfo_ecommerce.admin.customer');
+            ->getAdminByAdminCode('sil_ecommerce.admin.customer');
 
         $configuration = $this->requestConfigurationFactory->create($this->metadata, $request);
 
@@ -102,7 +102,7 @@ class CustomerController extends ResourceController
      */
     public function updateAction(Request $request): Response
     {
-        $admin = $this->container->get('librinfo_ecommerce.admin.customer');
+        $admin = $this->container->get('sil_ecommerce.admin.customer');
         $configuration = $this->requestConfigurationFactory->create($this->metadata, $request);
 
         $this->isGrantedOr403($configuration, ResourceActions::UPDATE);

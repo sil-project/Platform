@@ -24,7 +24,7 @@ var dzOptions = {
 
 var setupDropzones = function() {
 
-    var dropzones = $('[data-librinfo-dropzone]');
+    var dropzones = $('[data-sil-dropzone]');
 
     if (dropzones.length > 0) {
 
@@ -38,7 +38,7 @@ var setupDropzone = function(key, instance) {
 
     //template for file previews
     var template = Mustache.render($('#dropzone-template').html());
-    var data = $(instance).data('librinfoDropzone');
+    var data = $(instance).data('silDropzone');
 
     dzUrls = data.routes;
     dzOptions = {

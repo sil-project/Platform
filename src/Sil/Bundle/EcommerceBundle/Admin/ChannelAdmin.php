@@ -40,7 +40,7 @@ class ChannelAdmin extends SyliusGenericAdmin
             'taxCalculationStrategy',
             ChoiceType::class,
             [
-                'label'    => 'librinfo.label.taxCalculationStrategy',
+                'label'    => 'sil.label.taxCalculationStrategy',
                 'choices'  => array_flip($this->getConfigurationPool()->getContainer()->getParameter('sylius.taxation.calculation_strategy.list_values')),
                 'required' => true,
                 'attr'     => [
@@ -55,7 +55,7 @@ class ChannelAdmin extends SyliusGenericAdmin
             'themeName',
             ChoiceType::class,
             [
-                'label'    => 'librinfo.label.themeName',
+                'label'    => 'sil.label.themeName',
                 'choices'  => array_flip($listOfThemes),
                 'required' => true,
                 'attr'     => [
@@ -103,7 +103,7 @@ class ChannelAdmin extends SyliusGenericAdmin
             if (count($qbCode->getQuery()->getResult()) != 0) {
                 $errorElement
                     ->with('code')
-                    ->addViolation('librinfo.channel_code.not_unique', ['%code%' => $code])
+                    ->addViolation('sil.channel_code.not_unique', ['%code%' => $code])
                     ->end();
             }
 
@@ -116,7 +116,7 @@ class ChannelAdmin extends SyliusGenericAdmin
             if (count($qbName->getQuery()->getResult()) != 0) {
                 $errorElement
                     ->with('name')
-                    ->addViolation('librinfo.channel_name.not_unique', ['%name%' => $name])
+                    ->addViolation('sil.channel_name.not_unique', ['%name%' => $name])
                     ->end();
             }
         }

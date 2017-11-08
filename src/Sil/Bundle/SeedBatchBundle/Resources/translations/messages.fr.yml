@@ -1,6 +1,6 @@
 
 
-librinfo:
+sil:
     error:
         invalid_batch_number: Le champ "Numéro de lot" n'est pas valide
         invalid_production_year: Le champ "Année de production" n'est pas valide

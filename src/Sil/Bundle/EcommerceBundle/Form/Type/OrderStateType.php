@@ -27,10 +27,10 @@ class OrderStateType extends AbstractType
     {
         $choices = function (Options $options) {
             $choices = [
-            'librinfo.order_state.cart'      => OrderInterface::STATE_CART,
-            'librinfo.order_state.new'       => OrderInterface::STATE_NEW,
-            'librinfo.order_state.fulfilled' => OrderInterface::STATE_FULFILLED,
-            'librinfo.order_state.cancelled' => OrderInterface::STATE_CANCELLED,
+            'sil.order_state.cart'      => OrderInterface::STATE_CART,
+            'sil.order_state.new'       => OrderInterface::STATE_NEW,
+            'sil.order_state.fulfilled' => OrderInterface::STATE_FULFILLED,
+            'sil.order_state.cancelled' => OrderInterface::STATE_CANCELLED,
             ];
             if ($options['no_cart']) {
                 unset($choices[OrderInterface::STATE_CART]);
@@ -61,6 +61,6 @@ class OrderStateType extends AbstractType
 
     public function getBlockPrefix()
     {
-        return 'librinfo_type_order_state';
+        return 'sil_type_order_state';
     }
 }

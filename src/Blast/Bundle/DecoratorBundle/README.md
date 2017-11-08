@@ -74,14 +74,14 @@ The basics is to be able to extend in a very smoothy way the SonataAdminBundle, 
 ```
 # Resources/config/decorator.yml
 parameters:
-    librinfo_decorator:
+    blast_decorator:
         templates:
             layout:
                 original: [SonataAdminBundle::standard_layout.html.twig, BlastCoreBundle::standard_layout.html.twig]
                 modified: BlastDecoratorBundle::layout.html.twig
 ```
 
-You have noticed the root of this bundle's parameters : ```librinfo_decorator```.
+You have noticed the root of this bundle's parameters : ```blast_decorator```.
 Then if you need to replace generically some templates, you'll need to configure which default configuration you want to replace, to avoid overloading the project direct configuration.
 
 So, you'll have to specify the Sonata key (from ```sonata_admin``` root element in your ```app/config/config.yml```, see [the Sonata documentation](https://sonata-project.org/bundles/admin/2-3/doc/reference/configuration.html)) and two sub-keys :
@@ -144,7 +144,7 @@ class="sonata-bc skin-blue fixed"
     <a class="logo" href="{{ url('sonata_admin_dashboard') }}">
         {% if 'single_image' == admin_pool.getOption('title_mode') or 'both' == admin_pool.getOption('title_mode') %}
             {% if 'bundles/sonataadmin/logo_title.png' == admin_pool.titlelogo %}
-            <img src="{{ asset('bundles/librinfodecorator/logo-li.png') }}" alt="Libre Informatique">
+            <img src="{{ asset('bundles/blastdecorator/logo-li.png') }}" alt="Libre Informatique">
             {% else %}
             <img src="{{ asset(admin_pool.titlelogo) }}" alt="{{ admin_pool.title }}">
             {% endif %}

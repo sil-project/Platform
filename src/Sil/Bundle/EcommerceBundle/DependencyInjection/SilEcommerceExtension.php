@@ -28,9 +28,9 @@ class SilEcommerceExtension extends BlastCoreExtension
     public function loadCodeGenerators(ContainerBuilder $container, array $config)
     {
         foreach (['product', 'product_variant', 'product_variant_embedded', 'invoice'] as $cg) {
-            $container->setParameter("librinfo_ecommerce.code_generator.$cg", $config['code_generator'][$cg]);
+            $container->setParameter("sil_ecommerce.code_generator.$cg", $config['code_generator'][$cg]);
         }
-        $container->setParameter('librinfo_ecommerce.invoice.template', $config['invoice']['template']);
+        $container->setParameter('sil_ecommerce.invoice.template', $config['invoice']['template']);
 
         return $this;
     }

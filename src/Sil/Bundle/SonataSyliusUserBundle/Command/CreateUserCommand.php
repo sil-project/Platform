@@ -33,7 +33,7 @@ class CreateUserCommand extends ContainerAwareCommand
     protected function configure()
     {
         $this
-            ->setName('librinfo:user:create')
+            ->setName('sil:user:create')
             ->setDescription('Create a Sonata admin user.')
             ->setHelp(<<<EOT
 The <info>%command.name%</info> command allows to create a user.
@@ -57,14 +57,14 @@ EOT
         $user = $userFactory->createNew();
 
         if ($input->getOption('no-interaction')) {
-            $exists = null !== $userRepository->findOneByEmail('librinfo@example.com');
+            $exists = null !== $userRepository->findOneByEmail('sil@example.com');
 
             if ($exists) {
                 return 0;
             }
 
-            $user->setEmail('librinfo@example.com');
-            $user->setPlainPassword('librinfo');
+            $user->setEmail('sil@example.com');
+            $user->setPlainPassword('sil');
         } else {
             do {
                 $email = $this->ask($input, $output, 'E-Mail:');

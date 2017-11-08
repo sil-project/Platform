@@ -37,14 +37,14 @@ parameters:
                             channels: ~
                             mainTaxon: ~
                             taxons:
-                                admin_code: librinfo_ecommerce.admin.taxon
+                                admin_code: sil_ecommerce.admin.taxon
                                 template: SilEcommerceBundle:ProductAdmin:show_field_taxons.html.twig
                         show_group_availability:
                             available:
                     show_tab_variants:
                         '':
                             variants:
-                                admin_code: librinfo_ecommerce.admin.product_variant
+                                admin_code: sil_ecommerce.admin.product_variant
                                 template: SilEcommerceBundle:ProductAdmin:show_field_product_variants.html.twig
                     form_tab_history:
                         form_group_history:
@@ -126,7 +126,7 @@ parameters:
                                 _options:
                                     edit: modal
                                     inline: table-list
-                                    admin_code: librinfo_ecommerce.admin.product_variant
+                                    admin_code: sil_ecommerce.admin.product_variant
                     form_tab_images:
                         form_group_images:
                             images:
@@ -186,13 +186,13 @@ parameters:
                     form_tab_general:
                         form_group_general:
                             product:
-                                admin_code: librinfo_ecommerce.admin.product
+                                admin_code: sil_ecommerce.admin.product
                             name:
                                 type: text
                             code: ~
                             optionValues:
                                 template: SilEcommerceBundle:ProductVariantAdmin:show_field_optionvalues.html.twig
-                                admin_code: librinfo_ecommerce_option_value.admin.product
+                                admin_code: sil_ecommerce_option_value.admin.product
                         show_group_pricing:
                             taxCategory: ~
                             price:
@@ -227,7 +227,7 @@ parameters:
                             product:
                                 type: sonata_type_model_hidden
                                 _options:
-                                    admin_code: librinfo_ecommerce.admin.product
+                                    admin_code: sil_ecommerce.admin.product
                             enabled: ~
                             _options:
                                 fieldsOrder: [product, name, code]
@@ -239,13 +239,13 @@ parameters:
                                     btn_add: false
                                     delete: false
                                 _options:
-                                    admin_code: librinfo_ecommerce.admin.channel_pricing
+                                    admin_code: sil_ecommerce.admin.channel_pricing
                                     edit: inline
                                     inline: table
                         form_group_options:
                             optionValues:
                                 _options:
-                                    admin_code: librinfo_ecommerce_option_value.admin.product
+                                    admin_code: sil_ecommerce_option_value.admin.product
                         form_group_stock:
                             onHand:
                                 required: false
@@ -267,14 +267,14 @@ parameters:
                     translations.name:
                         identifier: true
                     product:
-                        admin_code: librinfo_ecommerce.admin.product
+                        admin_code: sil_ecommerce.admin.product
                     available:
                         type: boolean
                     price:
                         template: SilEcommerceBundle:ProductVariantAdmin:list_field_price.html.twig
                     optionValues:
                         associated_property: fullCode
-                        admin_code: librinfo_ecommerce_option_value.admin.product
+                        admin_code: sil_ecommerce_option_value.admin.product
                     onHand: ~
                     onHold: ~
                     tracked:
@@ -345,7 +345,7 @@ parameters:
                             product:
                                 type: sonata_type_model_hidden
                                 _options:
-                                    admin_code: librinfo_ecommerce.admin.product
+                                    admin_code: sil_ecommerce.admin.product
                             enabled: ~
                             _options:
                                 fieldsOrder: [product, name, code]
@@ -357,13 +357,13 @@ parameters:
                                     btn_add: false
                                     delete: false
                                 _options:
-                                    admin_code: librinfo_ecommerce.admin.channel_pricing
+                                    admin_code: sil_ecommerce.admin.channel_pricing
                                     edit: inline
                                     inline: table
                         form_group_options:
                             optionValues:
                                 _options:
-                                    admin_code: librinfo_ecommerce_option_value.admin.product
+                                    admin_code: sil_ecommerce_option_value.admin.product
                         form_group_stock:
                             onHand:
                                 required: false
@@ -440,7 +440,7 @@ parameters:
                             code: ~
                             name: ~
                             values:
-                                admin_code: librinfo_ecommerce_option_value.admin.product
+                                admin_code: sil_ecommerce_option_value.admin.product
                     show_tab_history:
                         show_group_history:
                             createdAt: ~
@@ -467,7 +467,7 @@ parameters:
                                 _options:
                                     edit: inline
                                     inline: table
-                                    admin_code: librinfo_ecommerce_option_value.admin.product
+                                    admin_code: sil_ecommerce_option_value.admin.product
 
             # LIST
             Sonata\AdminBundle\Datagrid\ListMapper:
@@ -569,7 +569,7 @@ parameters:
                                 template: SilEcommerceBundle:OrderAdmin/Show:_invoices.html.twig
                         show_group_customer:
                             customer:
-                                admin_code: librinfo_ecommerce.admin.customer
+                                admin_code: sil_ecommerce.admin.customer
                             customer.createdAt: ~
                             customerIp: ~
                             localeCode:
@@ -654,13 +654,13 @@ parameters:
                                 type: Symfony\Component\Form\Extension\Core\Type\TextareaType
                         form_group_shipping_and_payment_methods:
                             payment: # OVERRIDEN IN ORDER ADMIN
-                                label: librinfo.label.payment_method
+                                label: sil.label.payment_method
                                 type: Sylius\Bundle\PaymentBundle\Form\Type\PaymentMethodChoiceType
                                 multiple: false
                                 mapped: false
                                 required: true
                             shipment: # OVERRIDEN IN ORDER ADMIN
-                                label: librinfo.label.shipping_method
+                                label: sil.label.shipping_method
                                 type: Sylius\Bundle\ShippingBundle\Form\Type\ShippingMethodChoiceType
                                 multiple: false
                                 mapped: false
@@ -695,7 +695,7 @@ parameters:
                     checkoutCompletedAt: ~
                     channel: ~
                     customer:
-                        admin_code: librinfo_ecommerce.admin.customer
+                        admin_code: sil_ecommerce.admin.customer
                     notes: ~
                     state:
                         template: SilEcommerceBundle:OrderAdmin:list_field_state.html.twig
@@ -716,7 +716,7 @@ parameters:
                     number: ~
                     customer.fulltextName:
                         type: doctrine_orm_callback
-                        serviceCallback: [librinfo.ecommerce.filters.customer, filterOnFullname, callback]
+                        serviceCallback: [sil.ecommerce.filters.customer, filterOnFullname, callback]
                         field_type: text
                         operator_type: choice
                         operator_options:
@@ -900,10 +900,10 @@ parameters:
                             amount:
                                 template: SilEcommerceBundle:CRUD:show_field_money.html.twig
                             updatedAt:
-                                label: librinfo.ecommercebundle.paid_at
+                                label: sil.ecommercebundle.paid_at
                         show_group_order:
                             order.customer:
-                                admin_code: librinfo_ecommerce.admin.customer
+                                admin_code: sil_ecommerce.admin.customer
                             order.tokenValue: ~
                         show_group_totals:
                             order.itemsTotal:
@@ -932,7 +932,7 @@ parameters:
                                 attr:
                                     width: 30
                                 _options:
-                                    admin_code: librinfo_ecommerce.admin.order
+                                    admin_code: sil_ecommerce.admin.order
                             method:
                                 type: sonata_type_model
                                 property: code
@@ -947,16 +947,16 @@ parameters:
                     _list_actions: [create,edit]
                 add:
                     order:
-                        label: librinfo.ecommercebundle.order_number
-                        admin_code: librinfo_ecommerce.admin.order
+                        label: sil.ecommercebundle.order_number
+                        admin_code: sil_ecommerce.admin.order
                     order.getLastDebitInvoice.number:
-                        label: librinfo.ecommercebundle.invoice_number
+                        label: sil.ecommercebundle.invoice_number
                     order.customer:
-                        label: librinfo.ecommercebundle.customer
-                        admin_code: librinfo_ecommerce.admin.customer
+                        label: sil.ecommercebundle.customer
+                        admin_code: sil_ecommerce.admin.customer
                     order.channel: ~
                     method:
-                        label: librinfo.ecommercebundle.payment_method
+                        label: sil.ecommercebundle.payment_method
                     order.paymentState:
                         template: SilEcommerceBundle:PaymentAdmin:list_field_state.html.twig
                     amount:
@@ -975,9 +975,9 @@ parameters:
             Sonata\AdminBundle\Datagrid\DatagridMapper:
                 add:
                     order.number:
-                        label: librinfo.ecommercebundle.order_number
+                        label: sil.ecommercebundle.order_number
                     order.getLastDebitInvoice.number:
-                        label: librinfo.ecommercebundle.invoice_number
+                        label: sil.ecommercebundle.invoice_number
                     order.customer.name: ~
                     order.customer.customerCode: ~
                     # order.customer.circle: ~
@@ -1011,9 +1011,9 @@ parameters:
                     operationDate: ~
                     # account: ~
                     order:
-                        label: librinfo.ecommercebundle.order_number
+                        label: sil.ecommercebundle.order_number
                     invoice:
-                        label: librinfo.ecommercebundle.invoice_number
+                        label: sil.ecommercebundle.invoice_number
                     payment: ~
                     label: ~
                     debit:
@@ -1028,9 +1028,9 @@ parameters:
                     operationDate: ~
                     # account: ~
                     order:
-                        label: librinfo.ecommercebundle.order_number
+                        label: sil.ecommercebundle.order_number
                     invoice:
-                        label: librinfo.ecommercebundle.invoice_number
+                        label: sil.ecommercebundle.invoice_number
                     payment: ~
                     label: ~
                     debit:
@@ -1076,7 +1076,7 @@ parameters:
                             translation.instructions:
                                 type: Blast\Bundle\UtilsBundle\Form\Type\TinyMceType
                                 required: true
-                                help: librinfo.ecommercebundle.translation__instructions_help
+                                help: sil.ecommercebundle.translation__instructions_help
 ############
 # CUSTOMER
 ############
@@ -1161,8 +1161,8 @@ parameters:
 
         Sil\Bundle\EcommerceBundle\Entity\TaxRate:
             baseRoute:
-                name: admin_librinfo_ecommerce_taxrate
-                pattern: librinfo/ecommerce/taxrate
+                name: admin_sil_ecommerce_taxrate
+                pattern: sil/ecommerce/taxrate
             # SHOW
             Sonata\AdminBundle\Show\ShowMapper:
                 add:
@@ -1223,8 +1223,8 @@ parameters:
 
         Sylius\Component\Taxation\Model\TaxCategory:
             baseRoute:
-                name: admin_librinfo_ecommerce_taxcategory
-                pattern: librinfo/ecommerce/taxcategory
+                name: admin_sil_ecommerce_taxcategory
+                pattern: sil/ecommerce/taxcategory
             # SHOW
             Sonata\AdminBundle\Show\ShowMapper:
                 add:
@@ -1274,8 +1274,8 @@ parameters:
 
         Sil\Bundle\EcommerceBundle\Entity\Zone:
             baseRoute:
-                name: admin_librinfo_ecommerce_zone
-                pattern: librinfo/ecommerce/zone
+                name: admin_sil_ecommerce_zone
+                pattern: sil/ecommerce/zone
             Sonata\AdminBundle\Show\ShowMapper:
                 add:
                     name: ~
@@ -1309,8 +1309,8 @@ parameters:
 
         Sil\Bundle\EcommerceBundle\Entity\Taxon:
             baseRoute:
-                name: admin_librinfo_ecommerce_taxon
-                pattern: librinfo/ecommerce/taxon
+                name: admin_sil_ecommerce_taxon
+                pattern: sil/ecommerce/taxon
             Sonata\AdminBundle\Show\ShowMapper:
                 add:
                     translation.name: ~
@@ -1343,8 +1343,8 @@ parameters:
 
         Sil\Bundle\EcommerceBundle\Entity\Channel:
             baseRoute:
-                name: admin_librinfo_ecommerce_channel
-                pattern: librinfo/ecommerce/channel
+                name: admin_sil_ecommerce_channel
+                pattern: sil/ecommerce/channel
             # SHOW
             Sonata\AdminBundle\Show\ShowMapper:
                 forceTabs: true
@@ -1542,8 +1542,8 @@ parameters:
 
         Sil\Bundle\EcommerceBundle\Entity\ShippingMethod:
             baseRoute:
-                name: admin_librinfo_ecommerce_shipping_method
-                pattern: librinfo/ecommerce/shipping_method
+                name: admin_sil_ecommerce_shipping_method
+                pattern: sil/ecommerce/shipping_method
 
             # SHOW
             Sonata\AdminBundle\Show\ShowMapper:
@@ -1563,7 +1563,7 @@ parameters:
                         show_group_channel:
                             channels: ~
                             configuration:
-                                label: 'librinfo.ecommercebundle.amount'
+                                label: 'sil.ecommercebundle.amount'
                                 template: SilEcommerceBundle:CRUD:show_shipping_method_configuration_array.html.twig
                             zone: ~
 
@@ -1652,8 +1652,8 @@ parameters:
 
         Sylius\Component\Shipping\Model\ShippingMethodTranslation:
             baseRoute:
-                name: admin_librinfo_ecommerce_shipping_method_translation
-                pattern: librinfo/ecommerce/shipping_method_translation
+                name: admin_sil_ecommerce_shipping_method_translation
+                pattern: sil/ecommerce/shipping_method_translation
             # SHOW
             Sonata\AdminBundle\Show\ShowMapper:
                 remove:
@@ -1702,8 +1702,8 @@ parameters:
 
         Sylius\Component\Core\Model\ShopUser:
             baseRoute:
-                name: admin_librinfo_ecommerce_shop_user
-                pattern: librinfo/ecommerce/shop_user
+                name: admin_sil_ecommerce_shop_user
+                pattern: sil/ecommerce/shop_user
 
             # SHOW
             Sonata\AdminBundle\Show\ShowMapper:

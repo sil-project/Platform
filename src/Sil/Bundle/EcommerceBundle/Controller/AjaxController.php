@@ -55,7 +55,7 @@ class AjaxController extends Controller
      */
     public function addToOrderAction(Request $request)
     {
-        return new JsonResponse($this->container->get('librinfo_ecommerce.order.item_updater')->updateItemCount($request->get('order'), $request->get('item'), true));
+        return new JsonResponse($this->container->get('sil_ecommerce.order.item_updater')->updateItemCount($request->get('order'), $request->get('item'), true));
     }
 
     /**
@@ -67,7 +67,7 @@ class AjaxController extends Controller
      */
     public function removeFromOrderAction(Request $request)
     {
-        $updater = $this->container->get('librinfo_ecommerce.order.item_updater');
+        $updater = $this->container->get('sil_ecommerce.order.item_updater');
 
         $result = $updater->updateItemCount($request->get('order'), $request->get('item'), false);
 
@@ -81,7 +81,7 @@ class AjaxController extends Controller
     public function addNewProductAction(Request $request)
     {
         $newProduct = $this->container
-            ->get('librinfo_ecommerce.order.updater')
+            ->get('sil_ecommerce.order.updater')
             ->addProduct(
                 $request->get('orderId'), $request->get('variantId')
             );
@@ -96,7 +96,7 @@ class AjaxController extends Controller
 
     public function updateOrderItemBulkQuatityAction(Request $request)
     {
-        $updater = $this->container->get('librinfo_ecommerce.order.item_updater');
+        $updater = $this->container->get('sil_ecommerce.order.item_updater');
 
         $result = $updater->updateItemCount($request->get('order'), $request->get('item'), true, 1000 * $request->get('bulkQuantity'));
 

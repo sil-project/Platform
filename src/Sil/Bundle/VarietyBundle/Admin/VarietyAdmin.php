@@ -100,7 +100,7 @@ class VarietyAdmin extends CoreAdmin
             }
         }
 
-//        $config = $this->getConfigurationPool()->getContainer()->getParameter('librinfo_varieties')['variety_descriptions'];
+//        $config = $this->getConfigurationPool()->getContainer()->getParameter('sil_varieties')['variety_descriptions'];
 //
 //        foreach($config as $fieldset => $field){
 //            $getter = 'get' . ucfirst($fieldset) . 'Descriptions';

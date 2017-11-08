@@ -46,7 +46,7 @@ class SeedFarmCodeGenerator implements CodeGeneratorInterface
         $length = self::$length;
         $name = $seedFarm->getName();
         if (!$name) {
-            throw new InvalidEntityCodeException('librinfo.error.missing_seed_farm_name');
+            throw new InvalidEntityCodeException('sil.error.missing_seed_farm_name');
         }
         // Unaccent, remove marks and punctuation, upper case
         $translit = transliterator_transliterate(

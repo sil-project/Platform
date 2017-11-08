@@ -1,17 +1,17 @@
-librinfo_ecommerce.order.inline_edit:
-    path: /%librinfo.url_prefix%/librinfo/ecommerce/order/inline_edit
+sil_ecommerce.order.inline_edit:
+    path: /%sil.url_prefix%/sil/ecommerce/order/inline_edit
     defaults: { _controller: SilEcommerceBundle:Ajax:orderInlineEdit }
 
-librinfo_ecommerce.order.add_item:
-    path: /%librinfo.url_prefix%/librinfo/ecommerce/order/item/add
+sil_ecommerce.order.add_item:
+    path: /%sil.url_prefix%/sil/ecommerce/order/item/add
     defaults: { _controller: SilEcommerceBundle:Ajax:addToOrder }
 
-librinfo_ecommerce.order.remove_item:
-    path: /%librinfo.url_prefix%/librinfo/ecommerce/order/item/remove
+sil_ecommerce.order.remove_item:
+    path: /%sil.url_prefix%/sil/ecommerce/order/item/remove
     defaults: { _controller: SilEcommerceBundle:Ajax:removeFromOrder }
 
-librinfo_ecommerce.order.add_product:
-    path: /%librinfo.url_prefix%/librinfo/ecommerce/order/product/add
+sil_ecommerce.order.add_product:
+    path: /%sil.url_prefix%/sil/ecommerce/order/product/add
     defaults: { _controller: SilEcommerceBundle:Ajax:addNewProduct }
 
 sylius_shop_checkout_address_override:
@@ -35,6 +35,6 @@ sylius_shop_checkout_address_override:
                 graph: sylius_order_checkout
                 transition: address
 
-librinfo_ecommerce.order.updateBulk:
-    path: /%librinfo.url_prefix%/librinfo/ecommerce/order/item/updateBulk
+sil_ecommerce.order.updateBulk:
+    path: /%sil.url_prefix%/sil/ecommerce/order/item/updateBulk
     defaults: { _controller: SilEcommerceBundle:Ajax:updateOrderItemBulkQuatity }

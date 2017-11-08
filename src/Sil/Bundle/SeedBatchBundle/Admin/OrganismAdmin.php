@@ -22,8 +22,8 @@ use Sonata\CoreBundle\Validator\ErrorElement;
 
 class OrganismAdmin extends BaseOrganismAdmin
 {
-    protected $baseRouteName = 'admin_librinfo_seedbatch_organism';
-    protected $baseRoutePattern = 'librinfo/seedbatch/organism';
+    protected $baseRouteName = 'admin_sil_seedbatch_organism';
+    protected $baseRoutePattern = 'sil/seedbatch/organism';
 
     /**
      * @param DatagridMapper $mapper
@@ -99,7 +99,7 @@ class OrganismAdmin extends BaseOrganismAdmin
 
         if (empty($code)) {
             // Check if organism is a seed producer (belongs to the seed_producers app circle)
-            $app_circles = $container->get('librinfo_crm.app_circles');
+            $app_circles = $container->get('sil_crm.app_circles');
             if ($app_circles->isInCircle($object, 'seed_producers') && !$is_new) {
                 $errorElement
                     ->with('seedProducerCode')

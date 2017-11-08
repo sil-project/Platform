@@ -152,7 +152,7 @@ swiftmailer:
             spool: { type: db }
 ```
 To flush the queue execute the command :
-```$ app/console librinfo:spool:send```
+```$ app/console sil:spool:send```
 
 Don't hesitate executing the command with --help as it has more options than the swiftmailer:spool:send
 

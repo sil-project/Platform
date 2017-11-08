@@ -19,7 +19,7 @@ parameters:
                             alias: ~
                             description: ~
                             genuses:
-                                admin_code: librinfo_varieties.admin.genus
+                                admin_code: sil_varieties.admin.genus
                     form_group_specifics:
                         form_group_misc:
                             createdAt: ~
@@ -78,7 +78,7 @@ parameters:
                     #                 edit: inline
                     #                 inline: table
                     #                 allow_delete: false
-                    #                 admin_code: librinfo_varieties.admin.genus_embedded
+                    #                 admin_code: sil_varieties.admin.genus_embedded
                     _options:
                         tabsOrder: [form_group_general, form_group_genuses]
                     _helper_links:
@@ -96,7 +96,7 @@ parameters:
                     latin_name: ~
                     alias: ~
                     genuses:
-                        admin_code: librinfo_varieties.admin.genus
+                        admin_code: sil_varieties.admin.genus
                     _export_formats:
                         csv: [name, latinName, alias, description, createdAt, updatedAt]
                         xls: csv
@@ -125,7 +125,7 @@ parameters:
                             alias: ~
                             description: ~
                             specieses:
-                                admin_code: librinfo_varieties.admin.species
+                                admin_code: sil_varieties.admin.species
                     form_group_specifics:
                         form_group_misc:
                             createdAt: ~
@@ -188,7 +188,7 @@ parameters:
                     #                 edit: inline
                     #                 # inline: table
                     #                 allow_delete: false
-                    #                 admin_code: librinfo_varieties.admin.species_embedded
+                    #                 admin_code: sil_varieties.admin.species_embedded
                     _options:
                         tabsOrder: [form_tab_general]
                     _helper_links:
@@ -207,7 +207,7 @@ parameters:
                     family: ~
                     description: ~
                     specieses:
-                        admin_code: librinfo_varieties.admin.species
+                        admin_code: sil_varieties.admin.species
                     _options:
                         fieldsOrder:
                             - name
@@ -302,17 +302,17 @@ parameters:
                             latin_name: ~
                             alias: ~
                             genus:
-                                admin_code: librinfo_varieties.admin.genus
+                                admin_code: sil_varieties.admin.genus
                             parent_species:
-                                admin_code: librinfo_varieties.admin.species_embedded
+                                admin_code: sil_varieties.admin.species_embedded
                             subspecieses:
-                                admin_code: librinfo_varieties.admin.species_embedded
+                                admin_code: sil_varieties.admin.species_embedded
                             plant_categories: ~
                             life_cycle:
                                 type: trans
                                 catalogue: varieties
                             varieties:
-                                admin_code: librinfo_varieties.admin.variety
+                                admin_code: sil_varieties.admin.variety
                             description:
                                 template: BlastCoreBundle:CRUD:show_field_tinymce.html.twig
                             legal_germination_rate: ~
@@ -333,7 +333,7 @@ parameters:
                             genus:
                                 type: sonata_type_model
                                 _options:
-                                    admin_code: librinfo_varieties.admin.genus
+                                    admin_code: sil_varieties.admin.genus
                                 attr:
                                     class: inline-block
                                     width: 50
@@ -342,7 +342,7 @@ parameters:
                                 property: name
                                 required: false
                                 _options:
-                                    admin_code: librinfo_varieties.admin.species_embedded
+                                    admin_code: sil_varieties.admin.species_embedded
                                 attr:
                                     class: inline-block
                                     width: 50
@@ -410,7 +410,7 @@ parameters:
                                     class: inline-block
                                     width: 50
                             tkw:
-                                help: librinfo.help.tkw
+                                help: sil.help.tkw
                                 attr:
                                     class: inline-block
                                     width: 50
@@ -508,7 +508,7 @@ parameters:
                             genus:
                                 type: sonata_type_model
                                 _options:
-                                    admin_code: librinfo_varieties.admin.genus
+                                    admin_code: sil_varieties.admin.genus
                                 attr:
                                     class: new-line
                                     width: 30
@@ -517,7 +517,7 @@ parameters:
                                 property: name
                                 required: false
                                 _options:
-                                    admin_code: librinfo_varieties.admin.species_embedded
+                                    admin_code: sil_varieties.admin.species_embedded
                                 attr:
                                     class: new-line
                                     width: 30
@@ -569,7 +569,7 @@ parameters:
                                 attr:
                                     class: inline-block
                             tkw:
-                                help: librinfo.help.tkw
+                                help: sil.help.tkw
                                 attr:
                                     class: new-line
                                     width: 30
@@ -618,9 +618,9 @@ parameters:
                             name: ~
                             code: ~
                             species:
-                                admin_code: librinfo_varieties.admin.species
+                                admin_code: sil_varieties.admin.species
                             parent:
-                                admin_code: librinfo_varieties.admin.variety
+                                admin_code: sil_varieties.admin.variety
                             latin_name: ~
                             alias: ~
                             code: ~
@@ -679,7 +679,7 @@ parameters:
                     form_tab_strains:
                         '':
                             children:
-                                admin_code: librinfo_varieties.admin.variety
+                                admin_code: sil_varieties.admin.variety
                     form_tab_images:
                         '':
                             images:
@@ -736,7 +736,7 @@ parameters:
                                     strain_disabled: true
                                     inherit: source
                                 _options:
-                                    admin_code: librinfo_varieties.admin.species
+                                    admin_code: sil_varieties.admin.species
                             plant_type:
                                 type: Blast\Bundle\UtilsBundle\Form\Type\CustomChoiceType
                                 choices_field: plant_type
@@ -758,7 +758,7 @@ parameters:
                                     strain_field: true
                                     strain_disabled: true
                                 _options:
-                                    admin_code: librinfo_varieties.admin.variety
+                                    admin_code: sil_varieties.admin.variety
                             name:
                                 type: Blast\Bundle\UtilsBundle\Form\Type\UniqueFieldType
                                 return_link: true
@@ -817,30 +817,30 @@ parameters:
                                     class: new-line
                                     height: 200
                             legal_germination_rate:
-                                help: librinfo.help.legal_germination_rate
+                                help: sil.help.legal_germination_rate
                                 attr:
                                     class: inline-block
                                     inherit: target
                                     width: 33
                             germination_rate:
-                                help: librinfo.help.germination_rate
+                                help: sil.help.germination_rate
                                 attr:
                                     class: inline-block
                                     width: 33
                             tkw:
-                                help: librinfo.help.tkw
+                                help: sil.help.tkw
                                 attr:
                                     class: inline-block
                                     width: 33
                                     inherit: target
                             seed_lifespan:
-                                help: librinfo.help.seed_lifespan
+                                help: sil.help.seed_lifespan
                                 attr:
                                     class: inline-block
                                     width: 50
                                     inherit: target
                             raise_duration:
-                                help: librinfo.help.raise_duration
+                                help: sil.help.raise_duration
                                 attr:
                                     class: inline-block
                                     width: 50
@@ -996,14 +996,14 @@ parameters:
                     form_tab_seeds_production:
                         '':
                             seedhead_yield:
-                                help: librinfo.help.seedhead_yield
+                                help: sil.help.seedhead_yield
                                 required: false
                                 attr:
                                     class: inline-block
                                     width: 50
                             area_per_kg:
                                 required: false
-                                help: librinfo.help.area_per_kg
+                                help: sil.help.area_per_kg
                                 attr:
                                     class: inline-block
                                     width: 50
@@ -1012,25 +1012,25 @@ parameters:
                                 attr:
                                     class: inline-block
                                     width: 50
-                                help: librinfo.help.seedheads_per_kg
+                                help: sil.help.seedheads_per_kg
                             base_seed_per_kg:
                                 required: false
                                 attr:
                                     class: inline-block
                                     width: 50
-                                help: librinfo.help.base_seed_per_kg
+                                help: sil.help.base_seed_per_kg
                         form_group_density:
                             distance_on_line:
                                 required: false
                                 type: integer
-                                help: librinfo.help.distance_on_line
+                                help: sil.help.distance_on_line
                                 attr:
                                     class: inline-block
                                     width: 50
                             distance_between_lines:
                                 required: false
                                 type: integer
-                                help: librinfo.help.distance_between_lines
+                                help: sil.help.distance_between_lines
                                 attr:
                                     class: inline-block
                                     width: 50
@@ -1065,14 +1065,14 @@ parameters:
             Sonata\AdminBundle\Datagrid\DatagridMapper:
                 add:
                     species:
-                        admin_code: librinfo_varieties.admin.species
+                        admin_code: sil_varieties.admin.species
                     name: ~
                     code: ~
                     latin_name: ~
                     code: ~
                     alias: ~
                     parent:
-                        admin_code: librinfo_varieties.admin.variety
+                        admin_code: sil_varieties.admin.variety
                     plant_categories: ~
                     legal_germination_rate: ~
                     germination_rate: ~
@@ -1103,19 +1103,19 @@ parameters:
                     selection_criteria:
                         global_search: false
                     professional_descriptions:
-                        type: doctrine_orm_librinfo_variety_description
+                        type: doctrine_orm_sil_variety_description
                     amateur_descriptions:
-                        type: doctrine_orm_librinfo_variety_description
+                        type: doctrine_orm_sil_variety_description
                     production_descriptions:
-                        type: doctrine_orm_librinfo_variety_description
+                        type: doctrine_orm_sil_variety_description
                     commercial_descriptions:
-                        type: doctrine_orm_librinfo_variety_description
+                        type: doctrine_orm_sil_variety_description
                     plant_descriptions:
-                        type: doctrine_orm_librinfo_variety_description
+                        type: doctrine_orm_sil_variety_description
                     culture_descriptions:
-                        type: doctrine_orm_librinfo_variety_description
+                        type: doctrine_orm_sil_variety_description
                     inner_descriptions:
-                        type: doctrine_orm_librinfo_variety_description
+                        type: doctrine_orm_sil_variety_description
 
             Sonata\AdminBundle\Datagrid\ListMapper:
                 remove:

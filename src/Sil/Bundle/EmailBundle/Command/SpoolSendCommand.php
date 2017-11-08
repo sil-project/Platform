@@ -28,7 +28,7 @@ class SpoolSendCommand extends ContainerAwareCommand
     protected function configure()
     {
         $this
-                ->setName('librinfo:spool:send')
+                ->setName('sil:spool:send')
                 ->setDescription('Sends emails from the spool')
                 ->addOption('pause-time', 'pause', InputOption::VALUE_OPTIONAL, 'The time waited between sends (in seconds).', 15)
                 ->addOption('message-limit', 0, InputOption::VALUE_OPTIONAL, 'The maximum number of messages to send.')
@@ -36,7 +36,7 @@ class SpoolSendCommand extends ContainerAwareCommand
                 ->addOption('recover-timeout', 0, InputOption::VALUE_OPTIONAL, 'The timeout for recovering messages that have taken too long to send (in seconds).')
                 ->addOption('mailer', null, InputOption::VALUE_OPTIONAL, 'The mailer name.')
                 ->setHelp(<<<EOF
-The <info>librinfo:spool:send</info> command sends all emails from the spool.
+The <info>sil:spool:send</info> command sends all emails from the spool.
 <info>php %command.full_name% --pause-time=10 --message-limit=10 --time-limit=10 --recover-timeout=900 --mailer=default</info>
 EOF
                 )

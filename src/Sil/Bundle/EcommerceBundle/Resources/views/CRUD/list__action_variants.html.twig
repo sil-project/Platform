@@ -1,23 +1,23 @@
 {% set filter_type = constant('\\Sonata\\AdminBundle\\Form\\Type\\Filter\\ChoiceType::TYPE_EQUAL') %}
 
-    <a href="#" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" title="{{ 'librinfo.action.manage_variants'|trans() }}">
+    <a href="#" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" title="{{ 'sil.action.manage_variants'|trans() }}">
         <i class="fa fa-cubes"></i>
-        {{ 'librinfo.action.manage_variants'|trans() }}
+        {{ 'sil.action.manage_variants'|trans() }}
     </a>
     <ul class="dropdown-menu">
         <li>
-            <a href="{{ path('admin_librinfo_ecommerce_productvariant_list', {'filter[product__code][type]': filter_type, 'filter[product__code][value]': object.code}) }}">
-                {{ 'librinfo.action.list_variants'|trans() }}
+            <a href="{{ path('admin_sil_ecommerce_productvariant_list', {'filter[product__code][type]': filter_type, 'filter[product__code][value]': object.code}) }}">
+                {{ 'sil.action.list_variants'|trans() }}
             </a>
         </li>
         <li>
-            <a href="{{ path('admin_librinfo_ecommerce_productvariant_create', {'product_id': object.id}) }}">
-                {{ 'librinfo.action.add_variant'|trans() }}
+            <a href="{{ path('admin_sil_ecommerce_productvariant_create', {'product_id': object.id}) }}">
+                {{ 'sil.action.add_variant'|trans() }}
             </a>
         </li>
         <li>
             <a href="#" onclick="alert('Not implemented yet !')">
-                {{ 'librinfo.action.generate_variants'|trans() }}
+                {{ 'sil.action.generate_variants'|trans() }}
             </a>
         </li>
     </ul>

@@ -31,7 +31,7 @@ class SyliusOrderItemController extends BaseOrderItemController
         if ($request->request->get('product-is-bulk') === '1') {
             $bulkWeight = $request->request->get('bulk-weight');
             if ($bulkWeight !== null && $bulkWeight !== '') {
-                $this->get('librinfo_ecommerce.event_listener.sylius_order_item_controller')->setBulkInformations([
+                $this->get('sil_ecommerce.event_listener.sylius_order_item_controller')->setBulkInformations([
                     'bulk-surface'            => $request->request->get('bulk-surface'),
                     'bulk-surface-unit'       => $request->request->get('bulk-surface-unit'),
                     'bulk-weight'             => $bulkWeight,

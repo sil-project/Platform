@@ -16,6 +16,6 @@ class ProductChannelsType extends AnyChannelsType
 {
     public function getBlockPrefix()
     {
-        return 'librinfo_type_product_channels';
+        return 'sil_type_product_channels';
     }
 }

@@ -38,12 +38,12 @@ class SilSeedBatchExtension extends BlastCoreExtension
         $loader->load('services.yml');
         $loader->load('admin.yml');
 
-        $container->setParameter('librinfo_seed_batch', $config);
+        $container->setParameter('sil_seed_batch', $config);
 
         // Entity code generators
         foreach (['seed_batch', 'seed_producer', 'plot', 'seed_farm'] as $cg) {
-            $container->setParameter("librinfo_seed_batch.code_generator.$cg",
-                $container->getParameter('librinfo_seed_batch')['code_generator'][$cg]
+            $container->setParameter("sil_seed_batch.code_generator.$cg",
+                $container->getParameter('sil_seed_batch')['code_generator'][$cg]
             );
         }
 

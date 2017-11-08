@@ -3,28 +3,28 @@ sonata_admin:
         groups:
             
             sil.menu.stock:
-                label: librinfo.menu_label.stock_management
+                label: sil.menu_label.stock_management
                 icon:  '<i class="fa fa-cubes"></i>'
                 items:
-                    - label: librinfo.menu_label.items
+                    - label: sil.menu_label.items
                       route: admin_stock_item_list
-                    - label: librinfo.menu_label.operations
+                    - label: sil.menu_label.operations
                       route: admin_stock_operation_list
-                    - label: librinfo.menu_label.movements
+                    - label: sil.menu_label.movements
                       route: admin_stock_movement_list
                       
          
             sil.menu.stock_settings:
-                label: librinfo.menu_label.stock_management_settings
+                label: sil.menu_label.stock_management_settings
                 icon:  '<i class="fa fa-sliders"></i>'
                 items:
-                    - label: librinfo.menu_label.warehouses
+                    - label: sil.menu_label.warehouses
                       route: admin_stock_warehouse_list
-                    - label: librinfo.menu_label.locations
+                    - label: sil.menu_label.locations
                       route: admin_stock_location_list
-                    - label: librinfo.menu_label.uom_types
+                    - label: sil.menu_label.uom_types
                       route: admin_stock_uomtype_list
-                    - label: librinfo.menu_label.uoms
+                    - label: sil.menu_label.uoms
                       route: admin_stock_uom_list
-                    - label: librinfo.menu_label.operation_types
+                    - label: sil.menu_label.operation_types
                       route: admin_stock_operationtype_list
