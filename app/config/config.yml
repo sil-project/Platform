@@ -5,14 +5,18 @@ imports:
 
     # Vendors
 
+    - { resource: vendors/blast.yml }
     - { resource: vendors/sonata_block.yml }
     - { resource: vendors/sylius.yml }
 
     # BLAST Bundles
 
+    # The following file is overriden in app/config/vendors/blast.yml
+    #
+    # - { resource: "@BlastBaseEntitiesBundle/Resources/config/app/config.yml" }
+
     - { resource: "@BlastResourceBundle/Resources/config/app/config.yml" }
     - { resource: "@BlastUtilsBundle/Resources/config/app/config.yml" }
-    - { resource: "@BlastBaseEntitiesBundle/Resources/config/app/config.yml" }
 
     # SIL Bundles
 

@@ -1,4 +1,4 @@
-Sil\Bundle\CRMBundle\Entity\Organism:
+AppBundle\Entity\SilCRMBundle\Organism:
     type: entity
 
     fields:

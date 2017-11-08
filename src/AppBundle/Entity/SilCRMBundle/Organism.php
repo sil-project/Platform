@@ -13,8 +13,9 @@
 namespace AppBundle\Entity\SilCRMBundle;
 
 use Sil\Bundle\CRMBundle\Entity\Organism as BaseOrganism;
+use Sil\Bundle\SeedBatchBundle\Entity\HasPlotsTrait;
 
 class Organism extends BaseOrganism
 {
-    
+    use HasPlotsTrait;
 }
