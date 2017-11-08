@@ -1,0 +1,2 @@
+AppBundle\Entity\SilVarietyBundle\Species:
+    type: entity

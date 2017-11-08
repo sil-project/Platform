@@ -12,8 +12,8 @@ namespace AppBundle\Entity\SilVarietyBundle;
 
 use Sil\Bundle\VarietyBundle\Entity\Variety as BaseVariety;
 use Sil\Bundle\SonataSyliusUserBundle\Entity\Traits\Traceable;
-use \Librinfo\SeedBatchBundle\Entity\HasSeedBatchesTrait;
-use \Librinfo\EcommerceBundle\Entity\HasProductsTrait;
+use Sil\Bundle\SeedBatchBundle\Entity\HasSeedBatchesTrait;
+use Sil\Bundle\EcommerceBundle\Entity\HasProductsTrait;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
 use AppBundle\Entity\SilVarietyBundle\ChannelDescription;
@@ -48,6 +48,8 @@ class Variety extends BaseVariety
 
         $this->channelDescriptions = new ArrayCollection();
         $this->packagings = new ArrayCollection();
+        $this->products = new ArrayCollection();
+        $this->seedBatches = new ArrayCollection();
     }
 
     /**
