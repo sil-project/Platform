@@ -16,4 +16,5 @@ use Sil\Bundle\CRMBundle\Entity\Organism as BaseOrganism;
 
 class Organism extends BaseOrganism
 {
+    
 }
