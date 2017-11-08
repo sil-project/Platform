@@ -1,4 +1,5 @@
 <?php
+
 /*
  * This file is part of the Sil Project.
  *
@@ -8,13 +9,13 @@
  * For the full copyright and license information, please view the LICENSE.md
  * file that was distributed with this source code.
  */
+
 namespace AppBundle\Entity\SilCRMBundle;
 
 use Sil\Bundle\CRMBundle\Entity\Organism as BaseOrganism;
 use Sil\Bundle\SeedBatchBundle\Entity\HasPlotsTrait;
 use Sil\Bundle\SeedBatchBundle\Entity\HasSeedBatchesTrait;
 use Sylius\Component\Core\Model\CustomerInterface;
-
 use Sylius\Component\Core\Model\AddressInterface;
 use Sylius\Component\Core\Model\ShopUserInterface;
 use Sylius\Component\Customer\Model\CustomerGroupInterface;
@@ -25,12 +26,8 @@ use Sylius\Component\User\Model\UserOAuthInterface;
 use Doctrine\Common\Collections\Collection;
 use DateTimeInterface;
 
-/**
- * 
- */
 class Organism extends BaseOrganism implements CustomerInterface
 {
-
     use ToggleableTrait,
         HasCustomerConstructor,
         HasPlotsTrait,
@@ -51,13 +48,13 @@ class Organism extends BaseOrganism implements CustomerInterface
      */
     private $seedProducer = false;
 
-    function __construct()
+    public function __construct()
     {
         parent::__construct();
 
         $this->plots = new ArrayCollection();
         $this->seedBatches = new ArrayCollection();
-        
+
         $this->orders = new ArrayCollection();
         $this->addresses = new ArrayCollection();
         $this->salt = base_convert(sha1(uniqid(mt_rand(), true)), 16, 36);
@@ -121,12 +118,11 @@ class Organism extends BaseOrganism implements CustomerInterface
 
         return $this;
     }
-    
-    
+
     /**********************************************
      *@warn FROM ECommerceBundle::OrganismExtension
      **********************************************/
-    
+
     /**
      * @var string
      */
