@@ -19,7 +19,7 @@ trait HasSeedBatchTrait
     /**
      * @var SeedBatch
      */
-    private $seedBatch;
+    protected $seedBatch;
 
     /**
      * Get seed batch.

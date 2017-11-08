@@ -31,12 +31,12 @@ class CertificationType
     /**
      * @var string
      */
-    private $code;
+    protected $code;
 
     /**
      * @var File
      */
-    private $logo = null;
+    protected $logo = null;
 
     /**
      * Constructor.

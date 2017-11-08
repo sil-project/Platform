@@ -20,7 +20,7 @@ trait HasSeedBatchesTrait
     /**
      * @var Collection
      */
-    private $seedBatches;
+    protected $seedBatches;
 
     /**
      * Add seed batch.

@@ -32,92 +32,92 @@ class SeedBatch
     /**
      * @var \Sil\Bundle\VarietyBundle\Entity\Variety
      */
-    private $variety;
+    protected $variety;
 
     /**
      * @var \Sil\Bundle\CRMBundle\Entity\Organism
      */
-    private $producer;
+    protected $producer;
 
     /**
      * @var \Sil\Bundle\SeedBatchBundle\Entity\Plot
      */
-    private $plot;
+    protected $plot;
 
     /**
      * @var \Sil\Bundle\SeedBatchBundle\Entity\SeedFarm
      */
-    private $seedFarm;
+    protected $seedFarm;
 
     /**
      * @var string
      */
-    private $code;
+    protected $code;
 
     /**
      * @var int
      */
-    private $batchNumber;
+    protected $batchNumber;
 
     /**
      * @var int
      */
-    private $productionYear;
+    protected $productionYear;
 
     /**
      * @var float
      */
-    private $germinationRate;
+    protected $germinationRate;
 
     /**
      * @var \DateTime
      */
-    private $germinationDate;
+    protected $germinationDate;
 
     /**
      * @var float
      */
-    private $tkw;
+    protected $tkw;
 
     /**
      * @var \DateTime
      */
-    private $tkwDate;
+    protected $tkwDate;
 
     /**
      * @var string
      */
-    private $certifications;
+    protected $certifications;
 
     /**
      * @var int
      */
-    private $grossProducerWeight;
+    protected $grossProducerWeight;
 
     /**
      * @var int
      */
-    private $grossDeliveredWeight;
+    protected $grossDeliveredWeight;
 
     /**
      * @var int
      */
-    private $netScreenedWeight;
+    protected $netScreenedWeight;
 
     /**
      * @var int
      */
-    private $toScreenWeight;
+    protected $toScreenWeight;
 
     /**
      * @var \DateTime
      */
-    private $deliveryDate;
+    protected $deliveryDate;
 
     /**
      * @var bool
      */
-    private $deliveryNote;
+    protected $deliveryNote;
 
     public function __toString()
     {

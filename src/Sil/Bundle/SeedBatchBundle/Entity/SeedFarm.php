@@ -33,12 +33,12 @@ class SeedFarm
     /**
      * @var string
      */
-    private $code;
+    protected $code;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
-    private $seedBatches;
+    protected $seedBatches;
 
     /**
      * Constructor.

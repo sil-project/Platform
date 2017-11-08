@@ -33,17 +33,17 @@ class CertifyingBody
     /**
      * @var string
      */
-    private $code;
+    protected $code;
 
     /**
      * @var string
      */
-    private $url;
+    protected $url;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
-    private $certifications;
+    protected $certifications;
 
     /**
      * Constructor.

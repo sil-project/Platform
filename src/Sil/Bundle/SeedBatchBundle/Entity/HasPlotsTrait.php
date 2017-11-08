@@ -20,7 +20,7 @@ trait HasPlotsTrait
     /**
      * @var Collection
      */
-    private $plots;
+    protected $plots;
 
     /**
      * Add plot.

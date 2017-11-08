@@ -29,42 +29,42 @@ class Certification
     /**
      * @var string
      */
-    private $code;
+    protected $code;
 
     /**
      * @var \DateTime
      */
-    private $certificationDate;
+    protected $certificationDate;
 
     /**
      * @var \DateTime
      */
-    private $startDate;
+    protected $startDate;
 
     /**
      * @var \DateTime
      */
-    private $expiryDate;
+    protected $expiryDate;
 
     /**
      * @var string
      */
-    private $url;
+    protected $url;
 
     /**
      * @var \Sil\Bundle\SeedBatchBundle\Entity\CertificationType
      */
-    private $certificationType;
+    protected $certificationType;
 
     /**
      * @var \Sil\Bundle\SeedBatchBundle\Entity\CertifyingBody
      */
-    private $certifyingBody;
+    protected $certifyingBody;
 
     /**
      * @var \Sil\Bundle\SeedBatchBundle\Entity\Plot
      */
-    private $plot;
+    protected $plot;
 
     /**
      * Constructor.

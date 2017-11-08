@@ -35,22 +35,22 @@ class Plot
     /**
      * @var string
      */
-    private $code;
+    protected $code;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
-    private $seedBatches;
+    protected $seedBatches;
 
     /**
      * @var \Sil\Bundle\CRMBundle\Entity\Organism
      */
-    private $producer;
+    protected $producer;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
-    private $certifications;
+    protected $certifications;
 
     /**
      * Constructor.
