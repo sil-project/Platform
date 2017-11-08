@@ -1,5 +1,4 @@
 <?php
-
 /*
  * This file is part of the Blast Project package.
  *
@@ -9,7 +8,6 @@
  * For the full copyright and license information, please view the LICENSE.md
  * file that was distributed with this source code.
  */
-
 namespace Sil\Bundle\SeedBatchBundle\Entity;
 
 use Doctrine\Common\Collections\Collection;
@@ -17,6 +15,7 @@ use Sil\Bundle\SeedBatchBundle\Entity\Plot;
 
 trait HasPlotsTrait
 {
+
     /**
      * @var Collection
      */
@@ -29,7 +28,7 @@ trait HasPlotsTrait
      *
      * @return self
      */
-    public function addPlot($plot)
+    public function addPlot(Plot $plot)
     {
         $this->plots[] = $plot;
 
@@ -46,7 +45,7 @@ trait HasPlotsTrait
      *
      * @return bool tRUE if this collection contained the specified element, FALSE otherwise
      */
-    public function removePlot($plot)
+    public function removePlot(Plot $plot)
     {
         return $this->plots->removeElement($plot);
     }
@@ -54,7 +53,7 @@ trait HasPlotsTrait
     /**
      * Get plots.
      *
-     * @return Collection
+     * @return Collection| Plot[]
      */
     public function getPlots()
     {
