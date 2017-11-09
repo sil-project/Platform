@@ -257,7 +257,6 @@ class Variety implements VarietyInterface
     public function __construct()
     {
         $this->initCollections();
-        $this->initOuterExtendedClasses();
     }
 
     // implementation of __clone for duplication
@@ -266,7 +265,6 @@ class Variety implements VarietyInterface
         $this->id = null;
         $this->code = null;
         $this->initCollections();
-        $this->initOuterExtendedClasses();
     }
 
     //Enable direct access to the value of a specific VarietyDescription

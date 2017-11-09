@@ -17,3 +17,8 @@ blast_base_entities:
             normalize: true
             syliusGuidable: true
     entity_search_indexes: ~
+
+blast_utils:
+    features:
+        customFilters:
+            enabled: true

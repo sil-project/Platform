@@ -129,7 +129,6 @@ class Email extends Spoolable
         $this->sent = false;
         $this->isTemplate = false;
         $this->initCollections();
-        $this->initOuterExtendedClasses();
     }
 
     // implementation of __clone for duplication

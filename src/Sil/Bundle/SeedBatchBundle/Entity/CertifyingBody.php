@@ -52,7 +52,6 @@ class CertifyingBody
     {
         $this->country = 'FR';
         $this->initCollections();
-        $this->initOuterExtendedClasses();
     }
 
     // implementation of __clone for duplication

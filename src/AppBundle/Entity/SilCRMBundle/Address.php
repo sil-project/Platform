@@ -14,9 +14,10 @@ namespace AppBundle\Entity\SilCRMBundle;
 
 use Sil\Bundle\CRMBundle\Entity\Address as BaseAddress;
 use Sylius\Component\Customer\Model\CustomerInterface;
+use Sylius\Component\Resource\Model\ResourceInterface;
 use DateTimeInterface;
 
-class Address extends BaseAddress
+class Address extends BaseAddress implements ResourceInterface
 {
     /**
      * @var string

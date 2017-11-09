@@ -14,3 +14,34 @@ sylius_product:
         product:
             classes:
                 model: AppBundle\Entity\SilEcommerceBundle\Product
+
+sylius_review:
+    resources:
+        product:
+            subject: "%sylius.model.product.class%"
+            review:
+                classes:
+                    model: Sil\Bundle\EcommerceBundle\Entity\ProductReview
+            reviewer:
+                classes:
+                    model: AppBundle\Entity\SilCRMBundle\Organism
+
+sylius_customer:
+    driver: doctrine/orm
+    resources:
+        customer:
+            classes:
+                model: AppBundle\Entity\SilCRMBundle\Organism
+
+sylius_addressing:
+    resources:
+        address:
+            classes:
+                model: AppBundle\Entity\SilCRMBundle\Address
+
+sylius_resource:
+    resources:
+        blast.utils:
+            classes:
+                model: Sil\Bundle\SonataSyliusUserBundle\Entity\SonataUser
+                interface: Blast\Bundle\CoreBundle\Model\UserInterface

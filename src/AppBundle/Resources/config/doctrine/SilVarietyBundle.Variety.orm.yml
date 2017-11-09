@@ -16,5 +16,5 @@ AppBundle\Entity\SilVarietyBundle\Variety:
 
     manyToMany:
         packagings:
-            targetEntity: AppBundle\Entity\SilEcommerceBundle\ProductOptionValue
+            targetEntity: Sil\Bundle\EcommerceBundle\Entity\ProductOptionValue
             cascade: [ persist, remove ]

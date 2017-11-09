@@ -89,8 +89,6 @@ class VarietyTest extends TestCase
 
     /**
      * @covers \Sil\Bundle\VarietyBundle\Entity\Variety::__clone
-     *
-     *  @todo test method __clone call this method initOuterExtendedClasses();
      */
     public function test__clone()
     {

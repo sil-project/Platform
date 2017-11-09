@@ -72,7 +72,6 @@ class Certification
     public function __construct()
     {
         $this->initCollections();
-        $this->initOuterExtendedClasses();
     }
 
     // implementation of __clone for duplication

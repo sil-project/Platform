@@ -17,7 +17,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
 use Sylius\Component\Core\Model\ImageInterface;
 
-class Product extends BaseProduct
+class Product extends BaseProduct implements ProductInterface
 {
     /**
      * @var Collection|ImageInterface[]

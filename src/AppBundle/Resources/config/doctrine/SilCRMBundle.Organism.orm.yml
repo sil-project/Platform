@@ -22,3 +22,11 @@ AppBundle\Entity\SilCRMBundle\Organism:
             mappedBy: producer
             cascade: [ persist, remove ]
             orphanRemoval: true
+        orders:
+            targetEntity: Sil\Bundle\EcommerceBundle\Entity\Order
+            mappedBy: customer
+
+    oneToOne:
+        user:
+            targetEntity: Sylius\Component\Core\Model\ShopUser
+            mappedBy: customer

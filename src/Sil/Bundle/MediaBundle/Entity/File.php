@@ -56,7 +56,6 @@ class File implements \JsonSerializable
 
     public function __construct()
     {
-        $this->initOuterExtendedClasses();
     }
 
     /**
@@ -225,6 +224,5 @@ class File implements \JsonSerializable
     {
         $this->id = null;
         $this->owned = false;
-        $this->initOuterExtendedClasses();
     }
 }

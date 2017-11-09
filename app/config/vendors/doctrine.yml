@@ -27,3 +27,7 @@ doctrine:
             Sil\Bundle\VarietyBundle\Entity\VarietyInterface:               AppBundle\Entity\SilVarietyBundle\Variety
             Sil\Bundle\VarietyBundle\Entity\SpeciesInterface:               AppBundle\Entity\SilVarietyBundle\Species
             Sil\Bundle\VarietyBundle\Entity\GenusInterface:                 AppBundle\Entity\SilVarietyBundle\Genus
+
+            #SilEcommerceBundle
+
+            Sil\Bundle\EcommerceBundle\Entity\ProductInterface:             AppBundle\Entity\SilEcommerceBundle\Product
