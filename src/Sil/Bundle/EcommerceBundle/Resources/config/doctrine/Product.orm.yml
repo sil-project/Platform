@@ -1,2 +1,2 @@
 Sil\Bundle\EcommerceBundle\Entity\Product:
-    type: entity
+    type: mappedSuperclass

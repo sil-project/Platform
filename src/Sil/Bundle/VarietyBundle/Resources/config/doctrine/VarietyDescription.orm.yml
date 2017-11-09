@@ -15,5 +15,4 @@ Sil\Bundle\VarietyBundle\Entity\VarietyDescription:
         plant: Sil\Bundle\VarietyBundle\Entity\VarietyDescriptionPlant
         culture: Sil\Bundle\VarietyBundle\Entity\VarietyDescriptionCulture
         inner: Sil\Bundle\VarietyBundle\Entity\VarietyDescriptionInner
-    table: variety_description
     repositoryClass: Sil\Bundle\VarietyBundle\Entity\Repository\VarietyDescriptionRepository

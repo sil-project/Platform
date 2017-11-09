@@ -1,6 +1,5 @@
 Sil\Bundle\VarietyBundle\Entity\Genus:
     type: mappedSuperclass
-    table: genus
     blast:
         loggable: true
     fields:

@@ -1,6 +1,5 @@
 Blast\Bundle\DoctrineSessionBundle\Entity\Session:
     type: entity
-    table: sf_session
     id:
         id:
           type: integer
@@ -14,7 +13,7 @@ Blast\Bundle\DoctrineSessionBundle\Entity\Session:
         data:
             type: blob
             nullable: true
-        createdAt: 
+        createdAt:
             type: datetime
         expiresAt:
             type: datetime

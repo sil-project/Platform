@@ -1,6 +1,5 @@
 Blast\Bundle\UtilsBundle\Entity\CustomFilter:
     type: entity
-    table: blast_custom_filters
     repositoryClass: Blast\Bundle\UtilsBundle\Repository\CustomFilterRepository
     blast:
         loggable:     true

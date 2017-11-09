@@ -7,3 +7,10 @@ imports:
 sylius_theme:
     sources:
         filesystem: ~
+
+sylius_product:
+    driver: doctrine/orm
+    resources:
+        product:
+            classes:
+                model: AppBundle\Entity\SilEcommerceBundle\Product
