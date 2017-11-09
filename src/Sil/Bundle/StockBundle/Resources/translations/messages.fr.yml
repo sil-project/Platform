@@ -1,6 +1,6 @@
 sil:
     stock:
-        
+
         menu_label:
             stock_management: Stocks
             stock_management_settings: Stocks
@@ -13,7 +13,7 @@ sil:
             uoms: Unités de mesure
             operation_types: Types d'opération
             location_types: Types d'emplacement
-        
+
         progress_state:
             draft: Brouillon
             confirmed: À faire
@@ -21,19 +21,19 @@ sil:
             available: Disponible
             done: Effectué
             cancel: Annulé
-        
+
         location_type:
             internal: Emplacement interne
             supplier: Emplacement fournisseur
             customer: Emplacement client
             virtual: Emplacement virtuel
             scrap: Emplacement de rebut
-            
+
         operation_type:
             internalTransfer: Transfert interne
             receipt: Réception
             shipping: Expédition
-       
+
         action:
             edit: Modifier
             create: Créer
@@ -41,8 +41,8 @@ sil:
             cancel: Annuler
             create_and_return_to_list: Créer
             update_and_return_to_list: Enregistrer
-        
-        
+
+
         ##############
         # OPERATIONS
         ##############
@@ -51,8 +51,8 @@ sil:
                 link:
                     create: Nouvelle opération
                     list: Opérations sur les stocks
-                    
-            
+
+
             message:
                 no_available_stock_for_reservation: Aucun stock n'est disponible pour cette opération
             list:
@@ -136,11 +136,11 @@ sil:
                     cancel: Supprimer
                     cancel_edit: Annuler
                     save: Enregistrer
-                    
+
         ##############
         # MOVEMENTS
         ##############
-        movement: 
+        movement:
             breadcrumb:
                 link:
                     create: Nouveau mouvement de stock
@@ -200,7 +200,7 @@ sil:
                     location_from: De
                     location_to: À
                     batch: N° de Lot
-        
+
         ##############
         # STOCK ITEM
         ##############
@@ -217,7 +217,7 @@ sil:
                     general: ''
                 action:
                     update_stock: Mettre à jour le stock disponible
-                    
+
                 label:
                     stock_item: Article
                     name: Libellé
@@ -233,7 +233,7 @@ sil:
                     general: Général
                 group:
                     general: ''
-               
+
                 label:
                     name: Libellé
                     code: Référence
@@ -247,11 +247,11 @@ sil:
                     uom: Unité de référence
                     output_strategy: Stratégie de sortie de stock
                     action: Actions
-        
+
         ##############
         # WAREHOUSE
-        ##############        
-        warehouse: 
+        ##############
+        warehouse:
             breadcrumb:
                 link:
                     create: Nouvel entrepôt
@@ -267,17 +267,17 @@ sil:
                     warehouse: Entrepôt
                     code: Référence
                     name: Libellé
-            
+
             form:
                 label:
                     warehouse: Entrepôt
                     code: Référence
                     name: Libellé
-                    
-        
+
+
         ##############
         # LOCATION
-        ##############   
+        ##############
         location:
             breadcrumb:
                 link:
@@ -313,7 +313,7 @@ sil:
                     type: Type d'emplacement
                     managed: Gérer l'inventaire
                     tree_parent: Emplacement parent
-                    warehouse: Entrepôt       
+                    warehouse: Entrepôt
             list:
                 label:
                     location: Liste des emplacements
@@ -323,14 +323,14 @@ sil:
                     type: Type d'emplacement
                     warehouse: Entrepôt
                     action: Actions
-                    
+
             message:
-                no_children: Il n'y a pas de sous-emplacements 
-           
-        
+                no_children: Il n'y a pas de sous-emplacements
+
+
         ##############
         # UOM TYPE
-        ##############  
+        ##############
         uom_type:
             breadcrumb:
                 link:
@@ -355,11 +355,11 @@ sil:
             list:
                 label:
                     name: Libellé
-                    
+
         ##############
         # UOM
-        ##############  
-        uom: 
+        ##############
+        uom:
             breadcrumb:
                 link:
                     create: Nouvelle unité de mesure
@@ -369,7 +369,7 @@ sil:
                     uom: Liste des unités de mesure
                     name: Unité de mesure
                     type: Catégorie
-                    rounding: Précision d'arrondi 
+                    rounding: Précision d'arrondi
                     action: Actions
             show:
                 tab:
@@ -381,7 +381,7 @@ sil:
                     name: Unité de mesure
                     type: Catégorie
                     factor: Ratio
-                    rounding: Précision d'arrondi 
+                    rounding: Précision d'arrondi
             form:
                 tab:
                     general: Général
@@ -392,12 +392,12 @@ sil:
                     name: Unité de mesure
                     type: Catégorie
                     factor: Ratio
-                    rounding: Précision d'arrondi 
-                    
+                    rounding: Précision d'arrondi
+
         ##############
         # STOCK UNIT
-        ############## 
-        stock_unit: 
+        ##############
+        stock_unit:
             breadcrumb:
                 link:
                     list: Unités de stock
@@ -417,12 +417,12 @@ sil:
                     location: Emplacement réel
                     batch: N° de lot
                     qty: Quantité
-        
-        
+
+
         #####################
         # OPERATION TYPE
         #####################
-        operation_type: 
+        operation_type:
             breadcrumb:
                 link:
                     create: Nouvelle catégorie d'opération
@@ -440,71 +440,3 @@ sil:
                     operationtype: Liste des types d'opération
                     name: Libellé
                     action: Actions
-
-        ##############
-        # BOM
-        ##############
-        bom:
-            breadcrumb:
-                link:
-                    create: Nouvelle nomenclature
-                    list: Nomenclatures
-            show:
-                tab:
-                    general: Général
-                group:
-                    description: Description
-                action:
-                    
-                label:
-                    bom: Nomenclatures
-                    code: Référence
-                    stock_item: Article à produire
-                    qty: Quantité en sortie de fabrication
-                    lines: Composition
-                    created_at: Date de création
-                    updated_at: Date de mise à jour
-            form:
-                tab:
-                    general: Général
-                group:
-                    description: Description
-                    lines: Composition
-               
-                label:
-                    code: Référence
-                    stock_item: Article à produire
-                    qty: Quantité en sortie de production
-                    
-            list:
-                label:
-                    bom: Liste des nomenclatures
-                    stock_item: Article à produire
-                    code: Référence
-                    qty: Quantité
-                    action: Actions
- 
-        ###################
-        # BOM LINE
-        ###################
-        bom_line:
-            breadcrumb:
-                link:
-                    create: Nouvelle Ligne de nomenclature
-                    list: Lignes de nomenclature
-            show:
-                label:
-                    stock_item: Article
-                    qty: Quantité
-            form:
-                tab:
-                    general: Général
-                group:
-                    general: ''
-               
-                label:
-                    stock_item: Article
-                    qty: Quantité
-            list:
-                label:
-                    
