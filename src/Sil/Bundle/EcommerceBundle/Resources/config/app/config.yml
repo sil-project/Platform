@@ -41,9 +41,6 @@ sylius_review:
             review:
                 classes:
                     model: Sil\Bundle\EcommerceBundle\Entity\ProductReview
-            # reviewer:
-            #     classes:
-            #         model: Sil\Bundle\CRMBundle\Entity\Organism
 
 sylius_order:
     resources:
@@ -80,28 +77,15 @@ sylius_attribute:
 sylius_customer:
     driver: doctrine/orm
     resources:
-        # customer:
-        #     classes:
-        #         model: Sil\Bundle\CRMBundle\Entity\Organism
         customer_group:
             classes:
                 model: Sil\Bundle\EcommerceBundle\Entity\CustomerGroup
 
 sylius_addressing:
     resources:
-        # address:
-        #     classes:
-        #         model: Sil\Bundle\CRMBundle\Entity\Address
         zone:
             classes:
                 model: Sil\Bundle\EcommerceBundle\Entity\Zone
-
-# sylius_user:
-#     resources:
-#         admin:
-#             user:
-#                 classes:
-#                     model: Sil\Bundle\SonataSyliusUserBundle\Entity\SonataUserInterface
 
 sylius_core:
     resources:
@@ -136,11 +120,6 @@ sylius_payment:
                 model: Sil\Bundle\EcommerceBundle\Entity\Payment
 
 sylius_shop:
-    # resources:
-    #     checkout_address:
-    #         templates:
-    #             form: SilEcommerceBundle:Checkout:address.html.twig
-
     checkout_resolver:
         pattern: /checkout/.+
         route_map:

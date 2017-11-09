@@ -18,6 +18,7 @@ use Sil\Bundle\SeedBatchBundle\Entity\HasSeedBatchesTrait;
 use Sil\Bundle\CRMBundle\Entity\AddressInterface;
 use Sil\Bundle\EcommerceBundle\Entity\HasOrdersTrait;
 use Sil\Bundle\EcommerceBundle\Entity\HasShopUserTrait;
+use Sil\Bundle\EcommerceBundle\Entity\HasCustomerGroupTrait;
 use Sylius\Component\Core\Model\ShopUserInterface;
 use Sylius\Component\Customer\Model\CustomerGroupInterface;
 use Sylius\Component\Customer\Model\CustomerInterface;
@@ -33,7 +34,8 @@ class Organism extends BaseOrganism implements CustomerInterface
         HasPlotsTrait,
         HasSeedBatchesTrait,
         HasOrdersTrait,
-        HasShopUserTrait;
+        HasShopUserTrait,
+        HasCustomerGroupTrait;
 
     /**
      * @var string
