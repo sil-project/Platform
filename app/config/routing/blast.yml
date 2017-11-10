@@ -1,3 +1,51 @@
 sonata_sylius_user_security:
     resource: "@SilSonataSyliusUserBundle/Resources/config/routing/security.yml"
-    prefix: /sil
+    prefix: /%sil.url_prefix%
+
+blast_core:
+    resource: "@BlastCoreBundle/Resources/config/routing.yml"
+    prefix: /%sil.url_prefix%
+
+blast_utils:
+    resource: "@BlastUtilsBundle/Resources/config/routing.yml"
+    prefix: /%sil.url_prefix%
+
+blast_base_entities:
+    resource: "@BlastBaseEntitiesBundle/Resources/config/routing.yml"
+    prefix:   /%sil.url_prefix%
+
+librinfo_decorator:
+    resource: "@BlastDecoratorBundle/Resources/config/routing.yml"
+    prefix:   /%sil.url_prefix%
+
+librinfo_varieties:
+    resource: "@SilVarietyBundle/Resources/config/routing.yml"
+    prefix:   /%sil.url_prefix%
+
+librinfo_seed_batch:
+    resource: "@SilSeedBatchBundle/Resources/config/routing.yml"
+    prefix:   /%sil.url_prefix%
+
+librinfo_crm:
+    resource: "@SilCRMBundle/Resources/config/routing.yml"
+    prefix:   /%sil.url_prefix%
+
+librinfo_email:
+    resource: "@SilEmailBundle/Resources/config/routing.yml"
+    prefix:   /%sil.url_prefix%
+
+librinfo_email_crm:
+    resource: "@SilEmailCRMBundle/Resources/config/routing.yml"
+    prefix:   /%sil.url_prefix%
+
+librinfo_media:
+    resource: "@SilMediaBundle/Resources/config/routing.yml"
+    prefix:   /%sil.url_prefix%
+
+librinfo_ecommerce:
+    resource: "@SilEcommerceBundle/Resources/config/routing.yml"
+    prefix:   / #Must not be set because of sylius route override
+
+admin:
+    resource: '@SonataAdminBundle/Resources/config/routing/sonata_admin.xml'
+    prefix: /%sil.url_prefix%

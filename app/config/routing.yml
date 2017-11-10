@@ -6,3 +6,6 @@ liip:
 
 blast:
     resource: "routing/blast.yml"
+
+sonata:
+    resource: "routing/sonata.yml"
