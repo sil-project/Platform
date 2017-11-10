@@ -1,6 +1,7 @@
 <?php
 
 /*
+ *
  * Copyright (C) 2015-2017 Libre Informatique
  *
  * This file is licenced under the GNU GPL v3.
