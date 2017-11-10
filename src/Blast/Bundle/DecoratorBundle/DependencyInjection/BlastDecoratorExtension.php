@@ -9,15 +9,15 @@
  * file that was distributed with this source code.
  */
 
-namespace Librinfo\DecoratorBundle\DependencyInjection;
+namespace Blast\Bundle\DecoratorBundle\DependencyInjection;
 
-use Blast\CoreBundle\DependencyInjection\BlastCoreExtension;
+use Blast\Bundle\CoreBundle\DependencyInjection\BlastCoreExtension;
 
 /**
  * This is the class that loads and manages your bundle configuration.
  *
  * To learn more see {@link http://symfony.com/doc/current/cookbook/bundles/extension.html}
  */
-class LibrinfoDecoratorExtension extends BlastCoreExtension
+class BlastDecoratorExtension extends BlastCoreExtension
 {
 }
