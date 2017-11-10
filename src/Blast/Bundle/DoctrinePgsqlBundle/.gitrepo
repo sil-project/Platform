@@ -1,0 +1,11 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = git@github.com:blast-project/DoctrinePgsqlBundle.git
+	branch = wip-platform
+	commit = 16c8d0f3bc3d811e067aa8025140db0d170122a8
+	parent = eb444ec99367fced8cdd043b1026fdccb134de01
+	cmdver = 0.3.1
