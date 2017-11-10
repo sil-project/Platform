@@ -13,7 +13,7 @@ namespace Librinfo\EcommerceBundle\Entity\OuterExtension;
 
 use Doctrine\Common\Collections\ArrayCollection;
 
-trait HasCustomerConstructor
+trait HasCustomerConstructorTrait
 {
     /**
      * Will be called by OuterExtensible::initOuterExtendedClasses();.
