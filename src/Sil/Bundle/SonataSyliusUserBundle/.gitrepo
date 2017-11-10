@@ -1,0 +1,11 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = git@github.com:sil-project/SonataSyliusUserBundle.git
+	branch = wip-platform
+	commit = 5ed605bc8b8a1fa5a292c2c620dace2fec263906
+	parent = 14b668b4c7b2426acee5c5f4647d05a8fa0c55d5
+	cmdver = 0.3.1
