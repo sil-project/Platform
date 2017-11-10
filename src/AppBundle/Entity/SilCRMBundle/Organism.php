@@ -16,7 +16,6 @@ use Sil\Bundle\CRMBundle\Entity\OrganismAbstract;
 use Sil\Bundle\SeedBatchBundle\Entity\HasPlotsTrait;
 use Sil\Bundle\SeedBatchBundle\Entity\HasSeedBatchesTrait;
 use Sil\Bundle\CRMBundle\Entity\CirclableTrait;
-use Sil\Bundle\CRMBundle\Entity\AddressInterface;
 use Sil\Bundle\CRMBundle\Entity\PositionableTrait;
 use Sil\Bundle\EcommerceBundle\Entity\HasOrdersTrait;
 use Sil\Bundle\EcommerceBundle\Entity\HasShopUserTrait;
@@ -31,7 +30,6 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
 use Sylius\Component\Review\Model\ReviewerInterface;
 use Sylius\Component\Core\Model\CustomerInterface as SyliusCustomerInterface;
-use Sylius\Component\Core\Model\AddressInterface as SyliusAddressInterface;
 use AppBundle\Entity\SyliusAddressableTrait;
 use DateTimeInterface;
 
@@ -281,7 +279,6 @@ class Organism extends OrganismAbstract implements CustomerInterface, ReviewerIn
      * @var ShopUserInterface
      */
     protected $user;
-
 
     /**
      * {@inheritdoc}

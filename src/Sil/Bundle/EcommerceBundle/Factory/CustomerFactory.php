@@ -13,7 +13,6 @@
 namespace Sil\Bundle\EcommerceBundle\Factory;
 
 use Sil\Bundle\CRMBundle\CodeGenerator\CustomerCodeGenerator;
-use Sil\Bundle\CRMBundle\Entity\Organism;
 use Sylius\Component\Resource\Factory\FactoryInterface;
 
 /**
@@ -53,7 +52,7 @@ class CustomerFactory implements FactoryInterface
      */
     public function createNew()
     {
-        $organism = new $this->customerClass;
+        $organism = new $this->customerClass();
         $organism->setIsCustomer(true);
         $organism->setCustomerCode($this->codeGenerator->generate($organism));
 

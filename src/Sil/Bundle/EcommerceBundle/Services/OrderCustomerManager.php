@@ -15,7 +15,6 @@ namespace Sil\Bundle\EcommerceBundle\Services;
 use Doctrine\ORM\EntityManager;
 use Sil\Bundle\EcommerceBundle\Entity\OrderInterface;
 use Blast\Bundle\CoreBundle\CodeGenerator\CodeGeneratorInterface;
-use Sil\Bundle\CRMBundle\Entity\Organism;
 
 class OrderCustomerManager
 {
