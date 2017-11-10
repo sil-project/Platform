@@ -1,6 +1,7 @@
 <?php
 
 /*
+ * This file is part of the Blast Project package.
  *
  * Copyright (C) 2015-2017 Libre Informatique
  *
@@ -9,15 +10,15 @@
  * file that was distributed with this source code.
  */
 
-namespace Blast\Bundle\DecoratorBundle\DependencyInjection;
+namespace Librinfo\DecoratorBundle\DependencyInjection;
 
-use Blast\Bundle\CoreBundle\DependencyInjection\BlastCoreExtension;
+use Blast\CoreBundle\DependencyInjection\BlastCoreExtension;
 
 /**
  * This is the class that loads and manages your bundle configuration.
  *
  * To learn more see {@link http://symfony.com/doc/current/cookbook/bundles/extension.html}
  */
-class BlastDecoratorExtension extends BlastCoreExtension
+class LibrinfoDecoratorExtension extends BlastCoreExtension
 {
 }

@@ -1,6 +1,7 @@
 <?php
 
 /*
+ * This file is part of the Blast Project package.
  *
  * Copyright (C) 2015-2017 Libre Informatique
  *
