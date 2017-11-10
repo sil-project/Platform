@@ -3,7 +3,6 @@
 declare(strict_types=1);
 
 /*
- * This file is part of the Sil Project.
  *
  * Copyright (C) 2015-2017 Libre Informatique
  *
