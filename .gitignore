@@ -25,6 +25,7 @@
 
 /web/bundles/
 /web/media/
+/web/assets/
 
 # Build data
 /build/
@@ -42,3 +43,4 @@
 /.php_cs.cache
 **/.php_cs.cache
 /npm-debug.log
+yarn-error.log
