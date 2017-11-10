@@ -1,0 +1,3 @@
+sonata_sylius_user_security:
+    resource: "@SilSonataSyliusUserBundle/Resources/config/routing/security.yml"
+    prefix: /sil

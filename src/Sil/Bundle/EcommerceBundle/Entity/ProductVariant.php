@@ -27,7 +27,6 @@ class ProductVariant extends BaseProductVariant
     public function __construct()
     {
         parent::__construct();
-        $this->initCollections();
 
         $this->translations = new ArrayCollection();
     }

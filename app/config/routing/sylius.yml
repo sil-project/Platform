@@ -1,0 +1,26 @@
+sylius_admin_dashboard_redirect:
+    path: /sylius-admin
+    defaults:
+        _controller: FrameworkBundle:Redirect:redirect
+        route: sylius_admin_dashboard
+        permanent: true
+
+sylius_shop:
+    resource: "@SyliusShopBundle/Resources/config/routing.yml"
+    prefix: /
+
+payum_capture:
+    resource: "@PayumBundle/Resources/config/routing/capture.xml"
+    prefix: /
+
+payum_notify:
+    resource: "@PayumBundle/Resources/config/routing/notify.xml"
+    prefix: /
+
+sylius_admin:
+    resource: "@SyliusAdminBundle/Resources/config/routing.yml"
+    prefix: /sylius-admin
+
+sylius_api:
+    resource: "@SyliusAdminApiBundle/Resources/config/routing/main.yml"
+    prefix: /sylius-api

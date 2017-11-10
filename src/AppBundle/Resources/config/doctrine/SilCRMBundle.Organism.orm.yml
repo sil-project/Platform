@@ -1,6 +1,5 @@
 AppBundle\Entity\SilCRMBundle\Organism:
     type: entity
-    # table: sil_crm_organism
     fields:
         seedProducerCode:
             type:       string
@@ -25,8 +24,34 @@ AppBundle\Entity\SilCRMBundle\Organism:
         orders:
             targetEntity: Sil\Bundle\EcommerceBundle\Entity\Order
             mappedBy: customer
+        addresses:
+            targetEntity: Sil\Bundle\CRMBundle\Entity\AddressInterface
+            mappedBy: customer
+            cascade: [ persist, remove ]
+            orphanRemoval: true
 
     oneToOne:
         user:
             targetEntity: Sylius\Component\Core\Model\ShopUser
             mappedBy: customer
+        defaultAddress:
+            targetEntity: Sil\Bundle\CRMBundle\Entity\AddressInterface
+            joinColumn:
+                name: default_address_id
+                onDelete: SET NULL
+            cascade: [persist, remove]
+            orphanRemoval: true
+
+    manyToMany:
+        circles:
+            orderBy: { 'code': 'ASC' }
+            targetEntity: Sil\Bundle\CRMBundle\Entity\Circle
+            inversedBy: organisms
+            joinTable:
+                name: ~
+                joinColumns:
+                    circle_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    organism_id:
+                        referencedColumnName: id

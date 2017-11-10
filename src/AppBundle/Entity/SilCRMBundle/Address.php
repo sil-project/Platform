@@ -39,9 +39,6 @@ class Address extends BaseAddress implements ResourceInterface
      */
     public function getCreatedAt(): ?DateTimeInterface
     {
-        dump('ici');
-        die;
-
         return $this->createdAt;
     }
 

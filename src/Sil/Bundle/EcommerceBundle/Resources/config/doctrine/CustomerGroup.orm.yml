@@ -1,6 +1,6 @@
 Sil\Bundle\EcommerceBundle\Entity\CustomerGroup:
     type: entity
-    oneToMany:
-        customers:
-            targetEntity: Sylius\Component\Core\Model\Customer
-            mappedBy: group
+    # oneToMany:
+    #     customers:
+    #         targetEntity: Sylius\Component\Core\Model\Customer
+    #         mappedBy: group

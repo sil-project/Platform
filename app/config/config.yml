@@ -10,6 +10,7 @@ imports:
     - { resource: vendors/sil.yml }
     - { resource: vendors/sonata_block.yml }
     - { resource: vendors/sylius.yml }
+    - { resource: vendors/lexik.yml }
 
     # BLAST Bundles
 

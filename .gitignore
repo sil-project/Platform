@@ -24,6 +24,7 @@
 /vendor/
 
 /web/bundles/
+/web/media/
 
 # Build data
 /build/

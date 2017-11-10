@@ -12,10 +12,12 @@
 
 namespace AppBundle\Entity\SilCRMBundle;
 
-use Sil\Bundle\CRMBundle\Entity\Organism as BaseOrganism;
+use Sil\Bundle\CRMBundle\Entity\OrganismAbstract;
 use Sil\Bundle\SeedBatchBundle\Entity\HasPlotsTrait;
 use Sil\Bundle\SeedBatchBundle\Entity\HasSeedBatchesTrait;
+use Sil\Bundle\CRMBundle\Entity\CirclableTrait;
 use Sil\Bundle\CRMBundle\Entity\AddressInterface;
+use Sil\Bundle\CRMBundle\Entity\PositionableTrait;
 use Sil\Bundle\EcommerceBundle\Entity\HasOrdersTrait;
 use Sil\Bundle\EcommerceBundle\Entity\HasShopUserTrait;
 use Sil\Bundle\EcommerceBundle\Entity\HasCustomerGroupTrait;
@@ -26,9 +28,14 @@ use Sylius\Component\Resource\Model\ToggleableTrait;
 use Sylius\Component\User\Model\UserInterface;
 use Sylius\Component\User\Model\UserOAuthInterface;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
+use Sylius\Component\Review\Model\ReviewerInterface;
+use Sylius\Component\Core\Model\CustomerInterface as SyliusCustomerInterface;
+use Sylius\Component\Core\Model\AddressInterface as SyliusAddressInterface;
+use AppBundle\Entity\SyliusAddressableTrait;
 use DateTimeInterface;
 
-class Organism extends BaseOrganism implements CustomerInterface
+class Organism extends OrganismAbstract implements CustomerInterface, ReviewerInterface, SyliusCustomerInterface
 {
     use ToggleableTrait,
         HasPlotsTrait,
@@ -36,6 +43,10 @@ class Organism extends BaseOrganism implements CustomerInterface
         HasOrdersTrait,
         HasShopUserTrait,
         HasCustomerGroupTrait;
+
+    use SyliusAddressableTrait,
+        PositionableTrait,
+        CirclableTrait;
 
     /**
      * @var string
@@ -271,15 +282,6 @@ class Organism extends BaseOrganism implements CustomerInterface
      */
     protected $user;
 
-    /**
-     * @var AddressInterface
-     */
-    protected $defaultAddress;
-
-    /**
-     * @var Collection|AddressInterface[]
-     */
-    protected $addresses;
 
     /**
      * {@inheritdoc}
@@ -894,91 +896,5 @@ class Organism extends BaseOrganism implements CustomerInterface
                 $name
             )
         );
-    }
-
-    /**
-     * @return AddressInterface
-     */
-    public function getDefaultAddress(): ?AddressInterface
-    {
-        return $this->defaultAddress;
-    }
-
-    /**
-     * @param AddressInterface $defaultAddress
-     *
-     * @return self
-     */
-    public function setDefaultAddress(?AddressInterface $defaultAddress = null): void
-    {
-        $this->defaultAddress = $defaultAddress;
-
-        if (null !== $defaultAddress) {
-            $this->addAddress($defaultAddress);
-        }
-    }
-
-    /**
-     * @param AddressInterface $address
-     *
-     * @return self
-     */
-    public function addAddress(AddressInterface $address): void
-    {
-        if (!$this->hasAddress($address)) {
-            if ($this->isIndividual()) {
-                if ($address->getFirstName() === null || $address->getLastName() === null) {
-                    $address->setFirstName($this->getFirstName());
-                    $address->setLastName($this->getLastName());
-                }
-            } else {
-                if ($address->getLastName() === null) {
-                    $address->setLastName($this->getName());
-                }
-            }
-
-            $this->addresses->add($address);
-            $address->setCustomer($this);
-
-            if (!$this->getDefaultAddress()) {
-                $this->setDefaultAddress($address);
-            }
-        }
-    }
-
-    /**
-     * @param AddressInterface $address
-     *
-     * @return self
-     */
-    public function removeAddress(AddressInterface $address): void
-    {
-        $this->addresses->removeElement($address);
-
-        if ($address->getId() == $this->defaultAddress->getId()) {
-            if ($this->addresses->count() > 0) {
-                $this->defaultAddress = $this->addresses[0];
-            } else {
-                $this->defaultAddress = null;
-            }
-        }
-    }
-
-    /**
-     * @param AddressInterface $address
-     *
-     * @return bool
-     */
-    public function hasAddress(AddressInterface $address): bool
-    {
-        return $this->addresses->contains($address);
-    }
-
-    /**
-     * @return Collection|AddressInterface[]
-     */
-    public function getAddresses(): Collection
-    {
-        return $this->addresses;
     }
 }

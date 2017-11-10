@@ -110,6 +110,7 @@ services:
         class: Sil\Bundle\EcommerceBundle\Services\OrderCustomerManager
         arguments:
             - '@doctrine.orm.entity_manager'
+            - '%sylius.model.customer.class%'
 
     sil_ecommerce.order_manager:
         class: Sil\Bundle\EcommerceBundle\Services\OrderManager
@@ -181,6 +182,7 @@ services:
         class: Sil\Bundle\EcommerceBundle\Factory\CustomerFactory
         decorates: 'sylius.factory.customer'
         arguments:
+            - '%sylius.model.customer.class%'
             - '@sil_ecommerce.sylius.factory.customer.inner'
             - '@sil_crm.code_generator.customer'
 

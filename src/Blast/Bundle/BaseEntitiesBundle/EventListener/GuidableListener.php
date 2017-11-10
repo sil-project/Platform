@@ -55,11 +55,6 @@ class GuidableListener implements LoggerAwareInterface, EventSubscriber
             return;
         }
 
-        // @TODO: This check is not good
-        if (count($metadata->getIdentifier()) > 0) {
-            return;
-        }
-
         // Do not generate id mapping twice for entities that use the SINGLE_TABLE inheritance mapping strategy.
         if ($metadata->isInheritanceTypeSingleTable() && !$metadata->subClasses) {
             return;
@@ -77,7 +72,9 @@ class GuidableListener implements LoggerAwareInterface, EventSubscriber
 
         $this->logger->debug('[GuidableListener] Entering GuidableListener for « loadClassMetadata » event', [$metadata->getReflectionClass()->getName()]);
 
-        $metadata->mapField($this->fieldMappingConfiguration);
+        if (count($metadata->getIdentifier()) == 0) {
+            $metadata->mapField($this->fieldMappingConfiguration);
+        }
 
         $metadata->setIdGenerator(new UuidGenerator());
 

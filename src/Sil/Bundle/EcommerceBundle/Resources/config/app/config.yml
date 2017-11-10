@@ -166,10 +166,9 @@ knp_snappy:
     #process_timeout: 20 # In seconds
     pdf:
         enabled: true
-        #        binary:  /usr/bin/xvfb-run /usr/bin/wkhtmltopdf
-        binary:  %kernel.project_dir%/bin/wkhtmltopdf-amd64
+        binary:  %kernel.project_dir%/vendor/h4cc/wkhtmltopdf-amd64/bin/wkhtmltopdf-amd64
         options: []
     image:
         enabled: false
-        binary:  /usr/bin/wkhtmltoimage
+        binary:  %kernel.project_dir%/vendor/h4cc/wkhtmltoimage-amd64/bin/wkhtmltoimage-amd64
         options: []

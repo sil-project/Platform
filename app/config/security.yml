@@ -2,6 +2,9 @@
 # https://symfony.com/doc/current/security.html
 security:
 
+    encoders:
+        Sylius\Component\User\Model\UserInterface: sha512
+
     # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
     providers:
         in_memory:

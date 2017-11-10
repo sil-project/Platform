@@ -15,6 +15,7 @@ namespace Sil\Bundle\EcommerceBundle\Entity;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
 use Sylius\Component\Core\Model\Order as BaseOrder;
+use Sil\Bundle\EcommerceBundle\Entity\Invoice;
 
 class Order extends BaseOrder implements OrderInterface
 {

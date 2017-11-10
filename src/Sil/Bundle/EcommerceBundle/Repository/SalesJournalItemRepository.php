@@ -17,9 +17,11 @@ use Sil\Bundle\EcommerceBundle\Entity\SalesJournalItem;
 
 class SalesJournalItemRepository extends EntityRepository
 {
-    public function add(SalesJournalItem $item)
+    public function add(SalesJournalItem $item, $autoflush = true)
     {
         $this->_em->persist($item);
-        $this->_em->flush();
+        if ($autoflush) {
+            $this->_em->flush();
+        }
     }
 }

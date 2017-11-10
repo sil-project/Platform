@@ -34,10 +34,16 @@ class CustomerFactory implements FactoryInterface
     private $baseFactory;
 
     /**
+     * @var string
+     */
+    private $customerClass;
+
+    /**
      * @param CustomerCodeGenerator $codeGenerator
      */
-    public function __construct(FactoryInterface $baseFactory, CustomerCodeGenerator $codeGenerator)
+    public function __construct(string $customerClass, FactoryInterface $baseFactory, CustomerCodeGenerator $codeGenerator)
     {
+        $this->customerClass = $customerClass;
         $this->baseFactory = $baseFactory;
         $this->codeGenerator = $codeGenerator;
     }
@@ -47,9 +53,8 @@ class CustomerFactory implements FactoryInterface
      */
     public function createNew()
     {
-        $organism = new Organism();
+        $organism = new $this->customerClass;
         $organism->setIsCustomer(true);
-
         $organism->setCustomerCode($this->codeGenerator->generate($organism));
 
         return $organism;

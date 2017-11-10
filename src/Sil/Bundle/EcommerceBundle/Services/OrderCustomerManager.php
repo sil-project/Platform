@@ -30,11 +30,17 @@ class OrderCustomerManager
     private $codeGenerator;
 
     /**
+     * @var string
+     */
+    private $customerClass;
+
+    /**
      * @param EntityManager $em
      */
-    public function __construct(EntityManager $em)
+    public function __construct(EntityManager $em, string $customerClass)
     {
         $this->em = $em;
+        $this->customerClass = $customerClass;
     }
 
     public function associateUserAndAddress(OrderInterface $object)
@@ -43,7 +49,7 @@ class OrderCustomerManager
         $billingAddress = $object->getBillingAddress();
         $givenCustomer = $object->getCustomer();
 
-        $foundCustomer = $this->em->getRepository(Organism::class)
+        $foundCustomer = $this->em->getRepository($this->customerClass)
                        ->findOneBy(array('email' => $givenCustomer->getEmail())); /* As email must be unique */
 
         $customer = null; /* We love null :) */
