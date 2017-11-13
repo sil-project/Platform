@@ -6,5 +6,6 @@
 [subrepo]
 	remote = git@github.com:sil-project/VarietyBundle.git
 	branch = wip-platform
-	commit = 
+	commit = 05ade2ec203ba774033f746057a6e00ff417bb38
 	cmdver = 0.3.1
+	parent = 1e557dd551a2705413a62d044f11cecee18f930b
