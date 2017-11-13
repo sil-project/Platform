@@ -1,7 +1,6 @@
 <?php
 
 /*
- * This file is part of the Blast Project package.
  *
  * Copyright (C) 2015-2017 Libre Informatique
  *
@@ -17,7 +16,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Sonata\AdminBundle\Mapper\BaseMapper;
 use Sonata\AdminBundle\Mapper\BaseGroupedMapper;
-use Blast\Bundle\CoreBundle\Profiler\DataCollection;
 
 class AdminCollector extends DataCollector
 {

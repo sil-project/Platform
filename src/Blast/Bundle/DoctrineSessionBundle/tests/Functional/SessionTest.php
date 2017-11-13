@@ -1,7 +1,6 @@
 <?php
 
 /*
- * This file is part of the Blast Project package.
  *
  * Copyright (C) 2015-2017 Libre Informatique
  *
@@ -81,7 +80,7 @@ class SessionTest extends KernelTestCase
         );
         $this->storage->setOptions(array(
             'cookie_lifetime' => $this->lifetime, // for metabag
-            'gc_maxlifetime' => $this->lifetime, // for gc
+            'gc_maxlifetime'  => $this->lifetime, // for gc
         ));
         $this->session = new Session($this->storage);
         $this->session->start();

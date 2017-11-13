@@ -1,7 +1,6 @@
 <?php
 
 /*
- * This file is part of the Blast Project package.
  *
  * Copyright (C) 2015-2017 Libre Informatique
  *
@@ -30,7 +29,7 @@ class SenderTest extends TestCase
     protected $spoolMailerMock;
     protected $mail;
     protected $messageMock;
-      
+
     protected function setUp()
     {
         $this->spoolMailerMock = $this->createMock(\Swift_Mailer::class);
@@ -38,7 +37,7 @@ class SenderTest extends TestCase
         $this->messageMock = $this->createMock(\Swift_Message::class);
         $this->inlineAttachmentsHandlerMock = $this->createMock('Librinfo\EmailBundle\Services\InlineAttachments');
         $this->managerMock = $this->createMock('Doctrine\ORM\EntityManager');
-             
+
         $this->mail = new Email();
         $this->mail->setFieldFrom('testfrom@test.com');
         $this->mail->setFieldSubject('test');

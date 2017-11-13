@@ -1,7 +1,6 @@
 <?php
 
 /*
- * This file is part of the Blast Project package.
  *
  * Copyright (C) 2015-2017 Libre Informatique
  *
@@ -119,7 +118,6 @@ class Address implements AddressInterface, VCardableInterface
      * Set firstName.
      *
      * @param string $firstName
-     *
      */
     public function setFirstName(?string $firstName): void
     {
@@ -156,7 +154,6 @@ class Address implements AddressInterface, VCardableInterface
      * Set postCode.
      *
      * @param string $postCode
-     *
      */
     public function setPostCode(?string $postCode): void
     {
@@ -177,7 +174,6 @@ class Address implements AddressInterface, VCardableInterface
      * Set street.
      *
      * @param string $street
-     *
      */
     public function setStreet(?string $street): void
     {
@@ -198,7 +194,6 @@ class Address implements AddressInterface, VCardableInterface
      * Set city.
      *
      * @param string $city
-     *
      */
     public function setCity(?string $city): void
     {
@@ -219,7 +214,6 @@ class Address implements AddressInterface, VCardableInterface
      * Set countryCode.
      *
      * @param string $countryCode
-     *
      */
     public function setCountryCode(?string $countryCode = null): void
     {
@@ -240,7 +234,6 @@ class Address implements AddressInterface, VCardableInterface
      * Set provinceCode.
      *
      * @param string $provinceCode
-     *
      */
     public function setProvinceCode(?string $provinceCode = null): void
     {
@@ -261,7 +254,6 @@ class Address implements AddressInterface, VCardableInterface
      * Set provinceName.
      *
      * @param string $provinceName
-     *
      */
     public function setProvinceName(?string $provinceName = null): void
     {
@@ -282,7 +274,6 @@ class Address implements AddressInterface, VCardableInterface
      * Set npai.
      *
      * @param bool $npai
-     *
      */
     public function setNpai($npai)
     {
@@ -298,7 +289,7 @@ class Address implements AddressInterface, VCardableInterface
     {
         return $this->npai;
     }
-    
+
     /**
      * Get npai.
      *
@@ -314,7 +305,6 @@ class Address implements AddressInterface, VCardableInterface
      * Set vcardUid.
      *
      * @param string $vcardUid
-     *
      */
     public function setVcardUid($vcardUid)
     {
@@ -335,7 +325,6 @@ class Address implements AddressInterface, VCardableInterface
      * Set confirmed.
      *
      * @param bool $confirmed
-     *
      */
     public function setConfirmed($confirmed)
     {
@@ -367,7 +356,6 @@ class Address implements AddressInterface, VCardableInterface
      * Set organism.
      *
      * @param \Librinfo\CRMBundle\Entity\Organism $organism
-     *
      */
     public function setOrganism(\Librinfo\CRMBundle\Entity\Organism $organism = null): void
     {

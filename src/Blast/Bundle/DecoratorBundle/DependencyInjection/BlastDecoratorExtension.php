@@ -10,9 +10,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Blast\Bundle\DecoratorBundle\DependencyInjection;
+namespace Librinfo\DecoratorBundle\DependencyInjection;
 
-use Blast\Bundle\CoreBundle\DependencyInjection\BlastCoreExtension;
+use Blast\CoreBundle\DependencyInjection\BlastCoreExtension;
 
 /**
  * This is the class that loads and manages your bundle configuration.

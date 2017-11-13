@@ -1,7 +1,6 @@
 <?php
 
 /*
- * This file is part of the Blast Project package.
  *
  * Copyright (C) 2015-2017 Libre Informatique
  *
@@ -41,7 +40,7 @@ class CollectGarbageCommandTest extends BlastTestCase
          */
         $this->launchCommand([
             'command' => 'blast:session:collect-garbage',
-            '--all' => true,
+            '--all'   => true,
         ]);
 
         /*
@@ -49,7 +48,7 @@ class CollectGarbageCommandTest extends BlastTestCase
          */
         $this->launchCommand([
             'command' => 'blast:session:collect-garbage',
-            'limit' => '3',
+            'limit'   => '3',
         ]);
     }
 }
