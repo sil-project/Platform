@@ -6,5 +6,6 @@
 [subrepo]
 	remote = git@github.com:sil-project/SonataSyliusUserBundle.git
 	branch = wip-platform
-	commit = 
+	commit = 9cafca7a6f8040299f96f7eef22a728f0fafe016
 	cmdver = 0.3.1
+	parent = bc3df82b69b429f31523ff28bded0575604e25b1
