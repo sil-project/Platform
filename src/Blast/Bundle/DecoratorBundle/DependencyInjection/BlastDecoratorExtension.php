@@ -19,6 +19,6 @@ use Blast\CoreBundle\DependencyInjection\BlastCoreExtension;
  *
  * To learn more see {@link http://symfony.com/doc/current/cookbook/bundles/extension.html}
  */
-class LibrinfoDecoratorExtension extends BlastCoreExtension
+class BlastDecoratorExtension extends BlastCoreExtension
 {
 }
