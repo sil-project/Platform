@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Sil\Bundle\VarietyBundle\Entity;
+namespace Sil\Bundle\VarietyBundle\Entity\Association;
 
 trait HasVarietyTrait
 {

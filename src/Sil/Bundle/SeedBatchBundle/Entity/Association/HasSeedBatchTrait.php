@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Sil\Bundle\SeedBatchBundle\Entity;
+namespace Sil\Bundle\SeedBatchBundle\Entity\Association;
 
 trait HasSeedBatchTrait
 {

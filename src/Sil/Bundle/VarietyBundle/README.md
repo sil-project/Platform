@@ -153,7 +153,7 @@ namespace AppBundle\Entity\OuterExtension\SilVarietyBundle;
 
 trait VarietyExtension
 {
-    use \Sil\Bundle\MediaBundle\Entity\HasImagesTrait;
+    use \Sil\Bundle\MediaBundle\Entity\Association\HasImagesTrait;
 }
 ```
 app\config\services.yml

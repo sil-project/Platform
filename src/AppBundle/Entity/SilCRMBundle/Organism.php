@@ -12,13 +12,13 @@
 namespace AppBundle\Entity\SilCRMBundle;
 
 use Sil\Bundle\CRMBundle\Entity\OrganismAbstract;
-use Sil\Bundle\SeedBatchBundle\Entity\HasPlotsTrait;
-use Sil\Bundle\SeedBatchBundle\Entity\HasSeedBatchesTrait;
-use Sil\Bundle\CRMBundle\Entity\CirclableTrait;
-use Sil\Bundle\CRMBundle\Entity\PositionableTrait;
-use Sil\Bundle\EcommerceBundle\Entity\HasOrdersTrait;
-use Sil\Bundle\EcommerceBundle\Entity\HasShopUserTrait;
-use Sil\Bundle\EcommerceBundle\Entity\HasCustomerGroupTrait;
+use Sil\Bundle\SeedBatchBundle\Entity\Association\HasPlotsTrait;
+use Sil\Bundle\SeedBatchBundle\Entity\Association\HasSeedBatchesTrait;
+use Sil\Bundle\CRMBundle\Entity\Association\HasCirclesTrait;
+use Sil\Bundle\CRMBundle\Entity\Association\HasPositionsTrait;
+use Sil\Bundle\EcommerceBundle\Entity\Association\HasOrdersTrait;
+use Sil\Bundle\EcommerceBundle\Entity\Association\HasShopUserTrait;
+use Sil\Bundle\EcommerceBundle\Entity\Association\HasCustomerGroupTrait;
 use Sylius\Component\Core\Model\ShopUserInterface;
 use Sylius\Component\Customer\Model\CustomerGroupInterface;
 use Sylius\Component\Customer\Model\CustomerInterface;
@@ -42,8 +42,8 @@ class Organism extends OrganismAbstract implements CustomerInterface, ReviewerIn
         HasCustomerGroupTrait;
 
     use SyliusAddressableTrait,
-        PositionableTrait,
-        CirclableTrait;
+        HasCirclesTrait,
+        HasPositionsTrait;
 
     /**
      * @var string

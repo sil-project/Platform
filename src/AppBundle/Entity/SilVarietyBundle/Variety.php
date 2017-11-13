@@ -13,8 +13,8 @@ namespace AppBundle\Entity\SilVarietyBundle;
 
 use Sil\Bundle\VarietyBundle\Entity\Variety as BaseVariety;
 use Sil\Bundle\SonataSyliusUserBundle\Entity\Traits\Traceable;
-use Sil\Bundle\SeedBatchBundle\Entity\HasSeedBatchesTrait;
-use Sil\Bundle\EcommerceBundle\Entity\HasProductsTrait;
+use Sil\Bundle\SeedBatchBundle\Entity\Association\HasSeedBatchesTrait;
+use Sil\Bundle\EcommerceBundle\Entity\Association\HasProductsTrait;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
 use Sil\Bundle\EcommerceBundle\Entity\ProductOption;

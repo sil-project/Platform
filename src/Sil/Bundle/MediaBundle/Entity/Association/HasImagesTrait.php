@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Sil\Bundle\MediaBundle\Entity;
+namespace Sil\Bundle\MediaBundle\Entity\Association;
 
 use Doctrine\Common\Collections\Collection;
 

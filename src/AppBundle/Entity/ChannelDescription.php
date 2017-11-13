@@ -11,7 +11,7 @@
 
 namespace AppBundle\Entity;
 
-use Sil\Bundle\VarietyBundle\Entity\HasVarietyTrait;
+use Sil\Bundle\VarietyBundle\Entity\Association\HasVarietyTrait;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\BaseEntity;
 
 class ChannelDescription

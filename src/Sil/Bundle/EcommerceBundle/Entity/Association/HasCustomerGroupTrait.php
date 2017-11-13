@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Sil\Bundle\EcommerceBundle\Entity;
+namespace Sil\Bundle\EcommerceBundle\Entity\Association;
 
 trait HasCustomerGroupTrait
 {
