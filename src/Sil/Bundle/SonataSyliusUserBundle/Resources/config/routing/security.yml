@@ -9,7 +9,7 @@ sonata_sylius_user_login:
     defaults:
         _controller: sylius.controller.user_security:loginAction
         _sylius:
-            template: SonataSyliusUserBundle:Security:login.html.twig
+            template: SilSonataSyliusUserBundle:Security:login.html.twig
             permission: true
 
 sonata_sylius_user_login_check:

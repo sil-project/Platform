@@ -8,7 +8,7 @@ imports:
     - { resource: vendors/doctrine.yml }
     - { resource: vendors/blast.yml }
     - { resource: vendors/sil.yml }
-    - { resource: vendors/sonata_block.yml }
+    - { resource: vendors/sonata.yml }
     - { resource: vendors/sylius.yml }
     - { resource: vendors/lexik.yml }
 

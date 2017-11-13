@@ -1,10 +1,5 @@
-
-
 blast:
     baseentitiesbundle: ~
-        
-
-
 
 'form_group_address': 'Adresse'
 'form_group_email': 'Email'

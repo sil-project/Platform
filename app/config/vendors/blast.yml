@@ -1,21 +1,22 @@
 blast_base_entities:
     orm:
         default:
-            naming: true
-            guidable: true
-            timestampable: true
-            addressable: true
-            treeable: false
+            naming:          true
+            guidable:        true
+            timestampable:   true
+            addressable:     true
+            treeable:        false
             nested_treeable: true
-            nameable: true
-            labelable: true
-            emailable: true
-            descriptible: true
-            searchable: false
-            loggable: true
-            sortable: true
-            normalize: true
-            syliusGuidable: true
+            nameable:        true
+            labelable:       true
+            emailable:       true
+            descriptible:    true
+            searchable:      false
+            loggable:        true
+            sortable:        true
+            normalize:       true
+            syliusGuidable:  true
+
     entity_search_indexes: ~
 
 blast_utils:

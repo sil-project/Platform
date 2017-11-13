@@ -52,8 +52,8 @@ class EmailableListener implements LoggerAwareInterface, EventSubscriber
             return;
         }
 
-        // Don't process superMappedClass
-        if ($metadata->isMappedSuperclass) {
+        // Don't process if email already exists
+        if (array_key_exists('email', $metadata->fieldMappings)) {
             return;
         }
 

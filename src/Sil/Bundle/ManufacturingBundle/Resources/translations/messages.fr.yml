@@ -20,7 +20,7 @@ sil:
                 group:
                     description: Description
                 action:
-                    
+
                 label:
                     bom: Nomenclatures
                     code: Référence
@@ -35,12 +35,12 @@ sil:
                 group:
                     description: Description
                     lines: Composition
-               
+
                 label:
                     code: Référence
                     stock_item: Article à produire
                     qty: Quantité en sortie de production
-                    
+
             list:
                 label:
                     bom: Liste des nomenclatures
@@ -49,7 +49,7 @@ sil:
                     code: Référence
                     qty: Quantité
                     action: Actions
- 
+
         ###################
         # BOM LINE
         ###################
@@ -67,10 +67,9 @@ sil:
                     general: Général
                 group:
                     general: ''
-               
+
                 label:
                     stock_item: Article
                     qty: Quantité
             list:
                 label:
-                    

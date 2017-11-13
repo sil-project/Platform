@@ -52,8 +52,8 @@ class NameableListener implements LoggerAwareInterface, EventSubscriber
             return;
         }
 
-        // Don't process superMappedClass
-        if ($metadata->isMappedSuperclass) {
+        // Don't process if name already exists
+        if (array_key_exists('name', $metadata->fieldMappings)) {
             return;
         }
 
