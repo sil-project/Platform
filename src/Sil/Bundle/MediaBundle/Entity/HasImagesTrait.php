@@ -9,12 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Sil\Bundle\MediaBundle\Entity\OuterExtension;
+namespace Sil\Bundle\MediaBundle\Entity;
 
 use Doctrine\Common\Collections\Collection;
-use Sil\Bundle\MediaBundle\Entity\File;
 
-trait HasImages
+trait HasImagesTrait
 {
     /**
      * @var Collection

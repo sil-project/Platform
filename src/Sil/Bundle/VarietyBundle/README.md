@@ -101,8 +101,8 @@ public function registerBundles()
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new AppBundle\AppBundle(),
             # Sonata
-            new Sonata\CoreBundle\SonataCoreBundle(), 
-            new Sonata\BlockBundle\SonataBlockBundle(), 
+            new Sonata\CoreBundle\SonataCoreBundle(),
+            new Sonata\BlockBundle\SonataBlockBundle(),
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
             new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
             new Sonata\AdminBundle\SonataAdminBundle(),
@@ -125,7 +125,7 @@ app\config\routing.yml
 app:
     resource: '@AppBundle/Controller/'
     type: annotation
-    
+
 admin:
     resource: '@SonataAdminBundle/Resources/config/routing/sonata_admin.xml'
     prefix: /admin
@@ -136,7 +136,7 @@ _sonata_admin:
     prefix: /admin
 
 blast_core:
-    resource: "@BlastCoreBundle/Resources/config/routing.yml" 
+    resource: "@BlastCoreBundle/Resources/config/routing.yml"
     prefix:   /admin
 sil_media:
     resource: "@SilMediaBundle/Resources/config/routing.yml"
@@ -153,7 +153,7 @@ namespace AppBundle\Entity\OuterExtension\SilVarietyBundle;
 
 trait VarietyExtension
 {
-    use \Sil\Bundle\MediaBundle\Entity\OuterExtension\HasImages;
+    use \Sil\Bundle\MediaBundle\Entity\HasImagesTrait;
 }
 ```
 app\config\services.yml
