@@ -8,4 +8,4 @@
 	branch = wip-platform
 	commit = a5b09c667c13777abd46d69ff2524edd5490342c
 	cmdver = 0.3.1
-	parent = f1508709ca56a6f6ba426fca208f8d4a0628374e
+	parent = 0b343fef40ed07aaac9344b42963b305e913eecd
