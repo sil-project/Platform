@@ -6,5 +6,6 @@
 [subrepo]
 	remote = git@github.com:blast-project/DoctrinePgsqlBundle.git
 	branch = wip-platform
-	commit = 
+	commit = 7359f4a98603091cfaef2740cb675dc6dee1613a
 	cmdver = 0.3.1
+	parent = e13362e31abc773c0a27801dcc14bbd5bb7b4754
