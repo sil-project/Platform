@@ -9,11 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Sil\Bundle\MediaBundle\Entity\OuterExtension;
+namespace Sil\Bundle\MediaBundle\Entity;
 
-use Sil\Bundle\MediaBundle\Entity\File;
-
-trait HasImage
+trait HasImageTrait
 {
     /**
      * @var Image

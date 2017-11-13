@@ -13,7 +13,7 @@ namespace Sil\Bundle\EmailCRMBundle\Entity\OuterExtension;
 
 trait HasEmailRecipients
 {
-    use \Sil\Bundle\CRMBundle\Entity\OuterExtension\HasOrganisms;
-    use \Sil\Bundle\CRMBundle\Entity\OuterExtension\HasPositions;
-    use \Sil\Bundle\CRMBundle\Entity\OuterExtension\HasContacts;
+    use \Sil\Bundle\CRMBundle\Entity\HasOrganismsTrait;
+    use \Sil\Bundle\CRMBundle\Entity\HasPositionsTrait;
+    use \Sil\Bundle\CRMBundle\Entity\HasContactsTrait;
 }
