@@ -31,3 +31,7 @@ imports:
     # SilStockBundle
     #
     # - { resource: "@SilStockBundle/Resources/config/admin.yml" }
+
+    # SilVarietyBundle
+    #
+    # - { resource: "@SilVarietyBundle/Resources/config/admin.yml" }

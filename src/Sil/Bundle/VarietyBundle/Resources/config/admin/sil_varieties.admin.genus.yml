@@ -1,0 +1,14 @@
+
+services:
+    sil_varieties.admin.genus:
+        class: Sil\Bundle\VarietyBundle\Admin\GenusAdmin
+        arguments: [~, Sil\Bundle\VarietyBundle\Entity\Genus, BlastCoreBundle:CRUD]
+        tags:
+            -
+                name: sonata.admin
+                manager_type: orm
+                group: admin
+                label: sil.VarietyBundle.admin.genus
+                label_translator_strategy: blast_core.label.strategy.sil_varieties
+        calls:
+            - [ setTemplate, [ edit, SilVarietyBundle:GenusAdmin:genus_edit.html.twig ] ]

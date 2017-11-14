@@ -1,0 +1,14 @@
+
+services:
+    sil_varieties.admin.family:
+        class: Sil\Bundle\VarietyBundle\Admin\FamilyAdmin
+        arguments: [~, Sil\Bundle\VarietyBundle\Entity\Family, BlastCoreBundle:CRUD]
+        tags:
+            -
+                name: sonata.admin
+                manager_type: orm
+                group: admin
+                label: sil.VarietyBundle.admin.family
+                label_translator_strategy: blast_core.label.strategy.sil_varieties
+        calls:
+            - [ setTemplate, [ edit, SilVarietyBundle:FamilyAdmin:family_edit.html.twig ] ]
