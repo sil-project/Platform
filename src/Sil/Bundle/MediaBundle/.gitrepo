@@ -6,6 +6,6 @@
 [subrepo]
 	remote = git@github.com:sil-project/MediaBundle.git
 	branch = wip-platform
-	commit = c3478b3b46c3cf011156ecc55e149b2f6f3f33a8
+	commit = 96cfb082e0e2613ad48ae806ff49c2fd12684903
 	cmdver = 0.3.1
-	parent = c8f16ceff3756332f8fe9d165c69abee47f104af
+	parent = 776ba3580319a26f2688c14c68655c1746d6cdb8
