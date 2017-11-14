@@ -1,2 +1,5 @@
-parameters: 
-
+parameters:
+    sil_email.entity.email.class: Sil\Bundle\EmailBundle\Entity\Email
+    sil_email.entity.email_link.class: Sil\Bundle\EmailBundle\Entity\EmailLink
+    sil_email.entity.email_receipt.class: Sil\Bundle\EmailBundle\Entity\EmailReceipt
+    sil_email.entity.email_template.class: Sil\Bundle\EmailBundle\Entity\EmailTemplate

@@ -2,11 +2,10 @@
 services:
     sil_email.admin.email_receipt:
         class: Sil\Bundle\EmailBundle\Admin\EmailReceipt
-        arguments: [~, Sil\Bundle\EmailBundle\Entity\EmailReceipt, BlastCoreBundle:CRUD]
+        arguments: [~, "%sil_email.entity.email_receipt.class%", BlastCoreBundle:CRUD]
         tags:
             - name: sonata.admin
               manager_type: orm
               group: admin
-              label: sil.emailbundle.admin.emailreceipt 
+              label: sil.emailbundle.admin.emailreceipt
               label_translator_strategy: blast_core.label.strategy.sil_email
-

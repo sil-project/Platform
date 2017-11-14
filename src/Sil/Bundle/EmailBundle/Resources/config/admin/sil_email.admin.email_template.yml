@@ -2,7 +2,7 @@
 services:
     sil_email.admin.email_template:
         class: Sil\Bundle\EmailBundle\Admin\EmailTemplateAdmin
-        arguments: [~, Sil\Bundle\EmailBundle\Entity\EmailTemplate, BlastCoreBundle:CRUD]
+        arguments: [~, "%sil_email.entity.email_template.class%", BlastCoreBundle:CRUD]
         tags:
             -  name: sonata.admin
                manager_type: orm
@@ -12,4 +12,3 @@ services:
         calls:
         #    - [ setTemplate, [edit, SilEmailBundle:CRUD:email_template_edit.html.twig]]
             - [ setTemplate, [edit, SilEmailBundle:CRUD:email_edit.html.twig]]
-
