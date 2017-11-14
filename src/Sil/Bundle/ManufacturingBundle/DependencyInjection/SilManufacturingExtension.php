@@ -43,7 +43,7 @@ class SilManufacturingExtension extends Extension
         /*
          * @todo refacto stop using parameters
          */
-        $container->setParameter('blast',array_merge(
+        $container->setParameter('blast', array_merge(
             $container->getParameter('blast'),
             $newContainer->getParameter('blast')
         ));
