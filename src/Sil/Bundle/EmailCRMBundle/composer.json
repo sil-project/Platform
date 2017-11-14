@@ -41,5 +41,6 @@
         "psr-4": {
             "Sil\\Bundle\\EmailCRMBundle\\": "."
         }
-    }
+    },
+    "version": "dev-wip-platform"
 }
