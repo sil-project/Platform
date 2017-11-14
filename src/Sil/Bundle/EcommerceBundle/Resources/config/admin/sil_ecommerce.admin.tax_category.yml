@@ -2,7 +2,7 @@
 services:
     sil_ecommerce.admin.tax_category:
         class: Sil\Bundle\EcommerceBundle\Admin\TaxCategoryAdmin
-        arguments: [~, "%sil_ecommerce.entity.tax_category.class%", BlastCoreBundle:CRUD]
+        arguments: [~, "%sylius.model.tax_category.class%", BlastCoreBundle:CRUD]
         tags:
             -
                 name: sonata.admin

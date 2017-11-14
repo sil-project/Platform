@@ -7,6 +7,7 @@ parameters:
     sil_media.entity.file.class:                        PlatformBundle\Entity\SilMediaBundle\File
 
     sil_sonata_sylius_user.entity.sonata_user.class:    PlatformBundle\Entity\SilSonataSyliusUserBundle\SonataUser
+    sil_sonata_sylius_user.entity.sonata_group.class:   Sil\Bundle\SonataSyliusUserBundle\Entity\SonataGroup
 
     sil_stock.entity.partner.class:                     "%sil_crm.entity.organism.class%"
     sil_stock.entity.stock_item.class:                  "%sil_ecommerce.entity.product.class%"

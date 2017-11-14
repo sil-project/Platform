@@ -33,6 +33,7 @@ class SilStockExtension extends Extension
 
         $fileLocator = new FileLocator(__DIR__ . '/../Resources/config');
         $loader = new YamlFileLoader($container, $fileLocator);
+        $loader->load('parameters.yml');
         //$loader->load('admin.yml');
         //$loader->load('services.yml');
 
