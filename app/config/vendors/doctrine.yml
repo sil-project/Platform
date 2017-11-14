@@ -2,6 +2,7 @@ parameters:
     sil_crm.entity.address.class: PlatformBundle\Entity\SilCRMBundle\Address
     sil_crm.entity.organism.class: PlatformBundle\Entity\SilCRMBundle\Organism
     sil_ecommerce.entity.product.class: PlatformBundle\Entity\SilEcommerceBundle\Product
+    sil_media.entity.file.class: PlatformBundle\Entity\SilMediaBundle\File
 
 doctrine:
     orm:
@@ -39,4 +40,4 @@ doctrine:
 
             #SilMediaBundle
 
-            Sil\Bundle\MediaBundle\Entity\FileInterface:                    PlatformBundle\Entity\SilMediaBundle\File
+            Sil\Bundle\MediaBundle\Entity\FileInterface:                    "%sil_media.entity.file.class%"
