@@ -23,3 +23,7 @@ imports:
     # SilSeedBatchBundle
     #
     # - { resource: "@SilSeedBatchBundle/Resources/config/admin.yml" }
+
+    # SilSonataSyliusUserBundle
+    #
+    # - { resource: "@SilSonataSyliusUserBundle/Resources/config/admin.yml" }
