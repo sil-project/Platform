@@ -36,5 +36,6 @@
         "psr-4": {
             "Blast\\Bundle\\DoctrinePgsqlBundle\\": "."
         }
-    }
+    },
+    "version": "dev-wip-platform"
 }
