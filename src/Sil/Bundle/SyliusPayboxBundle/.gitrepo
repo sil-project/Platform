@@ -1,0 +1,11 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = git@github.com:sil-project/SyliusPayboxBundle.git
+	branch = wip-platform
+	commit = 9f3ee874d6b4daf19a9ac46d12e84c6bc5eed5e4
+	cmdver = 0.3.1
+	parent = f7c043c14ff6162d5a0dc5dedd938da287cb9688

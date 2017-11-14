@@ -1,0 +1,2 @@
+PlatformBundle\Entity\SilVarietyBundle\Family:
+    type: entity

@@ -1,11 +1,10 @@
 <?php
 
 /*
- * This file is part of the Sil Project.
  *
  * Copyright (C) 2015-2017 Libre Informatique
  *
- * This file is licenced under the GNU GPL v3.
+ * This file is licenced under the GNU LGPL v3.
  * For the full copyright and license information, please view the LICENSE.md
  * file that was distributed with this source code.
  */
@@ -15,11 +14,13 @@ namespace Sil\Bundle\CRMBundle\Entity;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\BaseEntity;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Searchable;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Timestampable;
+use Sylius\Component\Core\Model\AddressInterface as SyliusAddressInterface;
+use Sylius\Component\Customer\Model\CustomerInterface;
 
 /**
  * Address.
  */
-class Address implements AddressInterface, VCardableInterface
+class Address implements AddressInterface, VCardableInterface, SyliusAddressInterface
 {
     use BaseEntity,
         Timestampable,
@@ -82,17 +83,24 @@ class Address implements AddressInterface, VCardableInterface
     protected $confirmed = true;
 
     /**
-     * @var \Sil\Bundle\CRMBundle\Entity\Organism
+     * @var OrganismInterface
      */
     protected $organism;
 
     /**
-     * Organism constructor.
+     * @var string
      */
-    public function __construct()
-    {
-        $this->initAddress();
-    }
+    protected $phoneNumber;
+
+    /**
+     * @var string
+     */
+    protected $company;
+
+    /**
+     * @var CustomerInterface
+     */
+    protected $customer;
 
     public function __toString()
     {
@@ -346,9 +354,9 @@ class Address implements AddressInterface, VCardableInterface
     /**
      * Set organism.
      *
-     * @param \Sil\Bundle\CRMBundle\Entity\Organism $organism
+     * @param OrganismInterface $organism
      */
-    public function setOrganism(\Sil\Bundle\CRMBundle\Entity\Organism $organism = null): void
+    public function setOrganism(OrganismInterface $organism = null): void
     {
         $this->organism = $organism;
     }
@@ -356,9 +364,9 @@ class Address implements AddressInterface, VCardableInterface
     /**
      * Get organism.
      *
-     * @return \Sil\Bundle\CRMBundle\Entity\Organism
+     * @return OrganismInterface
      */
-    public function getOrganism(): ?\Sil\Bundle\CRMBundle\Entity\Organism
+    public function getOrganism(): ?OrganismInterface
     {
         return $this->organism;
     }
@@ -366,5 +374,65 @@ class Address implements AddressInterface, VCardableInterface
     public function isPersonal()
     {
         return true;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getPhoneNumber(): ?string
+    {
+        return $this->organism->getDefaultPhone()->getNumber();
+    }
+
+    /**
+     * @param string|null $phoneNumber
+     */
+    public function setPhoneNumber(?string $phoneNumber): void
+    {
+        $this->organism->addPhone(new OrganismPhone($phoneNumber));
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getCustomer(): ?CustomerInterface
+    {
+        return $this->customer;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setCustomer(?CustomerInterface $customer): void
+    {
+        $this->customer = $customer;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getCompany(): ?string
+    {
+        return $this->company;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setCompany(?string $company): void
+    {
+        $this->company = $company;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getFullName(): string
+    {
+        return sprintf(
+            '%s %s',
+            $this->firstName,
+            $this->lastName
+        );
     }
 }

@@ -1,4 +1,4 @@
-{% extends 'SonataSyliusUserBundle:Layout:centered.html.twig' %}
+{% extends 'SilSonataSyliusUserBundle:Layout:centered.html.twig' %}
 
 {% block title %}Librinfo | {{ 'sil.title.sonata_admin_login'|trans }}{% endblock %} {# TODO: translation #}
 
@@ -13,8 +13,8 @@
 
 {% block content %}
     {# TODO: logo asset #}
-  {#{% include 'SonataSyliusUserBundle:Security:_login.html.twig' with {'action': path('sonata_sylius_user_login_check'), 'paths': {'logo': 'assets/admin/img/logo.png'}} %}#}
-    {% include 'SonataSyliusUserBundle:Security:_login.html.twig' with {'action': path('sonata_sylius_user_login_check'), 'paths': {}} %}
+  {#{% include 'SilSonataSyliusUserBundle:Security:_login.html.twig' with {'action': path('sonata_sylius_user_login_check'), 'paths': {'logo': 'assets/admin/img/logo.png'}} %}#}
+    {% include 'SilSonataSyliusUserBundle:Security:_login.html.twig' with {'action': path('sonata_sylius_user_login_check'), 'paths': {}} %}
 {% endblock %}
 
 {% block javascripts %}

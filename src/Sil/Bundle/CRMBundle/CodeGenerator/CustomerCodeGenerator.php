@@ -1,11 +1,10 @@
 <?php
 
 /*
- * This file is part of the Sil Project.
  *
  * Copyright (C) 2015-2017 Libre Informatique
  *
- * This file is licenced under the GNU GPL v3.
+ * This file is licenced under the GNU LGPL v3.
  * For the full copyright and license information, please view the LICENSE.md
  * file that was distributed with this source code.
  */
@@ -14,11 +13,11 @@ namespace Sil\Bundle\CRMBundle\CodeGenerator;
 
 use Doctrine\ORM\EntityManager;
 use Blast\Bundle\CoreBundle\CodeGenerator\CodeGeneratorInterface;
-use Sil\Bundle\CRMBundle\Entity\Organism;
+use Sil\Bundle\CRMBundle\Entity\OrganismInterface;
 
 class CustomerCodeGenerator implements CodeGeneratorInterface
 {
-    const ENTITY_CLASS = 'Sil\Bundle\CRMBundle\Entity\Organism';
+    const ENTITY_CLASS = 'Sil\Bundle\CRMBundle\Entity\OrganismInterface';
     const ENTITY_FIELD = 'customerCode';
 
     /**
@@ -36,14 +35,14 @@ class CustomerCodeGenerator implements CodeGeneratorInterface
     }
 
     /**
-     * @param Organism $organism
+     * @param OrganismInterface $organism
      *
      * @return string
      */
     public static function generate($organism)
     {
         if ($organism->isCustomer()) {
-            $repo = self::$em->getRepository(Organism::class);
+            $repo = self::$em->getRepository(OrganismInterface::class);
             $regexp = sprintf('^%s(\d{%d})$', self::$codePrefix, self::$codeLength);
             $res = $repo->createQueryBuilder('c')
                 ->select("SUBSTRING(c.customerCode, '$regexp') AS code")

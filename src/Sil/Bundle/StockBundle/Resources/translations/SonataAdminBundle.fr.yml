@@ -1,5 +1,4 @@
-sil:
-   
+sil:   
     menu_label:
         stock_management: Stocks
         stock_management_settings: Stocks
@@ -12,4 +11,3 @@ sil:
         uoms: Unités de mesure
         operation_types: Types d'opération
         location_types: Types d'emplacement
-

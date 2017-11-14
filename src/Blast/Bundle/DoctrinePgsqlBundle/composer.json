@@ -34,7 +34,8 @@
     ],
     "autoload": {
         "psr-4": {
-            "Blast\\DoctrinePgsqlBundle\\": "."
+            "Blast\\Bundle\\DoctrinePgsqlBundle\\": "."
         }
-    }
+    },
+    "version": "dev-wip-platform"
 }

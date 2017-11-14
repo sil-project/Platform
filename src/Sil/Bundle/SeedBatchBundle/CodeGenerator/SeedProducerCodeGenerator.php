@@ -1,11 +1,10 @@
 <?php
 
 /*
- * This file is part of the Sil Project.
  *
  * Copyright (C) 2015-2017 Libre Informatique
  *
- * This file is licenced under the GNU GPL v3.
+ * This file is licenced under the GNU LGPL v3.
  * For the full copyright and license information, please view the LICENSE.md
  * file that was distributed with this source code.
  */
@@ -18,7 +17,7 @@ use Sil\Bundle\CRMBundle\Entity\Organism;
 
 class SeedProducerCodeGenerator implements CodeGeneratorInterface
 {
-    const ENTITY_CLASS = 'Sil\Bundle\CRMBundle\Entity\Organism';
+    const ENTITY_CLASS = 'Sil\Bundle\CRMBundle\Entity\OrganismInterface';
     const ENTITY_FIELD = 'seedProducerCode';
 
     private static $length = 3;

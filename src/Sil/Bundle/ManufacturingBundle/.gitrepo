@@ -1,0 +1,11 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = git@github.com:sil-project/ManufacturingBundle.git
+	branch = wip-platform
+	commit = 2d09e23172b080e0bdfb2966d28c2dd1ad169cdb
+	cmdver = 0.3.1
+	parent = c101e3e22a9b4379cca4e2a982840393331c90b9

@@ -1,11 +1,10 @@
 <?php
 
 /*
- * This file is part of the Sil Project.
  *
  * Copyright (C) 2015-2017 Libre Informatique
  *
- * This file is licenced under the GNU GPL v3.
+ * This file is licenced under the GNU LGPL v3.
  * For the full copyright and license information, please view the LICENSE.md
  * file that was distributed with this source code.
  */
@@ -13,7 +12,7 @@
 namespace Sil\Bundle\EcommerceBundle\Entity;
 
 use Sylius\Component\Core\Model\ProductImage as BaseProductImage;
-use Sil\Bundle\MediaBundle\Entity\File;
+use Sil\Bundle\MediaBundle\Entity\FileInterface;
 use SplFileInfo;
 
 class ProductImage extends BaseProductImage
@@ -27,7 +26,7 @@ class ProductImage extends BaseProductImage
     protected $type = self::TYPE_THUMBNAIL;
 
     /**
-     * @var File
+     * @var FileInterface
      */
     protected $realFile;
 
@@ -56,7 +55,7 @@ class ProductImage extends BaseProductImage
         return $this->realFile;
     }
 
-    public function setRealFile(File $file)
+    public function setRealFile(FileInterface $file)
     {
         $this->realFile = $file;
 

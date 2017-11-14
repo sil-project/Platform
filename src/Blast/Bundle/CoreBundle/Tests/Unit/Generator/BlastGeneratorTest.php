@@ -1,7 +1,6 @@
 <?php
 
 /*
- * This file is part of the Blast Project package.
  *
  * Copyright (C) 2015-2017 Libre Informatique
  *
@@ -44,7 +43,7 @@ class BlastGeneratorTest extends TestCase
         /*
          *   @todo test with and/or without original content
          */
-        $this->file->setContent(file_get_contents('src/Resources/config/blast.yml'));
+        $this->file->setContent(file_get_contents('Resources/config/blast.yml'));
 
         $this->blastFile = vfsStream::url('BlastTestRessources/blast.yml');
 
@@ -52,7 +51,7 @@ class BlastGeneratorTest extends TestCase
          * @todo check if it should be tested with other skeleton
          */
 
-        $this->skeletonDirectory = 'src/Resources/skeleton';
+        $this->skeletonDirectory = 'Resources/skeleton';
 
         // Sonata Model Manager is used to launch getExportFields
         // from the method addResource in Blast\Bundle\CoreBundle\Generator\BlastGenerator
@@ -70,10 +69,10 @@ class BlastGeneratorTest extends TestCase
 
         $this->modelManager = $modelManagerMock;
         $this->object = new BlastGenerator(
-             $this->blastFile,
-             $this->modelManager,
-             $this->skeletonDirectory
-         );
+            $this->blastFile,
+            $this->modelManager,
+            $this->skeletonDirectory
+        );
     }
 
     protected function tearDown()

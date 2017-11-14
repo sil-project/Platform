@@ -8,8 +8,10 @@ imports:
     - { resource: vendors/doctrine.yml }
     - { resource: vendors/blast.yml }
     - { resource: vendors/sil.yml }
-    - { resource: vendors/sonata_block.yml }
+    - { resource: vendors/sonata.yml }
     - { resource: vendors/sylius.yml }
+    - { resource: vendors/lexik.yml }
+    - { resource: vendors/fos.yml }
 
     # BLAST Bundles
 
@@ -36,11 +38,13 @@ imports:
 
     - { resource: "@SilStockBundle/Resources/config/app/config.yml" }
     - { resource: "@SilStockBundle/Resources/config/services.yml" }
-    - { resource: "@SilStockBundle/Resources/config/admin.yml" }
 
     - { resource: "@SilManufacturingBundle/Resources/config/app/config.yml" }
     - { resource: "@SilManufacturingBundle/Resources/config/services.yml" }
-    - { resource: "@SilManufacturingBundle/Resources/config/admin.yml" }
+
+    # Platform Bundle
+
+    - { resource: "@PlatformBundle/Resources/config/config.yml" }
 
 
 parameters:
@@ -73,6 +77,13 @@ framework:
 twig:
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
+    form_themes:
+        - 'SonataCoreBundle:Form:datepicker.html.twig'
+        - 'SonataCoreBundle:Form:colorpicker.html.twig'
+        - 'BlastCoreBundle:Admin/Form:fields.html.twig'
+        - 'BlastUtilsBundle:Form:fields.html.twig'
+        - 'BlastBaseEntitiesBundle:Form:fields.html.twig'
+        - 'SilMediaBundle:Form:fields.html.twig'
 
 # Doctrine Configuration
 doctrine:

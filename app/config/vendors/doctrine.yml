@@ -1,33 +1,56 @@
+parameters:
+    sil_crm.entity.address.class:                       PlatformBundle\Entity\SilCRMBundle\Address
+    sil_crm.entity.organism.class:                      PlatformBundle\Entity\SilCRMBundle\Organism
+
+    sil_ecommerce.entity.product.class:                 PlatformBundle\Entity\SilEcommerceBundle\Product
+
+    sil_media.entity.file.class:                        PlatformBundle\Entity\SilMediaBundle\File
+
+    sil_sonata_sylius_user.entity.sonata_user.class:    PlatformBundle\Entity\SilSonataSyliusUserBundle\SonataUser
+    sil_sonata_sylius_user.entity.sonata_group.class:   Sil\Bundle\SonataSyliusUserBundle\Entity\SonataGroup
+
+    sil_stock.entity.partner.class:                     "%sil_crm.entity.organism.class%"
+    sil_stock.entity.stock_item.class:                  "%sil_ecommerce.entity.product.class%"
+
+    sil_variety.enttity.family.class:                   PlatformBundle\Entity\SilVarietyBundle\Family
+    sil_variety.enttity.variety.class:                  PlatformBundle\Entity\SilVarietyBundle\Variety
+    sil_variety.enttity.species.class:                  PlatformBundle\Entity\SilVarietyBundle\Species
+    sil_variety.enttity.genus.class:                    PlatformBundle\Entity\SilVarietyBundle\Genus
+
 doctrine:
     orm:
         resolve_target_entities:
 
             # BlastCoreBundle
 
-            Blast\Bundle\CoreBundle\Model\UserInterface:                    AppBundle\Entity\SilSonataSyliusUserBundle\SonataUser
+            Blast\Bundle\CoreBundle\Model\UserInterface:                    "%sil_sonata_sylius_user.entity.sonata_user.class%"
 
             # SilSonataSyliusUserBundle
 
-            Sil\Bundle\SonataSyliusUserBundle\Entity\SonataUserInterface:   AppBundle\Entity\SilSonataSyliusUserBundle\SonataUser
-            Sil\Bundle\SonataSyliusUserBundle\Entity\SonataGroupInterface:  Sil\Bundle\SonataSyliusUserBundle\Entity\SonataGroup
+            Sil\Bundle\SonataSyliusUserBundle\Entity\SonataUserInterface:   "%sil_sonata_sylius_user.entity.sonata_user.class%"
+            Sil\Bundle\SonataSyliusUserBundle\Entity\SonataGroupInterface:  "%sil_sonata_sylius_user.entity.sonata_group.class%"
 
             # SilCRMBundle
 
-            Sil\Bundle\CRMBundle\Entity\OrganismInterface:                  AppBundle\Entity\SilCRMBundle\Organism
-            Sil\Bundle\CRMBundle\Entity\AddressInterface:                   AppBundle\Entity\SilCRMBundle\Address
+            Sil\Bundle\CRMBundle\Entity\OrganismInterface:                  "%sil_crm.entity.organism.class%"
+            Sil\Bundle\CRMBundle\Entity\AddressInterface:                   "%sil_crm.entity.address.class%"
 
             # SilStockBundle
 
-            Sil\Bundle\StockBundle\Domain\Entity\PartnerInterface:          AppBundle\Entity\SilCRMBundle\Organism
-            Sil\Bundle\StockBundle\Domain\Entity\StockItemInterface:        Sil\Bundle\EcommerceBundle\Entity\Product
+            Sil\Bundle\StockBundle\Domain\Entity\PartnerInterface:          "%sil_stock.entity.partner.class%"
+            Sil\Bundle\StockBundle\Domain\Entity\StockItemInterface:        "%sil_stock.entity.stock_item.class%"
 
             # SilVarietyBundle
 
-            Sil\Bundle\VarietyBundle\Entity\FamilyInterface:                AppBundle\Entity\SilVarietyBundle\Family
-            Sil\Bundle\VarietyBundle\Entity\VarietyInterface:               AppBundle\Entity\SilVarietyBundle\Variety
-            Sil\Bundle\VarietyBundle\Entity\SpeciesInterface:               AppBundle\Entity\SilVarietyBundle\Species
-            Sil\Bundle\VarietyBundle\Entity\GenusInterface:                 AppBundle\Entity\SilVarietyBundle\Genus
+            Sil\Bundle\VarietyBundle\Entity\FamilyInterface:                "%sil_variety.enttity.family.class%"
+            Sil\Bundle\VarietyBundle\Entity\VarietyInterface:               "%sil_variety.enttity.variety.class%"
+            Sil\Bundle\VarietyBundle\Entity\SpeciesInterface:               "%sil_variety.enttity.species.class%"
+            Sil\Bundle\VarietyBundle\Entity\GenusInterface:                 "%sil_variety.enttity.genus.class%"
 
             #SilEcommerceBundle
 
-            Sil\Bundle\EcommerceBundle\Entity\ProductInterface:             AppBundle\Entity\SilEcommerceBundle\Product
+            Sil\Bundle\EcommerceBundle\Entity\ProductInterface:             "%sil_ecommerce.entity.product.class%"
+
+            #SilMediaBundle
+
+            Sil\Bundle\MediaBundle\Entity\FileInterface:                    "%sil_media.entity.file.class%"

@@ -57,10 +57,11 @@
     ],
     "autoload": {
         "psr-4": {
-            "Blast\\DoctrineSessionBundle\\": "."
+            "Blast\\Bundle\\DoctrineSessionBundle\\": "."
         }
     },
     "suggest": {
         "blast-project/core-bundle": "Define sonata admins in yml and more"
-    }
+    },
+    "version": "dev-wip-platform"
 }

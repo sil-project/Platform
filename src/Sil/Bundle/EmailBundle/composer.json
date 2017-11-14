@@ -40,7 +40,8 @@
     ],
     "autoload": {
         "psr-4": {
-            "Librinfo\\EmailBundle\\": "."
+            "Sil\\Bundle\\EmailBundle\\": "."
         }
-    }
+    },
+    "version": "dev-wip-platform"
 }

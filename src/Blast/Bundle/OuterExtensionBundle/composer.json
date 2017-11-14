@@ -37,7 +37,8 @@
     ],
     "autoload": {
         "psr-4": {
-            "Blast\\OuterExtensionBundle\\": "."
+            "Blast\\Bundle\\OuterExtensionBundle\\": "."
         }
-    }
+    },
+    "version": "dev-wip-platform"
 }

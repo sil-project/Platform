@@ -1,0 +1,95 @@
+imports:
+    # ##########################################################################
+    #
+    # SilCRMBundle
+    #
+    # ##########################################################################
+    #
+    #   Global file
+    #
+    - { resource: "@SilCRMBundle/Resources/config/admin.yml" }
+
+    #   Single files
+    #
+    # - { resource: "@SilCRMBundle/Resources/config/admin/sil_crm.admin.organism_phone.yml" }
+    # - { resource: "@SilCRMBundle/Resources/config/admin/sil_crm.admin.category.yml" }
+    # - { resource: "@SilCRMBundle/Resources/config/admin/sil_crm.admin.role.yml" }
+    # - { resource: "@SilCRMBundle/Resources/config/admin/sil_crm.admin.organism_group.yml" }
+    # - { resource: "@SilCRMBundle/Resources/config/admin/sil_crm.admin.circle.yml" }
+    # - { resource: "@SilCRMBundle/Resources/config/admin/sil_crm.admin.position.yml" }
+    # - { resource: "@SilCRMBundle/Resources/config/admin/sil_crm.admin.position_type.yml" }
+    # - { resource: "@SilCRMBundle/Resources/config/admin/sil_crm.admin.phone_type.yml" }
+    # - { resource: "@SilCRMBundle/Resources/config/admin/sil_crm.admin.city.yml" }
+    #
+    # #   Override files
+    # #
+    # - { resource: "@PlatformBundle/Resources/config/admin/platform_crm.admin.individual.yml" }
+    # - { resource: "@PlatformBundle/Resources/config/admin/platform_crm.admin.organization.yml" }
+    # - { resource: "@PlatformBundle/Resources/config/admin/platform_crm.admin.organism.yml" }
+    # - { resource: "@PlatformBundle/Resources/config/admin/platform_crm.admin.organism_embedded.yml" }
+    # - { resource: "@PlatformBundle/Resources/config/admin/platform_crm.admin.customer.yml" }
+    # - { resource: "@PlatformBundle/Resources/config/admin/platform_crm.admin.address.yml" }
+
+    # ##########################################################################
+    #
+    # SilEcommerceBundle
+    #
+    # ##########################################################################
+
+    - { resource: "@SilEcommerceBundle/Resources/config/admin.yml" }
+
+    # ##########################################################################
+    #
+    # SilEmailBundle
+    #
+    # ##########################################################################
+
+    - { resource: "@SilEmailBundle/Resources/config/admin.yml" }
+
+    # ##########################################################################
+    #
+    # SilEmailCRMBundle
+    #
+    # ##########################################################################
+
+    - { resource: "@SilEmailCRMBundle/Resources/config/admin.yml" }
+
+    # ##########################################################################
+    #
+    # SilManufacturingBundle
+    #
+    # ##########################################################################
+
+    - { resource: "@SilManufacturingBundle/Resources/config/admin.yml" }
+
+    # ##########################################################################
+    #
+    # SilSeedBatchBundle
+    #
+    # ##########################################################################
+
+    - { resource: "@SilSeedBatchBundle/Resources/config/admin.yml" }
+
+    # ##########################################################################
+    #
+    # SilSonataSyliusUserBundle
+    #
+    # ##########################################################################
+
+    - { resource: "@SilSonataSyliusUserBundle/Resources/config/admin.yml" }
+
+    # ##########################################################################
+    #
+    # SilStockBundle
+    #
+    # ##########################################################################
+
+    - { resource: "@SilStockBundle/Resources/config/admin.yml" }
+
+    # ##########################################################################
+    #
+    # SilVarietyBundle
+    #
+    # ##########################################################################
+
+    - { resource: "@SilVarietyBundle/Resources/config/admin.yml" }

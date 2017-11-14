@@ -25,6 +25,7 @@ Sil\Bundle\EcommerceBundle\Entity\Invoice:
         order:
             targetEntity: Sil\Bundle\EcommerceBundle\Entity\Order
             inversedBy: invoices
+            cascade: ["persist"]
             joinColumn:
                 name: order_id
                 referencedColumnName: id

@@ -1,0 +1,11 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = git@github.com:sil-project/SeedBatchBundle.git
+	branch = wip-platform
+	commit = af5841842a5937ba1fe5b1bd1a669d89d23f690f
+	cmdver = 0.3.1
+	parent = 22bb8a4adb6bddebc44d21140942da1a5ab291a2

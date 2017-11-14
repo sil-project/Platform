@@ -1,0 +1,20 @@
+PlatformBundle\Entity\SilVarietyBundle\Variety:
+    type: entity
+
+    oneToMany:
+        products:
+            targetEntity: PlatformBundle\Entity\SilEcommerceBundle\Product
+            mappedBy: variety
+        channelDescriptions:
+            targetEntity: PlatformBundle\Entity\ChannelDescription
+            mappedBy: variety
+            cascade: [ persist, remove ]
+            orphanRemoval: true
+        seedBatches:
+            targetEntity: Sil\Bundle\SeedBatchBundle\Entity\SeedBatch
+            mappedBy: variety
+
+    manyToMany:
+        packagings:
+            targetEntity: Sil\Bundle\EcommerceBundle\Entity\ProductOptionValue
+            cascade: [ persist, remove ]

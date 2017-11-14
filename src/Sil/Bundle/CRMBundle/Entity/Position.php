@@ -1,11 +1,10 @@
 <?php
 
 /*
- * This file is part of the Sil Project.
  *
  * Copyright (C) 2015-2017 Libre Informatique
  *
- * This file is licenced under the GNU GPL v3.
+ * This file is licenced under the GNU LGPL v3.
  * For the full copyright and license information, please view the LICENSE.md
  * file that was distributed with this source code.
  */
@@ -18,6 +17,7 @@ use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Emailable;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Labelable;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Timestampable;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Searchable;
+use Sil\Bundle\CRMBundle\Entity\Association\HasCirclesTrait;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
@@ -32,7 +32,7 @@ class Position implements VCardableInterface
         Descriptible,
         Searchable;
 
-    use CirclableTrait;
+    use HasCirclesTrait;
 
     /**
      * @var string
@@ -45,12 +45,12 @@ class Position implements VCardableInterface
     protected $department;
 
     /**
-     * @var \Sil\Bundle\CRMBundle\Entity\Organism
+     * @var OrganismInterface
      */
     protected $individual;
 
     /**
-     * @var \Sil\Bundle\CRMBundle\Entity\Organism
+     * @var OrganismInterface
      */
     protected $organization;
 
@@ -163,11 +163,11 @@ class Position implements VCardableInterface
     /**
      * Set individual.
      *
-     * @param \Sil\Bundle\CRMBundle\Entity\Organism $individual
+     * @param OrganismInterface $individual
      *
      * @return Position
      */
-    public function setIndividual(\Sil\Bundle\CRMBundle\Entity\Organism $individual)
+    public function setIndividual(OrganismInterface $individual)
     {
         $this->individual = $individual;
 
@@ -177,7 +177,7 @@ class Position implements VCardableInterface
     /**
      * Get individual.
      *
-     * @return \Sil\Bundle\CRMBundle\Entity\Organism
+     * @return OrganismInterface
      */
     public function getIndividual()
     {
@@ -187,11 +187,11 @@ class Position implements VCardableInterface
     /**
      * Set organization.
      *
-     * @param \Sil\Bundle\CRMBundle\Entity\Organism $organization
+     * @param OrganismInterface $organization
      *
      * @return Position
      */
-    public function setOrganization(\Sil\Bundle\CRMBundle\Entity\Organism $organization)
+    public function setOrganization(OrganismInterface $organization)
     {
         $this->organization = $organization;
 
@@ -201,7 +201,7 @@ class Position implements VCardableInterface
     /**
      * Get organization.
      *
-     * @return \Sil\Bundle\CRMBundle\Entity\Organism
+     * @return OrganismInterface
      */
     public function getOrganization()
     {

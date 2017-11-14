@@ -60,11 +60,7 @@
                 </div>
             </form>
         {% else %}
-            {% if item.isBulk() %}
-                {{ convertValueWithUnit(item.quantity, 'g', 'mg') }}
-            {% else %}
-                {{ item.quantity }}
-            {% endif %}
+            {{ item.quantity }}
         {% endif %}
     </td>
     <td class="subtotal" style="text-align: right">

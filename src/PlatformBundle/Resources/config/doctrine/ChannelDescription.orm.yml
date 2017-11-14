@@ -1,0 +1,14 @@
+PlatformBundle\Entity\ChannelDescription:
+    type: entity
+    blast:
+        loggable: true
+    fields:
+        value:
+            type: string
+        title:
+            type: string
+
+    manyToOne:
+        variety:
+            targetEntity: Sil\Bundle\VarietyBundle\Entity\VarietyInterface
+            inversedBy: channelDescriptions

@@ -1,0 +1,4 @@
+_sonata_admin:
+    resource: .
+    type: sonata_admin
+    prefix: /%sil.url_prefix%

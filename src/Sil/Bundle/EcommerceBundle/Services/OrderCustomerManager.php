@@ -1,11 +1,10 @@
 <?php
 
 /*
- * This file is part of the Sil Project.
  *
  * Copyright (C) 2015-2017 Libre Informatique
  *
- * This file is licenced under the GNU GPL v3.
+ * This file is licenced under the GNU LGPL v3.
  * For the full copyright and license information, please view the LICENSE.md
  * file that was distributed with this source code.
  */
@@ -15,7 +14,6 @@ namespace Sil\Bundle\EcommerceBundle\Services;
 use Doctrine\ORM\EntityManager;
 use Sil\Bundle\EcommerceBundle\Entity\OrderInterface;
 use Blast\Bundle\CoreBundle\CodeGenerator\CodeGeneratorInterface;
-use Sil\Bundle\CRMBundle\Entity\Organism;
 
 class OrderCustomerManager
 {
@@ -30,11 +28,17 @@ class OrderCustomerManager
     private $codeGenerator;
 
     /**
+     * @var string
+     */
+    private $customerClass;
+
+    /**
      * @param EntityManager $em
      */
-    public function __construct(EntityManager $em)
+    public function __construct(EntityManager $em, string $customerClass)
     {
         $this->em = $em;
+        $this->customerClass = $customerClass;
     }
 
     public function associateUserAndAddress(OrderInterface $object)
@@ -43,7 +47,7 @@ class OrderCustomerManager
         $billingAddress = $object->getBillingAddress();
         $givenCustomer = $object->getCustomer();
 
-        $foundCustomer = $this->em->getRepository(Organism::class)
+        $foundCustomer = $this->em->getRepository($this->customerClass)
                        ->findOneBy(array('email' => $givenCustomer->getEmail())); /* As email must be unique */
 
         $customer = null; /* We love null :) */

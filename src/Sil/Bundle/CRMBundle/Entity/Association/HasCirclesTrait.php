@@ -1,0 +1,63 @@
+<?php
+
+/*
+ *
+ * Copyright (C) 2015-2017 Libre Informatique
+ *
+ * This file is licenced under the GNU LGPL v3.
+ * For the full copyright and license information, please view the LICENSE.md
+ * file that was distributed with this source code.
+ */
+
+namespace Sil\Bundle\CRMBundle\Entity\Association;
+
+use Doctrine\Common\Collections\ArrayCollection;
+use Sil\Bundle\CRMBundle\Entity\Circle;
+
+/**
+ * HasCircles trait.
+ */
+trait HasCirclesTrait
+{
+    /**
+     * @var Collection
+     */
+    protected $circles;
+
+    public function initCircles()
+    {
+        $this->circles = new ArrayCollection();
+    }
+
+    /**
+     * @param Circle $circle
+     *
+     * @return Circle
+     */
+    public function addCircle(Circle $circle)
+    {
+        $this->circles->add($circle);
+
+        return $this;
+    }
+
+    /**
+     * @param Circle $circle
+     *
+     * @return Circle
+     */
+    public function removeCircle(Circle $circle)
+    {
+        $this->circles->removeElement($circle);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection
+     */
+    public function getCircles()
+    {
+        return $this->circles;
+    }
+}

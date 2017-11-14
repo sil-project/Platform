@@ -26,7 +26,8 @@
     },
     "autoload": {
         "psr-4": {
-            "Librinfo\\SyliusPayboxBundle\\": "."
+            "Sil\\Bundle\\SyliusPayboxBundle\\": "."
         }
-    }
+    },
+    "version": "dev-wip-platform"
 }

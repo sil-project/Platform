@@ -13,7 +13,7 @@ sylius_product:
     resources:
         product:
             classes:
-                model: AppBundle\Entity\SilEcommerceBundle\Product
+                model: PlatformBundle\Entity\SilEcommerceBundle\Product
 
 sylius_review:
     resources:
@@ -24,20 +24,20 @@ sylius_review:
                     model: Sil\Bundle\EcommerceBundle\Entity\ProductReview
             reviewer:
                 classes:
-                    model: AppBundle\Entity\SilCRMBundle\Organism
+                    model: PlatformBundle\Entity\SilCRMBundle\Organism
 
 sylius_customer:
     driver: doctrine/orm
     resources:
         customer:
             classes:
-                model: AppBundle\Entity\SilCRMBundle\Organism
+                model: PlatformBundle\Entity\SilCRMBundle\Organism
 
 sylius_addressing:
     resources:
         address:
             classes:
-                model: AppBundle\Entity\SilCRMBundle\Address
+                model: PlatformBundle\Entity\SilCRMBundle\Address
 
 sylius_resource:
     resources:

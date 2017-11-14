@@ -2,9 +2,10 @@
     "name": "vivien/platform",
     "license": "proprietary",
     "type": "project",
+    "description": "Platform Is The Sil Dev Platform.",
     "autoload": {
         "psr-4": {
-            "AppBundle\\": "src/AppBundle"
+            "PlatformBundle\\": "src/PlatformBundle"
         },
         "classmap": [
             "app/AppKernel.php",
@@ -29,18 +30,19 @@
         "ext-pgsql": "*",
         "ext-curl": "*",
         "ext-intl": "*",
-        "ext-mbstring" : "*",
+        "ext-mbstring": "*",
         "ext-zip": "*",
 
-        "lexik/maintenance-bundle": "^2.1",
         "doctrine/doctrine-bundle": ">=1.6",
         "doctrine/orm": "^2.5",
         "friendsofsymfony/jsrouting-bundle": ">=1.6",
+        "h4cc/wkhtmltoimage-amd64": "^0.12.3",
         "h4cc/wkhtmltopdf-amd64": "^0.12.3",
         "html2text/html2text": ">=4.0",
         "incenteev/composer-parameter-handler": "^2.0",
         "jeroendesloovere/vcard-bundle": ">=1.2",
         "knplabs/knp-snappy-bundle": "^1.0",
+        "lexik/maintenance-bundle": "^2.1",
         "oro/doctrine-extensions": ">=1.2",
         "sensio/distribution-bundle": "^5.0.19",
         "sensio/framework-extra-bundle": "^3.0.2",
@@ -55,7 +57,7 @@
         "symfony/monolog-bundle": "^3.1.0",
         "symfony/polyfill-apcu": "^1.0",
         "symfony/symfony": "3.3.*",
-        "twig/twig": "^1.0||^2.0",
+        "twig/twig": "^2.0",
         "willdurand/js-translation-bundle": "^2.6",
         "winzou/state-machine": "^0.3.2"
     },
@@ -80,9 +82,6 @@
         "post-update-cmd": [
             "@symfony-scripts"
         ]
-    },
-    "config": {
-        "sort-packages": true
     },
     "extra": {
         "symfony-app-dir": "app",

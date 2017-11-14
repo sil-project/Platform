@@ -33,7 +33,8 @@
     ],
     "autoload": {
         "psr-4": {
-            "Librinfo\\MediaBundle\\": "."
+            "Sil\\Bundle\\MediaBundle\\": "."
         }
-    }
+    },
+    "version": "dev-wip-platform"
 }

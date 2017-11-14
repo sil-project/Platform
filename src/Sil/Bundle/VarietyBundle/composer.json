@@ -45,7 +45,8 @@
     },
     "autoload": {
         "psr-4": {
-            "Librinfo\\VarietyBundle\\": "."
+            "Sil\\Bundle\\VarietyBundle\\": "."
         }
-    }
+    },
+    "version": "dev-wip-platform"
 }

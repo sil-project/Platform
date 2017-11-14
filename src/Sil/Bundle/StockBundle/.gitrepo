@@ -1,0 +1,11 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = git@github.com:sil-project/StockBundle.git
+	branch = wip-platform
+	commit = 045b436af04800a57994b173ad86f4224cbc45f4
+	cmdver = 0.3.1
+	parent = b44beb93c3cbfba94a4f061d92c98405afb5931c

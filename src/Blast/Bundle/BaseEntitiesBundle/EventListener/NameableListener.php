@@ -1,7 +1,6 @@
 <?php
 
 /*
- * This file is part of the Blast Project package.
  *
  * Copyright (C) 2015-2017 Libre Informatique
  *
@@ -52,8 +51,8 @@ class NameableListener implements LoggerAwareInterface, EventSubscriber
             return;
         }
 
-        // Don't process superMappedClass
-        if ($metadata->isMappedSuperclass) {
+        // Don't process if name already exists
+        if (array_key_exists('name', $metadata->fieldMappings)) {
             return;
         }
 

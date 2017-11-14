@@ -41,10 +41,11 @@
     ],
     "autoload": {
         "psr-4": {
-            "Blast\\UtilsBundle\\": "."
+            "Blast\\Bundle\\UtilsBundle\\": "."
         }
     },
     "suggest": {
         "blast-project/outer-extension-bundle": "Extend your doctrine entities from the outside"
-    }
+    },
+    "version": "dev-wip-platform"
 }

@@ -1,0 +1,2 @@
+PlatformBundle\Entity\SilSonataSyliusUserBundle\SonataUser:
+    type: entity

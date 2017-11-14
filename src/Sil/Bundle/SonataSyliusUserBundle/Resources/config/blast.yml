@@ -52,12 +52,18 @@ parameters:
                             lastName: ~
                             email: ~
                         form_group_details:
-                            enabled: ~
-                            locked: ~
+                            enabled:
+                                type: checkbox
+                                required: false
+                            locked:
+                                type: checkbox
+                                required: false
                             expired:
                                 type: checkbox
+                                required: false
                             expiresAt:
                                 type: sonata_type_date_picker
+                                required: false
                         form_group_password:
                             plainPassword:
                                 type: repeated

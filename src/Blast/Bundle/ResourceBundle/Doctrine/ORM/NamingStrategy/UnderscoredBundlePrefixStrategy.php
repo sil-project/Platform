@@ -1,7 +1,6 @@
 <?php
 
 /*
- * This file is part of the Blast Project package.
  *
  * Copyright (C) 2015-2017 Libre Informatique
  *
@@ -53,7 +52,6 @@ class UnderscoredBundlePrefixStrategy implements NamingStrategy
      */
     public function classToTableName($className)
     {
-
         $prefix = $this->getTableNamePrefix($className);
         if (strpos($className, '\\') !== false) {
             $className = substr($className, strrpos($className, '\\') + 1);

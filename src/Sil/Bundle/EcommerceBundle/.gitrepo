@@ -1,0 +1,11 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = git@github.com:sil-project/EcommerceBundle.git
+	branch = wip-platform
+	commit = 5b40d2c9c71ee092a763eee719fec9634d3892f4
+	cmdver = 0.3.1
+	parent = 4ab309b2e5d61d9cc7c3ad7d53cf90093fe30dd2

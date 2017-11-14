@@ -1,11 +1,10 @@
 <?php
 
 /*
- * This file is part of the Sil Project.
  *
  * Copyright (C) 2015-2017 Libre Informatique
  *
- * This file is licenced under the GNU GPL v3.
+ * This file is licenced under the GNU LGPL v3.
  * For the full copyright and license information, please view the LICENSE.md
  * file that was distributed with this source code.
  */
@@ -16,7 +15,7 @@ use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\BaseEntity;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Descriptible;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Nameable;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Timestampable;
-use Sil\Bundle\MediaBundle\Entity\File;
+use Sil\Bundle\MediaBundle\Entity\FileInterface;
 
 /**
  * CertificationType.
@@ -34,7 +33,7 @@ class CertificationType
     protected $code;
 
     /**
-     * @var File
+     * @var FileInterface
      */
     protected $logo = null;
 
@@ -86,7 +85,7 @@ class CertificationType
     /**
      * Set logo.
      *
-     * @param \Sil\Bundle\MediaBundle\Entity\File $logo
+     * @param FileInterface $logo
      *
      * @return CertificationType
      */
@@ -105,9 +104,9 @@ class CertificationType
     /**
      * alias for SilMediaBundle/CRUDController::handleFiles().
      *
-     * @param \Sil\Bundle\MediaBundle\Entity\File $logo
+     * @param FileInterface $logo
      */
-    public function setLibrinfoFile(File $logo = null)
+    public function setLibrinfoFile(FileInterface $logo = null)
     {
         $this->setLogo($logo);
     }
@@ -115,7 +114,7 @@ class CertificationType
     /**
      * Get logo.
      *
-     * @return \Sil\Bundle\MediaBundle\Entity\File
+     * @return FileInterface
      */
     public function getLogo()
     {

@@ -1,11 +1,11 @@
 services:
 
-    blast_base_entities.admin.search_index_entity:
-        class: Blast\Bundle\BaseEntitiesBundle\Admin\SearchIndexEntityAdmin
-        arguments: [~, Blast\Bundle\BaseEntitiesBundle\Entity\SearchIndexEntity, BlastCoreBundle:CRUD]
-        tags:
-            - name: sonata.admin
-              manager_type: orm
-              group: admin
-              label: blast.baseentitiesbundle.admin.SearchIndexEntity
-              label_translator_strategy: blast_core.label.strategy.blast_baseentities
+    # blast_base_entities.admin.search_index_entity:
+    #     class: Blast\Bundle\BaseEntitiesBundle\Admin\SearchIndexEntityAdmin
+    #     arguments: [~, Blast\Bundle\BaseEntitiesBundle\Entity\SearchIndexEntity, BlastCoreBundle:CRUD]
+    #     tags:
+    #         - name: sonata.admin
+    #           manager_type: orm
+    #           group: admin
+    #           label: blast.baseentitiesbundle.admin.SearchIndexEntity
+    #           label_translator_strategy: blast_core.label.strategy.blast_baseentities

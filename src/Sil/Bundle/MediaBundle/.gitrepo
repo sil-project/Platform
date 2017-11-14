@@ -1,0 +1,11 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = git@github.com:sil-project/MediaBundle.git
+	branch = wip-platform
+	commit = 96cfb082e0e2613ad48ae806ff49c2fd12684903
+	cmdver = 0.3.1
+	parent = 776ba3580319a26f2688c14c68655c1746d6cdb8

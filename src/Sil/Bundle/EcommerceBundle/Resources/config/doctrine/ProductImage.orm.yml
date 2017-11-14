@@ -2,7 +2,7 @@ Sil\Bundle\EcommerceBundle\Entity\ProductImage:
     type: entity
     manyToOne:
         realFile:
-            targetEntity: Sil\Bundle\MediaBundle\Entity\File
+            targetEntity: Sil\Bundle\MediaBundle\Entity\FileInterface
             joinColumn:
                 name: real_file_id
                 referencedColumnName: id

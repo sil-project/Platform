@@ -1,0 +1,11 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = git@github.com:blast-project/BaseEntitiesBundle.git
+	branch = wip-platform
+	commit = 7cace9255b85f6c26b18f762458abc2c9ae0d5e1
+	cmdver = 0.3.1
+	parent = abeaa76be43162884b018a875fbdf60a669497e5

@@ -1,0 +1,11 @@
+
+services:
+    sil_email.admin.email_link:
+        class: Sil\Bundle\EmailBundle\Admin\EmailLink
+        arguments: [~, "%sil_email.entity.email_link.class%", BlastCoreBundle:CRUD]
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              group: admin
+              label: sil.emailbundle.admin.emaillink
+              label_translator_strategy: blast_core.label.strategy.sil_email

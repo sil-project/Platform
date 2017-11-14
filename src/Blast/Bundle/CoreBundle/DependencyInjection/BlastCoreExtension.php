@@ -1,7 +1,6 @@
 <?php
 
 /*
- * This file is part of the Blast Project package.
  *
  * Copyright (C) 2015-2017 Libre Informatique
  *
@@ -38,7 +37,7 @@ class BlastCoreExtension extends Extension
         $this->loadServices($loader);
         $this->loadCodeGenerators($container, $config);
         $this->loadDataFixtures($container, $loader);
-        $this->loadParameters($container);
+        $this->loadParameters($container, $loader);
         $this->loadSecurity($container);
         $this->loadSonataAdmin($container, $loader);
         $this->loadListeners($container, $config);
@@ -81,11 +80,8 @@ class BlastCoreExtension extends Extension
      */
     public function loadServices(FileLoader $loader)
     {
-        // services, admin & config files
-        foreach (['services', 'admin'] as $fileName) {
-            if (file_exists($this->dir . $this->prefix . $fileName . $this->suffix)) {
-                $loader->load($fileName . $this->suffix);
-            }
+        if (file_exists($this->dir . $this->prefix . 'services' . $this->suffix)) {
+            $loader->load('services' . $this->suffix);
         }
 
         return $this;
@@ -124,8 +120,13 @@ class BlastCoreExtension extends Extension
      *
      * @return self
      */
-    public function loadParameters(ContainerBuilder $container)
+    public function loadParameters(ContainerBuilder $container, FileLoader $loader)
     {
+        // parameters.yml
+        if (file_exists($this->dir . $this->prefix . 'parameters' . $this->suffix)) {
+            $loader->load('parameters' . $this->suffix);
+        }
+
         // the blast.yml
         if (file_exists($this->dir . $this->prefix . $this->file . $this->suffix)) {
             $this->mergeParameter('blast', $container, $this->dir . $this->prefix);

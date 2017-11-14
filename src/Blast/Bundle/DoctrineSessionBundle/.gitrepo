@@ -1,0 +1,11 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = git@github.com:blast-project/DoctrineSessionBundle.git
+	branch = wip-platform
+	commit = 1b604906bb2592165edb322d43754c9ac15fdcb6
+	cmdver = 0.3.1
+	parent = 8e17e24ac248696f76eb3bae273efebab3516095

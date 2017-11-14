@@ -35,7 +35,8 @@
     ],
     "autoload": {
         "psr-4": {
-            "Librinfo\\SeedBatchBundle\\": "."
+            "Sil\\Bundle\\SeedBatchBundle\\": "."
         }
-    }
+    },
+    "version": "dev-wip-platform"
 }
