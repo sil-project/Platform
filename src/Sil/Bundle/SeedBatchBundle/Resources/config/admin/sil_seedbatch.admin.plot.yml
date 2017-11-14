@@ -2,11 +2,10 @@
 services:
     sil_seedbatch.admin.plot:
         class: Sil\Bundle\SeedBatchBundle\Admin\PlotAdmin
-        arguments: [~, Sil\Bundle\SeedBatchBundle\Entity\Plot, BlastCoreBundle:CRUD]
+        arguments: [~, "%sil_seed_batch.entity.plot.class%", BlastCoreBundle:CRUD]
         tags:
             -   name: sonata.admin
                 manager_type: orm
                 group: Seed Batches
                 label: sil.seedbatchbundle.admin.plot
                 label_translator_strategy: blast_core.label.strategy.sil_seedbatch
-

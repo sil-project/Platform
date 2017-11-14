@@ -2,7 +2,7 @@
 services:
     sil_seedbatch.admin.organism:
         class: Sil\Bundle\SeedBatchBundle\Admin\OrganismAdmin
-        arguments: [~, Sil\Bundle\CRMBundle\Entity\Organism, SilSeedBatchBundle:OrganismAdmin]
+        arguments: [~, "%sil_crm.entity.organism.class%", SilSeedBatchBundle:OrganismAdmin]
         tags:
             -   name: sonata.admin
                 manager_type: orm
@@ -12,4 +12,3 @@ services:
         calls:
             - [ setTemplate, [edit, SilSeedBatchBundle:OrganismAdmin:edit.html.twig]]
             - [ setTemplate, [show, SilCRMBundle:OrganismAdmin:show.html.twig]]
-

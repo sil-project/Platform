@@ -2,7 +2,7 @@
 services:
     sil_seed_batch.admin.certification_type:
         class: Sil\Bundle\SeedBatchBundle\Admin\CertificationTypeAdmin
-        arguments: [~, Sil\Bundle\SeedBatchBundle\Entity\CertificationType, SilMediaBundle:CRUD]
+        arguments: [~, "%sil_seed_batch.entity.certification_type.class%", SilMediaBundle:CRUD]
         tags:
             - name: sonata.admin
               manager_type: orm
@@ -11,4 +11,3 @@ services:
               label_translator_strategy: blast_core.label.strategy.sil_seedbatch
         calls:
             - [ setTemplate, [ edit, SilMediaBundle:CRUD:edit.html.twig ] ]
-
