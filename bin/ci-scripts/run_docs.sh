@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-cd src/AppBundle/Resources/doc
+cd src/PlatformBundle/Resources/doc
 sphinx-build -b html -d _build/doctrees . _build/html
 cd -
 
