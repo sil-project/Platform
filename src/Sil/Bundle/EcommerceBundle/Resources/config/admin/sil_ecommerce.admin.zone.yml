@@ -1,0 +1,12 @@
+
+services:
+    sil_ecommerce.admin.zone:
+        class: Blast\Bundle\CoreBundle\Admin\GenericAdmin
+        arguments: [~, Sil\Bundle\EcommerceBundle\Entity\Zone, BlastCoreBundle:CRUD]
+        tags:
+            -
+                name: sonata.admin
+                manager_type: orm
+                group: admin
+                label: sil.ecommercebundle.admin.Zone
+                label_translator_strategy: blast_core.label.strategy.sil_ecommerce

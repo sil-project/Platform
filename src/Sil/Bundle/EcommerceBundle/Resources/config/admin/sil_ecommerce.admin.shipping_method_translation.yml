@@ -1,0 +1,12 @@
+
+services:
+    sil_ecommerce.admin.shipping_method_translation:
+        class: Sil\Bundle\EcommerceBundle\Admin\ShippingMethodTranslationAdmin
+        arguments: [~, Sylius\Component\Shipping\Model\ShippingMethodTranslation, BlastCoreBundle:CRUD]
+        tags:
+            -
+                name: sonata.admin
+                manager_type: orm
+                group: admin
+                label: sil.ecommercebundle.admin.shipping_method_translation
+                label_translator_strategy: blast_core.label.strategy.sil_ecommerce

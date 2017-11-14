@@ -1,0 +1,14 @@
+
+services:
+    sil_ecommerce.admin.order:
+        class: Sil\Bundle\EcommerceBundle\Admin\OrderAdmin
+        arguments: [~, Sil\Bundle\EcommerceBundle\Entity\Order, SilEcommerceBundle:OrderCRUD]
+        tags:
+            -
+                name: sonata.admin
+                manager_type: orm
+                group: admin
+                label: sil.ecommercebundle.admin.order
+                label_translator_strategy: blast_core.label.strategy.sil_ecommerce
+        calls:
+            - [ setTemplate, [edit, SilEcommerceBundle:OrderAdmin/Create:create.html.twig]]

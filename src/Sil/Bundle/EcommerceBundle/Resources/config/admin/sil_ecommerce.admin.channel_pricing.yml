@@ -1,0 +1,12 @@
+
+services:
+    sil_ecommerce.admin.channel_pricing:
+        class: Sil\Bundle\EcommerceBundle\Admin\ChannelPricingAdmin
+        arguments: [~, Sylius\Component\Core\Model\ChannelPricing, BlastCoreBundle:CRUD]
+        tags:
+            -
+                name: sonata.admin
+                manager_type: orm
+                group: admin
+                label: sil.ecommercebundle.admin.Channel
+                label_translator_strategy: blast_core.label.strategy.sil_ecommerce

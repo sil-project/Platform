@@ -1,0 +1,12 @@
+
+services:
+    sil_ecommerce.admin.taxon:
+        class: Sil\Bundle\EcommerceBundle\Admin\TaxonAdmin
+        arguments: [~, Sil\Bundle\EcommerceBundle\Entity\Taxon, BlastCoreBundle:CRUD]
+        tags:
+            -
+                name: sonata.admin
+                manager_type: orm
+                group: admin
+                label: sil.ecommercebundle.admin.Taxon
+                label_translator_strategy: blast_core.label.strategy.sil_ecommerce
