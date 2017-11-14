@@ -2,6 +2,7 @@
     "name": "vivien/platform",
     "license": "proprietary",
     "type": "project",
+    "description": "Platform Is The Sil Dev Platform.",
     "autoload": {
         "psr-4": {
             "AppBundle\\": "src/AppBundle"
@@ -81,9 +82,6 @@
         "post-update-cmd": [
             "@symfony-scripts"
         ]
-    },
-    "config": {
-        "sort-packages": true
     },
     "extra": {
         "symfony-app-dir": "app",
