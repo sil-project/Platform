@@ -41,7 +41,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Blast\\UtilsBundle\\": "."
+            "Blast\\Bundle\\UtilsBundle\\": "."
         }
     },
     "suggest": {
