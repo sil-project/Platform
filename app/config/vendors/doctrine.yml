@@ -6,6 +6,10 @@ parameters:
     sil_sonata_sylius_user.entity.sonata_user.class: PlatformBundle\Entity\SilSonataSyliusUserBundle\SonataUser
     sil_stock.entity.partner.class: "%sil_crm.entity.organism.class%"
     sil_stock.entity.stock_item.class: "%sil_ecommerce.entity.product.class%"
+    sil_variety.enttity.family.class: PlatformBundle\Entity\SilVarietyBundle\Family
+    sil_variety.enttity.variety.class: PlatformBundle\Entity\SilVarietyBundle\Variety
+    sil_variety.enttity.species.class: PlatformBundle\Entity\SilVarietyBundle\Species
+    sil_variety.enttity.genus.class: PlatformBundle\Entity\SilVarietyBundle\Genus
 
 doctrine:
     orm:
@@ -32,10 +36,10 @@ doctrine:
 
             # SilVarietyBundle
 
-            Sil\Bundle\VarietyBundle\Entity\FamilyInterface:                PlatformBundle\Entity\SilVarietyBundle\Family
-            Sil\Bundle\VarietyBundle\Entity\VarietyInterface:               PlatformBundle\Entity\SilVarietyBundle\Variety
-            Sil\Bundle\VarietyBundle\Entity\SpeciesInterface:               PlatformBundle\Entity\SilVarietyBundle\Species
-            Sil\Bundle\VarietyBundle\Entity\GenusInterface:                 PlatformBundle\Entity\SilVarietyBundle\Genus
+            Sil\Bundle\VarietyBundle\Entity\FamilyInterface:                "%sil_variety.enttity.family.class%"
+            Sil\Bundle\VarietyBundle\Entity\VarietyInterface:               "%sil_variety.enttity.variety.class%"
+            Sil\Bundle\VarietyBundle\Entity\SpeciesInterface:               "%sil_variety.enttity.species.class%"
+            Sil\Bundle\VarietyBundle\Entity\GenusInterface:                 "%sil_variety.enttity.genus.class%"
 
             #SilEcommerceBundle
 

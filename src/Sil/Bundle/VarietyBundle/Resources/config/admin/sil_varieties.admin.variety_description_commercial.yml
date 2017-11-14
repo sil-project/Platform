@@ -2,7 +2,7 @@
 services:
     sil_varieties.admin.variety_description_commercial:
         class: Sil\Bundle\VarietyBundle\Admin\VarietyDescriptionAdmin
-        arguments: [~, Sil\Bundle\VarietyBundle\Entity\VarietyDescriptionCommercial, BlastCoreBundle:CRUD]
+        arguments: [~, "%sil_variety.enttity.variety_description_commercial.class%", BlastCoreBundle:CRUD]
         tags:
             -
                 name: sonata.admin

@@ -1,2 +1,13 @@
-parameters: 
-
+parameters:
+    sil_variety.enttity.variety_description_plant.class: Sil\Bundle\VarietyBundle\Entity\VarietyDescriptionPlant
+    sil_variety.enttity.variety_description_professionnal.class: Sil\Bundle\VarietyBundle\Entity\VarietyDescriptionProfessional
+    sil_variety.enttity.variety_description_production.class: Sil\Bundle\VarietyBundle\Entity\VarietyDescriptionProduction
+    sil_variety.enttity.variety_description_amateur.class: Sil\Bundle\VarietyBundle\Entity\VarietyDescriptionAmateur
+    sil_variety.enttity.variety_description_culture.class: Sil\Bundle\VarietyBundle\Entity\VarietyDescriptionCulture
+    sil_variety.enttity.variety_description_inner.class: Sil\Bundle\VarietyBundle\Entity\VarietyDescriptionInner
+    sil_variety.enttity.variety_description_commercial.class: Sil\Bundle\VarietyBundle\Entity\VarietyDescriptionCommercial
+    sil_variety.enttity.plant_category.class: Sil\Bundle\VarietyBundle\Entity\PlantCategory
+    sil_variety.enttity.family.class: Sil\Bundle\VarietyBundle\Entity\Family
+    sil_variety.enttity.variety.class: Sil\Bundle\VarietyBundle\Entity\Variety
+    sil_variety.enttity.species.class: Sil\Bundle\VarietyBundle\Entity\Species
+    sil_variety.enttity.genus.class: Sil\Bundle\VarietyBundle\Entity\Genus

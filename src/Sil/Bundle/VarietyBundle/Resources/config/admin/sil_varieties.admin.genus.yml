@@ -2,7 +2,7 @@
 services:
     sil_varieties.admin.genus:
         class: Sil\Bundle\VarietyBundle\Admin\GenusAdmin
-        arguments: [~, Sil\Bundle\VarietyBundle\Entity\Genus, BlastCoreBundle:CRUD]
+        arguments: [~, "%sil_variety.enttity.genus.class%", BlastCoreBundle:CRUD]
         tags:
             -
                 name: sonata.admin
