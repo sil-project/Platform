@@ -44,6 +44,10 @@ imports:
     - { resource: "@SilManufacturingBundle/Resources/config/services.yml" }
     - { resource: "@SilManufacturingBundle/Resources/config/admin.yml" }
 
+    # Platform Bundle
+
+    - { resource: "@AppBundle/Resources/config/config.yml" }
+
 
 parameters:
     locale: en

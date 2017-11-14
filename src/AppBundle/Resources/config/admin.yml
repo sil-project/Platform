@@ -1,0 +1,5 @@
+imports:
+
+    # SilCRMBundle
+    #
+    # - { resource: "@SilCRMBundle/Resources/config/admin.yml" }
