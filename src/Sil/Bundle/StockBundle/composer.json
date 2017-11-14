@@ -35,7 +35,8 @@
     },
     "autoload": {
         "psr-4": {
-            "Sil\\Bundle\\StockBundle\\": "."
+            "Sil\\Bundle\\StockBundle\\": ".",
+            "Sil\\Bundle\\StockBundle\\Test\\": "Tests/"
         }
     },
     "version": "dev-wip-platform"
