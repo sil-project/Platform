@@ -1,0 +1,57 @@
+PlatformBundle\Entity\SilCRMBundle\Organism:
+    type: entity
+    fields:
+        seedProducerCode:
+            type:       string
+            length:     255
+            nullable:   true
+        seedProducer:
+            type:        boolean
+            options:
+                default: false
+
+    oneToMany:
+        seedBatches:
+            targetEntity: Sil\Bundle\SeedBatchBundle\Entity\SeedBatch
+            mappedBy: producer
+            cascade: [ persist, remove ]
+            orphanRemoval: true
+        plots:
+            targetEntity: Sil\Bundle\SeedBatchBundle\Entity\Plot
+            mappedBy: producer
+            cascade: [ persist, remove ]
+            orphanRemoval: true
+        orders:
+            targetEntity: Sil\Bundle\EcommerceBundle\Entity\Order
+            mappedBy: customer
+        addresses:
+            targetEntity: Sil\Bundle\CRMBundle\Entity\AddressInterface
+            mappedBy: customer
+            cascade: [ persist, remove ]
+            orphanRemoval: true
+
+    oneToOne:
+        user:
+            targetEntity: Sylius\Component\Core\Model\ShopUser
+            mappedBy: customer
+        defaultAddress:
+            targetEntity: Sil\Bundle\CRMBundle\Entity\AddressInterface
+            joinColumn:
+                name: default_address_id
+                onDelete: SET NULL
+            cascade: [persist, remove]
+            orphanRemoval: true
+
+    manyToMany:
+        circles:
+            orderBy: { 'code': 'ASC' }
+            targetEntity: Sil\Bundle\CRMBundle\Entity\Circle
+            inversedBy: organisms
+            joinTable:
+                name: ~
+                joinColumns:
+                    circle_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    organism_id:
+                        referencedColumnName: id

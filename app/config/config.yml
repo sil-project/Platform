@@ -44,7 +44,7 @@ imports:
 
     # Platform Bundle
 
-    - { resource: "@AppBundle/Resources/config/config.yml" }
+    - { resource: "@PlatformBundle/Resources/config/config.yml" }
 
 
 parameters:

@@ -4,30 +4,34 @@ doctrine:
 
             # BlastCoreBundle
 
-            Blast\Bundle\CoreBundle\Model\UserInterface:                    AppBundle\Entity\SilSonataSyliusUserBundle\SonataUser
+            Blast\Bundle\CoreBundle\Model\UserInterface:                    PlatformBundle\Entity\SilSonataSyliusUserBundle\SonataUser
 
             # SilSonataSyliusUserBundle
 
-            Sil\Bundle\SonataSyliusUserBundle\Entity\SonataUserInterface:   AppBundle\Entity\SilSonataSyliusUserBundle\SonataUser
+            Sil\Bundle\SonataSyliusUserBundle\Entity\SonataUserInterface:   PlatformBundle\Entity\SilSonataSyliusUserBundle\SonataUser
             Sil\Bundle\SonataSyliusUserBundle\Entity\SonataGroupInterface:  Sil\Bundle\SonataSyliusUserBundle\Entity\SonataGroup
 
             # SilCRMBundle
 
-            Sil\Bundle\CRMBundle\Entity\OrganismInterface:                  AppBundle\Entity\SilCRMBundle\Organism
-            Sil\Bundle\CRMBundle\Entity\AddressInterface:                   AppBundle\Entity\SilCRMBundle\Address
+            Sil\Bundle\CRMBundle\Entity\OrganismInterface:                  PlatformBundle\Entity\SilCRMBundle\Organism
+            Sil\Bundle\CRMBundle\Entity\AddressInterface:                   PlatformBundle\Entity\SilCRMBundle\Address
 
             # SilStockBundle
 
-            Sil\Bundle\StockBundle\Domain\Entity\PartnerInterface:          AppBundle\Entity\SilCRMBundle\Organism
+            Sil\Bundle\StockBundle\Domain\Entity\PartnerInterface:          PlatformBundle\Entity\SilCRMBundle\Organism
             Sil\Bundle\StockBundle\Domain\Entity\StockItemInterface:        Sil\Bundle\EcommerceBundle\Entity\Product
 
             # SilVarietyBundle
 
-            Sil\Bundle\VarietyBundle\Entity\FamilyInterface:                AppBundle\Entity\SilVarietyBundle\Family
-            Sil\Bundle\VarietyBundle\Entity\VarietyInterface:               AppBundle\Entity\SilVarietyBundle\Variety
-            Sil\Bundle\VarietyBundle\Entity\SpeciesInterface:               AppBundle\Entity\SilVarietyBundle\Species
-            Sil\Bundle\VarietyBundle\Entity\GenusInterface:                 AppBundle\Entity\SilVarietyBundle\Genus
+            Sil\Bundle\VarietyBundle\Entity\FamilyInterface:                PlatformBundle\Entity\SilVarietyBundle\Family
+            Sil\Bundle\VarietyBundle\Entity\VarietyInterface:               PlatformBundle\Entity\SilVarietyBundle\Variety
+            Sil\Bundle\VarietyBundle\Entity\SpeciesInterface:               PlatformBundle\Entity\SilVarietyBundle\Species
+            Sil\Bundle\VarietyBundle\Entity\GenusInterface:                 PlatformBundle\Entity\SilVarietyBundle\Genus
 
             #SilEcommerceBundle
 
-            Sil\Bundle\EcommerceBundle\Entity\ProductInterface:             AppBundle\Entity\SilEcommerceBundle\Product
+            Sil\Bundle\EcommerceBundle\Entity\ProductInterface:             PlatformBundle\Entity\SilEcommerceBundle\Product
+
+            #SilMediaBundle
+
+            Sil\Bundle\MediaBundle\Entity\FileInterface:                    PlatformBundle\Entity\SilMediaBundle\File

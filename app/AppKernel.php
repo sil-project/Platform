@@ -1,11 +1,10 @@
 <?php
 
 /*
- * This file is part of the Sil Project.
  *
  * Copyright (C) 2015-2017 Libre Informatique
  *
- * This file is licenced under the GNU GPL v3.
+ * This file is licenced under the GNU LGPL v3.
  * For the full copyright and license information, please view the LICENSE.md
  * file that was distributed with this source code.
  */
@@ -155,9 +154,10 @@ class AppKernel extends Kernel
             new Sil\Bundle\ManufacturingBundle\SilManufacturingBundle(),
 
             // -------------------------------------------------------------------------------------
-            // Temp (For OuterExtensions)
+            // Pltaform generic integration bundle
             // -------------------------------------------------------------------------------------
-            new AppBundle\AppBundle(),
+
+            new PlatformBundle\PlatformBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

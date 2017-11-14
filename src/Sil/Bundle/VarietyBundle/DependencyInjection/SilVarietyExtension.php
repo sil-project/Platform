@@ -33,7 +33,6 @@ class SilVarietyExtension extends BlastCoreExtension
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
         $loader->load('services.yml');
-        $loader->load('admin.yml');
 
         $container->setParameter('sil_varieties', $config);
 

@@ -60,7 +60,7 @@ class File implements \JsonSerializable
     /**
      * @param UploadedFile $file
      *
-     * @return \Sil\Bundle\MediaBundle\Entity\File
+     * @return FileInterface
      */
     public function setFile($file = null)
     {
@@ -74,7 +74,7 @@ class File implements \JsonSerializable
     }
 
     /**
-     * @return type
+     * @return mixed
      */
     public function getFile()
     {
@@ -82,7 +82,7 @@ class File implements \JsonSerializable
     }
 
     /**
-     * @return type
+     * @return string
      */
     public function getBase64File()
     {
@@ -94,7 +94,7 @@ class File implements \JsonSerializable
      *
      * @param string $parent
      *
-     * @return File
+     * @return FileInterface
      */
     public function setParent($parent)
     {
@@ -118,7 +118,7 @@ class File implements \JsonSerializable
      *
      * @param string $name
      *
-     * @return File
+     * @return FileInterface
      */
     public function setName($name)
     {
@@ -142,7 +142,7 @@ class File implements \JsonSerializable
      *
      * @param string $mimeType
      *
-     * @return File
+     * @return FileInterface
      */
     public function setMimeType($mimeType)
     {
@@ -166,7 +166,7 @@ class File implements \JsonSerializable
      *
      * @param float $size
      *
-     * @return File
+     * @return FileInterface
      */
     public function setSize($size)
     {
@@ -190,7 +190,7 @@ class File implements \JsonSerializable
      *
      * @param string $owned
      *
-     * @return File
+     * @return FileInterface
      */
     public function setOwned($owned)
     {

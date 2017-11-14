@@ -32,7 +32,7 @@ Sil\Bundle\EmailBundle\Entity\Email:
             nullable: true
     manyToMany:
         attachments:
-            targetEntity: \Sil\Bundle\MediaBundle\Entity\File
+            targetEntity: \Sil\Bundle\MediaBundle\Entity\FileInterface
             joinTable:
                 name: sil_email_file
                 joinColumns:
