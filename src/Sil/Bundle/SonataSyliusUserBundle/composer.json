@@ -34,5 +34,6 @@
         "psr-4": {
             "Sil\\Bundle\\SonataSyliusUserBundle\\": "."
         }
-    }
+    },
+    "version": "dev-wip-platform"
 }
