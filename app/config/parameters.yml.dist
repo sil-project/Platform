@@ -3,10 +3,10 @@
 # https://symfony.com/doc/current/best_practices/configuration.html#infrastructure-related-configuration
 parameters:
     database_host: 127.0.0.1
-    database_port: ~
-    database_name: symfony
-    database_user: root
-    database_password: ~
+    database_port: 5432
+    database_name: sil
+    database_user: sil_user
+    database_password: sil
     # You should uncomment this if you want to use pdo_sqlite
     #database_path: '%kernel.project_dir%/var/data/data.sqlite'
 
@@ -21,7 +21,7 @@ parameters:
     secret: ThisTokenIsNotSoSecretChangeIt
 
     # Blast parameters
-    sil.url_prefix: ~
+    sil.url_prefix: /sil
 
     symfony-web-dir: web
     sylius_fallback_channel_code: default

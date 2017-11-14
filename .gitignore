@@ -6,17 +6,15 @@
 
 !/var/cache
 /var/cache/*
-!var/cache/.gitkeep
+!/var/cache/.gitkeep
 
 !/var/logs
 /var/logs/*
-!var/logs/.gitkeep
+!/var/logs/.gitkeep
 
 !/var/sessions
 /var/sessions/*
-!var/sessions/.gitkeep
-
-!var/SymfonyRequirements.php
+!/var/sessions/.gitkeep
 
 # Composer PHAR
 /composer.phar
@@ -26,6 +24,7 @@
 /web/bundles/
 /web/media/
 /web/assets/
+/web/config.php
 
 # Build data
 /build/
