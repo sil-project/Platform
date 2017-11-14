@@ -19,3 +19,7 @@ imports:
     # SilManufacturingBundle
     #
     # - { resource: "@SilManufacturingBundle/Resources/config/admin.yml" }
+
+    # SilSeedBatchBundle
+    #
+    # - { resource: "@SilSeedBatchBundle/Resources/config/admin.yml" }

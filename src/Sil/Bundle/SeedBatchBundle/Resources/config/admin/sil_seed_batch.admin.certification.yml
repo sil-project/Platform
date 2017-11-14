@@ -1,0 +1,12 @@
+
+services:
+    sil_seed_batch.admin.certification:
+        class: Sil\Bundle\SeedBatchBundle\Admin\CertificationAdmin
+        arguments: [~, Sil\Bundle\SeedBatchBundle\Entity\Certification, BlastCoreBundle:CRUD]
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              group: admin
+              label: Certification
+              label_translator_strategy: blast_core.label.strategy.sil_seedbatch
+
