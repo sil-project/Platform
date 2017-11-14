@@ -6,6 +6,6 @@
 [subrepo]
 	remote = git@github.com:sil-project/SeedBatchBundle.git
 	branch = wip-platform
-	commit = af5841842a5937ba1fe5b1bd1a669d89d23f690f
+	commit = 13893b981f7d61e6e5c7afff9e19143cb4a34388
 	cmdver = 0.3.1
-	parent = 22bb8a4adb6bddebc44d21140942da1a5ab291a2
+	parent = fa5e5a6a2d34d23f5575a7c5132d2f6b36c9ee64
