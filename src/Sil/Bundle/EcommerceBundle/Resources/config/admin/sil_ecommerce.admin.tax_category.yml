@@ -1,0 +1,12 @@
+
+services:
+    sil_ecommerce.admin.tax_category:
+        class: Sil\Bundle\EcommerceBundle\Admin\TaxCategoryAdmin
+        arguments: [~, Sylius\Component\Taxation\Model\TaxCategory, BlastCoreBundle:CRUD]
+        tags:
+            -
+                name: sonata.admin
+                manager_type: orm
+                group: admin
+                label: sil.ecommercebundle.admin.TaxCategory
+                label_translator_strategy: blast_core.label.strategy.sil_ecommerce

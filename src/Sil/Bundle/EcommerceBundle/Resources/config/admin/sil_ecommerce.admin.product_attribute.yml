@@ -1,0 +1,12 @@
+
+services:
+    sil_ecommerce.admin.product_attribute:
+        class: Sil\Bundle\EcommerceBundle\Admin\ProductAttributeAdmin
+        arguments: [~, Sil\Bundle\EcommerceBundle\Entity\ProductAttribute, BlastCoreBundle:CRUD]
+        tags:
+            -
+                name: sonata.admin
+                manager_type: orm
+                group: admin
+                label: sil.ecommercebundle.admin.product.product_attribute
+                label_translator_strategy: blast_core.label.strategy.sil_ecommerce

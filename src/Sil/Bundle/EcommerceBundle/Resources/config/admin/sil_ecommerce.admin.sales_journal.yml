@@ -1,0 +1,12 @@
+
+services:
+    sil_ecommerce.admin.sales_journal:
+        class: Sil\Bundle\EcommerceBundle\Admin\SalesJournalAdmin
+        arguments: [~, Sil\Bundle\EcommerceBundle\Entity\SalesJournalItem, BlastCoreBundle:CRUD]
+        tags:
+            -
+                name: sonata.admin
+                manager_type: orm
+                group: admin
+                label: sil.ecommercebundle.admin.sales_journal
+                label_translator_strategy: blast_core.label.strategy.sil_ecommerce

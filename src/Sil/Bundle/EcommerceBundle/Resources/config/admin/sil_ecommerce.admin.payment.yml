@@ -1,0 +1,12 @@
+
+services:
+    sil_ecommerce.admin.payment:
+        class: Sil\Bundle\EcommerceBundle\Admin\PaymentAdmin
+        arguments: [~, Sil\Bundle\EcommerceBundle\Entity\Payment, SilEcommerceBundle:PaymentCRUD]
+        tags:
+            -
+                name: sonata.admin
+                manager_type: orm
+                group: admin
+                label: sil.ecommercebundle.admin.payment
+                label_translator_strategy: blast_core.label.strategy.sil_ecommerce

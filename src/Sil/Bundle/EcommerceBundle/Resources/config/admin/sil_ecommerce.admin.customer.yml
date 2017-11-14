@@ -1,0 +1,16 @@
+
+services:
+    sil_ecommerce.admin.customer:
+        class: Sil\Bundle\EcommerceBundle\Admin\CustomerAdmin
+        arguments: [~, %sylius.model.customer.class%, SilCRMBundle:OrganismAdmin]
+        tags:
+            -
+                name: sonata.admin
+                manager_type: orm
+                group: Customers Relationship Management
+                label: sil.ecommercebundle.admin.crm.customer
+                label_translator_strategy: blast_core.label.strategy.sil_ecommerce
+        calls:
+            - [setCodeGenerator, ['@sil_crm.code_generator.customer']]
+            - [ setTemplate, [edit, SilCRMBundle:OrganismAdmin:edit.html.twig]]
+            - [ setTemplate, [show, SilCRMBundle:OrganismAdmin:show.html.twig]]

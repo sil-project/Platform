@@ -1,0 +1,12 @@
+
+services:
+    sil_ecommerce.admin.channel:
+        class: Sil\Bundle\EcommerceBundle\Admin\ChannelAdmin
+        arguments: [~, Sil\Bundle\EcommerceBundle\Entity\Channel, BlastCoreBundle:CRUD]
+        tags:
+            -
+                name: sonata.admin
+                manager_type: orm
+                group: admin
+                label: sil.ecommercebundle.admin.channel
+                label_translator_strategy: blast_core.label.strategy.sil_ecommerce

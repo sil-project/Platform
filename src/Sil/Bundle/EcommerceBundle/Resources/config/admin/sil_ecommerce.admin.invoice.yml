@@ -1,0 +1,12 @@
+
+services:
+    sil_ecommerce.admin.invoice:
+        class: Sil\Bundle\EcommerceBundle\Admin\InvoiceAdmin
+        arguments: [~, Sil\Bundle\EcommerceBundle\Entity\Invoice, SilEcommerceBundle:InvoiceCRUD]
+        tags:
+            -
+                name: sonata.admin
+                manager_type: orm
+                group: admin
+                label: sil.ecommercebundle.admin.Invoice
+                label_translator_strategy: blast_core.label.strategy.sil_ecommerce

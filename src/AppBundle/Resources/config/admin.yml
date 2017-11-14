@@ -3,3 +3,7 @@ imports:
     # SilCRMBundle
     #
     # - { resource: "@SilCRMBundle/Resources/config/admin.yml" }
+
+    # SilEcommerceBundle
+    #
+    # - { resource: "@SilEcommerceBundle/Resources/config/admin.yml" }

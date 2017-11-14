@@ -1,0 +1,12 @@
+
+services:
+    sil_ecommerce.admin.shop_user:
+        class: Sil\Bundle\EcommerceBundle\Admin\ShopUserAdmin
+        arguments: [~, Sylius\Component\Core\Model\ShopUser, BlastCoreBundle:CRUD]
+        tags:
+            -
+                name: sonata.admin
+                manager_type: orm
+                group: admin
+                label: sil.ecommercebundle.admin.shop_user
+                label_translator_strategy: blast_core.label.strategy.sil_ecommerce

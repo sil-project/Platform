@@ -1,0 +1,12 @@
+
+services:
+    sil_ecommerce_option_value.admin.product:
+        class: Sil\Bundle\EcommerceBundle\Admin\ProductOptionValueAdmin
+        arguments: [~, Sil\Bundle\EcommerceBundle\Entity\ProductOptionValue, BlastCoreBundle:CRUD]
+        tags:
+            -
+                name: sonata.admin
+                manager_type: orm
+                group: admin
+                label: sil.ecommercebundle.admin.product.product_option_value
+                label_translator_strategy: blast_core.label.strategy.sil_ecommerce

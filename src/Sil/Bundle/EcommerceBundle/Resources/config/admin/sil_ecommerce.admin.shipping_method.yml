@@ -1,0 +1,22 @@
+
+services:
+    sil_ecommerce.admin.shipping_method:
+        class: Sil\Bundle\EcommerceBundle\Admin\ShippingMethodAdmin
+        arguments: [~, Sil\Bundle\EcommerceBundle\Entity\ShippingMethod, BlastCoreBundle:CRUD]
+        tags:
+            -
+                name: sonata.admin
+                manager_type: orm
+                group: admin
+                label: sil.ecommercebundle.admin.shipping_method
+                label_translator_strategy: blast_core.label.strategy.sil_ecommerce
+
+#    sil_ecommerce.admin.shipping_category:
+#        class: Sil\Bundle\EcommerceBundle\Admin\ShippingCategoryAdmin
+#        arguments: [~, Sylius\Component\Shipping\Model\ShippingCategory, BlastCoreBundle:CRUD]
+#        tags:
+#            - name: sonata.admin
+#              manager_type: orm
+#              group: admin
+#              label: sil.ecommercebundle.admin.shipping_category
+#              label_translator_strategy: blast_core.label.strategy.sil_ecommerce
