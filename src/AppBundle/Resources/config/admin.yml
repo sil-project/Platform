@@ -15,3 +15,15 @@ imports:
     # SilEmailCRMBundle
     #
     # - { resource: "@SilEmailCRMBundle/Resources/config/admin.yml" }
+
+    # SilManufacturingBundle
+    #
+    # - { resource: "@SilManufacturingBundle/Resources/config/admin.yml" }
+
+    # SilSeedBatchBundle
+    #
+    # - { resource: "@SilSeedBatchBundle/Resources/config/admin.yml" }
+
+    # SilSonataSyliusUserBundle
+    #
+    # - { resource: "@SilSonataSyliusUserBundle/Resources/config/admin.yml" }

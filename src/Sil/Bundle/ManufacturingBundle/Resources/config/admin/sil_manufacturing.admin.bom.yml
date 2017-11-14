@@ -1,0 +1,16 @@
+
+services:
+    sil_manufacturing.admin.bom:
+        class: Sil\Bundle\ManufacturingBundle\Admin\BomAdmin
+        arguments: [~, Sil\Bundle\ManufacturingBundle\Domain\Entity\Bom, BlastCoreBundle:CRUD]
+        calls:
+            - [ setBomCodeGenerator, ['@sil.manufacturing.code_generator.bom']]
+            - [ setResourceRepository, ['@sil.manufacturing.repository.bom']]
+            - [ setTemplates, [{show: SilStockBundle:CRUD:show.html.twig,edit: SilStockBundle:CRUD:edit.html.twig,list: SilStockBundle:CRUD:list.html.twig}]]
+
+        tags:
+            -   name: sonata.admin
+                manager_type: orm
+                group: Manufacturing
+                label: sil.manufacturing.bom
+                label_translator_strategy: blast.resource.sonata.label_strategy.prefix

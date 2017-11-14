@@ -42,7 +42,6 @@ imports:
 
     - { resource: "@SilManufacturingBundle/Resources/config/app/config.yml" }
     - { resource: "@SilManufacturingBundle/Resources/config/services.yml" }
-    - { resource: "@SilManufacturingBundle/Resources/config/admin.yml" }
 
     # Platform Bundle
 
