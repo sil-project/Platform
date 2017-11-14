@@ -1,47 +1,5 @@
-services:
-    sil_email.admin.email:
-        class: Sil\Bundle\EmailBundle\Admin\EmailAdmin
-        arguments: [~, Sil\Bundle\EmailBundle\Entity\Email, SilEmailBundle:CRUD]
-        tags:
-            - name: sonata.admin
-              manager_type: orm
-              group: admin
-              label: sil.emailbundle.admin.email 
-              label_translator_strategy: blast_core.label.strategy.sil_email
-        calls:
-            - [ setTemplate, [edit, SilEmailBundle:CRUD:email_edit.html.twig]]
-            - [ setTemplate, [show, SilEmailBundle:CRUD:email_show.html.twig]]
-            
-    sil_email.admin.email_template:
-        class: Sil\Bundle\EmailBundle\Admin\EmailTemplateAdmin
-        arguments: [~, Sil\Bundle\EmailBundle\Entity\EmailTemplate, BlastCoreBundle:CRUD]
-        tags:
-            -  name: sonata.admin
-               manager_type: orm
-               group: admin
-               label: sil.emailbundle.admin.emailtemplate
-               label_translator_strategy: blast_core.label.strategy.sil_email
-        calls:
-        #    - [ setTemplate, [edit, SilEmailBundle:CRUD:email_template_edit.html.twig]]
-            - [ setTemplate, [edit, SilEmailBundle:CRUD:email_edit.html.twig]]
-
-    sil_email.admin.email_receipt:
-        class: Sil\Bundle\EmailBundle\Admin\EmailReceipt
-        arguments: [~, Sil\Bundle\EmailBundle\Entity\EmailReceipt, BlastCoreBundle:CRUD]
-        tags:
-            - name: sonata.admin
-              manager_type: orm
-              group: admin
-              label: sil.emailbundle.admin.emailreceipt 
-              label_translator_strategy: blast_core.label.strategy.sil_email
-
-    sil_email.admin.email_link:
-        class: Sil\Bundle\EmailBundle\Admin\EmailLink
-        arguments: [~, Sil\Bundle\EmailBundle\Entity\EmailLink, BlastCoreBundle:CRUD]
-        tags:
-            - name: sonata.admin
-              manager_type: orm
-              group: admin
-              label: sil.emailbundle.admin.emaillink 
-              label_translator_strategy: blast_core.label.strategy.sil_email
-
+imports:
+    - { resource: admin/sil_email.admin.email.yml}
+    - { resource: admin/sil_email.admin.email_template.yml}
+    - { resource: admin/sil_email.admin.email_receipt.yml}
+    - { resource: admin/sil_email.admin.email_link.yml}

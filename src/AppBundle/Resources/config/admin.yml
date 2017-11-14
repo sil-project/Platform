@@ -7,3 +7,7 @@ imports:
     # SilEcommerceBundle
     #
     # - { resource: "@SilEcommerceBundle/Resources/config/admin.yml" }
+
+    # SilEmailBundle
+    #
+    # - { resource: "@SilEmailBundle/Resources/config/admin.yml" }
