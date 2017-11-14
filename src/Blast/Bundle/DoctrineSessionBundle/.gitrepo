@@ -6,6 +6,6 @@
 [subrepo]
 	remote = git@github.com:blast-project/DoctrineSessionBundle.git
 	branch = wip-platform
-	commit = d9a0916f8b527d0985092bb52ac6122837ba9f37
+	commit = 1b604906bb2592165edb322d43754c9ac15fdcb6
 	cmdver = 0.3.1
-	parent = 2f234d463ebe4e32568756fe647386e6ed3a778e
+	parent = 8e17e24ac248696f76eb3bae273efebab3516095
