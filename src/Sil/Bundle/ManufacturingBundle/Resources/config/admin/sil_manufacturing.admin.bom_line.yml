@@ -2,7 +2,7 @@
 services:
     sil_manufacturing.admin.bom_line:
         class: Sil\Bundle\ManufacturingBundle\Admin\BomLineAdmin
-        arguments: [~, Sil\Bundle\ManufacturingBundle\Domain\Entity\BomLine, BlastCoreBundle:CRUD]
+        arguments: [~, "%sil_manufacturing.entity.bom_line.class%", BlastCoreBundle:CRUD]
         calls:
             - ["setResourceRepository", ['@sil.manufacturing.repository.bom_line']]
             - [ setTemplates, [{show: SilStockBundle:CRUD:show.html.twig,edit: SilStockBundle:CRUD:edit.html.twig,list: SilStockBundle:CRUD:list.html.twig}]]
