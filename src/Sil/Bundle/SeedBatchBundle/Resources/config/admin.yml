@@ -1,11 +1,11 @@
 imports:
-    - { resource: admin/sil_seed_batch.admin.certification_type.yml }
-    - { resource: admin/sil_seed_batch.admin.certification.yml }
-    - { resource: admin/sil_seed_batch.admin.certifying_body.yml }
-    - { resource: admin/sil_seedbatch.admin.organism.yml }
-    - { resource: admin/sil_seedbatch.admin.plot_embedded.yml }
-    - { resource: admin/sil_seedbatch.admin.plot.yml }
-    - { resource: admin/sil_seedbatch.admin.seedbatch_embedded.yml }
-    - { resource: admin/sil_seedbatch.admin.seedbatch.yml }
-    - { resource: admin/sil_seedbatch.admin.seedfarm.yml }
-    - { resource: admin/sil_seedbatch.admin.seed_producer.yml }
+    - { resource: "@SilSeedBatchBundle/Resources/config/admin/sil_seed_batch.admin.certification_type.yml" }
+    - { resource: "@SilSeedBatchBundle/Resources/config/admin/sil_seed_batch.admin.certification.yml" }
+    - { resource: "@SilSeedBatchBundle/Resources/config/admin/sil_seed_batch.admin.certifying_body.yml" }
+    - { resource: "@SilSeedBatchBundle/Resources/config/admin/sil_seedbatch.admin.organism.yml" }
+    - { resource: "@SilSeedBatchBundle/Resources/config/admin/sil_seedbatch.admin.plot_embedded.yml" }
+    - { resource: "@SilSeedBatchBundle/Resources/config/admin/sil_seedbatch.admin.plot.yml" }
+    - { resource: "@SilSeedBatchBundle/Resources/config/admin/sil_seedbatch.admin.seedbatch_embedded.yml" }
+    - { resource: "@SilSeedBatchBundle/Resources/config/admin/sil_seedbatch.admin.seedbatch.yml" }
+    - { resource: "@SilSeedBatchBundle/Resources/config/admin/sil_seedbatch.admin.seedfarm.yml" }
+    - { resource: "@SilSeedBatchBundle/Resources/config/admin/sil_seedbatch.admin.seed_producer.yml" }
