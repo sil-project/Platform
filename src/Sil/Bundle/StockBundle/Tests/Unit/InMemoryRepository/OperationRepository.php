@@ -9,17 +9,18 @@
  * file that was distributed with this source code.
  */
 
-namespace Sil\Bundle\StockBundle\Domain\Repository\InMemory;
+namespace Sil\Bundle\StockBundle\Test\Unit\InMemoryRepository;
 
-use Sil\Bundle\StockBundle\Domain\Entity\OutputStrategy;
+use Sil\Bundle\StockBundle\Domain\Repository\OperationRepositoryInterface;
+use Sil\Bundle\StockBundle\Domain\Entity\Operation;
 
 /**
  * @author Glenn Cavarlé <glenn.cavarle@libre-informatique.fr>
  */
-class OutputStrategyRepository extends InMemoryRepository
+class OperationRepository extends InMemoryRepository implements OperationRepositoryInterface
 {
     public function __construct()
     {
-        parent::__construct(OutputStrategy::class);
+        parent::__construct(Operation::class);
     }
 }

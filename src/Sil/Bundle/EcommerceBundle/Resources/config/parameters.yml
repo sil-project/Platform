@@ -5,7 +5,6 @@ parameters:
     sil_ecommerce.entity.product_variant.class:             Sil\Bundle\EcommerceBundle\Entity\ProductVariant
     sil_ecommerce.entity.payment.class:                     Sil\Bundle\EcommerceBundle\Entity\Payment
     sil_ecommerce.entity.tax_rate.class:                    Sil\Bundle\EcommerceBundle\Entity\TaxRate
-    sil_ecommerce.entity.tax_category.class:                Sil\Bundle\EcommerceBundle\Entity\TaxCategory
     sil_ecommerce.entity.taxon.class:                       Sil\Bundle\EcommerceBundle\Entity\Taxon
     sil_ecommerce.entity.product_option.class:              Sil\Bundle\EcommerceBundle\Entity\ProductOption
     sil_ecommerce.entity.channel.class:                     Sil\Bundle\EcommerceBundle\Entity\Channel

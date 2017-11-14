@@ -9,18 +9,18 @@
  * file that was distributed with this source code.
  */
 
-namespace Sil\Bundle\StockBundle\Domain\Repository\InMemory;
+namespace Sil\Bundle\StockBundle\Test\Unit\InMemoryRepository;
 
-use Sil\Bundle\StockBundle\Domain\Repository\OperationRepositoryInterface;
-use Sil\Bundle\StockBundle\Domain\Entity\Operation;
+use Sil\Bundle\StockBundle\Domain\Repository\MovementRepositoryInterface;
+use Sil\Bundle\StockBundle\Domain\Entity\Movement;
 
 /**
  * @author Glenn Cavarlé <glenn.cavarle@libre-informatique.fr>
  */
-class OperationRepository extends InMemoryRepository implements OperationRepositoryInterface
+class MovementRepository extends InMemoryRepository implements MovementRepositoryInterface
 {
     public function __construct()
     {
-        parent::__construct(Operation::class);
+        parent::__construct(Movement::class);
     }
 }

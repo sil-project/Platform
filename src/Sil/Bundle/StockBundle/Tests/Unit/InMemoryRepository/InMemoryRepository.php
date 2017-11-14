@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Sil\Bundle\StockBundle\Domain\Repository\InMemory;
+namespace Sil\Bundle\StockBundle\Test\Unit\InMemoryRepository;
 
 use ArrayObject;
 use Symfony\Component\PropertyAccess\PropertyAccess;
