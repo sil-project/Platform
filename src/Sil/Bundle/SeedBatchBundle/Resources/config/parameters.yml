@@ -1,7 +1,7 @@
 parameters:
-    sil_seed_batch.entity.certifying_body.class: Sil\Bundle\SeedBatchBundle\Entity\CertifyingBody
-    sil_seed_batch.entity.certification.class: Sil\Bundle\SeedBatchBundle\Entity\Certification
-    sil_seed_batch.entity.certification_type.class: Sil\Bundle\SeedBatchBundle\Entity\CertificationType
-    sil_seed_batch.entity.seed_farm.class: Sil\Bundle\SeedBatchBundle\Entity\SeedFarm
-    sil_seed_batch.entity.plot.class: Sil\Bundle\SeedBatchBundle\Entity\Plot
-    sil_seed_batch.entity.seed_batch.class: Sil\Bundle\SeedBatchBundle\Entity\SeedBatch
+    sil_seed_batch.entity.certifying_body.class:        Sil\Bundle\SeedBatchBundle\Entity\CertifyingBody
+    sil_seed_batch.entity.certification.class:          Sil\Bundle\SeedBatchBundle\Entity\Certification
+    sil_seed_batch.entity.certification_type.class:     Sil\Bundle\SeedBatchBundle\Entity\CertificationType
+    sil_seed_batch.entity.seed_farm.class:              Sil\Bundle\SeedBatchBundle\Entity\SeedFarm
+    sil_seed_batch.entity.plot.class:                   Sil\Bundle\SeedBatchBundle\Entity\Plot
+    sil_seed_batch.entity.seed_batch.class:             Sil\Bundle\SeedBatchBundle\Entity\SeedBatch
