@@ -1,5 +1,5 @@
 imports:
-    - { resource: admin/sil_email.admin.email.yml}
-    - { resource: admin/sil_email.admin.email_template.yml}
-    - { resource: admin/sil_email.admin.email_receipt.yml}
-    - { resource: admin/sil_email.admin.email_link.yml}
+    - { resource: "@SilEmailBundle/Resources/config/admin/sil_email.admin.email.yml" }
+    - { resource: "@SilEmailBundle/Resources/config/admin/sil_email.admin.email_template.yml" }
+    - { resource: "@SilEmailBundle/Resources/config/admin/sil_email.admin.email_receipt.yml" }
+    - { resource: "@SilEmailBundle/Resources/config/admin/sil_email.admin.email_link.yml" }

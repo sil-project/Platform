@@ -1,2 +1,2 @@
 imports:
-    - { resource: admin/sil_sonata_sylius_user.admin.sonata_user.yml }
+    - { resource: "@SilSonataSyliusUserBundle/Resources/config/admin/sil_sonata_sylius_user.admin.sonata_user.yml" }
