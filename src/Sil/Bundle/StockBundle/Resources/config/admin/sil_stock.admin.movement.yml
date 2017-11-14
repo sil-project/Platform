@@ -2,7 +2,7 @@
 services:
     sil_stock.admin.movement:
         class: Sil\Bundle\StockBundle\Admin\MovementAdmin
-        arguments: [~, Sil\Bundle\StockBundle\Domain\Entity\Movement, BlastCoreBundle:CRUD]
+        arguments: [~, "%sil_stock.entity.movement.class%", BlastCoreBundle:CRUD]
         calls:
             - [setMovementCodeGenerator, ['@sil.stock.code_generator.movement']]
             - [setResourceRepository, ['@sil.stock.repository.movement']]

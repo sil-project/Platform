@@ -4,6 +4,8 @@ parameters:
     sil_ecommerce.entity.product.class: PlatformBundle\Entity\SilEcommerceBundle\Product
     sil_media.entity.file.class: PlatformBundle\Entity\SilMediaBundle\File
     sil_sonata_sylius_user.entity.sonata_user.class: PlatformBundle\Entity\SilSonataSyliusUserBundle\SonataUser
+    sil_stock.entity.partner.class: "%sil_crm.entity.organism.class%"
+    sil_stock.entity.stock_item.class: "%sil_ecommerce.entity.product.class%"
 
 doctrine:
     orm:
@@ -25,8 +27,8 @@ doctrine:
 
             # SilStockBundle
 
-            Sil\Bundle\StockBundle\Domain\Entity\PartnerInterface:          PlatformBundle\Entity\SilCRMBundle\Organism
-            Sil\Bundle\StockBundle\Domain\Entity\StockItemInterface:        Sil\Bundle\EcommerceBundle\Entity\Product
+            Sil\Bundle\StockBundle\Domain\Entity\PartnerInterface:          "%sil_stock.entity.partner.class%"
+            Sil\Bundle\StockBundle\Domain\Entity\StockItemInterface:        "%sil_stock.entity.stock_item.class%"
 
             # SilVarietyBundle
 

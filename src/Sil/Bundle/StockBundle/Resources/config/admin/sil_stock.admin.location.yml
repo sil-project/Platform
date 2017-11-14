@@ -2,7 +2,7 @@
 services:
     sil_stock.admin.location:
         class: Sil\Bundle\StockBundle\Admin\LocationAdmin
-        arguments: [~, Sil\Bundle\StockBundle\Domain\Entity\Location, BlastCoreBundle:CRUD]
+        arguments: [~, "%sil_stock.entity.location.class%", BlastCoreBundle:CRUD]
         calls:
             - [setResourceRepository, ['@sil.stock.repository.location']]
             - [setStockUnitRepository, ['@sil.stock.repository.stock_unit']]

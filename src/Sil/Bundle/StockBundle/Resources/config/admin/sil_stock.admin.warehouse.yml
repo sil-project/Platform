@@ -2,7 +2,7 @@
 services:
     sil_stock.admin.warehouse:
         class: Sil\Bundle\StockBundle\Admin\WarehouseAdmin
-        arguments: [~, Sil\Bundle\StockBundle\Domain\Entity\Warehouse, BlastCoreBundle:CRUD]
+        arguments: [~, "%sil_stock.entity.warehouse.class%", BlastCoreBundle:CRUD]
         calls:
             - [setResourceRepository, ['@sil.stock.repository.warehouse']]
             - [ setTemplates, [{show: SilStockBundle:CRUD:show.html.twig,edit: SilStockBundle:CRUD:edit.html.twig,list: SilStockBundle:CRUD:list.html.twig}]]
