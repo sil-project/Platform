@@ -1,2 +1,3 @@
-parameters: 
-
+parameters:
+    sil_sonata_sylius_user.entity.sonata_user.class: Sil\Bundle\SonataSyliusUserBundle\Entity\SonataUser
+    sil_sonata_sylius_user.entity.sonata_group.class: Sil\Bundle\SonataSyliusUserBundle\Entity\SonataGroup

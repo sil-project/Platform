@@ -3,6 +3,7 @@ parameters:
     sil_crm.entity.organism.class: PlatformBundle\Entity\SilCRMBundle\Organism
     sil_ecommerce.entity.product.class: PlatformBundle\Entity\SilEcommerceBundle\Product
     sil_media.entity.file.class: PlatformBundle\Entity\SilMediaBundle\File
+    sil_sonata_sylius_user.entity.sonata_user.class: PlatformBundle\Entity\SilSonataSyliusUserBundle\SonataUser
 
 doctrine:
     orm:
@@ -14,8 +15,8 @@ doctrine:
 
             # SilSonataSyliusUserBundle
 
-            Sil\Bundle\SonataSyliusUserBundle\Entity\SonataUserInterface:   PlatformBundle\Entity\SilSonataSyliusUserBundle\SonataUser
-            Sil\Bundle\SonataSyliusUserBundle\Entity\SonataGroupInterface:  Sil\Bundle\SonataSyliusUserBundle\Entity\SonataGroup
+            Sil\Bundle\SonataSyliusUserBundle\Entity\SonataUserInterface:   "%sil_sonata_sylius_user.entity.sonata_user.class%"
+            Sil\Bundle\SonataSyliusUserBundle\Entity\SonataGroupInterface:  "%sil_sonata_sylius_user.entity.sonata_group.class%"
 
             # SilCRMBundle
 
