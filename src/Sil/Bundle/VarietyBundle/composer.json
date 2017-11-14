@@ -47,5 +47,6 @@
         "psr-4": {
             "Sil\\Bundle\\VarietyBundle\\": "."
         }
-    }
+    },
+    "version": "dev-wip-platform"
 }

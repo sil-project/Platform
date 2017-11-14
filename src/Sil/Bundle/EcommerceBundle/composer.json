@@ -42,5 +42,6 @@
         "psr-4": {
             "Sil\\Bundle\\EcommerceBundle\\": "."
         }
-    }
+    },
+    "version": "dev-wip-platform"
 }
