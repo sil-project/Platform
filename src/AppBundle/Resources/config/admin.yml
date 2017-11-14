@@ -15,3 +15,7 @@ imports:
     # SilEmailCRMBundle
     #
     # - { resource: "@SilEmailCRMBundle/Resources/config/admin.yml" }
+
+    # SilManufacturingBundle
+    #
+    # - { resource: "@SilManufacturingBundle/Resources/config/admin.yml" }
