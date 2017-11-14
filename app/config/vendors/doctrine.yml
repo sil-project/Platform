@@ -1,6 +1,7 @@
 parameters:
     sil_crm.entity.address.class: PlatformBundle\Entity\SilCRMBundle\Address
     sil_crm.entity.organism.class: PlatformBundle\Entity\SilCRMBundle\Organism
+    sil_ecommerce.entity.product.class: PlatformBundle\Entity\SilEcommerceBundle\Product
 
 doctrine:
     orm:
@@ -34,7 +35,7 @@ doctrine:
 
             #SilEcommerceBundle
 
-            Sil\Bundle\EcommerceBundle\Entity\ProductInterface:             PlatformBundle\Entity\SilEcommerceBundle\Product
+            Sil\Bundle\EcommerceBundle\Entity\ProductInterface:             "%sil_ecommerce.entity.product.class%"
 
             #SilMediaBundle
 

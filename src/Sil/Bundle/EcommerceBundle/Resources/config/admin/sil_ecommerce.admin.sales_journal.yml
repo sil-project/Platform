@@ -2,7 +2,7 @@
 services:
     sil_ecommerce.admin.sales_journal:
         class: Sil\Bundle\EcommerceBundle\Admin\SalesJournalAdmin
-        arguments: [~, Sil\Bundle\EcommerceBundle\Entity\SalesJournalItem, BlastCoreBundle:CRUD]
+        arguments: [~, "%sil_ecommerce.entity.sales_journal_item.class%", BlastCoreBundle:CRUD]
         tags:
             -
                 name: sonata.admin

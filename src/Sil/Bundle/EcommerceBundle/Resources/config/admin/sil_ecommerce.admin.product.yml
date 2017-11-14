@@ -2,7 +2,7 @@
 services:
     sil_ecommerce.admin.product:
         class: Sil\Bundle\EcommerceBundle\Admin\ProductAdmin
-        arguments: [~, Sil\Bundle\EcommerceBundle\Entity\Product, SilEcommerceBundle:ProductCRUD]
+        arguments: [~, "%sil_ecommerce.entity.product.class%", SilEcommerceBundle:ProductCRUD]
         tags:
             -
                 name: sonata.admin

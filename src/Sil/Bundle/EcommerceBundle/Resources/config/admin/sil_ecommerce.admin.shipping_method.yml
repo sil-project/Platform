@@ -2,7 +2,7 @@
 services:
     sil_ecommerce.admin.shipping_method:
         class: Sil\Bundle\EcommerceBundle\Admin\ShippingMethodAdmin
-        arguments: [~, Sil\Bundle\EcommerceBundle\Entity\ShippingMethod, BlastCoreBundle:CRUD]
+        arguments: [~, "%sil_ecommerce.entity.shipping_method.class%", BlastCoreBundle:CRUD]
         tags:
             -
                 name: sonata.admin

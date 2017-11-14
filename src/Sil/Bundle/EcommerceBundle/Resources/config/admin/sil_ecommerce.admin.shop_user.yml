@@ -2,7 +2,7 @@
 services:
     sil_ecommerce.admin.shop_user:
         class: Sil\Bundle\EcommerceBundle\Admin\ShopUserAdmin
-        arguments: [~, Sylius\Component\Core\Model\ShopUser, BlastCoreBundle:CRUD]
+        arguments: [~, "%sylius.model.shop_user.class%", BlastCoreBundle:CRUD]
         tags:
             -
                 name: sonata.admin

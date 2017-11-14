@@ -2,7 +2,7 @@
 services:
     sil_ecommerce.admin.channel_pricing:
         class: Sil\Bundle\EcommerceBundle\Admin\ChannelPricingAdmin
-        arguments: [~, Sylius\Component\Core\Model\ChannelPricing, BlastCoreBundle:CRUD]
+        arguments: [~, "%sylius.model.channel_pricing.class%", BlastCoreBundle:CRUD]
         tags:
             -
                 name: sonata.admin

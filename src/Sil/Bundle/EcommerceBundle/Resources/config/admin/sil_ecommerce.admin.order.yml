@@ -2,7 +2,7 @@
 services:
     sil_ecommerce.admin.order:
         class: Sil\Bundle\EcommerceBundle\Admin\OrderAdmin
-        arguments: [~, Sil\Bundle\EcommerceBundle\Entity\Order, SilEcommerceBundle:OrderCRUD]
+        arguments: [~, "%sil_ecommerce.entity.order.class%", SilEcommerceBundle:OrderCRUD]
         tags:
             -
                 name: sonata.admin

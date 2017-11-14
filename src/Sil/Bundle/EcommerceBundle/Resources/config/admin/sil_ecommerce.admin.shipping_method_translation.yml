@@ -2,7 +2,7 @@
 services:
     sil_ecommerce.admin.shipping_method_translation:
         class: Sil\Bundle\EcommerceBundle\Admin\ShippingMethodTranslationAdmin
-        arguments: [~, Sylius\Component\Shipping\Model\ShippingMethodTranslation, BlastCoreBundle:CRUD]
+        arguments: [~, "%sylius.model.shipping_method_translation.class%", BlastCoreBundle:CRUD]
         tags:
             -
                 name: sonata.admin
