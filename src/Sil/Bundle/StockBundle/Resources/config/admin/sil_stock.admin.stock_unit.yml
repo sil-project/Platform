@@ -1,0 +1,17 @@
+
+services:
+    sil_stock.admin.stock_unit:
+        class: Sil\Bundle\StockBundle\Admin\StockUnitAdmin
+        arguments: [~, Sil\Bundle\StockBundle\Domain\Entity\StockUnit, sil.stock.controller.stock_unit]
+        calls:
+            - [setStockUnitCodeGenerator, ['@sil.stock.code_generator.stock_unit']]
+            - [setResourceRepository, ['@sil.stock.repository.stock_unit']]
+            - [ setTemplates, [{show: SilStockBundle:CRUD:show.html.twig,edit: SilStockBundle:CRUD:edit.html.twig,list: SilStockBundle:CRUD:list.html.twig}]]
+
+        tags:
+            -
+                name: sonata.admin
+                manager_type: orm
+                group: Stock Management
+                label: sil.stock.stock_unit
+                label_translator_strategy: blast.resource.sonata.label_strategy.prefix

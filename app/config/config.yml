@@ -38,7 +38,6 @@ imports:
 
     - { resource: "@SilStockBundle/Resources/config/app/config.yml" }
     - { resource: "@SilStockBundle/Resources/config/services.yml" }
-    - { resource: "@SilStockBundle/Resources/config/admin.yml" }
 
     - { resource: "@SilManufacturingBundle/Resources/config/app/config.yml" }
     - { resource: "@SilManufacturingBundle/Resources/config/services.yml" }

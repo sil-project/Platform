@@ -1,0 +1,18 @@
+
+services:
+    sil_stock.admin.location:
+        class: Sil\Bundle\StockBundle\Admin\LocationAdmin
+        arguments: [~, Sil\Bundle\StockBundle\Domain\Entity\Location, BlastCoreBundle:CRUD]
+        calls:
+            - [setResourceRepository, ['@sil.stock.repository.location']]
+            - [setStockUnitRepository, ['@sil.stock.repository.stock_unit']]
+            - [setStockItemRepository, ['@sil.stock.repository.stock_item']]
+            - [setStockItemQueries, ['@sil.stock.domain_query.stock_item']]
+            - [ setTemplates, [{show: SilStockBundle:CRUD:show.html.twig,edit: SilStockBundle:CRUD:edit.html.twig,list: SilStockBundle:CRUD:list.html.twig}]]
+        tags:
+            -
+                name: sonata.admin
+                manager_type: orm
+                group: Stock Management
+                label: sil.stock.location
+                label_translator_strategy: blast.resource.sonata.label_strategy.prefix

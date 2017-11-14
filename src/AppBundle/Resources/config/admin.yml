@@ -27,3 +27,7 @@ imports:
     # SilSonataSyliusUserBundle
     #
     # - { resource: "@SilSonataSyliusUserBundle/Resources/config/admin.yml" }
+
+    # SilStockBundle
+    #
+    # - { resource: "@SilStockBundle/Resources/config/admin.yml" }

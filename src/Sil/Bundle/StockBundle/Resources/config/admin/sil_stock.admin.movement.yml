@@ -1,0 +1,17 @@
+
+services:
+    sil_stock.admin.movement:
+        class: Sil\Bundle\StockBundle\Admin\MovementAdmin
+        arguments: [~, Sil\Bundle\StockBundle\Domain\Entity\Movement, BlastCoreBundle:CRUD]
+        calls:
+            - [setMovementCodeGenerator, ['@sil.stock.code_generator.movement']]
+            - [setResourceRepository, ['@sil.stock.repository.movement']]
+            - [setStockItemQueries, ['@sil.stock.domain_query.stock_item']]
+            - [ setTemplates, [{show: SilStockBundle:CRUD:show.html.twig,edit: SilStockBundle:CRUD:edit.html.twig,list: SilStockBundle:CRUD:list.html.twig}]]
+        tags:
+            -
+                name: sonata.admin
+                manager_type: orm
+                group: Stock Management
+                label: sil.stock.movement
+                label_translator_strategy: blast.resource.sonata.label_strategy.prefix
