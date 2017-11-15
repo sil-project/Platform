@@ -11,14 +11,13 @@
 
 namespace LisemBundle\Entity\SilEcommerceBundle;
 
-use LisemBundle\Entity\SilEcommerceBundle\Product;
 use Sil\Bundle\SeedBatchBundle\Entity\Association\HasSeedBatchesTrait;
 use Sil\Bundle\EcommerceBundle\Entity\ProductOptionValue as BaseProductOptionValue;
 
 class ProductOptionValue extends BaseProductOptionValue
 {
-
     use HasSeedBatchesTrait;
+
     /**
      * @return bool
      */
