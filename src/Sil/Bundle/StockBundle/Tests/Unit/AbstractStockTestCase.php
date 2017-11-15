@@ -175,13 +175,25 @@ class AbstractStockTestCase extends TestCase
 
     protected function initSrcStockUnits()
     {
+        if ($this->stockItem->getUom() === null) {
+            $this->stockItem->setUom($this->uomGr);
+        }
         $itemUom = $this->stockItem->getUom();
-        $q1 = $this->stockUnitFactory->createNew($this->stockItem,
-            new UomQty($itemUom, 5), $this->whLocSrc);
-        $q2 = $this->stockUnitFactory->createNew($this->stockItem,
-            new UomQty($itemUom, 3), $this->whLocSrc);
-        $q3 = $this->stockUnitFactory->createNew($this->stockItem,
-            new UomQty($itemUom, 10), $this->whLocSrc);
+        $q1 = $this->stockUnitFactory->createNew(
+            $this->stockItem,
+            new UomQty($itemUom, 5),
+            $this->whLocSrc
+        );
+        $q2 = $this->stockUnitFactory->createNew(
+            $this->stockItem,
+            new UomQty($itemUom, 3),
+            $this->whLocSrc
+        );
+        $q3 = $this->stockUnitFactory->createNew(
+            $this->stockItem,
+            new UomQty($itemUom, 10),
+            $this->whLocSrc
+        );
 
         $this->unitRepo->addAll([$q1, $q2, $q3]);
     }
@@ -197,10 +209,17 @@ class AbstractStockTestCase extends TestCase
         $this->stockUnitFactory = new StockUnitFactory(new StockUnitCodeGenerator());
         $this->opFactory = new OperationFactory(new OperationCodeGenerator());
 
-        $this->mvtService = new MovementService($this->mvtRepo, $this->unitRepo,
-            $this->movementFactory, $this->stockUnitFactory);
-        $this->opService = new OperationService($this->opRepo,
-            $this->mvtService, $this->opFactory);
+        $this->mvtService = new MovementService(
+            $this->mvtRepo,
+            $this->unitRepo,
+            $this->movementFactory,
+            $this->stockUnitFactory
+        );
+        $this->opService = new OperationService(
+            $this->opRepo,
+            $this->mvtService,
+            $this->opFactory
+        );
         $this->uomService = new UomService($this->unitRepo);
 
         $this->stockItemQueries = new StockItemQueries($this->unitRepo);
