@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Sil\Bundle\StockBundle\Test\Unit\InMemoryRepository;
+namespace Sil\Bundle\StockBundle\Tests\Unit\InMemoryRepository;
 
 use ArrayObject;
 use Symfony\Component\PropertyAccess\PropertyAccess;
@@ -53,7 +53,8 @@ class InMemoryRepository
     {
         if (!$resource instanceof $this->interface) {
             throw new \InvalidArgumentException(
-            'The added resource must be an instance of ' . $this->interface);
+                'The added resource must be an instance of ' . $this->interface
+            );
         }
         if (in_array($resource, $this->findAll())) {
             throw new \InvalidArgumentException('Resource already exists and cannot be added');
@@ -63,10 +64,12 @@ class InMemoryRepository
 
     public function remove($resource)
     {
-        $newResources = array_filter($this->findAll(),
+        $newResources = array_filter(
+            $this->findAll(),
             function ($object) use ($resource) {
                 return $object !== $resource;
-            });
+            }
+        );
         $this->arrayObject->exchangeArray($newResources);
     }
 
@@ -90,9 +93,13 @@ class InMemoryRepository
         return $this->arrayObject->getArrayCopy();
     }
 
-    public function findBy(array $criteria, $orderBy = null, $limit = null,
-        $offset = null)
-    {
+    public function findBy(
+        array $criteria,
+        $orderBy = null,
+        $limit = null,
+        $offset = null
+    ) {
+    
         $results = $this->findAll();
         if (!empty($criteria)) {
             $results = $this->applyCriteria($results, $criteria);

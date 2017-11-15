@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Sil\Bundle\StockBundle\Test\Unit\InMemoryRepository;
+namespace Sil\Bundle\StockBundle\Tests\Unit\InMemoryRepository;
 
 use Sil\Bundle\StockBundle\Domain\Repository\StockUnitRepositoryInterface;
 use Sil\Bundle\StockBundle\Domain\Entity\StockUnit;

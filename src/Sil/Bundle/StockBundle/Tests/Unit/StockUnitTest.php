@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Sil\Bundle\StockBundle\Test\Unit;
+namespace Sil\Bundle\StockBundle\Tests\Unit;
 
 /**
  * @author Glenn Cavarlé <glenn.cavarle@libre-informatique.fr>

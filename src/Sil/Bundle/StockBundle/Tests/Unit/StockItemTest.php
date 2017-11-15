@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Sil\Bundle\StockBundle\Test\Unit;
+namespace Sil\Bundle\StockBundle\Tests\Unit;
 
 /**
  * @author Glenn Cavarlé <glenn.cavarle@libre-informatique.fr>
@@ -29,8 +29,8 @@ class StockItemTest extends AbstractStockTestCase
     public function testUpdateUnitsUom()
     {
         $this->markTestSkipped(
-             'Not working due to 18 come from nowhere.'
-         );
+            'Not working due to 18 come from nowhere.'
+        );
         $qty = $this->stockItemQueries->getQty($this->stockItem);
         /* @todo should never use assertTrue to compare value (other usefull assert exist) */
         $this->assertTrue($qty->getValue() == 18);
