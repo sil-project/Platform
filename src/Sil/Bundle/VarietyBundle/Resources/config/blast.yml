@@ -4,7 +4,7 @@ parameters:
 # FAMILY
 ##########
 
-        Sil\Bundle\VarietyBundle\Entity\Family:
+        Sil\Bundle\VarietyBundle\Entity\FamilyInterface:
             Sonata\AdminBundle\Show\ShowMapper:
                 remove:
                     name: ~
@@ -115,7 +115,7 @@ parameters:
 # GENUS
 ##########
 
-        Sil\Bundle\VarietyBundle\Entity\Genus:
+        Sil\Bundle\VarietyBundle\Entity\GenusInterface:
             Sonata\AdminBundle\Show\ShowMapper:
                 remove: [description, createdAt, updatedAt]
                 add:
@@ -289,7 +289,7 @@ parameters:
 # SPECIES
 ##########
 
-        Sil\Bundle\VarietyBundle\Entity\Species:
+        Sil\Bundle\VarietyBundle\Entity\SpeciesInterface:
             Sonata\AdminBundle\Show\ShowMapper:
                 remove:
                     description: ~
@@ -605,7 +605,7 @@ parameters:
 # VARIETY
 ###############
 
-        Sil\Bundle\VarietyBundle\Entity\Variety:
+        Sil\Bundle\VarietyBundle\Entity\VarietyInterface:
             Sonata\AdminBundle\Show\ShowMapper:
                 titleTemplate: SilVarietyBundle:VarietyAdmin:show_title.html.twig
                 forceTabs: true

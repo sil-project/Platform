@@ -362,7 +362,7 @@ parameters:
 # STOCK ITEMS
 ##############
 
-        Sil\Bundle\StockBundle\Domain\Entity\StockItem:
+        Sil\Bundle\StockBundle\Domain\Entity\StockItemInterface:
             
             Sonata\AdminBundle\Form\FormMapper:
                 add:

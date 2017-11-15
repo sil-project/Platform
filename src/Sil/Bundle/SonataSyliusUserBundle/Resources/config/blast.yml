@@ -1,6 +1,6 @@
 parameters:
     blast:
-        Sil\Bundle\SonataSyliusUserBundle\Entity\SonataUser:
+        Sil\Bundle\SonataSyliusUserBundle\Entity\SonataUserInterface:
             Sonata\AdminBundle\Datagrid\ListMapper:
                 add:
                     username: ~
@@ -94,7 +94,7 @@ parameters:
                                 type: array
                                 template: BlastCoreBundle:CRUD:show_array_roles.html.twig
 
-        Sil\Bundle\SonataSyliusBundle\Entity\SonataGroup:
+        Sil\Bundle\SonataSyliusUserBundle\Entity\SonataGroupInterface:
             Sonata\AdminBundle\Datagrid\ListMapper:
                 add:
                     name: ~
