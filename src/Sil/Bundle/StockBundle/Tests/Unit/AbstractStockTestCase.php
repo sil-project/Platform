@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Sil\Bundle\StockBundle\Test\Unit;
+namespace Sil\Bundle\StockBundle\Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
 use Sil\Bundle\StockBundle\Domain\Entity\UomType;
@@ -20,13 +20,13 @@ use Sil\Bundle\StockBundle\Domain\Entity\Location;
 use Sil\Bundle\StockBundle\Domain\Entity\StockItem;
 use Sil\Bundle\StockBundle\Domain\Entity\OutputStrategy;
 use Sil\Bundle\StockBundle\Domain\Repository\StockUnitRepositoryInterface;
-use Sil\Bundle\StockBundle\Test\Unit\InMemoryRepository\StockUnitRepository;
+use Sil\Bundle\StockBundle\Tests\Unit\InMemoryRepository\StockUnitRepository;
 use Sil\Bundle\StockBundle\Domain\Repository\MovementRepositoryInterface;
-use Sil\Bundle\StockBundle\Test\Unit\InMemoryRepository\MovementRepository;
+use Sil\Bundle\StockBundle\Tests\Unit\InMemoryRepository\MovementRepository;
 use Sil\Bundle\StockBundle\Domain\Repository\OperationRepositoryInterface;
-use Sil\Bundle\StockBundle\Test\Unit\InMemoryRepository\OperationRepository;
+use Sil\Bundle\StockBundle\Tests\Unit\InMemoryRepository\OperationRepository;
 use Sil\Bundle\StockBundle\Domain\Repository\StockItemRepositoryInterface;
-use Sil\Bundle\StockBundle\Test\Unit\InMemoryRepository\StockItemRepository;
+use Sil\Bundle\StockBundle\Tests\Unit\InMemoryRepository\StockItemRepository;
 use Sil\Bundle\StockBundle\Domain\Service\MovementServiceInterface;
 use Sil\Bundle\StockBundle\Domain\Service\MovementService;
 use Sil\Bundle\StockBundle\Domain\Service\OperationServiceInterface;

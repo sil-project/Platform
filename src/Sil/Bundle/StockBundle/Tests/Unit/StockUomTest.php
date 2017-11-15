@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Sil\Bundle\StockBundle\Test\Unit;
+namespace Sil\Bundle\StockBundle\Tests\Unit;
 
 use Sil\Bundle\StockBundle\Domain\Entity\UomType;
 use Sil\Bundle\StockBundle\Domain\Entity\Uom;

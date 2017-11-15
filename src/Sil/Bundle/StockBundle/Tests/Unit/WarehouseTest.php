@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Sil\Bundle\StockBundle\Test\Unit;
+namespace Sil\Bundle\StockBundle\Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
 use Sil\Bundle\StockBundle\Domain\Entity;
