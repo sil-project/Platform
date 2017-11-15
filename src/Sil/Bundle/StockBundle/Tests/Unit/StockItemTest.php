@@ -28,7 +28,7 @@ class StockItemTest extends AbstractStockTestCase
      */
     public function testUpdateUnitsUom()
     {
-         $this->markTestSkipped(
+        $this->markTestSkipped(
              'Not working due to 18 come from nowhere.'
          );
         $qty = $this->stockItemQueries->getQty($this->stockItem);
