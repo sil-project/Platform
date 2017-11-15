@@ -5,7 +5,7 @@ parameters:
 # PRODUCT
 ##########
 
-        Sil\Bundle\EcommerceBundle\Entity\Product:
+        Sil\Bundle\EcommerceBundle\Entity\ProductInterface:
             form_theme:
                 - SilEcommerceBundle:Form:fields.html.twig
             Sonata\AdminBundle\Show\ShowMapper:
@@ -539,7 +539,7 @@ parameters:
 ########
 
         # Sylius\Component\Core\Model\Order:
-        Sil\Bundle\EcommerceBundle\Entity\Order:
+        Sil\Bundle\EcommerceBundle\Entity\OrderInterface:
             # SHOW
             Sonata\AdminBundle\Show\ShowMapper:
                 titleTemplate: SilEcommerceBundle:OrderAdmin/Show:show_title.html.twig
