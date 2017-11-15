@@ -32,6 +32,8 @@
         <directory>./Resources/</directory>
         <directory>./vendor/</directory>
         <directory>./coverage/</directory>
+        <directory>./src/*/Bundle/*/bin/</directory>
+        <directory>./src/*/Bundle/*/etc/</directory>
         <directory>./src/*/Bundle/*/Tests/</directory>
         <directory>./src/*/Bundle/*/DataFixtures/</directory>
         <directory>./src/*/Bundle/*/vendor/</directory>
