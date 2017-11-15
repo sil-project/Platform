@@ -6,6 +6,6 @@
 [subrepo]
 	remote = git@github.com:sil-project/StockBundle.git
 	branch = wip-platform
-	commit = a4c183d2cce70ae6df8bcb4a1aec35ac0a31a380
+	commit = 2aff551219396af42f1d900cd051ca00a818a1dd
 	cmdver = 0.3.1
-	parent = 5cf1fdba26df27701d137c2f9134d04bf4b33e50
+	parent = c7c09bf45e1f287b24d2eb1502977e3017f9d3f2
