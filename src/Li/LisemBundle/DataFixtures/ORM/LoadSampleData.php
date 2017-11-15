@@ -20,7 +20,7 @@ use Sil\Bundle\CRMBundle\Entity\Organism;
 use Sil\Bundle\SeedBatchBundle\Entity\Plot;
 use Sil\Bundle\SeedBatchBundle\Entity\SeedBatch;
 use Sil\Bundle\SeedBatchBundle\Entity\SeedFarm;
-use Sil\Bundle\VarietiesBundle\Entity\Variety;
+use Sil\Bundle\VarietyBundle\Entity\Variety;
 use Nelmio\Alice\Fixtures\Loader;
 use Nelmio\Alice\Persister\Doctrine as DoctrinePersister;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;

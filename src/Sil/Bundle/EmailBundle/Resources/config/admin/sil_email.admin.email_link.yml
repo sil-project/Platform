@@ -4,8 +4,9 @@ services:
         class: Sil\Bundle\EmailBundle\Admin\EmailLink
         arguments: [~, "%sil_email.entity.email_link.class%", BlastCoreBundle:CRUD]
         tags:
-            - name: sonata.admin
-              manager_type: orm
-              group: admin
-              label: sil.emailbundle.admin.emaillink
-              label_translator_strategy: blast.resource.sonata.label_strategy.prefix
+            -
+                name: sonata.admin
+                manager_type: orm
+                group: admin
+                label: sil.emailbundle.admin.emaillink
+                label_translator_strategy: blast.resource.sonata.label_strategy.prefix

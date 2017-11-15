@@ -1,4 +1,4 @@
-Sil\Bundle\VarietiesBundle\Entity\PlantCategory:
+Sil\Bundle\VarietyBundle\Entity\PlantCategory:
     plcat_tpl (template):
         treeLvl: 0
         treeRoot: "@self"
@@ -68,7 +68,7 @@ Sil\Bundle\VarietiesBundle\Entity\PlantCategory:
         treeRoot: "@plcat_legume_racine"
         treeParent: "@plcat_legume_racine"
 
-Sil\Bundle\VarietiesBundle\Entity\Family:
+Sil\Bundle\VarietyBundle\Entity\Family:
     fam_user (template):
         createdBy: "@user"
         updatedBy: "@user"
@@ -81,7 +81,7 @@ Sil\Bundle\VarietiesBundle\Entity\Family:
         name (unique): Solanacées
         latin_name: Solanaceae Juss.
 
-Sil\Bundle\VarietiesBundle\Entity\Genus:
+Sil\Bundle\VarietyBundle\Entity\Genus:
     gen_user (template):
         created_by: "@user"
         updated_by: "@user"
@@ -96,7 +96,7 @@ Sil\Bundle\VarietiesBundle\Entity\Genus:
         name (unique): solanum
         family: "@fam_solanacees"
 
-Sil\Bundle\VarietiesBundle\Entity\Species:
+Sil\Bundle\VarietyBundle\Entity\Species:
     spe_coriandre:
         name (unique): coriandre
         latin_name: coriandrum sativum
@@ -124,7 +124,7 @@ Sil\Bundle\VarietiesBundle\Entity\Species:
         genus: "@gen_solanum"
 
 
-Sil\Bundle\VarietiesBundle\Entity\Variety:
+Sil\Bundle\VarietyBundle\Entity\Variety:
     var_coriandre:
         name (unique): Coriandre
         latin_name: coriandrum sativum

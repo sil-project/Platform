@@ -1,7 +1,6 @@
-
 services:
-    sil_email.admin.email:
-        class: Sil\Bundle\EmailBundle\Admin\EmailAdmin
+    lisem.admin.email:
+        class: LisemBundle\Admin\EmailAdmin
         arguments: [~, "%sil_email.entity.email.class%", SilEmailBundle:CRUD]
         tags:
             -

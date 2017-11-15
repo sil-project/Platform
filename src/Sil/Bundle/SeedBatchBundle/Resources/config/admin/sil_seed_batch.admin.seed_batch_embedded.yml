@@ -1,13 +1,11 @@
 
 services:
-    sil_seed_batch.admin.seedbatch:
-        class: Sil\Bundle\SeedBatchBundle\Admin\SeedBatchAdmin
+    sil_seed_batch.admin.seed_batch_embedded:
+        class: Sil\Bundle\SeedBatchBundle\Admin\SeedBatchEmbeddedAdmin
         arguments: [~, "%sil_seed_batch.entity.seed_batch.class%", BlastCoreBundle:CRUD]
         tags:
             -   name: sonata.admin
                 manager_type: orm
                 group: Seed Batches
-                label: sil.seedbatchbundle.admin.seed_batch
+                label: sil.seedbatchbundle.admin.seedbatch
                 label_translator_strategy: blast.resource.sonata.label_strategy.prefix
-        calls:
-            - [ setTemplate, [edit, SilSeedBatchBundle:SeedBatchAdmin:edit.html.twig]]

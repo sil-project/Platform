@@ -14,10 +14,10 @@ namespace LisemBundle\Command;
 
 use Doctrine\ORM\EntityManager;
 use LisemBundle\Command\Configuration\CsvMappingConfiguration;
-use Sil\Bundle\VarietiesBundle\Entity\Family;
-use Sil\Bundle\VarietiesBundle\Entity\Genus;
-use Sil\Bundle\VarietiesBundle\Entity\Species;
-use Sil\Bundle\VarietiesBundle\Entity\Variety;
+use Sil\Bundle\VarietyBundle\Entity\Family;
+use Sil\Bundle\VarietyBundle\Entity\Genus;
+use Sil\Bundle\VarietyBundle\Entity\Species;
+use Sil\Bundle\VarietyBundle\Entity\Variety;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;

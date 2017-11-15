@@ -468,7 +468,7 @@ parameters:
                     show_tab_seedbatches:
                         '':
                             seedBatches:
-                                admin_code: sil_seed_batch.admin.seedbatch_embedded
+                                admin_code: sil_seed_batch.admin.seed_batch_embedded
                     _options:
                         tabsOrder:
                             - show_tab_general
@@ -543,7 +543,7 @@ parameters:
                                 _options:
                                     edit: inline
                                     allow_delete: true
-                                    admin_code: sil_seed_batch.admin.seedbatch_embedded
+                                    admin_code: sil_seed_batch.admin.seed_batch_embedded
                     _options:
                         tabsOrder:
                             - form_tab_general

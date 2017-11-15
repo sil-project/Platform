@@ -4,11 +4,11 @@ services:
         class: Sil\Bundle\EmailBundle\Admin\EmailTemplateAdmin
         arguments: [~, "%sil_email.entity.email_template.class%", BlastCoreBundle:CRUD]
         tags:
-            -  name: sonata.admin
-               manager_type: orm
-               group: admin
-               label: sil.emailbundle.admin.emailtemplate
-               label_translator_strategy: blast.resource.sonata.label_strategy.prefix
+            -
+                name: sonata.admin
+                manager_type: orm
+                group: admin
+                label: sil.emailbundle.admin.emailtemplate
+                label_translator_strategy: blast.resource.sonata.label_strategy.prefix
         calls:
-        #    - [ setTemplate, [edit, SilEmailBundle:CRUD:email_template_edit.html.twig]]
             - [ setTemplate, [edit, SilEmailBundle:CRUD:email_edit.html.twig]]

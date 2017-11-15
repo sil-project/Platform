@@ -1,28 +1,15 @@
-
 services:
     sil_ecommerce.admin.customer:
         class: LisemBundle\Admin\CustomerAdmin
         arguments: [~, Sil\Bundle\CRMBundle\Entity\Organism, SilCRMBundle:OrganismAdmin]
         tags:
-            - name: sonata.admin
-              manager_type: orm
-              group: Customers Relationship Management
-              label: lisem.appbunle.admin.customer
-              label_translator_strategy: blast.resource.sonata.label_strategy.prefix
+            -
+                name: sonata.admin
+                manager_type: orm
+                group: Customers Relationship Management
+                label: lisem.appbunle.admin.customer
+                label_translator_strategy: blast.resource.sonata.label_strategy.prefix
         calls:
-            - [ setCodeGenerator, [@sil_crm.code_generator.customer]]
+            - [ setCodeGenerator, ["@sil_crm.code_generator.customer"]]
             - [ setTemplate, [edit, SilCRMBundle:OrganismAdmin:edit.html.twig]]
             - [ setTemplate, [show, SilCRMBundle:OrganismAdmin:show.html.twig]]
-
-    # # UNCOMMENT IF NEEDED AND UPDATE ALL blast.yml when circles property is used
-    # lisem.admin.circle:
-    #     class: LisemBundle\Admin\CircleAdmin
-    #     arguments: [~, Sil\Bundle\CRMBundle\Entity\Circle, SilCRMBundle:CircleAdmin ]
-    #     tags:
-    #         - name: sonata.admin
-    #           manager_type: orm
-    #           group: Customers Relationship Management
-    #           label: lisem.appbunle.admin.circle
-    #           label_translator_strategy: blast.resource.sonata.label_strategy.prefix
-
-

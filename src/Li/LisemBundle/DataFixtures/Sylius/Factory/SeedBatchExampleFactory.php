@@ -20,7 +20,7 @@ use Sil\Bundle\SeedBatchBundle\CodeGenerator\SeedProducerCodeGenerator;
 use Sil\Bundle\SeedBatchBundle\Entity\Plot;
 use Sil\Bundle\SeedBatchBundle\Entity\SeedBatch;
 use Sil\Bundle\SeedBatchBundle\Entity\SeedFarm;
-use Sil\Bundle\VarietiesBundle\Entity\Variety;
+use Sil\Bundle\VarietyBundle\Entity\Variety;
 use Sylius\Bundle\CoreBundle\Fixture\Factory\ExampleFactoryInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 

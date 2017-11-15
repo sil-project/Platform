@@ -15,7 +15,7 @@ parameters:
                     - lisem.admin.seeds_product
                     - sil_seed_batch.admin.organism
                     - sil_seed_batch.admin.seedfarm
-                    - sil_seed_batch.admin.seedbatch
+                    - sil_seed_batch.admin.seed_batch
 
 ###########
 #  ALL
@@ -48,7 +48,7 @@ parameters:
                     form_tab_seed_batches:
                         show_group_seed_batches:
                             seedBatches:
-                                admin_code: sil_seed_batch.admin.seedbatch
+                                admin_code: sil_seed_batch.admin.seed_batch
                     _options:
                         tabsOrder:
                             - form_tab_general
@@ -276,7 +276,7 @@ parameters:
                                 admin_code: lisem.admin.seeds_product
                             packaging: ~
                             seedBatch:
-                                admin_code: sil_seed_batch.admin.seedbatch
+                                admin_code: sil_seed_batch.admin.seed_batch
                             code: ~
                             _options:
                                 fieldsOrder:
@@ -368,7 +368,7 @@ parameters:
                         admin_code: lisem.admin.seeds_product
                     packaging: ~
                     seedBatch:
-                        admin_code: sil_seed_batch.admin.seedbatch
+                        admin_code: sil_seed_batch.admin.seed_batch
                     onHand:
                         type: boolean
                     onHold:
@@ -676,7 +676,7 @@ parameters:
                     show_tab_seedbatches:
                         '':
                             seedBatches:
-                                admin_code: sil_seed_batch.admin.seedbatch_embedded
+                                admin_code: sil_seed_batch.admin.seed_batch_embedded
                         _options:
                             countChildItems:
                                 - seedBatches
@@ -788,7 +788,7 @@ parameters:
                                 _options:
                                     edit: inline
                                     allow_delete: true
-                                    admin_code: sil_seed_batch.admin.seedbatch_embedded
+                                    admin_code: sil_seed_batch.admin.seed_batch_embedded
                     form_tab_contactInformations:
                         _options:
                             countChildItems:

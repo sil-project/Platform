@@ -21,7 +21,7 @@ env:
     - SCRIPTS_FOLDER=bin/ci-scripts
     - SYMFONY_DEPRECATIONS_HELPER=weak
     - TARGET=test
-    - UPSTREAM_URL=https://github.com/libre-informatique/VarietiesBundle.git
+    - UPSTREAM_URL=https://github.com/libre-informatique/VarietyBundle.git
     - XMLLINT_INDENT="    "
 
 matrix:

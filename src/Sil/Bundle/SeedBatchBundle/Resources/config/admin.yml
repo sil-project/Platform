@@ -5,7 +5,7 @@ imports:
     - { resource: "@SilSeedBatchBundle/Resources/config/admin/sil_seed_batch.admin.organism.yml" }
     - { resource: "@SilSeedBatchBundle/Resources/config/admin/sil_seed_batch.admin.plot_embedded.yml" }
     - { resource: "@SilSeedBatchBundle/Resources/config/admin/sil_seed_batch.admin.plot.yml" }
-    - { resource: "@SilSeedBatchBundle/Resources/config/admin/sil_seed_batch.admin.seedbatch_embedded.yml" }
-    - { resource: "@SilSeedBatchBundle/Resources/config/admin/sil_seed_batch.admin.seedbatch.yml" }
+    - { resource: "@SilSeedBatchBundle/Resources/config/admin/sil_seed_batch.admin.seed_batch_embedded.yml" }
+    - { resource: "@SilSeedBatchBundle/Resources/config/admin/sil_seed_batch.admin.seed_batch.yml" }
     - { resource: "@SilSeedBatchBundle/Resources/config/admin/sil_seed_batch.admin.seedfarm.yml" }
     - { resource: "@SilSeedBatchBundle/Resources/config/admin/sil_seed_batch.admin.seed_producer.yml" }

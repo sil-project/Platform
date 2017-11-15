@@ -1,6 +1,6 @@
 csv_mapping:
 
-    Sil\Bundle\VarietiesBundle\Entity\Family:
+    Sil\Bundle\VarietyBundle\Entity\Family:
         filename: famille.csv
         fields:
             'nom':         name
@@ -8,7 +8,7 @@ csv_mapping:
             'nom latin':   latin_name
             'description': description
 
-    Sil\Bundle\VarietiesBundle\Entity\Genus:
+    Sil\Bundle\VarietyBundle\Entity\Genus:
         filename: genre.csv
         fields:
             'nom':         name
@@ -17,7 +17,7 @@ csv_mapping:
             'description': description
             'famille':     family
 
-    Sil\Bundle\VarietiesBundle\Entity\Species:
+    Sil\Bundle\VarietyBundle\Entity\Species:
         filename: espece.csv
         fields:
             'nom':                    name
@@ -35,7 +35,7 @@ csv_mapping:
             'durée vie':              seed_lifespan
             'taux germination AS':    germination_rate
 
-    Sil\Bundle\VarietiesBundle\Entity\Variety:
+    Sil\Bundle\VarietyBundle\Entity\Variety:
         filename: variete.csv
         fields:
             'nom':                    name
