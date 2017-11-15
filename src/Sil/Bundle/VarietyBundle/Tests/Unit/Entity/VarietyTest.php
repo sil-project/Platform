@@ -15,7 +15,8 @@ use PHPUnit\Framework\TestCase;
 use Sil\Bundle\VarietyBundle\Entity\Variety;
 use Doctrine\Common\Collections\ArrayCollection;
 use Sil\Bundle\VarietyBundle\Entity\VarietyDescriptionPlant;
-use AppBundle\Entity\OuterExtension\SilVarietyBundle\VarietyExtension;
+
+//use AppBundle\Entity\OuterExtension\SilVarietyBundle\VarietyExtension;
 
 class VarietyTest extends TestCase
 {
@@ -39,7 +40,7 @@ class VarietyTest extends TestCase
     protected $varietydescriptionplant;
     protected $getvalue;
 
-    use VarietyExtension;
+    //use VarietyExtension;
 
     protected function setUp()
     {
@@ -612,7 +613,7 @@ class VarietyTest extends TestCase
     {
         // Remove the following lines when you implement this test.
         $this->markTestIncomplete(
-                'This test has not been implemented yet.'
+            'This test has not been implemented yet.'
         );
     }
 
@@ -647,7 +648,7 @@ class VarietyTest extends TestCase
     {
         // Remove the following lines when you implement this test.
         $this->markTestIncomplete(
-                'This test has not been implemented yet.'
+            'This test has not been implemented yet.'
         );
     }
 
@@ -660,7 +661,7 @@ class VarietyTest extends TestCase
     {
         // Remove the following lines when you implement this test.
         $this->markTestIncomplete(
-                'This test has not been implemented yet.'
+            'This test has not been implemented yet.'
         );
     }
 
@@ -893,7 +894,7 @@ class VarietyTest extends TestCase
     public function testSetProfessionalDescriptions()
     {
         $this->markTestIncomplete(
-                'This test has not been implemented yet.'
+            'This test has not been implemented yet.'
         );
     }
 
@@ -946,7 +947,7 @@ class VarietyTest extends TestCase
     {
         // Remove the following lines when you implement this test.
         $this->markTestIncomplete(
-                'This test has not been implemented yet.'
+            'This test has not been implemented yet.'
         );
     }
 
@@ -999,7 +1000,7 @@ class VarietyTest extends TestCase
     {
         // Remove the following lines when you implement this test.
         $this->markTestIncomplete(
-                'This test has not been implemented yet.'
+            'This test has not been implemented yet.'
         );
     }
 
@@ -1052,7 +1053,7 @@ class VarietyTest extends TestCase
     {
         // Remove the following lines when you implement this test.
         $this->markTestIncomplete(
-                'This test has not been implemented yet.'
+            'This test has not been implemented yet.'
         );
     }
 
@@ -1105,7 +1106,7 @@ class VarietyTest extends TestCase
     {
         // Remove the following lines when you implement this test.
         $this->markTestIncomplete(
-                'This test has not been implemented yet.'
+            'This test has not been implemented yet.'
         );
     }
 
@@ -1158,7 +1159,7 @@ class VarietyTest extends TestCase
     {
         // Remove the following lines when you implement this test.
         $this->markTestIncomplete(
-                'This test has not been implemented yet.'
+            'This test has not been implemented yet.'
         );
     }
 
@@ -1212,7 +1213,7 @@ class VarietyTest extends TestCase
     {
         // Remove the following lines when you implement this test.
         $this->markTestIncomplete(
-                'This test has not been implemented yet.'
+            'This test has not been implemented yet.'
         );
     }
 
@@ -1225,7 +1226,7 @@ class VarietyTest extends TestCase
     {
         // Remove the following lines when you implement this test.
         $this->markTestIncomplete(
-                'This test has not been implemented yet.'
+            'This test has not been implemented yet.'
         );
     }
 
@@ -1238,7 +1239,7 @@ class VarietyTest extends TestCase
     {
         // Remove the following lines when you implement this test.
         $this->markTestIncomplete(
-                'This test has not been implemented yet.'
+            'This test has not been implemented yet.'
         );
     }
 
@@ -1251,7 +1252,7 @@ class VarietyTest extends TestCase
     {
         // Remove the following lines when you implement this test.
         $this->markTestIncomplete(
-                'This test has not been implemented yet.'
+            'This test has not been implemented yet.'
         );
     }
 
@@ -1264,7 +1265,7 @@ class VarietyTest extends TestCase
     {
         // Remove the following lines when you implement this test.
         $this->markTestIncomplete(
-                'This test has not been implemented yet.'
+            'This test has not been implemented yet.'
         );
     }
 
@@ -1277,7 +1278,7 @@ class VarietyTest extends TestCase
     {
         // Remove the following lines when you implement this test.
         $this->markTestIncomplete(
-                'This test has not been implemented yet.'
+            'This test has not been implemented yet.'
         );
     }
 
@@ -1290,7 +1291,7 @@ class VarietyTest extends TestCase
     {
         // Remove the following lines when you implement this test.
         $this->markTestIncomplete(
-                'This test has not been implemented yet.'
+            'This test has not been implemented yet.'
         );
     }
 
@@ -1303,7 +1304,7 @@ class VarietyTest extends TestCase
     {
         // Remove the following lines when you implement this test.
         $this->markTestIncomplete(
-                'This test has not been implemented yet.'
+            'This test has not been implemented yet.'
         );
     }
 
@@ -1316,7 +1317,7 @@ class VarietyTest extends TestCase
     {
         // Remove the following lines when you implement this test.
         $this->markTestIncomplete(
-                'This test has not been implemented yet.'
+            'This test has not been implemented yet.'
         );
     }
 
@@ -1329,7 +1330,7 @@ class VarietyTest extends TestCase
     {
         // Remove the following lines when you implement this test.
         $this->markTestIncomplete(
-                'This test has not been implemented yet.'
+            'This test has not been implemented yet.'
         );
     }
 
@@ -1342,7 +1343,7 @@ class VarietyTest extends TestCase
     {
         // Remove the following lines when you implement this test.
         $this->markTestIncomplete(
-                'This test has not been implemented yet.'
+            'This test has not been implemented yet.'
         );
     }
 
@@ -1355,7 +1356,7 @@ class VarietyTest extends TestCase
     {
         // Remove the following lines when you implement this test.
         $this->markTestIncomplete(
-                'This test has not been implemented yet.'
+            'This test has not been implemented yet.'
         );
     }
 
@@ -1368,7 +1369,7 @@ class VarietyTest extends TestCase
     {
         // Remove the following lines when you implement this test.
         $this->markTestIncomplete(
-                'This test has not been implemented yet.'
+            'This test has not been implemented yet.'
         );
     }
 
@@ -1381,7 +1382,7 @@ class VarietyTest extends TestCase
     {
         // Remove the following lines when you implement this test.
         $this->markTestIncomplete(
-                'This test has not been implemented yet.'
+            'This test has not been implemented yet.'
         );
     }
 
@@ -1394,7 +1395,7 @@ class VarietyTest extends TestCase
     {
         // Remove the following lines when you implement this test.
         $this->markTestIncomplete(
-                'This test has not been implemented yet.'
+            'This test has not been implemented yet.'
         );
     }
 
@@ -1407,7 +1408,7 @@ class VarietyTest extends TestCase
     {
         // Remove the following lines when you implement this test.
         $this->markTestIncomplete(
-                'This test has not been implemented yet.'
+            'This test has not been implemented yet.'
         );
     }
 
@@ -1420,7 +1421,7 @@ class VarietyTest extends TestCase
     {
         // Remove the following lines when you implement this test.
         $this->markTestIncomplete(
-                'This test has not been implemented yet.'
+            'This test has not been implemented yet.'
         );
     }
 
@@ -1433,7 +1434,7 @@ class VarietyTest extends TestCase
     {
         // Remove the following lines when you implement this test.
         $this->markTestIncomplete(
-                'This test has not been implemented yet.'
+            'This test has not been implemented yet.'
         );
     }
 
@@ -1446,7 +1447,7 @@ class VarietyTest extends TestCase
     {
         // Remove the following lines when you implement this test.
         $this->markTestIncomplete(
-                'This test has not been implemented yet.'
+            'This test has not been implemented yet.'
         );
     }
 }
