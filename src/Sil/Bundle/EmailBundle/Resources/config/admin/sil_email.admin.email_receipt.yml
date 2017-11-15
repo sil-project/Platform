@@ -8,4 +8,4 @@ services:
               manager_type: orm
               group: admin
               label: sil.emailbundle.admin.emailreceipt
-              label_translator_strategy: blast_core.label.strategy.sil_email
+              label_translator_strategy: blast.resource.sonata.label_strategy.prefix

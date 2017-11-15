@@ -1,11 +1,5 @@
 services:
 
-
-    blast_core.label.strategy.sil_seedbatch:
-        class: Blast\Bundle\CoreBundle\Translator\LibrinfoLabelTranslatorStrategy
-        arguments: ['Sil\Bundle\SeedBatchBundle']
-
-  
 # ENTITY CODE GENERATORS
 
     sil_seed_batch.code_generator.seed_producer:

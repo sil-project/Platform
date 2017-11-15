@@ -90,7 +90,7 @@ sil:
     ui:
         commercial_tab_title: Informations variété
 
-    VarietyBundle:
+    varietybundle:
         admin:
             variety_description_inner: Description spécifique
             family: Famille

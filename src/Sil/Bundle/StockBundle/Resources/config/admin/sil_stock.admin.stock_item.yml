@@ -13,7 +13,7 @@ services:
                 name: sonata.admin
                 manager_type: orm
                 group: Stock Management
-                label: sil.stock.stock_item
+                label: sil.stock.menu_label.items
                 label_translator_strategy: blast.resource.sonata.label_strategy.prefix
 
     # sil_stock.admin.operation:

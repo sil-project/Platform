@@ -10,9 +10,6 @@ parameters:
         - sil_ecommerce_address
 
 services:
-    blast_core.label.strategy.sil_ecommerce:
-        class: Blast\Bundle\CoreBundle\Translator\LibrinfoLabelTranslatorStrategy
-        arguments: ['Sil\Bundle\EcommerceBundle']
 
 # ENTITY CODE GENERATORS
     sil_ecommerce.code_generator.product:

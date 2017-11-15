@@ -4,6 +4,7 @@ sil:
         menu_label:
             stock_management: Stocks
             stock_management_settings: Stocks
+            stock_units: Unités de stock
             items: Articles
             operations: Opérations sur les stocks
             movements: Mouvements de stock

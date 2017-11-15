@@ -2,10 +2,6 @@ services:
 
 # SYMFONY CUSTOM FORM TYPES
 
-    blast_core.label.strategy.sil_varieties:
-        class: Blast\Bundle\CoreBundle\Translator\LibrinfoLabelTranslatorStrategy
-        arguments: ['Sil\Bundle\VarietyBundle']
-
     sil_varieties.form.type.life_cycle:
         class: Sil\Bundle\VarietyBundle\Form\Type\LifeCycleType
         tags:

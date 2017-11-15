@@ -11,5 +11,5 @@ services:
                 name: sonata.admin
                 manager_type: orm
                 group: Stock Management
-                label: sil.stock.warehouse
+                label: sil.stock.menu_label.warehouses
                 label_translator_strategy: blast.resource.sonata.label_strategy.prefix

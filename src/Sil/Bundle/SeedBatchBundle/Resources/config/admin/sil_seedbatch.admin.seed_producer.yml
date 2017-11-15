@@ -8,7 +8,7 @@ services:
                 manager_type: orm
                 group: Customers Relationship Management
                 label: sil.seedbatchbundle.admin.organism
-                label_translator_strategy: blast_core.label.strategy.sil_seedbatch
+                label_translator_strategy: blast.resource.sonata.label_strategy.prefix
         calls:
             - [ setTemplate, [edit, SilSeedBatchBundle:OrganismAdmin:edit.html.twig]]
             - [ setTemplate, [show, SilCRMBundle:OrganismAdmin:show.html.twig]]
