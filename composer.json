@@ -69,6 +69,9 @@
         "mikey179/vfsStream": ">=1.6"
     },
     "scripts": {
+        "git-hook": [
+            "ln -f -s ../../bin/git-script/pre-commit.sh .git/hooks/pre-commit"
+        ],        
         "symfony-scripts": [
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
@@ -78,10 +81,12 @@
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget"
         ],
         "post-install-cmd": [
-            "@symfony-scripts"
+            "@symfony-scripts",
+            "@git-hook"
         ],
         "post-update-cmd": [
-            "@symfony-scripts"
+            "@symfony-scripts",
+             "@git-hook"
         ]
     },
     "extra": {
