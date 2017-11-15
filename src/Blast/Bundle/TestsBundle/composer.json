@@ -1,0 +1,34 @@
+{
+    "name": "blast-project/tests-bundle",
+    "type": "symfony-bundle",
+    "description": "Extends Symfony KernelTestCase",
+    "require": {
+        "php": ">=7.1",
+        "symfony/symfony": ">=3.2",
+	"symfony/console": ">=3.2",
+        "phpunit/phpunit": "^6.4",
+        "symfony/phpunit-bridge": ">=3.2"
+    },
+    "license": "LGPL-3.0",
+    "keywords": [
+        "symfony",
+        "phpunit",
+	"blast"
+    ],
+    "homepage": "https://github.com/blast-project/TestsBundle",
+    "authors": [
+        {
+            "name": "Libre Informatique",
+            "homepage": "http://www.libre-informatique.fr/"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Blast\\Bundle\\TestsBundle\\": "./",
+            "Blast\\Bundle\\TestsBundle\\Tests\\": "Tests/"
+        }
+    },
+    "suggest": {
+        "blast-project/core-bundle": "Define sonata admins in yml and more"
+    }
+}

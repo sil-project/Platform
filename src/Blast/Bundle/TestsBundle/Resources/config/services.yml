@@ -1,0 +1,4 @@
+services:
+
+  blast_tests.functional.testcase:
+    class:  Blast\Tests\Functional\BlastTestCase
