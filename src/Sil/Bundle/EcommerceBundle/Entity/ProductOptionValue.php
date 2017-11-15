@@ -13,7 +13,7 @@ namespace Sil\Bundle\EcommerceBundle\Entity;
 
 use Sylius\Component\Product\Model\ProductOptionValue as BaseProductOptionValue;
 
-class ProductOptionValue extends BaseProductOptionValue
+class ProductOptionValue extends BaseProductOptionValue implements ProductOptionValueInterface
 {
     /**
      * @return string "Option name: OptionValue value"

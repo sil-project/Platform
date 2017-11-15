@@ -1,7 +1,7 @@
 Sil\Bundle\EmailBundle\Entity\EmailLink:
     type: entity
     fields:
-        destination: 
+        destination:
             type:    text
         address:
             type:    string
@@ -10,7 +10,7 @@ Sil\Bundle\EmailBundle\Entity\EmailLink:
             nullable: true
     manyToOne:
         email:
-            targetEntity: Sil\Bundle\EmailBundle\Entity\Email
+            targetEntity: Sil\Bundle\EmailBundle\Entity\EmailInterface
             inversedBy: links
             joinColumn:
                 name: email_id

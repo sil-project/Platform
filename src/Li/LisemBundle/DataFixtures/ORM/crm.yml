@@ -1,0 +1,105 @@
+Sil\Bundle\CRMBundle\Entity\Contact:
+    con_tpl (template):
+        firstname: '<firstname()>'
+        name: '<lastname()>'
+        address: '50%? <streetAddress()>'
+    # Customers
+    con_cus_1_{1..10} (extends con_tpl): ~
+    con_cus_2_{1..10} (extends con_tpl): ~
+    con_cus_3_{1..10} (extends con_tpl): ~
+    # Suppliers
+    con_sup_1_{1..10} (extends con_tpl): ~
+    con_sup_2_{1..10} (extends con_tpl): ~
+    con_sup_3_{1..10} (extends con_tpl): ~
+    # Seed producers
+    con_prod_1_{1..10} (extends con_tpl): ~
+    con_prod_2_{1..10} (extends con_tpl): ~
+    con_prod_3_{1..10} (extends con_tpl): ~
+
+
+Sil\Bundle\CRMBundle\Entity\Organism:
+    org_tpl (template):
+        email: '<email()>'
+        emailCanonical: '<$email>'
+        url: '20%? <url()>'
+        alert: '10%? Ceci est une alerte...'
+    # Customers (individuals)
+    org_ind_cus_{1..10} (extends org_tpl):
+        isIndividual: true
+        isCustomer: true
+        isSupplier: false
+        seedProducer: false
+    # Suppliers (individuals)
+    org_ind_sup_{1..10} (extends org_tpl):
+        isIndividual: true
+        isCustomer: false
+        isSupplier: true
+        seedProducer: false
+    # Seed producers (individuals)
+    org_ind_prod_{1..10} (extends org_tpl):
+        isIndividual: true
+        isCustomer: false
+        isSupplier: false
+        seedProducer: true
+        positions: ['@pos_ind_prod_<current()>']
+    # Customers (companies)
+    org_com_cus_{1..10} (extends org_tpl):
+        isIndividual: false
+        isCustomer: true
+        isSupplier: false
+        seedProducer: false
+        name: '<company()>'
+        address: '50%? <streetAddress()>'
+    # Suppliers (companies)
+    org_com_sup_{1..10} (extends org_tpl):
+        isIndividual: false
+        isCustomer: false
+        isSupplier: true
+        seedProducer: false
+        name: '<company()>'
+        address: '50%? <streetAddress()>'
+    # Seed producers (companies)
+    org_com_prod_{1..10} (extends org_tpl):
+        isIndividual: false
+        isCustomer: false
+        isSupplier: false
+        seedProducer: true
+        name: '<company()>'
+        address: '50%? <streetAddress()>'
+        positions: ['@pos_com_prod_1_<current()>', '@pos_com_prod_2_<current()>']
+
+
+Sil\Bundle\CRMBundle\Entity\Position:
+    # Customers (individuals)
+    pos_ind_cus_{1..10}:
+        organism: '@org_ind_cus_<current()>'
+        contact:  '@con_cus_1_<current()>'
+    # Suppliers (individuals)
+    pos_ind_sup_{1..10}:
+        organism: '@org_ind_sup_<current()>'
+        contact: '@con_sup_1_<current()>'
+    # Seed producers (individuals)
+    pos_ind_prod_{1..10}:
+        organism: '@org_ind_prod_<current()>'
+        contact: '@con_prod_1_<current()>'
+    # Customers (companies)
+    pos_com_cus_1_{1..10}:
+        organism: '@org_com_cus_<current()>'
+        contact:  '@con_cus_2_<current()>'
+    pos_com_cus_2_{1..10}:
+        organism: '@org_com_cus_<current()>'
+        contact:  '@con_cus_3_<current()>'
+    # Suppliers (companies)
+    pos_com_sup_1_{1..10}:
+        organism: '@org_com_sup_<current()>'
+        contact:  '@con_sup_2_<current()>'
+    pos_com_sup_2_{1..10}:
+        organism: '@org_com_sup_<current()>'
+        contact:  '@con_sup_3_<current()>'
+    # Seed producers (companies)
+    pos_com_prod_1_{1..10}:
+        organism: '@org_com_prod_<current()>'
+        contact:  '@con_prod_2_<current()>'
+    pos_com_prod_2_{1..10}:
+        organism: '@org_com_prod_<current()>'
+        contact:  '@con_prod_3_<current()>'

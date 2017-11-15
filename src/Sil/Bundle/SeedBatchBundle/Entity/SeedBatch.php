@@ -20,7 +20,7 @@ use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Timestampable;
 /**
  * SeedBatch.
  */
-class SeedBatch
+class SeedBatch implements SeedBatchInterface
 {
     use BaseEntity,
         Timestampable,

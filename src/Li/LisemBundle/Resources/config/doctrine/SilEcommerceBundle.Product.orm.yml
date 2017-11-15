@@ -1,0 +1,7 @@
+LisemBundle\Entity\SilEcommerceBundle\Product:
+    type: entity
+
+    manyToOne:
+        variety:
+            targetEntity: Sil\Bundle\VarietyBundle\Entity\VarietyInterface
+            inversedBy: products

@@ -1,0 +1,267 @@
+# Copyright (C) 2015-2016 Libre Informatique
+#
+# This file is licenced under the GNU GPL v3.
+# For the full copyright and license information, please view the LICENSE
+# file that was distributed with this source code.
+
+services:
+
+    sil_ecommerce.code_generator.product_variant:
+        class: Sil\Bundle\EcommerceBundle\CodeGenerator\ProductVariantCodeGenerator
+        factory:   ['@blast_core.code_generator_factory', create]
+        arguments: ['%sil_ecommerce.code_generator.product_variant%', '@doctrine.orm.entity_manager']
+        calls:
+            - ['setRequestStack',['@request_stack']]
+            - ['setPackagingRepo',['@sylius.repository.product_option_value']]
+        tags:
+            - { name: blast.entity_code_generator }
+
+    sil_ecommerce.code_generator.product_variant_embedded:
+        class: Sil\Bundle\EcommerceBundle\CodeGenerator\ProductVariantEmbeddedCodeGenerator
+        factory:   ['@blast_core.code_generator_factory', create]
+        arguments: ['%sil_ecommerce.code_generator.product_variant_embedded%', '@doctrine.orm.entity_manager']
+        calls:
+            - ['setRequestStack',['@request_stack']]
+            - ['setPackagingRepo',['@sylius.repository.product_option_value']]
+        tags:
+            - { name: blast.entity_code_generator }
+
+### CUSTOM SIDEBAR MENUS ###
+
+    lisem.menu_builder:
+        class: LisemBundle\Menu\MenuBuilder
+        arguments: ["@knp_menu.factory"]
+        calls:
+            - [setTokenStorage, ['@security.token_storage']]
+            - [setAuthorizationChecker, ['@security.authorization_checker']]
+
+    lisem.sidebar_menu.paremeters:
+        class: Knp\Menu\MenuItem                                  # the service definition requires setting the class
+        factory: ["@lisem.menu_builder", createParametersSidebarMenu]
+        arguments: ["@request_stack"]
+        tags:
+            - { name: knp_menu.menu, alias: parameters_sidebar_menu }   # The alias is what is used to retrieve the menu
+
+### BLAST CALLBACKS ###
+
+    sil.ecommerce.filters.customer:
+        class: Sil\Bundle\CRMBundle\Services\Filters\OrganismFilter
+
+#### SYLIUS CHECKERS ####
+
+    lisem.checker.product_variants_parity:
+        class: LisemBundle\Checker\ProductVariantsParityChecker
+
+#### SYLIUS GENERATORS ####
+
+    lisem.generator.product_variant:
+        class: LisemBundle\DataFixtures\Sylius\Generator\ProductVariantGenerator
+        arguments:
+            - "@sylius.factory.product_variant"
+            - "@lisem.checker.product_variants_parity"
+
+### SYLIUS FACTORIES ###
+
+    lisem.factory.product:
+        class: LisemBundle\DataFixtures\Sylius\Factory\ProductFactory
+        decorates: sylius.factory.product
+        arguments: ['@lisem.factory.product.inner', '@sylius.repository.product_option']
+        public: false
+
+### SYLIUS FIXTURE FACTORIES ###
+
+    lisem.fixture.example_factory.family:
+        class: LisemBundle\DataFixtures\Sylius\Factory\FamilyExampleFactory
+        arguments:
+            - "@doctrine.orm.entity_manager"
+
+    lisem.fixture.example_factory.genus:
+        class: LisemBundle\DataFixtures\Sylius\Factory\GenusExampleFactory
+        arguments:
+            - "@doctrine.orm.entity_manager"
+
+    lisem.fixture.example_factory.species:
+        class: LisemBundle\DataFixtures\Sylius\Factory\SpeciesExampleFactory
+        arguments:
+            - "@doctrine.orm.entity_manager"
+
+    lisem.fixture.example_factory.variety:
+        class: LisemBundle\DataFixtures\Sylius\Factory\VarietyExampleFactory
+        arguments:
+            - "@doctrine.orm.entity_manager"
+
+    lisem.fixture.example_factory.seed_batch:
+        class: LisemBundle\DataFixtures\Sylius\Factory\SeedBatchExampleFactory
+        arguments:
+            - "@doctrine.orm.entity_manager"
+            - "@sil_seed_batch.code_generator.seed_batch"
+            - "@sil_seed_batch.code_generator.seed_producer"
+            - "@sil_seed_batch.code_generator.plot"
+
+    lisem.fixture.example_factory.product:
+        class: LisemBundle\DataFixtures\Sylius\Factory\ProductExampleFactory
+        arguments:
+            - "@sylius.factory.product"
+            - "@sylius.factory.product_variant"
+            - "@sylius.factory.channel_pricing"
+            - "@lisem.generator.product_variant"
+            - "@sylius.factory.product_attribute_value"
+            - "@sylius.factory.product_image"
+            - "@sylius.factory.product_taxon"
+            - "@sylius.image_uploader"
+            - "@sylius.generator.slug"
+            - "@sylius.repository.taxon"
+            - "@sylius.repository.product_attribute"
+            - "@sylius.repository.product_option"
+            - "@sylius.repository.channel"
+            - "@sylius.repository.locale"
+            - "@sil_ecommerce.code_generator.product_variant"
+
+### SYLIUS FIXTURES ###
+
+    lisem.fixture.family:
+        class: LisemBundle\DataFixtures\Sylius\FamilyFixture
+        arguments:
+            - "@doctrine.orm.entity_manager"
+            - "@lisem.fixture.example_factory.family"
+        tags:
+            - { name: sylius_fixtures.fixture }
+
+    lisem.fixture.genus:
+        class: LisemBundle\DataFixtures\Sylius\GenusFixture
+        arguments:
+            - "@doctrine.orm.entity_manager"
+            - "@lisem.fixture.example_factory.genus"
+        tags:
+            - { name: sylius_fixtures.fixture }
+
+    lisem.fixture.species:
+        class: LisemBundle\DataFixtures\Sylius\SpeciesFixture
+        arguments:
+            - "@doctrine.orm.entity_manager"
+            - "@lisem.fixture.example_factory.species"
+        tags:
+            - { name: sylius_fixtures.fixture }
+
+    lisem.fixture.variety:
+        class: LisemBundle\DataFixtures\Sylius\VarietyFixture
+        arguments:
+            - "@doctrine.orm.entity_manager"
+            - "@lisem.fixture.example_factory.variety"
+        tags:
+            - { name: sylius_fixtures.fixture }
+
+    lisem.fixture.seed_batch:
+        class: LisemBundle\DataFixtures\Sylius\SeedBatchFixture
+        arguments:
+            - "@doctrine.orm.entity_manager"
+            - "@lisem.fixture.example_factory.seed_batch"
+        tags:
+            - { name: sylius_fixtures.fixture }
+
+    lisem.fixture.product:
+        class: LisemBundle\DataFixtures\Sylius\ProductFixture
+        arguments:
+            - "@sylius.manager.product"
+            - "@lisem.fixture.example_factory.product"
+        tags:
+            - { name: sylius_fixtures.fixture }
+
+    lisem.fixture.tshirt_product:
+        class: LisemBundle\DataFixtures\Sylius\TshirtProductFixture
+        arguments:
+            - "@sylius.fixture.taxon"
+            - "@sylius.fixture.product_attribute"
+            - "@sylius.fixture.product_option"
+            - "@lisem.fixture.product"
+        tags:
+            - { name: sylius_fixtures.fixture }
+
+    lisem.fixture.book_product:
+        class: LisemBundle\DataFixtures\Sylius\BookProductFixture
+        arguments:
+            - "@sylius.fixture.taxon"
+            - "@sylius.fixture.product_attribute"
+            - "@lisem.fixture.product"
+        tags:
+            - { name: sylius_fixtures.fixture }
+
+    lisem.fixture.seeds_product:
+        class: LisemBundle\DataFixtures\Sylius\SeedsProductFixture
+        arguments:
+            - "@sylius.fixture.taxon"
+            - "@lisem.fixture.product"
+            - "@doctrine.orm.entity_manager"  # for Varieties
+        tags:
+            - { name: sylius_fixtures.fixture }
+
+
+### SYLIUS THEMES ###
+
+    lisem.theme.context.channel_based:
+        class: LisemBundle\Theme\ChannelBasedThemeContext
+        arguments:
+            - "@sylius.context.channel"
+            - "@sylius.repository.theme"
+
+### SYLIUS INSTALLER ###
+
+    lisem.sylius.setup.currency:
+        class: LisemBundle\Installer\Setup\CurrencySetup
+        arguments:
+            - "@sylius.repository.currency"
+            - "@sylius.factory.currency"
+            - "%currency%"
+
+#### FORMS ####
+
+    app.form.extension.customer_profile:
+        class: LisemBundle\Form\Extension\CustomerProfileTypeExtension
+        tags:
+            - { name: form.type_extension, extended_type: Sylius\Bundle\CustomerBundle\Form\Type\CustomerProfileType }
+
+### PAYMENT GATEWAY FACTORIES ###
+
+    lisem.gateway_factory.paybox:
+        class: Payum\Core\Bridge\Symfony\Builder\GatewayFactoryBuilder
+        arguments: [Sil\Bundle\SyliusPayboxBundle\PayumPaybox\PayboxGatewayFactory]
+        tags:
+            - { name: payum.gateway_factory_builder, factory: paybox }
+
+### SYLIUS MAILER ADAPTER ###
+
+    lisem.sylius.email_sender.adapter:
+        parent: sylius.email_sender.adapter.abstract
+        class: LisemBundle\Mailer\Adapter\CustomAdapter
+        arguments: ["@mailer"]
+
+### SYLIUS CUSTOMER REGISTRATION SUBSCRIBER ###
+
+    lisem.sylius.customer_registration.subscriber:
+        class: LisemBundle\Form\EventListener\CustomerRegistrationFormListener
+        arguments: ["@sylius.repository.customer"]
+        tags:
+            - { name: kernel.event_listener, event: sylius.customer.post_register, method: onPostRegister }
+        calls:
+            - [setCodeGenerator, ["@sil_crm.code_generator.customer"]]
+
+
+    sil_ecommerce.order_customer_manager:
+        class: Sil\Bundle\EcommerceBundle\Services\OrderCustomerManager
+        arguments:
+            - '@doctrine.orm.entity_manager'
+        calls:
+            - [setCodeGenerator, ["@sil_crm.code_generator.customer"]]
+
+    app.twig.unit_conveter:
+        class: LisemBundle\Twig\UnitConverter
+        tags:
+            - { name: twig.extension }
+
+
+# STOCK HANDLER
+
+    app.stock_handler:
+        class: LisemBundle\Stock\StockHandler
+        calls:
+            - [setStockOperationHandler, ['@sil.stock.domain_service.operation']]

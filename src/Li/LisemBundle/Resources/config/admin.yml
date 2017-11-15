@@ -1,0 +1,13 @@
+imports:
+    - { resource: admin/lisem.admin.variety.yml }
+    - { resource: admin/lisem.admin.seeds_product.yml }
+    - { resource: admin/lisem.admin.seeds_product_variant.yml }
+    - { resource: admin/lisem.admin.seeds_product_variant_embedded.yml }
+    - { resource: admin/lisem.admin.other_product.yml }
+    - { resource: admin/lisem.admin.other_product_variant.yml }
+    - { resource: admin/lisem.admin.other_product_variant_embedded.yml }
+    - { resource: admin/lisem.admin.channel_description.yml }
+    - { resource: admin/lisem.admin.packaging.yml }
+    - { resource: admin/sil_ecommerce.admin.customer.yml }
+    - { resource: admin/sil_ecommerce.admin.payment_method.yml }
+    - { resource: admin/sil_stock.admin.operation.yml }

@@ -15,7 +15,7 @@ use Sonata\AdminBundle\Admin\AbstractAdmin;
 
 class SeedProducerAdmin extends OrganismAdmin
 {
-    protected $baseRouteName = 'admin_sil_seedbatch_seedProducer';
+    protected $baseRouteName = 'admin_sil_seed_batch_seedProducer';
     protected $baseRoutePattern = 'sil/seedbatch/seed-producer';
 
     /**

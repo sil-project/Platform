@@ -2,10 +2,10 @@ imports:
     - { resource: "@SilSeedBatchBundle/Resources/config/admin/sil_seed_batch.admin.certification_type.yml" }
     - { resource: "@SilSeedBatchBundle/Resources/config/admin/sil_seed_batch.admin.certification.yml" }
     - { resource: "@SilSeedBatchBundle/Resources/config/admin/sil_seed_batch.admin.certifying_body.yml" }
-    - { resource: "@SilSeedBatchBundle/Resources/config/admin/sil_seedbatch.admin.organism.yml" }
-    - { resource: "@SilSeedBatchBundle/Resources/config/admin/sil_seedbatch.admin.plot_embedded.yml" }
-    - { resource: "@SilSeedBatchBundle/Resources/config/admin/sil_seedbatch.admin.plot.yml" }
-    - { resource: "@SilSeedBatchBundle/Resources/config/admin/sil_seedbatch.admin.seedbatch_embedded.yml" }
-    - { resource: "@SilSeedBatchBundle/Resources/config/admin/sil_seedbatch.admin.seedbatch.yml" }
-    - { resource: "@SilSeedBatchBundle/Resources/config/admin/sil_seedbatch.admin.seedfarm.yml" }
-    - { resource: "@SilSeedBatchBundle/Resources/config/admin/sil_seedbatch.admin.seed_producer.yml" }
+    - { resource: "@SilSeedBatchBundle/Resources/config/admin/sil_seed_batch.admin.organism.yml" }
+    - { resource: "@SilSeedBatchBundle/Resources/config/admin/sil_seed_batch.admin.plot_embedded.yml" }
+    - { resource: "@SilSeedBatchBundle/Resources/config/admin/sil_seed_batch.admin.plot.yml" }
+    - { resource: "@SilSeedBatchBundle/Resources/config/admin/sil_seed_batch.admin.seedbatch_embedded.yml" }
+    - { resource: "@SilSeedBatchBundle/Resources/config/admin/sil_seed_batch.admin.seedbatch.yml" }
+    - { resource: "@SilSeedBatchBundle/Resources/config/admin/sil_seed_batch.admin.seedfarm.yml" }
+    - { resource: "@SilSeedBatchBundle/Resources/config/admin/sil_seed_batch.admin.seed_producer.yml" }

@@ -22,7 +22,7 @@ trait DynamicDescriptions
     protected function configureDynamicDescriptions($formMapper)
     {
         // Manage dynamic descriptions according to configuration settings
-        $config = $this->getConfigurationPool()->getContainer()->getParameter('sil_varieties')['variety_descriptions'];
+        $config = $this->getConfigurationPool()->getContainer()->getParameter('sil_variety')['variety_descriptions'];
         $admin = $this;
 
         $formMapper->getFormBuilder()->addEventSubscriber(new VarietyDescriptionsFormEventSubscriber($admin, $config));
@@ -30,7 +30,7 @@ trait DynamicDescriptions
 
     protected function configureShowDescriptions($showMapper)
     {
-        $config = $this->getConfigurationPool()->getContainer()->getParameter('sil_varieties')['variety_descriptions'];
+        $config = $this->getConfigurationPool()->getContainer()->getParameter('sil_variety')['variety_descriptions'];
 
         foreach ($config as $fieldset => $fields) {
             if (!$this->getSubject()) {

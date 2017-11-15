@@ -25,7 +25,7 @@ class VarietyDescriptionAdmin extends CoreAdmin
      */
     protected function configureFormFields(FormMapper $formMapper)
     {
-        $vd_config = $this->getConfigurationPool()->getContainer()->getParameter('sil_varieties')['variety_descriptions'];
+        $vd_config = $this->getConfigurationPool()->getContainer()->getParameter('sil_variety')['variety_descriptions'];
 
         if (!$this->subject) {
             $this->subject = $this->formFieldDescriptions['fieldset']->getAdmin()->getSubject();

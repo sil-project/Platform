@@ -3,5 +3,5 @@ Sil\Bundle\CRMBundle\Entity\Position:
 
     manyToMany:
         emailMessages:
-            targetEntity: Sil\Bundle\EmailBundle\Entity\Email
+            targetEntity: Sil\Bundle\EmailBundle\Entity\EmailInterface
             mappedBy: individuals

@@ -19,7 +19,7 @@ parameters:
                             alias: ~
                             description: ~
                             genuses:
-                                admin_code: sil_varieties.admin.genus
+                                admin_code: sil_variety.admin.genus
                     form_group_specifics:
                         form_group_misc:
                             createdAt: ~
@@ -78,7 +78,7 @@ parameters:
                     #                 edit: inline
                     #                 inline: table
                     #                 allow_delete: false
-                    #                 admin_code: sil_varieties.admin.genus_embedded
+                    #                 admin_code: sil_variety.admin.genus_embedded
                     _options:
                         tabsOrder: [form_group_general, form_group_genuses]
                     _helper_links:
@@ -96,7 +96,7 @@ parameters:
                     latin_name: ~
                     alias: ~
                     genuses:
-                        admin_code: sil_varieties.admin.genus
+                        admin_code: sil_variety.admin.genus
                     _export_formats:
                         csv: [name, latinName, alias, description, createdAt, updatedAt]
                         xls: csv
@@ -125,7 +125,7 @@ parameters:
                             alias: ~
                             description: ~
                             specieses:
-                                admin_code: sil_varieties.admin.species
+                                admin_code: sil_variety.admin.species
                     form_group_specifics:
                         form_group_misc:
                             createdAt: ~
@@ -188,7 +188,7 @@ parameters:
                     #                 edit: inline
                     #                 # inline: table
                     #                 allow_delete: false
-                    #                 admin_code: sil_varieties.admin.species_embedded
+                    #                 admin_code: sil_variety.admin.species_embedded
                     _options:
                         tabsOrder: [form_tab_general]
                     _helper_links:
@@ -207,7 +207,7 @@ parameters:
                     family: ~
                     description: ~
                     specieses:
-                        admin_code: sil_varieties.admin.species
+                        admin_code: sil_variety.admin.species
                     _options:
                         fieldsOrder:
                             - name
@@ -302,17 +302,17 @@ parameters:
                             latin_name: ~
                             alias: ~
                             genus:
-                                admin_code: sil_varieties.admin.genus
+                                admin_code: sil_variety.admin.genus
                             parent_species:
-                                admin_code: sil_varieties.admin.species_embedded
+                                admin_code: sil_variety.admin.species_embedded
                             subspecieses:
-                                admin_code: sil_varieties.admin.species_embedded
+                                admin_code: sil_variety.admin.species_embedded
                             plant_categories: ~
                             life_cycle:
                                 type: trans
                                 catalogue: varieties
                             varieties:
-                                admin_code: sil_varieties.admin.variety
+                                admin_code: sil_variety.admin.variety
                             description:
                                 template: BlastCoreBundle:CRUD:show_field_tinymce.html.twig
                             legal_germination_rate: ~
@@ -333,7 +333,7 @@ parameters:
                             genus:
                                 type: sonata_type_model
                                 _options:
-                                    admin_code: sil_varieties.admin.genus
+                                    admin_code: sil_variety.admin.genus
                                 attr:
                                     class: inline-block
                                     width: 50
@@ -342,7 +342,7 @@ parameters:
                                 property: name
                                 required: false
                                 _options:
-                                    admin_code: sil_varieties.admin.species_embedded
+                                    admin_code: sil_variety.admin.species_embedded
                                 attr:
                                     class: inline-block
                                     width: 50
@@ -508,7 +508,7 @@ parameters:
                             genus:
                                 type: sonata_type_model
                                 _options:
-                                    admin_code: sil_varieties.admin.genus
+                                    admin_code: sil_variety.admin.genus
                                 attr:
                                     class: new-line
                                     width: 30
@@ -517,7 +517,7 @@ parameters:
                                 property: name
                                 required: false
                                 _options:
-                                    admin_code: sil_varieties.admin.species_embedded
+                                    admin_code: sil_variety.admin.species_embedded
                                 attr:
                                     class: new-line
                                     width: 30
@@ -618,9 +618,9 @@ parameters:
                             name: ~
                             code: ~
                             species:
-                                admin_code: sil_varieties.admin.species
+                                admin_code: sil_variety.admin.species
                             parent:
-                                admin_code: sil_varieties.admin.variety
+                                admin_code: sil_variety.admin.variety
                             latin_name: ~
                             alias: ~
                             code: ~
@@ -679,7 +679,7 @@ parameters:
                     form_tab_strains:
                         '':
                             children:
-                                admin_code: sil_varieties.admin.variety
+                                admin_code: sil_variety.admin.variety
                     form_tab_images:
                         '':
                             images:
@@ -736,7 +736,7 @@ parameters:
                                     strain_disabled: true
                                     inherit: source
                                 _options:
-                                    admin_code: sil_varieties.admin.species
+                                    admin_code: sil_variety.admin.species
                             plant_type:
                                 type: Blast\Bundle\UtilsBundle\Form\Type\CustomChoiceType
                                 choices_field: plant_type
@@ -758,7 +758,7 @@ parameters:
                                     strain_field: true
                                     strain_disabled: true
                                 _options:
-                                    admin_code: sil_varieties.admin.variety
+                                    admin_code: sil_variety.admin.variety
                             name:
                                 type: Blast\Bundle\UtilsBundle\Form\Type\UniqueFieldType
                                 return_link: true
@@ -1065,14 +1065,14 @@ parameters:
             Sonata\AdminBundle\Datagrid\DatagridMapper:
                 add:
                     species:
-                        admin_code: sil_varieties.admin.species
+                        admin_code: sil_variety.admin.species
                     name: ~
                     code: ~
                     latin_name: ~
                     code: ~
                     alias: ~
                     parent:
-                        admin_code: sil_varieties.admin.variety
+                        admin_code: sil_variety.admin.variety
                     plant_categories: ~
                     legal_germination_rate: ~
                     germination_rate: ~

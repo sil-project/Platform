@@ -14,35 +14,35 @@ blast_base_entities:
     resource: "@BlastBaseEntitiesBundle/Resources/config/routing.yml"
     prefix:   %sil.url_prefix%
 
-librinfo_decorator:
+sil_decorator:
     resource: "@BlastDecoratorBundle/Resources/config/routing.yml"
     prefix:   %sil.url_prefix%
 
-librinfo_varieties:
+sil_variety:
     resource: "@SilVarietyBundle/Resources/config/routing.yml"
     prefix:   %sil.url_prefix%
 
-librinfo_seed_batch:
+sil_seed_batch:
     resource: "@SilSeedBatchBundle/Resources/config/routing.yml"
     prefix:   %sil.url_prefix%
 
-librinfo_crm:
+sil_crm:
     resource: "@SilCRMBundle/Resources/config/routing.yml"
     prefix:   %sil.url_prefix%
 
-librinfo_email:
+sil_email:
     resource: "@SilEmailBundle/Resources/config/routing.yml"
     prefix:   %sil.url_prefix%
 
-librinfo_email_crm:
+sil_email_crm:
     resource: "@SilEmailCRMBundle/Resources/config/routing.yml"
     prefix:   %sil.url_prefix%
 
-librinfo_media:
+sil_media:
     resource: "@SilMediaBundle/Resources/config/routing.yml"
     prefix:   %sil.url_prefix%
 
-librinfo_ecommerce:
+sil_ecommerce:
     resource: "@SilEcommerceBundle/Resources/config/routing.yml"
     prefix:   / #Must not be set because of sylius route override
 

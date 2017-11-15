@@ -93,7 +93,7 @@ class VarietyCRUDController extends BaseCRUDController
         $fieldSet = $request->get('fieldset');
         $field = $request->get('field');
 
-        $config = $this->admin->getConfigurationPool()->getContainer()->getParameter('sil_varieties');
+        $config = $this->admin->getConfigurationPool()->getContainer()->getParameter('sil_variety');
         $fieldConfig = $config['variety_descriptions'][$fieldSet][$field];
         $choiceType = CustomChoiceType::class;
         $options = $fieldConfig['options'];

@@ -1,0 +1,10 @@
+LisemBundle\Entity\SilEcommerceBundle\Order:
+    type: entity
+
+    associationOverride:
+        
+        shippingAddress:
+            targetEntity: Sil\Bundle\CRMBundle\Entity\AddressInterface
+
+        billingAddress:
+            targetEntity: Sil\Bundle\CRMBundle\Entity\AddressInterface

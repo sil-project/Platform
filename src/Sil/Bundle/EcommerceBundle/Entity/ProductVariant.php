@@ -14,7 +14,7 @@ namespace Sil\Bundle\EcommerceBundle\Entity;
 use Sylius\Component\Core\Model\ProductVariant as BaseProductVariant;
 use Doctrine\Common\Collections\ArrayCollection;
 
-class ProductVariant extends BaseProductVariant
+class ProductVariant extends BaseProductVariant implements ProductVariantInterface
 {
     /**
      * Allow enabling of product variant.

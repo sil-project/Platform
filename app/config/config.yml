@@ -15,11 +15,11 @@ imports:
 
     # BLAST Bundles
 
-    # The following file is overriden in app/config/vendors/blast.yml
+    # The following file(s) is(are) overriden in app/config/vendors/blast.yml
     #
     # - { resource: "@BlastBaseEntitiesBundle/Resources/config/app/config.yml" }
+    # - { resource: "@BlastResourceBundle/Resources/config/app/config.yml" }
 
-    - { resource: "@BlastResourceBundle/Resources/config/app/config.yml" }
     - { resource: "@BlastUtilsBundle/Resources/config/app/config.yml" }
 
     # SIL Bundles
@@ -46,6 +46,9 @@ imports:
 
     - { resource: "@PlatformBundle/Resources/config/config.yml" }
 
+    # Li LISEM
+
+    - { resource: "@LisemBundle/Resources/config/config.yml" }
 
 parameters:
     locale: fr

@@ -13,7 +13,7 @@ sylius_product:
     resources:
         product:
             classes:
-                model: PlatformBundle\Entity\SilEcommerceBundle\Product
+                model: LisemBundle\Entity\SilEcommerceBundle\Product
 
 sylius_review:
     resources:

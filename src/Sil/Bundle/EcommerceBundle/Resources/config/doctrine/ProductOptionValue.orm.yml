@@ -1,2 +1,2 @@
 Sil\Bundle\EcommerceBundle\Entity\ProductOptionValue:
-    type: entity
+    type: mappedSuperclass

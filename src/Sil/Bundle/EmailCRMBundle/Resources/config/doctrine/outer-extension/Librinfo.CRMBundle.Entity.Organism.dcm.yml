@@ -4,5 +4,5 @@ Sil\Bundle\CRMBundle\Entity\Organism:
 
     manyToMany:
         emailMessages:
-            targetEntity: Sil\Bundle\EmailBundle\Entity\Email
+            targetEntity: Sil\Bundle\EmailBundle\Entity\EmailInterface
             mappedBy: organizations

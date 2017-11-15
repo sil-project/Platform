@@ -154,7 +154,7 @@ Sil\Bundle\VarietyBundle\Entity\Variety:
             targetEntity: Sil\Bundle\VarietyBundle\Entity\PlantCategory
             inversedBy: varieties
             joinTable:
-                name: sil_varieties_variety_category
+                name: sil_variety_variety_category
                 joinColumns:
                     plant_category_id:
                         referencedColumnName: id

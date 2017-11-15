@@ -1,0 +1,1095 @@
+# Copyright (C) 2015-2016 Libre Informatique
+#
+# This file is licenced under the GNU GPL v3.
+# For the full copyright and license information, please view the LICENSE
+# file that was distributed with this source code.
+
+parameters:
+    blast:
+        configuration:
+            search:
+                add:
+                    - sil_emailcrm.admin.organism
+                    - sil_variety.admin.species
+                    - lisem.admin.variety
+                    - lisem.admin.seeds_product
+                    - sil_seed_batch.admin.organism
+                    - sil_seed_batch.admin.seedfarm
+                    - sil_seed_batch.admin.seedbatch
+
+###########
+#  ALL
+###########
+        Blast\Bundle\CoreBundle\Admin\CoreAdmin:
+            Sonata\AdminBundle\Datagrid\ListMapper:
+                add:
+                    _action:
+                        type: actions
+                        actions:
+                            show: ~
+                            edit: ~
+                            duplicate:
+                                template: BlastCoreBundle:CRUD:list__action_duplicate.html.twig
+            Sonata\AdminBundle\Form\FormMapper:
+                _options:
+                    cascade_validation: true
+
+############
+# VARIETY
+############
+
+        LisemBundle\Admin\VarietyAdmin:
+            Sonata\AdminBundle\Show\ShowMapper:
+                add:
+                    form_tab_channel_descriptions:
+                        show_group_channel_descriptions:
+                            channelDescriptions:
+                                template: LisemBundle:CRUD:show_field_channel_descriptions.html.twig
+                    form_tab_seed_batches:
+                        show_group_seed_batches:
+                            seedBatches:
+                                admin_code: sil_seed_batch.admin.seedbatch
+                    _options:
+                        tabsOrder:
+                            - form_tab_general
+                            - form_tab_seeds_production
+                            - form_tab_channel_descriptions
+                            - form_tab_inner
+                            - form_tab_plant
+                            - form_tab_culture
+                            - form_tab_commercial
+                            - form_tab_production
+                            - form_tab_professional
+                            - form_tab_amateur
+                            - form_tab_strains
+                            - form_tab_seed_batches
+                            - form_tab_images
+                    _helper_links:
+                        - url: https://framacalc.org/libio_validation_varietes
+                          title: Framacalc de validation (Variétés)
+                          class: framacalc
+            Sonata\AdminBundle\Form\FormMapper:
+                add:
+                    form_tab_channel_descriptions:
+                        form_group_channel_descriptions:
+                            channelDescriptions:
+                                type: sonata_type_collection
+                                by_reference: false
+                                required: false
+                                label: false
+                                attr:
+                                    class: new-line
+                                    width: 100
+                                _options:
+                                    edit: inline
+                                    inline: table
+                    _options:
+                        tabsOrder:
+                            - form_tab_general
+                            - form_tab_seeds_production
+                            - form_tab_channel_descriptions
+                            - form_tab_inner
+                            - form_tab_plant
+                            - form_tab_culture
+                            - form_tab_commercial
+                            - form_tab_production
+                            - form_tab_professional
+                            - form_tab_amateur
+                            - form_tab_strains
+                            - form_tab_images
+                            - form_group_specific
+                    _helper_links:
+                        - url: https://framacalc.org/libio_validation_varietes
+                          title: Framacalc de validation (Variétés)
+                          class: framacalc
+            Sonata\AdminBundle\Datagrid\ListMapper:
+                add:
+                    _helper_links:
+                        - url: https://framacalc.org/libio_validation_varietes
+                          title: Framacalc de validation (Variétés)
+                          class: framacalc
+            Sonata\AdminBundle\Datagrid\DatagridMapper:
+                add: ~
+
+################
+# SEEDS PRODUCT
+################
+
+        LisemBundle\Admin\SeedsProductAdmin:
+            form_theme:
+                - SilEcommerceBundle:Form:fields.html.twig
+            # SHOW
+            Sonata\AdminBundle\Show\ShowMapper:
+                forceTabs: true
+                remove:
+                    options: ~
+                    variants: ~
+                    description: ~
+                    shortDescription: ~
+                add:
+                    form_group_general:
+                        '':
+                            variety:
+                                admin_code: lisem.admin.variety
+                            description:
+                                safe: true
+                            shortDescription:
+                                safe: true
+                            _options:
+                                fieldsOrder:
+                                    - name
+                                    - code
+                                    - variety
+                    show_tab_variants:
+                        '':
+                            variants:
+                                label: false
+                                admin_code: lisem.admin.seeds_product_variant
+                                template: LisemBundle:SeedsProductAdmin:show_field_seeds_product_variants.html.twig
+                    _options:
+                        tabsOrder: [form_group_general, show_tab_variants, form_group_specifics]
+            # FORM
+            Sonata\AdminBundle\Form\FormMapper:
+                remove:
+                    variety: ~
+                    variants: ~
+                    options: ~
+                    name: ~
+                add:
+                    form_tab_general:
+                        form_group_general:
+                            variety:
+                                type: sonata_type_model_autocomplete
+                                property: [name, code]
+                                attr:
+                                    readonly: ~
+                                    class: inline-block
+                                    width: 50
+                                _options:
+                                    admin_code: lisem.admin.variety
+                            name:
+                                type: text
+                                attr:
+                                    class: inline-block
+                                    width: 50
+                            _options:
+                                fieldsOrder: [variety, name, code]
+                    form_tab_variants:
+                        _options:
+                            countChildItems:
+                                - variants
+                        form_group_variants:
+                            variants:
+                                type: sonata_type_collection
+                                label: false
+                                by_reference: true
+                                attr:
+                                    data-showFields: 'id,name,packaging,code,enabled'
+                                type_options:
+                                    btn_add: false
+                                _options:
+                                    edit: modal
+                                    inline: table-list
+                                    admin_code: lisem.admin.seeds_product_variant
+            #LIST
+            Sonata\AdminBundle\Datagrid\ListMapper:
+                remove:
+                    name: ~
+                add:
+                    name: ~
+                    code:
+                        identifier: true
+                    variety:
+                        admin_code: sil_variety.admin.variety
+                    _options:
+                        fieldsOrder: [name, code, variety, enabled]
+
+            Sonata\AdminBundle\Datagrid\DatagridMapper:
+                add: ~
+
+################
+# OTHER PRODUCT
+################
+
+        LisemBundle\Admin\OtherProductAdmin:
+            form_theme:
+                - SilEcommerceBundle:Form:fields.html.twig
+            # SHOW
+            Sonata\AdminBundle\Show\ShowMapper:
+                add:
+                    show_tab_variants:
+                        '':
+                            variants:
+                                label: false
+                                admin_code: lisem.admin.other_product_variant
+                                template: SilEcommerceBundle:ProductAdmin:show_field_product_variants.html.twig
+
+            # FORM
+            Sonata\AdminBundle\Form\FormMapper:
+                remove:
+                    variants: ~
+                add:
+                    form_tab_variants:
+                        _options:
+                            countChildItems:
+                                - variants
+                        form_group_variants:
+                            variants:
+                                type: sonata_type_collection
+                                label: false
+                                by_reference: true
+                                attr:
+                                    data-showFields: 'id,name,code,optionValues'
+                                type_options:
+                                    btn_add: false
+                                _options:
+                                    edit: modal
+                                    inline: table-list
+                                    admin_code: lisem.admin.other_product_variant
+            # LIST
+            Sonata\AdminBundle\Datagrid\ListMapper:
+                add: ~
+
+            # FILTER
+            Sonata\AdminBundle\Datagrid\DatagridMapper:
+                add: ~
+
+# ########################
+# SEEDS PRODUCT VARIANT
+# ########################
+
+        LisemBundle\Admin\SeedsProductVariantAdmin:
+            # SHOW
+            Sonata\AdminBundle\Show\ShowMapper:
+                remove:
+                    onHand: ~
+                    onHold: ~
+                    # tracked: ~
+                    optionValues: ~
+                    available: ~
+                    prices: ~
+                    price: ~
+                add:
+                    form_tab_general:
+                        form_group_general:
+                            product:
+                                admin_code: lisem.admin.seeds_product
+                            packaging: ~
+                            seedBatch:
+                                admin_code: sil_seed_batch.admin.seedbatch
+                            code: ~
+                            _options:
+                                fieldsOrder:
+                                    - product
+                                    - packaging
+                                    - seedBatch
+                                    - code
+                        form_group_stock:
+                            stockItem.inStockQty:
+                                mapped: false
+                                template: SilStockBundle:StockItemAdmin/Show:show_computed_qty.html.twig
+                            stockItem.reservedQty:
+                                mapped: false
+                                template: SilStockBundle:StockItemAdmin/Show:show_computed_qty.html.twig
+                            stockItem.availableQty:
+                                mapped: false
+                                template: SilStockBundle:StockItemAdmin/Show:show_computed_qty.html.twig
+            # FORM
+            Sonata\AdminBundle\Form\FormMapper:
+                remove:
+                    id: ~
+                    name: ~
+                    code: ~
+                    channelPricings: ~
+                    _delete: ~
+                    product: ~
+                    taxCategory: ~
+                    form_group_options: ~
+                    onHand: ~
+                    onHold: ~
+                    # tracked: ~
+                add:
+                    form_tab_general:
+                        form_group_general:
+                            id:
+                                type: hidden
+                            product:
+                                type: sonata_type_model_hidden
+                                _options:
+                                    admin_code: lisem.admin.seeds_product
+                            name:
+                                type: text
+                                required: true
+                            code:
+                                type: Blast\Bundle\CoreBundle\Form\Type\EntityCodeType
+                                required: true
+                            _options:
+                                fieldsOrder:
+                                    - name
+                                    - packaging
+                                    - seedBatch
+                                    - code
+                        form_group_pricing:
+                            taxCategory: ~
+                            channelPricings:
+                                type: sonata_type_collection
+                                type_options:
+                                    btn_add: false
+                                    delete: false
+                                _options:
+                                    admin_code: sil_ecommerce.admin.channel_pricing
+                                    edit: inline
+                                    inline: table
+                        _options:
+                            groupsOrder:
+                                - form_group_general
+                                - form_group_pricing
+                                - form_group_properties
+                                - form_group_stock
+            # LIST
+            Sonata\AdminBundle\Datagrid\ListMapper:
+                remove:
+                    optionValues: ~
+                    code: ~
+                    name: ~
+                    translations.name: ~
+                    product: ~
+                    packaging: ~
+                    seedBatch: ~
+                    price: ~
+                    onHand: ~
+                    onHold: ~
+                    tracked: ~
+                    available: ~
+                add:
+                    code: ~
+                    name: ~
+                    product:
+                        admin_code: lisem.admin.seeds_product
+                    packaging: ~
+                    seedBatch:
+                        admin_code: sil_seed_batch.admin.seedbatch
+                    onHand:
+                        type: boolean
+                    onHold:
+                        type: boolean
+                    tracked:
+                        type: boolean
+                    _options:
+                        fieldsOrder:
+                            - name
+                            - code
+                            - product
+                            - packaging
+                            - seedBatch
+                            - tracked
+                            - onHand
+                            - onHold
+            # FILTER
+            Sonata\AdminBundle\Datagrid\DatagridMapper:
+                add: ~
+
+########################
+# OTHER PRODUCT VARIANT
+########################
+
+        LisemBundle\Admin\OtherProductVariantAdmin:
+            # SHOW
+            Sonata\AdminBundle\Show\ShowMapper:
+                remove:
+                    available: ~
+                add:
+                    form_group_general:
+                        '':
+                            product:
+                                admin_code: lisem.admin.other_product
+            # FORM
+            Sonata\AdminBundle\Form\FormMapper:
+                remove:
+                    name: ~
+                    optionValues: ~
+                    _delete: ~
+                    channelPricings: ~
+                    taxCategory: ~
+                    onHand: ~
+                    onHold: ~
+                    tracked: ~
+                    width: ~
+                    height: ~
+                    depth: ~
+                    weight: ~
+                    code: ~
+                    product: ~
+                    form_group_stock: ~
+                add:
+                    form_tab_general:
+                        form_group_general:
+                            id:
+                                type: hidden
+                            product:
+                                type: sonata_type_model_hidden
+                                _options:
+                                    admin_code: lisem.admin.seeds_product
+                            name:
+                                type: text
+                                required: true
+                            code:
+                                type: Blast\Bundle\CoreBundle\Form\Type\EntityCodeType
+                                required: true
+                            _options:
+                                fieldsOrder:
+                                    - name
+                                    - code
+                        form_group_options:
+                            optionValues:
+                                _options:
+                                    admin_code: sil_ecommerce_option_value.admin.product
+                        form_group_pricing:
+                            taxCategory: ~
+                            channelPricings:
+                                type: sonata_type_collection
+                                type_options:
+                                    btn_add: false
+                                    delete: false
+                                _options:
+                                    admin_code: sil_ecommerce.admin.channel_pricing
+                                    edit: inline
+                                    inline: table
+                        _options:
+                            groupsOrder:
+                                - form_group_general
+                                - form_group_options
+                                - form_group_pricing
+                                - form_group_properties
+                                - form_group_stock
+            # LIST
+            Sonata\AdminBundle\Datagrid\ListMapper:
+                remove:
+                    optionValues: ~
+                    code: ~
+                    name: ~
+                    translations.name: ~
+                    product: ~
+                    price: ~
+                    onHand: ~
+                    onHold: ~
+                    tracked: ~
+                    available: ~
+                add:
+                    name: ~
+                    code:: ~
+                    onHand:
+                        type: boolean
+                    onHold:
+                        type: boolean
+                    tracked:
+                        type: boolean
+                    optionValues:
+                        type: null
+                        admin_code: sil_ecommerce_option_value.admin.product
+                    _options:
+                        fieldsOrder:
+                            - name
+                            - tracked
+                            - onHand
+                            - onHold
+                            - optionValues
+            # FILTER
+            Sonata\AdminBundle\Datagrid\DatagridMapper:
+                add: ~
+
+#####################
+# CHANNEL DESCRIPTION
+#####################
+
+        PlatformBundle\Entity\ChannelDescription:
+            # SHOW
+            Sonata\AdminBundle\Show\ShowMapper:
+                add:
+                    title: ~
+                    value: ~
+                    id: ~
+
+            # FORM
+            Sonata\AdminBundle\Form\FormMapper:
+                add:
+                    main_tab:
+                        main_group:
+                            channel:
+                                type: entity
+                                class: Sil\Bundle\EcommerceBundle\Entity\Channel
+                            title:
+                                type: text
+                            value:
+                                type: Blast\Bundle\UtilsBundle\Form\Type\TinyMceType
+
+############
+# PACKAGING
+############
+
+        LisemBundle\Admin\PackagingAdmin:
+            # SHOW
+            Sonata\AdminBundle\Show\ShowMapper:
+                remove:
+                    option: ~
+            # FORM
+            Sonata\AdminBundle\Form\FormMapper:
+                add:
+                    form_group_general:
+                        '':
+                            code:
+                                type: hidden
+                            value:
+                                type: hidden
+                            option:
+                                type: sonata_type_model_hidden
+                            quantity:
+                                type: text
+                                mapped: false
+                            unit:
+                                type: choice
+                                choices:
+                                    grams: lisem.packaging_unit.grams
+                                    seeds: lisem.packaging_unit.seeds
+                                translation_domain: null
+                                mapped: false
+                                label: false
+                            bulk:
+                                type: checkbox
+                                required: false
+                                mapped: false
+            # LIST
+            Sonata\AdminBundle\Datagrid\ListMapper:
+                remove:
+                    option: ~
+            # FILTERS
+            Sonata\AdminBundle\Datagrid\DatagridMapper:
+                add: ~
+
+#####################
+# CRM ORGANISM
+#####################
+
+        Sil\Bundle\SeedBatchBundle\Admin\OrganismAdmin:
+            Sonata\AdminBundle\Show\ShowMapper:
+                titleTemplate: SilSeedBatchBundle:OrganismAdmin:show_title.html.twig
+                forceTabs: true
+                remove:
+                    name: ~
+                    circles: ~
+                    flashOnControl: ~
+                    vcard_uid: ~
+                    description: ~
+                    defaultPhone: ~
+                    defaultAddress: ~
+                    email: ~
+                    emailNpai: ~
+                    emailNoNewsletter: ~
+                    url: ~
+                    source: ~
+                    catalogue_sent: ~
+                    catalogue_send_mean: ~
+                    first_catalogue_sent_date: ~
+                    last_catalogue_sent_date: ~
+                    addresses: ~
+                    phones: ~
+                    category: ~
+                    category.name: ~
+                add:
+                    show_tab_general:
+                        '':
+                            fulltextName: ~
+                            active: ~
+                            isCustomer:
+                                template: 'SilCRMBundle:CRUD:show_field_customer.html.twig'
+                            isSupplier:
+                                template: 'SilCRMBundle:CRUD:show_field_supplier.html.twig'
+                            isSeedProducer:
+                                template: 'SilSeedBatchBundle:CRUD:show_field_seedProducer.html.twig'
+                            description: ~
+                            circles: ~
+                            category.name: ~
+                            email:
+                                template: 'SilCRMBundle:CRUD:show_field_email.html.twig'
+                            _options:
+                                fieldsOrder:
+                                    - fulltextName
+                                    - isCustomer
+                                    - isSupplier
+                                    - isSeedProducer
+                                    - circles
+                                    - description
+                                    - email
+                                    - category.name
+                                    - active
+                        show_group_defaultPhone:
+                            defaultPhone:
+                                template: 'SilCRMBundle:CRUD:show_field_main_phone.html.twig'
+                                label: false
+                        show_group_defaultAddress:
+                            defaultAddress:
+                                template: 'SilCRMBundle:CRUD:show_field_main_address.html.twig'
+                                label: false
+                        show_group_administrative:
+                            vat:
+                                template: 'SilCRMBundle:CRUD:show_field_vat.html.twig'
+                            iban: ~
+                            siret: ~
+                        show_group_info:
+                            source: ~
+                            catalogue_sent: ~
+                            catalogue_send_mean: ~
+                            first_catalogue_sent_date: ~
+                            last_catalogue_sent_date: ~
+                        _options:
+                            groupsOrder:
+                                - ''
+                                - show_group_defaultPhone
+                                - show_group_defaultAddress
+                                - form_group_administrative
+                    show_tab_contactInformations:
+                        show_group_addresses:
+                            addresses:
+                                label: false
+                                template: 'SilCRMBundle:CRUD:show_field_addresses.html.twig'
+                        show_group_phones:
+                            phones:
+                                label: false
+                                template: 'SilCRMBundle:CRUD:show_field_phones.html.twig'
+                        _options:
+                            countChildItems:
+                                - addresses
+                                - phones
+                    show_tab_individuals:
+                        '':
+                            individuals:
+                                template: SilCRMBundle:CRUD:show_field_individuals.html.twig
+                            organizations:
+                                template: SilCRMBundle:CRUD:show_field_organizations.html.twig
+                    show_tab_plots:
+                        '':
+                            plots:
+                                admin_code: sil_seed_batch.admin.plot_embedded
+                        _options:
+                            countChildItems:
+                                - plots
+                    show_tab_seedbatches:
+                        '':
+                            seedBatches:
+                                admin_code: sil_seed_batch.admin.seedbatch_embedded
+                        _options:
+                            countChildItems:
+                                - seedBatches
+                    _options:
+                        tabsOrder:
+                            - show_tab_general
+                            - show_tab_individuals
+                            - show_tab_contactInformations
+                            - show_tab_emails
+                            - show_tab_plots
+                            - show_tab_seedbatches
+                            - show_tab_history
+                    _helper_links:
+                        - url: https://framacalc.org/libio_validation_crm
+                          title: Framacalc de validation
+                          class: framacalc
+            Sonata\AdminBundle\Form\FormMapper:
+                titleTemplate: SilSeedBatchBundle:OrganismAdmin:show_title.html.twig
+                remove:
+                    addresses: ~
+                    phones: ~
+                    description: ~
+                    alert: ~
+                    category: ~
+                    url: ~
+                    active: ~
+                    circles: ~
+                    email: ~
+                add:
+                    form_tab_general:
+                        form_group_organism:
+                            circles:
+                                type: sonata_type_model
+                                multiple: true
+                                expanded: false
+                                btn_add: false
+                                required: false
+                                class: Sil\Bundle\CRMBundle\Entity\Circle
+                                choicesCallback: [LisemBundle\Admin\CircleAdmin, groupedCirclesChoices]
+                            email:
+                                type: Sil\Bundle\CRMBundle\Form\Type\FakeEmailType
+                            seedProducer:
+                                type: checkbox
+                                required: false
+                            seedProducerCode:
+                                type: Blast\Bundle\CoreBundle\Form\Type\EntityCodeType
+                                attr:
+                                    placeholder: sil.placeholder.seed_producer_code
+                                only_not_new: true
+                            active: ~
+                            _options:
+                                fieldsOrder:
+                                    - isIndividual
+                                    - title
+                                    - firstname
+                                    - lastname
+                                    - name
+                                    - circles
+                                    - email
+                                    - emailNpai
+                                    - emailNoNewsletter
+                                    - isCustomer
+                                    - customerCode
+                                    - isSupplier
+                                    - supplierCode
+                                    - seedProducer
+                                    - seedProducerCode
+                                    - active
+                        form_group_administrative:
+                            siret:
+                                type: text
+                                required: false
+                        form_group_notes:
+                            alert:
+                                type: textarea
+                                required: false
+                            description:
+                                type: textarea
+                                required: false
+                            url:
+                                type: text
+                                required: false
+                    form_tab_plots:
+                        '':
+                            plots:
+                                type: sonata_type_collection
+                                by_reference: false
+                                type_options:
+                                    required: true
+                                    btn_add: false
+                                required: true
+                                label: false
+                                only_not_new: true
+                                _options:
+                                    edit: inline
+                                    allow_delete: true
+                                    admin_code: sil_seed_batch.admin.plot_embedded
+                    form_tab_seedbatches:
+                        '':
+                            seedBatches:
+                                type: sonata_type_collection
+                                by_reference: false
+                                type_options:
+                                    required: true
+                                    btn_add: false
+                                required: true
+                                label: false
+                                only_not_new: true
+                                _options:
+                                    edit: inline
+                                    allow_delete: true
+                                    admin_code: sil_seed_batch.admin.seedbatch_embedded
+                    form_tab_contactInformations:
+                        _options:
+                            countChildItems:
+                                - addresses
+                                - phones
+                        form_group_addresses:
+                            addresses:
+                                type: sonata_type_collection
+                                label: false
+                                by_reference: false
+                                type_options:
+                                    btn_add: false
+                                    delete_options:
+                                        type: checkbox
+                                        type_options:
+                                            mapped: false
+                                            required: false
+                                required: true
+                                _options:
+                                    edit: inline
+                        form_group_phones:
+                            phones:
+                                type: sonata_type_collection
+                                label: false
+                                by_reference: false
+                                type_options:
+                                    btn_add: false
+                                    delete_options:
+                                        type: checkbox
+                                        type_options:
+                                            mapped: false
+                                            required: false
+                                required: true    # if not true, child form fields cannot be required (why ??)
+                                _options:
+                                    edit: inline
+                                    inline: table
+                    _options:
+                        tabsOrder:
+                            - form_tab_general
+                            - form_tab_individuals
+                            - form_tab_contactInformations
+                            - form_tab_plots
+                            - form_tab_seedbatches
+                            - form_tab_info
+                            - form_group_specifics
+            Sonata\AdminBundle\Datagrid\DatagridMapper:
+                remove:
+                    familyContact: ~
+                    firstname: ~
+                    lastname: ~
+                    shortname: ~
+                    fulltextName: ~
+                add:
+                    fulltextName:
+                        type: doctrine_orm_callback
+                        serviceCallback: [sil.ecommerce.filters.customer, filterOnFullname, callback]
+                        field_type: text
+                        operator_type: choice
+                        operator_options:
+                            choices: # See Sonata\AdminBundle\Form\Type\Filter\ChoiceType::buildForm() & consts
+                                label_type_contains: 1
+                                label_type_not_contains: 2
+                                # label_type_equals: 3     # Cannot use « equals » because of concat field
+                            translation_domain: SonataAdminBundle
+            Sonata\AdminBundle\Datagrid\ListMapper:
+                remove:
+                    category.name: ~
+
+#####################
+# CRM ADDRESS
+#####################
+
+        Sil\Bundle\CRMBundle\Entity\Address:
+            Sonata\AdminBundle\Form\FormMapper:
+                remove:
+                    firstName: ~
+                    lastName: ~
+                    street: ~
+                    postCode: ~
+                    city: ~
+                    countryCode: ~
+                    npai: ~
+                    createdAt: ~
+                    updatedAt: ~
+                    createdBy: ~
+                    updatedBy: ~
+                add:
+                    main_tab:
+                        main_group:
+                            firstName: ~
+                            lastName:
+                                type: text
+                                required: true
+                            street: ~
+                            postCode:
+                                type: Sil\Bundle\CRMBundle\Form\Type\ZipCityType
+                                zip_field: postCode
+                                required: true
+                            city:
+                                type: Sil\Bundle\CRMBundle\Form\Type\ZipCityType
+                                zip_field: postCode
+                                required: true
+                            countryCode:
+                                type: country
+                                required: true
+                            npai: ~
+                            _options:
+                                fieldsOrder:
+                                    - firstName
+                                    - lastName
+                                    - street
+                                    - postCode
+                                    - city
+                                    - countryCode
+                                    - npai
+
+##########
+# CIRCLE
+##########
+
+        Sil\Bundle\CRMBundle\Entity\Circle:
+            managedManyToMany: [organisms]
+            Sonata\AdminBundle\Show\ShowMapper:
+                add:
+                    form_tab_general:
+                        '':
+                            code: ~
+                            type: ~
+                            users: ~
+                        form_group_members:
+                            organismsCount:
+                                _options:
+                                    template: SilCRMBundle:CircleAdmin:show_field_organisms_count.html.twig
+                        _options:
+                            groupsOrder:
+                                - sil.crm.circle_admin.label
+                                - form_group_members
+                                - form_group_description
+                                - form_group_history
+            Sonata\AdminBundle\Form\FormMapper:
+                remove:
+                    owner: ~
+                    description: ~
+                    color: ~
+                    name: ~
+                    type: ~
+                add:
+                    form_tab_general:
+                        '':
+                            name:
+                                required: true
+                            code: ~
+                            description: ~
+                            type:
+                                type: Blast\Bundle\UtilsBundle\Form\Type\CustomChoiceType
+                                blast_choices: ['Producteur', 'Fournisseur', 'Client', 'Autres']
+                                choices_field: circle.type
+                                required: false
+                                group_by: type
+                    _options:
+                        tabsOrder:
+                            - form_tab_general
+                            - form_group_specifics
+            Sonata\AdminBundle\Datagrid\ListMapper:
+                remove:
+                    owner: ~
+                    name: ~
+                    createdAt: ~
+                add:
+                    name:
+                        identifier: true
+                    code: ~
+                    type: ~
+                    users: ~
+                    organismsCount:
+                        template: SilCRMBundle:CircleAdmin:list_field_organisms_count.html.twig
+            Sonata\AdminBundle\Datagrid\DatagridMapper:
+                remove:
+                    owner: ~
+                add:
+                    type: ~
+
+###################
+# EMAILING
+###################
+        Sil\Bundle\EmailBundle\Admin\EmailAdmin:
+            Sonata\AdminBundle\Form\FormMapper:
+                remove:
+                    field_from: ~
+                    field_to: ~
+                    field_subject: ~
+                    field_cc: ~
+                    field_bcc: ~
+                    template: ~
+                    content: ~
+                    attachments: ~
+                    isTemplate: ~
+                    newTemplateName: ~
+                    isTest: ~
+                    testAddress: ~
+                    tracking: ~
+                    organizations: ~
+                    individuals: ~
+                    circles: ~
+                add:
+                    form_tab_general:
+                        form_group_expeditors:
+                            field_from:
+                                type: text
+                                required: true
+                            field_to:
+                                type: text
+                                required: false
+                                help: sil.help.field_to
+                            field_cc:
+                                type: text
+                                required: false
+                            field_bcc:
+                                type: text
+                                required: false
+                        form_group_grouped_expeditors:
+                            circles:
+                                type: sonata_type_model
+                                multiple: true
+                                expanded: false
+                                btn_add: false
+                                required: false
+                                class: Sil\Bundle\CRMBundle\Entity\Circle
+                                choicesCallback: [LisemBundle\Admin\CircleAdmin, groupedCirclesChoices]
+                        form_group_general:
+                            field_subject:
+                                type: text
+                                required: false
+                            template:
+                                attr:
+                                    class: template_select
+                            content:
+                                type: Blast\Bundle\UtilsBundle\Form\Type\TinyMceType
+                            attachments:
+                                type: Sil\Bundle\MediaBundle\Form\Type\DropzoneType
+                                required: false
+                                dropzoneTemplate: SilEmailBundle:dropzone:dropzone_template.mustache.twig
+                            _options:
+                                fieldsOrder:
+                                    - field_from
+                                    - field_to
+                                    - field_cc
+                                    - field_bcc
+                                    - field_subject
+                                    - template
+                                    - content
+                                    - attachments
+                        form_group_options:
+                            isTemplate:
+                                type: checkbox
+                                required: false
+                            newTemplateName:
+                                type: text
+                                required: false
+                            isTest:
+                                type: checkbox
+                                required: false
+                                attr:
+                                    class: is_test
+                            testAddress:
+                                type: text
+                                required: false
+                            tracking:
+                                type: checkbox
+                                required: false
+                        _options:
+                            groupsOrder: [ form_group_general, form_group_grouped_expeditors, form_group_expeditors, form_group_options ]
+                    _options:
+                        tabsOrder: [ form_tab_general, form_tab_history ]
+                    _helper_links:
+                        - url: https://framacalc.org/libio_validation_crm
+                          title: Framacalc de validation (CRM)
+                          class: framacalc
+            Sonata\AdminBundle\Datagrid\DatagridMapper:
+                add: ~
+            Sonata\AdminBundle\Datagrid\ListMapper:
+                remove:
+                    field_to: ~
+                add:
+                    circles:
+                        type: null
+                    field_to:
+                        type: null
+                    _options:
+                        fieldsOrder:
+                            - circles
+                            - field_to
+                            - field_subject
+                            - sent
+                    _export_formats:
+                        csv: [ field_from, field_to, circles.name, field_subject, field_cc, field_bcc, textContent, createdAt, updatedAt]
+                        xls: csv
+                        json: csv
+                        xml: csv
+
+
+        LisemBundle\Admin\PaymentMethodAdmin:
+            Sonata\AdminBundle\Form\FormMapper:
+                add: ~

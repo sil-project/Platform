@@ -1,0 +1,12 @@
+
+services:
+    sil_variety.admin.genus_embedded:
+        class: Sil\Bundle\VarietyBundle\Admin\GenusEmbeddedAdmin
+        arguments: [~, "%sil_variety.enttity.genus.class%", BlastCoreBundle:CRUD]
+        tags:
+            -
+                name: sonata.admin
+                manager_type: orm
+                group: admin
+                label: sil.bundle.varietybundle.admin.genus
+                label_translator_strategy: blast.resource.sonata.label_strategy.prefix

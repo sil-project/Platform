@@ -1,0 +1,15 @@
+{% extends 'SilEcommerceBundle:ProductAdmin:edit.html.twig' %}
+
+{% block sonata_form_actions %}
+    {% if admin.variety is null %}
+        <button class="btn btn-success" type="submit" name="btn_create_for_variety">
+            <i class="fa fa-plus-circle" aria-hidden="true"></i>{{ 'sil.button.continue'|trans }}
+        </button>
+    {% else %}
+        {{ parent() }}
+    {% endif %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}

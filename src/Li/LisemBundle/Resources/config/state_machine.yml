@@ -1,0 +1,15 @@
+winzou_state_machine:
+    sylius_order:
+        callbacks:
+            after:
+                app_sil_ecommerce_order_stock_handler:
+                    on:   ["create", "confirm", "fulfill", "cancel"]
+                    do:   ["@app.stock_handler", "handleOrder"]
+                    args: ["object", "event.getConfig()['to']"]
+    sylius_shipment:
+        callbacks:
+            after:
+                app_sil_ecommerce_order_stock_handler:
+                    on:   ["create", "ship", "cancel"]
+                    do:   ["@app.stock_handler", "handleShipment"]
+                    args: ["object", "event.getConfig()['to']"]

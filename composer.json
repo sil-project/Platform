@@ -16,7 +16,8 @@
         "psr-4": {
             "Tests\\": "tests/",
             "Blast\\": "src/Blast",
-            "Sil\\": "src/Sil"
+            "Sil\\": "src/Sil",
+            "LisemBundle\\": "src/Li/LisemBundle"
         },
         "files": [
             "vendor/symfony/symfony/src/Symfony/Component/VarDumper/Resources/functions/dump.php"

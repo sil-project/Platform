@@ -21,7 +21,7 @@ use Sonata\CoreBundle\Validator\ErrorElement;
 
 class OrganismAdmin extends BaseOrganismAdmin
 {
-    protected $baseRouteName = 'admin_sil_seedbatch_organism';
+    protected $baseRouteName = 'admin_sil_seed_batch_organism';
     protected $baseRoutePattern = 'sil/seedbatch/organism';
 
     /**

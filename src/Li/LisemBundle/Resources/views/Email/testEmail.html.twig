@@ -1,0 +1,16 @@
+{% block subject %}
+    A new movie {{ movie.title }} has been submitted
+{% endblock %}
+
+{% block body %}
+    <p>Hello Dear Customer !</p>
+
+    <p>A new movie has been submitted for review to your database.</p>
+
+    <p>
+        Title: {{ movie.title }}<br>
+        Added by {{ user.name }}
+    </p>
+
+    <p>Please review it and accept or reject!</p>
+{% endblock %}

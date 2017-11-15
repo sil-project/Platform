@@ -1,0 +1,108 @@
+{% extends 'BlastCoreBundle:CRUD:base_show_field.html.twig' %}
+
+{% import "@SyliusShop/Common/Macro/money.html.twig" as money %}
+
+{% block field %}
+    <table class="table table-striped table-compact">
+        <thead>
+            <tr>
+                <th>
+                    {{ 'sil.ecommercebundle.name'|trans }}
+                </th>
+                <th>
+                    {{ 'sil.ecommercebundle.code'|trans }}
+                </th>
+                <th>
+                    {{ 'lisem.lisembundle.seedbatches'|trans }}
+                </th>
+                <th>
+                    {{ 'lisem.lisembundle.packaging'|trans }}
+                </th>
+                <th>
+                    {{ 'sil.ecommercebundle.taxCategory'|trans }}
+                </th>
+                <th class="text-right">
+                    {{ 'sil.ecommercebundle.prices'|trans }}
+                </th>
+                <th class="text-right">
+                    <i class="fa fa-cogs"></i>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+
+    {% for variant in value %}
+        <tr>
+            <td>
+                {{ variant.name }}
+            </td>
+            <td>
+                {{ variant.code }}
+            </td>
+            <td>
+                <ul class="list-inline">
+                {% for seedbatch in variant.seedBatches %}
+                    <li>
+                        <a href="{{ path('admin_sil_seed_batch_seedbatch_show', {'id':seedbatch.id})}}">
+                            <span class="label label-success">{{ seedbatch }}</span>
+                        </a>
+                    </li>
+                {% endfor %}
+                </ul>
+            </td>
+            <td>
+                <ul class="list-inline">
+                {% for optionValue in variant.optionValues %}
+                    <li>
+                        <span class="label label-primary">{{ optionValue }}</span>
+                    </li>
+                {% endfor %}
+                </ul>
+            </td>
+            <td>
+                {{ variant.taxCategory }}
+            </td>
+            <td class="text-right no-padding">
+                <table class="table table-condensed">
+                {% for price in variant.channelPricings %}
+                    <tr>
+                        <td class="no-padding text-right">
+                            {{ price.channelCode }}
+                        </td>
+                        <td class="no-padding text-center">
+                            <span class="badge">{{ money.convertAndFormat(price.price) }}</span>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </table>
+            </td>
+            <td>
+                <div class="btn-group pull-right">
+                    <a href="{{ path('admin_sil_seeds_productvariant_edit', {'id': variant.id})}}" class="btn btn-sm btn-default edit_link openInModal" title="{{ 'action_edit'|trans({}, 'SonataAdminBundle') }}">
+                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                    </a>
+                    <a href="{{ path('admin_sil_seeds_productvariant_delete', {'id': variant.id})}}" class="btn btn-sm btn-danger delete_link confirmable" title="{{ 'action_delete'|trans({}, 'SonataAdminBundle') }}">
+                        <i class="fa fa-trash" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </td>
+        </tr>
+
+    {% else %}
+        <tr>
+            <td colspan="100%" class="text-center">
+                {{ 'sil.ecommercebundle.no_product_variants' }}
+            </td>
+        </tr>
+    {% endfor %}
+
+        </tbody>
+    </table>
+
+    <script>
+        jQuery(document).on('li-modal.success',function() {
+            window.location.reload();
+        });
+    </script>
+
+{% endblock %}

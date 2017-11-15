@@ -1,0 +1,26 @@
+
+{% block channelDescriptions %}
+<table class="table channel-descriptions">
+    <tbody>
+        <tr class="">
+            <th>
+                {{ 'sil.label.channel'|trans() }}
+            </th>
+            <th>
+                {{ 'Value'|trans() }}
+            </th>
+        </tr>
+    {% for description in value %}
+        <tr class="sonata-ba-view-container">
+            <th>
+                {{ description.channel.name }}
+            </th>
+            <td>
+                {{ description.value }}
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

@@ -3,7 +3,7 @@ PlatformBundle\Entity\SilVarietyBundle\Variety:
 
     oneToMany:
         products:
-            targetEntity: PlatformBundle\Entity\SilEcommerceBundle\Product
+            targetEntity: Sil\Bundle\EcommerceBundle\Entity\ProductInterface
             mappedBy: variety
         channelDescriptions:
             targetEntity: PlatformBundle\Entity\ChannelDescription

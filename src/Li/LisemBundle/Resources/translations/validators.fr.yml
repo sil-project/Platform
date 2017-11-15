@@ -1,0 +1,5 @@
+lisem:
+    product_name:
+        empty: Le nom du produit est vide
+    product_slug:
+        empty: Le slug du produit est vide

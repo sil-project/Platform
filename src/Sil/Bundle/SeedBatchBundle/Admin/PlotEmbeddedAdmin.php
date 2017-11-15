@@ -19,7 +19,7 @@ class PlotEmbeddedAdmin extends PlotAdmin
 {
     // use EmbeddedAdmin;
 
-    protected $baseRouteName = 'admin_sil_seedbatch_plot_embedded';
+    protected $baseRouteName = 'admin_sil_seed_batch_plot_embedded';
     protected $baseRoutePattern = 'sil/seedbatch/plot_embedded';
 
     public function configureFormFields(FormMapper $mapper)

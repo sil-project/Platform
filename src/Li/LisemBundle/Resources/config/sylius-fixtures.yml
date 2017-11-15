@@ -1,0 +1,273 @@
+# Copyright (C) 2015-2016 Libre Informatique
+#
+# This file is licenced under the GNU GPL v3.
+# For the full copyright and license information, please view the LICENSE
+# file that was distributed with this source code.
+
+sylius_fixtures:
+    suites:
+
+        lisem_requirements:
+            listeners:
+                orm_purger: false
+                logger: ~
+
+            fixtures:
+                geographical:
+                    options:
+                        countries:
+                            - "FR"
+                        zones:
+                            FR:
+                                name: "France métropolitaine"
+                                countries:
+                                    - "FR"
+
+                channel:
+                    options:
+                        custom:
+                            fr_web_store:
+                                name: "VEL FR"
+                                code: "FR_WEB"
+                                hostname: "%sylius_fr_web_channel_hostname%"
+                                locales:
+                                    - "%locale%"
+                                currencies:
+                                    - "%currency%"
+                                enabled: true
+                                theme_name: sil/lisem-theme
+                                contact_email: contact@lisem.eu
+
+                payment_method:
+                    options:
+                        custom:
+                            cheque:
+                                code: "cheque"
+                                name: "Chèque"
+                                channels:
+                                    - "FR_WEB"
+                                enabled: true
+
+                shipping_method:
+                    options:
+                        custom:
+                            delivery_to_home:
+                                code: "delivery_to_home"
+                                name: "Livraison à domicile"
+                                channels:
+                                    - "FR_WEB"
+                                enabled: true
+
+                tax_category:
+                    options:
+                        custom:
+                            seeds:
+                                code: "seeds"
+                                name: "Semences"
+                            other:
+                                code: "other"
+                                name: "Autres"
+
+                tax_rate:
+                    options:
+                        custom:
+                            seeds_tax:
+                                code: "seeds_sales_tax_20"
+                                name: "TVA Semences 20%"
+                                zone: "FR"
+                                category: "seeds"
+                                amount: 0.20
+                            default_sales_tax:
+                                code: "sales_tax_20"
+                                name: "TVA 20%"
+                                zone: "FR"
+                                category: "other"
+                                amount: 0.20
+
+        lisem_varieties:
+            listeners:
+                logger: ~
+
+            fixtures:
+                family:
+                    options:
+                        custom:
+                            apiacees:
+                                name: Apiacées
+                                latin_name: Apiaceae
+                                alias: Ombellifères (Umbelliferae)
+                            solanacees:
+                                name: Solanacées
+                                latin_name: Solanaceae Juss.
+
+                genus:
+                    options:
+                        custom:
+                            coriandrum:
+                                name: coriandrum
+                                family: Apiacées
+                            daucus:
+                                name: daucus
+                                family: Apiacées
+                            solanum:
+                                name: solanum
+                                family: Solanacées
+                species:
+                    options:
+                        custom:
+                            coriandre:
+                                name: coriandre
+                                latin_name: coriandrum sativum
+                                alias: coriandre cultivée
+                                code: COR
+                                genus: coriandrum
+                            carotte:
+                                name: carotte
+                                latin_name: Daucus carota
+                                alias: faux chervis, gironille, pastenade, moulette, passenaille, patenaille
+                                code: CAC
+                                genus: daucus
+                            sub_carotte:
+                                name: carotte cultivée
+                                latin_name: Daucus carota subsp. sativus
+                                alias: faux chervis, gironille, pastenade, moulette, passenaille, patenaille
+                                code: CAR
+                                genus: daucus
+                                parent_species: carotte
+                            tomate:
+                                name: tomate
+                                latin_name: Solanum lycopersicum L.
+                                alias: pomme d'amour, pomme d'or
+                                code: TOM
+                                genus: solanum
+
+                variety:
+                    options:
+                        custom:
+                            coriandre:
+                                name: Coriandre
+                                latin_name: coriandrum sativum
+                                alias: coriandre cultivée
+                                code: COR
+                                species: coriandre
+                            carotte_nantaise:
+                                name: Carotte nantaise
+                                latin_name: Daucus carota subsp. sativus var sativus
+                                alias: carotte de l'Ouest
+                                code: OUE
+                                species: carotte cultivée
+                            carotte_est:
+                                name: Carotte de l'Est
+                                latin_name: Daucus carota subsp. sativus var atrorubens
+                                code: EST
+                                species: carotte cultivée
+                                description: >
+                                    Cette variété est le plus communément cultivée en Asie ;
+                                    elle se caractérise par des organes de réserve pourpres ou jaunes,
+                                    exceptionnellement jaunâtres ou jaune-orange et par des feuilles
+                                    vert glauque relativement peu découpées.
+                            tomate_st_pierre:
+                                name: Tomate Saint Pierre
+                                latin_name: Lycopersicum esculentum
+                                code: STP
+                                species: tomate
+                            tomate_merveille_marches:
+                                name: Tomate merveille des marchés
+                                latin_name: Lycopersicum esculentum
+                                code: MMA
+                                species: tomate
+
+                seed_batch:
+                    options:
+                        random: 30
+
+
+        lisem_default:
+            listeners:
+                orm_purger: false
+                logger: ~
+
+            fixtures:
+
+                payment_method:
+                    options:
+                        custom:
+                            cash_on_delivery:
+                                code: "cash_on_delivery"
+                                name: "Envoi contre remboursement"
+                                channels:
+                                    - "FR_WEB"
+                            bank_transfer:
+                                code: "bank_transfer"
+                                name: "Virement bancaire"
+                                channels:
+                                    - "FR_WEB"
+                                enabled: true
+
+                shipping_method:
+                    options:
+                        custom:
+                            ups:
+                                code: "ups"
+                                name: "UPS"
+                                enabled: true
+                                channels:
+                                    - "FR_WEB"
+                            dhl_express:
+                                code: "dhl_express"
+                                name: "DHL Express"
+                                channels:
+                                    - "FR_WEB"
+                            fedex:
+                                code: "fedex"
+                                name: "FedEx"
+                                channels:
+                                    - "FR_WEB"
+
+                tax_category:
+                    options:
+                        custom:
+                            clothing:
+                                code: "clothing"
+                                name: "Vêtements"
+                            books:
+                                code: "books"
+                                name: "Livres"
+
+                tax_rate:
+                    options:
+                        custom:
+                            clothing_tax:
+                                code: "clothing_sales_tax_10"
+                                name: "TVA Vêtements 10%"
+                                zone: "FR"
+                                category: "clothing"
+                                amount: 0.10
+                            books_tax:
+                                code: "books_sales_tax_055"
+                                name: "TVA Livres 5,5%"
+                                zone: "FR"
+                                category: "books"
+                                amount: 0.055
+
+        lisem_products:
+            listeners:
+                logger: ~
+
+            fixtures:
+                lisem_book_product:
+                    options:
+                        amount: 4
+
+                lisem_tshirt_product:
+                    options:
+                        amount: 4
+
+                seeds_product:
+                    options:
+                        amount: 6
+
+
+        lisem_customer:
+            listeners:
+                logger: ~

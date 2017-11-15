@@ -8,7 +8,7 @@ Sil\Bundle\EmailBundle\Entity\EmailReceipt:
             nullable: true
     manyToOne:
         email:
-            targetEntity: Sil\Bundle\EmailBundle\Entity\Email
+            targetEntity: Sil\Bundle\EmailBundle\Entity\EmailInterface
             inversedBy: receipts
             joinColumn:
                 name: email_id

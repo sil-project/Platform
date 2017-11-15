@@ -2,9 +2,15 @@ parameters:
     sil_crm.entity.address.class:                       PlatformBundle\Entity\SilCRMBundle\Address
     sil_crm.entity.organism.class:                      PlatformBundle\Entity\SilCRMBundle\Organism
 
-    sil_ecommerce.entity.product.class:                 PlatformBundle\Entity\SilEcommerceBundle\Product
+    # sil_ecommerce.entity.product.class:                 Sil\Bundle\EcommerceBundle\Entity\Product
+    sil_ecommerce.entity.product.class:                 LisemBundle\Entity\SilEcommerceBundle\Product
+    sil_ecommerce.entity.order.class:                   LisemBundle\Entity\SilEcommerceBundle\Order
+    sil_ecommerce.entity.product_variant.class:         LisemBundle\Entity\SilEcommerceBundle\ProductVariant
+    sil_ecommerce.entity.product_option_value.class:    LisemBundle\Entity\SilEcommerceBundle\ProductOptionValue
 
     sil_media.entity.file.class:                        PlatformBundle\Entity\SilMediaBundle\File
+
+    sil_email.entity.email.class:                       PlatformBundle\Entity\SilEmailBundle\Email
 
     sil_sonata_sylius_user.entity.sonata_user.class:    PlatformBundle\Entity\SilSonataSyliusUserBundle\SonataUser
     sil_sonata_sylius_user.entity.sonata_group.class:   Sil\Bundle\SonataSyliusUserBundle\Entity\SonataGroup
@@ -16,6 +22,8 @@ parameters:
     sil_variety.enttity.variety.class:                  PlatformBundle\Entity\SilVarietyBundle\Variety
     sil_variety.enttity.species.class:                  PlatformBundle\Entity\SilVarietyBundle\Species
     sil_variety.enttity.genus.class:                    PlatformBundle\Entity\SilVarietyBundle\Genus
+
+    sil_seed_batch.entity.seed_batch.class:             LisemBundle\Entity\SilSeedBatchBundle\SeedBatch
 
 doctrine:
     orm:
@@ -35,6 +43,10 @@ doctrine:
             Sil\Bundle\CRMBundle\Entity\OrganismInterface:                  "%sil_crm.entity.organism.class%"
             Sil\Bundle\CRMBundle\Entity\AddressInterface:                   "%sil_crm.entity.address.class%"
 
+            # SilEmailBundle
+
+            Sil\Bundle\EmailBundle\Entity\EmailInterface:                   "%sil_email.entity.email.class%"
+
             # SilStockBundle
 
             Sil\Bundle\StockBundle\Domain\Entity\PartnerInterface:          "%sil_stock.entity.partner.class%"
@@ -50,7 +62,14 @@ doctrine:
             #SilEcommerceBundle
 
             Sil\Bundle\EcommerceBundle\Entity\ProductInterface:             "%sil_ecommerce.entity.product.class%"
+            Sil\Bundle\EcommerceBundle\Entity\OrderInterface:               "%sil_ecommerce.entity.order.class%"
+            Sil\Bundle\EcommerceBundle\Entity\ProductVariantInterface:      "%sil_ecommerce.entity.product_variant.class%"
+            Sil\Bundle\EcommerceBundle\Entity\ProductOptionValueInterface:  "%sil_ecommerce.entity.product_option_value.class%"
 
             #SilMediaBundle
 
             Sil\Bundle\MediaBundle\Entity\FileInterface:                    "%sil_media.entity.file.class%"
+
+            # SilSeedBatchBundle
+
+            Sil\Bundle\SeedBatchBundle\Entity\SeedBatchInterface:           "%sil_seed_batch.entity.seed_batch.class%"

@@ -1,0 +1,11 @@
+LisemBundle\Entity\SilEcommerceBundle\ProductVariant:
+    type: entity
+
+    # manyToOne:
+    #     stockItem:
+    #         targetEntity: Sil\Bundle\StockBundle\Entity\StockItemInterface
+
+    manyToMany:
+        seedBatches:
+            targetEntity: Sil\Bundle\SeedBatchBundle\Entity\SeedBatchInterface
+            inversedBy: productVariants

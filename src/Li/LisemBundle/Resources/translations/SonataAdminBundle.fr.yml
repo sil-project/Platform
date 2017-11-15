@@ -1,0 +1,62 @@
+
+Dashboard: Tableau de Bord
+Strains: Souches
+Varieties: Variétés
+
+lisem:
+    menu_label:
+        accounting: Gestion / Compta
+        app_settings: Paramétrage
+        cash_book: Livre de caisse
+        catalogs: Catalogues
+        certifications_list: Liste des Certificats
+        contacts_list: Liste des Contacts
+        create_certification: Ajouter un Certificat
+        create_contact: Ajouter un Contact
+        create_customer: Ajouter un Client
+        create_email: Ajouter un Email
+        create_emailing: Ajouter un Emailing
+        create_order: Ajouter une Commandes
+        create_organism: Ajouter un Tiers
+        create_other_product: Ajouter un Article (autres)
+        create_plot: Ajouter une Parcelle
+        create_producer: Ajouter un Producteur
+        create_seed_batch: Ajouter un Lot
+        create_seed_product: Ajouter un Article (semences)
+        create_species: Ajouter une Espèce
+        create_variety: Ajouter une Variété
+        crm_contacts: Contacts
+        crm_emailing: Emailing
+        crm: Relations publiques
+        customers_list: Liste des Clients
+        emailing_list: Emailing
+        emails_list: Liste des Emails
+        germination_tests: Tests de germination
+        inventory: Inventaire
+        orders_list: Liste des Commandes
+        orders: Commandes
+        organisms_list: Liste des Tiers
+        other_products_list: Autres
+        packagings: Conditionnement
+        payment_list: Liste des Paiements
+        plot: Parcelles
+        plots_list: Liste des Parcelles
+        producers_list: Liste des Producteurs
+        producers: Producteurs
+        products: Articles
+        sales_journal: Journal des ventes
+        seed_batches_list: Liste des Lots
+        seed_batches: Lots
+        seed_products_list: Semences
+        species_list: Liste des Espèces
+        species: Èspèces
+        varieties_list: Liste des Variétés
+        varieties: Variétés
+sil:
+    link:
+        dashboard: Tableau de Bord
+
+'L''élément "" a été créé avec succès.': 'L''élément a été créé avec succès.'
+'L''élément "" a été supprimé avec succès.': 'L''élément a été supprimé avec succès.'
+'Une erreur est intervenue lors de la création de l''élément "".': 'Une erreur est intervenue lors de la création de l''élément.'
+flash_batch_no_elements_processed: "Aucun élément traité"

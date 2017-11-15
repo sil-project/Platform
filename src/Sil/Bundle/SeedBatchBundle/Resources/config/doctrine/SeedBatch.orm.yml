@@ -1,5 +1,5 @@
 Sil\Bundle\SeedBatchBundle\Entity\SeedBatch:
-    type: entity
+    type: mappedSuperclass
 
     fields:
         code:

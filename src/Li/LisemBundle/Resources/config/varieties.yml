@@ -1,0 +1,981 @@
+
+#Blast\Bundle\UtilsBundle\Form\Type\CustomCheckboxTypees 	true 	 true
+
+#inline fields:
+#    attr:
+#        class: inline-block
+
+#checkboxes in column:
+#    attr:
+#        class: columns-2 (columns-3)
+
+# width: in %
+# height: in px
+
+sil_variety:
+    variety_descriptions:
+########### CONSEILS PROS ##################
+        professional:
+            possible_sowing_periods:
+                type: Blast\Bundle\UtilsBundle\Form\Type\CustomChoiceType
+                show:
+                    template: BlastCoreBundle:CRUD:show_field_multiple_choices.html.twig
+                options:
+                    multiple: true
+                    attr:
+                        class: inline-block
+                    choices_field: possible_sowing_periods
+                    blast_choices:
+                        - début Mars
+                        - fin Mars
+                        - début Avril
+                        - fin Avril
+                        - début Mai
+                        - fin Mai
+                        - début Juin
+                        - fin Juin
+                        - début Juillet
+                        - fin Juillet
+            transplant:
+                type: Blast\Bundle\UtilsBundle\Form\Type\CustomChoiceType
+                options:
+                    attr:
+                        class: inline-block
+                    choices_field: transplant
+            germination_temperature:
+                type: text
+                options:
+                    attr:
+                        class: new-line-before
+                        width: 50
+            germination_light:
+                type: text
+                options:
+                    attr:
+                        class: new-line-after
+                        width: 50
+            sowing_density:
+                type: integer
+                options:
+                    attr:
+                        class: inline-block
+            on_line_distance:
+                type: integer
+                options:
+                    attr:
+                        class: inline-block
+            between_distance:
+                type: integer
+                options:
+                    attr:
+                        class: inline-block
+            seed_storage:
+                type: text
+                options:
+                    attr:
+                        class: new-line-before
+                        width: 50
+            harvest_storage:
+                type: text
+                options:
+                    attr:
+                        class: inline-block
+                        width: 50
+            exposure:
+                type: Blast\Bundle\UtilsBundle\Form\Type\CustomChoiceType
+                options:
+                    attr:
+                        class: inline-block
+                    blast_choices:
+                        - nord
+                        - sud
+                        - est
+                        - ouest
+                    choices_field: exposure
+            substratum:
+                type: Blast\Bundle\UtilsBundle\Form\Type\CustomChoiceType
+                options:
+                    attr:
+                        class: inline-block
+                    blast_choices: [terre, coco, tourbe]
+                    choices_field: substratum
+            soil:
+                type: Blast\Bundle\UtilsBundle\Form\Type\CustomChoiceType
+                show:
+                    template: BlastCoreBundle:CRUD:show_field_multiple_choices.html.twig
+                options:
+                    multiple: true
+                    attr:
+                        class: inline-block
+                    blast_choices:
+                        - acide
+                        - basique
+                        - lourd
+                        - léger
+                        - limoneux
+                        - sableux
+                        - TOUS
+                    choices_field: soil
+            manure:
+                type: Blast\Bundle\UtilsBundle\Form\Type\CustomChoiceType
+                options:
+                    attr:
+                        class: inline-block
+                    choices_field: manure
+                    blast_choices: [ compost, orga3]
+            manure_quantity:
+                type: integer
+                options:
+                    attr:
+                        class: new-line
+                        width: 30
+            seedling_irrigation_quantity:
+                type: integer
+                options:
+                    attr:
+                        class: new-line-before
+                        width: 50
+            seedling_irrigation_frequency:
+                type: Blast\Bundle\UtilsBundle\Form\Type\CustomChoiceType
+                options:
+                    attr:
+                        class: inline-block
+                        width: 50
+                    blast_choices: [quotidien, hebdomadaire]
+                    choices_field: seedling_irrigation_frequency
+            transplant_irrigation_quantity:
+                type: integer
+                options:
+                    attr:
+                        class: new-line-before
+                        width: 50
+            transplant_irrigation_frequency:
+                type: Blast\Bundle\UtilsBundle\Form\Type\CustomChoiceType
+                options:
+                    attr:
+                        class: inline-block
+                        width: 50
+                    blast_choices: [quotidien, hebdomadaire]
+                    choices_field: transplant_irrigation_frequency
+            cuttings_period:
+                type: integer
+                options:
+                    attr:
+                        class: inline-block
+                        width: 30
+            cutting_date:
+                type: integer
+                options:
+                    attr:
+                        class: inline-block
+            sowing_date:
+                type: integer
+                options:
+                    attr:
+                        class: inline-block
+            transplant_date:
+                type: integer
+                options:
+                    attr:
+                        class: inline-block
+            treatments:
+                type: text
+                options:
+                    attr:
+                        class: new-line
+                        width: 30
+            yield:
+                type: integer
+                options:
+                    attr:
+                        class: new-line
+                        width: 30
+            advised_outcome:
+                type: textarea
+                options:
+                    attr:
+                        class: new-line
+                        width: 50
+            possible_outcome:
+                type: textarea
+                options:
+                    attr:
+                        class: new-line
+                        width: 50
+            seedling_hotbed:
+                type: Blast\Bundle\UtilsBundle\Form\Type\CustomCheckboxType
+                show:
+                    type: boolean
+                options:
+                    attr:
+                        class: inline-block
+            transplant_hotbed:
+                type: Blast\Bundle\UtilsBundle\Form\Type\CustomCheckboxType
+                show:
+                    type: boolean
+                options:
+                    attr:
+                        class: inline-block
+            plant_hotbed:
+                type: Blast\Bundle\UtilsBundle\Form\Type\CustomCheckboxType
+                options:
+                    attr:
+                        class: inline-block
+                show:
+                    type: boolean
+            biodynamics:
+                type: Blast\Bundle\UtilsBundle\Form\Type\CustomCheckboxType
+                options:
+                    attr:
+                        class: inline-block
+                show:
+                    type: boolean
+            tutoring:
+                type: Blast\Bundle\UtilsBundle\Form\Type\CustomCheckboxType
+                options:
+                    attr:
+                        class: inline-block
+                show:
+                    type: boolean
+            inner_commment:
+                type: Blast\Bundle\UtilsBundle\Form\Type\TinyMceType
+                show:
+                    template: BlastCoreBundle:CRUD:show_field_tinymce.html.twig
+                options:
+                    help: 'sil.help.no_help'
+############# CONSEILS AMATEURS ####################
+        amateur:
+            possible_sowing_periods:
+                type: Blast\Bundle\UtilsBundle\Form\Type\CustomChoiceType
+                show:
+                    template: BlastCoreBundle:CRUD:show_field_multiple_choices.html.twig
+                options:
+                    multiple: true
+                    attr:
+                        class: inline-block
+                    choices_field: possible_sowing_periods
+                    blast_choices:
+                        - début Mars
+                        - fin Mars
+                        - début Avril
+                        - fin Avril
+                        - début Mai
+                        - fin Mai
+                        - début Juin
+                        - fin Juin
+                        - début Juillet
+                        - fin Juillet
+            transplant:
+                type: Blast\Bundle\UtilsBundle\Form\Type\CustomChoiceType
+                options:
+                    attr:
+                        class: inline-block
+                    choices_field: transplant
+            germination_temperature:
+                type: text
+                options:
+                    attr:
+                        class: new-line-before
+                        width: 50
+            germination_light:
+                type: text
+                options:
+                    attr:
+                        class: inline-block
+                        width: 50
+            sowing_density:
+                type: integer
+                options:
+                    attr:
+                        class: inline-block
+            on_line_distance:
+                type: integer
+                options:
+                    attr:
+                        class: inline-block
+            between_distance:
+                type: integer
+                options:
+                    attr:
+                        class: inline-block
+            seed_storage:
+                type: text
+                options:
+                    attr:
+                        class: new-line-before
+                        width: 50
+            harvest_storage:
+                type: text
+                options:
+                    attr:
+                        class: inline-block
+                        width: 50
+            exposure:
+                type: Blast\Bundle\UtilsBundle\Form\Type\CustomChoiceType
+                options:
+                    attr:
+                        class: inline-block
+                    blast_choices:
+                        - nord
+                        - sud
+                        - est
+                        - ouest
+                    choices_field: exposure
+            substratum:
+                type: Blast\Bundle\UtilsBundle\Form\Type\CustomChoiceType
+                options:
+                    attr:
+                        class: inline-block
+                    blast_choices: [terre, coco, tourbe]
+                    choices_field: substratum
+            soil:
+                type: Blast\Bundle\UtilsBundle\Form\Type\CustomChoiceType
+                show:
+                    template: BlastCoreBundle:CRUD:show_field_multiple_choices.html.twig
+                options:
+                    multiple: true
+                    attr:
+                        class: inline-block
+                    blast_choices:
+                        - acide
+                        - basique
+                        - lourd
+                        - léger
+                        - limoneux
+                        - sableux
+                        - TOUS
+                    choices_field: soil
+            manure:
+                type: Blast\Bundle\UtilsBundle\Form\Type\CustomChoiceType
+                options:
+                    attr:
+                        class: inline-block
+                    choices_field: manure
+                    blast_choices: [ compost, orga3]
+            manure_quantity:
+                type: integer
+                options:
+                    attr:
+                        class: new-line
+                        width: 30
+            seedling_irrigation_quantity:
+                type: integer
+                options:
+                    attr:
+                        class: new-line-before
+                        width: 50
+            seedling_irrigation_frequency:
+                type: Blast\Bundle\UtilsBundle\Form\Type\CustomChoiceType
+                options:
+                    attr:
+                        class: inline-block
+                        width: 50
+                    blast_choices: [quotidien, hebdomadaire]
+                    choices_field: seedling_irrigation_frequency
+            transplant_irrigation_quantity:
+                type: integer
+                options:
+                    attr:
+                        class: new-line-before
+                        width: 50
+            transplant_irrigation_frequency:
+                type: Blast\Bundle\UtilsBundle\Form\Type\CustomChoiceType
+                options:
+                    attr:
+                        class: inline-block
+                        width: 50
+                    blast_choices: [quotidien, hebdomadaire]
+                    choices_field: transplant_irrigation_frequency
+            cuttings_period:
+                type: integer
+                options:
+                    attr:
+                        class: inline-block
+                        width: 30
+            cutting_date:
+                type: integer
+                options:
+                    attr:
+                        class: inline-block
+            sowing_date:
+                type: integer
+                options:
+                    attr:
+                        class: inline-block
+            transplant_date:
+                type: integer
+                options:
+                    attr:
+                        class: inline-block
+            treatments:
+                type: text
+                options:
+                    attr:
+                        class: new-line
+                        width: 30
+            yield:
+                type: integer
+                options:
+                    attr:
+                        class: new-line
+                        width: 30
+            advised_outcome:
+                type: textarea
+                options:
+                    attr:
+                        class: new-line
+                        width: 50
+            possible_outcome:
+                type: textarea
+                options:
+                    attr:
+                        class: new-line
+                        width: 50
+            seedling_hotbed:
+                type: Blast\Bundle\UtilsBundle\Form\Type\CustomCheckboxType
+                show:
+                    type: boolean
+                options:
+                    attr:
+                        class: inline-block
+            transplant_hotbed:
+                type: Blast\Bundle\UtilsBundle\Form\Type\CustomCheckboxType
+                show:
+                    type: boolean
+                options:
+                    attr:
+                        class: inline-block
+            plant_hotbed:
+                type: Blast\Bundle\UtilsBundle\Form\Type\CustomCheckboxType
+                options:
+                    attr:
+                        class: inline-block
+                show:
+                    type: boolean
+            biodynamics:
+                type: Blast\Bundle\UtilsBundle\Form\Type\CustomCheckboxType
+                options:
+                    attr:
+                        class: inline-block
+                show:
+                    type: boolean
+            tutoring:
+                type: Blast\Bundle\UtilsBundle\Form\Type\CustomCheckboxType
+                options:
+                    attr:
+                        class: inline-block
+                show:
+                    type: boolean
+            inner_commment:
+                type: Blast\Bundle\UtilsBundle\Form\Type\TinyMceType
+                show:
+                    template: BlastCoreBundle:CRUD:show_field_tinymce.html.twig
+                options:
+                    help: 'sil.help.no_help'
+########### MISE EN PRODUCTION ##################
+        production:
+            possible_sowing_periods:
+                type: Blast\Bundle\UtilsBundle\Form\Type\CustomChoiceType
+                show:
+                    template: BlastCoreBundle:CRUD:show_field_multiple_choices.html.twig
+                options:
+                    multiple: true
+                    attr:
+                        class: inline-block
+                    choices_field: possible_sowing_periods
+                    blast_choices:
+                        - début Mars
+                        - fin Mars
+                        - début Avril
+                        - fin Avril
+                        - début Mai
+                        - fin Mai
+                        - début Juin
+                        - fin Juin
+                        - début Juillet
+                        - fin Juillet
+            transplant:
+                type: Blast\Bundle\UtilsBundle\Form\Type\CustomChoiceType
+                options:
+                    attr:
+                        class: inline-block
+                    choices_field: transplant
+            germination_temperature:
+                type: text
+                options:
+                    attr:
+                        class: new-line-before
+                        width: 50
+            germination_light:
+                type: text
+                options:
+                    attr:
+                        class: inline-block
+                        width: 50
+            sowing_density:
+                type: integer
+                options:
+                    attr:
+                        class: inline-block
+            on_line_distance:
+                type: integer
+                options:
+                    attr:
+                        class: inline-block
+            between_distance:
+                type: integer
+                options:
+                    attr:
+                        class: new-line-after
+            seed_storage:
+                type: text
+                options:
+                    attr:
+                        class: inline-block
+                        width: 50
+            harvest_storage:
+                type: text
+                options:
+                    attr:
+                        class: inline-block
+                        width: 50
+            exposure:
+                type: Blast\Bundle\UtilsBundle\Form\Type\CustomChoiceType
+                options:
+                    attr:
+                        class: inline-block
+                    blast_choices:
+                        - nord
+                        - sud
+                        - est
+                        - ouest
+                    choices_field: exposure
+            substratum:
+                type: Blast\Bundle\UtilsBundle\Form\Type\CustomChoiceType
+                options:
+                    attr:
+                        class: inline-block
+                    blast_choices: [terre, coco, tourbe]
+                    choices_field: substratum
+            soil:
+                type: Blast\Bundle\UtilsBundle\Form\Type\CustomChoiceType
+                show:
+                    template: BlastCoreBundle:CRUD:show_field_multiple_choices.html.twig
+                options:
+                    multiple: true
+                    attr:
+                        class: inline-block
+                    blast_choices:
+                        - acide
+                        - basique
+                        - lourd
+                        - léger
+                        - limoneux
+                        - sableux
+                        - TOUS
+                    choices_field: soil
+            manure:
+                type: Blast\Bundle\UtilsBundle\Form\Type\CustomChoiceType
+                options:
+                    attr:
+                        class: inline-block
+                    choices_field: manure
+                    blast_choices: [ compost, orga3]
+            manure_quantity:
+                type: integer
+                options:
+                    attr:
+                        class: new-line
+                        width: 30
+            seedling_irrigation_quantity:
+                type: integer
+                options:
+                    attr:
+                        class: inline-block
+                        width: 50
+            seedling_irrigation_frequency:
+                type: Blast\Bundle\UtilsBundle\Form\Type\CustomChoiceType
+                options:
+                    attr:
+                        class: inline-block
+                        width: 50
+                    blast_choices: [quotidien, hebdomadaire]
+                    choices_field: seedling_irrigation_frequency
+            transplant_irrigation_quantity:
+                type: integer
+                options:
+                    attr:
+                        class: inline-block
+                        width: 50
+            transplant_irrigation_frequency:
+                type: Blast\Bundle\UtilsBundle\Form\Type\CustomChoiceType
+                options:
+                    attr:
+                        class: inline-block
+                        width: 50
+                    blast_choices: [quotidien, hebdomadaire]
+                    choices_field: transplant_irrigation_frequency
+            cuttings_period:
+                type: integer
+                options:
+                    attr:
+                        class: inline-block
+                        width: 30
+            cutting_date:
+                type: integer
+                options:
+                    attr:
+                        class: inline-block
+            sowing_date:
+                type: integer
+                options:
+                    attr:
+                        class: inline-block
+            transplant_date:
+                type: integer
+                options:
+                    attr:
+                        class: inline-block
+            treatments:
+                type: text
+                options:
+                    attr:
+                        class: new-line
+                        width: 30
+            yield:
+                type: integer
+                options:
+                    attr:
+                        class: new-line
+                        width: 30
+            advised_outcome:
+                type: textarea
+                options:
+                    attr:
+                        class: new-line
+                        width: 50
+            possible_outcome:
+                type: textarea
+                options:
+                    attr:
+                        class: new-line
+                        width: 50
+            seedling_hotbed:
+                type: Blast\Bundle\UtilsBundle\Form\Type\CustomCheckboxType
+                show:
+                    type: boolean
+                options:
+                    attr:
+                        class: inline-block
+            transplant_hotbed:
+                type: Blast\Bundle\UtilsBundle\Form\Type\CustomCheckboxType
+                show:
+                    type: boolean
+                options:
+                    attr:
+                        class: inline-block
+            plant_hotbed:
+                type: Blast\Bundle\UtilsBundle\Form\Type\CustomCheckboxType
+                options:
+                    attr:
+                        class: inline-block
+                show:
+                    type: boolean
+            biodynamics:
+                type: Blast\Bundle\UtilsBundle\Form\Type\CustomCheckboxType
+                options:
+                    attr:
+                        class: inline-block
+                show:
+                    type: boolean
+            tutoring:
+                type: Blast\Bundle\UtilsBundle\Form\Type\CustomCheckboxType
+                options:
+                    attr:
+                        class: inline-block
+                show:
+                    type: boolean
+########## TRI OFFRE COMMERCIAL ###################
+        commercial:
+            # plant_type:
+            #     type: Blast\Bundle\UtilsBundle\Form\Type\CustomChoiceType
+            #     options:
+            #         attr:
+            #             class: inline-block
+            #         blast_choices:
+            #             - Feuille
+            #             - Fruit
+            #             - Racine
+            #             - Fleur
+            #         choices_field: plant_type
+            precocity:
+                type: Blast\Bundle\UtilsBundle\Form\Type\CustomChoiceType
+                options:
+                    attr:
+                        class: inline-block
+                    blast_choices:
+                        - Précoce
+                        - Mi-saison
+                        - Tardive
+                    choices_field: precocity
+            grade:
+                type: Blast\Bundle\UtilsBundle\Form\Type\CustomChoiceType
+                options:
+                    attr:
+                        class: inline-block
+                    blast_choices: [ 1, 2, 3, 4, 5 ]
+                    choices_field: grade
+            rusticicty:
+                type: Blast\Bundle\UtilsBundle\Form\Type\CustomChoiceType
+                options:
+                    attr:
+                        class: inline-block
+                    blast_choices: [ 1, 2, 3, 4, 5 ]
+                    choices_field: rusticity
+            main_color:
+                type: text
+                options:
+                    attr:
+                        class: inline-block
+                        width: 50
+            secondary_color:
+                type: text
+                options:
+                    attr:
+                        class: inline-block
+                        width: 50
+            taste_rating:
+                type: Blast\Bundle\UtilsBundle\Form\Type\CustomChoiceType
+                options:
+                    attr:
+                        class: inline-block
+                    blast_choices:
+                        - 1
+                        - 2
+                        - 3
+                        - 4
+                        - 5
+                    choices_field: taste_rating
+            nutrition_rating:
+                type: Blast\Bundle\UtilsBundle\Form\Type\CustomChoiceType
+                options:
+                    attr:
+                        class: inline-block
+                    blast_choices: [ 1, 2, 3, 4, 5 ]
+                    choices_field: nutrition_rating
+            taste:
+                type: Blast\Bundle\UtilsBundle\Form\Type\CustomChoiceType
+                show:
+                        template: BlastCoreBundle:CRUD:show_field_multiple_choices.html.twig
+                options:
+                    attr:
+                        class: columns-2 multiple-checkbox
+                    expanded: true
+                    multiple: true
+                    blast_choices:
+                        - Salé
+                        - Sucré
+                        - Acide
+                        - Amer
+                        - Equilibré (sucre, acidité)
+                        - Piquant
+                        - Frais
+                        - Astringent
+                        - Gras
+                        - Métallique
+                        - Amidonné
+                    choices_field: taste
+            texture:
+                type: Blast\Bundle\UtilsBundle\Form\Type\CustomChoiceType
+                show:
+                    template: BlastCoreBundle:CRUD:show_field_multiple_choices.html.twig
+                options:
+                    attr:
+                        class: columns-2 multiple-checkbox
+                    expanded: true
+                    multiple: true
+                    blast_choices:
+                        - Peau persistante
+                        - Farineux
+                        - Croquant
+                        - Fondant
+                        - Juteux
+                        - Ferme
+                    choices_field: texture
+            nutrients:
+                type: Blast\Bundle\UtilsBundle\Form\Type\CustomChoiceType
+                show:
+                    template: BlastCoreBundle:CRUD:show_field_multiple_choices.html.twig
+                options:
+                    attr:
+                        class: columns-3 multiple-checkbox
+                    expanded: true
+                    multiple: true
+                    blast_choices:
+                        - Vitamine A
+                        - Vitamine B
+                        - Vitamine C
+                        - Vitamine D
+                        - Vitamine E
+                        - Thiamine (B1)
+                        - Riboflavine (B2)
+                        - Niacine (B3)
+                        - Acide pantothénique (B5)
+                        - Pyridoxine (B6)
+                        - Acide folique (B9)
+                        - Cobalamine (B12)
+                        - Calcium
+                        - Phosphore
+                        - Magnésium
+                        - Fer
+                        - Zinc
+                        - Iode
+                        - Cuivre
+                        - Manganèse
+                        - Sélénium
+                        - Chrome
+                        - Molybdène
+                    choices_field: nutrients
+            max_harvest_span:
+                type: integer
+                options:
+                    attr:
+                        class: inline-block
+                        width: 50
+            min_harvest_span:
+                type: integer
+                options:
+                    attr:
+                        class: inline-block
+                        width: 50
+            prefered_zone:
+                type: Blast\Bundle\UtilsBundle\Form\Type\CustomChoiceType
+                options:
+                    attr:
+                        class: inline-block
+                    blast_choices: [ 1, 2, 3, 4, 5, 6 ]
+                    choices_field: prefered_zone
+            yield_rating:
+                type: Blast\Bundle\UtilsBundle\Form\Type\CustomChoiceType
+                options:
+                    attr:
+                        class: inline-block
+                    blast_choices: [ 1, 2, 3, 4, 5 ]
+                    choices_field: yield_rating
+            cultivation_ease:
+                type: Blast\Bundle\UtilsBundle\Form\Type\CustomChoiceType
+                options:
+                    attr:
+                        class: inline-block
+                    blast_choices: [ 1, 2, 3, 4, 5 ]
+                    choices_field: cultivation_ease
+            pot_cultivation_ease:
+                type: Blast\Bundle\UtilsBundle\Form\Type\CustomChoiceType
+                options:
+                    attr:
+                        class: inline-block
+                    blast_choices: [ Facile, Possible, Difficile ]
+                    choices_field: pot_cultivation_ease
+            targeted_audience:
+                type: Blast\Bundle\UtilsBundle\Form\Type\CustomChoiceType
+                options:
+                    attr:
+                        class: inline-block
+                    blast_choices: [ Amateurs, Professionnels, Tout public ]
+                    choices_field: targeted_audience
+            main_usages:
+                type: Blast\Bundle\UtilsBundle\Form\Type\CustomChoiceType
+                show:
+                    template: BlastCoreBundle:CRUD:show_field_multiple_choices.html.twig
+                options:
+                    multiple: true
+                    expanded: true
+                    attr:
+                        class: columns-2 multiple-checkbox
+                    blast_choices:
+                        - culinaire
+                        - ornement
+                        - haie
+                        - engrais vert
+                        - médicinal
+                        - textile
+                    choices_field: main_usages
+            usages:
+                type: Blast\Bundle\UtilsBundle\Form\Type\CustomChoiceType
+                show:
+                    template: BlastCoreBundle:CRUD:show_field_multiple_choices.html.twig
+                options:
+                    multiple: true
+                    expanded: true
+                    attr:
+                        class: columns-2 multiple-checkbox
+                    blast_choices:
+                        - culinaire
+                        - ornement
+                        - haie
+                        - engrais vert
+                        - médicinal
+                        - textile
+                    choices_field: usages
+            inner_commment:
+                type: Blast\Bundle\UtilsBundle\Form\Type\TinyMceType
+                show:
+                    template: BlastCoreBundle:CRUD:show_field_tinymce.html.twig
+ ############# CARACTERISTIQUES PLANTE #############
+        plant:
+            foliage_type:
+                type: Blast\Bundle\UtilsBundle\Form\Type\CustomChoiceType
+                options:
+                    attr:
+                        class: inline-block
+                        width: 50
+                    blast_choices: [ Caduc, Persistant, Marcescent ]
+                    choices_field: foliage_type
+            foliage_color:
+                type: text
+                options:
+                    attr:
+                        class: inline-block
+                        width: 50
+            required_size:
+                type: integer
+                options:
+                    attr:
+                        class: inline-block
+                        width: 50
+            development:
+                type: Blast\Bundle\UtilsBundle\Form\Type\CustomChoiceType
+                options:
+                    attr:
+                        class: inline-block
+                        width: 50
+                    blast_choices:
+                        - Vigoureuse
+                        - Coureuse
+                        - Naine
+                        - A rame
+                    choices_field: development
+ ############## CULTURE ############################
+        culture:
+            location:
+                type: text
+                options:
+                    attr:
+                        class: inline-block
+                        width: 50
+            strain_origin:
+                type: text
+                options:
+                    attr:
+                        class: inline-block
+                        width: 50
+#            several_strains:
+#                type: Blast\Bundle\UtilsBundle\Form\Type\CustomCheckboxTypeseversever
+            description:
+                type: Blast\Bundle\UtilsBundle\Form\Type\TinyMceType
+                show:
+                    template: BlastCoreBundle:CRUD:show_field_tinymce.html.twig
+                options:
+                    attr:
+                        class: new-line
+                        height: 300

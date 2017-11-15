@@ -21,7 +21,7 @@ use Sil\Bundle\MediaBundle\Entity\File;
 /**
  * Email.
  */
-class Email extends Spoolable
+class Email extends Spoolable implements EmailInterface
 {
     use BaseEntity,
         Searchable,

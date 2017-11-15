@@ -1,0 +1,16 @@
+
+services:
+    lisem.admin.packaging:
+        class: LisemBundle\Admin\PackagingAdmin
+        arguments: [~, Sil\Bundle\EcommerceBundle\Entity\ProductOptionValue, LisemBundle:PackagingCRUD ]
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              group: admin
+              label: lisem.lisembundle.admin.packaging
+              label_translator_strategy: blast.resource.sonata.label_strategy.prefix
+        calls:
+            - [ setTemplate, [ edit, LisemBundle:PackagingAdmin:edit.html.twig ] ]
+
+
+

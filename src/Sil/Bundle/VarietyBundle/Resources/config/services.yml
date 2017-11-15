@@ -2,18 +2,18 @@ services:
 
 # SYMFONY CUSTOM FORM TYPES
 
-    sil_varieties.form.type.life_cycle:
+    sil_variety.form.type.life_cycle:
         class: Sil\Bundle\VarietyBundle\Form\Type\LifeCycleType
         tags:
-            - { name: form.type, alias: sil_varieties_lifecycle }
+            - { name: form.type, alias: sil_variety_lifecycle }
 
-    sil_varieties.form.type.variety_description:
+    sil_variety.form.type.variety_description:
         class: Sil\Bundle\VarietyBundle\Form\Type\VarietyDescriptionType
         tags:
             - { name: form.type, alias: sil_variety_description }
         arguments: [ '@doctrine.orm.entity_manager' ]
 
-    sil_varieties.form.type.variety_description_filter:
+    sil_variety.form.type.variety_description_filter:
         class: Sil\Bundle\VarietyBundle\Form\Type\VarietyDescriptionFilterType
         tags:
             - { name: form.type, alias: sil_variety_description_filter }
@@ -21,31 +21,31 @@ services:
 
 # FILTERS
 
-    sil_varieties.filter.type.variety_description_filter:
+    sil_variety.filter.type.variety_description_filter:
         class: Sil\Bundle\VarietyBundle\Filter\VarietyDescriptionFilter
         tags:
             - { name: sonata.admin.filter.type, alias: doctrine_orm_sil_variety_description }
 
 # ENTITY CODE GENERATORS
 
-    sil_varieties.code_generator.species:
+    sil_variety.code_generator.species:
         class: Sil\Bundle\VarietyBundle\CodeGenerator\SpeciesCodeGenerator
         factory:   ['@blast_core.code_generator_factory', create]
-        arguments: ['%sil_varieties.code_generator.species%', '@doctrine.orm.entity_manager']
+        arguments: ['%sil_variety.code_generator.species%', '@doctrine.orm.entity_manager']
         tags:
             - { name: blast.entity_code_generator }
 
-    sil_varieties.code_generator.variety:
+    sil_variety.code_generator.variety:
         class: Sil\Bundle\VarietyBundle\CodeGenerator\VarietyCodeGenerator
         factory:   ['@blast_core.code_generator_factory', create]
-        arguments: ['%sil_varieties.code_generator.variety%', '@doctrine.orm.entity_manager']
+        arguments: ['%sil_variety.code_generator.variety%', '@doctrine.orm.entity_manager']
         tags:
             - { name: blast.entity_code_generator }
 
-    sil_varieties.twig.variety_description:
+    sil_variety.twig.variety_description:
         class: Sil\Bundle\VarietyBundle\Twig\VarietyDescription
         calls:
-            - [setVarietyConfig, ['%sil_varieties%']]
+            - [setVarietyConfig, ['%sil_variety%']]
             - [setTranslator, ['@translator']]
         tags:
             - { name: twig.extension }

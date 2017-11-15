@@ -1,0 +1,41 @@
+{% extends 'BlastCoreBundle:CRUD:base_edit.html.twig' %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        $(document).ready(function(){
+            var adminId = '{{ admin.uniqid }}';
+            var $quantity = $('#' + adminId + '_quantity');
+            var $unit = $('#' + adminId + '_unit');
+            var $bulk = $('#' + adminId + '_bulk');
+
+            // Format form (inline)
+
+            $bulk.closest('div.sonata-ba-collapsed-fields').addClass('form-inline');
+            $bulk.closest('label').css('margin-left', 'auto');
+            var $label = $quantity.closest('div.form-group').find('label');
+            $quantity.attr('placeholder', $label.text().trim());
+            $label.remove();
+
+            // Toggle quantity and unit fields depending on bulk checked or not
+
+            function bulkChanged(checked) {
+                if (checked) {
+                    $quantity.closest('div.form-group').hide();
+                    $unit.closest('div.form-group').hide();
+                }
+                else {
+                    $quantity.closest('div.form-group').show();
+                    $unit.closest('div.form-group').show();
+                }
+            }
+
+            bulkChanged({{ form.children.bulk.vars.data ? 'true' : 'false' }});
+
+            $bulk.on('ifChanged', function(event){
+                bulkChanged(event.target.checked);
+            });
+
+        });
+    </script>
+{% endblock %}

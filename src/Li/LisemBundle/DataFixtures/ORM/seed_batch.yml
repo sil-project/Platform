@@ -1,0 +1,87 @@
+Sil\Bundle\SeedBatchBundle\Entity\SeedFarm:
+    seedfarm1:
+        name: LiSem AS
+        code: LIS
+
+Sil\Bundle\SeedBatchBundle\Entity\CertificationType:
+    certtype_1:
+        name: AB
+        code: AB
+        description: >
+            Label officiel français du bio répondant au cahier des charges européen
+            de l'agriculture biologique et label européen. Interdiction des pesticides
+            et des engrais chimiques de synthèse. Mixité des productions bio et non bio
+            acceptée sous certaines conditions. Les produits transformés contiennent
+            au moins 95 % d’ingrédients bio. Tolérance d’une contamination par les OGM
+            à hauteur de 0,9 % des produits transformés. Site web: www.agencebio.org
+    certtype_2:
+        name: Nature et Progrès
+        code: NP
+    certtype_3:
+        name: Demeter
+        code: DEM
+        description: >
+            Demeter est une garantie privée pour les produits issus d’exploitations
+            certifiées AB et utilisant les principes de l’agriculture biodynamique.
+            La certification va plus loin que le label AB : Mixité et traces d’OGM
+            sont interdites, les produits composés doivent comporter au moins 90 %
+            d’ingrédients certifiés Demeter, l’alimentation des animaux doit se faire
+            à 2/3 avec des produits certifiés Demeter et 80% des aliments doivent
+            être produits sur la ferme. Site web: www.demeter.fr
+    certtype_4:
+        name: Bio Cohérence
+        code: BC
+
+Sil\Bundle\SeedBatchBundle\Entity\CertifyingBody:
+    certbody_1:
+        name: ECOCERT France
+        code: FR-BIO-01
+        url: http://certificat.ecocert.com/?ln=fr
+    certbody_2:
+        name: AGROCERT
+        code: FR-BIO-07
+        url: http://www.agrocert.fr/certificats-bio
+    certbody_3:
+        name: CERTIPAQ BIO
+        code: FR-BIO-09
+        url: http://www.certipaqbio.com/certificats/
+    certbody_4:
+        name: Bureau Veritas Certification France
+        code: FR-BIO-10
+        url: http://www.qualite-france.com/certificat-agriculture-biologique/
+
+Sil\Bundle\SeedBatchBundle\Entity\Plot:
+    plot_tpl (template):
+        name: 'Parcelle <city()>'
+        address: '50%? <streetAddress()>'
+    plot_1_{1..10} (extends plot_tpl):
+        producer: '@org_ind_prod_<current()>'
+    plot_2_{1..10} (extends plot_tpl):
+        producer: '@org_com_prod_<current()>'
+    plot_3_{1..5} (extends plot_tpl):
+        producer: '@org_com_prod_<current()>'
+    plot_4_{1..5} (extends plot_tpl):
+        producer: '@org_com_prod_<current()>'
+
+Sil\Bundle\SeedBatchBundle\Entity\Certification:
+    cert_tpl (template):
+        certificationType: '@certtype_<numberBetween(1,4)>'
+        certifyingBody: '@certbody_<numberBetween(1,4)>'
+        code: <numerify('##/#####/######')>
+        certificationDate: <dateTimeBetween('-2 years', '-1 year')>
+        startDate: <dateTimeBetween('-11 months', '-6 months')>
+        expiryDate: <dateTimeBetween('-5 months', '+1 year')>
+    cert_1_{1..10} (extends cert_tpl):
+        plot: '@plot_1_<current()>'
+    cert_2_{1..10} (extends cert_tpl):
+        plot: '@plot_2_<current()>'
+
+Sil\Bundle\SeedBatchBundle\Entity\SeedBatch:
+    sb_1_{1..10}_stp:
+        seedFarm: '@seedfarm1'
+        variety: '@var_tomate_st_pierre'
+        producer: '@org_ind_prod_<current()>'
+        productionYear: 2016
+        plot: '@plot_1_<current()>'
+        batchNumber: 1
+        description: <current() + 1>
