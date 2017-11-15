@@ -8,6 +8,6 @@ services:
               manager_type: orm
               group: admin
               label: sil.seedbatchbundle.admin.certifying_body
-              label_translator_strategy: blast_core.label.strategy.sil_seedbatch
+              label_translator_strategy: blast.resource.sonata.label_strategy.prefix
         calls:
             - [ setTemplate, [ edit, SilMediaBundle:CRUD:edit.html.twig ] ]

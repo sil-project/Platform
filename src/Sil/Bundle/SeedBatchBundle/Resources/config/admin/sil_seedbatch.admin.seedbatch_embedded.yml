@@ -8,4 +8,4 @@ services:
                 manager_type: orm
                 group: Seed Batches
                 label: sil.seedbatchbundle.admin.seedbatch
-                label_translator_strategy: blast_core.label.strategy.sil_seedbatch
+                label_translator_strategy: blast.resource.sonata.label_strategy.prefix

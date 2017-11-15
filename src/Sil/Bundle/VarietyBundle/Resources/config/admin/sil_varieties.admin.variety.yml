@@ -8,8 +8,8 @@ services:
                 name: sonata.admin
                 manager_type: orm
                 group: admin
-                label: sil.VarietyBundle.admin.variety
-                label_translator_strategy: blast_core.label.strategy.sil_varieties
+                label: sil.bundle.varietybundle.admin.variety
+                label_translator_strategy: blast.resource.sonata.label_strategy.prefix
         calls:
             - [ setTemplate, [ list, SilVarietyBundle:VarietyAdmin:list.html.twig ] ]
             - [ setTemplate, [ edit, SilVarietyBundle:VarietyAdmin:edit.html.twig ] ]

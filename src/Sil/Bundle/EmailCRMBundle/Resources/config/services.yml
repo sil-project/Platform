@@ -1,9 +1,4 @@
 services:
-
-    blast_core.label.strategy.sil_emailcrm:
-        class: Blast\Bundle\CoreBundle\Translator\LibrinfoLabelTranslatorStrategy
-        arguments: ['Sil\Bundle\EmailCRMBundle']
-
     sil_email.sender:
         class: Sil\Bundle\EmailCRMBundle\Services\Sender
         arguments:

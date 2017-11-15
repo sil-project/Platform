@@ -2,7 +2,7 @@ sil:
     emailcrmbundle:
         admin:
             organism: Contact
-            
+
         _action: Action
         active: Actif
         alert: Alerte
@@ -39,7 +39,6 @@ sil:
         updatedby: Modifié par
         url: Site web
         vat: N° TVA
-
 
 'Users': 'Utilisateurs'
 'Groups': 'Groupes'

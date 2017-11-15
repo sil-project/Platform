@@ -8,5 +8,5 @@ services:
                 name: sonata.admin
                 manager_type: orm
                 group: admin
-                label: sil.VarietyBundle.admin.variety_description_inner
-                label_translator_strategy: blast_core.label.strategy.sil_varieties
+                label: sil.bundle.varietybundle.admin.variety_description_inner
+                label_translator_strategy: blast.resource.sonata.label_strategy.prefix

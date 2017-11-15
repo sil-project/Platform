@@ -4,6 +4,7 @@ sil:
         menu_label:
             manufacturing: Fabrication
             bom: Nomenclatures
+            bom_line: Entrées
 
 
         ##############

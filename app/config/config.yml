@@ -48,7 +48,7 @@ imports:
 
 
 parameters:
-    locale: en
+    locale: fr
 
 framework:
     #esi: ~

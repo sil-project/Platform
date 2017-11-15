@@ -9,7 +9,7 @@ services:
                 manager_type: orm
                 group: admin
                 label: sil.ecommercebundle.admin.shipping_method
-                label_translator_strategy: blast_core.label.strategy.sil_ecommerce
+                label_translator_strategy: blast.resource.sonata.label_strategy.prefix
 
 #    sil_ecommerce.admin.shipping_category:
 #        class: Sil\Bundle\EcommerceBundle\Admin\ShippingCategoryAdmin
@@ -19,4 +19,4 @@ services:
 #              manager_type: orm
 #              group: admin
 #              label: sil.ecommercebundle.admin.shipping_category
-#              label_translator_strategy: blast_core.label.strategy.sil_ecommerce
+#              label_translator_strategy: blast.resource.sonata.label_strategy.prefix
