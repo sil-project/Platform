@@ -21,7 +21,7 @@ Sil\Bundle\EcommerceBundle\Entity\SalesJournalItem:
             nullable: false
     manyToOne:
         order:
-            targetEntity: Sil\Bundle\EcommerceBundle\Entity\Order
+            targetEntity: Sil\Bundle\EcommerceBundle\Entity\OrderInterface
         invoice:
             targetEntity: Sil\Bundle\EcommerceBundle\Entity\Invoice
         payment:

@@ -10,7 +10,7 @@ Sil\Bundle\EcommerceBundle\Entity\ProductImage:
             fetch: EAGER
     manyToMany:
         productVariants:
-            targetEntity: Sil\Bundle\EcommerceBundle\Entity\ProductVariant
+            targetEntity: Sil\Bundle\EcommerceBundle\Entity\ProductVariantInterface
             orphanRemoval: true
             inversedBy: images
             joinTable:

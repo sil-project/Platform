@@ -93,12 +93,6 @@ sylius_taxonomy:
             classes:
                 model: Sil\Bundle\EcommerceBundle\Entity\Taxon
 
-sylius_taxonomy:
-    resources:
-        taxon:
-            classes:
-                model: Sil\Bundle\EcommerceBundle\Entity\Taxon
-
 sylius_shipping:
     driver: doctrine/orm
     resources:

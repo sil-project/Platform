@@ -23,7 +23,7 @@ Sil\Bundle\EcommerceBundle\Entity\Invoice:
 
     manyToOne:
         order:
-            targetEntity: Sil\Bundle\EcommerceBundle\Entity\Order
+            targetEntity: Sil\Bundle\EcommerceBundle\Entity\OrderInterface
             inversedBy: invoices
             cascade: ["persist"]
             joinColumn:

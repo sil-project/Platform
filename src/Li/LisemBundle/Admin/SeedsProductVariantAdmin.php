@@ -1,11 +1,10 @@
 <?php
 
 /*
- * This file is part of the Lisem Project.
  *
  * Copyright (C) 2015-2017 Libre Informatique
  *
- * This file is licenced under the GNU GPL v3.
+ * This file is licenced under the GNU LGPL v3.
  * For the full copyright and license information, please view the LICENSE.md
  * file that was distributed with this source code.
  */
@@ -36,7 +35,7 @@ class SeedsProductVariantAdmin extends ProductVariantAdmin
         // packaging field
         $mapper->add('packaging', 'entity', [
             'query_builder'      => $this->optionValuesQueryBuilder(),
-            'class'              => 'Sil\Bundle\\EcommerceBundle\\Entity\\ProductOptionValue',
+            'class'              => $this->getConfigurationPool()->getContainer()->getParameter('sil_ecommerce.entity.product_option_value.class'),
             'multiple'           => false,
             'required'           => true,
             'choice_label'       => 'value',

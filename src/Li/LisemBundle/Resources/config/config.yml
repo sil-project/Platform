@@ -29,6 +29,7 @@ sylius_product:
     resources:
         product:
             classes:
+                interface: Sylius\Component\Product\Model\ProductInterface
                 model: LisemBundle\Entity\SilEcommerceBundle\Product
         product_variant:
             classes:
@@ -39,6 +40,14 @@ sylius_product:
         product_option_value:
             classes:
                 model: LisemBundle\Entity\SilEcommerceBundle\ProductOptionValue
+
+sylius_attribute:
+    resources:
+        product:
+            subject: LisemBundle\Entity\SilEcommerceBundle\Product
+            attribute:
+                classes:
+                    model: Sil\Bundle\EcommerceBundle\Entity\ProductAttribute
 
 sylius_order:
     resources:
