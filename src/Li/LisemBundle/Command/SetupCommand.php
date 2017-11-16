@@ -13,7 +13,7 @@ namespace LisemBundle\Command;
 
 use Doctrine\Common\DataFixtures\Purger\ORMPurger;
 use LisemBundle\Entity\SilEcommerceBundle\Product;
-use Sil\Bundle\SonataSyliusUserBundle\Entity\SonataUser;
+use Sil\Bundle\SonataSyliusUserBundle\Entity\SonataUserInterface;
 use Sil\Bundle\CRMBundle\Entity\City;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\ArrayInput;
@@ -138,7 +138,7 @@ EOT
         $output->writeln(['', 'Setting up application users...']);
 
         $em = $this->getContainer()->get('doctrine')->getEntityManager();
-        $repo = $em->getRepository('SilSonataSyliusUserBundle:SonataUser');
+        $repo = $em->getRepository(SonataUserInterface::class);
 
         $warn = false;
         if (!$this->getContainer()->getParameter('lisem.user.datafixtures')) {
@@ -162,7 +162,8 @@ EOT
                 $output->writeln(' <info>exists</info>');
                 continue;
             }
-            $sonataUser = new SonataUser();
+            $sonataUserClass = $this->getContainer()->getParameter('sil_sonata_sylius_user.entity.sonata_user.class');
+            $sonataUser = new $sonataUserClass();
             $sonataUser->setUsername($u['email']);
             $sonataUser->setUsernameCanonical($u['email']);
             $sonataUser->setPlainPassword($u['password']);

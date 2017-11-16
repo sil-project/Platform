@@ -12,7 +12,6 @@
 namespace Blast\Bundle\UtilsBundle\Entity;
 
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\BaseEntity;
-// use Blast\Bundle\CoreBundle\Model\UserInterface;
 use Sil\Bundle\SonataSyliusUserBundle\Entity\SonataUserInterface as UserInterface;
 
 /**

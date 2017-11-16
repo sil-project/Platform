@@ -1,5 +1,6 @@
 Sil\Bundle\SonataSyliusUserBundle\Entity\SonataUser:
     type: mappedSuperclass
+
     fields:
         firstName:
             type: string
@@ -12,6 +13,7 @@ Sil\Bundle\SonataSyliusUserBundle\Entity\SonataUser:
         localeCode:
             type: string
             length: 12
+
     manyToMany:
         groups:
             inversedBy: users

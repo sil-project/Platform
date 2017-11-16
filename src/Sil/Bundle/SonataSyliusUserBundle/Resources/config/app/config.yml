@@ -10,11 +10,11 @@ sylius_user:
         sonata:
             user:
                 classes:
-                    model: Sil\Bundle\SonataSyliusUserBundle\Entity\SonataUser
+                    # model: Sil\Bundle\SonataSyliusUserBundle\Entity\SonataUser
                     repository: Sylius\Bundle\UserBundle\Doctrine\ORM\UserRepository
                     # TODO:
                     form: Sylius\Bundle\CoreBundle\Form\Type\User\AdminUserType
-                    interface: Sylius\Component\User\Model\UserInterface
+                    interface: Sil\Bundle\SonataSyliusUserBundle\Entity\SonataUserInterface
                     controller: Sylius\Bundle\UserBundle\Controller\UserController
                     factory: Sylius\Component\Resource\Factory\Factory
                 templates: 'SyliusUserBundle:User'
