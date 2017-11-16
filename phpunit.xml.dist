@@ -25,19 +25,25 @@
   
   <filter>
     <whitelist>
-      <directory>./</directory>
+      <directory>./src/</directory>
       <exclude>
-        <directory>./tests/</directory>
+        <directory>./Tests/</directory>
         <directory>./DataFixtures/</directory>
         <directory>./Resources/</directory>
         <directory>./vendor/</directory>
         <directory>./coverage/</directory>
+        <directory>./src/*/Bundle/*/bin/</directory>
+        <directory>./src/*/Bundle/*/etc/</directory>
+        <directory>./src/*/Bundle/*/Tests/</directory>
+        <directory>./src/*/Bundle/*/DataFixtures/</directory>
+        <directory>./src/*/Bundle/*/vendor/</directory>
+        <directory>./src/*/Bundle/*/coverage/</directory>
       </exclude>
     </whitelist>
   </filter>
   
   <php>
-    <server name="KERNEL_DIR" value="tests/Resources/App/" />
+    <server name="KERNEL_DIR" value="./app/" />
     <server name="IS_DOCTRINE_ORM_SUPPORTED" value="true" />
     <ini name="display_errors" value="On" />
     <ini name="display_startup_errors" value="On" />

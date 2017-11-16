@@ -99,7 +99,6 @@ class InMemoryRepository
         $limit = null,
         $offset = null
     ) {
-    
         $results = $this->findAll();
         if (!empty($criteria)) {
             $results = $this->applyCriteria($results, $criteria);
