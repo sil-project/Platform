@@ -5,7 +5,6 @@ imports:
 
     # Vendors
 
-    - { resource: vendors/doctrine.yml }
     - { resource: vendors/blast.yml }
     - { resource: vendors/sil.yml }
     - { resource: vendors/sonata.yml }
@@ -49,6 +48,8 @@ imports:
     # Li LISEM
 
     - { resource: "@LisemBundle/Resources/config/config.yml" }
+
+    - { resource: vendors/doctrine.yml }
 
 parameters:
     locale: fr
@@ -118,17 +119,35 @@ doctrine:
                 connection: default
                 naming_strategy: blast.resource.doctrine.orm.naming_strategy.underscored_bundle_prefix
                 # naming_strategy: doctrine.orm.naming_strategy.underscore
-                auto_mapping: true
+                auto_mapping: false
                 mappings:
                     BlastBaseEntitiesBundle:
-                        type: yml
-                    SilVarietyBundle:
-                        type: yml
-                    SilSeedBatchBundle:
                         type: yml
                     SilCRMBundle:
                         type: yml
                     SilEcommerceBundle:
+                        type: yml
+                    SilEmailBundle:
+                        type: yml
+                    SilEmailCRMBundle:
+                        type: yml
+                    SilManufacturingBundle:
+                        prefix: Sil\Bundle\ManufacturingBundle\Domain\Entity
+                        type: yml
+                    SilMediaBundle:
+                        type: yml
+                    SilSeedBatchBundle:
+                        type: yml
+                    SilSonataSyliusUserBundle:
+                        type: yml
+                    SilStockBundle:
+                        prefix: Sil\Bundle\StockBundle\Domain\Entity
+                        type: yml
+                    SilVarietyBundle:
+                        type: yml
+                    PlatformBundle:
+                        type: yml
+                    LisemBundle:
                         type: yml
                     gedmo_loggable:
                         type: annotation

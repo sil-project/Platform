@@ -18,4 +18,4 @@ Blast\Bundle\UtilsBundle\Entity\CustomFilter:
             nullable: true
     manyToOne:
         user:
-            targetEntity: Blast\Bundle\CoreBundle\Model\UserInterface
+            targetEntity: Sil\Bundle\SonataSyliusUserBundle\Entity\SonataUserInterface

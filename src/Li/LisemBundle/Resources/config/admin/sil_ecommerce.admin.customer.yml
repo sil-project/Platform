@@ -1,7 +1,7 @@
 services:
     sil_ecommerce.admin.customer:
         class: LisemBundle\Admin\CustomerAdmin
-        arguments: [~, Sil\Bundle\CRMBundle\Entity\Organism, SilCRMBundle:OrganismAdmin]
+        arguments: [~, "%sil_crm.entity.organism.class%", SilCRMBundle:OrganismAdmin]
         tags:
             -
                 name: sonata.admin

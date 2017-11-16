@@ -39,9 +39,9 @@ sylius_addressing:
             classes:
                 model: PlatformBundle\Entity\SilCRMBundle\Address
 
-sylius_resource:
-    resources:
-        blast.utils:
-            classes:
-                model: Sil\Bundle\SonataSyliusUserBundle\Entity\SonataUser
-                interface: Blast\Bundle\CoreBundle\Model\UserInterface
+# sylius_resource:
+#     resources:
+#         blast.utils:
+#             classes:
+#                 model: Sil\Bundle\SonataSyliusUserBundle\Entity\SonataUser
+#                 interface: Sil\Bundle\SonataSyliusUserBundle\Entity\SonataUserInterface

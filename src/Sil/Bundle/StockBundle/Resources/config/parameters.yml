@@ -7,3 +7,4 @@ parameters:
     sil_stock.entity.uom.class:             Sil\Bundle\StockBundle\Domain\Entity\Uom
     sil_stock.entity.warehouse.class:       Sil\Bundle\StockBundle\Domain\Entity\Warehouse
     sil_stock.entity.partner.class:         Sil\Bundle\StockBundle\Domain\Entity\Partner
+    sil_stock.entity.operation.class:       Sil\Bundle\StockBundle\Domain\Entity\Operation

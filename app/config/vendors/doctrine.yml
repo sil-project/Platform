@@ -2,7 +2,6 @@ parameters:
     sil_crm.entity.address.class:                       PlatformBundle\Entity\SilCRMBundle\Address
     sil_crm.entity.organism.class:                      PlatformBundle\Entity\SilCRMBundle\Organism
 
-    # sil_ecommerce.entity.product.class:                 Sil\Bundle\EcommerceBundle\Entity\Product
     sil_ecommerce.entity.product.class:                 LisemBundle\Entity\SilEcommerceBundle\Product
     sil_ecommerce.entity.order.class:                   LisemBundle\Entity\SilEcommerceBundle\Order
     sil_ecommerce.entity.product_variant.class:         LisemBundle\Entity\SilEcommerceBundle\ProductVariant
@@ -18,20 +17,16 @@ parameters:
     sil_stock.entity.partner.class:                     "%sil_crm.entity.organism.class%"
     sil_stock.entity.stock_item.class:                  "%sil_ecommerce.entity.product.class%"
 
-    sil_variety.enttity.family.class:                   PlatformBundle\Entity\SilVarietyBundle\Family
-    sil_variety.enttity.variety.class:                  PlatformBundle\Entity\SilVarietyBundle\Variety
-    sil_variety.enttity.species.class:                  PlatformBundle\Entity\SilVarietyBundle\Species
-    sil_variety.enttity.genus.class:                    PlatformBundle\Entity\SilVarietyBundle\Genus
+    sil_variety.entity.family.class:                    PlatformBundle\Entity\SilVarietyBundle\Family
+    sil_variety.entity.variety.class:                   PlatformBundle\Entity\SilVarietyBundle\Variety
+    sil_variety.entity.species.class:                   PlatformBundle\Entity\SilVarietyBundle\Species
+    sil_variety.entity.genus.class:                     PlatformBundle\Entity\SilVarietyBundle\Genus
 
     sil_seed_batch.entity.seed_batch.class:             LisemBundle\Entity\SilSeedBatchBundle\SeedBatch
 
 doctrine:
     orm:
         resolve_target_entities:
-
-            # BlastCoreBundle
-
-            Blast\Bundle\CoreBundle\Model\UserInterface:                    "%sil_sonata_sylius_user.entity.sonata_user.class%"
 
             # SilSonataSyliusUserBundle
 
@@ -54,10 +49,10 @@ doctrine:
 
             # SilVarietyBundle
 
-            Sil\Bundle\VarietyBundle\Entity\FamilyInterface:                "%sil_variety.enttity.family.class%"
-            Sil\Bundle\VarietyBundle\Entity\VarietyInterface:               "%sil_variety.enttity.variety.class%"
-            Sil\Bundle\VarietyBundle\Entity\SpeciesInterface:               "%sil_variety.enttity.species.class%"
-            Sil\Bundle\VarietyBundle\Entity\GenusInterface:                 "%sil_variety.enttity.genus.class%"
+            Sil\Bundle\VarietyBundle\Entity\FamilyInterface:                "%sil_variety.entity.family.class%"
+            Sil\Bundle\VarietyBundle\Entity\VarietyInterface:               "%sil_variety.entity.variety.class%"
+            Sil\Bundle\VarietyBundle\Entity\SpeciesInterface:               "%sil_variety.entity.species.class%"
+            Sil\Bundle\VarietyBundle\Entity\GenusInterface:                 "%sil_variety.entity.genus.class%"
 
             #SilEcommerceBundle
 

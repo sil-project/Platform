@@ -1,11 +1,10 @@
 <?php
 
 /*
- * This file is part of the Lisem Project.
  *
  * Copyright (C) 2015-2017 Libre Informatique
  *
- * This file is licenced under the GNU GPL v3.
+ * This file is licenced under the GNU LGPL v3.
  * For the full copyright and license information, please view the LICENSE.md
  * file that was distributed with this source code.
  */
@@ -15,7 +14,6 @@ namespace LisemBundle\Admin;
 use Sil\Bundle\EcommerceBundle\Entity\Product;
 use Sil\Bundle\VarietyBundle\Admin\VarietyAdmin as BaseAdmin;
 use Sonata\AdminBundle\Route\RouteCollection;
-use Sonata\AdminBundle\Datagrid\ProxyQueryInterface;
 
 /**
  * Lisem Sonata admin for varieties.
@@ -67,31 +65,5 @@ class VarietyAdmin extends BaseAdmin
         ;
 
         return $queryBuilder->getQuery();
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function preBatchAction($actionName, ProxyQueryInterface $query, array &$idx, $allElements)
-    {
-        parent::preBatchAction($actionName, $query, $idx, $allElements);
-        // if ($actionName === 'delete') {
-        //     $varieties = $this->getModelManager()->findBy($this->getClass(), ['id' => $idx]);
-        //
-        //     foreach ($varieties as $variety) {
-        //         // Check products
-        //         if ($variety->getProducts()->count() > 0) {
-        //             $errorMessage = sprintf('Cannot delete variety « %s » because it has product', $variety->getName());
-        //             $this->getFlashManager()->addMessage('warning', $errorMessage);
-        //             unset($idx[array_search($variety->getId(), $idx)]);
-        //         }
-        //
-        //         if ($variety->getSeedBatches()->count() > 0) {
-        //             $errorMessage = sprintf('Cannot delete variety « %s » because it has seed batches', $variety->getName());
-        //             $this->getFlashManager()->addMessage('warning', $errorMessage);
-        //             unset($idx[array_search($variety->getId(), $idx)]);
-        //         }
-        //     }
-        // }
     }
 }

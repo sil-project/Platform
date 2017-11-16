@@ -6,9 +6,11 @@ Sil\Bundle\VarietyBundle\Entity\PlantCategory:
             type:     string(6)
             nullable: true
     manyToMany:
+
         species:
             targetEntity: Sil\Bundle\VarietyBundle\Entity\SpeciesInterface
             mappedBy: plant_categories
+
         varieties:
             targetEntity: Sil\Bundle\VarietyBundle\Entity\VarietyInterface
-            mappedBy: plant_categories
+            inversedBy: plant_categories

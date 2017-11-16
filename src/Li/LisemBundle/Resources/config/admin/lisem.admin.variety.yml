@@ -2,7 +2,7 @@
 services:
     lisem.admin.variety:
         class: LisemBundle\Admin\VarietyAdmin
-        arguments: [~, Sil\Bundle\VarietyBundle\Entity\Variety, LisemBundle:VarietyCRUD]
+        arguments: [~, "%sil_variety.entity.variety.class%", LisemBundle:VarietyCRUD]
         tags:
             - name: sonata.admin
               manager_type: orm
@@ -12,6 +12,3 @@ services:
         calls:
             - [ setTemplate, [ list, SilVarietyBundle:VarietyAdmin:list.html.twig ] ]
             - [ setTemplate, [ edit, SilVarietyBundle:VarietyAdmin:edit.html.twig ] ]
-
-
-

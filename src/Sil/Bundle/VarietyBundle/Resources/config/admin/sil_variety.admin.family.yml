@@ -2,7 +2,7 @@
 services:
     sil_variety.admin.family:
         class: Sil\Bundle\VarietyBundle\Admin\FamilyAdmin
-        arguments: [~, "%sil_variety.enttity.family.class%", BlastCoreBundle:CRUD]
+        arguments: [~, "%sil_variety.entity.family.class%", BlastCoreBundle:CRUD]
         tags:
             -
                 name: sonata.admin

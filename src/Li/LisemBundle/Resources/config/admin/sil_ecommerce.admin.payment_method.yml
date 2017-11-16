@@ -2,7 +2,7 @@
 services:
     sil_ecommerce.admin.payment_method:
         class: LisemBundle\Admin\PaymentMethodAdmin
-        arguments: [~, Sylius\Component\Core\Model\PaymentMethod, SilEcommerceBundle:PaymentCRUD]
+        arguments: [~, "%sylius.model.payment_method.class%", SilEcommerceBundle:PaymentCRUD]
         tags:
             - name: sonata.admin
               manager_type: orm

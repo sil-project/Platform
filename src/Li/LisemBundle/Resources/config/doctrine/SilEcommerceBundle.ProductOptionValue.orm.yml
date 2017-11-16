@@ -1,7 +1,2 @@
 LisemBundle\Entity\SilEcommerceBundle\ProductOptionValue:
     type: entity
-
-    manyToOne:
-        seedBatches:
-            targetEntity: Sil\Bundle\SeedBatchBundle\Entity\SeedBatchInterface
-            inversedBy: productVariants

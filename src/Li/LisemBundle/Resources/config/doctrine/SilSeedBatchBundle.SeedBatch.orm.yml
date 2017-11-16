@@ -4,4 +4,4 @@ LisemBundle\Entity\SilSeedBatchBundle\SeedBatch:
     manyToMany:
         productVariants:
             targetEntity: Sil\Bundle\EcommerceBundle\Entity\ProductVariantInterface
-            mappedBy: seedBatches
+            inversedBy: seedBatches

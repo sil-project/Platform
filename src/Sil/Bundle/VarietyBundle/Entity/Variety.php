@@ -15,6 +15,7 @@ use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\BaseEntity;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Descriptible;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Nameable;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Timestampable;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
 use Sil\Bundle\MediaBundle\Entity\File;
 
@@ -172,7 +173,7 @@ class Variety implements VarietyInterface
     protected $isStrain;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
+     * @var Collection
      */
     protected $children;
 
@@ -187,47 +188,47 @@ class Variety implements VarietyInterface
     protected $species;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
+     * @var Collection
      */
     protected $plant_categories;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
+     * @var Collection
      */
     protected $professional_descriptions;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
+     * @var Collection
      */
     protected $amateur_descriptions;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
+     * @var Collection
      */
     protected $production_descriptions;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
+     * @var Collection
      */
     protected $commercial_descriptions;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
+     * @var Collection
      */
     protected $plant_descriptions;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
+     * @var Collection
      */
     protected $culture_descriptions;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
+     * @var Collection
      */
     protected $inner_descriptions;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
+     * @var Collection
      */
     protected $images;
 
@@ -683,7 +684,7 @@ class Variety implements VarietyInterface
     /**
      * Get children.
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return Collection
      */
     public function getChildren()
     {
@@ -747,7 +748,7 @@ class Variety implements VarietyInterface
     /**
      * Get plantCategories.
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return Collection
      */
     public function getPlantCategories()
     {
@@ -1191,7 +1192,7 @@ class Variety implements VarietyInterface
     /**
      * Get professionalDescriptions.
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return Collection
      */
     public function getProfessionalDescriptions()
     {
@@ -1201,7 +1202,7 @@ class Variety implements VarietyInterface
     /**
      * alias for getProfessionalDescriptions().
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return Collection
      */
     public function getProfessional_descriptions()
     {
@@ -1211,7 +1212,7 @@ class Variety implements VarietyInterface
     /**
      * Set professional descriptions.
      *
-     * @param \Doctrine\Common\Collections\Collection $descriptions
+     * @param Collection $descriptions
      *
      * @return Variety
      */
@@ -1254,7 +1255,7 @@ class Variety implements VarietyInterface
     /**
      * Get amateurDescriptions.
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return Collection
      */
     public function getAmateurDescriptions()
     {
@@ -1264,7 +1265,7 @@ class Variety implements VarietyInterface
     /**
      * alias for getAmateurDescriptions().
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return Collection
      */
     public function getAmateur_descriptions()
     {
@@ -1274,7 +1275,7 @@ class Variety implements VarietyInterface
     /**
      * Set amateur descriptions.
      *
-     * @param \Doctrine\Common\Collections\Collection $descriptions
+     * @param Collection $descriptions
      *
      * @return Variety
      */
@@ -1317,7 +1318,7 @@ class Variety implements VarietyInterface
     /**
      * Get productionDescriptions.
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return Collection
      */
     public function getProductionDescriptions()
     {
@@ -1327,7 +1328,7 @@ class Variety implements VarietyInterface
     /**
      * alias for getProductionDescriptions().
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return Collection
      */
     public function getProduction_descriptions()
     {
@@ -1337,7 +1338,7 @@ class Variety implements VarietyInterface
     /**
      * Set production descriptions.
      *
-     * @param \Doctrine\Common\Collections\Collection $descriptions
+     * @param Collection $descriptions
      *
      * @return Variety
      */
@@ -1380,7 +1381,7 @@ class Variety implements VarietyInterface
     /**
      * Get commercialDescriptions.
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return Collection
      */
     public function getCommercialDescriptions()
     {
@@ -1390,7 +1391,7 @@ class Variety implements VarietyInterface
     /**
      * alias for getCommercialDescriptions().
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return Collection
      */
     public function getCommercial_descriptions()
     {
@@ -1400,7 +1401,7 @@ class Variety implements VarietyInterface
     /**
      * Set commercial descriptions.
      *
-     * @param \Doctrine\Common\Collections\Collection $descriptions
+     * @param Collection $descriptions
      *
      * @return Variety
      */
@@ -1443,7 +1444,7 @@ class Variety implements VarietyInterface
     /**
      * Get plantDescriptions.
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return Collection
      */
     public function getPlantDescriptions()
     {
@@ -1453,7 +1454,7 @@ class Variety implements VarietyInterface
     /**
      * alias for getPlantDescriptions().
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return Collection
      */
     public function getPlant_descriptions()
     {
@@ -1463,7 +1464,7 @@ class Variety implements VarietyInterface
     /**
      * Set plant descriptions.
      *
-     * @param \Doctrine\Common\Collections\Collection $descriptions
+     * @param Collection $descriptions
      *
      * @return Variety
      */
@@ -1506,7 +1507,7 @@ class Variety implements VarietyInterface
     /**
      * Get cultureDescriptions.
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return Collection
      */
     public function getCultureDescriptions()
     {
@@ -1516,7 +1517,7 @@ class Variety implements VarietyInterface
     /**
      * alias for getCultureDescriptions().
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return Collection
      */
     public function getCulture_descriptions()
     {
@@ -1526,7 +1527,7 @@ class Variety implements VarietyInterface
     /**
      * Set culture descriptions.
      *
-     * @param \Doctrine\Common\Collections\Collection $descriptions
+     * @param Collection $descriptions
      *
      * @return Variety
      */
@@ -1569,7 +1570,7 @@ class Variety implements VarietyInterface
     /**
      * Get innerDescriptions.
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return Collection
      */
     public function getInnerDescriptions()
     {
@@ -1579,7 +1580,7 @@ class Variety implements VarietyInterface
     /**
      * Set inner descriptions.
      *
-     * @param \Doctrine\Common\Collections\Collection $descriptions
+     * @param Collection $descriptions
      *
      * @return Variety
      */
