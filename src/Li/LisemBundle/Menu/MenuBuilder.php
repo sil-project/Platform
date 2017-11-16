@@ -76,7 +76,7 @@ class MenuBuilder
         // TODO (we are not using SilUserBundle any more. Adapt this for SonataSyliusUserBundle) :
         if ($this->authorizationChecker->isGranted('ROLE_SUPER_ADMIN', $this->tokenStorage->getToken()->getUser())) {
             $submenu = $menu->addChild('lisem.menu_label.admin_settings');
-            $submenu->addChild('lisem.menu_label.user_users', ['route' => 'admin_sil_sonatasyliususer_sonatauser_list']);
+            $submenu->addChild('lisem.menu_label.user_users', ['route' => 'admin_platform_silsonatasyliususerbundle_sonatauser_list']);
             //$submenu->addChild('lisem.menu_label.user_groups', ['route' => 'admin_sil_user_group_list']);
             //$submenu->addChild('lisem.menu_label.user_roles', ['route' => 'lisem_not_implemented']);
         }
@@ -90,14 +90,14 @@ class MenuBuilder
 
         // Varieties settings
         $submenu = $menu->addChild('lisem.menu_label.varieties_settings');
-        $submenu->addChild('lisem.menu_label.families_list', ['route' => 'admin_sil_variety_family_list']);
-        $submenu->addChild('lisem.menu_label.genuses_list', ['route' => 'admin_sil_variety_genus_list']);
+        $submenu->addChild('lisem.menu_label.families_list', ['route' => 'admin_platform_silvarietybundle_family_list']);
+        $submenu->addChild('lisem.menu_label.genuses_list', ['route' => 'admin_platform_silvarietybundle_genus_list']);
         $submenu->addChild('lisem.menu_label.plant_categories_list', ['route' => 'admin_sil_variety_plantcategory_list']);
 
         // Seed batches settings
         $submenu = $menu->addChild('lisem.menu_label.seed_batches_settings');
-        $submenu->addChild('lisem.menu_label.certifications_list', ['route' => 'admin_sil_seed_batch_certificationtype_list']);
-        $submenu->addChild('lisem.menu_label.certificators_list', ['route' => 'admin_sil_seed_batch_certifyingbody_list']);
+        $submenu->addChild('lisem.menu_label.certifications_list', ['route' => 'admin_sil_seedbatch_certificationtype_list']);
+        $submenu->addChild('lisem.menu_label.certificators_list', ['route' => 'admin_sil_seedbatch_certifyingbody_list']);
 
         // Shop settings
         $submenu = $menu->addChild('lisem.menu_label.shop_settings');

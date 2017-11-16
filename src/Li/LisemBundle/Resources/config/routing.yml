@@ -1,69 +1,10 @@
 lisem_not_implemented:
-    path:   /%sil.url_prefix%/not_implemented
+    path:   %sil.url_prefix%/not_implemented
     defaults: { _controller: LisemBundle:Default:notImplemented }
 
 lisem_test_email:
-    path:   /%sil.url_prefix%/lisem_test_email
+    path:   %sil.url_prefix%/lisem_test_email
     defaults: { _controller: LisemBundle:Default:testEmail }
-
-blast_core:
-    resource: "@BlastCoreBundle/Resources/config/routing.yml"
-    prefix: /%sil.url_prefix%
-
-blast_utils:
-    resource: "@BlastUtilsBundle/Resources/config/routing.yml"
-    prefix: /%sil.url_prefix%
-
-blast_base_entities:
-    resource: "@BlastBaseEntitiesBundle/Resources/config/routing.yml"
-    prefix:   /%sil.url_prefix%
-
-sil_decorator:
-    resource: "@BlastDecoratorBundle/Resources/config/routing.yml"
-    prefix:   /%sil.url_prefix%
-
-sil_variety:
-    resource: "@SilVarietyBundle/Resources/config/routing.yml"
-    prefix:   /%sil.url_prefix%
-
-sil_seed_batch:
-    resource: "@SilSeedBatchBundle/Resources/config/routing.yml"
-    prefix:   /%sil.url_prefix%
-
-sil_crm:
-    resource: "@SilCRMBundle/Resources/config/routing.yml"
-    prefix:   /%sil.url_prefix%
-
-sil_email:
-    resource: "@SilEmailBundle/Resources/config/routing.yml"
-    prefix:   /%sil.url_prefix%
-
-sil_email_crm:
-    resource: "@SilEmailCRMBundle/Resources/config/routing.yml"
-    prefix:   /%sil.url_prefix%
-
-sil_media:
-    resource: "@SilMediaBundle/Resources/config/routing.yml"
-    prefix:   /%sil.url_prefix%
-
-sil_ecommerce:
-    resource: "@SilEcommerceBundle/Resources/config/routing.yml"
-    prefix:   / #Must not be set because of sylius route override
-
-admin:
-    resource: '@SonataAdminBundle/Resources/config/routing/sonata_admin.xml'
-    prefix: /%sil.url_prefix%
-
-_sonata_admin:
-    resource: .
-    type: sonata_admin
-    prefix: /%sil.url_prefix%
-
-# Security routing for SyliusUserBundle
-# (defines login, logout and login_check routes)
-sonata_sylius_user_security:
-    resource: "@SilSonataSyliusUserBundle/Resources/config/routing/security.yml"
-    prefix: /%sil.url_prefix%
 
 _liip_imagine:
     resource: "@LiipImagineBundle/Resources/config/routing.xml"

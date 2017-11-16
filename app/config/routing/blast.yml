@@ -14,7 +14,7 @@ blast_base_entities:
     resource: "@BlastBaseEntitiesBundle/Resources/config/routing.yml"
     prefix:   %sil.url_prefix%
 
-sil_decorator:
+blast_decorator:
     resource: "@BlastDecoratorBundle/Resources/config/routing.yml"
     prefix:   %sil.url_prefix%
 

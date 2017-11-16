@@ -4,10 +4,11 @@ services:
         class: Sil\Bundle\SeedBatchBundle\Admin\CertifyingBodyAdmin
         arguments: [~, "%sil_seed_batch.entity.certifying_body.class%", SilMediaBundle:CRUD]
         tags:
-            - name: sonata.admin
-              manager_type: orm
-              group: admin
-              label: sil.seedbatchbundle.admin.certifying_body
-              label_translator_strategy: blast.resource.sonata.label_strategy.prefix
+            -
+                name: sonata.admin
+                manager_type: orm
+                group: admin
+                label: sil.seedbatchbundle.admin.certifying_body
+                label_translator_strategy: blast.resource.sonata.label_strategy.prefix
         calls:
             - [ setTemplate, [ edit, SilMediaBundle:CRUD:edit.html.twig ] ]

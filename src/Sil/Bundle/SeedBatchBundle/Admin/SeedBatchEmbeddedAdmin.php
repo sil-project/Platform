@@ -17,6 +17,6 @@ class SeedBatchEmbeddedAdmin extends SeedBatchAdmin
 {
     use EmbeddedAdmin;
 
-    protected $baseRouteName = 'admin_sil_seed_batch_seedbatch_embedded';
+    protected $baseRouteName = 'admin_sil_seed_batch_seed_batch_embedded';
     protected $baseRoutePattern = 'sil/seedbatch/seedbatch_embedded';
 }
