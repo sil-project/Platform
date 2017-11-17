@@ -244,10 +244,8 @@ services:
 #            - [setClassAnalyser, [Blast\Bundle\CoreBundle\Tools\Reflection\ClassAnalyzer]]
 
     imagine.data.loader.resolver.default:
+        parent: imagine.data.loader.resolver.abstract
         class: Sil\Bundle\EcommerceBundle\Imagine\PathResolver\ProductPathResolver
-        calls:
-            - [setEm, ['@doctrine.orm.entity_manager'] ]
-            - [setWebDir, ['%kernel.project_dir%/%symfony-web-dir%'] ]
 
     sil_ecommerce.media.events.listener:
         class: Sil\Bundle\EcommerceBundle\EventListener\UploadControllerEventListener

@@ -23,6 +23,7 @@ parameters:
     # Blast parameters
     sil.url_prefix: /sil
 
+    # please check http://symfony.com/doc/current/configuration/override_dir_structure.html#override-the-web-directory
     symfony-web-dir: web
     sylius_fallback_channel_code: default
     currency: EUR

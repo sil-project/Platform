@@ -1,5 +1,5 @@
 services:
-### TWIG EXTENSIONS ###    
+### TWIG EXTENSIONS ###
     sil_media.twig_extension.img_tag_generator:
         class: Sil\Bundle\MediaBundle\Twig\Extension\GenerateImgTagExtension
         tags:
@@ -9,7 +9,7 @@ services:
         class: Sil\Bundle\MediaBundle\Form\Type\DropzoneType
         tags:
             - { name: form.type, alias: sil_dropzone }
-            
+
     imagine.data.loader.db_loader:
         class: Sil\Bundle\MediaBundle\Imagine\Loader\DbLoader
         arguments:
@@ -19,11 +19,17 @@ services:
             - [setEm, ['@doctrine.orm.entity_manager'] ]
         tags:
             - { name: "liip_imagine.binary.loader", loader: db_loader }
-            
-    imagine.data.loader.resolver.default:
+
+    imagine.data.loader.resolver.abstract:
+        abstract: true
         class: Sil\Bundle\MediaBundle\Imagine\PathResolver\DefaultResolver
         calls:
             - [setEm, ['@doctrine.orm.entity_manager'] ]
+            - [setWebDir, ['%kernel.project_dir%/%symfony-web-dir%'] ]
+
+    imagine.data.loader.resolver.default:
+        parent: imagine.data.loader.resolver.abstract
+        class: Sil\Bundle\MediaBundle\Imagine\PathResolver\DefaultResolver
 
     sil_media.events.listener:
         class: Sil\Bundle\MediaBundle\Events\UploadControllerEventListener
