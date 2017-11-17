@@ -13,6 +13,7 @@ namespace Sil\Bundle\MediaBundle\Events;
 
 use Symfony\Component\EventDispatcher\GenericEvent;
 use Doctrine\ORM\EntityManager;
+use Sil\Bundle\MediaBundle\Entity\FileInterface;
 
 class UploadControllerEventListener
 {
@@ -27,7 +28,7 @@ class UploadControllerEventListener
 
     public function preGetEntity(GenericEvent $event)
     {
-        $repo = $this->em->getRepository('SilMediaBundle:File');
+        $repo = $this->em->getRepository(FileInterface::class);
 
         $file = $repo->find($event->getSubject()['context']['id']);
         if ($file !== null) {

@@ -116,9 +116,9 @@
 
         /*
          This is a list of all available events you can register on a dropzone object.
-         
+
          You can register an event handler like this:
-         
+
          dropzone.on("dragEnter", function() { });
          */
 
@@ -1253,7 +1253,6 @@
             }
             method = resolveOption(this.options.method, files);
             url = resolveOption(this.options.url, files);
-            console.info(this.options,url);
             xhr.open(method, url, true);
             xhr.withCredentials = !!this.options.withCredentials;
             response = null;
@@ -1667,7 +1666,7 @@
 
 
     /*
-     
+
      Bugfix for iOS 6 and 7
      Source: http://stackoverflow.com/questions/11929099/html5-canvas-drawimage-ratio-bug-ios
      based on the work of https://github.com/stomita/ios-imagefile-megapixel

@@ -13,6 +13,7 @@ namespace Sil\Bundle\MediaBundle\Imagine\PathResolver;
 
 use Doctrine\ORM\EntityManager;
 use Sil\Bundle\MediaBundle\Entity\File;
+use Sil\Bundle\MediaBundle\Entity\FileInterface;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class DefaultResolver implements PathResolverInterface
@@ -35,7 +36,7 @@ class DefaultResolver implements PathResolverInterface
     public function resolvePath($id)
     {
         try {
-            $repo = $this->em->getRepository('SilMediaBundle:File');
+            $repo = $this->em->getRepository(FileInterface::class);
 
             if (!$this->cacheFile) {
                 /* @var $this->cacheFile File */

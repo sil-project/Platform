@@ -15,6 +15,7 @@ use Sil\Bundle\MediaBundle\Imagine\PathResolver\PathResolverInterface;
 use Sil\Bundle\MediaBundle\Imagine\PathResolver\DefaultResolver;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Sil\Bundle\MediaBundle\Entity\File;
+use Sil\Bundle\MediaBundle\Entity\FileInterface;
 
 class ProductPathResolver extends DefaultResolver implements PathResolverInterface
 {
@@ -79,7 +80,7 @@ class ProductPathResolver extends DefaultResolver implements PathResolverInterfa
         $subQb
             ->select('f')
             ->from('SilEcommerceBundle:ProductImage', 'pi')
-            ->join('SilMediaBundle:File', 'f', 'WITH', 'pi.realFile = f')
+            ->join(FileInterface::class, 'f', 'WITH', 'pi.realFile = f')
             ->where('pi.path = :path')
             ->setParameter('path', $path);
 
@@ -88,7 +89,7 @@ class ProductPathResolver extends DefaultResolver implements PathResolverInterfa
         if (!$file) {
             $qb
                 ->select('f')
-                ->from('SilMediaBundle:File', 'f')
+                ->from(FileInterface::class, 'f')
                 ->where('f.path = :path')
                 ->setParameter('path', $path);
 

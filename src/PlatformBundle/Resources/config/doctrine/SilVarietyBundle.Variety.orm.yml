@@ -31,7 +31,7 @@ PlatformBundle\Entity\SilVarietyBundle\Variety:
             targetEntity: Sil\Bundle\VarietyBundle\Entity\PlantCategory
             inversedBy: varieties
             joinTable:
-                name: platformy_variety__plant_category
+                name: platform_variety__plant_category
                 joinColumns:
                     plantCategory_id:
                         referencedColumnName: id

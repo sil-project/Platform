@@ -12,6 +12,7 @@
 namespace Sil\Bundle\MediaBundle\Command;
 
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
+use Sil\Bundle\MediaBundle\Entity\FileInterface;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
@@ -41,7 +42,7 @@ class RemoveOrphanFilesCommand extends ContainerAwareCommand
 
         $manager = $this->getContainer()->get('doctrine')->getManager();
 
-        $orphans = $manager->getRepository('SilMediaBundle:File')->findBy(['owned' => false]);
+        $orphans = $manager->getRepository(FileInterface::class)->findBy(['owned' => false]);
 
         foreach ($orphans as $file) {
             ++$count;

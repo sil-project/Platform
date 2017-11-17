@@ -12,6 +12,7 @@
 namespace Sil\Bundle\MediaBundle\Controller;
 
 use Blast\Bundle\CoreBundle\Controller\CRUDController as BaseCRUDController;
+use Sil\Bundle\MediaBundle\Entity\FileInterface;
 
 /**
  * Class CRUDController.
@@ -288,7 +289,7 @@ class CRUDController extends BaseCRUDController
         $rc = new \ReflectionClass($object);
         $className = $rc->getShortName();
 
-        $repo = $this->manager->getRepository('SilMediaBundle:File');
+        $repo = $this->manager->getRepository(FileInterface::class);
 
         if ($remove = $request->get('remove_files')) {
             foreach ($remove as $key => $id) {

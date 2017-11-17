@@ -18,7 +18,7 @@ use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Jsonable;
 /**
  * File.
  */
-class File implements \JsonSerializable
+class File implements \JsonSerializable, FileInterface
 {
     use BaseEntity,
         Jsonable;

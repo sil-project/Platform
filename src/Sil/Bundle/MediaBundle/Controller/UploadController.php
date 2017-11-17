@@ -15,9 +15,9 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sil\Bundle\MediaBundle\Entity\File;
 use Symfony\Component\EventDispatcher\GenericEvent;
 use Sil\Bundle\MediaBundle\Events\UploadControllerEventListener;
+use Sil\Bundle\MediaBundle\Entity\FileInterface;
 
 class UploadController extends Controller
 {
@@ -33,8 +33,9 @@ class UploadController extends Controller
         $manager = $this->getDoctrine()->getManager();
 
         $file = $request->files->get('file');
+        $fileClass = $this->container->getParameter('sil_media.entity.file.class');
 
-        $new = new File();
+        $new = (new \ReflectionClass($fileClass))->newInstance();
         $new->setFile($file);
         $new->setMimeType($file->getMimeType());
         $new->setName($file->getClientOriginalName());
@@ -61,7 +62,7 @@ class UploadController extends Controller
         }
 
         $manager = $this->getDoctrine()->getManager();
-        $repo = $this->getDoctrine()->getRepository('SilMediaBundle:File');
+        $repo = $this->getDoctrine()->getRepository(FileInterface::class);
 
         $file = $repo->findOneBy([
             'id'    => $fileId,
@@ -93,7 +94,7 @@ class UploadController extends Controller
      */
     public function loadAction(Request $request)
     {
-        $repo = $this->getDoctrine()->getRepository('SilMediaBundle:File');
+        $repo = $this->getDoctrine()->getRepository(FileInterface::class);
         $files = [];
 
         foreach ($request->get('load_files') as $key => $id) {

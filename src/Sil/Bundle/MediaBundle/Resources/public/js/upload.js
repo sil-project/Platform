@@ -87,7 +87,7 @@ var setupDropzone = function(key, instance) {
 
     //Last uploaded file id is appended to the form so that it can be linked to owning entity on backend side
     dropzone.on("success", function(file, result) {
-
+        result = result.trim();
         $(file.previewElement).data('file-id', result);
 
         insertInput(result, 'add_files[]', dropzone);

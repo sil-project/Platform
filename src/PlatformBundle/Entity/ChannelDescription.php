@@ -13,6 +13,7 @@ namespace PlatformBundle\Entity;
 
 use Sil\Bundle\VarietyBundle\Entity\Association\HasVarietyTrait;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\BaseEntity;
+use Sylius\Component\Core\Model\ChannelInterface;
 
 class ChannelDescription
 {
@@ -74,7 +75,7 @@ class ChannelDescription
     }
 
     /**
-     * @var Channel
+     * @var ChannelInterface
      */
     protected $channel;
 
@@ -85,9 +86,9 @@ class ChannelDescription
     /**
      * Add channel.
      *
-     * @param Channel $channel
+     * @param ChannelInterface $channel
      */
-    public function setChannel(Channel $channel)
+    public function setChannel(ChannelInterface $channel)
     {
         $this->channel = $channel;
     }
@@ -95,7 +96,7 @@ class ChannelDescription
     /**
      * Get channel.
      *
-     * @return Channel
+     * @return ChannelInterface
      */
     public function getChannel()
     {

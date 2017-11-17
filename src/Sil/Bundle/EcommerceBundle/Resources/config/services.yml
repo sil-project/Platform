@@ -247,7 +247,7 @@ services:
         class: Sil\Bundle\EcommerceBundle\Imagine\PathResolver\ProductPathResolver
         calls:
             - [setEm, ['@doctrine.orm.entity_manager'] ]
-            - [setWebDir, ['%symfony-web-dir%'] ]
+            - [setWebDir, ['%kernel.project_dir%/%symfony-web-dir%'] ]
 
     sil_ecommerce.media.events.listener:
         class: Sil\Bundle\EcommerceBundle\EventListener\UploadControllerEventListener

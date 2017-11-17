@@ -16,6 +16,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Sil\Bundle\EcommerceBundle\Entity\Product;
 use Sil\Bundle\EcommerceBundle\Entity\ProductImage;
+use Sil\Bundle\MediaBundle\Entity\FileInterface;
 
 /**
  * @author Marcos Bezerra de Menezes <marcos.bezerra@libre-informatique.fr>
@@ -51,7 +52,7 @@ class ProductCRUDController extends CRUDController
         $rc = new \ReflectionClass($object);
         $className = $rc->getShortName();
 
-        $repo = $this->manager->getRepository('SilMediaBundle:File');
+        $repo = $this->manager->getRepository(FileInterface::class);
 
         if (null !== $remove = $request->get('remove_files')) {
             foreach ($remove as $key => $id) {
