@@ -16,5 +16,16 @@ PlatformBundle\Entity\SilVarietyBundle\Variety:
 
     manyToMany:
         packagings:
-            targetEntity: Sil\Bundle\EcommerceBundle\Entity\ProductOptionValue
+            targetEntity: Sil\Bundle\EcommerceBundle\Entity\ProductOptionValueInterface
             cascade: [ persist, remove ]
+
+        plant_categories:
+            targetEntity: Sil\Bundle\VarietyBundle\Entity\PlantCategory
+            joinTable:
+                name: platformy_variety__plant_category
+                joinColumns:
+                    plantCategory_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    variety_id:
+                        referencedColumnName: id

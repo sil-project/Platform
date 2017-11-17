@@ -13,4 +13,4 @@ Sil\Bundle\VarietyBundle\Entity\PlantCategory:
 
         varieties:
             targetEntity: Sil\Bundle\VarietyBundle\Entity\VarietyInterface
-            inversedBy: plant_categories
+            mappedBy: plant_categories

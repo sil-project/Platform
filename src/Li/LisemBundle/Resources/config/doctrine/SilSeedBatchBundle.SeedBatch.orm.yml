@@ -5,3 +5,11 @@ LisemBundle\Entity\SilSeedBatchBundle\SeedBatch:
         productVariants:
             targetEntity: Sil\Bundle\EcommerceBundle\Entity\ProductVariantInterface
             inversedBy: seedBatches
+            joinTable:
+                name: lisem_seed_batch__lisem_product_variant
+                joinColumns:
+                    producVariant_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    seedBatch_id:
+                        referencedColumnName: id
