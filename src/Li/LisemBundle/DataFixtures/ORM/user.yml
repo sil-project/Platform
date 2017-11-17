@@ -1,4 +1,4 @@
-Sil\Bundle\SonataSyliusUserBundle\Entity\SonataUser:
+PlatformBundle\Entity\SilSonataSyliusUserBundle\SonataUser:
     user:
         username: DataFixtures
         plainPassword: DataFixtures

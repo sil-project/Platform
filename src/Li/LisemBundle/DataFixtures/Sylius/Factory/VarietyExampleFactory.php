@@ -1,11 +1,10 @@
 <?php
 
 /*
- * This file is part of the Lisem Project.
  *
  * Copyright (C) 2015-2017 Libre Informatique
  *
- * This file is licenced under the GNU GPL v3.
+ * This file is licenced under the GNU LGPL v3.
  * For the full copyright and license information, please view the LICENSE.md
  * file that was distributed with this source code.
  */
@@ -13,8 +12,7 @@
 namespace LisemBundle\DataFixtures\Sylius\Factory;
 
 use Doctrine\ORM\EntityManager;
-use Sil\Bundle\VarietyBundle\Entity\Species;
-use Sil\Bundle\VarietyBundle\Entity\Variety;
+use Sil\Bundle\VarietyBundle\Entity\SpeciesInterface;
 use Sylius\Bundle\CoreBundle\Fixture\Factory\ExampleFactoryInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -33,10 +31,15 @@ final class VarietyExampleFactory extends ExampleFactory implements ExampleFacto
      */
     protected $entityManager;
 
+    /**
+     * @var string
+     */
+    protected $entityClass;
+
     public function __construct(EntityManager $entityManager)
     {
         $this->entityManager = $entityManager;
-        $speciesRepository = $entityManager->getRepository('SilVarietyBundle:Species');
+        $speciesRepository = $entityManager->getRepository(SpeciesInterface::class);
 
         $this->optionsResolver =
             (new OptionsResolver())
@@ -51,7 +54,7 @@ final class VarietyExampleFactory extends ExampleFactory implements ExampleFacto
                 ->setDefined('code')
 
                 ->setDefined('species')
-                ->setAllowedTypes('species', ['string', Species::class])
+                ->setAllowedTypes('species', ['string', SpeciesInterface::class])
                 ->setNormalizer('species', $this->findOneBy($speciesRepository, 'name'))
         ;
     }
@@ -62,7 +65,7 @@ final class VarietyExampleFactory extends ExampleFactory implements ExampleFacto
     public function create(array $options = [])
     {
         $options = $this->optionsResolver->resolve($options);
-        $variety = new Variety();
+        $variety = (new \ReflectionClass($this->entityClass))->newInstance();
         $variety->setName($options['name']);
         $variety->setLatinName($options['latin_name']);
         $variety->setAlias($options['alias']);
@@ -72,5 +75,13 @@ final class VarietyExampleFactory extends ExampleFactory implements ExampleFacto
         $this->setCreator($variety);
 
         return $variety;
+    }
+
+    /**
+     * @param string $entityClass
+     */
+    public function setEntityClass(string $entityClass): void
+    {
+        $this->entityClass = $entityClass;
     }
 }

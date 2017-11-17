@@ -1,11 +1,10 @@
 <?php
 
 /*
- * This file is part of the Lisem Project.
  *
  * Copyright (C) 2015-2017 Libre Informatique
  *
- * This file is licenced under the GNU GPL v3.
+ * This file is licenced under the GNU LGPL v3.
  * For the full copyright and license information, please view the LICENSE.md
  * file that was distributed with this source code.
  */
@@ -16,7 +15,7 @@ use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Sil\Bundle\CRMBundle\Entity\City;
-use Sil\Bundle\CRMBundle\Entity\Organism;
+use Sil\Bundle\CRMBundle\Entity\OrganismInterface;
 use Sil\Bundle\SeedBatchBundle\Entity\Plot;
 use Sil\Bundle\SeedBatchBundle\Entity\SeedBatch;
 use Sil\Bundle\SeedBatchBundle\Entity\SeedFarm;
@@ -128,13 +127,13 @@ class LoadSampleData extends AbstractFixture implements OrderedFixtureInterface,
         }));
 
         // Codes
-        $customerCodeGenerator = $registry->getCodeGenerator(Organism::class, 'customerCode');
-        $supplierCodeGenerator = $registry->getCodeGenerator(Organism::class, 'supplierCode');
-        $producerCodeGenerator = $registry->getCodeGenerator(Organism::class, 'seedProducerCode');
+        $customerCodeGenerator = $registry->getCodeGenerator(OrganismInterface::class, 'customerCode');
+        $supplierCodeGenerator = $registry->getCodeGenerator(OrganismInterface::class, 'supplierCode');
+        $producerCodeGenerator = $registry->getCodeGenerator(OrganismInterface::class, 'seedProducerCode');
         $plotCodeGenerator = $registry->getCodeGenerator(Plot::class, 'code');
         $seedBatchCodeGenerator = $registry->getCodeGenerator(SeedBatch::class, 'code');
         foreach ($objects as $object) {
-            if ($object instanceof Organism) {
+            if ($object instanceof OrganismInterface) {
                 if ($object->isCustomer()) {
                     $object->setCustomerCode($customerCodeGenerator::generate($object));
                     $this->alicePersister->persist([$object]);

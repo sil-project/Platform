@@ -1,11 +1,10 @@
 <?php
 
 /*
- * This file is part of the Lisem Project.
  *
  * Copyright (C) 2015-2017 Libre Informatique
  *
- * This file is licenced under the GNU GPL v3.
+ * This file is licenced under the GNU LGPL v3.
  * For the full copyright and license information, please view the LICENSE.md
  * file that was distributed with this source code.
  */
@@ -13,7 +12,7 @@
 namespace LisemBundle\DataFixtures\Sylius\Generator;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use Sil\Bundle\SeedBatchBundle\Entity\SeedBatch;
+use Sil\Bundle\SeedBatchBundle\Entity\SeedBatchInterface;
 use Sylius\Component\Product\Checker\ProductVariantsParityCheckerInterface;
 use Sylius\Component\Product\Factory\ProductVariantFactoryInterface;
 use Sylius\Component\Product\Generator\CartesianSetBuilder;
@@ -138,7 +137,7 @@ final class ProductVariantGenerator implements ProductVariantGeneratorInterface
         }
 
         foreach ($permutation as $id) {
-            if ($optionMap[$id] instanceof SeedBatch) {
+            if ($optionMap[$id] instanceof SeedBatchInterface) {
                 $variant->addSeedBatch($optionMap[$id]);
             } else {
                 $variant->addOptionValue($optionMap[$id]);

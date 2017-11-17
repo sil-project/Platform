@@ -16,6 +16,8 @@ use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Descriptible;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Loggable;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Searchable;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Timestampable;
+use Sil\Bundle\CRMBundle\Entity\OrganismInterface;
+use Sil\Bundle\VarietyBundle\Entity\VarietyInterface;
 
 /**
  * SeedBatch.
@@ -29,22 +31,22 @@ class SeedBatch implements SeedBatchInterface
         Searchable;
 
     /**
-     * @var \Sil\Bundle\VarietyBundle\Entity\Variety
+     * @var VarietyInterface
      */
     protected $variety;
 
     /**
-     * @var \Sil\Bundle\CRMBundle\Entity\Organism
+     * @var OrganismInterface
      */
     protected $producer;
 
     /**
-     * @var \Sil\Bundle\SeedBatchBundle\Entity\Plot
+     * @var Plot
      */
     protected $plot;
 
     /**
-     * @var \Sil\Bundle\SeedBatchBundle\Entity\SeedFarm
+     * @var SeedFarm
      */
     protected $seedFarm;
 
@@ -176,7 +178,7 @@ class SeedBatch implements SeedBatchInterface
      *
      * @param int $productionYear
      *
-     * @return SeedBatch
+     * @return SeedBatchInterface
      */
     public function setProductionYear($productionYear)
     {
@@ -200,7 +202,7 @@ class SeedBatch implements SeedBatchInterface
      *
      * @param float $germinationRate
      *
-     * @return SeedBatch
+     * @return SeedBatchInterface
      */
     public function setGerminationRate($germinationRate)
     {
@@ -224,7 +226,7 @@ class SeedBatch implements SeedBatchInterface
      *
      * @param \DateTime $germinationDate
      *
-     * @return SeedBatch
+     * @return SeedBatchInterface
      */
     public function setGerminationDate($germinationDate)
     {
@@ -248,7 +250,7 @@ class SeedBatch implements SeedBatchInterface
      *
      * @param float $tkw
      *
-     * @return SeedBatch
+     * @return SeedBatchInterface
      */
     public function setTkw($tkw)
     {
@@ -272,7 +274,7 @@ class SeedBatch implements SeedBatchInterface
      *
      * @param \DateTime $tkwDate
      *
-     * @return SeedBatch
+     * @return SeedBatchInterface
      */
     public function setTkwDate($tkwDate)
     {
@@ -294,11 +296,11 @@ class SeedBatch implements SeedBatchInterface
     /**
      * Set seedFarm.
      *
-     * @param \Sil\Bundle\SeedBatchBundle\Entity\SeedFarm $seedFarm
+     * @param SeedFarm $seedFarm
      *
-     * @return SeedBatch
+     * @return SeedBatchInterface
      */
-    public function setSeedFarm(\Sil\Bundle\SeedBatchBundle\Entity\SeedFarm $seedFarm = null)
+    public function setSeedFarm(SeedFarm $seedFarm = null)
     {
         $this->seedFarm = $seedFarm;
 
@@ -308,7 +310,7 @@ class SeedBatch implements SeedBatchInterface
     /**
      * Get seedFarm.
      *
-     * @return \Sil\Bundle\SeedBatchBundle\Entity\SeedFarm
+     * @return SeedFarm
      */
     public function getSeedFarm()
     {
@@ -318,11 +320,11 @@ class SeedBatch implements SeedBatchInterface
     /**
      * Set variety.
      *
-     * @param \Sil\Bundle\VarietyBundle\Entity\Variety $variety
+     * @param VarietyInterface $variety
      *
-     * @return SeedBatch
+     * @return SeedBatchInterface
      */
-    public function setVariety(\Sil\Bundle\VarietyBundle\Entity\Variety $variety = null)
+    public function setVariety(VarietyInterface $variety = null)
     {
         $this->variety = $variety;
 
@@ -332,7 +334,7 @@ class SeedBatch implements SeedBatchInterface
     /**
      * Get variety.
      *
-     * @return \Sil\Bundle\VarietyBundle\Entity\Variety
+     * @return VarietyInterface
      */
     public function getVariety()
     {
@@ -342,11 +344,11 @@ class SeedBatch implements SeedBatchInterface
     /**
      * Set producer.
      *
-     * @param \Sil\Bundle\CRMBundle\Entity\Organism $producer
+     * @param OrganismInterface $producer
      *
-     * @return SeedBatch
+     * @return SeedBatchInterface
      */
-    public function setProducer(\Sil\Bundle\CRMBundle\Entity\Organism $producer = null)
+    public function setProducer(OrganismInterface $producer = null)
     {
         $this->producer = $producer;
 
@@ -356,11 +358,11 @@ class SeedBatch implements SeedBatchInterface
     /**
      * Set Organisme (Producer in fact).
      *
-     * @param \Sil\Bundle\CRMBundle\Entity\Organism $producer
+     * @param OrganismInterface $producer
      *
      * @return Plot
      */
-    public function setOrganism(\Sil\Bundle\CRMBundle\Entity\Organism $producer = null)
+    public function setOrganism(OrganismInterface $producer = null)
     {
         $this->setProducer($producer);
 
@@ -370,7 +372,7 @@ class SeedBatch implements SeedBatchInterface
     /**
      * Get producer.
      *
-     * @return \Sil\Bundle\CRMBundle\Entity\Organism
+     * @return OrganismInterface
      */
     public function getProducer()
     {
@@ -380,11 +382,11 @@ class SeedBatch implements SeedBatchInterface
     /**
      * Set plot.
      *
-     * @param \Sil\Bundle\SeedBatchBundle\Entity\Plot $plot
+     * @param Plot $plot
      *
-     * @return SeedBatch
+     * @return SeedBatchInterface
      */
-    public function setPlot(\Sil\Bundle\SeedBatchBundle\Entity\Plot $plot = null)
+    public function setPlot(Plot $plot = null)
     {
         $this->plot = $plot;
 
@@ -394,7 +396,7 @@ class SeedBatch implements SeedBatchInterface
     /**
      * Get plot.
      *
-     * @return \Sil\Bundle\SeedBatchBundle\Entity\Plot
+     * @return Plot
      */
     public function getPlot()
     {
@@ -406,7 +408,7 @@ class SeedBatch implements SeedBatchInterface
      *
      * @param string $certifications
      *
-     * @return SeedBatch
+     * @return SeedBatchInterface
      */
     public function setCertifications($certifications)
     {
@@ -430,7 +432,7 @@ class SeedBatch implements SeedBatchInterface
      *
      * @param int $grossProducerWeight
      *
-     * @return SeedBatch
+     * @return SeedBatchInterface
      */
     public function setGrossProducerWeight($grossProducerWeight)
     {
@@ -454,7 +456,7 @@ class SeedBatch implements SeedBatchInterface
      *
      * @param int $grossDeliveredWeight
      *
-     * @return SeedBatch
+     * @return SeedBatchInterface
      */
     public function setGrossDeliveredWeight($grossDeliveredWeight)
     {
@@ -478,7 +480,7 @@ class SeedBatch implements SeedBatchInterface
      *
      * @param int $netScreenedWeight
      *
-     * @return SeedBatch
+     * @return SeedBatchInterface
      */
     public function setNetScreenedWeight($netScreenedWeight)
     {
@@ -502,7 +504,7 @@ class SeedBatch implements SeedBatchInterface
      *
      * @param int $toScreenWeight
      *
-     * @return SeedBatch
+     * @return SeedBatchInterface
      */
     public function setToScreenWeight($toScreenWeight)
     {
@@ -526,7 +528,7 @@ class SeedBatch implements SeedBatchInterface
      *
      * @param \DateTime $deliveryDate
      *
-     * @return SeedBatch
+     * @return SeedBatchInterface
      */
     public function setDeliveryDate($deliveryDate)
     {
@@ -550,7 +552,7 @@ class SeedBatch implements SeedBatchInterface
      *
      * @param bool $deliveryNote
      *
-     * @return SeedBatch
+     * @return SeedBatchInterface
      */
     public function setDeliveryNote($deliveryNote)
     {

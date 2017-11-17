@@ -123,12 +123,14 @@ doctrine:
                 # naming_strategy: doctrine.orm.naming_strategy.underscore
                 auto_mapping: true
                 mappings:
-                    PlatformBundle:
-                        type: yml
-                    LisemBundle:
-                        type: yml
+
+                    # Blast
+
                     BlastBaseEntitiesBundle:
                         type: yml
+
+                    # Sil
+
                     SilCRMBundle:
                         type: yml
                     SilEcommerceBundle:
@@ -151,6 +153,17 @@ doctrine:
                         prefix: Sil\Bundle\StockBundle\Domain\Entity
                     SilVarietyBundle:
                         type: yml
+
+                    # Platform
+
+                    PlatformBundle:
+                        type: yml
+
+                    # Project
+
+                    LisemBundle:
+                        type: yml
+
                     gedmo_loggable:
                         type: annotation
                         prefix: Gedmo\Loggable\Entity

@@ -11,6 +11,7 @@
 
 namespace Sil\Bundle\SeedBatchBundle\Entity;
 
+use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Addressable;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\BaseEntity;
@@ -18,6 +19,7 @@ use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Descriptible;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Loggable;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Searchable;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Timestampable;
+use Sil\Bundle\CRMBundle\Entity\OrganismInterface;
 
 /**
  * Plot.
@@ -37,17 +39,17 @@ class Plot
     protected $code;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
+     * @var Collection
      */
     protected $seedBatches;
 
     /**
-     * @var \Sil\Bundle\CRMBundle\Entity\Organism
+     * @var OrganismInterface
      */
     protected $producer;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
+     * @var Collection
      */
     protected $certifications;
 
@@ -101,11 +103,11 @@ class Plot
     /**
      * Add seedBatch.
      *
-     * @param \Sil\Bundle\SeedBatchBundle\Entity\SeedBatch $seedBatch
+     * @param SeedBatchInterface $seedBatch
      *
      * @return Plot
      */
-    public function addSeedBatch(\Sil\Bundle\SeedBatchBundle\Entity\SeedBatch $seedBatch)
+    public function addSeedBatch(SeedBatchInterface $seedBatch)
     {
         $this->seedBatches[] = $seedBatch;
 
@@ -115,11 +117,11 @@ class Plot
     /**
      * Remove seedBatch.
      *
-     * @param \Sil\Bundle\SeedBatchBundle\Entity\SeedBatch $seedBatch
+     * @param SeedBatchInterface $seedBatch
      *
      * @return bool tRUE if this collection contained the specified element, FALSE otherwise
      */
-    public function removeSeedBatch(\Sil\Bundle\SeedBatchBundle\Entity\SeedBatch $seedBatch)
+    public function removeSeedBatch(SeedBatchInterface $seedBatch)
     {
         return $this->seedBatches->removeElement($seedBatch);
     }
@@ -127,7 +129,7 @@ class Plot
     /**
      * Get seedBatches.
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return Collection
      */
     public function getSeedBatches()
     {
@@ -137,11 +139,11 @@ class Plot
     /**
      * Set producer.
      *
-     * @param \Sil\Bundle\CRMBundle\Entity\Organism $producer
+     * @param OrganismInterface $producer
      *
      * @return Plot
      */
-    public function setProducer(\Sil\Bundle\CRMBundle\Entity\Organism $producer = null)
+    public function setProducer(OrganismInterface $producer = null)
     {
         $this->producer = $producer;
 
@@ -151,11 +153,11 @@ class Plot
     /**
      * Set Organism (Producer in fact).
      *
-     * @param \Sil\Bundle\CRMBundle\Entity\Organism $producer
+     * @param OrganismInterface $producer
      *
      * @return Plot
      */
-    public function setOrganism(\Sil\Bundle\CRMBundle\Entity\Organism $producer = null)
+    public function setOrganism(OrganismInterface $producer = null)
     {
         $this->setProducer($producer);
 
@@ -165,7 +167,7 @@ class Plot
     /**
      * Get producer.
      *
-     * @return \Sil\Bundle\CRMBundle\Entity\Organism
+     * @return OrganismInterface
      */
     public function getProducer()
     {
@@ -175,11 +177,11 @@ class Plot
     /**
      * Add certifications.
      *
-     * @param \Sil\Bundle\SeedBatchBundle\Entity\Certification $certifications
+     * @param Certification $certifications
      *
      * @return Plot
      */
-    public function addCertification(\Sil\Bundle\SeedBatchBundle\Entity\Certification $certifications)
+    public function addCertification(Certification $certifications)
     {
         $this->certifications[] = $certifications;
 
@@ -189,9 +191,9 @@ class Plot
     /**
      * Remove certification.
      *
-     * @param \Sil\Bundle\SeedBatchBundle\Entity\Certification $certification
+     * @param Certification $certification
      */
-    public function removeCertification(\Sil\Bundle\SeedBatchBundle\Entity\Certification $certification)
+    public function removeCertification(Certification $certification)
     {
         $this->certifications->removeElement($certification);
     }
@@ -199,7 +201,7 @@ class Plot
     /**
      * Get certifications.
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return Collection
      */
     public function getCertifications()
     {

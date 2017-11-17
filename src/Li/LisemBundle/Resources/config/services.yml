@@ -74,21 +74,29 @@ services:
         class: LisemBundle\DataFixtures\Sylius\Factory\FamilyExampleFactory
         arguments:
             - "@doctrine.orm.entity_manager"
+        calls:
+            - [ setEntityClass, ["%sil_variety.entity.family.class%"]]
 
     lisem.fixture.example_factory.genus:
         class: LisemBundle\DataFixtures\Sylius\Factory\GenusExampleFactory
         arguments:
             - "@doctrine.orm.entity_manager"
+        calls:
+            - [ setEntityClass, ["%sil_variety.entity.genus.class%"]]
 
     lisem.fixture.example_factory.species:
         class: LisemBundle\DataFixtures\Sylius\Factory\SpeciesExampleFactory
         arguments:
             - "@doctrine.orm.entity_manager"
+        calls:
+            - [ setEntityClass, ["%sil_variety.entity.species.class%"]]
 
     lisem.fixture.example_factory.variety:
         class: LisemBundle\DataFixtures\Sylius\Factory\VarietyExampleFactory
         arguments:
             - "@doctrine.orm.entity_manager"
+        calls:
+            - [ setEntityClass, ["%sil_variety.entity.variety.class%"]]
 
     lisem.fixture.example_factory.seed_batch:
         class: LisemBundle\DataFixtures\Sylius\Factory\SeedBatchExampleFactory
@@ -97,6 +105,11 @@ services:
             - "@sil_seed_batch.code_generator.seed_batch"
             - "@sil_seed_batch.code_generator.seed_producer"
             - "@sil_seed_batch.code_generator.plot"
+        calls:
+            - [setSeedBatchClass, ["%sil_seed_batch.entity.seed_batch.class%"]]
+            - [setSeedFarmClass, ["%sil_seed_batch.entity.seed_farm.class%"]]
+            - [setOrganismClass, ["%sil_crm.entity.organism.class%"]]
+            - [setPlotClass, ["%sil_seed_batch.entity.plot.class%"]]
 
     lisem.fixture.example_factory.product:
         class: LisemBundle\DataFixtures\Sylius\Factory\ProductExampleFactory

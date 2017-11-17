@@ -44,6 +44,7 @@
         "jeroendesloovere/vcard-bundle": ">=1.2",
         "knplabs/knp-snappy-bundle": "^1.0",
         "lexik/maintenance-bundle": "^2.1",
+        "nelmio/api-doc-bundle": "^2.13",
         "oro/doctrine-extensions": ">=1.2",
         "sensio/distribution-bundle": "^5.0.19",
         "sensio/framework-extra-bundle": "^3.0.2",
@@ -73,7 +74,7 @@
     "scripts": {
         "git-hook": [
             "ln -f -s ../../bin/git-script/pre-commit.sh .git/hooks/pre-commit"
-        ],        
+        ],
         "symfony-scripts": [
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",

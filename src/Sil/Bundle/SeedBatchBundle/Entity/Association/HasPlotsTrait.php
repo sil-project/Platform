@@ -12,6 +12,7 @@
 namespace Sil\Bundle\SeedBatchBundle\Entity\Association;
 
 use Doctrine\Common\Collections\Collection;
+use Sil\Bundle\SeedBatchBundle\Entity\Plot;
 
 trait HasPlotsTrait
 {

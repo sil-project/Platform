@@ -1,11 +1,10 @@
 <?php
 
 /*
- * This file is part of the Lisem Project.
  *
  * Copyright (C) 2015-2017 Libre Informatique
  *
- * This file is licenced under the GNU GPL v3.
+ * This file is licenced under the GNU LGPL v3.
  * For the full copyright and license information, please view the LICENSE.md
  * file that was distributed with this source code.
  */
@@ -13,8 +12,8 @@
 namespace LisemBundle\DataFixtures\Sylius\Factory;
 
 use Doctrine\ORM\EntityManager;
-use Sil\Bundle\VarietyBundle\Entity\Genus;
-use Sil\Bundle\VarietyBundle\Entity\Species;
+use Sil\Bundle\VarietyBundle\Entity\GenusInterface;
+use Sil\Bundle\VarietyBundle\Entity\SpeciesInterface;
 use Sylius\Bundle\CoreBundle\Fixture\Factory\ExampleFactoryInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -33,11 +32,16 @@ final class SpeciesExampleFactory extends ExampleFactory implements ExampleFacto
      */
     protected $entityManager;
 
+    /**
+     * @var string
+     */
+    protected $entityClass;
+
     public function __construct(EntityManager $entityManager)
     {
         $this->entityManager = $entityManager;
-        $genusRepository = $entityManager->getRepository('SilVarietyBundle:Genus');
-        $speciesRepository = $entityManager->getRepository('SilVarietyBundle:Species');
+        $genusRepository = $entityManager->getRepository(GenusInterface::class);
+        $speciesRepository = $entityManager->getRepository(SpeciesInterface::class);
 
         $this->optionsResolver =
             (new OptionsResolver())
@@ -50,11 +54,11 @@ final class SpeciesExampleFactory extends ExampleFactory implements ExampleFacto
                 ->setDefined('code')
 
                 ->setDefined('genus')
-                ->setAllowedTypes('genus', ['string', Genus::class])
+                ->setAllowedTypes('genus', ['string', GenusInterface::class])
                 ->setNormalizer('genus', $this->findOneBy($genusRepository, 'name'))
 
                 ->setDefault('parent_species', null)
-                ->setAllowedTypes('parent_species', ['null', 'string', Species::class])
+                ->setAllowedTypes('parent_species', ['null', 'string', SpeciesInterface::class])
                 ->setNormalizer('parent_species', $this->findOneBy($speciesRepository, 'name'))
         ;
     }
@@ -65,7 +69,7 @@ final class SpeciesExampleFactory extends ExampleFactory implements ExampleFacto
     public function create(array $options = [])
     {
         $options = $this->optionsResolver->resolve($options);
-        $species = new Species();
+        $species = (new \ReflectionClass($this->entityClass))->newInstance();
         $species->setName($options['name']);
         $species->setLatinName($options['latin_name']);
         $species->setAlias($options['alias']);
@@ -75,5 +79,13 @@ final class SpeciesExampleFactory extends ExampleFactory implements ExampleFacto
         $this->setCreator($species);
 
         return $species;
+    }
+
+    /**
+     * @param string $entityClass
+     */
+    public function setEntityClass(string $entityClass): void
+    {
+        $this->entityClass = $entityClass;
     }
 }

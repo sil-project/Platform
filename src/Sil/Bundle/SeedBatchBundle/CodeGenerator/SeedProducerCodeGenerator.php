@@ -13,11 +13,11 @@ namespace Sil\Bundle\SeedBatchBundle\CodeGenerator;
 
 use Doctrine\ORM\EntityManager;
 use Blast\Bundle\CoreBundle\CodeGenerator\CodeGeneratorInterface;
-use Sil\Bundle\CRMBundle\Entity\Organism;
+use Sil\Bundle\CRMBundle\Entity\OrganismInterface;
 
 class SeedProducerCodeGenerator implements CodeGeneratorInterface
 {
-    const ENTITY_CLASS = 'Sil\Bundle\CRMBundle\Entity\OrganismInterface';
+    const ENTITY_CLASS = OrganismInterface::class;
     const ENTITY_FIELD = 'seedProducerCode';
 
     private static $length = 3;
@@ -33,7 +33,7 @@ class SeedProducerCodeGenerator implements CodeGeneratorInterface
     }
 
     /**
-     * @param Organism $organism
+     * @param OrganismInterface $organism
      *
      * @return string
      */
@@ -93,8 +93,8 @@ class SeedProducerCodeGenerator implements CodeGeneratorInterface
     }
 
     /**
-     * @param string   $code
-     * @param Organism $organism
+     * @param string            $code
+     * @param OrganismInterface $organism
      *
      * @return bool
      */
@@ -112,14 +112,14 @@ class SeedProducerCodeGenerator implements CodeGeneratorInterface
     }
 
     /**
-     * @param string   $code
-     * @param Organism $organism
+     * @param string            $code
+     * @param OrganismInterface $organism
      *
      * @return bool
      */
-    private static function isCodeUnique($code, Organism $organism)
+    private static function isCodeUnique($code, OrganismInterface $organism)
     {
-        $repo = self::$em->getRepository(Organism::class);
+        $repo = self::$em->getRepository(OrganismInterface::class);
         $query = $repo->createQueryBuilder('o')
             ->where('o.seedProducerCode = :code')
             ->setParameters(['code' => $code]);
