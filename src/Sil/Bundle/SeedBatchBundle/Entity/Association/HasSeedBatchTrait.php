@@ -25,7 +25,7 @@ trait HasSeedBatchTrait
      *
      * @return SeedBatchInterface
      */
-    public function getSeedBatch(): SeedBatchInterface
+    public function getSeedBatch(): ?SeedBatchInterface
     {
         return $this->seedBatch;
     }

@@ -23,7 +23,7 @@ trait HasCustomerGroupTrait
     /**
      * @return CustomerGroup
      */
-    public function getGroup(): CustomerGroup
+    public function getGroup(): ?CustomerGroup
     {
         return $this->group;
     }

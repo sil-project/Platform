@@ -25,7 +25,7 @@ trait HasVarietyTrait
      *
      * @return VarietyInterface
      */
-    public function getVariety(): VarietyInterface
+    public function getVariety(): ?VarietyInterface
     {
         return $this->variety;
     }

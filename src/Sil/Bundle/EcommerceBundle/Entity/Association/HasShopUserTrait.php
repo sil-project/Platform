@@ -23,7 +23,7 @@ trait HasShopUserTrait
     /**
      * @return ShopUserInterface
      */
-    public function getUser(): ShopUserInterface
+    public function getUser(): ?ShopUserInterface
     {
         return $this->user;
     }
