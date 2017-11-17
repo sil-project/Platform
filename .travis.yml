@@ -7,7 +7,7 @@ php:
 
 services:
   - postgresql
-  
+
 sudo: required
 
 cache:
@@ -21,14 +21,14 @@ env:
     - SCRIPTS_FOLDER=bin/ci-scripts
     - SYMFONY_DEPRECATIONS_HELPER=weak
     - TARGET=test
-    - UPSTREAM_URL=https://github.com/libre-informatique/LISemSymfonyProject.git
+    - UPSTREAM_URL=https://github.com/sil-project/Platform.git
     - XMLLINT_INDENT="    "
 
 notifications:
   email:
     on_success: change
     on_failure: always
-    
+
 matrix:
   fast_finish: true
   include:
@@ -49,10 +49,10 @@ before_install:
     - if [[ ! -z ${RELEVANT} ]];then exit 0; fi;
     - if [ -x ${SCRIPTS_FOLDER}/before_install_${TARGET}.sh ]; then ${SCRIPTS_FOLDER}/before_install_${TARGET}.sh; fi;
     - if [ -x ${SCRIPTS_FOLDER}/create_travis_database_${TARGET}.sh ]; then ${SCRIPTS_FOLDER}/create_travis_database_${TARGET}.sh; fi;
-  
+
 install:
     - if [ -x ${SCRIPTS_FOLDER}/install_${TARGET}.sh ]; then ${SCRIPTS_FOLDER}/install_${TARGET}.sh; fi;
-  
+
 before_script:
     - if [ -x ${SCRIPTS_FOLDER}/before_script_${TARGET}.sh ]; then ${SCRIPTS_FOLDER}/before_script_${TARGET}.sh; fi;
 
@@ -63,4 +63,4 @@ after_success:
     - if [ -x ${SCRIPTS_FOLDER}/after_success_${TARGET}.sh ]; then ${SCRIPTS_FOLDER}/after_success_${TARGET}.sh; fi;
 
 after_failure:
-    - if [ -x ${SCRIPTS_FOLDER}/after_failure_${TARGET}.sh ]; then ${SCRIPTS_FOLDER}/after_failure_${TARGET}.sh; fi; 
+    - if [ -x ${SCRIPTS_FOLDER}/after_failure_${TARGET}.sh ]; then ${SCRIPTS_FOLDER}/after_failure_${TARGET}.sh; fi;
