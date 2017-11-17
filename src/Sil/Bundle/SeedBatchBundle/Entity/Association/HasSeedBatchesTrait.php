@@ -12,6 +12,7 @@
 namespace Sil\Bundle\SeedBatchBundle\Entity\Association;
 
 use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
 
 trait HasSeedBatchesTrait
 {
@@ -29,6 +30,8 @@ trait HasSeedBatchesTrait
      */
     public function addSeedBatch($seedBatch)
     {
+        $this->initSeedBatches();
+
         $this->seedBatches->add($seedBatch);
 
         if (method_exists(get_class($this), 'setProducer')) {
@@ -47,6 +50,8 @@ trait HasSeedBatchesTrait
      */
     public function removeSeedBatch($seedBatch)
     {
+        $this->initSeedBatches();
+
         return $this->seedBatches->removeElement($seedBatch);
     }
 
@@ -57,6 +62,18 @@ trait HasSeedBatchesTrait
      */
     public function getSeedBatches()
     {
+        $this->initSeedBatches();
+
         return $this->seedBatches;
+    }
+
+    /**
+     * initSeedBatches collection.
+     */
+    private function initSeedBatches(): void
+    {
+        if ($this->seedBatches === null) {
+            $this->seedBatches = new ArrayCollection();
+        }
     }
 }

@@ -11,19 +11,21 @@
 
 namespace Sil\Bundle\SeedBatchBundle\Entity\Association;
 
+use Sil\Bundle\SeedBatchBundle\Entity\SeedBatchInterface;
+
 trait HasSeedBatchTrait
 {
     /**
-     * @var SeedBatch
+     * @var SeedBatchInterface
      */
     protected $seedBatch;
 
     /**
      * Get seed batch.
      *
-     * @return SeedBatch
+     * @return SeedBatchInterface
      */
-    public function getSeedBatch()
+    public function getSeedBatch(): SeedBatchInterface
     {
         return $this->seedBatch;
     }
@@ -31,11 +33,11 @@ trait HasSeedBatchTrait
     /**
      * Set seed batch.
      *
-     * @param SeedBatch $seedBatch
+     * @param SeedBatchInterface $seedBatch
      *
      * @return self
      */
-    public function setSeedBatch($seedBatch)
+    public function setSeedBatch(SeedBatchInterface $seedBatch)
     {
         $this->seedBatch = $seedBatch;
 

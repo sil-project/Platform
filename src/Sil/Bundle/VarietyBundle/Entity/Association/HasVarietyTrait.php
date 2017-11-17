@@ -11,6 +11,8 @@
 
 namespace Sil\Bundle\VarietyBundle\Entity\Association;
 
+use Sil\Bundle\VarietyBundle\Entity\VarietyInterface;
+
 trait HasVarietyTrait
 {
     /**
@@ -21,9 +23,9 @@ trait HasVarietyTrait
     /**
      * Get variety.
      *
-     * @return Variety
+     * @return VarietyInterface
      */
-    public function getVariety()
+    public function getVariety(): VarietyInterface
     {
         return $this->variety;
     }
@@ -31,11 +33,11 @@ trait HasVarietyTrait
     /**
      * Set variety.
      *
-     * @param Variety $variety
+     * @param VarietyInterface $variety
      *
      * @return self
      */
-    public function setVariety($variety)
+    public function setVariety(VarietyInterface $variety)
     {
         $this->variety = $variety;
 

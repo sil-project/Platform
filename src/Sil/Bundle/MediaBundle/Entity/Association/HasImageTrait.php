@@ -11,21 +11,23 @@
 
 namespace Sil\Bundle\MediaBundle\Entity\Association;
 
+use Sil\Bundle\MediaBundle\Entity\FileInterface;
+
 trait HasImageTrait
 {
     /**
-     * @var Image
+     * @var FileInterface
      */
     private $image;
 
     /**
      * Set image.
      *
-     * @param File $image
+     * @param FileInterface $image
      *
      * @return self
      */
-    public function setImage(File $image)
+    public function setImage(FileInterface $image)
     {
         $this->image = $image;
 
@@ -35,14 +37,14 @@ trait HasImageTrait
     /**
      * Get image.
      *
-     * @return File
+     * @return FileInterface
      */
     public function getImage()
     {
         return $this->image;
     }
 
-    public function setLibrinfoFile(File $file)
+    public function setLibrinfoFile(FileInterface $file)
     {
         $this->setImage($file);
     }

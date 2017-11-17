@@ -223,16 +223,16 @@ parameters:
                             netScreenedWeight: ~
                             toScreenWeight: ~
                         form_group_history:
-                            createdBy:
-                                type: entity
-                                class: Sil\Bundle\SonataSyliusUserBundle\Entity\SonataUser
-                                disabled: true
-                                required: false
-                            updatedBy:
-                                type: entity
-                                class: Sil\Bundle\SonataSyliusUserBundle\Entity\SonataUser
-                                disabled: true
-                                required: false
+                            # createdBy:
+                            #     type: entity
+                            #     class: Sil\Bundle\SonataSyliusUserBundle\Entity\SonataUser
+                            #     disabled: true
+                            #     required: false
+                            # updatedBy:
+                            #     type: entity
+                            #     class: Sil\Bundle\SonataSyliusUserBundle\Entity\SonataUser
+                            #     disabled: true
+                            #     required: false
                             createdAt:
                                 type: sonata_type_datetime_picker
                                 attr:

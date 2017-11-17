@@ -11,6 +11,8 @@
 
 namespace Sil\Bundle\EcommerceBundle\Entity\Association;
 
+use Sil\Bundle\EcommerceBundle\Entity\CustomerGroup;
+
 trait HasCustomerGroupTrait
 {
     /**

@@ -12,6 +12,7 @@
 namespace Sil\Bundle\MediaBundle\Entity\Association;
 
 use Doctrine\Common\Collections\Collection;
+use Sil\Bundle\MediaBundle\Entity\FileInterface;
 
 trait HasImagesTrait
 {
@@ -23,11 +24,11 @@ trait HasImagesTrait
     /**
      * Add image.
      *
-     * @param object $image
+     * @param FileInterface $image
      *
      * @return self
      */
-    public function addImage(File $image)
+    public function addImage(FileInterface $image)
     {
         $this->images[] = $image;
 
@@ -37,11 +38,11 @@ trait HasImagesTrait
     /**
      * Remove image.
      *
-     * @param object $image
+     * @param FileInterface $image
      *
-     * @return bool tRUE if this collection contained the specified element, FALSE otherwise
+     * @return bool TRUE if this collection contained the specified element, FALSE otherwise
      */
-    public function removeImage(File $image)
+    public function removeImage(FileInterface $image)
     {
         return $this->images->removeElement($image);
     }
@@ -68,12 +69,12 @@ trait HasImagesTrait
         return $this;
     }
 
-    public function addLibrinfoFile(File $file)
+    public function addLibrinfoFile(FileInterface $file)
     {
         $this->addImage($file);
     }
 
-    public function removeLibrinfoFile(File $file)
+    public function removeLibrinfoFile(FileInterface $file)
     {
         $this->removeImage($file);
     }

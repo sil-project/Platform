@@ -12,7 +12,7 @@ PlatformBundle\Entity\SilCRMBundle\Organism:
 
     oneToMany:
         seedBatches:
-            targetEntity: Sil\Bundle\SeedBatchBundle\Entity\SeedBatch
+            targetEntity: Sil\Bundle\SeedBatchBundle\Entity\SeedBatchInterface
             mappedBy: producer
             cascade: [ persist, remove ]
             orphanRemoval: true

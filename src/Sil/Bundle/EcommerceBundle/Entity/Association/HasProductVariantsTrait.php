@@ -13,6 +13,7 @@ namespace Sil\Bundle\EcommerceBundle\Entity\Association;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Sil\Bundle\EcommerceBundle\Entity\ProductVariantInterface;
 
 trait HasProductVariantsTrait
 {
@@ -27,11 +28,11 @@ trait HasProductVariantsTrait
     }
 
     /**
-     * @param ProductVariant $productVariant
+     * @param ProductVariantInterface $productVariant
      *
      * @return self
      */
-    public function addProductVariant(ProductVariant $productVariant)
+    public function addProductVariant(ProductVariantInterface $productVariant)
     {
         $this->productVariants->add($productVariant);
 
@@ -41,11 +42,11 @@ trait HasProductVariantsTrait
     }
 
     /**
-     * @param ProductVariant $productVariant
+     * @param ProductVariantInterface $productVariant
      *
      * @return self
      */
-    public function removeProductVariant(ProductVariant $productVariant)
+    public function removeProductVariant(ProductVariantInterface $productVariant)
     {
         $this->productVariants->removeElement($productVariant);
 

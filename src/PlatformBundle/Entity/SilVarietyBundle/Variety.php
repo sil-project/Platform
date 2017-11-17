@@ -18,6 +18,7 @@ use Sil\Bundle\EcommerceBundle\Entity\Association\HasProductsTrait;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
 use Sil\Bundle\EcommerceBundle\Entity\ProductOption;
+use PlatformBundle\Entity\ChannelDescription;
 
 class Variety extends BaseVariety
 {

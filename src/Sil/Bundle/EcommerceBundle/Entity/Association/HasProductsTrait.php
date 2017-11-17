@@ -12,6 +12,7 @@
 namespace Sil\Bundle\EcommerceBundle\Entity\Association;
 
 use Doctrine\Common\Collections\Collection;
+use Sil\Bundle\EcommerceBundle\Entity\ProductInterface;
 
 /**
  * @author Marcos Bezerra de Menezes <marcos.bezerra@libre-informatique.fr>
@@ -24,11 +25,11 @@ trait HasProductsTrait
     protected $products;
 
     /**
-     * @param Product $product
+     * @param ProductInterface $product
      *
      * @return self
      */
-    public function addProduct(Product $product)
+    public function addProduct(ProductInterface $product)
     {
         $this->products->add($product);
 
@@ -36,11 +37,11 @@ trait HasProductsTrait
     }
 
     /**
-     * @param Product $product
+     * @param ProductInterface $product
      *
      * @return self
      */
-    public function removeProduct(Product $product)
+    public function removeProduct(ProductInterface $product)
     {
         $this->products->removeElement($product);
 
@@ -48,7 +49,7 @@ trait HasProductsTrait
     }
 
     /**
-     * @return Collection|Product[]
+     * @return Collection|ProductInterface[]
      */
     public function getProducts()
     {

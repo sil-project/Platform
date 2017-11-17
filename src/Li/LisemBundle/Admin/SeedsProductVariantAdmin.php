@@ -12,7 +12,7 @@
 namespace LisemBundle\Admin;
 
 use Sil\Bundle\EcommerceBundle\Admin\ProductVariantAdmin;
-use Sil\Bundle\EcommerceBundle\Entity\Product;
+use LisemBundle\Entity\SilEcommerceBundle\Product;
 use Sonata\CoreBundle\Validator\ErrorElement;
 
 /**
