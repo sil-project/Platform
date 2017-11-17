@@ -34,5 +34,5 @@ bin/console lisem:install:setup --with-samples --yes
 bin/console blast:patchs:apply
 bin/console assets:install
 bin/console sylius:theme:assets:install # must be done after assets:install
-bin/console lisem:install:setup 
+
 
