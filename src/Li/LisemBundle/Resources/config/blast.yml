@@ -718,6 +718,7 @@ parameters:
                                 choicesCallback: [LisemBundle\Admin\CircleAdmin, groupedCirclesChoices]
                             email:
                                 type: Sil\Bundle\CRMBundle\Form\Type\FakeEmailType
+                                required: true
                             seedProducer:
                                 type: checkbox
                                 required: false
@@ -917,7 +918,6 @@ parameters:
                         '':
                             code: ~
                             type: ~
-                            users: ~
                         form_group_members:
                             organismsCount:
                                 _options:
@@ -962,7 +962,6 @@ parameters:
                         identifier: true
                     code: ~
                     type: ~
-                    users: ~
                     organismsCount:
                         template: SilCRMBundle:CircleAdmin:list_field_organisms_count.html.twig
             Sonata\AdminBundle\Datagrid\DatagridMapper:
