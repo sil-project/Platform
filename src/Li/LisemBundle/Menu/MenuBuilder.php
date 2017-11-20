@@ -84,7 +84,7 @@ class MenuBuilder
         // CRM settings
         $submenu = $menu->addChild('lisem.menu_label.crm_settings');
         $submenu->addChild('lisem.menu_label.crm_circles_list', ['route' => 'admin_sil_crm_circle_list']);
-        $submenu->addChild('lisem.menu_label.crm_categories_list', ['route' => 'admin_sil_crm_category_list']);
+        // $submenu->addChild('lisem.menu_label.crm_categories_list', ['route' => 'admin_sil_crm_category_list']);
         $submenu->addChild('lisem.menu_label.position_types_list', ['route' => 'admin_sil_crm_positiontype_list']);
         // $submenu->addChild('lisem.menu_label.phone_types_list', ['route' => 'admin_sil_crm_phonetype_list']);
 
