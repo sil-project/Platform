@@ -17,4 +17,9 @@ use Blast\Bundle\CoreBundle\Admin\Traits\EmbeddedAdmin;
 class EmailLinkAdmin extends CoreAdmin
 {
     use EmbeddedAdmin;
+
+    /**
+     * @var string
+     */
+    protected $translationLabelPrefix = 'sil.email.email_link';
 }

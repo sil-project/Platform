@@ -6,24 +6,24 @@
         <div class="tracking">
             <div class="row">
                 <div class="stats">
-                    <p class="stat_label">{{ admin.getLabelTranslatorStrategy().setFix('email', true).getLabel('Read receipts')|trans() }}</p>
+                    <p class="stat_label">{{ admin.getLabelTranslatorStrategy().getLabel('Read receipts', 'tracking', 'label')|trans() }}</p>
                     <canvas id="receipts_loader"></canvas>
                 </div>
                 <div class="stats">
-                    <p class="stat_label">{{ admin.getLabelTranslatorStrategy().setFix('email', true).getLabel('Links clicked')|trans() }}</p>
+                    <p class="stat_label">{{ admin.getLabelTranslatorStrategy().getLabel('Links clicked', 'tracking', 'label')|trans() }}</p>
                     <canvas id="links_loader"></canvas>
                 </div>
-            </div>  
+            </div>
             <div class="row link_row" id="most_clicked">
-                <p class="stat_label">{{ admin.getLabelTranslatorStrategy().setFix('email', true).getLabel('Most clicked link:')|trans() }} </p>
+                <p class="stat_label">{{ admin.getLabelTranslatorStrategy().getLabel('Most clicked link:', 'tracking', 'label')|trans() }} </p>
             </div>
             <div class="row link_row" id="least_clicked">
-                <p class="stat_label">{{ admin.getLabelTranslatorStrategy().setFix('email', true).getLabel('Least clicked link:')|trans() }}</p>
+                <p class="stat_label">{{ admin.getLabelTranslatorStrategy().getLabel('Least clicked link:', 'tracking', 'label')|trans() }}</p>
             </div>
         </div>
     {% else %}
-        <p>{{  admin.getLabelTranslatorStrategy().setFix('email', true).getLabel('Tracking is not enabled for this email')|trans() }}</p>
+        <p>{{  admin.getLabelTranslatorStrategy().getLabel('not_enabled', 'tracking', 'label')|trans() }}</p>
     {% endif %}
-    
+
     <div class="js-i18n" data-source="no-links-clicked" data-target="{{ 'No links clicked'|trans() }}"></div>
 {% endblock %}

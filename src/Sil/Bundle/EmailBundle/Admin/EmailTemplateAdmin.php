@@ -19,4 +19,9 @@ class EmailTemplateAdmin extends CoreAdmin
     use EmbeddedAdmin;
 
     public $supportsPreviewMode = true;
+
+    /**
+     * @var string
+     */
+    protected $translationLabelPrefix = 'sil.email.email_template';
 }

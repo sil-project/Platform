@@ -23,6 +23,11 @@ class EmailAdmin extends CoreAdmin
 {
     use HandlesRelationsAdmin { configureFormFields as configFormHandlesRelations; }
 
+    /**
+     * @var string
+     */
+    protected $translationLabelPrefix = 'sil.email.email';
+
     protected function configureRoutes(RouteCollection $collection)
     {
         parent::configureRoutes($collection);

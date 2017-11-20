@@ -64,12 +64,12 @@ class CRUDController extends BaseCRUDController
         if ($error) {
             $this->addFlash(
                 'sonata_flash_error',
-                $this->get('translator')->trans('sil_email.flash.message_not_sent') . ': ' . $error
+                $this->get('translator')->trans('sil.email.email.msg.message_not_sent') . ': ' . $error
             );
         } else {
             $this->addFlash(
                 'sonata_flash_success',
-                $this->get('translator')->trans('sil_email.flash.message_sent')
+                $this->get('translator')->trans('sil.email.email.msg.message_sent')
             );
         }
 

@@ -8,5 +8,5 @@ services:
                 name: sonata.admin
                 manager_type: orm
                 group: admin
-                label: sil.emailbundle.admin.emaillink
+                label: sil.email.menu_label.email_link
                 label_translator_strategy: blast.resource.sonata.label_strategy.prefix

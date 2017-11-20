@@ -15,4 +15,8 @@ use Blast\Bundle\CoreBundle\Admin\CoreAdmin;
 
 class EmailReceipt extends CoreAdmin
 {
+    /**
+     * @var string
+     */
+    protected $translationLabelPrefix = 'sil.email.email_receipt';
 }

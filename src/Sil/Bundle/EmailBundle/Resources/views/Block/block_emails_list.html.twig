@@ -36,7 +36,7 @@
                             <span class="label label-danger email-not-sent-status" style="display: {{ email.sent ? 'none' : 'inline' }}">
                                 {%- trans from 'SonataAdminBundle' %}label_type_no{% endtrans -%}
                             </span>
-                            <span class="email-sending-status" style="display: none">{{ 'sil.msg.sending_email'|trans }}</span>
+                            <span class="email-sending-status" style="display: none">{{ 'sil.email.email.msg.sending_email'|trans }}</span>
                         {% endspaceless %}
                     </td>
                     <td>{{ email.updatedAt|date('d/m/Y H:i') }}</td>
@@ -59,7 +59,7 @@
                 </tr>
             {% else %}
                 <tr>
-                    <td colspan="4">{{ 'sil.msg.no_emails_available'|trans }}</td>
+                    <td colspan="4">{{ 'sil.email.email.msg.no_emails_available'|trans }}</td>
                 </tr>
             {% endfor %}
         </tbody>
@@ -86,7 +86,7 @@
                     },
                     error: function(data){
                         setEmailStatus(emailId, 'error');
-                        alert('{{ 'sil.error.send_email_error'|trans|e('js') }}');
+                        alert('{{ 'sil.email.email.error.send_email_error'|trans|e('js') }}');
                     }
                 });
                 return false;
@@ -116,7 +116,7 @@
                         sendLink.show();
                         break;
                     case 'error':
-                        sendingMsg.text('{{ 'sil.error.send_email_error'|trans|e('js') }}');
+                        sendingMsg.text('{{ 'sil.email.email.error.send_email_error'|trans|e('js') }}');
                         break;
                 }
             }

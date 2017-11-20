@@ -1,58 +1,78 @@
 sil:
-    msg:
-        no_emails_available: 'Aucun email'
-        sending_email: 'Envoi en cours...'
-    link:
-        email_list: 'Liste des emails'
-    error:
-        send_email_error: 'Erreur lors de l''envoi de l''email'
-    help:
-        field_to: 'Expéditeurs séparés par « ; » (ex: user1@test.com;user2@test.com)'
-    emailbundle:
-        _action: Action
-        address: Adresses
-        attachments: Pièces jointe
-        circles: Groupes
-        content: Contenu
-        createdat: Créé le 
-        createdby: Crée par
-        date: Date
-        destination: Destinataire
-        email_create: Créer un email
-        email_list: Liste des emails
-        emaillink_create: Créer un lien
-        emaillink_list: Liste des liens
-        emailreceipt_create: Créer une récéption ?
-        emailreceipt_list: Liste des emails réçus
-        emailtemplate_create: 'Créer un modèle d''email'
-        emailtemplate_list: 'Liste des modèle d''email'
-        field_bcc: Destinataires en copie cachée
-        field_cc: Destinataires en copie
-        field_from: Expéditeur
-        field_subject: Objet
-        field_to: Destinataires
-        id: Identifiant
-        istemplate: Enregistrer comme modèle
-        istest: Envoi de Test
-        name: Nom
-        newtemplatename: Nom du modèle
-        sent: Envoyé
-        sent: Envoyé
-        stats: Suivi
-        template: Modèle
-        testaddress: Addresse de test 
-        textcontent: Contenu
-        tracking: Suivi
-        updatedat: Modifié le
-        updatedby: Modifié par
+    email:
+        menu_label:
+            email: Emailing
+            email_link: Liens d'emailing
+            email_template: Modèles d'emailing
+            email_receipt: Réceptions d'emailing
+        email:
+            breadcrumb:
+                link:
+                    create: Nouvel emailing
+                    list: Liste des emailings
+            tracking:
+                label:
+                    read: Lus
+                    link_clicked: Lien ouverts
+                    most_clicked_link: Liens les plus ouverts
+                    least_clicked_link: Liens les moins ouverts
+                    enabled: Suivi actif
+                    not_enabled: Suivi inactif
+            msg:
+                no_emails_available: 'Aucun email'
+                sending_email: 'Envoi en cours...'
+                message_not_sent: 'Message non envoyé'
+                message_sent: 'Message envoyé avec succès'
+            list:
+                label:
+                    action: Action
+                    circles: Groupes
+                    email: Email
+                    sent: Envoyé
+                    subject: Sujet
+                    to: À
+            filter:
+                label:
+                    content: Contenu
+                    created_at: Créé le
+                    sent: Envoyé
+                    subject: Sujet
+                    to: À
+                    updated_at: Mis à jour le
+            form:
+                label:
+                    attachments: Pièces jointes
+                    bcc: Copie cachée
+                    cc: Copie
+                    circles: Groupes
+                    content: Contenu
+                    created_at: Créé le
+                    from: De
+                    is_template: Est un modèle
+                    is_test: Est un test
+                    new_template_name: Nom du nouveau modèle
+                    subject: Sujet
+                    template: Modèle
+                    test_address: Addresse de test
+                    to: À
+                    tracking: Suivi
+                    updated_at: Mis à jour le
+                help:
+                    field_to: 'Expéditeurs séparés par « ; » (ex: user1@test.com;user2@test.com)'
 
+            show:
+                label:
+                    bcc: Copie cachée
+                    cc: Copie
+                    created_at: Créé le
+                    stats: Statistiques
+                    subject: Sujet
+                    text_content: Contenu texte
+                    to: À
+                    updated_at: Mis à jour le
+            error:
+                send_email_error: 'Erreur lors de l''envoi de l''email'
 
-
-sil_email:
-    flash:
-        message_not_sent: 'Message non envoyé'
-        message_sent: 'Message envoyé avec succès'
-        
 'Email': 'Email'
 'Email List': 'Liste Emails'
 'Field From': 'Expéditeur'

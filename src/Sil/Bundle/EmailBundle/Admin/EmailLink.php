@@ -15,4 +15,8 @@ use Blast\Bundle\CoreBundle\Admin\CoreAdmin;
 
 class EmailLink extends CoreAdmin
 {
+    /**
+     * @var string
+     */
+    protected $translationLabelPrefix = 'sil.email.email_link';
 }

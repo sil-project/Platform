@@ -8,7 +8,7 @@ services:
                 name: sonata.admin
                 manager_type: orm
                 group: admin
-                label: sil.emailbundle.admin.email
+                label: sil.email.menu_label.email
                 label_translator_strategy: blast.resource.sonata.label_strategy.prefix
         calls:
             - [ setTemplate, [edit, SilEmailBundle:CRUD:email_edit.html.twig]]
