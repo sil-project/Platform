@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html lang="{{ app.request.locale|slice(0, 2) }}">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>{% block title %}{% endblock %}</title>
+
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+    {% block stylesheets %}
+        {% include '@SyliusUi/_stylesheets.html.twig' with {'path': 'assets/shop/css/style.css'} %}
+
+        <link rel="stylesheet" href="{{ asset('bundles/syliusshop/css/styles.css') }}">
+    {% endblock %}
+</head>
+
+<body class="pushable">
+
+<div class="pusher">
+    {% block top %}
+        <div id="menu" class="ui large sticky inverted stackable menu">
+
+        </div>
+    {% endblock %}
+
+    <div class="ui container">
+        {% block header %}
+            <header>
+            </header>
+        {% endblock %}
+
+        {% block content %}
+        <style rel="stylesheet">
+            div.exceptionContainer {
+                margin:0 auto;
+                position: relative;
+                text-align: center;
+            }
+            div.exceptionContainer h1 {
+                font-size: 3em;
+                color: gray;
+            }
+            div.exceptionContainer p {
+                font-size: 1.2em;
+                color: gray;
+            }
+
+        </style>
+
+        {% block exception_content %}{% endblock %}
+        {% endblock %}
+
+    </div>
+
+    {% block footer %}
+    {% endblock %}
+</div>
+
+{% block javascripts %}
+    {% include '@SyliusUi/_javascripts.html.twig' with {'path': 'assets/shop/js/app.js'} %}
+
+    <script src="{{ asset('bundles/syliusshop/js/main.js') }}"></script>
+{% endblock %}
+
+</body>
+</html>
