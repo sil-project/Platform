@@ -12,6 +12,7 @@
 namespace Sil\Bundle\SeedBatchBundle\Admin;
 
 use Sil\Bundle\CRMBundle\Entity\Organism;
+use Sil\Bundle\CRMBundle\Entity\OrganismInterface;
 use Sil\Bundle\EmailCRMBundle\Admin\OrganismAdmin as BaseOrganismAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
@@ -108,7 +109,7 @@ class OrganismAdmin extends BaseOrganismAdmin
             }
         } else {
             $registry = $container->get('blast_core.code_generators');
-            $codeGenerator = $registry->getCodeGenerator(Organism::class, 'seedProducerCode');
+            $codeGenerator = $registry->getCodeGenerator(OrganismInterface::class, 'seedProducerCode');
             if (!$codeGenerator->validate($code)) {
                 $errorElement
                     ->with('seedProducerCode')
