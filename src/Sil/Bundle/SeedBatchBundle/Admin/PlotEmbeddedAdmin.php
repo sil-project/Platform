@@ -19,6 +19,10 @@ class PlotEmbeddedAdmin extends PlotAdmin
 {
     // use EmbeddedAdmin;
 
+    /**
+     * @var string
+     */
+    protected $translationLabelPrefix = 'sil.seed_batch.plot';
     protected $baseRouteName = 'admin_sil_seed_batch_plot_embedded';
     protected $baseRoutePattern = 'sil/seedbatch/plot_embedded';
 

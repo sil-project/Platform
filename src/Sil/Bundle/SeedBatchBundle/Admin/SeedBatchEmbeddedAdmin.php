@@ -17,6 +17,11 @@ class SeedBatchEmbeddedAdmin extends SeedBatchAdmin
 {
     use EmbeddedAdmin;
 
+    /**
+     * @var string
+     */
+    protected $translationLabelPrefix = 'sil.seed_batch.seed_farm';
+
     protected $baseRouteName = 'admin_sil_seed_batch_seed_batch_embedded';
     protected $baseRoutePattern = 'sil/seedbatch/seedbatch_embedded';
 }

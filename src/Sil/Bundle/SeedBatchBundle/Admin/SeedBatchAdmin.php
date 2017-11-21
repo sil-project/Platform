@@ -15,4 +15,8 @@ use Blast\Bundle\CoreBundle\Admin\CoreAdmin;
 
 class SeedBatchAdmin extends CoreAdmin
 {
+    /**
+     * @var string
+     */
+    protected $translationLabelPrefix = 'sil.seed_batch.seed_batch';
 }

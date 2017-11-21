@@ -77,7 +77,7 @@ parameters:
                                 required: true
                             batchNumber:
                                 required: true
-                                help: sil.help.batchNumber
+                                help: sil.seed_batch.seed_batch.form.help.batchNumber
                             plot:
                                 type: sonata_type_model_autocomplete
                                 property: [name, code, producer.name]  # TODO: producer.name has no effect, WHY ???
@@ -395,8 +395,8 @@ parameters:
                 remove:
                     vcard_uid: ~
                 add:
-                    form_group_general:
-                        '':
+                    form_tab_general:
+                        form_group_general:
                             code: ~
                         _options:
                             groupsOrder: ['', form_group_description, form_group_main_address]
@@ -491,7 +491,7 @@ parameters:
                             seedProducerCode:
                                 type: Blast\Bundle\CoreBundle\Form\Type\EntityCodeType
                                 attr:
-                                    placeholder: sil.placeholder.seed_producer_code
+                                    placeholder: sil.seed_batch.organism.form.placeholder.seed_producer_code
                                 only_not_new: true
                             _options:
                                 fieldsOrder:

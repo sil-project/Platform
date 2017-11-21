@@ -15,4 +15,8 @@ use Blast\Bundle\CoreBundle\Admin\CoreAdmin;
 
 class CertificationTypeAdmin extends CoreAdmin
 {
+    /**
+     * @var string
+     */
+    protected $translationLabelPrefix = 'sil.seed_batch.certification_type';
 }

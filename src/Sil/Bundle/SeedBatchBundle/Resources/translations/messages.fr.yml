@@ -1,25 +1,240 @@
 
 
 sil:
-    error:
-        invalid_batch_number: Le champ "Numéro de lot" n'est pas valide
-        invalid_production_year: Le champ "Année de production" n'est pas valide
-        missing_batch_number: Le champ "Numéro de lot" est vide
-        missing_production_year: Le champ "Année de production" est vide
-        missing_seed_farm: Le champ "Artisan semencier" est vide
-        missing_seed_farm_code: Le champ "Code artisan semencier" est vide
-        missing_seed_farm_name: Le champ "Nom de l'artisan semencier" est vide
-        missing_producer: Le champ "Producteur" est vide
-        missing_seed_producer_code: Le champ "Code producteur" est vide
-        missing_species: Le champ "Espèce" est vide
-        missing_species_code: Le champ "Code espèce" est vide
-        missing_variety: Le champ "Variété" est vide
-        missing_variety_code: Le champ "Code variété" est vide
-        missing_seed_batch: Le champ "Lot" est vide
-    help:
-        batchNumber: Nombre entre 1 et 99
-    placeholder:
-        seed_producer_code: Code producteur
+    seed_batch:
+        menu_label:
+            certification_type: Type de certification
+            certification: Certification
+            certifying_body: Organism de certification
+            organism: Tiers
+            plot: Parcelle
+            seed_batch: Lot
+            seed_farm: Artisan Semancier
+
+        error:
+            invalid_batch_number: Le champ "Numéro de lot" n'est pas valide
+            invalid_production_year: Le champ "Année de production" n'est pas valide
+            missing_batch_number: Le champ "Numéro de lot" est vide
+            missing_production_year: Le champ "Année de production" est vide
+            missing_seed_farm: Le champ "Artisan semencier" est vide
+            missing_seed_farm_code: Le champ "Code artisan semencier" est vide
+            missing_seed_farm_name: Le champ "Nom de l'artisan semencier" est vide
+            missing_producer: Le champ "Producteur" est vide
+            missing_seed_producer_code: Le champ "Code producteur" est vide
+            missing_species: Le champ "Espèce" est vide
+            missing_species_code: Le champ "Code espèce" est vide
+            missing_variety: Le champ "Variété" est vide
+            missing_variety_code: Le champ "Code variété" est vide
+            missing_seed_batch: Le champ "Lot" est vide
+
+        seed_batch:
+            breadcrumb:
+                link:
+                    list: Liste des lots
+                    create: Nouveau lot
+            list:
+                label:
+                    action: Action
+                    code: Code
+                    producer: Producteur
+                    production_year: Année de production
+                    seed_farm: Artisan Semancier
+                    seedbatch: Lot
+                    variety: Variété
+
+            filter:
+                label:
+                    code: Code
+                    plot.name: Nom
+                    producer.name: Producteur
+                    production_year: Année de production
+                    seed_farm.name: Artisan Semancier
+                    variety: Variété
+
+            form:
+                label:
+                    batch_number: Numéro de lot
+                    code: Code
+                    created_at: Créé le
+                    delivery_date: Date de livraison
+                    delivery_note: Note de livraison
+                    description: Description
+                    germination_date: Date de germination
+                    germination_rate: Taux de germination
+                    gross_delivered_weight: Poids brut livré
+                    gross_producer_weight: Poids brut produit
+                    net_screened_weight: Poids net trié
+                    plot: Parcelle
+                    producer: Producteur
+                    production_year: Année de production
+                    seed_farm: Artisan Semancier
+                    tkw: Poid de mille graines
+                    tkw_date: Date de la mesure
+                    to_screen_weight: Poid restant à trier
+                    updated_at: Mis à jour le
+                    variety: Variété
+                help:
+                    batchNumber: Nombre entre 1 et 99
+            show:
+                label:
+                    batch_number: Numéro de lot
+                    code: Code
+                    created_at: Créé le
+                    delivery_date: Date de livraison
+                    delivery_note: Note de livraison
+                    description: Description
+                    germination_date: Date de germination
+                    germination_rate: Taux de germination
+                    gross_delivered_weight: Poids brut livré
+                    gross_producer_weight: Poids brut produit
+                    net_screened_weight: Poids net trié
+                    plot: Parcelle
+                    producer: Producteur
+                    production_year: Année de production
+                    seed_farm: Artisan Semancier
+                    tkw: Poid de mille graines
+                    tkw_date: Date de la mesure
+                    to_screen_weight: Poid restant à trier
+                    updated_at: Mis à jour le
+                    variety: Variété
+        organism:
+            form:
+                placeholder:
+                    seed_producer_code: Code producteur
+        plot:
+            breadcrumb:
+                link:
+                    list: Liste des parcelles
+                    create: Nouvelle parcelle
+            list:
+                label:
+                    action: Action
+                    city: Ville
+                    code: Code
+                    name: Nom
+                    plot: Parcelle
+                    producer: Producteur
+            filter:
+                label:
+                    city: Ville
+                    code: Code
+                    country: Pays
+                    name: Nom
+                    producer.name: Nom
+                    zip: Code postal
+            form:
+                label:
+                    address: Address
+                    city: Ville
+                    code: Code
+                    country: Pays
+                    created_at: Créé le
+                    description: Description
+                    name: Nom
+                    npai: NPAI
+                    producer: Producteur
+                    updated_at: Mis à jour le
+                    zip: Code postal
+
+            show:
+                label:
+                    address: Address
+                    certifications: Certifications
+                    city: Ville
+                    code: Code
+                    country: Pays
+                    created_at: Créé le
+                    description: Description
+                    name: Nom
+                    npai: NPAI
+                    producer: Producteur
+                    updated_at: Mis à jour le
+                    zip: Code postal
+        certification:
+            breadcrumb:
+                link:
+                    list: Liste des certifications
+                    create: Nouvelle certification
+            form:
+                label:
+                    certification_date: Date de certification
+                    certification_type: Type de certification
+                    certifying_body: Organisme certificateur
+                    code: Code
+                    description:  Description
+                    expiry_date: Date limite de validité
+                    start_date: Date d''effet
+                    url: URL
+        certification_type:
+            breadcrumb:
+                link:
+                    list: Liste des certifications
+                    create: Nouvelle certification
+            list:
+                label:
+                    action: Action
+                    certificationtype: Type de certification
+                    code: Code
+                    created_at: Créé le
+                    description:  Description
+                    logo:  Logo
+                    name: Nom
+            filter:
+                label:
+                    code: Code
+                    description:  Description
+                    name: Nom
+            form:
+                label:
+                    code: Code
+                    created_at: Créé le
+                    description:  Description
+                    logo:  Logo
+                    name: Nom
+                    updated_at: Mis à jour le
+            show:
+                label:
+                    code: Code
+                    created_at: Créé le
+                    description:  Description
+                    logo:  Logo
+                    name: Nom
+                    updated_at: Mis à jour le
+        seed_farm:
+            breadcrumb:
+                link:
+                    list: Liste des Artisans Semancier
+                    create: Nouvel Artisans Semancier
+            list:
+                label:
+            filter:
+                label:
+            form:
+                label:
+                    address: Addresse
+                    city: Ville
+                    code: Code
+                    country: Pays
+                    created_at: Créé le
+                    description: Description
+                    name: Nom
+                    npai: NPAI
+                    updated_at: Mis à jour le
+                    zip: Code postal
+            show:
+                label:
+                    address: Addresse
+                    city: Ville
+                    code: Code
+                    country: Pays
+                    created_at: Créé le
+                    description: Description
+                    name: Nom
+                    npai: NPAI
+                    updated_at: Mis à jour le
+                    zip: Code postal
+
+
     seedbatchbundle:
         organism_list: Liste des contacts
         admin:

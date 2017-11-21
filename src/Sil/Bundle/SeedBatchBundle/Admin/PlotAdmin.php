@@ -21,6 +21,11 @@ class PlotAdmin extends CoreAdmin
     use HandlesRelationsAdmin;
 
     /**
+     * @var string
+     */
+    protected $translationLabelPrefix = 'sil.seed_batch.plot';
+
+    /**
      * @param Plot   $plot
      * @param string $property (not used)
      *

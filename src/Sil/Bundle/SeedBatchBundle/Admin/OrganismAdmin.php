@@ -22,6 +22,10 @@ use Sonata\CoreBundle\Validator\ErrorElement;
 
 class OrganismAdmin extends BaseOrganismAdmin
 {
+    // /**
+    //  * @var string
+    //  */
+    // protected $translationLabelPrefix = 'sil.seed_batch.organism';
     protected $baseRouteName = 'admin_sil_seed_batch_organism';
     protected $baseRoutePattern = 'sil/seedbatch/organism';
 

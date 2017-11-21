@@ -8,7 +8,7 @@ services:
                 name: sonata.admin
                 manager_type: orm
                 group: admin
-                label: CertificationType
+                label: sil.seed_batch.menu_label.certification_type
                 label_translator_strategy: blast.resource.sonata.label_strategy.prefix
         calls:
             - [ setTemplate, [ edit, SilMediaBundle:CRUD:edit.html.twig ] ]
