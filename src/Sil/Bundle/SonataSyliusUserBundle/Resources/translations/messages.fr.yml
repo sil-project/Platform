@@ -1,28 +1,60 @@
 
 
 sil:
-    sonatasyliususerbundle:
-        _action: Actions
-        username: Nom d'utilisateur
-        email: Email
-        expiresat: Expire le
-        firstname: Prénom
-        lastname: Nom
-        lastlogin: Dernière connexion
-        locked: Vérouillé
-        roles: Rôles
-        sonatauser_list: Utilisateurs
-        enabled: Actif
-        expired: Expiré
-        first_password: Nouveau mot de passe
-        second_password: Confirmez le mot de passe
-        sonatauser_create: Créer un utilisateur
-        admin:
-            sonata_user: Utilisateur
+    sonata_sylius_user:
 
-    sonata_syius_user:
-            admin:
-                sonata_user: Utilisateur
+        menu_label:
+            sonata_user: Utilisateur
+            
+        sonata_user:
+            breadcrumb:
+                link:
+                    list: Liste des utilisateurs
+                    create: Nouvel utilisateur
+            list:
+                label:
+                    action: Action
+                    email: Email
+                    expires_at: Expire le
+                    first_name: Prénom
+                    last_login: Dernière connexion
+                    last_name: Nom
+                    locked: Vérrouillé
+                    roles: Rôles
+                    sonatauser: Utilisateur
+                    username: Nom d''utilisateur
+            filter:
+                label:
+                    email: Email
+                    expires_at: Expire le
+                    first_name: Prénom
+                    last_login: Dernière connexion
+                    last_name: Nom
+                    locked: Vérrouillé
+                    roles: Rôles
+                    username: Nom d''utilisateur
+            form:
+                label:
+                    email: Email
+                    enabled: Activé
+                    expired: Expiré
+                    expires_at: Expire le
+                    first_name: Prénom
+                    last_name: Nom
+                    locked: Vérrouillé
+                    roles: Rôles
+                    username: Nom d''utilisateur
+            show:
+                label:
+                    email: Email
+                    enabled: Activé
+                    expired: Expiré
+                    expires_at: Expire le
+                    first_name: Prénom
+                    last_name: Nom
+                    locked: Vérrouillé
+                    roles: Rôles
+                    username: Nom d''utilisateur
 
 User account is locked.: Compte utilisateur désactivé
 form_group_password: Mot de passe

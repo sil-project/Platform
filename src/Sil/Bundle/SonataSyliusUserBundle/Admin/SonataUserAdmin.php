@@ -18,6 +18,11 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class SonataUserAdmin extends CoreAdmin
 {
+    /**
+     * @var string
+     */
+    protected $translationLabelPrefix = 'sil.sonata_sylius_user.sonata_user';
+
     protected function configureRoutes(RouteCollection $collection)
     {
         parent::configureRoutes($collection);

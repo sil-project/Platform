@@ -7,5 +7,5 @@ services:
             - name: sonata.admin
               manager_type: orm
               group: admin
-              label: sil.sonata_sylius_user.admin.sonata_user
+              label: sil.sonata_sylius_user.menu_label.sonata_user
               label_translator_strategy: blast.resource.sonata.label_strategy.prefix
