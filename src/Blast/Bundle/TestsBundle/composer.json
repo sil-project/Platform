@@ -25,7 +25,7 @@
     "autoload": {
         "psr-4": {
             "Blast\\Bundle\\TestsBundle\\": "./",
-            "Blast\\Bundle\\TestsBundle\\Tests\\": "Tests/"
+            "Step\\": "./Codeception/Step"
         }
     },
     "suggest": {
