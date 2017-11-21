@@ -12,7 +12,7 @@ Sil\Bundle\VarietyBundle\Entity\Family:
 
     oneToMany:
         genuses:
-            targetEntity: Sil\Bundle\VarietyBundle\Entity\Genus
+            targetEntity: Sil\Bundle\VarietyBundle\Entity\GenusInterface
             mappedBy: family
             cascade: [ persist ]
 

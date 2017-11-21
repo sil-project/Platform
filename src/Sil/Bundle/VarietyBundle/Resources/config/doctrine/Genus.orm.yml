@@ -20,7 +20,7 @@ Sil\Bundle\VarietyBundle\Entity\Genus:
 
     oneToMany:
         specieses:
-            targetEntity: Sil\Bundle\VarietyBundle\Entity\Species
+            targetEntity: Sil\Bundle\VarietyBundle\Entity\SpeciesInterface
             mappedBy: genus
             cascade: [ persist ]
 
