@@ -43,3 +43,4 @@
 **/.php_cs.cache
 /npm-debug.log
 yarn-error.log
+package-lock.json
