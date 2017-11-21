@@ -9,7 +9,7 @@ composer install --no-interaction --prefer-dist
 #composer require --no-interaction --dev codeception/codeception
 #composer require --no-interaction --dev se/selenium-server-standalone
 
-bin/ci-scripts/do_it_for_bundle.sh install test
+#bin/ci-scripts/do_it_for_bundle.sh install test
 
 
 export NVM_DIR="$HOME/.nvm"
