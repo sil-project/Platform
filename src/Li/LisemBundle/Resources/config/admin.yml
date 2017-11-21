@@ -1,4 +1,5 @@
 imports:
+    - { resource: admin/lisem.admin.channel_description.yml }
     - { resource: admin/lisem.admin.email.yml }
     - { resource: admin/lisem.admin.other_product.yml }
     - { resource: admin/lisem.admin.other_product_variant.yml }

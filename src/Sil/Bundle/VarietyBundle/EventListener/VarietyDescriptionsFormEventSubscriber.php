@@ -15,6 +15,7 @@ use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Blast\Bundle\CoreBundle\Admin\CoreAdmin;
+use Sil\Bundle\VarietyBundle\Entity\VarietyDescription;
 use Doctrine\Common\Collections\ArrayCollection;
 
 class VarietyDescriptionsFormEventSubscriber implements EventSubscriberInterface
@@ -64,7 +65,7 @@ class VarietyDescriptionsFormEventSubscriber implements EventSubscriberInterface
                 $setter = 'set' . ucfirst($fieldset) . 'Descriptions';
                 $remover = 'remove' . ucfirst($fieldset) . 'Description';
                 $adder = 'add' . ucfirst($fieldset) . 'Description';
-                $constructor = '\Sil\Bundle\VarietyBundle\Entity\VarietyDescription' . ucfirst($fieldset);
+                $constructor = VarietyDescription::class . ucfirst($fieldset);
 
                 // Hide VarietyDescriptions that are not found in configuration
                 foreach ($subject->$getter() as $desc) {

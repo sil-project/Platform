@@ -16,7 +16,7 @@ use Sil\Bundle\VarietyBundle\Entity\VarietyInterface;
 trait HasVarietyTrait
 {
     /**
-     * @var Variety
+     * @var VarietyInterface
      */
     protected $variety;
 

@@ -1,0 +1,11 @@
+services:
+    lisem.admin.channel_description:
+        class: LisemBundle\Admin\ChannelDescriptionAdmin
+        arguments: [~, "%sil_platform.entity.channel_description.class%", BlastCoreBundle:CRUD]
+        tags:
+            -
+                name: sonata.admin
+                manager_type: orm
+                group: admin
+                label: lisem.menu_label.channel_description
+                label_translator_strategy: blast.resource.sonata.label_strategy.prefix

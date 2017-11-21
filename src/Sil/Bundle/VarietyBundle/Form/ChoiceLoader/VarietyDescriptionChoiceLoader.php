@@ -15,6 +15,7 @@ use Symfony\Component\Form\ChoiceList\ArrayChoiceList;
 use Symfony\Component\Form\ChoiceList\ChoiceListInterface;
 use Symfony\Component\Form\ChoiceList\Loader\ChoiceLoaderInterface;
 use Doctrine\ORM\EntityManager;
+use Sil\Bundle\VarietyBundle\Entity\VarietyDescription;
 
 class VarietyDescriptionChoiceLoader implements ChoiceLoaderInterface
 {
@@ -63,7 +64,7 @@ class VarietyDescriptionChoiceLoader implements ChoiceLoaderInterface
     {
         $choiceList = [];
         $fieldSet = ucfirst($this->options['fieldset']);
-        $qb = $this->manager->getRepository(sprintf('SilVarietyBundle:VarietyDescription%s', $fieldSet))->createQueryBuilder('v');
+        $qb = $this->manager->getRepository(sprintf('%s%s', VarietyDescription::class, $fieldSet))->createQueryBuilder('v');
 
         $choices = $qb->select('v.field')
                 ->distinct(true)

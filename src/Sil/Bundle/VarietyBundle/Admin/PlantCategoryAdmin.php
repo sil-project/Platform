@@ -20,4 +20,9 @@ class PlantCategoryAdmin extends CoreAdmin
     use BaseAdmin,
        NestedTreeableAdmin
     ;
+
+    /**
+     * @var string
+     */
+    protected $translationLabelPrefix = 'sil.variety.plant_category';
 }

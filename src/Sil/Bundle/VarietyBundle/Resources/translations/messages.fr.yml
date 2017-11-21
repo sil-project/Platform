@@ -1,10 +1,311 @@
 
 sil:
-    error:
-        missing_species_name: Veuillez renseigner le nom de l'espèce
-        #'
-        missing_strain_parent: Veuillez renseigner la variété parente de la souche
-        missing_variety_name: Veuillez renseigner le nom de la variété/souche
+    variety:
+        menu_label:
+            family: Familles
+            genus: Genres
+            plant_category: Catégories de plante
+            species: Espèces
+            variety: Variétés
+            variety_description_amateur: Descriptions amateur
+            variety_description_commercial: Descriptions commerciales
+            variety_description_culture: Descriptions cultures
+            variety_description_inner: Descriptions internes
+            variety_description_plant: Descriptions plantes
+            variety_description_production: Descriptions productions
+            variety_description_professional: Descriptions professionelles
+
+        error:
+            missing_species_name: 'Veuillez renseigner le nom de l''espèce'
+            missing_strain_parent: Veuillez renseigner la variété parente de la souche
+            missing_variety_name: Veuillez renseigner le nom de la variété/souche
+
+        family:
+            breadcrumb:
+                link:
+                    create: Nouvelle famille
+                    list: Liste des familles
+            filter:
+                label:
+                    name: Nom
+                    genuses.name: Nom du genre
+            form:
+                label:
+                    alias: Synonymes
+                    created_at: Créé le
+                    created_by: Créé par
+                    description: Description
+                    name: Nom
+                    updated_at: Mis à jour le
+                    updated_by: Mis à jour par
+            list:
+                label:
+                    action: Action
+                    alias: Synonymes
+                    family: Famille
+                    genuses: Genres
+                    name: Nom
+            show:
+                label:
+                    alias: Synonymes
+                    created_at: Créé le
+                    created_by: Créé par
+                    description: Description
+                    genuses: Genres
+                    name: Nom
+                    updated_at: Mis à jour le
+                    updated_by: Mis à jour par
+
+        genus:
+            breadcrumb:
+                link:
+                    create: Nouveau genre
+                    list: Liste des genres
+            filter:
+                label:
+                    family.name: Nom
+                    name: Nom
+                    specieses.name: Nom
+            form:
+                label:
+                    alias: Synonymes
+                    created_at: Créé le
+                    created_by: Créé par
+                    description: Description
+                    family: Famille
+                    name: Nom
+                    updated_at: Mis à jour le
+                    updated_by: Mis à jour par
+            list:
+                label:
+                    action: Action
+                    alias: Synonymes
+                    description: Description
+                    family: Famille
+                    genus: Genre
+                    name: Nom
+                    specieses: Espèces
+            show:
+                label:
+                    alias: Synonymes
+                    created_at: Créé le
+                    created_by: Créé par
+                    description: Description
+                    name: Nom
+                    specieses: Espèces
+                    updated_at: Mis à jour le
+                    updated_by: Mis à jour par
+
+        plant_category:
+            breadcrumb:
+                link:
+                    create: Nouvelle catégorie de plante
+                    list: Liste des catégories de plante
+            filter:
+                label:
+                    name: Nom
+            form:
+                label:
+                    code: Code
+                    name: Nom
+                    tree_parent: Parent
+            list:
+                label:
+                    action: Action
+                    name: Nom
+                    plantcategory: Catégorie de plante
+            show:
+                label:
+                    code: Code
+                    name: Nom
+                    tree_parent: Parent
+        species:
+            breadcrumb:
+                link:
+                    create: Nouvelle espèce
+                    list: Liste des espèces
+            filter:
+                label:
+                    alias: Synonymes
+                    code: Code
+                    description: Description
+                    name: Nom
+            form:
+                label:
+                    alias: Synonymes
+                    categories: Catégories
+                    code: Code
+                    created_at: Créé le
+                    created_by: Créé par
+                    cycle: Cycle de vie
+                    description: Description
+                    duration: Durée
+                    genus: Genre
+                    lifespan: Durée de vie
+                    name: Nom
+                    rate: Taux de germination
+                    species: Espèces
+                    tkw: Poids de mille graines
+                    updated_at: Mis à jour le
+                    updated_by: Mis à jour par
+            list:
+                label:
+                    action: Action
+                    alias: Synonymes
+                    code: Code
+                    name: Nom
+                    species: Espèces
+            show:
+                label:
+                    alias: Synonymes
+                    categories: Catégories
+                    code: Code
+                    created_at: Créé le
+                    created_by: Créé par
+                    cycle: Cycle de vie
+                    description: Description
+                    duration: Durée
+                    genus: Genre
+                    lifespan: Durée de vie
+                    name: Nom
+                    rate: Taux de germination
+                    species: Espèces
+                    subspecieses: Sous-espèces
+                    tkw: Poids de mille graines
+                    updated_at: Mis à jour le
+                    updated_by: Mis à jour par
+                    varieties: Variétés
+
+        variety:
+            breadcrumb:
+                link:
+                    create: Nouvelle variété
+                    list: Liste des variétés
+            filter:
+                label:
+                    alias: Synonymes
+                    amateur_descriptions: Descriptions amateur
+                    area_per_kg: Surface pour produire 1kg de graines
+                    base_seed_per_kg: Besoins semence de base pour 1kg de graines
+                    code: Code
+                    commercial_descriptions: Descriptions commerciales
+                    culture_descriptions: Culture
+                    description: Description
+                    distance_between_lines: Distance entre 2 lignes
+                    distance_on_line: Distance sur ligne
+                    germination_rate: Taux de germination
+                    inner_descriptions: Descriptions spécifiques
+                    latin_name: Nom latin
+                    legal_germination_rate: Taux de germination légal
+                    life_cycle: Cycle de vie
+                    name: Nom
+                    official: Inscrit au catalogue officiel
+                    official_date_in: 'Date d''inscription'
+                    official_date_out: Date de radiation
+                    official_maintainer: Mainteneur officiel
+                    official_name: Nom au catalogue officiel
+                    parent: Parent
+                    plant_categories: Catégorie de plante
+                    plant_descriptions: Caractéristiques de la plante
+                    production_descriptions: Mise en production
+                    professional_descriptions: Conseils pros
+                    raise_duration: Durée de levée dans les conditions naturelles
+                    regulatory_status: Statut réglementaire
+                    seed_lifespan: Durée de vie théorique de la graine
+                    seedhead_yield: Rendement par porte-graines
+                    seedheads_per_kg: Nombre de porte-graines par kg
+                    selection_advice: Conseils de sélection
+                    selection_criteria: Critères de sélection
+                    species: Espèces
+                    tkw: Poids de mille graines
+                    transmitted_diseases: Maladies transmises par les semences
+
+            form:
+                label:
+                    alias: Synonymes
+                    area_per_kg: Surface pour produire 1kg de graines
+                    base_seed_per_kg: Besoins semence de base pour 1kg de graines
+                    code: Code
+                    created_at: Créé le
+                    created_by: Créé par
+                    description: Description
+                    distance_between_lines: Distance entre 2 lignes
+                    distance_on_line: Distance sur ligne
+                    germination_rate: Taux de germination
+                    images: Images
+                    is_strain: Est une souche
+                    latin_name: Nom latin
+                    legal_germination_rate: Taux de germination légal
+                    life_cycle: Cycle de vie
+                    misc_advice: Astuces diverses
+                    name: Nom
+                    official: Inscrit au catalogue officiel
+                    official_date_in: 'Date d''inscription'
+                    official_date_out: Date de radiation
+                    official_maintainer: Mainteneur officiel
+                    official_name: Nom au catalogue officiel
+                    packagings: Conditionnements
+                    parent: Parent
+                    plant_categories: Catégorie de plante
+                    plant_type: Type de plante
+                    raise_duration: Durée de levée dans les conditions naturelles
+                    regulatory_status: Statut réglementaire
+                    seed_lifespan: Durée de vie théorique de la graine
+                    seedhead_yield: Rendement par porte-graines
+                    seedheads_per_kg: Nombre de porte-graines par kg
+                    selection_advice: Conseils de sélection
+                    selection_criteria: Critères de sélection
+                    species: Espèces
+                    tkw: Poids de mille graines
+                    transmitted_diseases: Maladies transmises par les semences
+                    updated_at: Mis à jour le
+                    updated_by: Mis à jour par
+            list:
+                label:
+                    action: Action
+                    code: Code
+                    is_strain: Est une souche
+                    latin_name: Nom latin
+                    name: Nom
+                    several_strains: Une ou plusieurs souches
+                    variety: Variété
+            show:
+                label:
+                    alias: Synonymes
+                    area_per_kg: Surface pour produire 1kg de graines
+                    base_seed_per_kg: Besoins semence de base pour 1kg de graines
+                    children: Souches
+                    code: Code
+                    created_at: Créé le
+                    created_by: Créé par
+                    description: Description
+                    distance_between_lines: Distance entre 2 lignes
+                    distance_on_line: Distance sur ligne
+                    germination_rate: Taux de germination
+                    latin_name: Nom latin
+                    legal_germination_rate: Taux de germination légal
+                    life_cycle: Cycle de vie
+                    name: Nom
+                    official: Inscrit au catalogue officiel
+                    official_date_in: 'Date d''inscription'
+                    official_date_out: Date de radiation
+                    official_maintainer: Mainteneur officiel
+                    official_name: Nom au catalogue officiel
+                    plant_categories: Catégorie de plante
+                    raise_duration: Durée de levée dans les conditions naturelles
+                    regulatory_status: Statut réglementaire
+                    seed_batches: Lots
+                    seed_lifespan: Durée de vie théorique de la graine
+                    seedhead_yield: Rendement par porte-graines
+                    seedheads_per_kg: Nombre de porte-graines par kg
+                    selection_advice: Conseils de sélection
+                    selection_criteria: Critères de sélection
+                    several_strains: Plusieurs souches
+                    species: Espèces
+                    tkw: Poids de mille graines
+                    transmitted_diseases: Maladies transmises par les semences
+                    updated_at: Mis à jour le
+                    updated_by: Mis à jour par
 
     help:
         advised_outcome: ' '
@@ -29,7 +330,7 @@ sil:
         grade: ' '
         harvest_storage: ' '
         inner_commment: ' '
-        legal_germination_rate: '(si inscrit au catalogue) - en %'
+        legal_germination_rate: Taux de germination légal
         location: ' '
         main_color: ' '
         main_usages: ' '
@@ -138,7 +439,7 @@ sil:
         isstrain: Souche
         latin_name: Nom latin
         legal_germination_rate: Taux de germination légal
-        life_cycle: Cycle végétatif
+        life_cycle: Cycle de vie
         misc_advice: Astuces diverses
         name: Nom
         official: Inscrit au catalogue officiel

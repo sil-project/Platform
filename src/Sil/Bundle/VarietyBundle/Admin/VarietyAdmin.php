@@ -28,6 +28,11 @@ class VarietyAdmin extends CoreAdmin
     use DynamicDescriptions;
 
     /**
+     * @var string
+     */
+    protected $translationLabelPrefix = 'sil.variety.variety';
+
+    /**
      * Configure routes for list actions.
      *
      * @param RouteCollection $collection

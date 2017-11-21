@@ -21,6 +21,11 @@ class VarietyDescriptionAdmin extends CoreAdmin
     use EmbeddedAdmin;
 
     /**
+     * @var string
+     */
+    protected $translationLabelPrefix = 'sil.variety.variety_description';
+
+    /**
      * @param FormMapper $formMapper
      */
     protected function configureFormFields(FormMapper $formMapper)

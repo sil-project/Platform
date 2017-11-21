@@ -68,7 +68,7 @@ sil:
                     producer: Producteur
                     production_year: Année de production
                     seed_farm: Artisan Semancier
-                    tkw: Poid de mille graines
+                    tkw: Poids de mille graines
                     tkw_date: Date de la mesure
                     to_screen_weight: Poid restant à trier
                     updated_at: Mis à jour le
@@ -92,7 +92,7 @@ sil:
                     producer: Producteur
                     production_year: Année de production
                     seed_farm: Artisan Semancier
-                    tkw: Poid de mille graines
+                    tkw: Poids de mille graines
                     tkw_date: Date de la mesure
                     to_screen_weight: Poid restant à trier
                     updated_at: Mis à jour le
@@ -163,7 +163,7 @@ sil:
                     code: Code
                     description:  Description
                     expiry_date: Date limite de validité
-                    start_date: Date d''effet
+                    start_date: 'Date d''effet'
                     url: URL
         certification_type:
             breadcrumb:

@@ -1,0 +1,2 @@
+parameters:
+    sil_platform.entity.channel_description.class: LisemBundle\Admin\ChannelDescriptionAdmin

@@ -82,11 +82,11 @@ Sil\Bundle\VarietyBundle\Entity\FamilyInterface:
         latin_name: Solanaceae Juss.
 
 Sil\Bundle\VarietyBundle\Entity\GenusInterface:
-    gen_user (template):
-        created_by: "@user"
-        updated_by: "@user"
+    # gen_user (template):
+    #     created_by: "@user"
+    #     updated_by: "@user"
 
-    gen_coriandrum (extends gen_user):
+    gen_coriandrum:
         name (unique): coriandrum
         family: "@fam_apiacees"
     gen_daucus (extends gen_user):

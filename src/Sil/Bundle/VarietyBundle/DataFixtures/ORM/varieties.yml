@@ -13,11 +13,11 @@ Sil\Bundle\VarietyBundle\Entity\Family:
 
 
 Sil\Bundle\VarietyBundle\Entity\Genus:
-    gen_user (template):
-        created_by: "@user_marcos"
-        updated_by: "@user_fixture"
+    # gen_user (template):
+        # created_by: "@user_marcos"
+        # updated_by: "@user_fixture"
 
-    gen_coriandrum (extends gen_user):
+    gen_coriandrum:
         name (unique): coriandrum
         family: "@fam_apiacees"
     gen_daucus:

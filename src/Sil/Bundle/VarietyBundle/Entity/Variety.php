@@ -178,12 +178,12 @@ class Variety implements VarietyInterface
     protected $children;
 
     /**
-     * @var \Sil\Bundle\VarietyBundle\Entity\Variety
+     * @var VarietyInterface
      */
     protected $parent;
 
     /**
-     * @var \Sil\Bundle\VarietyBundle\Entity\Species
+     * @var SpeciesInterface
      */
     protected $species;
 
@@ -648,7 +648,7 @@ class Variety implements VarietyInterface
     /**
      * Get parent.
      *
-     * @return \Sil\Bundle\VarietyBundle\Entity\Variety
+     * @return VarietyInterface
      */
     public function getParent()
     {
@@ -708,7 +708,7 @@ class Variety implements VarietyInterface
     /**
      * Get species.
      *
-     * @return \Sil\Bundle\VarietyBundle\Entity\Species
+     * @return SpeciesInterface
      */
     public function getSpecies()
     {
@@ -1156,7 +1156,7 @@ class Variety implements VarietyInterface
     /**
      * Get variety.
      *
-     * @return \Sil\Bundle\VarietyBundle\Entity\Variety
+     * @return VarietyInterface
      */
     public function getVariety()
     {

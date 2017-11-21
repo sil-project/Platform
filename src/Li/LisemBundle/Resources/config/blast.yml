@@ -45,6 +45,7 @@ parameters:
                         show_group_channel_descriptions:
                             channelDescriptions:
                                 template: LisemBundle:CRUD:show_field_channel_descriptions.html.twig
+                                admin_code: lisem.admin.channel_description
                     form_tab_seed_batches:
                         show_group_seed_batches:
                             seedBatches:
@@ -83,6 +84,7 @@ parameters:
                                 _options:
                                     edit: inline
                                     inline: table
+                                    admin_code: lisem.admin.channel_description
                     _options:
                         tabsOrder:
                             - form_tab_general

@@ -11,9 +11,9 @@
 
 namespace LisemBundle\Admin;
 
-use Sil\Bundle\EcommerceBundle\Entity\Product;
 use Sil\Bundle\VarietyBundle\Admin\VarietyAdmin as BaseAdmin;
 use Sonata\AdminBundle\Route\RouteCollection;
+use LisemBundle\Entity\SilEcommerceBundle\Product;
 
 /**
  * Lisem Sonata admin for varieties.

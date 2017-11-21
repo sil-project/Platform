@@ -18,6 +18,11 @@ class SpeciesEmbeddedAdmin extends CoreAdmin
 {
     use EmbeddedAdmin;
 
+    /**
+     * @var string
+     */
+    protected $translationLabelPrefix = 'sil.variety.species';
+
     protected $baseRouteName = 'admin_sil_VarietyBundle_speciesembeddedadmin';
     protected $baseRoutePattern = 'sil/speciesembedded';
 }

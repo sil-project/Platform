@@ -17,4 +17,9 @@ use Blast\Bundle\CoreBundle\Admin\Traits\HandlesRelationsAdmin;
 class FamilyAdmin extends CoreAdmin
 {
     use HandlesRelationsAdmin;
+
+    /**
+     * @var string
+     */
+    protected $translationLabelPrefix = 'sil.variety.family';
 }

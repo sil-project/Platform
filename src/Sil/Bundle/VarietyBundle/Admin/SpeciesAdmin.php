@@ -18,6 +18,11 @@ use Sil\Bundle\VarietyBundle\Entity\Species;
 class SpeciesAdmin extends CoreAdmin
 {
     /**
+     * @var string
+     */
+    protected $translationLabelPrefix = 'sil.variety.species';
+    
+    /**
      * @param ErrorElement $errorElement
      * @param mixed        $object
      *
