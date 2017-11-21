@@ -18,7 +18,7 @@ set +v
 set -v
 
 npm install
-#npm run gulp
+npm run gulp
 
 # database creation
 bin/console doctrine:schema:drop --force --no-interaction  --full-database      # --full-database drops default + session connections
