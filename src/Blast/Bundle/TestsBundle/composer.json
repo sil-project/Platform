@@ -4,6 +4,7 @@
     "description": "Extends Symfony KernelTestCase",
     "require": {
         "php": ">=7.1",
+        "codeception/codeception": "^2.3",
         "symfony/symfony": ">=3.2",
 	"symfony/console": ">=3.2",
         "phpunit/phpunit": "^6.4",
