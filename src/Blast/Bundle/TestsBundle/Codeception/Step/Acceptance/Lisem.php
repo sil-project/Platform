@@ -1,11 +1,10 @@
 <?php
 
 /*
- * This file is part of the Lisem Project.
  *
  * Copyright (C) 2015-2017 Libre Informatique
  *
- * This file is licenced under the GNU GPL v3.
+ * This file is licenced under the GNU LGPL v3.
  * For the full copyright and license information, please view the LICENSE.md
  * file that was distributed with this source code.
  */
@@ -19,21 +18,21 @@ class Lisem extends Common
     public function loginLisem($username = 'lisem@lisem.eu', $password = 'lisem')
     {
         $this->amGoingTo('Test Login');
-        $this->amOnPage('/lisem/login');
+        $this->amOnPage(constant('SILURL') . '/login');
         $this->waitForText('Courriel', 30);
         $this->waitForText('Mot de passe', 30);
         $this->fillField("//input[@id='_username']", $username);
         $this->fillField("//input[@id='_password']", $password);
         $this->click("//button[@type='submit']");
         $this->waitForText('Libre', 30);
-        $this->amOnPage('/lisem/dashboard');
+        $this->amOnPage(constant('SILURL') . '/dashboard');
         //$this->hideSymfonyToolBar(); //useless for test and may hide important element
     }
 
     public function logoutLisem()
     {
         //$this->scrollUp(); // logout is on top of page
-        $this->amOnPage('/lisem/dashboard');
+        $this->amOnPage(constant('SILURL') . '/dashboard');
         $this->click('li.dropdown.user-menu a');
         $this->waitForElementVisible('.dropdown-menu.dropdown-user', 30);
         $this->testLink('Déconnexion', 'Login');

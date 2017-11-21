@@ -1,11 +1,10 @@
 <?php
 
 /*
- * This file is part of the Lisem Project.
  *
  * Copyright (C) 2015-2017 Libre Informatique
  *
- * This file is licenced under the GNU GPL v3.
+ * This file is licenced under the GNU LGPL v3.
  * For the full copyright and license information, please view the LICENSE.md
  * file that was distributed with this source code.
  */
@@ -17,7 +16,7 @@ class CRM extends Lisem
     public function createCircle($groupName = 'SelGroup', $groupCode = 'SELGRP')
     {
         $this->amGoingTo('Create Circle ' . $groupName . '(' . $groupCode . ')');
-        $this->amOnPage('/lisem/librinfo/crm/circle/list');
+        $this->amOnPage(constant('SILURL') . '/librinfo/crm/circle/list');
         $this->testLink('Ajouter', 'Nom');
         $this->fillField("//input[contains(@id, 'name')]", $groupName);
         $this->fillField("//input[contains(@id, 'code')]", $groupCode);
@@ -30,7 +29,7 @@ class CRM extends Lisem
     public function deleteCircle($filter = 'Sel')
     {
         $this->amGoingTo('Delete Circle ' . $filter);
-        $this->amOnPage('/lisem/librinfo/crm/circle/list');
+        $this->amOnPage(constant('SILURL') . '/librinfo/crm/circle/list');
         $this->filterList($filter, 'name');
         // $this->testLink('Filtres');
         // $this->wait(1);
@@ -52,7 +51,7 @@ class CRM extends Lisem
     {
         $this->amGoingTo('Create Category ' . $selCat);
 
-        $this->amOnPage('/lisem/librinfo/crm/category/list');
+        $this->amOnPage(constant('SILURL') . '/librinfo/crm/category/list');
         $this->testLink('Ajouter', 'Nom');
 
         $this->fillField("//input[contains(@id,'name')]", $selCat);
@@ -66,7 +65,7 @@ class CRM extends Lisem
     public function deleteCategory($filter = 'Sel')
     {
         $this->amGoingTo('Delete Category ' . $filter);
-        $this->amOnPage('/lisem/librinfo/crm/category/list');
+        $this->amOnPage(constant('SILURL') . '/librinfo/crm/category/list');
         $this->filterList($filter, 'name');
 
         // $this->testLink('Filtres');

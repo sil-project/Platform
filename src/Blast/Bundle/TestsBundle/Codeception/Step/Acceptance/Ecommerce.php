@@ -1,11 +1,10 @@
 <?php
 
 /*
- * This file is part of the Lisem Project.
  *
  * Copyright (C) 2015-2017 Libre Informatique
  *
- * This file is licenced under the GNU GPL v3.
+ * This file is licenced under the GNU LGPL v3.
  * For the full copyright and license information, please view the LICENSE.md
  * file that was distributed with this source code.
  */
@@ -22,7 +21,7 @@ class Ecommerce extends Lisem
     public function createChannel($channelName)
     {
         $this->amGoingTo('Create Channel ' . $channelName);
-        $this->amOnPage('/lisem/librinfo/ecommerce/channel/create');
+        $this->amOnPage(constant('SILURL') . '/librinfo/ecommerce/channel/create');
 
         $this->fillField("//input[contains(@id,'_name')]", $channelName);
         $this->fillField(
@@ -39,7 +38,7 @@ class Ecommerce extends Lisem
     public function activeAccount($userLogin)
     {
         $this->amGoingTo('Active Shop User Account ' . $userLogin);
-        $this->amOnPage('/lisem/librinfo/ecommerce/shop_user/list');
+        $this->amOnPage(constant('SILURL') . '/librinfo/ecommerce/shop_user/list');
 
         $this->filterList($userLogin, 'username');
 
@@ -53,7 +52,7 @@ class Ecommerce extends Lisem
     public function checkOrder($customerName)
     {
         $this->amGoingTo('CheckCmd');
-        $this->amOnPage('/lisem/librinfo/ecommerce/order/list');
+        $this->amOnPage(constant('SILURL') . '/librinfo/ecommerce/order/list');
 
         $this->filterList($customerName, 'fulltextName');
         $this->click("(//a[contains(@href, '/show')])");

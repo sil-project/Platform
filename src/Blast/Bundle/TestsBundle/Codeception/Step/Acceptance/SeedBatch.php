@@ -1,11 +1,10 @@
 <?php
 
 /*
- * This file is part of the Lisem Project.
  *
  * Copyright (C) 2015-2017 Libre Informatique
  *
- * This file is licenced under the GNU GPL v3.
+ * This file is licenced under the GNU LGPL v3.
  * For the full copyright and license information, please view the LICENSE.md
  * file that was distributed with this source code.
  */
@@ -19,7 +18,7 @@ class SeedBatch extends Lisem
         $plotName = $this->getRandName() . '-plot';
 
         $this->amGoingTo('Create Plot ' . $plotName);
-        $this->amOnPage('/lisem/librinfo/seedbatch/plot/create');
+        $this->amOnPage(constant('SILURL') . '/librinfo/seedbatch/plot/create');
         $this->fillField("//input[contains(@id,'_name')]", $plotName);
         $this->selectSearchDrop('_producer_autocomplete_input', $producerName);
         $this->fillField("//input[contains(@id,'_city')]", $plotName . '-city');
@@ -36,7 +35,7 @@ class SeedBatch extends Lisem
         $producerName = $this->getRandName() . '-producer';
 
         $this->amGoingTo('Create a producer ' . $producerName);
-        $this->amOnPage('/lisem/librinfo/seedbatch/seed-producer/create');
+        $this->amOnPage(constant('SILURL') . '/librinfo/seedbatch/seed-producer/create');
         //$this->click("//li[2]/div/label/div/ins"); //ugly work
         /* @todo: find a way to click without use li[2] ... */
         $this->click("//ul[contains(@id, '_isIndividual')]/li[2]/div/label/div/ins"); //ugly too
@@ -54,7 +53,7 @@ class SeedBatch extends Lisem
         $seedBatchName = $this->getRandName() . '-seedbatch';
 
         $this->amGoingTo('Create Seed Batch' . $seedBatchName);
-        $this->amOnPage('lisem/librinfo/seedbatch/seedbatch/create');
+        $this->amOnPage(constant('SILURL') . '/librinfo/seedbatch/seedbatch/create');
         $this->selectSearchDrop('_variety_autocomplete_input', $varietyName);
         $this->selectSearchDrop('_producer_autocomplete_input', $producerName);
         $this->fillField("//input[contains(@id,'_productionYear')]", '1913');
