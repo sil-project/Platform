@@ -56,11 +56,11 @@ class VarietyDescriptionAdmin extends CoreAdmin
         }
 
         if (!isset($options['label']) || !$options['label']) {
-            $options['label'] = sprintf('sil_description_%s_%s', $fieldset, $field);
+            $options['label'] = sprintf('sil.variety.variety.form.description.%s.%s', $fieldset, $field);
         }
 
         if (!isset($options['help']) || !$options['help']) {
-            $options['help'] = sprintf('sil.help.%s', $field);
+            $options['help'] = sprintf('sil.variety.variety.form.help.%s', $field);
         }
 
         if ($this->subject->getValue() === '') {
