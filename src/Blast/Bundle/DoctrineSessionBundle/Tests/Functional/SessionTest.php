@@ -38,6 +38,7 @@ class SessionTest extends KernelTestCase
 {
     protected $entitymanager;
     protected $registrymanager;
+    protected $repository;
     protected $sessionclass;
     protected $doctrinehandler;
     protected $session;
@@ -56,10 +57,14 @@ class SessionTest extends KernelTestCase
         $this->registrymanager = static::$kernel
                                ->getContainer()
                                ->get('doctrine');
-        $this->entitymanager = $this->registrymanager
-                             ->getManager();
 
         $this->sessionclass = 'Blast\Bundle\DoctrineSessionBundle\Entity\Session';
+        /* @warning: session is handled by a specific orm cnx */
+        $this->entitymanager = $this->registrymanager->getManagerForClass($this->sessionclass);
+        $this->repository = $this->entitymanager->getRepository($this->sessionclass);
+        // $this->registrymanager
+        //                  ->getManager('session');
+
         $this->doctrinehandler = new DoctrineORMHandler($this->registrymanager, $this->sessionclass);
 
         /*
@@ -187,7 +192,7 @@ class SessionTest extends KernelTestCase
         //$this->entitymanager->clear();
         //$this->entitymanager->flush();
 
-        $query = $this->registrymanager->getRepository($this->sessionclass)
+        $query = $this->repository
                ->createQueryBuilder('s')
                ->select()
                ->where('s.sessionId = :session_id')
