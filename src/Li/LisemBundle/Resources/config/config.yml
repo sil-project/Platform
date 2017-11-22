@@ -59,6 +59,13 @@ sylius_order:
                 model: Sil\Bundle\EcommerceBundle\Entity\OrderItem
                 controller: Sil\Bundle\EcommerceBundle\Controller\SyliusOrderItemController
 
+sylius_customer:
+    driver: doctrine/orm
+    resources:
+        customer:
+            classes:
+                model: PlatformBundle\Entity\SilCRMBundle\Organism
+
 sil_crm:
     Circle:
         allow_positions: false  # default: false

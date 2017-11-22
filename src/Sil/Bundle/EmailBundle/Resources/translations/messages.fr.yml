@@ -28,6 +28,8 @@ sil:
                     action: Action
                     circles: Groupes
                     email: Email
+                    field_subject: Sujet
+                    field_to: À
                     sent: Envoyé
                     subject: Sujet
                     to: À
@@ -35,6 +37,8 @@ sil:
                 label:
                     content: Contenu
                     created_at: Créé le
+                    field_subject: Sujet
+                    field_to: À
                     sent: Envoyé
                     subject: Sujet
                     to: À

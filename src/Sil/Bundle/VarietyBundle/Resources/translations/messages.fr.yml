@@ -129,6 +129,7 @@ sil:
                     alias: Synonymes
                     code: Code
                     description: Description
+                    latin_name: Nom latin
                     name: Nom
             form:
                 label:
@@ -153,6 +154,7 @@ sil:
                     action: Action
                     alias: Synonymes
                     code: Code
+                    latin_name: Nom latin
                     name: Nom
                     species: Espèces
             show:

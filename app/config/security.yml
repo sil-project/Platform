@@ -1,5 +1,6 @@
 parameters:
-    sonata.security.regex: "^%sil.url_prefix%(?:/.*)?$"
+    sonata.security.regex:          "^%sil.url_prefix%(?:/.*)?$"
+    sylius.security.shop_regex:     ""
 
 security:
 
@@ -77,6 +78,29 @@ security:
         #         path: sylius_admin_logout
         #         target: sylius_admin_login
         #     anonymous: true
+        shop:
+            switch_user: { role: ROLE_ALLOWED_TO_SWITCH }
+            context: shop
+            pattern: "%sylius.security.shop_regex%"
+            form_login:
+                success_handler: sylius.authentication.success_handler
+                failure_handler: sylius.authentication.failure_handler
+                provider: sylius_shop_user_provider
+                login_path: sylius_shop_login
+                check_path: sylius_shop_login_check
+                failure_path: sylius_shop_login
+                default_target_path: sylius_shop_homepage
+                use_forward: false
+                use_referer: true
+            remember_me:
+                secret: "%secret%"
+                name: APP_REMEMBER_ME
+                lifetime: 31536000
+                remember_me_parameter: _remember_me
+            logout:
+                path: sylius_shop_logout
+                target: sylius_shop_login
+            anonymous: true
 
     # ##########################################################################
     # ACCESS CONTROL
@@ -98,17 +122,17 @@ security:
         # Sylius access control
         # - { path: "%sylius.security.admin_regex%/_partial", role: IS_AUTHENTICATED_ANONYMOUSLY, ips: [127.0.0.1, ::1] }
         # - { path: "%sylius.security.admin_regex%/_partial", role: ROLE_NO_ACCESS }
-        # - { path: "%sylius.security.shop_regex%/_partial", role: IS_AUTHENTICATED_ANONYMOUSLY, ips: [127.0.0.1, ::1] }
-        # - { path: "%sylius.security.shop_regex%/_partial", role: ROLE_NO_ACCESS }
+        - { path: "%sylius.security.shop_regex%/_partial", role: IS_AUTHENTICATED_ANONYMOUSLY, ips: [127.0.0.1, ::1] }
+        - { path: "%sylius.security.shop_regex%/_partial", role: ROLE_NO_ACCESS }
         #
         # - { path: "%sylius.security.admin_regex%/login", role: IS_AUTHENTICATED_ANONYMOUSLY }
         # - { path: "%sylius.security.api_regex%/login", role: IS_AUTHENTICATED_ANONYMOUSLY }
-        # - { path: "%sylius.security.shop_regex%/login", role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: "%sylius.security.shop_regex%/login", role: IS_AUTHENTICATED_ANONYMOUSLY }
         #
-        # - { path: "%sylius.security.shop_regex%/register", role: IS_AUTHENTICATED_ANONYMOUSLY }
-        # - { path: "%sylius.security.shop_regex%/verify", role: IS_AUTHENTICATED_ANONYMOUSLY }
-        # - { path: "%sylius.security.shop_regex%/order.*", role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: "%sylius.security.shop_regex%/register", role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: "%sylius.security.shop_regex%/verify", role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: "%sylius.security.shop_regex%/order.*", role: IS_AUTHENTICATED_ANONYMOUSLY }
         #
-        # - { path: "%sylius.security.shop_regex%/account", role: ROLE_USER }
+        - { path: "%sylius.security.shop_regex%/account", role: ROLE_USER }
         # - { path: "%sylius.security.admin_regex%", role: ROLE_ADMINISTRATION_ACCESS }
         # - { path: "%sylius.security.api_regex%", role: ROLE_API_ACCESS }
