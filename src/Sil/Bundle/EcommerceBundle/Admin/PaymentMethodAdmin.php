@@ -15,7 +15,10 @@ use Sonata\AdminBundle\Route\RouteCollection;
 
 class PaymentMethodAdmin extends SyliusGenericAdmin
 {
-    /* @todo : remove this useless protected attributes */
+    /**
+     * @var string
+     */
+    protected $translationLabelPrefix = 'sil.ecommerce.payment_method';
     protected $baseRouteName = 'admin_sil_ecommerce_payment_method';
     protected $baseRoutePattern = 'sil/ecommerce/payment_method';
     protected $classnameLabel = 'PaymentMethod';

@@ -8,7 +8,7 @@ services:
                 name: sonata.admin
                 manager_type: orm
                 group: admin
-                label: sil.ecommercebundle.admin.product.product
+                label: sil.ecommerce.menu_label.product
                 label_translator_strategy: blast.resource.sonata.label_strategy.prefix
         calls:
             - [ setTemplate, [ edit, SilEcommerceBundle:ProductAdmin:edit.html.twig ] ]

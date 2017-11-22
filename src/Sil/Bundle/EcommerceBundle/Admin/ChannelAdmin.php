@@ -18,6 +18,11 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 class ChannelAdmin extends SyliusGenericAdmin
 {
     /**
+     * @var string
+     */
+    protected $translationLabelPrefix = 'sil.ecommerce.channel';
+
+    /**
      * @param FormMapper $mapper
      */
     protected function configureFormFields(FormMapper $mapper)

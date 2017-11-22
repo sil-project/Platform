@@ -1,11 +1,10 @@
 <?php
 
 /*
- * This file is part of the Lisem Project.
  *
  * Copyright (C) 2015-2017 Libre Informatique
  *
- * This file is licenced under the GNU GPL v3.
+ * This file is licenced under the GNU LGPL v3.
  * For the full copyright and license information, please view the LICENSE.md
  * file that was distributed with this source code.
  */
@@ -15,7 +14,7 @@ namespace LisemBundle\Form\EventListener;
 use Sylius\Component\Resource\Repository\RepositoryInterface;
 use Symfony\Component\EventDispatcher\GenericEvent;
 use Symfony\Component\Form\Exception\UnexpectedTypeException;
-use Sil\Bundle\CRMBundle\Entity\Organism;
+use Sil\Bundle\CRMBundle\Entity\OrganismInterface;
 use Blast\Bundle\CoreBundle\CodeGenerator\CodeGeneratorInterface;
 
 class CustomerRegistrationFormListener
@@ -42,8 +41,8 @@ class CustomerRegistrationFormListener
     {
         $organism = $event->getSubject();
 
-        if (!$organism instanceof Organism) {
-            throw new UnexpectedTypeException($organism, Organism::class);
+        if (!$organism instanceof OrganismInterface) {
+            throw new UnexpectedTypeException($organism, OrganismInterface::class);
         }
 
         if ($this->codeGenerator !== null) {

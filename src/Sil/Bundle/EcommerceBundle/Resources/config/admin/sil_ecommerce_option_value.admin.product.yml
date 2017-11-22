@@ -8,5 +8,5 @@ services:
                 name: sonata.admin
                 manager_type: orm
                 group: admin
-                label: sil.ecommercebundle.admin.product.product_option_value
+                label: sil.ecommerce.menu_label.product_option_value
                 label_translator_strategy: blast.resource.sonata.label_strategy.prefix

@@ -17,6 +17,11 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 
 class SalesJournalAdmin extends CoreAdmin
 {
+    /**
+     * @var string
+     */
+    protected $translationLabelPrefix = 'sil.ecommerce.sales_journal';
+
     protected $baseRouteName = 'admin_sil_ecommerce_sales_journal';
     protected $baseRoutePattern = 'sil/ecommerce/sales_journal';
     protected $classnameLabel = 'SalesJournal';

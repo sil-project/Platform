@@ -16,6 +16,11 @@ use Sonata\AdminBundle\Route\RouteCollection;
 
 class InvoiceAdmin extends CoreAdmin
 {
+    /**
+     * @var string
+     */
+    protected $translationLabelPrefix = 'sil.ecommerce.invoice';
+
     protected function configureRoutes(RouteCollection $collection)
     {
         parent::configureRoutes($collection);

@@ -13,4 +13,8 @@ namespace Sil\Bundle\EcommerceBundle\Admin;
 
 class TaxRateAdmin extends SyliusGenericAdmin
 {
+    /**
+     * @var string
+     */
+    protected $translationLabelPrefix = 'sil.ecommerce.tax_rate';
 }

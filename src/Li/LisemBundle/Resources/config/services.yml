@@ -263,6 +263,7 @@ services:
         class: Sil\Bundle\EcommerceBundle\Services\OrderCustomerManager
         arguments:
             - '@doctrine.orm.entity_manager'
+            - '%sylius.model.customer.class%'
         calls:
             - [setCodeGenerator, ["@sil_crm.code_generator.customer"]]
 

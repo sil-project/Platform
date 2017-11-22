@@ -13,6 +13,11 @@ namespace Sil\Bundle\EcommerceBundle\Admin;
 
 class TaxonAdmin extends SyliusGenericAdmin
 {
+    /**
+     * @var string
+     */
+    protected $translationLabelPrefix = 'sil.ecommerce.taxon';
+
     public function createQuery($context = 'list')
     {
         $query = parent::createQuery($context);

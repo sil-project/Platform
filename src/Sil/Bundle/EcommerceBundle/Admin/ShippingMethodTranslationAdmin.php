@@ -13,4 +13,8 @@ namespace Sil\Bundle\EcommerceBundle\Admin;
 
 class ShippingMethodTranslationAdmin extends SyliusGenericAdmin
 {
+    /**
+     * @var string
+     */
+    protected $translationLabelPrefix = 'sil.ecommerce.shipping_method_translation';
 }

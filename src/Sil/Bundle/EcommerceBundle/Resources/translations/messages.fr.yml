@@ -1,5 +1,594 @@
 
 sil:
+    ecommerce:
+        menu_label:
+            taxon: Catégories
+            product_attribute: Attributs de articles
+            product_option: Options de articles
+            zone: Zones géographiques
+            payment_method: Méthodes de payment
+            shipping_method: Méthodes de livraison
+            tax_category: Catégories de taxe
+            tax_rate: Taux de TVA
+            shop_user: Clients boutique
+            order: Commandes
+            payment: Paiements
+            sales_journal: Journal des ventes
+            payment: Livre de caisse
+            channel: Canal de vente
+        channel:
+            breadcrumb:
+                link:
+                    create: Nouveau canal de vente
+                    list: Liste des canaux de vente
+            filter:
+                label:
+                    code: Code
+                    created_at: Créé le
+                    description: Description
+                    enabled: Activé
+                    hostname: 'Nom d''hote'
+                    name: Nom
+                    updated_at: Mis à jour le
+            form:
+                label:
+                    account_verification_required: Vérification de compte necessaire
+                    base_currency: Devise de base
+                    code: Code
+                    contact_email: Email de contact
+                    created_at: Créé le
+                    currencies: Devises
+                    default_locale: Langue par défaut
+                    default_tax_zone: Zone de taxe par défaut
+                    description: Description
+                    enabled: Activé
+                    hostname: 'Nom d''hote'
+                    locales: Langues
+                    name: Nom
+                    skipping_payment_step_allowed: 'Passer l''étape de payement du processus de commande'
+                    skipping_shipping_step_allowed: 'Passer l''étape de livraison du processus de commande'
+                    updated_at: Mis à jour le
+            list:
+                label:
+                    action: Action
+                    channel: Canal de vente
+                    code: Code
+                    created_at: Créé le
+                    description: Description
+                    enabled: Activé
+                    hostname: 'Nom d''hote'
+                    name: Nom
+                    updated_at: Mis à jour le
+            show:
+                label:
+                    account_verification_required: Vérification de compte necessaire
+                    base_currency: Devise de base
+                    code: Code
+                    contact_email: Email de contact
+                    currencies: Devises
+                    default_locale: Langue par défaut
+                    default_tax_zone: Zone de taxe par défaut
+                    description: Description
+                    enabled: Activé
+                    hostname: 'Nom d''hote'
+                    locales: Langues
+                    name: Nom
+                    skipping_payment_step_allowed: 'Passer l''étape de payement du processus de commande'
+                    skipping_shipping_step_allowed: 'Passer l''étape de livraison du processus de commande'
+                    tax_calculation_strategy: Méthode de calcul des taxes
+                    theme_name: Nom du thème
+        taxon:
+            breadcrumb:
+                link:
+                    create: Nouvelle catégorie
+                    list: Liste des catégories
+            form:
+                label:
+                    code: Code
+                    parent: Parent
+                    translation__name: Nom
+            list:
+                label:
+                    action: Action
+                    code: Code
+                    taxon: Catégorie
+                    translation.name: Nom
+            show:
+                label:
+                    code: Code
+                    translation.name: Nom
+
+        product_attribute:
+            breadcrumb:
+                link:
+                    create: Nouvel attribut
+                    list: Liste des attributs
+            filter:
+                label:
+                    code: Code
+                    created_at: Créé le
+                    storage_type: Type de stockage
+                    translations.name: Nom
+                    type: Type
+                    updated_at: Mis à jour le
+            form:
+                label:
+                    code: Code
+                    name: Nom
+                    type: Type
+            list:
+                label:
+                    action: Action
+                    code: Code
+                    name: Nom
+                    productattribute: 'Attribut d''artcle'
+                    type: Type
+            show:
+                label:
+                    code: Code
+                    created_at: Créé le
+                    name: Nom
+                    type: Type
+                    updated_at: Mis à jour le
+
+        product_option:
+            breadcrumb:
+                link:
+                    create: Nouvelle option
+                    list: Liste des options
+            filter:
+                label:
+                    code: Code
+                    created_at: Créé le
+                    translations.name: Nom
+                    updated_at: Mis à jour le
+            form:
+                label:
+                    code: Code
+                    name: Nom
+                    values: Valeurs
+            list:
+                label:
+                    action: Action
+                    code: Code
+                    name: Nom
+                    productoption: 'Options d''artcle'
+            show:
+                label:
+                    code: Code
+                    created_at: Créé le
+                    name: Nom
+                    updated_at: Mis à jour le
+                    values: Valeurs
+
+        product_option_value:
+            form:
+                label:
+                    code: Code
+                    value: Valeur
+
+
+        zone:
+            breadcrumb:
+                link:
+                    create: Nouvelle zone
+                    list: Liste des zones
+            filter:
+                label:
+                    code: Code
+                    name: Nom
+                    scope: Scope
+                    type: Type
+            form:
+                label:
+                    code: Code
+                    name: Nom
+                    scope: Scope
+                    type: Type
+            list:
+                label:
+                    action: Action
+                    code: Code
+                    name: Nom
+                    scope: Scope
+                    type: Type
+                    zone: Zone géographique
+            show:
+                label:
+                    code: Code
+                    name: Nom
+                    scope: Scope
+                    type: Type
+
+        payment_method:
+            breadcrumb:
+                link:
+                    list: Liste des méthodes de paiement
+            form:
+                label:
+                    channels: Canaux de vente
+                    code: Code
+                    enabled: Activé
+                    position: Position
+                    translation__description: Description
+                    translation__instructions: Instructions affichées aux utilisateurs
+                    translation__name: Nom
+            list:
+                label:
+                    action: Action
+                    code: Code
+                    enabled: Activé
+                    paymentmethod: Méthode de paiement
+
+        shipping_method:
+            breadcrumb:
+                link:
+                    create: Nouvelle méthode de livraison
+                    list: Liste des méthodes de livraison
+            filter:
+                label:
+                    calculator: Calculateur
+                    channels: Canaux de vente
+                    code: Code
+                    enabled: Activé
+                    position: Position
+                    tax_category: Catégorie de taxe
+                    translation.name: Nom
+                    zone: Zone géographique
+            form:
+                label:
+                    calculator: Calculateur
+                    channels: Canaux de vente
+                    code: Code
+                    created_at: Créé le
+                    enabled: Activé
+                    position: Position
+                    tax_category: Catégorie de taxe
+                    translation__description: Description
+                    translation__name: Nom
+                    updated_at: Mis à jour le
+                    zone: Zone géographique
+            list:
+                label:
+                    action: Action
+                    calculator: Calculateur
+                    channels: Canaux de vente
+                    code: Code
+                    enabled: Activé
+                    position: Position
+                    shippingmethod: Méthode de livraison
+                    tax_category: Catégorie de taxe
+                    translation.name: Nom
+                    zone: Zone géographique
+            show:
+                label:
+                    calculator: Calculateur
+                    channels: Canaux de vente
+                    code: Code
+                    created_at: Créé le
+                    enabled: Activé
+                    position: Position
+                    tax_category: Catégorie de taxe
+                    translation.name: Nom
+                    updated_at: Mis à jour le
+                    zone: Zone géographique
+
+        tax_category:
+            breadcrumb:
+                link:
+                    create: Nouvelle catégorie de taxe
+                    list: Liste des catégories de taxe
+            filter:
+                label:
+                    code: Code
+                    created_at: Créé le
+                    description: Description
+                    name: Nom
+                    updated_at: Mis à jour le
+            form:
+                label:
+                    code: Code
+                    created_at: Créé le
+                    description: Description
+                    name: Nom
+                    rates: Taux
+                    updated_at: Mis à jour le
+            list:
+                label:
+                    action: Action
+                    code: Code
+                    created_at: Créé le
+                    description: Description
+                    name: Nom
+                    taxcategory: ~
+                    updated_at: Mis à jour le
+            show:
+                label:
+                    code: Code
+                    created_at: Créé le
+                    description: Description
+                    name: Nom
+                    updated_at: Mis à jour le
+
+        tax_rate:
+            breadcrumb:
+                link:
+                    create: Nouveau taux de TVA
+                    list: Liste des taux de TVA
+            filter:
+                label:
+                    amount: Montant
+                    calculator: Calculateur
+                    code: Code
+                    created_at: Créé le
+                    included_in_price: Compris dans le prix
+                    name: Nom
+                    updated_at: Mis à jour le
+            form:
+                label:
+                    amount: Montant
+                    calculator: Calculateur
+                    code: Code
+                    created_at: Créé le
+                    included_in_price: Compris dans le prix
+                    name: Nom
+                    updated_at: Mis à jour le
+                    zone: Zone géographique
+            list:
+                label:
+                    action: Action
+                    amount: Montant
+                    calculator: Calculateur
+                    code: Code
+                    created_at: Créé le
+                    included_in_price: Compris dans le prix
+                    name: Nom
+                    taxrate: Taux de TVA
+                    updated_at: Mis à jour le
+            show:
+                label:
+                    amount: Montant
+                    calculator: Calculateur
+                    code: Code
+                    created_at: Créé le
+                    included_in_price: Compris dans le prix
+                    name: Nom
+                    updated_at: Mis à jour le
+
+        shop_user:
+            breadcrumb:
+                link:
+                    list: Liste des clients de la boutique
+            filter:
+                label:
+                    email: Email
+                    enabled: Activé
+                    last_login: Dernière connexion
+                    username: 'Nom d''utilisateur'
+            form:
+                label:
+                    email: Email
+                    enabled: Activé
+                    last_login: Dernière connexion
+                    username: 'Nom d''utilisateur'
+            list:
+                label:
+                    action: Action
+                    email: Email
+                    enabled: Activé
+                    last_login: Dernière connexion
+                    shopuser: Utilisateur de la boutique
+                    username: 'Nom d''utilisateur'
+            show:
+                label:
+                    email: Email
+                    enabled: Activé
+                    last_login: Dernière connexion
+                    username: 'Nom d''utilisateur'
+
+        product:
+            breadcrumb:
+                link:
+                    create: Nouvel article
+                    list: Liste des articles
+            filter:
+                label:
+                    code: Code
+                    enabled: Activé
+                    translations.description: Description
+                    translations.meta_description: Méta description
+                    translations.meta_keywords: Méta mot-clés
+                    translations.name: Nom
+                    translations.short_description: Description courte
+            form:
+                label:
+                    channels: Canaux de vente
+                    code: Code
+                    description: Description
+                    enabled: Activé
+                    images: Images
+                    main_taxon: Catégorie principale
+                    meta_description: Méta description
+                    meta_keywords: Méta mot-clés
+                    name: Nom
+                    short_description: Description courte
+                    slug: Slug
+                    taxons: Catégories
+                    variety: Variété
+            list:
+                label:
+                    action: Action
+                    code: Code
+                    enabled: Activé
+                    name: Nom
+                    seedsproduct: Semance
+                    variety: Variété
+            show:
+                label:
+                    available: Disponible
+                    channels: Canaux de vente
+                    code: Code
+                    created_at: Créé le
+                    description: Description
+                    enabled: Activé
+                    main_taxon: Catégorie principale
+                    meta_description: Méta description
+                    meta_keywords: Méta mot-clés
+                    name: Nom
+                    short_description: Méta mot-clés
+                    slug: Slug
+                    taxons: Catégories
+                    updated_at: Mis à jour le
+                    variety: Variété
+
+
+        product_variant:
+            form:
+                label:
+                    channel_pricings: Prix par canal de vente
+                    code: Code
+                    depth: Profondeur
+                    enabled: Activé
+                    height: Hauteur
+                    name: Nom
+                    packaging: Conditionnement
+                    seed_batches: Lots
+                    tax_category: Catégorie de taxe
+                    tracked: Suivi
+                    weight: Poid
+                    width: Largeur
+
+
+        channel_pricing:
+            form:
+                label:
+                    channel_code: Code du canal
+                    original_price: Prix original
+                    price: Prix
+
+        order:
+            breadcrumb:
+                link:
+                    create: Nouvelle commande
+                    list: Liste des commandes
+            filter:
+                label:
+                    adjustments_total: Total des ajustements
+                    checkout_completed_at: Panier terminé le
+                    created_at: Créé le
+                    customer.customer_code: Code client
+                    customer.fulltext_name: Nom complet
+                    customer_ip: IP du client
+                    items_total: Total articles
+                    notes: Notes
+                    number: Nombre
+                    payment_state: État du paiement
+                    shipping_state: État de livraison
+                    state: État
+                    total: Total
+                    updated_at: Mis à jour le
+            form:
+                label:
+                    billing_address: Addresse de facturation
+                    channel: Canal de vente
+                    currency_code: Devise
+                    notes: Notes
+                    shipping_address: Addresse de livraison
+            list:
+                label:
+                    action: Action
+                    channel: Canal de vente
+                    checkout_completed_at: Panier terminé le
+                    customer: Client
+                    notes: Notes
+                    number: Nombre
+                    order: Commande
+                    payment_state: État du paiement
+                    shipping_state: État de livraison
+                    state: État
+                    total: Total
+            show:
+                label:
+                    adjustments_total: Total des ajustements
+                    billing_address: Addresse de facturation
+                    channel: Canal de vente
+                    checkout_completed_at: Panier terminé le
+                    created_at: Créé le
+                    currency_code: Devise
+                    customer: Client
+                    customer.created_at: Créé le
+                    customer_ip: IP du client
+                    exchange_rate: Taux de change
+                    invoice_list: Liste des factures
+                    items_total: Total articles
+                    locale_code: Code langue
+                    notes: Notes
+                    number: Nombre
+                    payment_state: État du paiement
+                    shipping_address: Addresse de livraison
+                    shipping_state: État de livraison
+                    state: État
+                    token_value: Jeton
+                    total: Total
+                    updated_at: Mis à jour le
+
+        payment:
+            breadcrumb:
+                link:
+                    list: Livre de caisse
+            filter:
+                label:
+                    amount: Montant
+                    created_at: Créé le
+                    method: Méthode
+                    order.customer.customer_code: Code client
+                    order.customer.name: Nom
+                    order.payment_state: État du paiement
+                    updated_at: Mis à jour le
+            list:
+                label:
+                    action: Action
+                    amount: Montant
+                    created_at: Créé le
+                    due_amount: Montant dû
+                    order.channel: Canal de vente
+                    order.payment_state: État du paiement
+                    payment: Paiement
+                    updated_at: Mis à jour le
+            show:
+                label:
+                    amount: Montant
+                    method: Méthode
+                    order.adjustments_total: Total des ajustements
+                    order.channel: Canal de vente
+                    order.currency_code: Devise
+                    order.customer: Client
+                    order.items_total: Total articles
+                    order.number: Nombre
+                    order.token_value: Jeton
+                    order.total: Total
+                    state: État
+
+        sales_journal:
+            breadcrumb:
+                link:
+                    list: Journal des ventes
+            filter:
+                label:
+                    credit: Crédit
+                    debit: Débit
+                    label: Libélé
+                    operation_date: 'Date de l''opération'
+                    payment: Paiement
+            list:
+                label:
+                    credit: Crédit
+                    debit: Débit
+                    label: Libélé
+                    operation_date: 'Date de l''opération'
+                    payment: Paiement
+                    salesjournal: Journal des ventes
+
     action:
         add_variant: Ajouter une déclinaison
         edit: Modifier
@@ -66,7 +655,7 @@ sil:
         fulfill_this_order: Terminer cette commande
         confirm_order: Confirmer
         confirm_this_order: Confirmer cette commande
-        generating_invoice: Génération de la facture en cours...
+        generating_invoice: Génération de la facture en cours.
         order: Commande
         product: Article
         purchased_from: Achété sur
@@ -268,10 +857,10 @@ Amount: Montant
 Channel Create: Créer un canal
 Channel List: Liste des canaux
 Edit: Modifier
-Order item units based: Basé sur chaque unités de produit des commandes
-Order items based: Basé sur les produits des commandes
+Order item units.based: Basé sur chaque unités de produit des commandes
+Order items.based: Basé sur les produits des commandes
 Products: Produits
-There must be at least one item left in the order: Il doit y avoir au moins un élément dans la commande
+There must be at least one item left in the.order: Il doit y avoir au moins un élément dans la commande
 
 form_group_availability: Disponibilité
 form_group_channel : Canal de vente

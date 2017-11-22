@@ -19,6 +19,11 @@ use Sonata\AdminBundle\Form\FormMapper;
 class ProductOptionValueAdmin extends SyliusGenericAdmin
 {
     /**
+     * @var string
+     */
+    protected $translationLabelPrefix = 'sil.ecommerce.product_option_value';
+
+    /**
      * @param FormMapper $mapper
      */
     public function configureFormFields(FormMapper $mapper)

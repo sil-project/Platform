@@ -16,4 +16,8 @@ namespace Sil\Bundle\EcommerceBundle\Admin;
  */
 class ProductOptionAdmin extends SyliusGenericAdmin
 {
+    /**
+     * @var string
+     */
+    protected $translationLabelPrefix = 'sil.ecommerce.product_option';
 }

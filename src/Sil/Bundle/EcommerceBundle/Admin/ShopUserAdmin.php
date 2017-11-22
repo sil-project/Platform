@@ -16,6 +16,11 @@ use Sonata\AdminBundle\Route\RouteCollection;
 
 class ShopUserAdmin extends SyliusGenericAdmin
 {
+    /**
+     * @var string
+     */
+    protected $translationLabelPrefix = 'sil.ecommerce.shop_user';
+
     protected function configureRoutes(RouteCollection $collection)
     {
         $collection->clearExcept(array('list', 'show', 'edit'));

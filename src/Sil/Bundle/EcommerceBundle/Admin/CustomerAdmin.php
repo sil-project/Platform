@@ -16,6 +16,11 @@ use Sil\Bundle\CRMBundle\Admin\CustomerAdmin as BaseCustomerAdmin;
 class CustomerAdmin extends BaseCustomerAdmin
 {
     /**
+     * @var string
+     */
+    protected $translationLabelPrefix = 'sil.ecommerce.customer';
+
+    /**
      * {@inheritdoc}
      */
     public function prePersist($object)

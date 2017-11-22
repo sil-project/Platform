@@ -34,6 +34,7 @@ PlatformBundle\Entity\SilCRMBundle\Organism:
         user:
             targetEntity: Sylius\Component\Core\Model\ShopUser
             mappedBy: customer
+            cascade: [persist, remove]
         defaultAddress:
             targetEntity: Sil\Bundle\CRMBundle\Entity\AddressInterface
             joinColumn:

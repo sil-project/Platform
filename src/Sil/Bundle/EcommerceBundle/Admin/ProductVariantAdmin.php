@@ -25,6 +25,11 @@ use Sil\Bundle\EcommerceBundle\Repository\ChannelRepository;
 class ProductVariantAdmin extends SyliusGenericAdmin
 {
     /**
+     * @var string
+     */
+    protected $translationLabelPrefix = 'sil.ecommerce.product_variant';
+    
+    /**
      * @var ProductInterface
      */
     private $product;

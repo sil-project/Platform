@@ -23,6 +23,11 @@ use Sylius\Component\Product\Model\ProductAttributeInterface;
 class ProductAttributeAdmin extends SyliusGenericAdmin
 {
     /**
+     * @var string
+     */
+    protected $translationLabelPrefix = 'sil.ecommerce.product_attribute';
+
+    /**
      * @return ProductAttributeInterface
      */
     public function getNewInstance()

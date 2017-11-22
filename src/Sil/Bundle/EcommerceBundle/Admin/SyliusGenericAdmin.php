@@ -14,7 +14,7 @@ namespace Sil\Bundle\EcommerceBundle\Admin;
 use Blast\Bundle\CoreBundle\Admin\CoreAdmin;
 
 class SyliusGenericAdmin extends CoreAdmin
-{
+{    
     public function getNewInstance()
     {
         $object = parent::getNewInstance();

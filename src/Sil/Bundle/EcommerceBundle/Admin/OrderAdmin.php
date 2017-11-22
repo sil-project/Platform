@@ -26,7 +26,10 @@ use Sylius\Bundle\ShippingBundle\Form\Type\ShippingMethodChoiceType;
 
 class OrderAdmin extends CoreAdmin
 {
-    /* @todo : remove this useless protected attributes */
+    /**
+     * @var string
+     */
+    protected $translationLabelPrefix = 'sil.ecommerce.order';
 
     protected $baseRouteName = 'admin_sil_ecommerce_order';
     protected $baseRoutePattern = 'sil/ecommerce/order';

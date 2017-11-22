@@ -17,7 +17,10 @@ use Sylius\Component\Core\Model\PaymentInterface;
 
 class PaymentAdmin extends SyliusGenericAdmin
 {
-    /* @todo : remove this useless protected attributes */
+    /**
+     * @var string
+     */
+    protected $translationLabelPrefix = 'sil.ecommerce.payment';
 
     protected $baseRouteName = 'admin_sil_ecommerce_payment';
     protected $baseRoutePattern = 'sil/ecommerce/payment';

@@ -11,10 +11,10 @@
 
 namespace Sil\Bundle\EcommerceBundle\Admin;
 
-class CustomerGroupAdmin extends SyliusGenericAdmin
+class ZoneAdmin extends SyliusGenericAdmin
 {
     /**
      * @var string
      */
-    protected $translationLabelPrefix = 'sil.ecommerce.customer_group';
+    protected $translationLabelPrefix = 'sil.ecommerce.zone';
 }

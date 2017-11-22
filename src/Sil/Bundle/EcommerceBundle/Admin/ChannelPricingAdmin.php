@@ -17,6 +17,11 @@ class ChannelPricingAdmin extends SyliusGenericAdmin
 {
     use EmbeddedAdmin;
 
+    /**
+     * @var string
+     */
+    protected $translationLabelPrefix = 'sil.ecommerce.channel_pricing';
+
     protected $baseRouteName = 'admin_sil_ecommerce_channelpricing';
     protected $baseRoutePattern = 'sil/ecommerce/channelpricing';
 

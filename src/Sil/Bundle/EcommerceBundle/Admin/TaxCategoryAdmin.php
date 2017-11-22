@@ -13,6 +13,11 @@ namespace Sil\Bundle\EcommerceBundle\Admin;
 
 class TaxCategoryAdmin extends SyliusGenericAdmin
 {
+    /**
+     * @var string
+     */
+    protected $translationLabelPrefix = 'sil.ecommerce.tax_category';
+
     public function toString($object)
     {
         /* (As we don't have name here for title) */

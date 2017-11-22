@@ -29,6 +29,11 @@ class ProductAdmin extends SyliusGenericAdmin
         configureShowFields as configShowHandlesRelations;
     }
 
+    /**
+     * @var string
+     */
+    protected $translationLabelPrefix = 'sil.ecommerce.product';
+
     public function configureActionButtons($action, $object = null)
     {
         $list = parent::configureActionButtons($action, $object);

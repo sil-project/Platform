@@ -16,4 +16,9 @@ use Blast\Bundle\CoreBundle\Admin\Traits\EmbeddedAdmin;
 class ProductVariantEmbeddedAdmin extends ProductVariantAdmin
 {
     use EmbeddedAdmin;
+
+    /**
+     * @var string
+     */
+    protected $translationLabelPrefix = 'sil.ecommerce.product_variant';
 }

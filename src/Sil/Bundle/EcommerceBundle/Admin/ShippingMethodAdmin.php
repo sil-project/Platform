@@ -16,6 +16,11 @@ use Sil\Bundle\EcommerceBundle\Form\Type\PriceCentsType;
 
 class ShippingMethodAdmin extends SyliusGenericAdmin
 {
+    /**
+     * @var string
+     */
+    protected $translationLabelPrefix = 'sil.ecommerce.shipping_method';
+
     public function genChannelArray(string $sonataType = 'sonata_type_immutable_array')
     {
         $channelKeyTab = [];

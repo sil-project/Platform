@@ -8,7 +8,7 @@ services:
                 name: sonata.admin
                 manager_type: orm
                 group: admin
-                label: sil.ecommercebundle.admin.shipping_method
+                label: sil.ecommerce.menu_label.shipping_method
                 label_translator_strategy: blast.resource.sonata.label_strategy.prefix
 
 #    sil_ecommerce.admin.shipping_category:
@@ -18,5 +18,5 @@ services:
 #            - name: sonata.admin
 #              manager_type: orm
 #              group: admin
-#              label: sil.ecommercebundle.admin.shipping_category
+#              label: sil.ecommerce.menu_label.shipping_category
 #              label_translator_strategy: blast.resource.sonata.label_strategy.prefix
