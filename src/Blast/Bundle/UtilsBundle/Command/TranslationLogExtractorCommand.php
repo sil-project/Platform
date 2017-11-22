@@ -60,8 +60,11 @@ class TranslationLogExtractorCommand extends ContainerAwareCommand
             $io->title('Extracting missing translations from dev.log');
         }
 
+        $kernel = $this->getContainer()->get('kernel');
+        $env = $kernel->getEnvironment();
+
         $logDir = $this->getContainer()->get('kernel')->getLogDir();
-        $logFile = $logDir . '/dev.log';
+        $logFile = $logDir . '/' . $env . '.log';
 
         if (is_file($logFile)) {
             $this->parseLog($logFile, $io, $purge);
