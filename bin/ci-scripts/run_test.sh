@@ -9,7 +9,7 @@ bin/phpunit -v -c phpunit.xml.dist
 #bin/ci-scripts/do_it_for_bundle.sh run test
 
 
-OUTPUTDIR=tests/_output
+OUTPUTDIR=src/Tests/_output
 
 # clean output
 rm -rf $OUTPUTDIR/*.png
