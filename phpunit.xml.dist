@@ -18,7 +18,7 @@
       <directory>./src/*/Bundle/*/Tests/Unit</directory>
     </testsuite>
     <testsuite name="Functional">
-      <directory>./tests/Functional</directory>
+      <directory>./src/*/Bundle/*/Tests/Functional</directory>
     </testsuite>
   </testsuites>
   
