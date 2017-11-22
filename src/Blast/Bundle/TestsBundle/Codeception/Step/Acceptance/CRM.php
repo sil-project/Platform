@@ -16,7 +16,7 @@ class CRM extends Lisem
     public function createCircle($groupName = 'SelGroup', $groupCode = 'SELGRP')
     {
         $this->amGoingTo('Create Circle ' . $groupName . '(' . $groupCode . ')');
-        $this->amOnPage(constant('SILURL') . '/librinfo/crm/circle/list');
+        $this->amOnPage(constant('SILURL') . '/sil/crm/circle/list');
         $this->testLink('Ajouter', 'Nom');
         $this->fillField("//input[contains(@id, 'name')]", $groupName);
         $this->fillField("//input[contains(@id, 'code')]", $groupCode);
@@ -29,7 +29,7 @@ class CRM extends Lisem
     public function deleteCircle($filter = 'Sel')
     {
         $this->amGoingTo('Delete Circle ' . $filter);
-        $this->amOnPage(constant('SILURL') . '/librinfo/crm/circle/list');
+        $this->amOnPage(constant('SILURL') . '/sil/crm/circle/list');
         $this->filterList($filter, 'name');
         // $this->testLink('Filtres');
         // $this->wait(1);
@@ -51,7 +51,7 @@ class CRM extends Lisem
     {
         $this->amGoingTo('Create Category ' . $selCat);
 
-        $this->amOnPage(constant('SILURL') . '/librinfo/crm/category/list');
+        $this->amOnPage(constant('SILURL') . '/sil/crm/category/list');
         $this->testLink('Ajouter', 'Nom');
 
         $this->fillField("//input[contains(@id,'name')]", $selCat);
@@ -65,7 +65,7 @@ class CRM extends Lisem
     public function deleteCategory($filter = 'Sel')
     {
         $this->amGoingTo('Delete Category ' . $filter);
-        $this->amOnPage(constant('SILURL') . '/librinfo/crm/category/list');
+        $this->amOnPage(constant('SILURL') . '/sil/crm/category/list');
         $this->filterList($filter, 'name');
 
         // $this->testLink('Filtres');
