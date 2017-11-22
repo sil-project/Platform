@@ -1,9 +1,10 @@
 #!/usr/bin/env sh
 
-#!/usr/bin/env sh
+if [ $# -eq 0 ]
+then
+    bin/phpunit -v -c phpunit.xml --coverage-clover build/logs/clover.xml
+fi
 
-bin/phpunit -v -c phpunit.xml --coverage-clover build/logs/clover.xml
-#
 
 
 #bin/ci-scripts/do_it_for_bundle.sh run test
@@ -15,13 +16,13 @@ OUTPUTDIR=src/Tests/_output
 rm -rf $OUTPUTDIR/*.png
 rm -rf $OUTPUTDIR/*.html
 
-CODECEPTCMD="bin/codecept run Lisem -d --steps --fail-fast --no-interaction --no-exit"
+CODECEPTCMD="bin/codecept run Lisem -d --steps --fail-fast --no-interaction "
 
 
 CODECEPTGROUP=$@
 if [ $# -eq 0 ]
 then
-   CODECEPTGROUP="login " #menu user crm variety ecommerce" # all"
+   CODECEPTGROUP="login menu crm" #menu user crm variety ecommerce" # all"
 fi
 
 
