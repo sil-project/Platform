@@ -42,6 +42,11 @@ mv selenium-server-standalone-3.7.0.jar  ${HOME}/bin/selenium-server-standalone.
 #chmod u+x "${HOME}/bin/codecept"
 
 
+# Coveralls client install
+wget https://github.com/satooshi/php-coveralls/releases/download/v1.0.1/coveralls.phar --output-document="${HOME}/bin/coveralls"
+chmod u+x "${HOME}/bin/coveralls"
+
+
 
 # install nvm
 rm -rf $HOME/.nvm
