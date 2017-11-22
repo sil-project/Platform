@@ -2,7 +2,7 @@
 
 #!/usr/bin/env sh
 
-vendor/phpunit/phpunit/phpunit -v -c phpunit.xml.dist
+bin/phpunit -v -c phpunit.xml.dist
 #--coverage-clover build/logs/clover.xml
 
 
@@ -36,4 +36,3 @@ done
 # check output
 NBFAIL=$(find $OUTPUTDIR |grep fail|wc -w)
 exit $NBFAIL;
-

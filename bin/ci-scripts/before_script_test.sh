@@ -26,9 +26,10 @@ done
 echo $(date) " it look like selenium is started (waiting since " $sel_start_date ")";
 
 
-
-# start server as prod for travis timeout on dev...
-# bin/console server:stop
-bin/console cache:clear --no-interaction #--env=prod
-bin/console server:start --no-interaction 127.0.0.1:8042 #--env=prod
-
+if [ $# -eq 0 ]
+then
+    # start server as prod for travis timeout on dev...
+        # bin/console server:stop
+        bin/console cache:clear --no-interaction #--env=prod
+        bin/console server:start --no-interaction 127.0.0.1:8042 #--env=prod
+fi

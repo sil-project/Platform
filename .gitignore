@@ -26,6 +26,12 @@
 /web/assets/
 /web/config.php
 
+# vandor/bin
+/bin/*
+!/bin/console
+!/bin/ci-scripts
+!/bin/git-script
+
 # Build data
 /build/
 

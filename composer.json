@@ -82,7 +82,8 @@
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget"
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget",
+            "Blast\\Bundle\\CoreBundle\\Tools\\Patches\\Patcher::applyPatches"
         ],
         "post-install-cmd": [
             "@symfony-scripts",
@@ -92,6 +93,9 @@
             "@symfony-scripts",
              "@git-hook"
         ]
+    },
+    "config": {
+        "bin-dir": "bin"
     },
     "extra": {
         "symfony-app-dir": "app",
