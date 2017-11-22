@@ -2,7 +2,7 @@
 
 #!/usr/bin/env sh
 
-bin/phpunit -v -c phpunit.xml.dist --coverage-clover build/logs/clover.xml
+bin/phpunit -v -c phpunit.xml --coverage-clover build/logs/clover.xml
 #
 
 
