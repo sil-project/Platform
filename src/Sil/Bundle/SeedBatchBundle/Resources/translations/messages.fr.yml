@@ -41,7 +41,6 @@ sil:
                     seed_farm: Artisan Semancier
                     seedbatch: Lot
                     variety: Variété
-
             filter:
                 label:
                     code: Code
@@ -205,21 +204,32 @@ sil:
                 link:
                     list: Liste des Artisans Semancier
                     create: Nouvel Artisans Semancier
-            list:
-                label:
-            filter:
-                label:
             form:
                 label:
                     address: Addresse
+                    batch_number: Numéro de lot
                     city: Ville
                     code: Code
                     country: Pays
                     created_at: Créé le
+                    delivery_date: Date de livraison
+                    delivery_note: Note de livraison
                     description: Description
+                    germination_date: Date du test de germination
+                    germination_rate: taux de germination
+                    gross_delivered_weight: Poid brut livré
+                    gross_producer_weight: Poid brut chez le producteur
                     name: Nom
+                    net_screened_weight: Poid net trié
                     npai: NPAI
+                    plot: Parcelle
+                    production_year: Année de production
+                    seed_farm: Aartisan Semancier
+                    tkw_date: Date de la mesure
+                    tkw: Poid de mille graines
+                    to_screen_weight: Poid restant à trier
                     updated_at: Mis à jour le
+                    variety: Variété
                     zip: Code postal
             show:
                 label:
@@ -233,6 +243,103 @@ sil:
                     npai: NPAI
                     updated_at: Mis à jour le
                     zip: Code postal
+
+
+        seed_producer:
+            breadcrumb:
+                link:
+                    create: Nouveau producteur
+                    list: Liste des producteurs
+            filter:
+                label:
+                    active: Actif
+                    alert: Alerte
+                    category: Catégorie
+                    circles: Groupes
+                    culture: Culture
+                    customer_code: Code client
+                    email: Email
+                    email_no_newsletter: Pas de newsletter
+                    email_npai: NPAI
+                    fulltext_name: Nom complet
+                    is_customer: Est client
+                    is_individual: Est un individu
+                    is_supplier: Est un fournisseur
+                    name: Nom
+                    seed_producer_code: Code producteur
+                    supplier_code: Code fournisseur
+            form:
+                label:
+                    active: Actif
+                    alert: Alerte
+                    catalogue_send_mean: 'Méthode d''envoi'
+                    catalogue_sent: Catalogue envoyé
+                    catalogue_type: Type du catalogue
+                    circles: Groupes
+                    created_at: Créé le
+                    customer_code: Code client
+                    description: Description
+                    email: Email
+                    email_no_newsletter: Pas de newsletter
+                    email_npai: NPAI
+                    first_catalogue_sent_date: Date du premier envoi
+                    firstname: Prénom
+                    iban: IBAN
+                    is_customer: Est client
+                    is_supplier: Est un fournisseur
+                    last_catalogue_sent_date: Date du dernier envoi
+                    lastname: ~
+                    name: Nom
+                    seed_producer: Producteur
+                    seed_producer_code: Code producteur
+                    siret: SIRET
+                    source: Source
+                    supplier_code: Code fournisseur
+                    title: Titre / civilité
+                    updated_at: Mis à jour le
+                    url: URL
+                    vat: TVA
+            list:
+                label:
+                    action: Action
+                    active: Actif
+                    alert: Alerte
+                    circles: Groupes
+                    email: Email
+                    fulltext_name: Nom complet
+                    is_individual: Est un individu
+                    seed_producer_code: Code producteur
+                    seedproducer: Producteur
+            show:
+                label:
+                    active: Actif
+                    catalogue_send_mean: 'Méthode d''envoi'
+                    catalogue_sent: Catalogue envoyé
+                    category.name: Nom
+                    circles: Groupes
+                    created_at: Créé le
+                    description: Description
+                    email: Email
+                    first_catalogue_sent_date: Date du premier envoi
+                    fulltext_name: Nom complet
+                    iban: IBAN
+                    individuals: Individus
+                    is_customer: Est client
+                    is_seed_producer: Est producteur
+                    is_supplier: Est un fournisseur
+                    last_catalogue_sent_date: Date du dernier envoi
+                    plots: Parcelles
+                    seed_batches: Lots
+                    siret: SIRET
+                    source: Source
+                    updated_at: Mis à jour le
+                    vat: TVA
+                    individual: Individu
+                    organization: Organisation
+                    customer_code: Code client
+                    supplier_code: Code fournisseur
+                    seed_producer_code: Code producteur
+
 
 
     seedbatchbundle:

@@ -1,3 +1,8 @@
+sil:
+    email_crm:
+        menu_label:
+            organism: Tiers
+
 'Users': 'Utilisateurs'
 'Groups': 'Groupes'
 'Positions': 'Fonctions'

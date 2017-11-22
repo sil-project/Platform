@@ -9,14 +9,14 @@
         <input type="hidden" name="from_id" value="{{ object.id }}">
         <select id="new-email-recipients" name="recipient_ids" style="width: auto; height: auto;">
             {% if object.email %}
-                <optgroup label="{{ 'sil.label.organism'|trans }}">
+                <optgroup label="{{ 'sil.crm.organism.show.label.organism'|trans }}">
                 <option data-recipient-class="{{ admin.class }}" value="{{ object.id }}" selected="selected">
                     {{ object.name }} &lt;{{ object.email }}&gt;
                 </option>
             {% endif %}
 
             {% if object.positions|length %}
-                <optgroup label="{{ object.isIndividual ? 'sil.label.individuals'|trans : 'sil.label.organizations'|trans }}">
+                <optgroup label="{{ object.isIndividual ? 'sil.crm.organism.show.label.individuals'|trans : 'sil.crm.organism.show.label.organizations'|trans }}">
                 {% for position in object.positions if position.email %}
                     <option data-recipient-class="Sil\Bundle\CRMBundle\Entity\Position" value="{{ position.id }}">
                         {{ position }} &lt;{{ position.email }}&gt;
