@@ -9,6 +9,10 @@ PlatformBundle\Entity\SilCRMBundle\Organism:
             type:        boolean
             options:
                 default: false
+        emailCanonical:
+            type:       string
+            length:     255
+            nullable:   true
 
     oneToMany:
         seedBatches:

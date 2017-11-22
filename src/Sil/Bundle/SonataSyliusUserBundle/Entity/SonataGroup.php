@@ -15,12 +15,13 @@ use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\BaseEntity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Symfony\Component\Security\Core\User\AdvancedUserInterface;
+use Sylius\Component\Resource\Model\ResourceInterface;
 
 /**
  * @author Johannes M. Schmitt <schmittjoh@gmail.com>
  * @author Marcos Bezerra de Menezes <marcos.bezerra@libre-informatique.fr>
  */
-class SonataGroup implements SonataGroupInterface
+class SonataGroup implements SonataGroupInterface, ResourceInterface
 {
     use BaseEntity; // guidable and stringable
 
