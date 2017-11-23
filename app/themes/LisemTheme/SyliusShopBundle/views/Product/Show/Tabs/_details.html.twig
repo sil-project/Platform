@@ -1,0 +1,18 @@
+<div class="ui bottom attached tab segment active" data-tab="details">
+    {{ sonata_block_render_event('sylius.shop.product.show.tab_details', {'product': product}) }}
+    {% if product.variety is defined and product.variety is not null and product.variety.description is not empty %}
+        {% if product.variety.species is defined and product.variety.species.description is not empty %}
+            <h3>{{ product.variety.species.name|capitalize }} - <em>{{ product.variety.species.latinName|capitalize }}</em></h3>
+            {{ product.variety.species.description|raw }}
+        {% endif %}
+
+        <h3>{{ product.variety.name|capitalize }} - <em>{{ product.variety.latinName|capitalize }}</em></h3>
+        {{ product.variety.description|raw }}
+    {% else %}
+        {% if product.description is not empty %}
+            {{ product.description|raw }}
+        {% else %}
+            {{ 'sylius.ui.no_description'|trans }}.
+        {% endif %}
+    {% endif %}
+</div>

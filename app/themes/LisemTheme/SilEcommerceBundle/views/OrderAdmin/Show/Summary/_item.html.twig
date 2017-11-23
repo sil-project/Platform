@@ -1,0 +1,120 @@
+{% set orderPromotionAdjustment = constant('Sylius\\Component\\Core\\Model\\AdjustmentInterface::ORDER_PROMOTION_ADJUSTMENT') %}
+{% set itemPromotionAdjustment = constant('Sylius\\Component\\Core\\Model\\AdjustmentInterface::ORDER_ITEM_PROMOTION_ADJUSTMENT') %}
+{% set shippingAdjustment = constant('Sylius\\Component\\Core\\Model\\AdjustmentInterface::SHIPPING_ADJUSTMENT') %}
+{% set taxAdjustment = constant('Sylius\\Component\\Core\\Model\\AdjustmentInterface::TAX_ADJUSTMENT') %}
+
+{% set variant = item.variant %}
+{% set product = variant.product %}
+
+{% import "@SyliusShop/Common/Macro/money.html.twig" as money %}
+
+
+
+<tr class="product">
+    <td class="single line">
+        <div class="ui header">
+            {% include '@SyliusAdmin/Product/_mainImage.html.twig' with {'product': product, 'filter': 'sylius_admin_product_tiny_thumbnail'} %}
+            <div class="item-desc" style="display: inline-block">
+
+
+                {% if product.variety is defined and product.variety is not null %}
+                    {% set productLink = path('admin_sil_seeds_product_edit', {'id': product.id}) %}
+                {% else %}
+                    {% set productLink = path('admin_sil_other_product_edit', {'id': product.id}) %}
+                {% endif %}
+
+                <a href="{{ productLink }}" class="sylius-product-name">{{ product.name }}</a>
+                <span class="sub header sylius-product-variant-code">
+                    {{ variant.code }}
+                </span>
+                {% if product.hasOptions() %}
+                    <div class="ui horizontal divided list sylius-product-options">
+                        {% for optionValue in variant.optionValues %}
+                            <div class="item" data-sylius-option-name="{{ optionValue.name }}">
+                                {{ optionValue.value }}
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% elseif variant.name is not null %}
+                    <div class="ui horizontal divided list">
+                        <div class="item sylius-product-variant-name">
+                            {{ variant.name }}
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </td>
+    <td class="unit-price" style="text-align: right">
+        {{ money.convertAndFormat(item.unitPrice) }}
+    </td>
+    <td class="discounted-unit-price" style="text-align: right">
+        {{ money.convertAndFormat(item.discountedUnitPrice) }}
+    </td>
+    <td class="quantity" style="text-align: right">
+        {% if sm_can(object, 'confirm', 'sylius_order') and item.isBulk() %}
+            <form action="{{ path('sil_ecommerce.order.updateBulk') }}" method="POST" name="bulkQuantityUpdate_{{ item.id }}">
+                <div class="input-group">
+                    <span class="input-group-addon">{{'sil.help.quantity_in_grams'|trans}} :</span>
+                    <input type="text" class="form-control" value="{{item.quantity / 1000}}" placeholder="{{ 'sylius.ui.quantity'|trans }} (g)" name="bulkQuantity">
+                    <span class="input-group-btn">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fa fa-save"></i>
+                        </button>
+                    </span>
+                    <input type="hidden" name="order" value="{{ item.order.id }}" />
+                    <input type="hidden" name="item" value="{{ item.id }}" />
+                </div>
+            </form>
+        {% else %}
+            {% if item.isBulk() %}
+                {{ convertValueWithUnit(item.quantity, 'g', 'mg') }}
+            {% else %}
+                {{ item.quantity }}
+            {% endif %}
+        {% endif %}
+    </td>
+    <td class="subtotal" style="text-align: right">
+        {{ money.convertAndFormat(item.subtotal) }}
+    </td>
+    <td class="discount" style="text-align: right">
+        {{ money.convertAndFormat(item.getAdjustmentsTotalRecursively(orderPromotionAdjustment)) }}
+    </td>
+    <td class="tax" style="text-align: right">
+        {{ money.convertAndFormat(item.taxTotal) }}
+    </td>
+    <td class="total" style="text-align: right">
+        {{ money.convertAndFormat(item.total) }}
+    </td>
+    {% if sm_can(object, 'confirm', 'sylius_order') %}
+        <td class="actions" style="text-align: center">
+            {% if item.isBulk() %}
+                <a class="remove-from-cart btn btn-primary btn-small confirmable"
+                   data-confirm-action="triggerClick"
+                   data-confirm-title="{{'sil.confirm.delete_bulk_product'|trans}}"
+                   data-url="{{ path('sil_ecommerce.order.remove_item') }}"
+                   data-order-id="{{ object.id }}"
+                   data-item-id="{{ item.id }}"
+                >
+                    <i class="fa fa-trash"></i>
+                </a>
+            {% else %}
+                <a class="remove-from-cart btn btn-primary btn-small"
+                   data-url='{{ path('sil_ecommerce.order.remove_item') }}'
+                   data-order-id="{{ object.id }}"
+                   data-item-id="{{ item.id }}"
+                >
+                    <i class="fa fa-minus-circle"></i>
+                </a>
+                <a class="add-to-cart btn btn-primary btn-small"
+                   data-url='{{ path('sil_ecommerce.order.add_item') }}'
+                   data-order-id="{{ object.id }}"
+                   data-item-id="{{ item.id }}"
+                   data-variant-id="{{ item.variant.id }}"
+                >
+                    <i class="fa fa-plus-circle"></i>
+                </a>
+            {% endif %}
+        </td>
+    {% endif %}
+</tr>

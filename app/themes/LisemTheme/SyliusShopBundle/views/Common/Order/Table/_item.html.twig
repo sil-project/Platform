@@ -1,0 +1,18 @@
+{% import "@SyliusShop/Common/Macro/money.html.twig" as money %}
+
+<tr>
+    <td>
+        {% include '@SyliusShop/Product/_info.html.twig' with {'variant': item.variant} %}
+    </td>
+    <td>
+        <span class="sylius-unit-price">{{ money.format(item.unitPrice, order.currencyCode) }}</span>
+    </td>
+    <td class="center aligned">
+        {% if item.isBulk() %}
+            {{ convertValueWithUnit(item.quantity, 'g', 'mg') }}
+        {% else %}
+            {{ item.quantity }}
+        {% endif %}
+    </td>
+    <td class="right aligned">{{ money.format(item.subtotal, order.currencyCode) }}</td>
+</tr>

@@ -1,0 +1,36 @@
+<div id="sil-product-bulk-chooser" class="ui segment secondary">
+    <p>Choix du vrac</p>
+    <div class="inline fields">
+        <div class="sixteen wide field icon">
+            <i class="crop icon"></i>
+            <input pattern="[0-9,.]*" name="bulk-surface" placeholder="Surface" type="text" />
+        </div>
+        <div class="field">
+            <select name="bulk-surface-unit" class="ui dropdown normal compact" data-linked-field="bulk-surface" data-product-choice-ignore>
+                <option value="m2" data-ratio="1" selected="selected">m²</option>
+                <option value="ha" data-ratio="10000">ha</option>
+            </select>
+        </div>
+    </div>
+    <div class="inline fields">
+        <div class="sixteen wide field icon">
+            <i class="law icon"></i>
+            <input pattern="[0-9,.]*" name="bulk-weight" placeholder="Poid" type="text" />
+        </div>
+        <div class="field">
+            <select name="bulk-weight-unit" class="ui dropdown normal compact" data-linked-field="bulk-weight" data-product-choice-ignore>
+                <option value="g" data-ratio="1" selected="selected">g</option>
+                <option value="Kg" data-ratio="1000">Kg</option>
+            </select>
+        </div>
+    </div>
+    <input type=hidden name="product-variety-density"
+        value="{{ getDescriptionValue(product.variety, constant('Sil\\Bundle\\VarietyBundle\\Entity\\VarietyDescription::DESCRIPTION_AMATEUR'), 'sowing_density') }}"
+    />
+    {% if product.variety %}
+        <input type=hidden name="product-variety-tkw" value="{{ product.variety.tkw }}" />
+    {% else %}
+        <input type=hidden name="product-variety-tkw" value="0" />
+    {% endif %}
+    <input type=hidden name="product-is-bulk" value="0" />
+</div>

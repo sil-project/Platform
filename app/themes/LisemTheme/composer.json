@@ -1,0 +1,17 @@
+{
+    "name": "sil/lisem-theme",
+    "title": "Sylius LiSem",
+    "description": "Optional description here...",
+    "authors": [
+        {
+            "name": "Marcos Bezerra de Menezes <marcos.bezerra@libre-informatique.fr>",
+            "email": "marcos.bezerra@libre-informatique.fr",
+            "role": "Developer"
+        },
+        {
+            "name": "Libre Informatique",
+            "homepage": "http://www.libre-informatique.fr/"
+        }
+    ]
+
+}

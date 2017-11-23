@@ -1,0 +1,24 @@
+.ui.card > .image > img,
+.ui.cards > .card > .image > img {
+    /*max-width : 260px;*/
+    max-width : 100%;
+    max-height: 260px;
+    /*min-height: 260px;*/
+    margin    : 0 auto;
+    width     : auto;
+}
+
+.ui.fluid.card .blurring.dimmable.image .ui.fluid.image {
+    min-height: 261px;
+}
+
+#sil-product-bulk-chooser {
+    display: none;
+}
+
+#sylius-cart-items td.single.line div.image {
+    min-height: 80px;
+    max-height: 80px;
+    min-width : 80px;
+    max-width : 80px;
+}

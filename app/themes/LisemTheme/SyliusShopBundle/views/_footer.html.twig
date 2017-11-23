@@ -1,0 +1,25 @@
+<footer id="footer" class="ui inverted vertical footer segment">
+    <div class="ui container">
+        <div class="ui inverted divided equal height stackable grid">
+
+            {{ sonata_block_render_event('sylius.shop.layout.before_footer') }}
+
+            <div class="eight wide column left aligned">
+                <h4 class="ui inverted header">{{ 'sylius.ui.your_store'|trans }}</h4>
+                <div class="ui inverted link list">
+                    <a href="{{ path('sylius_shop_homepage') }}" class="item">{{ 'sylius.ui.latest_products'|trans }}</a>
+                    <a href="#" class="item">{{ 'sylius.ui.terms_and_conditions'|trans }}</a>
+                    <a href="{{ path('sylius_shop_contact_request') }}" class="item">{{ 'sylius.ui.contact_us'|trans }}</a>
+                </div>
+            </div>
+
+            <div class="eight wide column right aligned">
+                <h4 class="ui inverted header">&copy; {{ 'sylius.ui.your_store'|trans }}</h4>
+                <p>{{ 'sylius.ui.powered_by'|trans }} <a href="http://sylius.org" target="_blank" style="color: #1abb9c;">Sylius</a>.</p>
+            </div>
+
+            {{ sonata_block_render_event('sylius.shop.layout.after_footer') }}
+
+        </div>
+    </div>
+</footer>

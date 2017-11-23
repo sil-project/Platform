@@ -1,0 +1,12 @@
+{% extends 'SonataAdminBundle:CRUD:base_show_field.html.twig' %}
+
+{% block field_value %}
+    {% include '@SyliusAdmin/Common/_address.html.twig' with {'address': object.billingAddress} %}
+    {% if sm_can(object, 'confirm', 'sylius_order') %}
+        <div>
+            <a href="{{ path('admin_sil_crm_address_edit', {'id': object.billingAddress.id}) }}" class="ui icon labeled tiny fluid button openInModal">
+                <i class="pencil icon"></i> {{ 'sylius.ui.edit'|trans }}
+            </a>
+        </div>
+    {% endif %}
+{% endblock %}
