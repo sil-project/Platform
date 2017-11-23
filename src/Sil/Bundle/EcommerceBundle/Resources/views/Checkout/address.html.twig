@@ -16,7 +16,7 @@
                     {{ form_errors(form) }}
                     <input type="hidden" name="_method" value="PUT" />
 
-                    {% include '@LibrinfoEcommerce/Checkout/_form.html.twig' %}
+                    {% include '@SilEcommerce/Checkout/_form.html.twig' %}
                     <div class="ui hidden divider"></div>
 
                     {{ sonata_block_render_event('sylius.shop.checkout.address.before_navigation', {'order': order}) }}

@@ -26,7 +26,7 @@ imports:
     # - { resource: "@SilEmailBundle/Resources/config/app/config.yml" }         # overriden in app/config/vendors/sil.yml
 
     - { resource: "@SilSeedBatchBundle/Resources/config/app/config.yml" }
-    - { resource: "@SilEcommerceBundle/Resources/config/app/config.yml" }
+    # - { resource: "@SilEcommerceBundle/Resources/config/app/config.yml" }
     - { resource: "@SilCRMBundle/Resources/config/app/config.yml" }
     - { resource: "@SilMediaBundle/Resources/config/app/config.yml" }
     - { resource: "@SilSyliusPayboxBundle/Resources/config/app/config.yml" }

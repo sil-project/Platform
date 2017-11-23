@@ -26,7 +26,7 @@ PlatformBundle\Entity\SilCRMBundle\Organism:
             cascade: [ persist, remove ]
             orphanRemoval: true
         orders:
-            targetEntity: Sil\Bundle\EcommerceBundle\Entity\Order
+            targetEntity: Sil\Bundle\EcommerceBundle\Entity\OrderInterface
             mappedBy: customer
         addresses:
             targetEntity: Sil\Bundle\CRMBundle\Entity\AddressInterface

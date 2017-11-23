@@ -1,3 +1,9 @@
+parameters:
+    sonata.core.flashmessage.manager.class: Sil\Bundle\EcommerceBundle\Services\FlashManager
+
+imports:
+    - { resource: "@SilEcommerceBundle/Resources/config/app/state_machine.yml"}
+
 sylius_channel:
     driver: doctrine/orm
     resources:
@@ -65,6 +71,109 @@ sylius_customer:
         customer:
             classes:
                 model: PlatformBundle\Entity\SilCRMBundle\Organism
+        customer_group:
+            classes:
+                model: Sil\Bundle\EcommerceBundle\Entity\CustomerGroup
+
+fos_rest:
+    exception: ~
+    view:
+        formats:
+            json: true
+            xml:  true
+        empty_content: 204
+
+sylius_review:
+    resources:
+        product:
+            subject: "%sylius.model.product.class%"
+            review:
+                classes:
+                    model: Sil\Bundle\EcommerceBundle\Entity\ProductReview
+
+sylius_taxation:
+    resources:
+        tax_rate:
+            classes:
+                model: Sil\Bundle\EcommerceBundle\Entity\TaxRate
+
+sylius_addressing:
+    resources:
+        zone:
+            classes:
+                model: Sil\Bundle\EcommerceBundle\Entity\Zone
+
+sylius_core:
+    resources:
+        product_image:
+            classes:
+                model: Sil\Bundle\EcommerceBundle\Entity\ProductImage
+
+sylius_taxonomy:
+    resources:
+        taxon:
+            classes:
+                model: Sil\Bundle\EcommerceBundle\Entity\Taxon
+
+sylius_shipping:
+    driver: doctrine/orm
+    resources:
+        shipping_method:
+            classes:
+                model: Sil\Bundle\EcommerceBundle\Entity\ShippingMethod
+
+sylius_payment:
+    driver: doctrine/orm
+    resources:
+        payment:
+            classes:
+                model: Sil\Bundle\EcommerceBundle\Entity\Payment
+
+sylius_shop:
+    checkout_resolver:
+        pattern: /checkout/.+
+        route_map:
+            empty_order:
+                route: sylius_shop_cart_summary
+            cart:
+                route: sylius_shop_checkout_address_override
+            addressed:
+                route: sylius_shop_checkout_select_shipping
+            shipping_selected:
+                route: sylius_shop_checkout_select_payment
+            shipping_skipped:
+                route: sylius_shop_checkout_select_payment
+            payment_selected:
+                route: sylius_shop_checkout_complete
+            payment_skipped:
+                route: sylius_shop_checkout_complete
+
+liip_imagine:
+    filter_sets:
+        sylius_shop_product_original: ~
+        sylius_shop_product_tiny_thumbnail:
+            filters:
+                thumbnail: { size: [64, 64], mode: outbound, allow_upscale: true }
+        sylius_shop_product_small_thumbnail:
+            filters:
+                thumbnail: { size: [150, 112], mode: outbound, allow_upscale: true }
+        sylius_shop_product_thumbnail:
+            filters:
+                thumbnail: { size: [260, 260], mode: outbound, allow_upscale: true }
+        sylius_shop_product_large_thumbnail:
+            filters:
+                thumbnail: { size: [550, 412], mode: outbound, allow_upscale: true }
+
+knp_snappy:
+    #process_timeout: 20 # In seconds
+    pdf:
+        enabled: true
+        binary:  %kernel.project_dir%/vendor/h4cc/wkhtmltopdf-amd64/bin/wkhtmltopdf-amd64
+        options: []
+    image:
+        enabled: false
+        binary:  %kernel.project_dir%/vendor/h4cc/wkhtmltoimage-amd64/bin/wkhtmltoimage-amd64
+        options: []
 
 sil_crm:
     Circle:

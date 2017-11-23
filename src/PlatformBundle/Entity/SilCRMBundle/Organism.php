@@ -235,16 +235,6 @@ class Organism extends OrganismAbstract implements CustomerInterface, ReviewerIn
     protected $customer;
 
     /**
-     * @var string
-     */
-    protected $firstName;
-
-    /**
-     * @var string
-     */
-    protected $lastName;
-
-    /**
      * @var \DateTime
      */
     protected $birthday;
@@ -749,7 +739,7 @@ class Organism extends OrganismAbstract implements CustomerInterface, ReviewerIn
      */
     public function getFullName(): string
     {
-        return trim(sprintf('%s %s', $this->firstName, $this->lastName));
+        return trim(sprintf('%s %s', $this->firstname, $this->lastname));
     }
 
     /**
@@ -757,7 +747,7 @@ class Organism extends OrganismAbstract implements CustomerInterface, ReviewerIn
      */
     public function getFirstName(): ?string
     {
-        return $this->firstName;
+        return $this->firstname;
     }
 
     /**
@@ -765,7 +755,7 @@ class Organism extends OrganismAbstract implements CustomerInterface, ReviewerIn
      */
     public function setFirstName(?string $firstName): VOID
     {
-        $this->firstName = $firstName;
+        $this->firstname = $firstName;
     }
 
     /**
@@ -773,7 +763,7 @@ class Organism extends OrganismAbstract implements CustomerInterface, ReviewerIn
      */
     public function getLastName(): ?string
     {
-        return $this->lastName;
+        return $this->lastname;
     }
 
     /**
@@ -781,7 +771,7 @@ class Organism extends OrganismAbstract implements CustomerInterface, ReviewerIn
      */
     public function setLastName(?string $lastName): void
     {
-        $this->lastName = $lastName;
+        $this->lastname = $lastName;
     }
 
     /**
