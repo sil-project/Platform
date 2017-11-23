@@ -17,8 +17,8 @@ use Sil\Bundle\CRMBundle\Entity\OrganismInterface;
 
 class SeedProducerCodeGenerator implements CodeGeneratorInterface
 {
-    const ENTITY_CLASS = OrganismInterface::class;
-    const ENTITY_FIELD = 'seedProducerCode';
+    public static $ENTITY_CLASS;
+    public static $ENTITY_FIELD = 'seedProducerCode';
 
     private static $length = 3;
 

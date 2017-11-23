@@ -14,6 +14,7 @@ namespace Sil\Bundle\VarietyBundle\CodeGenerator;
 use Doctrine\ORM\EntityManager;
 use Blast\Bundle\CoreBundle\CodeGenerator\CodeGeneratorInterface;
 use Sil\Bundle\VarietyBundle\Entity\Species;
+use Sil\Bundle\VarietyBundle\Entity\SpeciesInterface;
 use Blast\Bundle\CoreBundle\Exception\InvalidEntityCodeException;
 
 class SpeciesCodeGenerator implements CodeGeneratorInterface
@@ -23,8 +24,8 @@ class SpeciesCodeGenerator implements CodeGeneratorInterface
      */
     private static $em;
 
-    const ENTITY_CLASS = 'Sil\Bundle\VarietyBundle\Entity\Species';
-    const ENTITY_FIELD = 'code';
+    public static $ENTITY_CLASS;
+    public static $ENTITY_FIELD = 'code';
 
     public static function setEntityManager(EntityManager $em)
     {
@@ -114,7 +115,7 @@ class SpeciesCodeGenerator implements CodeGeneratorInterface
             return !in_array($code, $existingCodes);
         }
 
-        $repo = self::$em->getRepository('Sil\Bundle\VarietyBundle\Entity\Species');
+        $repo = self::$em->getRepository(SpeciesInterface::class);
         $query = $repo->createQueryBuilder('s')->where('s.code = :code')->setParameter('code', $code);
         if ($speciesId) {
             $query->andWhere('s.id != :id')->setParameter('id', $speciesId);

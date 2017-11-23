@@ -31,14 +31,14 @@ services:
     sil_variety.code_generator.species:
         class: Sil\Bundle\VarietyBundle\CodeGenerator\SpeciesCodeGenerator
         factory:   ['@blast_core.code_generator_factory', create]
-        arguments: ['%sil_variety.code_generator.species%', '@doctrine.orm.entity_manager']
+        arguments: ['%sil_variety.code_generator.species%', '@doctrine.orm.entity_manager', '%sil_variety.entity.species.class%']
         tags:
             - { name: blast.entity_code_generator }
 
     sil_variety.code_generator.variety:
         class: Sil\Bundle\VarietyBundle\CodeGenerator\VarietyCodeGenerator
         factory:   ['@blast_core.code_generator_factory', create]
-        arguments: ['%sil_variety.code_generator.variety%', '@doctrine.orm.entity_manager']
+        arguments: ['%sil_variety.code_generator.variety%', '@doctrine.orm.entity_manager', '%sil_variety.entity.variety.class%']
         tags:
             - { name: blast.entity_code_generator }
 

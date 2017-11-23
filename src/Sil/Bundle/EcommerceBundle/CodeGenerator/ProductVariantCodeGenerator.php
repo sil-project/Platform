@@ -18,8 +18,8 @@ use Sil\Bundle\EcommerceBundle\Entity\ProductVariant;
 
 class ProductVariantCodeGenerator implements CodeGeneratorInterface
 {
-    const ENTITY_CLASS = 'Sil\Bundle\EcommerceBundle\Entity\ProductVariant';
-    const ENTITY_FIELD = 'code';
+    public static $ENTITY_CLASS;
+    public static $ENTITY_FIELD = 'code';
 
     private static $length = 3;
 

@@ -18,8 +18,8 @@ use Sil\Bundle\SeedBatchBundle\Entity\Plot;
 
 class PlotCodeGenerator implements CodeGeneratorInterface
 {
-    const ENTITY_CLASS = 'Sil\Bundle\SeedBatchBundle\Entity\Plot';
-    const ENTITY_FIELD = 'code';
+    public static $ENTITY_CLASS;
+    public static $ENTITY_FIELD = 'code';
 
     private static $length = 2;
 

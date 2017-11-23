@@ -18,8 +18,8 @@ use Sil\Bundle\SeedBatchBundle\Entity\SeedBatch;
 
 class SeedBatchCodeGenerator implements CodeGeneratorInterface
 {
-    const ENTITY_CLASS = 'Sil\Bundle\SeedBatchBundle\Entity\SeedBatch';
-    const ENTITY_FIELD = 'code';
+    public static $ENTITY_CLASS;
+    public static $ENTITY_FIELD = 'code';
 
     private static $length = 3;
 

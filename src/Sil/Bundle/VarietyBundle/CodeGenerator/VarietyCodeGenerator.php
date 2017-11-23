@@ -14,6 +14,7 @@ namespace Sil\Bundle\VarietyBundle\CodeGenerator;
 use Doctrine\ORM\EntityManager;
 use Blast\Bundle\CoreBundle\CodeGenerator\CodeGeneratorInterface;
 use Sil\Bundle\VarietyBundle\Entity\Variety;
+use Sil\Bundle\VarietyBundle\Entity\VarietyInterface;
 use Blast\Bundle\CoreBundle\Exception\InvalidEntityCodeException;
 
 class VarietyCodeGenerator implements CodeGeneratorInterface
@@ -23,8 +24,8 @@ class VarietyCodeGenerator implements CodeGeneratorInterface
      */
     private static $em;
 
-    const ENTITY_CLASS = 'Sil\Bundle\VarietyBundle\Entity\Variety';
-    const ENTITY_FIELD = 'code';
+    public static $ENTITY_CLASS;
+    public static $ENTITY_FIELD = 'code';
 
     public static function setEntityManager(EntityManager $em)
     {
@@ -145,7 +146,7 @@ class VarietyCodeGenerator implements CodeGeneratorInterface
             return !in_array($code, $existingCodes);
         }
 
-        $repo = self::$em->getRepository('Sil\Bundle\VarietyBundle\Entity\Variety');
+        $repo = self::$em->getRepository(VarietyInterface::class);
         $query = $repo->createQueryBuilder('v')
                ->where('v.code = :code')
                ->setParameter('code', $code);

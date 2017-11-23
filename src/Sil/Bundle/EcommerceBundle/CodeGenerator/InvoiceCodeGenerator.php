@@ -22,8 +22,8 @@ use Sil\Bundle\EcommerceBundle\Entity\Invoice;
  */
 class InvoiceCodeGenerator implements CodeGeneratorInterface
 {
-    const ENTITY_CLASS = 'Sil\Bundle\EcommerceBundle\Entity\Invoice';
-    const ENTITY_FIELD = 'number';
+    public static $ENTITY_CLASS;
+    public static $ENTITY_FIELD = 'number';
 
     // TODO: this should be in app configuration:
     public static $codePrefix = '';

@@ -9,7 +9,7 @@ services:
     sil_ecommerce.code_generator.product_variant:
         class: Sil\Bundle\EcommerceBundle\CodeGenerator\ProductVariantCodeGenerator
         factory:   ['@blast_core.code_generator_factory', create]
-        arguments: ['%sil_ecommerce.code_generator.product_variant%', '@doctrine.orm.entity_manager']
+        arguments: ['%sil_ecommerce.code_generator.product_variant%', '@doctrine.orm.entity_manager', '%sil_ecommerce.entity.product_variant.class%']
         calls:
             - ['setRequestStack',['@request_stack']]
             - ['setPackagingRepo',['@sylius.repository.product_option_value']]
@@ -19,7 +19,7 @@ services:
     sil_ecommerce.code_generator.product_variant_embedded:
         class: Sil\Bundle\EcommerceBundle\CodeGenerator\ProductVariantEmbeddedCodeGenerator
         factory:   ['@blast_core.code_generator_factory', create]
-        arguments: ['%sil_ecommerce.code_generator.product_variant_embedded%', '@doctrine.orm.entity_manager']
+        arguments: ['%sil_ecommerce.code_generator.product_variant_embedded%', '@doctrine.orm.entity_manager', '%sil_ecommerce.entity.product_variant.class%']
         calls:
             - ['setRequestStack',['@request_stack']]
             - ['setPackagingRepo',['@sylius.repository.product_option_value']]
