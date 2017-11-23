@@ -16,6 +16,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Sil\Bundle\EcommerceBundle\Entity\Product;
 use Sil\Bundle\EcommerceBundle\Entity\ProductImage;
+use Sil\Bundle\EcommerceBundle\Entity\ProductInterface;
 use Sil\Bundle\MediaBundle\Entity\FileInterface;
 
 /**
@@ -108,14 +109,14 @@ class ProductCRUDController extends CRUDController
         $image = $this
             ->getDoctrine()
             ->getManager()
-            ->getRepository('SilEcommerceBundle:ProductImage')
+            ->getRepository(ProductImage::class)
             ->findOneBy(['realFile' => $imageId]);
 
         if ($image) {
             $product = $this
                 ->getDoctrine()
                 ->getManager()
-                ->getRepository('SilEcommerceBundle:Product')
+                ->getRepository(ProductInterface::class)
                 ->findOneBy(['id' => $image->getOwner()]);
 
             foreach ($product->getImages() as $img) {

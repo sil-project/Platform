@@ -12,6 +12,7 @@
 namespace Sil\Bundle\EcommerceBundle\Controller;
 
 use Blast\Bundle\CoreBundle\Controller\CRUDController;
+use Sil\Bundle\EcommerceBundle\Entity\OrderInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -99,7 +100,7 @@ class InvoiceCRUDController extends CRUDController
     public function generateAction(Request $request, $order_id)
     {
         $manager = $this->getDoctrine()->getManager();
-        $repo = $manager->getRepository('SilEcommerceBundle:Order');
+        $repo = $manager->getRepository(OrderInterface::class);
 
         $order = $repo->find($order_id);
         if (!$order) {

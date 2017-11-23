@@ -35,6 +35,7 @@ sil:
                     created_at: Créé le
                     created_by: Créé par
                     description: Description
+                    latin_name: Nom latin
                     name: Nom
                     updated_at: Mis à jour le
                     updated_by: Mis à jour par
@@ -44,6 +45,7 @@ sil:
                     alias: Synonymes
                     family: Famille
                     genuses: Genres
+                    latin_name: Nom latin
                     name: Nom
             show:
                 label:
@@ -52,6 +54,7 @@ sil:
                     created_by: Créé par
                     description: Description
                     genuses: Genres
+                    latin_name: Nom latin
                     name: Nom
                     updated_at: Mis à jour le
                     updated_by: Mis à jour par
@@ -63,9 +66,9 @@ sil:
                     list: Liste des genres
             filter:
                 label:
-                    family.name: Nom
+                    family.name: Famille
                     name: Nom
-                    specieses.name: Nom
+                    specieses.name: Espèces
             form:
                 label:
                     alias: Synonymes
@@ -73,6 +76,7 @@ sil:
                     created_by: Créé par
                     description: Description
                     family: Famille
+                    latin_name: Nom latin
                     name: Nom
                     updated_at: Mis à jour le
                     updated_by: Mis à jour par
@@ -83,6 +87,7 @@ sil:
                     description: Description
                     family: Famille
                     genus: Genre
+                    latin_name: Nom latin
                     name: Nom
                     specieses: Espèces
             show:
@@ -91,6 +96,7 @@ sil:
                     created_at: Créé le
                     created_by: Créé par
                     description: Description
+                    latin_name: Nom latin
                     name: Nom
                     specieses: Espèces
                     updated_at: Mis à jour le
@@ -134,18 +140,20 @@ sil:
             form:
                 label:
                     alias: Synonymes
-                    categories: Catégories
                     code: Code
                     created_at: Créé le
                     created_by: Créé par
-                    cycle: Cycle de vie
                     description: Description
-                    duration: Durée
                     genus: Genre
-                    lifespan: Durée de vie
+                    germination_rate: Taux de germination
+                    latin_name: Nom latin
+                    legal_germination_rate: Taux de germination légal
+                    life_cycle: Cycle de vie
                     name: Nom
-                    rate: Taux de germination
-                    species: Espèces
+                    parent_species: Espèce parente
+                    plant_categories: Catégories de plante
+                    raise_duration: Durée
+                    seed_lifespan: Durée de vie
                     tkw: Poids de mille graines
                     updated_at: Mis à jour le
                     updated_by: Mis à jour par
@@ -160,17 +168,19 @@ sil:
             show:
                 label:
                     alias: Synonymes
-                    categories: Catégories
                     code: Code
                     created_at: Créé le
                     created_by: Créé par
-                    cycle: Cycle de vie
                     description: Description
-                    duration: Durée
                     genus: Genre
-                    lifespan: Durée de vie
+                    germination_rate: Taux de germination
+                    latin_name: Nom latin
+                    legal_germination_rate: Taux de germination légal
+                    life_cycle: Cycle de vie
                     name: Nom
-                    rate: Taux de germination
+                    plant_categories: Catégories de plante
+                    raise_duration: Durée
+                    seed_lifespan: Durée de vie
                     species: Espèces
                     subspecieses: Sous-espèces
                     tkw: Poids de mille graines

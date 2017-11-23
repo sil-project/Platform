@@ -15,6 +15,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sil\Bundle\EmailBundle\Entity\EmailReceipt;
+use Sil\Bundle\EmailBundle\Entity\EmailInterface;
 use Sil\Bundle\EmailBundle\Entity\EmailLink;
 
 class TrackingController extends Controller
@@ -73,7 +74,7 @@ class TrackingController extends Controller
 
         $this->initManager();
 
-        $email = $this->manager->getRepository('SilEmailBundle:Email')->find($emailId);
+        $email = $this->manager->getRepository(EmailInterface::class)->find($emailId);
 
         if (!$email) {
             return;
@@ -104,7 +105,7 @@ class TrackingController extends Controller
 
         $this->initManager();
 
-        $email = $this->manager->getRepository('SilEmailBundle:Email')->find($emailId);
+        $email = $this->manager->getRepository(EmailInterface::class)->find($emailId);
 
         if (!$email) {
             return;

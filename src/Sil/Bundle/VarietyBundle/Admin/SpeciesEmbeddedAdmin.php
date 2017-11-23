@@ -23,6 +23,6 @@ class SpeciesEmbeddedAdmin extends CoreAdmin
      */
     protected $translationLabelPrefix = 'sil.variety.species';
 
-    protected $baseRouteName = 'admin_sil_VarietyBundle_speciesembeddedadmin';
-    protected $baseRoutePattern = 'sil/speciesembedded';
+    protected $baseRouteName = 'admin_sil_variety_speciesembeddedadmin';
+    protected $baseRoutePattern = 'sil/variety/speciesembedded';
 }

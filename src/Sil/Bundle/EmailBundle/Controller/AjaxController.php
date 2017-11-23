@@ -13,6 +13,8 @@ namespace Sil\Bundle\EmailBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Sil\Bundle\EmailBundle\Entity\EmailTemplate;
+use Sil\Bundle\MediaBundle\Entity\FileInterface;
 
 class AjaxController extends Controller
 {
@@ -23,7 +25,7 @@ class AjaxController extends Controller
      */
     public function getEmailTemplateAction($templateId)
     {
-        $repo = $this->getDoctrine()->getRepository('SilEmailBundle:EmailTemplate');
+        $repo = $this->getDoctrine()->getRepository(EmailTemplate::class);
         $template = $repo->find($templateId);
 
         return new Response($template->getContent(), 200);
@@ -36,7 +38,7 @@ class AjaxController extends Controller
      */
     public function addToContentAction($fileId)
     {
-        $repo = $this->getDoctrine()->getRepository('SilMediaBundle:File');
+        $repo = $this->getDoctrine()->getRepository(FileInterface::class);
 
         $file = $repo->find($fileId);
 

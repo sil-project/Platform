@@ -14,6 +14,7 @@ namespace Sil\Bundle\VarietyBundle\Controller;
 use Blast\Bundle\CoreBundle\Exception\InvalidEntityCodeException;
 use Blast\Bundle\UtilsBundle\Form\Type\CustomChoiceType;
 use Sil\Bundle\MediaBundle\Controller\CRUDController as BaseCRUDController;
+use Sil\Bundle\VarietyBundle\Entity\SpeciesInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -23,7 +24,7 @@ class VarietyCRUDController extends BaseCRUDController
     public function hierarchyAction($id)
     {
         $species = $this->get('doctrine')
-                ->getRepository('SilVarietyBundle:Species')
+                ->getRepository(SpeciesInterface::class)
                 ->find($id)
             ;
 

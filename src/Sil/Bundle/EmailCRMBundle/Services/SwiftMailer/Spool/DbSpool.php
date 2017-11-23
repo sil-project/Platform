@@ -14,6 +14,7 @@ namespace Sil\Bundle\EmailCRMBundle\Services\SwiftMailer\Spool;
 use Sil\Bundle\EmailBundle\Services\SwiftMailer\Spool\DbSpool as BaseDbSpool;
 use Sil\Bundle\EmailBundle\Services\SwiftMailer\Spool\SpoolStatus;
 use Sil\Bundle\EmailBundle\Services\InlineAttachments;
+use Sil\Bundle\EmailBundle\Entity\EmailInterface;
 use Sil\Bundle\EmailCRMBundle\Services\SwiftMailer\DecoratorPlugin\Replacements;
 use Sil\Bundle\EmailCRMBundle\Services\AddressManager;
 use Doctrine\ORM\EntityManager;
@@ -39,7 +40,7 @@ class DbSpool extends BaseDbSpool
         $this->router = $router;
         $this->manager = $manager;
         $this->environment = $environment;
-        $this->repository = $this->manager->getRepository('SilEmailBundle:Email');
+        $this->repository = $this->manager->getRepository(EmailInterface::class);
         $this->addressManager = $addressManager;
     }
 

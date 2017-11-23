@@ -12,6 +12,7 @@
 namespace Sil\Bundle\EmailCRMBundle\Services\SwiftMailer\DecoratorPlugin;
 
 use Doctrine\ORM\EntityManager;
+use Sil\Bundle\CRMBundle\Entity\OrganismInterface;
 
 class Replacements implements \Swift_Plugins_Decorator_Replacements
 {
@@ -34,7 +35,7 @@ class Replacements implements \Swift_Plugins_Decorator_Replacements
      */
     public function getReplacementsFor($address)
     {
-        $organism = $this->manager->getRepository('SilCRMBundle:Organism')->findOneBy(array('email' => $address));
+        $organism = $this->manager->getRepository(OrganismInterface::class)->findOneBy(array('email' => $address));
 
         if ($organism) {
             if ($organism->isIndividual()) {

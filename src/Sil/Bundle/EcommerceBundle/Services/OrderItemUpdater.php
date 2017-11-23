@@ -18,6 +18,7 @@ use Sylius\Bundle\MoneyBundle\Formatter\MoneyFormatterInterface;
 use SM\Factory\Factory;
 use Sylius\Component\Order\Processor\CompositeOrderProcessor;
 use Sil\Bundle\EcommerceBundle\StateMachine\OrderTransitions;
+use Sil\Bundle\EcommerceBundle\Entity\OrderInterface;
 
 /**
  * Manage order item quantity.
@@ -97,7 +98,7 @@ class OrderItemUpdater
     {
         $remove = false;
         $lastItem = false;
-        $orderRepo = $this->em->getRepository('SilEcommerceBundle:Order');
+        $orderRepo = $this->em->getRepository(OrderInterface::class);
         $itemRepo = $this->em->getRepository($this->orderItemClass);
 
         $order = $orderRepo->find($orderId);

@@ -15,6 +15,7 @@ use Doctrine\ORM\EntityManager;
 use Symfony\Bundle\FrameworkBundle\Routing\Router;
 use Sil\Bundle\EmailBundle\Services\Tracking;
 use Sil\Bundle\EmailBundle\Services\InlineAttachments;
+use Sil\Bundle\EmailBundle\Entity\EmailInterface;
 
 /**
  * Class DbSpool.
@@ -56,7 +57,7 @@ class DbSpool extends \Swift_ConfigurableSpool
         $this->router = $router;
         $this->manager = $manager;
         $this->environment = $environment;
-        $this->repository = $this->manager->getRepository('SilEmailBundle:Email');
+        $this->repository = $this->manager->getRepository(EmailInterface::class);
     }
 
     /**

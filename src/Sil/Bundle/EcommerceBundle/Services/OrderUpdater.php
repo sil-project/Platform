@@ -19,6 +19,8 @@ use Sylius\Component\Order\Processor\CompositeOrderProcessor;
 use SM\Factory\Factory;
 use Sil\Bundle\EcommerceBundle\Entity\Product;
 use Sil\Bundle\EcommerceBundle\Entity\ProductVariant;
+use Sil\Bundle\EcommerceBundle\Entity\OrderInterface;
+use Sil\Bundle\EcommerceBundle\Entity\ProductVariantInterface;
 
 /**
  * Add products to existing order.
@@ -89,7 +91,7 @@ class OrderUpdater
     {
         //Retrieve order
         $order = $this->em
-            ->getRepository('SilEcommerceBundle:Order')
+            ->getRepository(OrderInterface::class)
             ->find($orderId);
 
         $orderStateMachine = $this->smFactory->get($order, 'sylius_order');
@@ -100,7 +102,7 @@ class OrderUpdater
             //Retrieve product variant
             /** @var ProductVariant $variant * */
             $variant = $this->em
-                ->getRepository('SilEcommerceBundle:ProductVariant')
+                ->getRepository(ProductVariantInterface::class)
                 ->find($variantId);
 
             $optionCode = $variant->getOptionValues()->first() ? $variant->getOptionValues()->first()->getOption()->getCode() : false;

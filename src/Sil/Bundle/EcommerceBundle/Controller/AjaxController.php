@@ -12,6 +12,7 @@
 namespace Sil\Bundle\EcommerceBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Sil\Bundle\EcommerceBundle\Entity\OrderInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\PropertyAccess\PropertyAccessor;
@@ -32,7 +33,7 @@ class AjaxController extends Controller
     {
         $value = $request->get('value');
         $manager = $this->getDoctrine()->getManager();
-        $repo = $manager->getRepository('SilEcommerceBundle:Order');
+        $repo = $manager->getRepository(OrderInterface::class);
 
         $order = $repo->find($request->get('id'));
 

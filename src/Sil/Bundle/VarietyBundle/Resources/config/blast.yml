@@ -291,12 +291,13 @@ parameters:
 
         Sil\Bundle\VarietyBundle\Entity\SpeciesInterface:
             Sonata\AdminBundle\Show\ShowMapper:
+                forceTabs: true
                 remove:
                     description: ~
                     name: ~
                 add:
                     form_tab_general:
-                        '':
+                        form_group_general:
                             name: ~
                             code: ~
                             latin_name: ~
@@ -319,6 +320,10 @@ parameters:
                             seed_lifespan: ~
                             raise_duration: ~
                             tkw: ~
+                    _options:
+                        tabsOrder:
+                            - form_tab_general
+                            - form_tab_history
                     _helper_links:
                         - url: https://framacalc.org/libio_validation_varietes
                           title: Framacalc de validation (Variétés)
@@ -410,7 +415,7 @@ parameters:
                                     class: inline-block
                                     width: 50
                             tkw:
-                                help: sil.help.tkw
+                                help: sil.variety.variety.form.help.tkw
                                 attr:
                                     class: inline-block
                                     width: 50
@@ -438,6 +443,10 @@ parameters:
                             groupsOrder:
                                 - form_group_identification
                                 - form_group_description
+                    _options:
+                        tabsOrder:
+                            - form_tab_general
+                            - form_tab_history
                     _helper_links:
                         - url: https://framacalc.org/libio_validation_varietes
                           title: Framacalc de validation (Variétés)
@@ -569,7 +578,7 @@ parameters:
                                 attr:
                                     class: inline-block
                             tkw:
-                                help: sil.help.tkw
+                                help: sil.variety.variety.form.help.tkw
                                 attr:
                                     class: new-line
                                     width: 30
@@ -828,7 +837,7 @@ parameters:
                                     class: inline-block
                                     width: 33
                             tkw:
-                                help: sil.help.tkw
+                                help: sil.variety.variety.form.help.tkw
                                 attr:
                                     class: inline-block
                                     width: 33

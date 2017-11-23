@@ -26,7 +26,7 @@ class UploadControllerEventListener extends BaseUploadControllerEventListener
 
     public function preGetEntity(GenericEvent $event)
     {
-        $repo = $this->em->getRepository('SilEcommerceBundle:ProductImage');
+        $repo = $this->em->getRepository(ProductImage::class);
 
         $productImage = $repo->findOneBy(['id'=>$event->getSubject()['context']['id']]);
 
@@ -47,7 +47,7 @@ class UploadControllerEventListener extends BaseUploadControllerEventListener
     public function removeEntity(GenericEvent $event)
     {
         $file = $event->getSubject();
-        $repo = $this->em->getRepository('SilEcommerceBundle:ProductImage');
+        $repo = $this->em->getRepository(ProductImage::class);
         $productImage = $repo->findOneBy(['realFile' => $file]);
 
         if ($productImage !== null) {
