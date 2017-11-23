@@ -117,6 +117,11 @@ class Lisem extends Common
         /* @todo maybe move text to string */
         //$this->clickWithLeftButton('//div[@id="select2-drop"]/ul/li/div[text()="' . $value . '"]');
         $this->waitForElementVisible('//div[@id="select2-drop"]/ul/li/div[text()="' . $value . '"]');
+
+        // Little hack to scroll to element to be selected before clicking it
+        $this->executeJS("jQuery('#select2-drop .select2-results').scrollTo(jQuery('#select2-drop .select2-results').find('.select2-result-label:contains(\"$value\")').position().top);");
+        $this->wait(1);
+
         $this->click('//div[@id="select2-drop"]/ul/li/div[text()="' . $value . '"]');
         $this->waitCube();
     }

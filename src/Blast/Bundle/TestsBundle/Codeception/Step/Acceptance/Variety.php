@@ -37,7 +37,7 @@ class Variety extends Lisem
         $speciesName = $this->getRandName() . '-species-name';
 
         $this->amGoingTo('Create Species ' . $speciesName);
-        $this->amOnPage(constant('SILURL') . '/sil/variety/species/create');
+        $this->amOnPage(constant('SILURL') . '/platform/silvarietybundle-species/create');
         $this->fillField("//input[contains(@id,'name')]", $speciesName);
         $this->selectDrop('_genus', $genusName);
         $this->fillField("//input[contains(@id,'latin_name')]", 'latium-' . $speciesName);
@@ -54,7 +54,7 @@ class Variety extends Lisem
         $genusName = $this->getRandName() . '-genus';
 
         $this->amGoingTo('Create Genus ' . $genusName);
-        $this->amOnPage(constant('SILURL') . '/sil/variety/genus/create');
+        $this->amOnPage(constant('SILURL') . '/platform/silvarietybundle-genus/create');
         $this->fillField("//input[contains(@id,'name')]", $genusName);
         $this->fillField("//textarea[contains(@id,'description')]", $genusName . '-desc');
         $this->selectDrop('_family', $familyName);
@@ -68,7 +68,7 @@ class Variety extends Lisem
         $familyName = $this->getRandName() . '-family';
 
         $this->amGoingTo('Create Family ' . $familyName);
-        $this->amOnPage(constant('SILURL') . '/sil/variety/family/create');
+        $this->amOnPage(constant('SILURL') . '/platform/silvarietybundle-family/create');
         $this->fillField("//input[contains(@id,'name')]", $familyName);
         $this->fillField("//input[contains(@id,'latin_name')]", 'latium-' . $familyName);
         // $this->fillField("//textarea[contains(@id,'description')]", $familyName . '-desc');
