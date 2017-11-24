@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 sudo apt-get install lynx
-for i in tests/_output/*.html
+for i in src/Tests/_output/*.html
 do
     echo '========================================'
     echo $i
@@ -9,4 +9,3 @@ do
     lynx -dump $i
     echo '========================================'
 done
-
