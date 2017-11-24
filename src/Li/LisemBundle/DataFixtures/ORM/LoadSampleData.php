@@ -127,11 +127,11 @@ class LoadSampleData extends AbstractFixture implements OrderedFixtureInterface,
         }));
 
         // Codes
-        $customerCodeGenerator = $registry->getCodeGenerator(OrganismInterface::class, 'customerCode');
-        $supplierCodeGenerator = $registry->getCodeGenerator(OrganismInterface::class, 'supplierCode');
-        $producerCodeGenerator = $registry->getCodeGenerator(OrganismInterface::class, 'seedProducerCode');
-        $plotCodeGenerator = $registry->getCodeGenerator(Plot::class, 'code');
-        $seedBatchCodeGenerator = $registry->getCodeGenerator(SeedBatch::class, 'code');
+        $customerCodeGenerator = $registry->getCodeGenerator($this->container->getParameter('sil_crm.entity.organism.class'), 'customerCode');
+        $supplierCodeGenerator = $registry->getCodeGenerator($this->container->getParameter('sil_crm.entity.organism.class'), 'supplierCode');
+        $producerCodeGenerator = $registry->getCodeGenerator($this->container->getParameter('sil_crm.entity.organism.class'), 'seedProducerCode');
+        $plotCodeGenerator = $registry->getCodeGenerator($this->container->getParameter('sil_seed_batch.entity.plot.class'), 'code');
+        $seedBatchCodeGenerator = $registry->getCodeGenerator($this->container->getParameter('sil_seed_batch.entity.seed_batch.class'), 'code');
         foreach ($objects as $object) {
             if ($object instanceof OrganismInterface) {
                 if ($object->isCustomer()) {
