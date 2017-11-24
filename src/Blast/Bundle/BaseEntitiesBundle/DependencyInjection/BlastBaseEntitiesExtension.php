@@ -35,7 +35,6 @@ class BlastBaseEntitiesExtension extends BlastCoreExtension
             'labelable',
             'emailable',
             'descriptible',
-            'searchable',
             'loggable',
             'sortable',
             'normalize',
@@ -79,13 +78,13 @@ class BlastBaseEntitiesExtension extends BlastCoreExtension
                 ->addTag('kernel.event_subscriber');
         }
 
-        if (array_key_exists('entity_search_indexes', $config)) {
-            $mergedConfig = $config['entity_search_indexes'];
-            if ($container->hasParameter('blast_base_entities.entity_search_indexes')) {
-                $mergedConfig = array_merge($container->getParameter('blast_base_entities.entity_search_indexes') ?: [], $mergedConfig);
+        if (array_key_exists('entity_searchable_indexes', $config)) {
+            $mergedConfig = $config['entity_searchable_indexes'];
+            if ($container->hasParameter('blast_base_entities.entity_searchable_indexes')) {
+                $mergedConfig = array_merge($container->getParameter('blast_base_entities.entity_searchable_indexes') ?: [], $mergedConfig);
             }
 
-            $container->setParameter('blast_base_entities.entity_search_indexes', $mergedConfig);
+            $container->setParameter('blast_base_entities.entity_searchable_indexes', $mergedConfig);
         }
 
         return $this;

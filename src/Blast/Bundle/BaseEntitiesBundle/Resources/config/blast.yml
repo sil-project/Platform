@@ -150,61 +150,9 @@ parameters:
                 remove:
                     id: ~
 
-#        Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Treeable:
-#            Sonata\AdminBundle\Show\ShowMapper:
-#                _copy: Sonata\AdminBundle\Form\FormMapper
-#            Sonata\AdminBundle\Form\FormMapper:
-#                add:
-#                    form_tab_general:
-#                        '':
-#                            parentNode: ~
-#                                type: blast_baseentities_treeable  # ???
-
         Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Sortable:
             Sonata\AdminBundle\Datagrid\ListMapper:
                 add:
                     sortRank:
                         type: sort_rank
                     _extra_templates: [BlastBaseEntitiesBundle:CRUD:list_extra_sortable.html.twig]
-
-       ### DOCTRINE ###
-
-        ### SearchIndexEntity  ###
-        Blast\Bundle\BaseEntitiesBundle\Entity\SearchIndexEntity:
-            # SHOW
-            Sonata\AdminBundle\Show\ShowMapper:
-                add:
-                    main_tab:
-                        main_group:
-                            id: ~
-                            field: ~
-                            keyword: ~
-
-            # FORM
-            Sonata\AdminBundle\Form\FormMapper:
-                add:
-                    main_tab:
-                        main_group:
-                            id: ~
-                            field: ~
-                            keyword: ~
-
-            # LIST
-            Sonata\AdminBundle\Datagrid\ListMapper:
-                add:
-                    id: ~
-                    field: ~
-                    keyword: ~
-
-                    _actions:
-                        show: ~
-                        edit: ~
-                        delete: ~
-                        duplicate:
-                            template: BlastCoreBundle:CRUD:list__action_duplicate.html.twig
-            # FILTERS
-            Sonata\AdminBundle\Datagrid\DatagridMapper:
-                add:
-                    id: ~
-                    field: ~
-                    keyword: ~

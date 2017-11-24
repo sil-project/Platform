@@ -17,14 +17,20 @@ use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Sonata\AdminBundle\Form\Type\ModelAutocompleteType;
 use Blast\Bundle\BaseEntitiesBundle\Form\DataTransformer\ModelToIdTransformer;
+use Blast\Bundle\BaseEntitiesBundle\Search\SearchHandler;
 
 /**
  * Form type that uses search indexes for entity search autocompletion.
  *
  * @author Romain SANCHEZ <romain.sanchez@libre-informatique.fr>
  */
-class SearchIndexAutocompleteType extends ModelAutocompleteType
+class SearchableAutocompleteType extends ModelAutocompleteType
 {
+    /**
+     * @var SearchHandler
+     */
+    protected $searchHandler;
+
     /**
      * {@inheritdoc}
      */
@@ -68,18 +74,14 @@ class SearchIndexAutocompleteType extends ModelAutocompleteType
         };
 
         $callback = function ($admin, $property, $value) {
-            $searchIndex = $admin->getClass() . 'SearchIndex';
+
+            $this->indexSearch($searchText, $maxResults)
             $datagrid = $admin->getDatagrid();
             $queryBuilder = $datagrid->getQuery();
             $alias = $queryBuilder->getRootalias();
 
-            $queryBuilder
-                ->leftJoin($searchIndex, 's', 'WITH', $alias . '.id = s.object')
-                ->where('s.keyword LIKE :value')
-                ->setParameter('value', "%$value%")
-            ;
-
-            // $datagrid->setValue($property, null, $value);
+            // @TODO: Refactor this query
+            return $this->searchHandler->getSearchQueryBuilder($value, null);
         };
 
         $resolver->setDefaults(array(
@@ -125,7 +127,7 @@ class SearchIndexAutocompleteType extends ModelAutocompleteType
      */
     public function getBlockPrefix()
     {
-        return 'blast_search_index_autocomplete';
+        return 'blast_searchable_autocomplete';
     }
 
     /**
@@ -134,5 +136,13 @@ class SearchIndexAutocompleteType extends ModelAutocompleteType
     public function getName()
     {
         return $this->getBlockPrefix();
+    }
+
+    /**
+     * @param SearchHandler $searchHandler
+     */
+    public function setSearchHandler(SearchHandler $searchHandler): void
+    {
+        $this->searchHandler = $searchHandler;
     }
 }

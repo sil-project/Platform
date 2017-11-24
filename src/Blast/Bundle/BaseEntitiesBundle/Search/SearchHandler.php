@@ -48,59 +48,6 @@ class SearchHandler
         $this->_class = $class;
     }
 
-    public function getSearchIndexClass()
-    {
-        return $this->_entityName . 'SearchIndex';
-    }
-
-    public function getSearchIndexTable()
-    {
-        return $this->_em->getClassMetadata($this->getSearchIndexClass())->getTableName();
-    }
-
-    /**
-     * Does a batch update of the whole search index table.
-     */
-    public function batchUpdate()
-    {
-        if ($this->_entityName === null) {
-            throw new \Exception('Please call « handleEntity(ClassMetadata $class) » before using this handler');
-        }
-        if (!$this->truncateTable()) {
-            throw new \Exception('Could not truncate table ' . $this->getSearchIndexTable());
-        }
-        $em = $this->_em;
-        $indexClass = $this->getSearchIndexClass();
-
-        $batchSize = 100;
-        $offset = 0;
-        $query = $this->_em->createQueryBuilder()
-            ->select('o')
-            ->from($this->_entityName, 'o')
-            ->setMaxResults($batchSize);
-
-        do {
-            $query->setFirstResult($offset);
-            $entities = $query->getQuery()->execute();
-            foreach ($entities as $entity) {
-                $fields = $this->searchIndexes[$this->_class->getName()]['fields'];
-                foreach ($fields as $field) {
-                    $keywords = $entity->analyseField($field);
-                    foreach ($keywords as $keyword) {
-                        $index = new $indexClass();
-                        $index->setObject($entity);
-                        $index->setField($field);
-                        $index->setKeyword($keyword);
-                        $em->persist($index);
-                    }
-                }
-            }
-
-            $em->flush();
-            $offset += $batchSize;
-        } while (count($entities) > 0);
-    }
-
     /**
      * Find the entities that have the appropriate keywords in their searchIndex.
      *
@@ -109,7 +56,7 @@ class SearchHandler
      *
      * @return Collection found entities
      */
-    public function indexSearch($searchText, $maxResults)
+    public function indexSearch($entityClass, $searchText, $maxResults = -1, $queryBuilder = null)
     {
         // split the phrase into words
         $words = SearchAnalyser::analyse($searchText);
@@ -117,48 +64,50 @@ class SearchHandler
             return [];
         }
 
-        $query = $this->_em->createQueryBuilder()
-            ->select('o')
-            ->from($this->_entityName, 'o')
-            ->setMaxResults($maxResults);
-
-        $parameters = [];
-        foreach ($words as $k => $word) {
-            $subquery = $this->_em->createQueryBuilder()
-                ->select("i$k.keyword")
-                ->from($this->getSearchIndexClass(), "i$k")
-                ->where("i$k.object = o")
-                ->andWhere("i$k.keyword ILIKE :search$k");
-            $query->andWhere($query->expr()->exists($subquery->getDql()));
-            $parameters["search$k"] = '%' . $word . '%';
+        if ($queryBuilder === null) {
+            $queryBuilder = $this->getSearchQueryBuilder();
         }
-        $query->setParameters($parameters);
 
-        $results = $query->getQuery()->execute();
+        $this->alterSearchQueryBuilder($queryBuilder, $words, $maxResults);
+
+        $results = $queryBuilder->getQuery()->execute();
 
         return $results;
     }
 
-    /**
-     * Truncates the search index table.
-     *
-     * @return bool true if success
-     */
-    public function truncateTable()
+    public function getSearchQueryBuilder()
     {
-        $connection = $this->_em->getConnection();
-        $dbPlatform = $connection->getDatabasePlatform();
-        $connection->beginTransaction();
-        try {
-            $q = $dbPlatform->getTruncateTableSql($this->getSearchIndexTable());
-            $connection->executeUpdate($q);
-            $connection->commit();
+        return $this->_em->createQueryBuilder();
+    }
 
-            return true;
-        } catch (\Exception $e) {
-            $connection->rollback();
-
-            return false;
+    public function alterSearchQueryBuilder(&$queryBuilder, $searchText, $maxResults = -1)
+    {
+        if (!is_array($searchText)) {
+            $searchText = SearchAnalyser::analyse($searchText);
         }
+
+        $parameters = [];
+        $orModule = $queryBuilder->expr()->orx();
+        foreach ($this->getIndexesForClass($this->_class) as $field) {
+            foreach ($searchText as $k => $word) {
+                $orModule->add($queryBuilder->expr()->like('o.' . $field, ':word_' . $k));
+                $parameters["word_$k"] = '%' . $word . '%';
+            }
+        }
+
+        $queryBuilder->andWhere($orModule);
+        $queryBuilder->setParameters($parameters);
+
+        return $queryBuilder;
+    }
+
+    public function getIndexesForClass(ClassMetadata $entityClass): array
+    {
+        dump($entityClass, $this->searchIndexes);
+        if (array_key_exists($entityClass->name, $this->searchIndexes)) {
+            return $this->searchIndexes[$entityClass->name]['fields'];
+        }
+
+        return [];
     }
 }

@@ -18,7 +18,7 @@ class SonataSyliusUser extends Lisem
     public function createUser($username = 'sel-user', $email = 'sel-user@lisem.eu', $password = 'sel-user')
     {
         $this->amGoingTo('Create User ' . $username . '( with email' . $email . ' and password ' . $password . ')');
-        $this->amOnPage(constant('SILURL') . '/sil/sonatasyliususer/sonatauser/list');
+        $this->amOnPage(constant('SILURL') . '/platform/silsonatasyliususerbundle-sonatauser/list');
         $this->testLink('Ajouter', "Nom d'utilisateur");
         $this->fillField("//input[contains(@id, 'username')]", $username);
         $this->fillField("//input[contains(@id, 'firstName')]", $username . '-first');

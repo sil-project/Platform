@@ -1,6 +1,7 @@
 blast_base_entities:
-    entity_search_indexes:
-        Sil\Bundle\SeedBatchBundle\Entity\SeedBatch:
+    entity_searchable_indexes:
+        -
+            class: '%sil_seed_batch.entity.seed_batch.class%'
             fields:
                 - variety
                 - producer

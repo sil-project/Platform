@@ -67,7 +67,7 @@ parameters:
                                     admin_code: sil_variety.admin.variety
                                     translation_domain: messages
                             producer:
-                                type: Blast\Bundle\BaseEntitiesBundle\Form\Type\SearchIndexAutocompleteType
+                                type: Blast\Bundle\BaseEntitiesBundle\Form\Type\SearchableAutocompleteType
                                 property: fulltextName
                                 callback: [Sil\Bundle\SeedBatchBundle\Admin\SeedProducerAdmin, producerAutocompleteCallback]
                                 required: true

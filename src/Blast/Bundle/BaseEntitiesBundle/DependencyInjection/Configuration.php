@@ -33,7 +33,7 @@ class Configuration implements ConfigurationInterface
             ->append($this->getVendorNode('orm'))
             ->append($this->getVendorNode('odm')) // not tested yet
             ->children()
-                ->arrayNode('entity_search_indexes')
+                ->arrayNode('entity_searchable_indexes')
                     ->useAttributeAsKey('class')
                     ->prototype('array')
                         ->children()

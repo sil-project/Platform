@@ -5,7 +5,7 @@ sil:
 
         menu_label:
             sonata_user: Utilisateur
-            
+
         sonata_user:
             breadcrumb:
                 link:
@@ -22,7 +22,7 @@ sil:
                     locked: Vérrouillé
                     roles: Rôles
                     sonatauser: Utilisateur
-                    username: Nom d''utilisateur
+                    username: 'Nom d''utilisateur'
             filter:
                 label:
                     email: Email
@@ -32,7 +32,7 @@ sil:
                     last_name: Nom
                     locked: Vérrouillé
                     roles: Rôles
-                    username: Nom d''utilisateur
+                    username: 'Nom d''utilisateur'
             form:
                 label:
                     email: Email
@@ -43,7 +43,7 @@ sil:
                     last_name: Nom
                     locked: Vérrouillé
                     roles: Rôles
-                    username: Nom d''utilisateur
+                    username: 'Nom d''utilisateur'
             show:
                 label:
                     email: Email
@@ -54,7 +54,7 @@ sil:
                     last_name: Nom
                     locked: Vérrouillé
                     roles: Rôles
-                    username: Nom d''utilisateur
+                    username: 'Nom d''utilisateur'
 
 User account is locked.: Compte utilisateur désactivé
 form_group_password: Mot de passe

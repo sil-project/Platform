@@ -13,7 +13,6 @@ namespace Blast\Bundle\BaseEntitiesBundle\Entity\Traits;
 
 use Symfony\Component\PropertyAccess\PropertyAccess;
 use Doctrine\Common\Collections\ArrayCollection;
-use Blast\Bundle\BaseEntitiesBundle\Entity\SearchIndexEntity;
 use Blast\Bundle\BaseEntitiesBundle\Search\SearchAnalyser;
 
 trait Searchable
@@ -28,14 +27,14 @@ trait Searchable
         $this->searchIndexes = new ArrayCollection();
     }
 
-    public function addSearchIndex(SearchIndexEntity $searchIndex)
+    public function addSearchIndex($searchIndex)
     {
         $this->searchIndexes->add($searchIndex);
 
         return $this;
     }
 
-    public function removeSearchIndex(SearchIndexEntity $searchIndex)
+    public function removeSearchIndex($searchIndex)
     {
         $this->searchIndexes->removeElement($searchIndex);
     }

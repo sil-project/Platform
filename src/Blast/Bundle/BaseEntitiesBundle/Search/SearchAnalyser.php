@@ -47,7 +47,12 @@ class SearchAnalyser
         $text = preg_replace('/\s+/', ' ', $text);
 
         if ($text) {
-            return explode(' ', $text);
+            $words = explode(' ', $text);
+            if (!is_array($words)) {
+                $words = [$text];
+            }
+
+            return $words;
         }
 
         return [];

@@ -65,13 +65,11 @@ class SeedProducerAdmin extends OrganismAdmin
     public static function producerAutocompleteCallback(AbstractAdmin $admin, $property, $value)
     {
         $datagrid = $admin->getDatagrid();
-        $qb = $datagrid->getQuery();
+        $queryBuilder = $datagrid->getQuery();
 
-        $searchIndex = $admin->getClass() . 'SearchIndex';
-
-        $qb
-            ->leftJoin($searchIndex, 's', 'WITH', $qb->getRootAlias() . '.id = s.object')
-            ->where('s.keyword LIKE :value')
-            ->setParameter('value', "%$value%");
+        // @TODO: Refactor this callback
+        $searchHandler = $admin->getConfigurationPool()->getContainer()->get('blast_base_entities.search_handler');
+        $searchHandler->handleEntity($admin->getModelManager()->getMetadata($admin->getClass()));
+        $searchHandler->alterSearchQueryBuilder($queryBuilder, $value);
     }
 }

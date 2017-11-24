@@ -72,7 +72,7 @@ blast_doctrine:
             searchable: true
             loggable: true
     # List of entity search-able indexed fields
-    entity_search_indexes:
+    entity_searchable_indexes:
         Me\MyBundle\Entity\MyEntity:
             fields:
                 - name
@@ -86,7 +86,7 @@ blast_doctrine:
 
 Add/remove the needed behaviours for each orm connection used by your application.
 
-Under `entity_search_indexes` key, you can set search indexes for each entity that should be indexable.
+Under `entity_searchable_indexes` key, you can set search indexes for each entity that should be indexable.
 
 ## Learn how to use the bundle
 

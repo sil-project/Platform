@@ -219,6 +219,9 @@ This is quite trivial, this event listener appends data before persisting entiti
 
 Searchable trait
 ================
+
+WARNING: This documentation is not up to date
+
 The searchable trait creates a database index (on a distinct table) for searching entities by keywords.
 The keywords are automatically updated each time an entity is created / updated / deleted.
 

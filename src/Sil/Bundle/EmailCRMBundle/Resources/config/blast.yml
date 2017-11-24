@@ -35,14 +35,14 @@ parameters:
                     form_group_general:
                         '':
                             organizations:
-                                type: Blast\Bundle\BaseEntitiesBundle\Form\Type\SearchIndexAutocompleteType
+                                type: Blast\Bundle\BaseEntitiesBundle\Form\Type\SearchableAutocompleteType
                                 callback: Sil\Bundle\CRMBundle\Admin\PositionAdmin::organizationsCallback
                                 multiple: true
                                 required: false
                                 _options:
                                     admin_code: sil_crm.admin.organism
                             individuals:
-                                type: Blast\Bundle\BaseEntitiesBundle\Form\Type\SearchIndexAutocompleteType
+                                type: Blast\Bundle\BaseEntitiesBundle\Form\Type\SearchableAutocompleteType
                                 callback: Sil\Bundle\CRMBundle\Admin\PositionAdmin::individualsCallback
                                 multiple: true
                                 required: false

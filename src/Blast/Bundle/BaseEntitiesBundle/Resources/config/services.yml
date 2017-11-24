@@ -83,14 +83,6 @@ services:
             - [setLogger, ['@logger']]
             - [setClassAnalyser, [Blast\Bundle\CoreBundle\Tools\Reflection\ClassAnalyzer]]
 
-# Service that manages Searchable doctrine mapping
-    blast_base_entities.listener.searchable:
-        class: Blast\Bundle\BaseEntitiesBundle\EventListener\SearchableListener
-        calls:
-            - [setLogger, ['@logger']]
-            - [setClassAnalyser, [Blast\Bundle\CoreBundle\Tools\Reflection\ClassAnalyzer]]
-            - [setClassFields, ['%blast_base_entities.entity_search_indexes%']]
-
 # Service that manages Loggable doctrine behaviour
     blast_base_entities.listener.loggable:
         class: Blast\Bundle\BaseEntitiesBundle\Loggable\LoggableListener
@@ -148,10 +140,12 @@ services:
         tags:
             - { name: form.type, alias: blast_nested_treeable }
 
-    blast_base_entities.form.type.search_index_autocomplete:
-        class: Blast\Bundle\BaseEntitiesBundle\Form\Type\SearchIndexAutocompleteType
+    blast_base_entities.form.type.searchable_autocomplete:
+        class: Blast\Bundle\BaseEntitiesBundle\Form\Type\SearchableAutocompleteType
+        calls:
+            - [setSearchHandler, ['@blast_base_entities.search_handler']]
         tags:
-            - { name: form.type, alias: blast_search_index_autocomplete }
+            - { name: form.type, alias: blast_searchable_autocomplete }
 
 # ###################################################################################
 #
@@ -164,4 +158,4 @@ services:
 
     blast_base_entities.search_handler:
         class: Blast\Bundle\BaseEntitiesBundle\Search\SearchHandler
-        arguments: ['@doctrine.orm.entity_manager', '%blast_base_entities.entity_search_indexes%']
+        arguments: ['@doctrine.orm.entity_manager', '%blast_base_entities.entity_searchable_indexes%']

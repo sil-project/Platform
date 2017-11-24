@@ -1,0 +1,2 @@
+parameters:
+    sil_seed_batch.entity.seed_batch.class:             LisemBundle\Entity\SilSeedBatchBundle\SeedBatch
