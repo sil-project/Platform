@@ -145,13 +145,6 @@ parameters:
                     _actions:
                         shop_link:
                             template: 'SilEcommerceBundle:CRUD:list__action_shop_link.html.twig'
-                        # variants:
-                        #     template: 'SilEcommerceBundle:CRUD:list__action_variants.html.twig'
-                    _export_formats:
-                        csv: [code, name, available]
-                        xls: csv
-                        json: csv
-                        xml: csv
             Sonata\AdminBundle\Datagrid\DatagridMapper:
                 add:
                     translations.name: ~
@@ -251,7 +244,12 @@ parameters:
                             depth: ~
                             weight: ~
                         _options:
-                            groupsOrder: [form_group_general,form_group_pricing,form_group_options,form_group_properties,form_group_stock]
+                            groupsOrder:
+                                - form_group_general
+                                - form_group_pricing
+                                - form_group_options
+                                - form_group_properties
+                                - form_group_stock
             # LIST
             Sonata\AdminBundle\Datagrid\ListMapper:
                 add:
@@ -285,11 +283,6 @@ parameters:
                             - onHand
                             - onHold
                             - tracked
-                    _export_formats:
-                        csv: [code, name, available]
-                        xls: csv
-                        json: csv
-                        xml: csv
             # FILTER
             Sonata\AdminBundle\Datagrid\DatagridMapper:
                 add:
