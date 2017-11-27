@@ -104,7 +104,7 @@ class DbSpool extends BaseDbSpool
                 } catch (\Swift_TransportException $e) {
                     $email->setStatus(SpoolStatus::STATUS_READY);
                     $this->updateEmail($email);
-                    dump($e->getMessage());
+                    // dump($e->getMessage());
                 }
             }
             $email->setStatus(SpoolStatus::STATUS_COMPLETE);

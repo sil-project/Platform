@@ -103,7 +103,6 @@ class SearchHandler
 
     public function getIndexesForClass(ClassMetadata $entityClass): array
     {
-        dump($entityClass, $this->searchIndexes);
         if (array_key_exists($entityClass->name, $this->searchIndexes)) {
             return $this->searchIndexes[$entityClass->name]['fields'];
         }

@@ -53,7 +53,7 @@ class SeedBatch extends Lisem
         $seedBatchName = $this->getRandName() . '-seedbatch';
 
         $this->amGoingTo('Create Seed Batch' . $seedBatchName);
-        $this->amOnPage(constant('SILURL') . '/sil/seedbatch/seedbatch/create');
+        $this->amOnPage(constant('SILURL') . '/lisem/silseedbatchbundle-seedbatch/create');
         $this->selectSearchDrop('_variety_autocomplete_input', $varietyName);
         $this->selectSearchDrop('_producer_autocomplete_input', $producerName);
         $this->fillField("//input[contains(@id,'_productionYear')]", '1913');
