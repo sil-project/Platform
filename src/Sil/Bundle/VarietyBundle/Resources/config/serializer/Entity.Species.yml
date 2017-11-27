@@ -10,7 +10,7 @@ Sil\Bundle\VarietyBundle\Entity\Species:
             exclude: true
         updatedBy:
             exclude: true
-        plant_categories: 
+        plant_categories:
                 expose: true
                 map:
                     plant_category: id

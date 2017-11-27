@@ -103,18 +103,18 @@ class VarietyAdmin extends CoreAdmin
                 $variety->setParent(null);
             }
         }
+    }
 
-//        $config = $this->getConfigurationPool()->getContainer()->getParameter('sil_variety')['variety_descriptions'];
-//
-//        foreach($config as $fieldset => $field){
-//            $getter = 'get' . ucfirst($fieldset) . 'Descriptions';
-//            $setter = 'set' . ucfirst($fieldset) . 'Descriptions';
-//
-//            $descs = $variety->$getter();
-//
-//            foreach($descs as $key =>$desc)
-//                if($desc->getValue() == null || $desc->getValue() == '' || $desc->getValue() == 0)
-//                    unset($descs[$key]);
-//        }
+    public function getExportFields()
+    {
+        return [
+            'name'           => 'name',
+            'latin_name'     => 'latin_name',
+            'code'           => 'code',
+            'species.name'   => 'species.name',
+            'parent.name'    => 'parent.name',
+            'parent.code'    => 'parent.code',
+            'alias'          => 'alias',
+        ];
     }
 }
