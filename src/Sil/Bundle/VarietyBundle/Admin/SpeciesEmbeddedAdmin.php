@@ -25,4 +25,20 @@ class SpeciesEmbeddedAdmin extends CoreAdmin
 
     protected $baseRouteName = 'admin_sil_variety_speciesembeddedadmin';
     protected $baseRoutePattern = 'sil/variety/speciesembedded';
+
+    public function getExportFields()
+    {
+        return [
+            'name',
+            'latin_name',
+            'alias',
+            'code',
+            'species.name',
+            'description',
+            'parent.name',
+            'parent.code',
+            'created_at',
+            'updated_at',
+        ];
+    }
 }

@@ -21,7 +21,7 @@ class SpeciesAdmin extends CoreAdmin
      * @var string
      */
     protected $translationLabelPrefix = 'sil.variety.species';
-    
+
     /**
      * @param ErrorElement $errorElement
      * @param mixed        $object
@@ -49,5 +49,21 @@ class SpeciesAdmin extends CoreAdmin
                     ->addViolation('Wrong species code format')
                 ->end();
         }
+    }
+
+    public function getExportFields()
+    {
+        return [
+            'name',
+            'latin_name',
+            'alias',
+            'code',
+            'species.name',
+            'description',
+            'parent.name',
+            'parent.code',
+            'created_at',
+            'updated_at',
+        ];
     }
 }

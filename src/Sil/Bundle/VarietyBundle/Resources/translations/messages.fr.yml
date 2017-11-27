@@ -58,7 +58,14 @@ sil:
                     name: Nom
                     updated_at: Mis à jour le
                     updated_by: Mis à jour par
-
+            export:
+                label:
+                    name: Nom
+                    latin_name: Nom latin
+                    alias: Synonymes
+                    description: Description
+                    created_at: Créé le
+                    updated_at: Mis à jour le
         genus:
             breadcrumb:
                 link:
@@ -101,7 +108,15 @@ sil:
                     specieses: Espèces
                     updated_at: Mis à jour le
                     updated_by: Mis à jour par
-
+            export:
+                label:
+                    name: Nom
+                    latin_name: Nom latin
+                    alias: Synonymes
+                    family.name: Famille
+                    description: Description
+                    created_at: Créé le
+                    updated_at: Mis à jour le
         plant_category:
             breadcrumb:
                 link:
@@ -187,7 +202,14 @@ sil:
                     updated_at: Mis à jour le
                     updated_by: Mis à jour par
                     varieties: Variétés
-
+            export:
+                label:
+                    name: Nom
+                    latin_name: Nom latin
+                    alias: Synonymes
+                    description: Description
+                    created_at: Créé le
+                    updated_at: Mis à jour le
         variety:
             breadcrumb:
                 link:
@@ -547,7 +569,18 @@ sil:
                     transmitted_diseases: Maladies transmises par les semences
                     updated_at: Mis à jour le
                     updated_by: Mis à jour par
-
+            export:
+                label:
+                    name: Nom
+                    latin_name: Nom latin
+                    alias: Synonymes
+                    code: Code
+                    species.name: Espèce
+                    description: Description
+                    parent.name: Variété parente
+                    parent.code: Code Variété parente
+                    created_at: Créé le
+                    updated_at: Mis à jour le
 form_group_amateur: Conseils de culture pour les jardiniers amateurs
 form_group_commercial: Commercial
 form_group_culture: Culture

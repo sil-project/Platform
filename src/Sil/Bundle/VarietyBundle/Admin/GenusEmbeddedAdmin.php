@@ -22,4 +22,20 @@ class GenusEmbeddedAdmin extends CoreAdmin
      * @var string
      */
     protected $translationLabelPrefix = 'sil.variety.genus';
+
+    protected $baseRouteName = 'admin_sil_variety_genusembeddedadmin';
+    protected $baseRoutePattern = 'sil/variety/genusembedded';
+
+    public function getExportFields()
+    {
+        return [
+            'name',
+            'latinName',
+            'alias',
+            'family.name',
+            'description',
+            'createdAt',
+            'updatedAt',
+        ];
+    }
 }

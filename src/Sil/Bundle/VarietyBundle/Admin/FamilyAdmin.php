@@ -22,4 +22,16 @@ class FamilyAdmin extends CoreAdmin
      * @var string
      */
     protected $translationLabelPrefix = 'sil.variety.family';
+
+    public function getExportFields()
+    {
+        return [
+            'name',
+            'latinName',
+            'alias',
+            'description',
+            'createdAt',
+            'updatedAt',
+        ];
+    }
 }

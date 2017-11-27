@@ -97,11 +97,6 @@ parameters:
                     alias: ~
                     genuses:
                         admin_code: sil_variety.admin.genus
-                    _export_formats:
-                        csv: [name, latinName, alias, description, createdAt, updatedAt]
-                        xls: csv
-                        json: csv
-                        xml: csv
                     _helper_links:
                         - url: https://framacalc.org/libio_validation_varietes
                           title: Framacalc de validation (Variétés)
@@ -216,11 +211,6 @@ parameters:
                             - family
                             - specieses
                             - description
-                    _export_formats:
-                        csv: [name, latinName, alias, family, description, createdAt, updatedAt]
-                        xls: csv
-                        json: csv
-                        xml: csv
                     _helper_links:
                         - url: https://framacalc.org/libio_validation_varietes
                           title: Framacalc de validation (Variétés)
@@ -468,11 +458,6 @@ parameters:
                             - name
                             - latin_name
                             - alias
-                    _export_formats:
-                        csv: [name, latinName, alias, description, createdAt, updatedAt]
-                        xls: csv
-                        json: csv
-                        xml: csv
                     _helper_links:
                         - url: https://framacalc.org/libio_validation_varietes
                           title: Framacalc de validation (Variétés)
@@ -1152,11 +1137,6 @@ parameters:
                             - latin_name
                             - is_strain
                             - several_strains
-                    _export_formats:
-                        csv: [name, latinName, alias, species.name, description, createdAt, updatedAt]
-                        xls: csv
-                        json: csv
-                        xml: csv
 #####################
 # VARIETY DESCRIPTION
 #####################

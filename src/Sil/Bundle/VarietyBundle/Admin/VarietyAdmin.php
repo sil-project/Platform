@@ -108,13 +108,13 @@ class VarietyAdmin extends CoreAdmin
     public function getExportFields()
     {
         return [
-            'name'           => 'name',
-            'latin_name'     => 'latin_name',
-            'code'           => 'code',
-            'species.name'   => 'species.name',
-            'parent.name'    => 'parent.name',
-            'parent.code'    => 'parent.code',
-            'alias'          => 'alias',
+            'name',
+            'latin_name',
+            'code',
+            'species.name',
+            'parent.name',
+            'parent.code',
+            'alias',
         ];
     }
 }

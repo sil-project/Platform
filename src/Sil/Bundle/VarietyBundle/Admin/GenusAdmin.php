@@ -19,4 +19,17 @@ class GenusAdmin extends CoreAdmin
      * @var string
      */
     protected $translationLabelPrefix = 'sil.variety.genus';
+
+    public function getExportFields()
+    {
+        return [
+            'name',
+            'latinName',
+            'alias',
+            'family.name',
+            'description',
+            'createdAt',
+            'updatedAt',
+        ];
+    }
 }
