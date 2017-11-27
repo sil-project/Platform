@@ -18,11 +18,6 @@ parameters:
                             - field_to
                             - field_subject
                             - sent
-                    _export_formats:
-                        csv: [ field_from, field_to, field_subject, field_cc, field_bcc, textContent, createdAt, updatedAt]
-                        xls: csv
-                        json: csv
-                        xml: csv
                     _helper_links:
                         - url: https://framacalc.org/libio_validation_crm
                           title: Framacalc de validation (CRM)

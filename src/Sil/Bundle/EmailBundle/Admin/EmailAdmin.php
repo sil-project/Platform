@@ -147,4 +147,18 @@ class EmailAdmin extends CoreAdmin
 
         return array_merge($parentParams, $params);
     }
+
+    public function getExportFields()
+    {
+        return [
+            'field_from',
+            'field_to',
+            'field_subject',
+            'field_cc',
+            'field_bcc',
+            'textContent',
+            'createdAt',
+            'updatedAt',
+        ];
+    }
 }
