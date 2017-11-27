@@ -13,6 +13,7 @@ namespace Sil\Bundle\EcommerceBundle\Dashboard\Stats;
 
 use Sil\Bundle\EcommerceBundle\Entity\Order;
 use Sil\Bundle\EcommerceBundle\Entity\OrderItem;
+use Sil\Bundle\EcommerceBundle\Entity\OrderInterface;
 use Sylius\Component\Order\Model\Adjustment;
 use Sylius\Component\Core\Model\AdjustmentInterface;
 use Sil\Bundle\EcommerceBundle\Entity\Payment;
@@ -57,7 +58,7 @@ class RawQueries extends AbstractStats
     private function init(): void
     {
         if (!$this->orderTableName) {
-            $this->orderTableName = $this->doctrine->getManager()->getClassMetadata(Order::class)->getTableName();
+            $this->orderTableName = $this->doctrine->getManager()->getClassMetadata(OrderInterface::class)->getTableName();
         }
 
         if (!$this->orderItemsTableName) {

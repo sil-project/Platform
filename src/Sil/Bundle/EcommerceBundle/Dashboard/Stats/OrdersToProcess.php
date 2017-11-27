@@ -11,14 +11,13 @@
 
 namespace Sil\Bundle\EcommerceBundle\Dashboard\Stats;
 
-use Sil\Bundle\EcommerceBundle\Entity\Order;
 use Sil\Bundle\EcommerceBundle\Entity\OrderInterface;
 
 class OrdersToProcess extends AbstractStats
 {
     public function getData(array $parameters = []): array
     {
-        $orderRepo = $this->doctrine->getRepository(Order::class);
+        $orderRepo = $this->doctrine->getRepository(OrderInterface::class);
 
         $query = $orderRepo->createQueryBuilder('o');
         $query
