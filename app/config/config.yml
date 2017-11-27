@@ -14,9 +14,9 @@ imports:
 
     # BLAST Bundles
 
+    - { resource: "@BlastCoreBundle/Resources/config/config.yml" }
     # - { resource: "@BlastBaseEntitiesBundle/Resources/config/app/config.yml" }# overriden in app/config/vendors/blast.yml
     # - { resource: "@BlastResourceBundle/Resources/config/app/config.yml" }    # overriden in app/config/vendors/blast.yml
-    - { resource: "@BlastCoreBundle/Resources/config/config.yml" }
     - { resource: "@BlastUtilsBundle/Resources/config/app/config.yml" }
 
     # SIL Bundles

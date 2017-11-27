@@ -70,7 +70,6 @@ class Configuration implements ConfigurationInterface
                     ->scalarNode('labelable')->defaultFalse()->end()
                     ->scalarNode('emailable')->defaultFalse()->end()
                     ->scalarNode('descriptible')->defaultFalse()->end()
-                    ->scalarNode('searchable')->defaultFalse()->end()
                     ->scalarNode('loggable')->defaultFalse()->end()
                     ->scalarNode('sortable')->defaultFalse()->end()
                     ->scalarNode('normalize')->defaultFalse()->end()

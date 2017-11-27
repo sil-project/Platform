@@ -11,7 +11,6 @@ blast_base_entities:
             labelable:       true
             emailable:       true
             descriptible:    true
-            searchable:      false
             loggable:        true
             sortable:        true
             normalize:       true
