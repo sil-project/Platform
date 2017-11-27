@@ -1084,11 +1084,6 @@ parameters:
                             - field_to
                             - field_subject
                             - sent
-                    _export_formats:
-                        csv: [ field_from, field_to, circles.name, field_subject, field_cc, field_bcc, textContent, createdAt, updatedAt]
-                        xls: csv
-                        json: csv
-                        xml: csv
 
 
         LisemBundle\Admin\PaymentMethodAdmin:
