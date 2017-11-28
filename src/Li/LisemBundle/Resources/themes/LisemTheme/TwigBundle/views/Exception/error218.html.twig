@@ -1,9 +1,7 @@
-{% set layout = 'TwigBundle:Exception:back_exception_layout.html.twig' %}
+{% set layout = 'TwigBundle:Exception:front_exception_layout.html.twig' %}
 
-{% if app.request.requestUri starts with librinfo.url_prefix %}
+{% if app.request.requestUri starts with sil.url_prefix %}
     {% set layout = 'TwigBundle:Exception:back_exception_layout.html.twig' %}
-{% elseif status_code == 503 %}
-    {% set layout = 'TwigBundle:Exception:empty_layout.html.twig' %}
 {% endif %}
 
 {% extends layout %}
@@ -11,14 +9,14 @@
 {% block exception_content %}
 <div class="exceptionContainer">
     <img src="{{ asset('/bundles/lisem/img/error-image.png') }}" class="errorImage"/>
-    <h1>{{'http_error.maintenance_in_progress'|trans({},'messages')}}</h1>
+    <h1>{{'http_error.not_implemented'|trans({},'messages')}}</h1>
 
     <p>
         {{('http_error.'~status_code)|trans({},'messages')}}
     </p>
 
     <p>
-        <a href="">{{"http_error.please_be_patient"|trans}}</a>.
+        <a href="javascript:window.history.go(-1);">{{"http_error.previous_page"|trans}}</a>.
     </p>
 </div>
 {% endblock %}

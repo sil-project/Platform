@@ -1,6 +1,6 @@
 {% set layout = 'TwigBundle:Exception:front_exception_layout.html.twig' %}
 
-{% if app.request.requestUri starts with librinfo.url_prefix %}
+{% if app.request.requestUri starts with sil.url_prefix %}
     {% set layout = 'TwigBundle:Exception:back_exception_layout.html.twig' %}
 {% elseif status_code == 503 %}
     {% set layout = 'TwigBundle:Exception:empty_layout.html.twig' %}
