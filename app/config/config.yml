@@ -57,18 +57,6 @@ imports:
     - { resource: "@PlatformBundle/Resources/config/parameters.yml" }
     - { resource: "@PlatformBundle/Resources/config/config.yml" }
 
-    # Li LISEM
-
-    - { resource: "@LisemBundle/Resources/config/parameters.yml" }
-    - { resource: "@LisemBundle/Resources/config/config.yml" }
-    - { resource: "@LisemBundle/Resources/config/varieties.yml" }
-    - { resource: "@LisemBundle/Resources/config/sonata.yml" }
-    - { resource: "@LisemBundle/Resources/config/services.yml" }
-    - { resource: "@LisemBundle/Resources/config/sylius-fixtures.yml" }
-    - { resource: "@LisemBundle/Resources/config/grids.yml" }
-    - { resource: "@LisemBundle/Resources/config/state_machine.yml" }
-    - { resource: "@LisemBundle/Resources/config/admin.yml" }
-
 parameters:
     locale: fr
 

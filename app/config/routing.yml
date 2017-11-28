@@ -9,6 +9,3 @@ blast:
 
 sonata:
     resource: "routing/sonata.yml"
-
-lisem:
-    resource: "@LisemBundle/Resources/config/routing.yml"

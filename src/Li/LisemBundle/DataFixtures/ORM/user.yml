@@ -1,7 +1,0 @@
-PlatformBundle\Entity\SilSonataSyliusUserBundle\SonataUser:
-    user:
-        username: DataFixtures
-        plainPassword: DataFixtures
-        email: datafixture@example.com
-        locale_code: fr_FR
-        roles: [ROLE_ADMINISTRATION_ACCESS, ROLE_SUPER_ADMIN]

@@ -1,7 +1,0 @@
-LisemBundle\Entity\SilEcommerceBundle\ProductVariant:
-    type: entity
-
-    manyToMany:
-        seedBatches:
-            targetEntity: Sil\Bundle\SeedBatchBundle\Entity\SeedBatchInterface
-            mappedBy: productVariants

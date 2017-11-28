@@ -159,12 +159,6 @@ class AppKernel extends Kernel
             // -------------------------------------------------------------------------------------
 
             new PlatformBundle\PlatformBundle(),
-
-            // -------------------------------------------------------------------------------------
-            // Project LISEM integration bundle
-            // -------------------------------------------------------------------------------------
-
-            new LisemBundle\LisemBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
