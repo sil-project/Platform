@@ -5,7 +5,9 @@
     "description": "Platform Is The Sil Dev Platform.",
     "autoload": {
         "psr-4": {
-            "PlatformBundle\\": "src/PlatformBundle"
+            "PlatformBundle\\": "src/PlatformBundle",
+            "Blast\\": "src/Blast",
+            "Sil\\": "src/Sil"
         },
         "classmap": [
             "app/AppKernel.php",
@@ -14,9 +16,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\": "Tests/",
-            "Blast\\": "src/Blast",
-            "Sil\\": "src/Sil"
+            "Tests\\": "Tests/"
         },
         "files": [
             "vendor/symfony/symfony/src/Symfony/Component/VarDumper/Resources/functions/dump.php"
