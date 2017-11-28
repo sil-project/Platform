@@ -11,6 +11,7 @@ imports:
     - { resource: vendors/sylius.yml }
     - { resource: vendors/lexik.yml }
     - { resource: vendors/fos.yml }
+    - { resource: vendors/doctrine.yml }
 
     # BLAST Bundles
 
@@ -68,8 +69,6 @@ imports:
     - { resource: "@LisemBundle/Resources/config/state_machine.yml" }
     - { resource: "@LisemBundle/Resources/config/admin.yml" }
 
-    - { resource: vendors/doctrine.yml }
-
 parameters:
     locale: fr
 
@@ -110,7 +109,7 @@ twig:
     globals:
         sil:
             url_prefix: "%sil.url_prefix%"
-            
+
 # Doctrine Configuration
 doctrine:
     dbal:
