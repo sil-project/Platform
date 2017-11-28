@@ -4,6 +4,16 @@ parameters:
 imports:
     - { resource: "@SilEcommerceBundle/Resources/config/app/state_machine.yml"}
 
+sylius_theme:
+    context: lisem.theme.context.channel_based
+    sources:
+        filesystem:
+            enabled: true
+            filename: composer.json
+            directories:
+                - "%kernel.project_dir%/src/Li/LisemBundle/Resources/themes"
+
+
 sylius_channel:
     driver: doctrine/orm
     resources:
