@@ -16,6 +16,8 @@ parameters:
     mailer_user: ~
     mailer_password: ~
     mailer_disable_delivery: false
+    mailer_delivery_addresses:
+        - sil@sil.eu
 
     # A secret key that's used to generate certain security-related tokens
     secret: ThisTokenIsNotSoSecretChangeIt
@@ -32,14 +34,8 @@ parameters:
     # LISEM
     # ##########################################################################
 
-    lisem.user.datafixtures:
-        lisem:
-            username: lisem
-            password: lisem
-            email: lisem@lisem.eu
-            super: true
-    librinfo.fakeEmail:
-        domain: lisem.eu
+    sil.fakeEmail:
+        domain: sil.eu
         prefix: FAKE
         suffix: ''
     sylius_fallback_channel_code: FR_WEB
