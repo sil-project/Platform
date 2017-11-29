@@ -1,11 +1,2 @@
-sylius:
-    resource: "routing/sylius.yml"
-
-liip:
-    resource: "routing/liip.yml"
-
-blast:
-    resource: "routing/blast.yml"
-
-sonata:
-    resource: "routing/sonata.yml"
+platform:
+    resource: "@PlatformBundle/Resources/config/routing.yml"
