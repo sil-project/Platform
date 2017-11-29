@@ -42,3 +42,8 @@ doctrine:
             # SilSeedBatchBundle
 
             Sil\Bundle\SeedBatchBundle\Entity\SeedBatchInterface:           "%sil_seed_batch.entity.seed_batch.class%"
+
+doctrine_migrations:
+    dir_name:           '%kernel.project_dir%/src/PlatformBundle/Migrations'
+    table_name:         platform_migration_versions
+    custom_template:    '%kernel.project_dir%/src/PlatformBundle/Resources/views/skeleton/migration_template.skeleton'
