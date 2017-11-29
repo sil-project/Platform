@@ -18,6 +18,7 @@ use Sylius\Component\Product\Model\ProductInterface;
 use Sylius\Component\Product\Model\ProductVariantInterface;
 use Sylius\Component\Resource\Factory\Factory;
 use Sil\Bundle\EcommerceBundle\Repository\ChannelRepository;
+use Sil\Bundle\EcommerceBundle\Entity\ProductOptionValueInterface;
 
 /**
  * @author Marcos Bezerra de Menezes <marcos.bezerra@libre-informatique.fr>
@@ -28,7 +29,7 @@ class ProductVariantAdmin extends SyliusGenericAdmin
      * @var string
      */
     protected $translationLabelPrefix = 'sil.ecommerce.product_variant';
-    
+
     /**
      * @var ProductInterface
      */
@@ -68,7 +69,7 @@ class ProductVariantAdmin extends SyliusGenericAdmin
                 'entity',
                 [
                     'query_builder' => $this->optionValuesQueryBuilder(),
-                    'class'         => 'Librinfo\\EcommerceBundle\\Entity\\ProductOptionValue',
+                    'class'         => ProductOptionValueInterface::class,
                     'multiple'      => true,
                     'required'      => false,
                     'choice_label'  => 'fullName',
