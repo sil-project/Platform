@@ -40,7 +40,7 @@ Sil\Bundle\VarietyBundle\Entity\Species:
             targetEntity: Sil\Bundle\VarietyBundle\Entity\PlantCategory
             inversedBy: species
             joinTable:
-                name: sil_variety_species_category
+                name: lisem_variety_species__category
                 joinColumns:
                     plant_category_id:
                         referencedColumnName: id

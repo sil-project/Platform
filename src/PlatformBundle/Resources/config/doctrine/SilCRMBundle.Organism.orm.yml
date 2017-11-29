@@ -54,7 +54,7 @@ PlatformBundle\Entity\SilCRMBundle\Organism:
             targetEntity: Sil\Bundle\CRMBundle\Entity\Circle
             inversedBy: organisms
             joinTable:
-                name: ~
+                name: sil_crm_organism__circles
                 joinColumns:
                     circle_id:
                         referencedColumnName: id
