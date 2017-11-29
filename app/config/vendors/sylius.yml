@@ -13,18 +13,18 @@ sylius_product:
     resources:
         product:
             classes:
-                model: LisemBundle\Entity\SilEcommerceBundle\Product
+                model: "%sil_ecommerce.entity.product.class%"
 
 sylius_review:
     resources:
         product:
-            subject: "%sylius.model.product.class%"
+            subject: "%sil_ecommerce.entity.product.class%"
             review:
                 classes:
-                    model: Sil\Bundle\EcommerceBundle\Entity\ProductReview
+                    model:  "%sil_ecommerce.entity.product_review.class%"
             reviewer:
                 classes:
-                    model: PlatformBundle\Entity\SilCRMBundle\Organism
+                    model: "%sylius.model.customer.class%"
 
 sylius_customer:
     driver: doctrine/orm
@@ -38,10 +38,3 @@ sylius_addressing:
         address:
             classes:
                 model: PlatformBundle\Entity\SilCRMBundle\Address
-
-# sylius_resource:
-#     resources:
-#         blast.utils:
-#             classes:
-#                 model: Sil\Bundle\SonataSyliusUserBundle\Entity\SonataUser
-#                 interface: Sil\Bundle\SonataSyliusUserBundle\Entity\SonataUserInterface

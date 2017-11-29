@@ -8,18 +8,15 @@
             "PlatformBundle\\": "src/PlatformBundle",
             "Blast\\": "src/Blast",
             "Sil\\": "src/Sil"
-        },
-        "classmap": [
-            "app/AppKernel.php",
-            "app/AppCache.php"
-        ]
+        }
     },
     "autoload-dev": {
         "psr-4": {
             "Tests\\": "Tests/"
         },
-        "files": [
-            "vendor/symfony/symfony/src/Symfony/Component/VarDumper/Resources/functions/dump.php"
+        "classmap": [
+            "app/AppKernel.php",
+            "app/AppCache.php"
         ]
     },
     "require": {
@@ -90,7 +87,7 @@
         ],
         "post-update-cmd": [
             "@symfony-scripts",
-             "@git-hook"
+            "@git-hook"
         ]
     },
     "config": {
