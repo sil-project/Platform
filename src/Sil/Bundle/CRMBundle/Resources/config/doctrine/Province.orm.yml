@@ -1,6 +1,6 @@
 Sil\Bundle\CRMBundle\Entity\Province:
     type: entity
-
+    table: sil_crm_province
     fields:
         code:
             type: string

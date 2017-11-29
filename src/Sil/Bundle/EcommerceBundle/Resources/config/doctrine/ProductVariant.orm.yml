@@ -1,5 +1,6 @@
 Sil\Bundle\EcommerceBundle\Entity\ProductVariant:
     type: mappedSuperclass
+    table: sil_ecommerce_product_variant
     fields:
         enabled:
             type: boolean

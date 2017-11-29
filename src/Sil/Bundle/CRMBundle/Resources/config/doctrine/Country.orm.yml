@@ -1,6 +1,6 @@
 Sil\Bundle\CRMBundle\Entity\Country:
     type: entity
-
+    table: sil_crm_country
     fields:
         code:
             type: string
@@ -20,4 +20,3 @@ Sil\Bundle\CRMBundle\Entity\Country:
     indexes:
         code_index:
             columns: [ code ]
-

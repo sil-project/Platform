@@ -1,5 +1,6 @@
 Sil\Bundle\StockBundle\Domain\Entity\StockUnit:
     type: mappedSuperclass
+    table: sil_stock_unit
     repositoryClass: Sil\Bundle\StockBundle\Doctrine\ORM\StockUnitRepository
     fields:
         code:
@@ -10,39 +11,36 @@ Sil\Bundle\StockBundle\Domain\Entity\StockUnit:
             type: decimal
             precision: 15
             scale: 5
-            
+
     manyToOne:
-        stockItem: 
+        stockItem:
             targetEntity: StockItemInterface
             joinColumn:
                 name: stockitem_id
                 referencedColumnName: id
-        location: 
+        location:
             targetEntity: Location
             inversedBy: stockUnits
             joinColumn:
                 name: location_id
                 referencedColumnName: id
-        qtyUom: 
+        qtyUom:
             targetEntity: Uom
             joinColumn:
                 name: qty_uom_id
                 referencedColumnName: id
                 nullable: false
-        batch: 
+        batch:
             targetEntity: BatchInterface
             joinColumn:
                 name: batch_id
                 referencedColumnName: id
                 nullable: true
-                
-        reservationMovement: 
+
+        reservationMovement:
             targetEntity: Movement
             inversedBy: reservedStockUnits
             joinColumn:
                 name: movement_id
                 referencedColumnName: id
                 nullable: true
-     
-            
-    

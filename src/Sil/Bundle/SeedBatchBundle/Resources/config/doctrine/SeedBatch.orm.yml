@@ -1,6 +1,6 @@
 Sil\Bundle\SeedBatchBundle\Entity\SeedBatch:
     type: mappedSuperclass
-
+    table: lisem_seed_batch
     fields:
         code:
             type:       string(255)

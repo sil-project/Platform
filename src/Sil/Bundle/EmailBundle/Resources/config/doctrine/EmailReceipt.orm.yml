@@ -1,5 +1,6 @@
 Sil\Bundle\EmailBundle\Entity\EmailReceipt:
     type: entity
+    table: sil_email_receipt
     fields:
         address:
             type: string

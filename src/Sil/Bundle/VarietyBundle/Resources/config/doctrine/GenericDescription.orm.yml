@@ -1,6 +1,6 @@
 Sil\Bundle\VarietyBundle\Entity\GenericDescription:
     type: mappedSuperclass
-
+    table: lisem_variety_description_generic
     fields:
         field:
             type:     string(255)

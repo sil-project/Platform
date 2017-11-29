@@ -1,6 +1,6 @@
 Sil\Bundle\SeedBatchBundle\Entity\SeedFarm:
     type: entity
-
+    table: lisem_seed_farm
     fields:
         code:
             type:       string(255)

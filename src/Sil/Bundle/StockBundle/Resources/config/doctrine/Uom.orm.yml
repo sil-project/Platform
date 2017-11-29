@@ -1,5 +1,6 @@
 Sil\Bundle\StockBundle\Domain\Entity\Uom:
     type: mappedSuperclass
+    table: sil_stock_uom
     repositoryClass: Sil\Bundle\StockBundle\Doctrine\ORM\UomRepository
     fields:
         name:
@@ -16,9 +17,9 @@ Sil\Bundle\StockBundle\Domain\Entity\Uom:
         active:
             type: boolean
             nullable: false
-    
+
     manyToOne:
-        type: 
+        type:
             targetEntity: UomType
             inversedBy: uoms
             joinColumn:

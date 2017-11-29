@@ -1,5 +1,6 @@
 Sil\Bundle\EcommerceBundle\Entity\Invoice:
     type: entity
+    table: sil_ecommerce_invoice
     fields:
         number:
             type: string

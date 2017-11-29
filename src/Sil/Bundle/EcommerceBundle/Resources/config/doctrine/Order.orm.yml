@@ -1,6 +1,6 @@
 Sil\Bundle\EcommerceBundle\Entity\Order:
     type: mappedSuperclass
-
+    table: sil_ecommerce_order
     oneToMany:
         invoices:
             targetEntity: Sil\Bundle\EcommerceBundle\Entity\Invoice

@@ -1,6 +1,6 @@
 Sil\Bundle\StockBundle\Domain\Entity\OutputStrategy:
     type: mappedSuperclass
-    
+    table: sil_stock_output_strategy
     fields:
         name:
             type: string(255)
@@ -12,4 +12,3 @@ Sil\Bundle\StockBundle\Domain\Entity\OutputStrategy:
         orderBy:
             type: array
             nullable: false
-

@@ -1,6 +1,6 @@
 Sil\Bundle\SonataSyliusUserBundle\Entity\SonataUser:
     type: mappedSuperclass
-
+    table: sil_sonata_user
     fields:
         firstName:
             type: string

@@ -1,7 +1,8 @@
 Sil\Bundle\StockBundle\Domain\Entity\Warehouse:
     type: mappedSuperclass
+    table: sil_stock_warehouse
     repositoryClass: Sil\Bundle\StockBundle\Doctrine\ORM\WarehouseRepository
-    
+
     fields:
         name:
             type: string(255)
@@ -10,7 +11,7 @@ Sil\Bundle\StockBundle\Domain\Entity\Warehouse:
             type: string(64)
             unique: true
             nullable: false
-            
+
     oneToMany:
         locations:
           targetEntity: Location

@@ -1,6 +1,6 @@
-
 Sil\Bundle\VarietyBundle\Entity\Variety:
     type: mappedSuperclass
+    table: lisem_variety
     blast:
         loggable: true
     fields:

@@ -1,5 +1,6 @@
 Sil\Bundle\CRMBundle\Entity\Position:
     type: entity
+    table: sil_crm_position
     fields:
         phone:
             type: string

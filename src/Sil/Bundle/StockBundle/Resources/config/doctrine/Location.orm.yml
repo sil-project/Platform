@@ -1,5 +1,6 @@
 Sil\Bundle\StockBundle\Domain\Entity\Location:
     type: mappedSuperclass
+    table: sil_stock_location
     repositoryClass: Sil\Bundle\StockBundle\Doctrine\ORM\LocationRepository
     fields:
         name:
@@ -16,15 +17,15 @@ Sil\Bundle\StockBundle\Domain\Entity\Location:
             nullable: false
             options:
                 default: TRUE
-    
+
     manyToOne:
-        warehouse: 
+        warehouse:
             targetEntity: Warehouse
             inversedBy: locations
             joinColumn:
                 name: wharehouse_id
                 referencedColumnName: id
-    
+
     oneToMany:
         stockUnits:
           targetEntity: StockUnit

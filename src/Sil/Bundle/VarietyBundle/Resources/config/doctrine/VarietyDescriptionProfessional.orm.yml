@@ -1,6 +1,7 @@
 
 Sil\Bundle\VarietyBundle\Entity\VarietyDescriptionProfessional:
     type: entity
+    table: lisem_variety_description_professional
     manyToOne:
         variety:
             targetEntity: Sil\Bundle\VarietyBundle\Entity\VarietyInterface

@@ -1,2 +1,3 @@
 Blast\Bundle\BaseEntitiesBundle\Entity\GenericEntity:
     type: mappedSuperclass
+    table: blast_generic_entity

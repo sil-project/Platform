@@ -1,6 +1,6 @@
 PlatformBundle\Entity\SilCRMBundle\Address:
     type: entity
-
+    table: sil_crm_address
     manyToOne:
         customer:
             targetEntity: Sil\Bundle\CRMBundle\Entity\OrganismInterface

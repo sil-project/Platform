@@ -1,5 +1,6 @@
 Sil\Bundle\EmailBundle\Entity\Spoolable:
     type: mappedSuperclass
+    table: sil_email_spoolable
     fields:
         message:
             type:       text

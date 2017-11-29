@@ -1,5 +1,6 @@
 PlatformBundle\Entity\SilCRMBundle\Organism:
     type: entity
+    table: sil_crm_organism
     fields:
         seedProducerCode:
             type:       string

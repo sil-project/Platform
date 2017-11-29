@@ -1,4 +1,5 @@
 Sil\Bundle\EcommerceBundle\Entity\ShippingMethod:
     type: entity
+    table: sil_ecommerce_shipping_method
     blast:
         loggable: true

@@ -1,2 +1,3 @@
 Sil\Bundle\EcommerceBundle\Entity\ProductOptionValue:
     type: mappedSuperclass
+    table: sil_ecommerce_product_option_value

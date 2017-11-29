@@ -1,14 +1,15 @@
 Sil\Bundle\StockBundle\Domain\Entity\Movement:
     type: mappedSuperclass
+    table: sil_stock_movement
     repositoryClass: Sil\Bundle\StockBundle\Doctrine\ORM\MovementRepository
     fields:
         code:
             type: string(64)
             unique: true
             nullable: false
-        expectedAt: 
+        expectedAt:
             type: datetime
-        completedAt: 
+        completedAt:
             type: datetime
             nullable: true
         qtyValue:
@@ -17,49 +18,47 @@ Sil\Bundle\StockBundle\Domain\Entity\Movement:
             scale: 5
         stateValue:
             type: string(64)
-            
+
     manyToOne:
-        stockItem: 
+        stockItem:
             targetEntity: StockItemInterface
             joinColumn:
                 name: stockitem_id
                 referencedColumnName: id
                 nullable: false
-        qtyUom: 
+        qtyUom:
             targetEntity: Uom
             joinColumn:
                 name: qty_uom_id
                 referencedColumnName: id
                 nullable: false
-        operation: 
+        operation:
             targetEntity: Operation
             inversedBy: movements
             joinColumn:
                 name: operation_id
                 referencedColumnName: id
                 nullable: false
-        srcLocation: 
-            targetEntity: Location   
+        srcLocation:
+            targetEntity: Location
             joinColumn:
                 name: location_src_id
                 referencedColumnName: id
                 nullable: true
-        destLocation: 
+        destLocation:
             targetEntity: Location
             joinColumn:
                 name: location_dest_id
                 referencedColumnName: id
                 nullable: true
-        batch: 
+        batch:
             targetEntity: BatchInterface
             joinColumn:
                 name: batch_id
                 referencedColumnName: id
                 nullable: true
-                
+
     oneToMany:
         reservedStockUnits:
           targetEntity: StockUnit
           mappedBy: reservationMovement
-    
-    

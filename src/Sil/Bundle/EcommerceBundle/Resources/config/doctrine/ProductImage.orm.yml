@@ -1,5 +1,6 @@
 Sil\Bundle\EcommerceBundle\Entity\ProductImage:
     type: entity
+    table: sil_ecommerce_product_image
     manyToOne:
         realFile:
             targetEntity: Sil\Bundle\MediaBundle\Entity\FileInterface

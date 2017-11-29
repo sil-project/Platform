@@ -1,5 +1,6 @@
 Sil\Bundle\SeedBatchBundle\Entity\Certification:
     type: entity
+    table: lisem_seed_batch_certification
     blast:
         loggable: true
     fields:
@@ -34,4 +35,3 @@ Sil\Bundle\SeedBatchBundle\Entity\Certification:
             targetEntity: Sil\Bundle\SeedBatchBundle\Entity\CertificationType
         certifyingBody:
             targetEntity: Sil\Bundle\SeedBatchBundle\Entity\CertifyingBody
-

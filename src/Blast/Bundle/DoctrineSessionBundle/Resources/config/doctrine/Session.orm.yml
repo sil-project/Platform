@@ -1,5 +1,6 @@
 Blast\Bundle\DoctrineSessionBundle\Entity\Session:
     type: entity
+    table: blast_session
     id:
         id:
           type: integer

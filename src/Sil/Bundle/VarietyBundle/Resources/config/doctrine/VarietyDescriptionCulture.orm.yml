@@ -1,6 +1,6 @@
-
 Sil\Bundle\VarietyBundle\Entity\VarietyDescriptionCulture:
     type: entity
+    table: lisem_variety_description_culture
     manyToOne:
         variety:
             targetEntity: Sil\Bundle\VarietyBundle\Entity\VarietyInterface

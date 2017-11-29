@@ -1,6 +1,6 @@
 Sil\Bundle\SeedBatchBundle\Entity\Plot:
     type: entity
-
+    table: lisem_seed_batch_plot
     fields:
         code:
             type:       string(255)

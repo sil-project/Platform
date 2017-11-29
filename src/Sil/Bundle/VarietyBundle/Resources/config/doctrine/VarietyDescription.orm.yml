@@ -1,7 +1,6 @@
-# info: VarietyDescription extends GenericDescription (mapped superclass)
-
 Sil\Bundle\VarietyBundle\Entity\VarietyDescription:
     type: entity
+    table: lisem_variety_description
     inheritanceType: SINGLE_TABLE
     discriminatorColumn:
         name: fieldset

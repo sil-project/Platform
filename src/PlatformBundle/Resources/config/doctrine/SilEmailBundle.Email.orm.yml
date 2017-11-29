@@ -1,2 +1,3 @@
 PlatformBundle\Entity\SilEmailBundle\Email:
     type: entity
+    table: sil_email

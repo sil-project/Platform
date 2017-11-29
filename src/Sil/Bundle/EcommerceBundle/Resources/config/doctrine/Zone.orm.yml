@@ -1,2 +1,3 @@
 Sil\Bundle\EcommerceBundle\Entity\Zone:
     type: entity
+    table: sil_ecommerce_zone

@@ -1,5 +1,6 @@
 Sil\Bundle\VarietyBundle\Entity\PlantCategory:
     type: entity
+    table: lisem_variety_plant_category
     repositoryClass: Sil\Bundle\VarietyBundle\Entity\Repository\PlantCategoryRepository
     fields:
         code:

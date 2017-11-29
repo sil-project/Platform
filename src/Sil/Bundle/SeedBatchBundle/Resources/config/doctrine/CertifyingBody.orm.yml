@@ -1,6 +1,6 @@
 Sil\Bundle\SeedBatchBundle\Entity\CertifyingBody:
     type: entity
-
+    table: lisem_seed_batch_certifying_body
     fields:
         code:
             type:       string(255)
@@ -8,4 +8,3 @@ Sil\Bundle\SeedBatchBundle\Entity\CertifyingBody:
         url:
             type:       string(255)
             nullable:   true
-

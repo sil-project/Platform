@@ -1,5 +1,6 @@
 Sil\Bundle\SonataSyliusUserBundle\Entity\SonataGroup:
     type:  entity
+    table: sil_sonata_group
     fields:
         name:
             type: string
