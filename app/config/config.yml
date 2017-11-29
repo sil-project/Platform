@@ -5,8 +5,9 @@ imports:
 
     # Platform Bundle
 
-    - { resource: "@PlatformBundle/Resources/config/parameters.yml" }
+
     - { resource: "@PlatformBundle/Resources/config/config.yml" }
+    - { resource: "@PlatformBundle/Resources/config/parameters.yml" }
 
 parameters:
     locale: fr

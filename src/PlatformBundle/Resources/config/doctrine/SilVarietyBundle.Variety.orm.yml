@@ -2,9 +2,6 @@ PlatformBundle\Entity\SilVarietyBundle\Variety:
     type: entity
 
     oneToMany:
-        products:
-            targetEntity: Sil\Bundle\EcommerceBundle\Entity\ProductInterface
-            mappedBy: variety
         channelDescriptions:
             targetEntity: PlatformBundle\Entity\ChannelDescription
             mappedBy: variety
