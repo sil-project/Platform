@@ -3,14 +3,14 @@ imports:
 
     # Vendors
 
-    - { resource: vendors/blast.yml }
-    - { resource: vendors/sil.yml }
-    - { resource: vendors/sonata.yml }
-    - { resource: vendors/sylius.yml }
-    - { resource: vendors/lexik.yml }
-    - { resource: vendors/fos.yml }
-    - { resource: vendors/doctrine.yml }
-    - { resource: vendors/stfalcon.yml }
+    - { resource: vendor/blast.yml }
+    - { resource: vendor/sil.yml }
+    - { resource: vendor/sonata.yml }
+    - { resource: vendor/sylius.yml }
+    - { resource: vendor/lexik.yml }
+    - { resource: vendor/fos.yml }
+    - { resource: vendor/doctrine.yml }
+    - { resource: vendor/stfalcon.yml }
 
     # BLAST Bundles
 
