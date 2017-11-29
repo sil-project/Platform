@@ -25,7 +25,7 @@ CODECEPTCMD="bin/codecept run Lisem -d --steps --fail-fast --no-interaction "
 CODECEPTGROUP=$@
 if [ $# -eq 0 ]
 then
-   CODECEPTGROUP="login menu user crm" #login menu user crm variety seedbatch ecommerce" # all"
+   CODECEPTGROUP="login menu crm" #login menu user crm variety seedbatch ecommerce" # all"
 fi
 
 
