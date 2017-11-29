@@ -1,2 +1,52 @@
 imports:
     - { resource: admin.yml }
+
+    # Vendors
+
+    - { resource: vendors/blast.yml }
+    - { resource: vendors/sil.yml }
+    - { resource: vendors/sonata.yml }
+    - { resource: vendors/sylius.yml }
+    - { resource: vendors/lexik.yml }
+    - { resource: vendors/fos.yml }
+    - { resource: vendors/doctrine.yml }
+    - { resource: vendors/stfalcon.yml }
+
+    # BLAST Bundles
+
+    - { resource: "@BlastCoreBundle/Resources/config/config.yml" }
+    # - { resource: "@BlastBaseEntitiesBundle/Resources/config/app/config.yml" }# overriden in app/config/vendors/blast.yml
+    # - { resource: "@BlastResourceBundle/Resources/config/app/config.yml" }    # overriden in app/config/vendors/blast.yml
+    - { resource: "@BlastUtilsBundle/Resources/config/app/config.yml" }
+
+    # SIL Bundles
+
+    - { resource: "@SilSonataSyliusUserBundle/Resources/config/parameters.yml" }
+    - { resource: "@SilSonataSyliusUserBundle/Resources/config/app/config.yml" }
+
+    - { resource: "@SilEmailBundle/Resources/config/parameters.yml" }
+
+    - { resource: "@SilSeedBatchBundle/Resources/config/parameters.yml" }
+    - { resource: "@SilSeedBatchBundle/Resources/config/app/config.yml" }
+
+    - { resource: "@SilEcommerceBundle/Resources/config/parameters.yml" }
+    - { resource: "@SilEcommerceBundle/Resources/config/app/config.yml" }
+
+    - { resource: "@SilCRMBundle/Resources/config/parameters.yml" }
+    - { resource: "@SilCRMBundle/Resources/config/app/config.yml" }
+
+    - { resource: "@SilMediaBundle/Resources/config/parameters.yml" }
+    - { resource: "@SilMediaBundle/Resources/config/app/config.yml" }
+
+    - { resource: "@SilSyliusPayboxBundle/Resources/config/parameters.yml" }
+    - { resource: "@SilSyliusPayboxBundle/Resources/config/app/config.yml" }
+
+    - { resource: "@SilStockBundle/Resources/config/parameters.yml" }
+    - { resource: "@SilStockBundle/Resources/config/app/config.yml" }
+    - { resource: "@SilStockBundle/Resources/config/services.yml" }
+
+    - { resource: "@SilManufacturingBundle/Resources/config/parameters.yml" }
+    - { resource: "@SilManufacturingBundle/Resources/config/app/config.yml" }
+    - { resource: "@SilManufacturingBundle/Resources/config/services.yml" }
+
+    - { resource: "@SilVarietyBundle/Resources/config/parameters.yml" }
