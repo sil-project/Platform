@@ -28,7 +28,7 @@ class Version<version> extends AbstractMigration implements ContainerAwareInterf
 <down>
     }
 
-    public function setContainer(ContainerInterface $container)
+    public function setContainer(?ContainerInterface $container = null)
     {
         $this->container = $container;
     }
