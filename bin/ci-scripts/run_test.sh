@@ -5,7 +5,7 @@ export SYMFONY_DEPRECATIONS_HELPER=weak
 
 if [ $# -eq 0 ]
 then
-    bin/phpunit -v -c phpunit.xml --coverage-clover build/logs/clover.xml
+    bin/phpunit -v -c phpunit.xml.dist --coverage-clover build/logs/clover.xml
 fi
 
 
