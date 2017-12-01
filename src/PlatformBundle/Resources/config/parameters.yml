@@ -16,12 +16,3 @@ parameters:
 
     sil_sonata_sylius_user.entity.sonata_user.class:    PlatformBundle\Entity\SilSonataSyliusUserBundle\SonataUser
     sil_sonata_sylius_user.entity.sonata_group.class:   Sil\Bundle\SonataSyliusUserBundle\Entity\SonataGroup
-
-    # sil_variety.entity.family.class:                    PlatformBundle\Entity\SilVarietyBundle\Family
-    # sil_variety.entity.variety.class:                   PlatformBundle\Entity\SilVarietyBundle\Variety
-    # sil_variety.entity.species.class:                   PlatformBundle\Entity\SilVarietyBundle\Species
-    # sil_variety.entity.genus.class:                     PlatformBundle\Entity\SilVarietyBundle\Genus
-
-    # sil_seed_batch.entity.seed_batch.class:             Sil\Bundle\SeedBatchBundle\Entity\SeedBatch
-
-    sil_platform.entity.channel_description.class:      PlatformBundle\Entity\ChannelDescription
