@@ -26,5 +26,5 @@ Sil\Bundle\VarietyBundle\Entity\Genus:
             cascade: [ persist ]
 
     uniqueConstraints:
-        genus_name_idx:
+        lisem_variety_genus_name_idx:
             columns: [ name ]

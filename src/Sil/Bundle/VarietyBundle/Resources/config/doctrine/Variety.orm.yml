@@ -179,5 +179,5 @@ Sil\Bundle\VarietyBundle\Entity\Variety:
             cascade: [ persist ]
 
     uniqueConstraints:
-        variety_name_idx:
+        lisem_variety_name_idx:
             columns: [ name ]

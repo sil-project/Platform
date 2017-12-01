@@ -18,5 +18,5 @@ Sil\Bundle\VarietyBundle\Entity\Family:
             cascade: [ persist ]
 
     uniqueConstraints:
-        family_name_idx:
+        lisem_variety_family_name_idx:
             columns: [ name ]

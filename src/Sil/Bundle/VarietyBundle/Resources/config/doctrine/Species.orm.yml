@@ -72,7 +72,7 @@ Sil\Bundle\VarietyBundle\Entity\Species:
             cascade: [ persist ]
 
     uniqueConstraints:
-        species_name_idx:
+        lisem_variety_species_name_idx:
             columns: [ name ]
-        species_code_idx:
+        lisem_variety_species_code_idx:
             columns: [ code ]
