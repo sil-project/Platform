@@ -60,7 +60,7 @@ Sil\Bundle\EmailBundle\Entity\Email:
             orphanRemoval:  true
     oneToOne:
         template:
-          targetEntity: Sil\Bundle\EmailBundle\Entity\EmailTemplate
-          joinColumn:
-            name: template_id
-            referencedColumnName: id
+            targetEntity: Sil\Bundle\EmailBundle\Entity\EmailTemplate
+            joinColumn:
+                name: template_id
+                referencedColumnName: id
