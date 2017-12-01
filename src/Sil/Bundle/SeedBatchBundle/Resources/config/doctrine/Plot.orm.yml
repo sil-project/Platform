@@ -25,5 +25,5 @@ Sil\Bundle\SeedBatchBundle\Entity\Plot:
                 referencedColumnName: id
 
     uniqueConstraints:
-        search_idx:
+        lisem_seed_batch_plot_search_idx:
             columns: [ producer_id, code ]
