@@ -81,7 +81,7 @@ parameters:
                             plot:
                                 type: sonata_type_model_autocomplete
                                 property: [name, code, producer.name]  # TODO: producer.name has no effect, WHY ???
-                                to_string_callback: Sil\Bundle\SeedBatchBundle\Admin\PlotAdmin::autocompleteToString
+                                serviceCallback: [sil_seed_batch.admin.plot, autocompleteToString, to_string_callback]
                                 required: true
                                 _options:
                                     admin_code: sil_seed_batch.admin.plot
