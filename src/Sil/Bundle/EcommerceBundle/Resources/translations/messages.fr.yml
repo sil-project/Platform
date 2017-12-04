@@ -549,6 +549,46 @@ sil:
                     token_value: Jeton
                     total: Total
                     updated_at: Mis à jour le
+            states:
+                order:
+                    cancelled: Annulée
+                    cart: Panier
+                    fulfilled: Validée
+                    new: Nouvelle
+                    draft: Brouillon
+                order_payment:
+                    awaiting_payment: En attente
+                    cancelled: Annulé
+                    cart: Panier
+                    completed: Payé
+                    new: Nouveau
+                    paid: Payé
+                    partially_paid: Partiellement payé
+                    partially_refunded: Partiellement remboursé
+                    refunded: Remboursé
+                payment:
+                    cart: Panier
+                    new: Nouveau
+                    processing: En cours
+                    completed: Payé
+                    failed: Échoué
+                    cancelled: Annulé
+                    refunded: Remboursé
+                    awaiting_payment: En attente de paiment
+                    paid: Payé
+                    partially_paid: Partiellement payé
+                    partially_refunded: Partiellement remboursé
+                order_shipping:
+                    cart: Panier
+                    cancelled: Annulé
+                    ready: Prêt
+                    partially_shipped: Partiellement expédié
+                    shipped: Expédié
+                shipping:
+                    cart: Panier
+                    cancelled: Annulé
+                    ready: Prêt
+                    shipped: Expédié
         order_address:
             form:
                 label:
@@ -631,12 +671,6 @@ sil:
     #     continue: Continuer
     #     go_to_list: Voir la liste
     #     setAsCover: Définir comme image de couverture
-    # order_state:
-    #     cancelled: Annulée
-    #     cart: Panier
-    #     fulfilled: Validée
-    #     new: Nouvelle
-    #     draft: Brouillon
     # order_payment_state:
     #     awaiting_payment: En attente
     #     cancelled: Annulé
