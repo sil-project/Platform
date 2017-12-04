@@ -665,7 +665,7 @@ parameters:
                                 required: true
                                 callback: Sil\Bundle\CRMBundle\Admin\PositionAdmin::organizationsCallback
                                 _options:
-                                    admin_code: sil_crm.admin.organisms
+                                    admin_code: sil_crm.admin.organism
                                     btn_add: false
                             department: ~
                             positionType:
