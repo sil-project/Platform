@@ -2,6 +2,7 @@
 
 
 export SYMFONY_DEPRECATIONS_HELPER=weak
+export SILURL="/sil"
 
 if [ $# -eq 0 ]
 then
