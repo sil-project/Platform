@@ -659,12 +659,14 @@ parameters:
                                 callback: Sil\Bundle\CRMBundle\Admin\PositionAdmin::individualsCallback
                                 _options:
                                     admin_code: sil_crm.admin.organism
+                                    btn_add: false
                             organization:
                                 type: Blast\Bundle\BaseEntitiesBundle\Form\Type\SearchableAutocompleteType
                                 required: true
                                 callback: Sil\Bundle\CRMBundle\Admin\PositionAdmin::organizationsCallback
                                 _options:
-                                    admin_code: sil_crm.admin.organism
+                                    admin_code: sil_crm.admin.organisms
+                                    btn_add: false
                             department: ~
                             positionType:
                                 placeholder: ''
