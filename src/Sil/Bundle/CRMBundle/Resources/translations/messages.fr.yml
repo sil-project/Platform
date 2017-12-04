@@ -127,6 +127,8 @@ sil:
                     category: Categorie
         address:
             form:
+                action:
+                    set_default_address: Définir par défaut
                 label:
                     city: Ville
                     country_code: Code pays
@@ -140,6 +142,8 @@ sil:
                     default_address: Adresse principale
         organism_phone:
             form:
+                action:
+                    set_default_phone: Définir par défaut
                 label:
                     phone_type: Type
                     number: Numéro
@@ -182,6 +186,17 @@ sil:
                     organisms_count: Nombre de tiers
                     type: Type
                     updated_at: Mis à jour le
+        position:
+            form:
+                label:
+                    position_type: Type
+                    individual: Individu
+                    department: Département
+                    label: Libélé
+                    email: Email
+                    email_npai: Email NPAI
+                    email_no_newsletter: Pas de newsletter
+                    phone: Téléphone
         position_type:
             breadcrumb:
                 link:

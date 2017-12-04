@@ -31,7 +31,7 @@ class PlotAdmin extends CoreAdmin
      *
      * @return string
      */
-    public static function autocompleteToString(Plot $plot, $property)
+    public function autocompleteToString(Plot $plot, $property)
     {
         return sprintf('%s [%s] [%s]', $plot->getName(), $plot->getCode(), $plot->getProducer()->getName());
     }
