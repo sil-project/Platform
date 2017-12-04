@@ -18,21 +18,21 @@ class Lisem extends Common
     public function loginLisem($username = 'lisem@lisem.eu', $password = 'lisem')
     {
         $this->amGoingTo('Test Login');
-        $this->amOnPage(constant('SILURL') . '/login');
+        $this->amOnPage(getenv('SILURL') . '/login');
         $this->waitForText('Courriel', 30);
         $this->waitForText('Mot de passe', 30);
         $this->fillField("//input[@id='_username']", $username);
         $this->fillField("//input[@id='_password']", $password);
         $this->click("//button[@type='submit']");
         $this->waitForText('Libre', 30);
-        $this->amOnPage(constant('SILURL') . '/dashboard');
+        $this->amOnPage(getenv('SILURL') . '/dashboard');
         //$this->hideSymfonyToolBar(); //useless for test and may hide important element
     }
 
     public function logoutLisem()
     {
         //$this->scrollUp(); // logout is on top of page
-        $this->amOnPage(constant('SILURL') . '/dashboard');
+        $this->amOnPage(getenv('SILURL') . '/dashboard');
         $this->click('li.dropdown.user-menu a');
         $this->waitForElementVisible('.dropdown-menu.dropdown-user', 30);
         $this->testLink('Déconnexion', 'Login');

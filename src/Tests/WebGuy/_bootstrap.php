@@ -9,8 +9,6 @@
  * file that was distributed with this source code.
  */
 
-define('SILURL', '/sil');
-
 //Codeception\Util\Autoload::addNamespace('Step', __DIR__ . '../../Blast/Bundle/TestsBundle/Codeception/Step/');
 
 /* @warning it look like it does not work with relative path */
