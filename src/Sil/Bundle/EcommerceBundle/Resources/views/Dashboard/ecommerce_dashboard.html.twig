@@ -5,13 +5,13 @@
 {% block block_classes %}col-lg-12{% endblock block_classes %}
 
 {% block title %}
-    {{ 'sil.label.dashboard_title'|trans }}
+    {{ 'sil.ecommerce.menu_label.dashboard_title'|trans }}
 {% endblock title %}
 
 {% block content %}
     <div class="row">
         <div class="col-lg-4 col-md-12">
-            <h4 class="text-center">{{ 'sil.label.sales_amount'|trans }}</h4>
+            <h4 class="text-center">{{ 'sil.ecommerce.dashboard.label.sales_amount'|trans }}</h4>
             <canvas id="dashboard-ecommerce-sales-amount"></canvas>
         </div>
         <div class="col-lg-4 col-md-12 table-responsive">
@@ -83,7 +83,7 @@
         var dashboardEcommerceSalesChartData = {
             "datasets": [
                 {
-                    "label": "{{ 'sil.label.sales_amount'|trans|raw }} (€)",
+                    "label": "{{ 'sil.ecommerce.dashboard.label.sales_amount'|trans|raw }} (€)",
                     "data": {{ salesAmountData|json_encode|raw }},
                     "fill": true,
                     "backgroundColor": "rgba(60, 141, 188, 0.2)",

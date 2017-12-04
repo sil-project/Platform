@@ -16,6 +16,11 @@ sil:
             sales_journal: Journal des ventes
             payment: Livre de caisse
             channel: Canal de vente
+            dashboard_title: Statistiques de vente
+        dashboard:
+            label:
+                product: Produit
+                sales_amount: Total des ventes
         channel:
             breadcrumb:
                 link:
@@ -47,6 +52,8 @@ sil:
                     name: Nom
                     skipping_payment_step_allowed: 'Passer l''étape de payement du processus de commande'
                     skipping_shipping_step_allowed: 'Passer l''étape de livraison du processus de commande'
+                    tax_calculation_strategy: Stratégie de calcul des taxes
+                    theme_name: Nom du thème
                     updated_at: Mis à jour le
             list:
                 label:
@@ -489,12 +496,21 @@ sil:
                     total: Total
                     updated_at: Mis à jour le
             form:
+                action:
+                    cancel_order: Annuler la commande
+                    confirm_this_order: Confirmer la commande
+                    fulfill_order: Terminer la commande
+                    generating_invoice: Générer la facture
+                    ship: Expédier la commande
                 label:
                     billing_address: Addresse de facturation
                     channel: Canal de vente
                     currency_code: Devise
                     notes: Notes
+                    payment_method: Méthode de paiement
+                    product: Produit
                     shipping_address: Addresse de livraison
+                    shipping_method: Méthode de livraison
             list:
                 label:
                     action: Action
@@ -526,13 +542,26 @@ sil:
                     notes: Notes
                     number: Nombre
                     payment_state: État du paiement
+                    purchased_from_channel: 'Canal d''achat'
                     shipping_address: Addresse de livraison
                     shipping_state: État de livraison
                     state: État
                     token_value: Jeton
                     total: Total
                     updated_at: Mis à jour le
-
+        order_address:
+            form:
+                label:
+                    email: Email
+                    first_name: Prénom
+                    last_name: Nom
+                    company: Entreprise
+                    street: Rue
+                    country_code: Pays
+                    province_name: Région
+                    city: Ville
+                    post_code: Code Postal
+                    useSameAddressForBilling: Utiliser la même addresse pour la facturation
         payment:
             breadcrumb:
                 link:
@@ -590,263 +619,263 @@ sil:
                     payment: Paiement
                     salesjournal: Journal des ventes
 
-    action:
-        add_variant: Ajouter une déclinaison
-        edit: Modifier
-        generate_invoice: Générer la facture
-        generate_variants: Générer les déclinaisons
-        list_variants: Liste des déclinaisons
-        manage_variants: Gérer les déclinaisons
-        product_shop_link: Voir sur la boutique
-    button:
-        continue: Continuer
-        go_to_list: Voir la liste
-        setAsCover: Définir comme image de couverture
-    order_state:
-        cancelled: Annulée
-        cart: Panier
-        fulfilled: Validée
-        new: Nouvelle
-        draft: Brouillon
-    order_payment_state:
-        awaiting_payment: En attente
-        cancelled: Annulé
-        cart: Panier
-        completed: Payé
-        new: Nouveau
-        paid: Payé
-        partially_paid: Partiellement payé
-        partially_refunded: Partiellement remboursé
-        refunded: Remboursé
-    payment_state:
-        cart: Panier
-        new: Nouveau
-        processing: En cours
-        completed: Payé
-        failed: Échoué
-        cancelled: Annulé
-        refunded: Remboursé
-        awaiting_payment: En attente de paiment
-        paid: Payé
-        partially_paid: Partiellement payé
-        partially_refunded: Partiellement remboursé
-    order_shipping_state:
-        cart: Panier
-        cancelled: Annulé
-        ready: Prêt
-        partially_shipped: Partiellement expédié
-        shipped: Expédié
-    shipping_state:
-        cart: Panier
-        cancelled: Annulé
-        ready: Prêt
-        shipped: Expédié
-    help:
-        order_is_fulfilled: Cette commande est validée, vous ne pouvez plus la modifier
-        confirm_cancel: Voulez-vous vraiment annuler cette commande ?
-        confirm_validate: Voulez-vous vraiment valider cette commande ?
-        confirm_confirmOrder: Voulez-vous vraiment confirmer cette commande ?
-        quantity_in_grams: Quantité (g)
-    confirm:
-        delete_bulk_product: Voulez-vous vraiment supprimer cet article vrac ?
-    label:
-        cancel_order: Annuler
-        cancel_this_order: Annuler cette commande
-        fulfill_order: Terminer
-        fulfill_this_order: Terminer cette commande
-        confirm_order: Confirmer
-        confirm_this_order: Confirmer cette commande
-        generating_invoice: Génération de la facture en cours.
-        order: Commande
-        product: Article
-        purchased_from: Achété sur
-        ship: Expédier
-    ecommercebundle:
-        depth: Profondeur
-        height: Hauteur
-        optionValues: Options
-        prices: Prix
-        taxCategory: TVA
-        weight: Poids
-        width: Largeur
-        dashboard_title: Statistiques de vente
-        sales_amount: 'Chiffre d''affaire'
-        localecode: Langue
-        admin:
-            payment: Paiement
-            payment_method: Mode de paiement
-            channel: Canal de vente
-            Invoice: Facture
-            order: Commande
-            shop_user: Client boutique
-            product:
-                product_attribute: 'Attribut d''article'
-                product_option: 'Option d''article'
-                product_variant: Variante de produit
-            shipping_method: Méthode de Livraison
-            TaxCategory: Catégories de TVA
-        link:
-            order_list: Liste des commandes
-            payment_list: Liste des paiements
-
-        _action: Action
-
-        accountverificationrequired: La vérification des comptes est-elle requise ?
-        adjustmentstotal: Total ajustements
-        amount: Montant
-        available: Disponible
-        basecurrency: Devise de référence
-        billing_address: Adresse de facturation
-        billingaddress: Adresse de facturation
-        calculator: Règle de calcul
-        channel_create: Nouveau Canal
-        channel_list: Liste des canaux
-        channel: Canal de vente
-        channelcode: Code du canal
-        channelpricings: Prix
-        channels: Canal de vente
-        checkoutcompletedat: Panier validé le
-        code: Code
-        contactemail: Email de contact
-        createdat: Crée le
-        credit: Crédit
-        currencies: Devises
-        currency_code: Devise
-        currencycode: Devise
-        customer_circles: Groupes client
-        customer_createdat: Client depuis
-        customer_customercode: Code client
-        customer_fulltextname: Nom complet client
-        customer_group: Groupes de client
-        customer: Client
-        customergroup_create: Créer un groupe de client
-        customergroup_list: Liste des groupes de client
-        customerip: Adresse IP client
-        debit: Débit
-        defaultlocale: Langue par défaut
-        defaulttaxzone: Zone de taxe par défaut
-        description: Description
-        dueamount: Montant dû
-        email: Email
-        enabled: Actif
-        exchangerate: Taux de change
-        hostname: 'Nom d''hôte'
-        includedinprice: Compris dans le prix
-        invoice_list: Factures
-        invoice_number: N° Facture
-        itemstotal: Total
-        label: Libélé
-        lastlogin: Dernière connexion
-        last_commands: Dernières commandes
-        locale_code: Code langue
-        locale: Langue
-        locales: Langues
-        manage_orders: Gérer les commandes
-        maintaxon: Catégorie principale
-        metadescription: Méta description
-        metakeywords: Meta mots-clés
-        method: Mode
-        misc_stats: Statistiques diverses
-        name: Nom
-        no_product_variants: Pas de variantes de produit
-        notes: Notes
-        number: Numéro
-        number_of_products: Nombre de produits
-        onhand: Disponible
-        onhold: En attente
-        operationdate: 'Date de l''opération'
-        option: 'Option d''article'
-        options: 'Options d''article'
-        optionvalues: Options
-        order_adjustmentstotal: Total ajustements
-        order_channel: Canal de vente
-        order_create: Nouvelle commande
-        order_currencycode: Devise
-        order_customer: Client
-        order_customer_customercode: Code Client
-        order_customer_name: Nom
-        order_itemstotal: Total produits
-        order_list: Liste des commandes
-        order_number: N° de commande
-        order_paymentstate: État du paiement
-        order_tokenvalue: Jeton
-        order_total: Total commande
-        original_price:  'Prix d''origine'
-        paid_at: Payé le
-        parent: Parent
-        payment: Paiement
-        payment_list: Liste des paiements
-        payment_method: Mode de paiement
-        paymentmethod_create: Créer un mode de paiement
-        paymentmethod_list: Liste des modes de paiement
-        paymentstate: Etat du paiement
-        position: Emplacement
-        price: Prix
-        product_code: Code Produit
-        product_create: Nouvel Article
-        product_list: Liste des articles
-        product: Produit
-        productattribute_create: 'Nouvel attribut d''article'
-        productattribute_list: 'Liste des attributs d''article'
-        productoption_create: 'Nouvelle option d''article'
-        productoption_list: 'Liste des options d''article'
-        productoptionvalue_create: 'Nouvelle option d''article'
-        productoptionvalue_list: 'Liste des contenus options d''article'
-        productvariant_create: 'Nouvelle déclinaisons d''article'
-        productvariant_list: 'Liste des déclinaisons d''article'
-        rates: Taux de TVA
-        sales_of_current_year: Ventes de l'année en cours
-        salesjournal_list: Journal des ventes
-        scope: Scope
-        shipping_address: Adresse de livraison
-        shippingaddress: Adresse de livraison
-        shippingmethod_create: Nouvelle méthode de livraison
-        shippingmethod_list: Liste des méthodes de livraison
-        shippingmethodtranslation_create: Créer une methode de livraison
-        shippingmethodtranslation_list: Liste des methode de livraison
-        shippingstate: Statut de la livraison
-        shopuser_list: Client boutique
-        shortdescription: Brève description
-        skippingpaymentstepallowed: 'Ignorez l''étape de paiement si un seul mode de paiement est disponible ?'
-        skippingshippingstepallowed: 'Ignorez l''étape expédition si un seul mode de livraison est disponible ?'
-        slug: Slug
-        state: Etat
-        storagetype: Type de stockage
-        taxes_of_current_year: Taxes de l'année
-        taxcalculationstrategy: Stratégie de calcul de la TVA
-        taxcategory_create: Nouvelle catégorie de TVA
-        taxcategory_list: Liste des catégories de TVA
-        taxcategory: Catégories de TVA
-        taxon_create: Créer une catégorie
-        taxon_list: Liste des catégories
-        taxons: Catégories
-        taxrate_create: Nouveau taux de TVA
-        taxrate_list: Liste des taux de TVA
-        themename: Thème
-        tokenvalue: Jeton
-        total: Total
-        total_sales: Total des ventes
-        total_taxes: Total des taxes
-        tracked: Suivi
-        translation__name: Nom
-        translation__description: Description
-        translation__instructions: Instructions
-        translation__instructions_help: Instructions qui seront affichées aux clients
-        translation_name: Nom
-        translations_description: Description
-        translations_metadescription: Méta Description
-        translations_metakeywords: Méta Mot Clef
-        translations_name: Noms
-        translations_shortdescription: Brève description
-        translations_value: Valeur
-        type: Type
-        updatedat: Modifié le
-        username: Utilisateur
-        value: Valeur
-        values: Valeurs
-        zone_create: Nouvelle zone
-        zone_list: Liste des zones
-        zone: Zone
+    # action:
+    #     add_variant: Ajouter une déclinaison
+    #     edit: Modifier
+    #     generate_invoice: Générer la facture
+    #     generate_variants: Générer les déclinaisons
+    #     list_variants: Liste des déclinaisons
+    #     manage_variants: Gérer les déclinaisons
+    #     product_shop_link: Voir sur la boutique
+    # button:
+    #     continue: Continuer
+    #     go_to_list: Voir la liste
+    #     setAsCover: Définir comme image de couverture
+    # order_state:
+    #     cancelled: Annulée
+    #     cart: Panier
+    #     fulfilled: Validée
+    #     new: Nouvelle
+    #     draft: Brouillon
+    # order_payment_state:
+    #     awaiting_payment: En attente
+    #     cancelled: Annulé
+    #     cart: Panier
+    #     completed: Payé
+    #     new: Nouveau
+    #     paid: Payé
+    #     partially_paid: Partiellement payé
+    #     partially_refunded: Partiellement remboursé
+    #     refunded: Remboursé
+    # payment_state:
+    #     cart: Panier
+    #     new: Nouveau
+    #     processing: En cours
+    #     completed: Payé
+    #     failed: Échoué
+    #     cancelled: Annulé
+    #     refunded: Remboursé
+    #     awaiting_payment: En attente de paiment
+    #     paid: Payé
+    #     partially_paid: Partiellement payé
+    #     partially_refunded: Partiellement remboursé
+    # order_shipping_state:
+    #     cart: Panier
+    #     cancelled: Annulé
+    #     ready: Prêt
+    #     partially_shipped: Partiellement expédié
+    #     shipped: Expédié
+    # shipping_state:
+    #     cart: Panier
+    #     cancelled: Annulé
+    #     ready: Prêt
+    #     shipped: Expédié
+    # help:
+    #     order_is_fulfilled: Cette commande est validée, vous ne pouvez plus la modifier
+    #     confirm_cancel: Voulez-vous vraiment annuler cette commande ?
+    #     confirm_validate: Voulez-vous vraiment valider cette commande ?
+    #     confirm_confirmOrder: Voulez-vous vraiment confirmer cette commande ?
+    #     quantity_in_grams: Quantité (g)
+    # confirm:
+    #     delete_bulk_product: Voulez-vous vraiment supprimer cet article vrac ?
+    # label:
+    #     cancel_order: Annuler
+    #     cancel_this_order: Annuler cette commande
+    #     fulfill_order: Terminer
+    #     fulfill_this_order: Terminer cette commande
+    #     confirm_order: Confirmer
+    #     confirm_this_order: Confirmer cette commande
+    #     generating_invoice: Génération de la facture en cours.
+    #     order: Commande
+    #     product: Article
+    #     purchased_from: Achété sur
+    #     ship: Expédier
+    # ecommercebundle:
+    #     depth: Profondeur
+    #     height: Hauteur
+    #     optionValues: Options
+    #     prices: Prix
+    #     taxCategory: TVA
+    #     weight: Poids
+    #     width: Largeur
+    #     dashboard_title: Statistiques de vente
+    #     sales_amount: 'Chiffre d''affaire'
+    #     localecode: Langue
+    #     admin:
+    #         payment: Paiement
+    #         payment_method: Mode de paiement
+    #         channel: Canal de vente
+    #         Invoice: Facture
+    #         order: Commande
+    #         shop_user: Client boutique
+    #         product:
+    #             product_attribute: 'Attribut d''article'
+    #             product_option: 'Option d''article'
+    #             product_variant: Variante de produit
+    #         shipping_method: Méthode de Livraison
+    #         TaxCategory: Catégories de TVA
+    #     link:
+    #         order_list: Liste des commandes
+    #         payment_list: Liste des paiements
+    #
+    #     _action: Action
+    #
+    #     accountverificationrequired: La vérification des comptes est-elle requise ?
+    #     adjustmentstotal: Total ajustements
+    #     amount: Montant
+    #     available: Disponible
+    #     basecurrency: Devise de référence
+    #     billing_address: Adresse de facturation
+    #     billingaddress: Adresse de facturation
+    #     calculator: Règle de calcul
+    #     channel_create: Nouveau Canal
+    #     channel_list: Liste des canaux
+    #     channel: Canal de vente
+    #     channelcode: Code du canal
+    #     channelpricings: Prix
+    #     channels: Canal de vente
+    #     checkoutcompletedat: Panier validé le
+    #     code: Code
+    #     contactemail: Email de contact
+    #     createdat: Crée le
+    #     credit: Crédit
+    #     currencies: Devises
+    #     currency_code: Devise
+    #     currencycode: Devise
+    #     customer_circles: Groupes client
+    #     customer_createdat: Client depuis
+    #     customer_customercode: Code client
+    #     customer_fulltextname: Nom complet client
+    #     customer_group: Groupes de client
+    #     customer: Client
+    #     customergroup_create: Créer un groupe de client
+    #     customergroup_list: Liste des groupes de client
+    #     customerip: Adresse IP client
+    #     debit: Débit
+    #     defaultlocale: Langue par défaut
+    #     defaulttaxzone: Zone de taxe par défaut
+    #     description: Description
+    #     dueamount: Montant dû
+    #     email: Email
+    #     enabled: Actif
+    #     exchangerate: Taux de change
+    #     hostname: 'Nom d''hôte'
+    #     includedinprice: Compris dans le prix
+    #     invoice_list: Factures
+    #     invoice_number: N° Facture
+    #     itemstotal: Total
+    #     label: Libélé
+    #     lastlogin: Dernière connexion
+    #     last_commands: Dernières commandes
+    #     locale_code: Code langue
+    #     locale: Langue
+    #     locales: Langues
+    #     manage_orders: Gérer les commandes
+    #     maintaxon: Catégorie principale
+    #     metadescription: Méta description
+    #     metakeywords: Meta mots-clés
+    #     method: Mode
+    #     misc_stats: Statistiques diverses
+    #     name: Nom
+    #     no_product_variants: Pas de variantes de produit
+    #     notes: Notes
+    #     number: Numéro
+    #     number_of_products: Nombre de produits
+    #     onhand: Disponible
+    #     onhold: En attente
+    #     operationdate: 'Date de l''opération'
+    #     option: 'Option d''article'
+    #     options: 'Options d''article'
+    #     optionvalues: Options
+    #     order_adjustmentstotal: Total ajustements
+    #     order_channel: Canal de vente
+    #     order_create: Nouvelle commande
+    #     order_currencycode: Devise
+    #     order_customer: Client
+    #     order_customer_customercode: Code Client
+    #     order_customer_name: Nom
+    #     order_itemstotal: Total produits
+    #     order_list: Liste des commandes
+    #     order_number: N° de commande
+    #     order_paymentstate: État du paiement
+    #     order_tokenvalue: Jeton
+    #     order_total: Total commande
+    #     original_price:  'Prix d''origine'
+    #     paid_at: Payé le
+    #     parent: Parent
+    #     payment: Paiement
+    #     payment_list: Liste des paiements
+    #     payment_method: Mode de paiement
+    #     paymentmethod_create: Créer un mode de paiement
+    #     paymentmethod_list: Liste des modes de paiement
+    #     paymentstate: Etat du paiement
+    #     position: Emplacement
+    #     price: Prix
+    #     product_code: Code Produit
+    #     product_create: Nouvel Article
+    #     product_list: Liste des articles
+    #     product: Produit
+    #     productattribute_create: 'Nouvel attribut d''article'
+    #     productattribute_list: 'Liste des attributs d''article'
+    #     productoption_create: 'Nouvelle option d''article'
+    #     productoption_list: 'Liste des options d''article'
+    #     productoptionvalue_create: 'Nouvelle option d''article'
+    #     productoptionvalue_list: 'Liste des contenus options d''article'
+    #     productvariant_create: 'Nouvelle déclinaisons d''article'
+    #     productvariant_list: 'Liste des déclinaisons d''article'
+    #     rates: Taux de TVA
+    #     sales_of_current_year: Ventes de l'année en cours
+    #     salesjournal_list: Journal des ventes
+    #     scope: Scope
+    #     shipping_address: Adresse de livraison
+    #     shippingaddress: Adresse de livraison
+    #     shippingmethod_create: Nouvelle méthode de livraison
+    #     shippingmethod_list: Liste des méthodes de livraison
+    #     shippingmethodtranslation_create: Créer une methode de livraison
+    #     shippingmethodtranslation_list: Liste des methode de livraison
+    #     shippingstate: Statut de la livraison
+    #     shopuser_list: Client boutique
+    #     shortdescription: Brève description
+    #     skippingpaymentstepallowed: 'Ignorez l''étape de paiement si un seul mode de paiement est disponible ?'
+    #     skippingshippingstepallowed: 'Ignorez l''étape expédition si un seul mode de livraison est disponible ?'
+    #     slug: Slug
+    #     state: Etat
+    #     storagetype: Type de stockage
+    #     taxes_of_current_year: Taxes de l'année
+    #     taxcalculationstrategy: Stratégie de calcul de la TVA
+    #     taxcategory_create: Nouvelle catégorie de TVA
+    #     taxcategory_list: Liste des catégories de TVA
+    #     taxcategory: Catégories de TVA
+    #     taxon_create: Créer une catégorie
+    #     taxon_list: Liste des catégories
+    #     taxons: Catégories
+    #     taxrate_create: Nouveau taux de TVA
+    #     taxrate_list: Liste des taux de TVA
+    #     themename: Thème
+    #     tokenvalue: Jeton
+    #     total: Total
+    #     total_sales: Total des ventes
+    #     total_taxes: Total des taxes
+    #     tracked: Suivi
+    #     translation__name: Nom
+    #     translation__description: Description
+    #     translation__instructions: Instructions
+    #     translation__instructions_help: Instructions qui seront affichées aux clients
+    #     translation_name: Nom
+    #     translations_description: Description
+    #     translations_metadescription: Méta Description
+    #     translations_metakeywords: Méta Mot Clef
+    #     translations_name: Noms
+    #     translations_shortdescription: Brève description
+    #     translations_value: Valeur
+    #     type: Type
+    #     updatedat: Modifié le
+    #     username: Utilisateur
+    #     value: Valeur
+    #     values: Valeurs
+    #     zone_create: Nouvelle zone
+    #     zone_list: Liste des zones
+    #     zone: Zone
 
 
 

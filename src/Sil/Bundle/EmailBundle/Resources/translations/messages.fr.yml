@@ -46,19 +46,21 @@ sil:
             form:
                 label:
                     attachments: Pièces jointes
-                    bcc: Copie cachée
-                    cc: Copie
                     circles: Groupes
                     content: Contenu
                     created_at: Créé le
-                    from: De
+                    field_bcc: Copie cachée
+                    field_cc: Copie
+                    field_from: De
+                    field_subject: Sujet
+                    field_to: À
                     is_template: Est un modèle
                     is_test: Est un test
                     new_template_name: Nom du nouveau modèle
-                    subject: Sujet
+                    no_newsletter: Pas de newsletter
+                    npai: Mauvais email
                     template: Modèle
                     test_address: Addresse de test
-                    to: À
                     tracking: Suivi
                     updated_at: Mis à jour le
                 help:

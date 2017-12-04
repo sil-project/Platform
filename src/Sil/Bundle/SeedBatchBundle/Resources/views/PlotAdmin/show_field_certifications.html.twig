@@ -9,7 +9,7 @@
                     <tbody>
                        <tr class="sonata-ba-view-container">
                             <th>
-                                {{ 'sil.label.certification_type'|trans() }}
+                                {{ 'sil.seed_batch.certification.form.label.certification_type'|trans() }}
                             </th>
                             <td>
                                 {{ certification.certificationType.logo|generateImgTag(35, 35) }}
@@ -18,7 +18,7 @@
                         </tr>
                         <tr class="sonata-ba-view-container">
                             <th>
-                                {{ 'sil.label.certification_body'|trans() }}
+                                {{ 'sil.seed_batch.certification.form.label.certifying_body'|trans() }}
                             </th>
                             <td>
                                 {{ certification.certifyingBody }}
@@ -26,7 +26,7 @@
                         </tr>
                         <tr class="sonata-ba-view-container">
                             <th>
-                                {{ 'sil.label.certification_date'|trans() }}
+                                {{ 'sil.seed_batch.certification.form.label.certification_date'|trans() }}
                             </th>
                             <td>
                                 {{ certification.certificationDate ? certification.certificationDate|format_date : '' }}
@@ -34,7 +34,7 @@
                         </tr>
                         <tr class="sonata-ba-view-container">
                             <th>
-                                {{ 'sil.label.expiry_date'|trans() }}
+                                {{ 'sil.seed_batch.certification.form.label.expiry_date'|trans() }}
                             </th>
                             <td>
                                 {{ certification.expiryDate ? certification.expiryDate|format_date : '' }}

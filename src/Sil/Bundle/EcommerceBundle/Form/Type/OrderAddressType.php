@@ -31,7 +31,7 @@ class OrderAddressType extends BaseType
     {
         $builder
             ->add('email', EmailType::class, [
-                'label'       => 'sil.label.email',
+                'label'       => 'sil.ecommerce.order_address.form.label.email',
                 'required'    => true,
                 'mapped'      => false,
                 'constraints' => [
@@ -39,7 +39,7 @@ class OrderAddressType extends BaseType
                 ],
             ])
             ->add('firstName', TextType::class, [
-                'label'    => 'sil.label.first_name',
+                'label'    => 'sil.ecommerce.order_address.form.label.first_name',
                 'required' => true,
                 'attr'     => [
                     'class'    => 'inline-block',
@@ -50,7 +50,7 @@ class OrderAddressType extends BaseType
                 ],
             ])
             ->add('lastName', TextType::class, [
-                'label'    => 'sil.label.last_name',
+                'label'    => 'sil.ecommerce.order_address.form.label.last_name',
                 'required' => true,
                 'attr'     => [
                     'class'    => 'new-line-after',
@@ -62,30 +62,30 @@ class OrderAddressType extends BaseType
             ])
             ->add('company', TextType::class, [
                 'required' => false,
-                'label'    => 'sil.label.company',
+                'label'    => 'sil.ecommerce.order_address.form.label.company',
                 'mapped'   => false,
             ])
             ->add('street', TextType::class, [
                 'required'    => true,
-                'label'       => 'sil.label.street',
+                'label'       => 'sil.ecommerce.order_address.form.label.street',
                 'constraints' => [
                     new NotNull(),
                 ],
             ])
             ->add('countryCode', CountryCodeChoiceType::class, [
                 'required'    => true,
-                'label'       => 'sil.label.country_code',
+                'label'       => 'sil.ecommerce.order_address.form.label.country_code',
                 'constraints' => [
                     new NotNull(),
                 ],
             ])
             ->add('provinceName', TextType::class, [
                 'required' => false,
-                'label'    => 'sil.label.province_name',
+                'label'    => 'sil.ecommerce.order_address.form.label.province_name',
             ])
             ->add('city', TextType::class, [
                 'required' => true,
-                'label'    => 'sil.label.city',
+                'label'    => 'sil.ecommerce.order_address.form.label.city',
                 'attr'     => [
                     'class' => 'inline-block',
                     'width' => 50,
@@ -96,7 +96,7 @@ class OrderAddressType extends BaseType
             ])
             ->add('postCode', TextType::class, [
                 'required' => true,
-                'label'    => 'sil.label.post_code',
+                'label'    => 'sil.ecommerce.order_address.form.label.post_code',
                 'attr'     => [
                     'class' => 'inline-block',
                     'width' => 50,
@@ -111,7 +111,7 @@ class OrderAddressType extends BaseType
             $builder
                 ->add('useSameAddressForBilling', CheckboxType::class, [
                     'required' => false,
-                    'label'    => 'sil.label.useSameAddressForBilling',
+                    'label'    => 'sil.ecommerce.order_address.form.label.useSameAddressForBilling',
                     'mapped'   => false,
                 ]);
         }

@@ -20,6 +20,11 @@ sil:
             missing_strain_parent: Veuillez renseigner la variété parente de la souche
             missing_variety_name: Veuillez renseigner le nom de la variété/souche
 
+        life_cycle:
+            values:
+                annual: Annuel
+                biennial: Bi-annuel
+                perennial: Vivace
         family:
             breadcrumb:
                 link:

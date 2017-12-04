@@ -640,13 +640,13 @@ parameters:
                                 type: Symfony\Component\Form\Extension\Core\Type\TextareaType
                         form_group_shipping_and_payment_methods:
                             payment: # OVERRIDEN IN ORDER ADMIN
-                                label: sil.label.payment_method
+                                label: sil.ecommerce.order.form.label.payment_method
                                 type: Sylius\Bundle\PaymentBundle\Form\Type\PaymentMethodChoiceType
                                 multiple: false
                                 mapped: false
                                 required: true
                             shipment: # OVERRIDEN IN ORDER ADMIN
-                                label: sil.label.shipping_method
+                                label: sil.ecommerce.order.form.label.shipping_method
                                 type: Sylius\Bundle\ShippingBundle\Form\Type\ShippingMethodChoiceType
                                 multiple: false
                                 mapped: false

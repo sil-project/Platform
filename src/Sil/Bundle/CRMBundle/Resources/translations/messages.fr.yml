@@ -45,6 +45,7 @@ sil:
                     generateFakeEmail: Générer un email
                     manage: Gérer
                     add: Ajouter
+                    validate_vat: Valider le numéro
                 label:
                     active: Actif
                     catalogue_send_mean: 'Méthode d''envoi'
@@ -64,7 +65,9 @@ sil:
                     iban: IBAN
                     individual: Individu privé
                     is_customer: Est un client
+                    is_not_customer: 'N''est pas un client'
                     is_supplier: Est un fournisseur
+                    is_not_supplier: 'N''est un fournisseur'
                     lastname: Nom
                     last_catalogue_sent_date: Date du dernier envoi
                     name: Nom
@@ -92,12 +95,14 @@ sil:
                     category.name: Nom
                     circles: Groupes
                     created_at: Créé le
+                    customer_code: Code client
                     date: Date
                     description: Description
                     email: Email
                     first_catalogue_sent_date: Date du premier envoi
                     fulltext_name: Nom complet
                     iban: IBAN
+                    individual: Individu
                     individuals: Individus
                     is_customer: Est un client
                     is_seed_producer: Producteur de semence
@@ -111,6 +116,7 @@ sil:
                     sent: Envoyé
                     siret: SIRET
                     source: Source
+                    supplier_code: Code fournisseur
                     updated_at: Mis à jour le
                     vat: TVA
             export:

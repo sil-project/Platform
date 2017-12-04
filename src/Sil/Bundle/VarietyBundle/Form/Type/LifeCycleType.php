@@ -26,7 +26,7 @@ class LifeCycleType extends BaseAbstractType
     {
         $choices = [];
         foreach (LifeCycle::values() as $lifecycle) {
-            $choices['sil.label.life_cycle_' . $lifecycle] = $lifecycle;
+            $choices['sil.variety.life_cycle.values.' . $lifecycle] = $lifecycle;
         }
         $resolver->setDefaults([
             'multiple' => false,

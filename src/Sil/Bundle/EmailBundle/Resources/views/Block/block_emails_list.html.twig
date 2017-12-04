@@ -19,12 +19,12 @@
                 <tr data-email-id="{{ email.id }}">
                     <td>{{ email.fieldFrom }}</td>
                     <td>
-                        {{ 'sil.label.email_to'|trans }}: {{ email.fieldTo }}
+                        {{ 'sil.email.email.form.label.field_to'|trans }}: {{ email.fieldTo }}
                         {% if email.fieldCc %}
-                            <br>{{ 'sil.label.email_cc'|trans }}: {{ email.fieldCc }}
+                            <br>{{ 'sil.email.email.form.label.field_cc'|trans }}: {{ email.fieldCc }}
                         {% endif %}
                         {% if email.fieldBcc %}
-                            <br>{{ 'sil.label.email_bcc'|trans }}: {{ email.fieldBcc }}
+                            <br>{{ 'sil.email.email.form.label.field_bcc'|trans }}: {{ email.fieldBcc }}
                         {% endif %}
                     </td>
                     <td>{{ email.fieldSubject }}</td>
