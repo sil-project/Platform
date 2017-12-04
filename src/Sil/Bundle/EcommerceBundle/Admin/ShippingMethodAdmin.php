@@ -47,7 +47,7 @@ class ShippingMethodAdmin extends SyliusGenericAdmin
         ->add(
             'configuration',
             'sonata_type_immutable_array',
-            ['label'    => 'sil.ecommercebundle.amount',
+            ['label'    => 'sil.ecommerce.shipping_method.form.label.amount',
             'required'  => false,
             'keys'      => $this->genChannelArray('sonata_type_immutable_array'), ]
         )

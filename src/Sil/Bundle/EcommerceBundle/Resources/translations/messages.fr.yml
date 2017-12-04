@@ -19,8 +19,19 @@ sil:
             dashboard_title: Statistiques de vente
         dashboard:
             label:
+                amount: Montant
+                customer: Client
+                invoice_number: Numéro de facture
+                last_commands: Dernières commandes
+                order_number: Numéro de commande
                 product: Produit
                 sales_amount: Total des ventes
+                sales_of_current_year: 'Ventes de l''année courante'
+                taxes_of_current_year: 'Taxes de l''année courante'
+                total_sales: Total des ventes
+                total_taxes: Total des taxes
+                manage_orders: Gérer les commandes
+                misc_stats: Statistiques diverses
         channel:
             breadcrumb:
                 link:
@@ -218,15 +229,15 @@ sil:
                     enabled: Activé
                     position: Position
                     translation__description: Description
-                    translation__instructions: Instructions affichées aux utilisateurs
                     translation__name: Nom
+                help:
+                    instructions: Instructions qui seront affichées aux clients
             list:
                 label:
                     action: Action
                     code: Code
                     enabled: Activé
                     paymentmethod: Méthode de paiement
-
         shipping_method:
             breadcrumb:
                 link:
@@ -244,6 +255,7 @@ sil:
                     zone: Zone géographique
             form:
                 label:
+                    amount: Montant
                     calculator: Calculateur
                     channels: Canaux de vente
                     code: Code
@@ -269,6 +281,7 @@ sil:
                     zone: Zone géographique
             show:
                 label:
+                    amount: Montant
                     calculator: Calculateur
                     channels: Canaux de vente
                     code: Code
@@ -465,8 +478,14 @@ sil:
                     tracked: Suivi
                     weight: Poid
                     width: Largeur
-
-
+            show:
+                label:
+                    name: Nom
+                    code: Code
+                    option_values: Options
+                    tax_category: Catégorie de taxe
+                    prices: Prix
+                    no_product_variants: Pas de variante
         channel_pricing:
             form:
                 label:
@@ -610,7 +629,9 @@ sil:
                 label:
                     amount: Montant
                     created_at: Créé le
+                    invoice_number: Numéro de facture
                     method: Méthode
+                    order_number: Numéro de commande
                     order.customer.customer_code: Code client
                     order.customer.name: Nom
                     order.payment_state: État du paiement
@@ -620,15 +641,21 @@ sil:
                     action: Action
                     amount: Montant
                     created_at: Créé le
+                    customer: Client
                     due_amount: Montant dû
+                    invoice_number: Numéro de facture
+                    order_number: Numéro de commande
                     order.channel: Canal de vente
                     order.payment_state: État du paiement
+                    payment_method: Méthode de paiement
                     payment: Paiement
                     updated_at: Mis à jour le
             show:
                 label:
                     amount: Montant
+                    invoice_number: Numéro de facture
                     method: Méthode
+                    order_number: Numéro de commande
                     order.adjustments_total: Total des ajustements
                     order.channel: Canal de vente
                     order.currency_code: Devise
@@ -637,8 +664,8 @@ sil:
                     order.number: Nombre
                     order.token_value: Jeton
                     order.total: Total
+                    paid_at: Payé le
                     state: État
-
         sales_journal:
             breadcrumb:
                 link:
