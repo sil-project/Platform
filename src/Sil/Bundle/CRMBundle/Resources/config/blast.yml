@@ -656,7 +656,7 @@ parameters:
                             individual:
                                 type: Blast\Bundle\BaseEntitiesBundle\Form\Type\SearchableAutocompleteType
                                 required: true
-                                serviceCallback: [sil_crm.admin.position_type, individualsCallback]
+                                serviceCallback: [sil_crm.admin.position_type, individualsCallback, callback]
                                 _options:
                                     admin_code: sil_crm.admin.organism
                                     btn_add: false
