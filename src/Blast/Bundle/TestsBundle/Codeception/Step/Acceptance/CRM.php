@@ -11,7 +11,7 @@
 
 namespace Step\Acceptance;
 
-class CRM extends SilWebApp
+class CRM extends Sil
 {
     public function createCircle($groupName = 'SelGroup', $groupCode = 'SELGRP')
     {

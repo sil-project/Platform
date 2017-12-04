@@ -13,7 +13,7 @@
 
 namespace Step\Acceptance;
 
-class SonataSyliusUser extends SilWebApp
+class SonataSyliusUser extends Sil
 {
     public function createUser($username = 'sel-user', $email = 'sel-user@lisem.eu', $password = 'sel-user')
     {

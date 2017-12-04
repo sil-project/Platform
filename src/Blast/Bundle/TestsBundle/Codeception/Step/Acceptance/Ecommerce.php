@@ -11,7 +11,7 @@
 
 namespace Step\Acceptance;
 
-class Ecommerce extends SilWebApp
+class Ecommerce extends Sil
 {
     public function createShopCategory($categoryName)
     {

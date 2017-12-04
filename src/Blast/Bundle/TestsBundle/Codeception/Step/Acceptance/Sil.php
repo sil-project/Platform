@@ -13,7 +13,7 @@ namespace Step\Acceptance;
 
 /** @todo: should use traits or something for all those click and wait tools */
 
-class SilWebApp extends Common
+class Sil extends Common
 {
     private $baseurl = null;
 

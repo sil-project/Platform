@@ -11,7 +11,7 @@
 
 namespace Step\Acceptance;
 
-class Lisem extends SilWebApp
+class Lisem extends Sil
 {
     public function loginLisem($username = 'lisem@lisem.eu', $password = 'lisem')
     {
