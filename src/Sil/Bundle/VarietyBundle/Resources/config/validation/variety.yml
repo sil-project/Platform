@@ -1,8 +1,0 @@
-Sil\Bundle\VarietyBundle\Entity\Variety:
-    constraints:
-        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
-            fields: [code]
-            message: 'This code is already used by another variety.'
-        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
-            fields: [name]
-            message: 'This name is already used by another variety.'
