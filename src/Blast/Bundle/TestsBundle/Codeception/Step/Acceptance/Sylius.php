@@ -30,6 +30,26 @@ class Sylius extends Common
         $this->amOnPage('/logout');
     }
 
+    public function selectHomePageProducts($number = 2)
+    {
+        $this->amOnPage('/');
+        $productLinks = $this->grabMultiple('a.sylius-product-name', 'href');
+
+        $selectedProductsLinks = [];
+
+        if ($number > count($productLinks)) {
+            $number = count($productLinks);
+        }
+
+        for ($i = 0; $i < $number; ++$i) {
+            $j = rand(0, count($productLinks) - 1);
+            $selectedProductsLinks[] = $productLinks[$j];
+            unset($productLinks[$j]);
+        }
+
+        return $selectedProductsLinks;
+    }
+
     public function createAccount($userName = null, $userEmail = null, $userPassword = 'selpwd')
     {
         $userName = (isset($userName)) ? $userName : $this->getRandName() . '-shop-user';
@@ -50,10 +70,10 @@ class Sylius extends Common
         return $userEmail;
     }
 
-    public function addToCart($productName = 'carotte-nantaise')
+    public function addToCart($productUrl)
     {
-        $this->amGoingTo('Add To Cart ' . $productName);
-        $this->amOnPage('/products/' . $productName);
+        $this->amGoingTo('Add To Cart ' . $productUrl);
+        $this->amOnUrl($productUrl);
         $this->waitForText('Ajouter au panier', 30);
         $this->click("//button[@type='submit']"); // $this->click('Ajouter au panier');
         //$this->waitForText('Votre panier', 30);

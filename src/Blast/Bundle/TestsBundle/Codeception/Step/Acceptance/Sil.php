@@ -38,7 +38,7 @@ class Sil extends Common
         $this->fillField("//input[@id='_password']", $password);
         $this->click("//button[@type='submit']");
         $this->waitForText('Libre', 30);
-        $this->amOnPage($this->getSilUrl() . '/dashboard');
+        // $this->amOnPage($this->getSilUrl() . '/dashboard'); // all steps should call amOnPage before doing any actions
         //$this->hideSymfonyToolBar(); //useless for test and may hide important element
     }
 

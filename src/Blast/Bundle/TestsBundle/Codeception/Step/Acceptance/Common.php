@@ -17,6 +17,13 @@ class Common extends \WebGuy
     public $randNbr = null;
     public $randName = null;
 
+    public function fillField($field, $value)
+    {
+        $this->executeJS('if (typeof tinyMCE !== "undefined") {try{tinyMCE.remove();} catch(e) {};}');
+
+        return parent::fillField($field, $value);
+    }
+
     public function setRand($new = false)
     {
         if ($new || !isset($this->randNbr)) {
