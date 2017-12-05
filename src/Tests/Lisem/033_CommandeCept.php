@@ -20,6 +20,8 @@ $lisem = new LisemTester($scenario);
 $ecommerce = new EcommerceTester($scenario);
 $sylius = new SyliusTester($scenario);
 
+
+
 $lisem->loginLisem();
 $lisem->amGoingTo('Test Order from Sylius To Lisem');
 
@@ -31,11 +33,11 @@ $sylius->createAccount($randSelName, $randSelEmail);
 $ecommerce->activeAccount($randSelEmail);
 $sylius->loginSylius($randSelEmail);
 
-//$sylius->addToCart();
-$sylius->addToCart('coriandre');
-//$sylius->addToCart('carotte-de-l-est');
-$sylius->addToCart('tomate-saint-pierre');
-//$sylius->addToCart('tomate-merveille-des-marches');
+$productsUrls = $sylius->selectHomePageProducts(2);
+
+$sylius->addToCart($productsUrls[0]);
+$sylius->addToCart($productsUrls[1]);
+
 $sylius->checkoutCart();
 
 $ecommerce->checkOrder($randSelName);
