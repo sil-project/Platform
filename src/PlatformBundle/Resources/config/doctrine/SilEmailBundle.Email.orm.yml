@@ -4,7 +4,7 @@ PlatformBundle\Entity\SilEmailBundle\Email:
 
     manyToMany:
         circles:
-            targetEntity: Sil\Bundle\EmailBundle\Entity\EmailInterface
+            targetEntity: Sil\Bundle\CRMBundle\Entity\Circle
             joinTable:
                 name: sil_email__circle
                 joinColumns:
