@@ -12,6 +12,7 @@
 namespace Sil\Bundle\CRMBundle\Entity\Association;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\CollectionInterface;
 use Sil\Bundle\CRMBundle\Entity\Circle;
 
 /**
@@ -64,7 +65,7 @@ trait HasCirclesTrait
     /**
      * @return Collection
      */
-    public function getCircles(): ?Collection
+    public function getCircles(): ?CollectionInterface
     {
         return $this->circles;
     }
