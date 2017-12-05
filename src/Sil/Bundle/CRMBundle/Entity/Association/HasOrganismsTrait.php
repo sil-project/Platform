@@ -39,7 +39,7 @@ trait HasOrganismsTrait
      */
     public function addOrganism(OrganismInterface $organism)
     {
-        if ($this->positions === null) {
+        if ($this->organisms === null) {
             $this->initOrganisms();
         }
 
@@ -55,7 +55,7 @@ trait HasOrganismsTrait
      */
     public function removeOrganism(OrganismInterface $organism)
     {
-        if ($this->positions === null) {
+        if ($this->organisms === null) {
             $this->initOrganisms();
         }
 
@@ -69,7 +69,7 @@ trait HasOrganismsTrait
      */
     public function getOrganisms(): Collection
     {
-        if ($this->positions === null) {
+        if ($this->organisms === null) {
             $this->initOrganisms();
         }
 
