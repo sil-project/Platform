@@ -29,10 +29,6 @@ class AddressManager extends BaseAddressManager
     {
         $addresses = parent::manageAddresses($mail);
 
-        if ($mail->getPositions() === null) {
-            $mail->initPositions();
-        }
-
         foreach ($mail->getPositions() as $position) {
             $name = sprintf(
                 '%s %s', $position->getIndividual()->getFirstName(), $position->getIndividual()->getName()
