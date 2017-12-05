@@ -13,7 +13,9 @@
 
 namespace Step\Acceptance;
 
-class SonataSyliusUser extends Sil
+// @TODO: sould use Sil (Not Lisem) and find a clean way to auto login as admin
+
+class SonataSyliusUser extends Lisem
 {
     public function createUser($username = 'sel-user', $email = 'sel-user@lisem.eu', $password = 'sel-user')
     {
