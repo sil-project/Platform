@@ -15,4 +15,4 @@
 // }
 
 //die(__DIR__ . '/../../../src/Blast/Bundle/TestsBundle/Codeception/Step');
-Codeception\Util\Autoload::addNamespace('Step\\', __DIR__ . '/../../Blast/Bundle/TestsBundle/Codeception/Step');
+//Codeception\Util\Autoload::addNamespace('Step\\', __DIR__ . '/../../Blast/Bundle/TestsBundle/Codeception/Step');

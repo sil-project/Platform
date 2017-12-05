@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Step\Acceptance;
+namespace Blast\Bundle\TestsBundle\Codeception\Step\Acceptance;
 
 class SeedBatch extends Lisem
 {

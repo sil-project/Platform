@@ -11,7 +11,7 @@
 
 // @group user
 
-namespace Step\Acceptance;
+namespace Blast\Bundle\TestsBundle\Codeception\Step\Acceptance;
 
 class SonataSyliusUser extends Sil
 {

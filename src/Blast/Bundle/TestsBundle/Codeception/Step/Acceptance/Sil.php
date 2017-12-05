@@ -9,10 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Step\Acceptance;
+namespace Blast\Bundle\TestsBundle\Codeception\Step\Acceptance;
 
 /** @todo: should use traits or something for all those click and wait tools */
-
 class Sil extends Common
 {
     private $baseurl = null;
@@ -25,9 +24,9 @@ class Sil extends Common
             }
             $this->baseurl = getenv('SILURL');
         }
+
         return  $this->baseurl;
     }
-
 
     public function loginSil($username, $password)
     {

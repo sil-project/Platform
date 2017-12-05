@@ -14,7 +14,7 @@
 
 /* @todo: Should be renamed as Sil and add an empty extends as Lisem */
 
-use Step\Acceptance\Lisem as LisemTester;
+use Blast\Bundle\TestsBundle\Codeception\Step\Acceptance\Lisem as LisemTester;
 
 $lisem = new LisemTester($scenario);
 $lisem->loginLisem();

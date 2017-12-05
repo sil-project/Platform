@@ -12,9 +12,9 @@
 // @group ecommerce
 // @group all
 
-use Step\Acceptance\Lisem as LisemTester;
-use Step\Acceptance\Ecommerce as EcommerceTester;
-use Step\Acceptance\Sylius as SyliusTester;
+use Blast\Bundle\TestsBundle\Codeception\Step\Acceptance\Lisem as LisemTester;
+use Blast\Bundle\TestsBundle\Codeception\Step\Acceptance\Ecommerce as EcommerceTester;
+use Blast\Bundle\TestsBundle\Codeception\Step\Acceptance\Sylius as SyliusTester;
 
 $lisem = new LisemTester($scenario);
 $ecommerce = new EcommerceTester($scenario);

@@ -14,9 +14,9 @@
  * @group seedbatch
  * @group all
  */
-use Step\Acceptance\Lisem as LisemTester;
-use Step\Acceptance\Variety as VarietyTester;
-use Step\Acceptance\SeedBatch as SeedBatchTester;
+use Blast\Bundle\TestsBundle\Codeception\Step\Acceptance\Lisem as LisemTester;
+use Blast\Bundle\TestsBundle\Codeception\Step\Acceptance\Variety as VarietyTester;
+use Blast\Bundle\TestsBundle\Codeception\Step\Acceptance\SeedBatch as SeedBatchTester;
 
 class CreateVarietyAndSeedBatchCest
 {

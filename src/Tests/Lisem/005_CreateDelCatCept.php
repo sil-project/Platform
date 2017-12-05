@@ -12,8 +12,8 @@
 // @group crm
 // @group all
 
-use Step\Acceptance\CRM as CRMTester;
-use Step\Acceptance\Lisem as LisemTester;
+use Blast\Bundle\TestsBundle\Codeception\Step\Acceptance\CRM as CRMTester;
+use Blast\Bundle\TestsBundle\Codeception\Step\Acceptance\Lisem as LisemTester;
 
 $lisem = new LisemTester($scenario);
 $lisem->loginLisem();
