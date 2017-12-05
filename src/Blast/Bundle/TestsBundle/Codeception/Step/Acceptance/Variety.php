@@ -68,7 +68,7 @@ class Variety extends Lisem
         $familyName = $this->getRandName() . '-family';
 
         $this->amGoingTo('Create Family ' . $familyName);
-        $this->amOnPage($this->getSilUrl() . '/platform/silvarietybundle-family/create');
+        $this->amOnPage($this->getSilUrl() . '/lisem/silvarietybundle-family/list');
         $this->fillField("//input[contains(@id,'name')]", $familyName);
         $this->fillField("//input[contains(@id,'latin_name')]", 'latium-' . $familyName);
         // $this->fillField("//textarea[contains(@id,'description')]", $familyName . '-desc');
