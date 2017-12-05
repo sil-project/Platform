@@ -8,8 +8,8 @@ PlatformBundle\Entity\SilEmailBundle\Email:
             joinTable:
                 name: sil_email__circle
                 joinColumns:
-                    circle_id:
+                    email_id:
                         referencedColumnName: id
                 inverseJoinColumns:
-                    email_id:
+                    circle_id:
                         referencedColumnName: id
