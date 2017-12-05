@@ -36,6 +36,9 @@ trait HasCirclesTrait
      */
     public function addCircle(Circle $circle = null)
     {
+        if ($this->circles === null) {
+            $this->initCircles();
+        }
         if ($circle && !$this->circles->contains($circle)) {
             $this->circles->add($circle);
         }
@@ -50,6 +53,9 @@ trait HasCirclesTrait
      */
     public function removeCircle(Circle $circle)
     {
+        if ($this->circles === null) {
+            $this->initCircles();
+        }
         $this->circles->removeElement($circle);
 
         return $this;
@@ -58,7 +64,7 @@ trait HasCirclesTrait
     /**
      * @return Collection
      */
-    public function getCircles()
+    public function getCircles(): ?Collection
     {
         return $this->circles;
     }
