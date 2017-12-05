@@ -54,7 +54,7 @@ class Variety extends Lisem
         $genusName = $this->getRandName() . '-genus';
 
         $this->amGoingTo('Create Genus ' . $genusName);
-        $this->amOnPage($this->getSilUrl() . '/platform/silvarietybundle-genus/create');
+        $this->amOnPage($this->getSilUrl() . '/lisem/silvarietybundle-genus/create');
         $this->fillField("//input[contains(@id,'name')]", $genusName);
         $this->fillField("//textarea[contains(@id,'description')]", $genusName . '-desc');
         $this->selectDrop('_family', $familyName);
@@ -68,7 +68,7 @@ class Variety extends Lisem
         $familyName = $this->getRandName() . '-family';
 
         $this->amGoingTo('Create Family ' . $familyName);
-        $this->amOnPage($this->getSilUrl() . '/lisem/silvarietybundle-family/list');
+        $this->amOnPage($this->getSilUrl() . '/lisem/silvarietybundle-family/create');
         $this->fillField("//input[contains(@id,'name')]", $familyName);
         $this->fillField("//input[contains(@id,'latin_name')]", 'latium-' . $familyName);
         // $this->fillField("//textarea[contains(@id,'description')]", $familyName . '-desc');
