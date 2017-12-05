@@ -23,11 +23,11 @@ class Sil extends Common
             if (!getenv('SILURL')) {
                 die("Env Var SILURL is mandatory \n export SILURL='/sil'");
             }
-            $this->baseurl = !getenv('SILURL');
+            $this->baseurl = getenv('SILURL');
         }
         return  $this->baseurl;
     }
-    
+
 
     public function loginSil($username, $password)
     {
