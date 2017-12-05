@@ -54,7 +54,7 @@ class PatcherApplyCommand extends ContainerAwareCommand
 
     private function applyPatch($targetFile, $patchFile, $patchId)
     {
-        $targetFile = $this->config['paths']['projectDir'] . '/' . $targetFile;
+        $targetFile = $this->config['paths']['patchFilesDir'] . '/' . $targetFile;
 
         if (!file_exists($targetFile) || !file_exists($patchFile)) {
             $this->error('Missing patches :');

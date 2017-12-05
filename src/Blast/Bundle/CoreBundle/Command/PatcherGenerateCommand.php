@@ -135,7 +135,7 @@ class PatcherGenerateCommand extends ContainerAwareCommand
                     'enabled'    => true,
                     'patched'    => false,
                     'targetFile' => $targetPath,
-                    'patchFile'  => str_replace($this->config['paths']['projectDir'] . '/', '', $patchFile),
+                    'patchFile'  => str_replace($this->config['paths']['patchFilesDir'] . '/', '', $patchFile),
                 ],
             ],
         ];
