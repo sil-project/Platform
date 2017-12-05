@@ -11,9 +11,6 @@
         }
     },
     "autoload-dev": {
-        "psr-4": {
-            "Tests\\": "Tests/"
-        },
         "classmap": [
             "app/AppKernel.php",
             "app/AppCache.php"
