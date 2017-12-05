@@ -28,6 +28,7 @@ class Sil extends Common
         return  $this->baseurl;
     }
 
+    /** @todo and find a clean way to auto login as admin for any app */
     public function loginSil($username, $password)
     {
         $this->amGoingTo('Test Login');

@@ -13,8 +13,7 @@
 
 namespace Blast\Bundle\TestsBundle\Codeception\Step\Acceptance;
 
-// @TODO: sould use Sil (Not Lisem) and find a clean way to auto login as admin
-
+// @TODO: sould use Sil (Not Lisem)
 class SonataSyliusUser extends Lisem
 {
     public function createUser($username = 'sel-user', $email = 'sel-user@lisem.eu', $password = 'sel-user')

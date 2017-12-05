@@ -11,7 +11,8 @@
 
 namespace Blast\Bundle\TestsBundle\Codeception\Step\Acceptance;
 
-class CRM extends Sil
+// @TODO: sould use Sil (Not Lisem)
+class CRM extends Lisem
 {
     public function createCircle($groupName = 'SelGroup', $groupCode = 'SELGRP')
     {

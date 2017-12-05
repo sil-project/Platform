@@ -11,7 +11,8 @@
 
 namespace Blast\Bundle\TestsBundle\Codeception\Step\Acceptance;
 
-class Ecommerce extends Sil
+// @TODO: sould use Sil (Not Lisem)
+class Ecommerce extends Lisem
 {
     public function createShopCategory($categoryName)
     {
