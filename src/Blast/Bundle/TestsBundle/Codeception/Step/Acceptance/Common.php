@@ -18,6 +18,12 @@ class Common extends \WebGuy
     public $randNbr = null;
     public $randName = null;
 
+    public function amOnPage($page)
+    {
+        $this->executeJS('tinyMCE.remove();');
+        return parent::amOnPage($page);
+    }
+
     public function setRand($new = false)
     {
         if ($new || !isset($this->randNbr)) {
