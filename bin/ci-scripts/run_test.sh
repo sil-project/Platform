@@ -12,7 +12,7 @@ else
 fi
 
 
-if [ -n $PHPUNITCMD ]
+if [ -n "$PHPUNITCMD" ]
 then
     $PHPUNITCMD
 fi
@@ -20,7 +20,7 @@ fi
 
 #bin/ci-scripts/do_it_for_bundle.sh run test
 
-if [ -n $CODECEPTCMD ]
+if [ -n "$CODECEPTCMD" ]
 then
     OUTPUTDIR=$CODECEPTOUTPUT
     
