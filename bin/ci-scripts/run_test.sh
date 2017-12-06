@@ -1,26 +1,19 @@
 #!/usr/bin/env sh
 
-
-export SYMFONY_DEPRECATIONS_HELPER=weak
-export SILURL="/sil"
-
 if [ $# -eq 0 ]
 then
     bin/phpunit -v -c phpunit.xml.dist --coverage-clover build/logs/clover.xml
 fi
 
 
-
 #bin/ci-scripts/do_it_for_bundle.sh run test
 
 
-OUTPUTDIR=src/Tests/_output
+OUTPUTDIR=$CODECEPTOUTPUT
 
 # clean output
 rm -rf $OUTPUTDIR/*.png
 rm -rf $OUTPUTDIR/*.html
-
-CODECEPTCMD="bin/codecept run Lisem -d --steps --fail-fast --no-interaction "
 
 
 CODECEPTGROUP=$@
@@ -33,8 +26,7 @@ fi
 
 for i in $CODECEPTGROUP
 do
-    $CODECEPTCMD -g $i --env=firefox
-    #$CODECEPTCMD -g $i --env=chrome
+    $CODECEPTCMD -g $i --env=$CODECEPT_ENV
 done
 
 
