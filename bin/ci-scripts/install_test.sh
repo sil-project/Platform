@@ -30,7 +30,9 @@ bin/console doctrine:schema:create --no-interaction --em=session
 
 # asset and data
 
-bin/console lisem:install:setup --with-samples --yes
+# TODO move this to another script
+#bin/console lisem:install:setup --with-samples --yes
+
 bin/console blast:patchs:apply
 bin/console assets:install
 bin/console sylius:theme:assets:install # must be done after assets:install
