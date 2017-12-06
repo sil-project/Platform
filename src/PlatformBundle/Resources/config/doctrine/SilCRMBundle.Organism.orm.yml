@@ -2,14 +2,14 @@ PlatformBundle\Entity\SilCRMBundle\Organism:
     type: entity
     table: sil_crm_organism
     fields:
-        seedProducerCode:
-            type:       string
-            length:     255
-            nullable:   true
-        seedProducer:
-            type:        boolean
-            options:
-                default: false
+#        seedProducerCode:
+#            type:       string
+#            length:     255
+#            nullable:   true
+#        seedProducer:
+#            type:        boolean
+#            options:
+#                default: false
         emailCanonical:
             type:       string
             length:     255

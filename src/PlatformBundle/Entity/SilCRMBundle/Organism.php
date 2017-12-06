@@ -99,37 +99,37 @@ class Organism extends OrganismAbstract implements CustomerInterface, ReviewerIn
      *
      * @return Organism
      */
-    public function setSeedProducerCode($seedProducerCode)
-    {
-        $this->seedProducerCode = $seedProducerCode;
+    // public function setSeedProducerCode($seedProducerCode)
+    // {
+    //     $this->seedProducerCode = $seedProducerCode;
 
-        return $this;
-    }
+    //     return $this;
+    // }
 
     /**
      * @return string
      */
-    public function getSeedProducerCode()
-    {
-        return $this->seedProducerCode;
-    }
+    // public function getSeedProducerCode()
+    // {
+    //     return $this->seedProducerCode;
+    // }
 
-    public function producerToString()
-    {
-        return (string) $this;
-    }
+    // public function producerToString()
+    // {
+    //     return (string) $this;
+    // }
 
-    public function isSeedProducer()
-    {
-        return (bool) $this->seedProducer;
-    }
+    // public function isSeedProducer()
+    // {
+    //     return (bool) $this->seedProducer;
+    // }
 
-    public function setSeedProducer($seedProducer)
-    {
-        $this->seedProducer = $seedProducer;
+    // public function setSeedProducer($seedProducer)
+    // {
+    //     $this->seedProducer = $seedProducer;
 
-        return $this;
-    }
+    //     return $this;
+    // }
 
     /**********************************************
      *@warn FROM ECommerceBundle::OrganismExtension
