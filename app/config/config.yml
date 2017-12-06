@@ -103,15 +103,11 @@ doctrine:
                         prefix: Sil\Bundle\ManufacturingBundle\Domain\Entity
                     SilMediaBundle:
                         type: yml
-                    SilSeedBatchBundle:
-                        type: yml
                     SilSonataSyliusUserBundle:
                         type: yml
                     SilStockBundle:
                         type: yml
                         prefix: Sil\Bundle\StockBundle\Domain\Entity
-                    SilVarietyBundle:
-                        type: yml
 
                     # Platform
 

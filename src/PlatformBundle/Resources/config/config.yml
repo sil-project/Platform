@@ -26,9 +26,6 @@ imports:
 
     - { resource: "@SilEmailBundle/Resources/config/parameters.yml" }
 
-    - { resource: "@SilSeedBatchBundle/Resources/config/parameters.yml" }
-    - { resource: "@SilSeedBatchBundle/Resources/config/app/config.yml" }
-
     - { resource: "@SilEcommerceBundle/Resources/config/parameters.yml" }
     - { resource: "@SilEcommerceBundle/Resources/config/app/config.yml" }
 
@@ -48,5 +45,3 @@ imports:
     - { resource: "@SilManufacturingBundle/Resources/config/parameters.yml" }
     - { resource: "@SilManufacturingBundle/Resources/config/app/config.yml" }
     - { resource: "@SilManufacturingBundle/Resources/config/services.yml" }
-
-    - { resource: "@SilVarietyBundle/Resources/config/parameters.yml" }

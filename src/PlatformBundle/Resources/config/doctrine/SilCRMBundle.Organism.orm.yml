@@ -16,16 +16,16 @@ PlatformBundle\Entity\SilCRMBundle\Organism:
             nullable:   true
 
     oneToMany:
-        seedBatches:
-            targetEntity: Sil\Bundle\SeedBatchBundle\Entity\SeedBatchInterface
-            mappedBy: producer
-            cascade: [ persist, remove ]
-            orphanRemoval: true
-        plots:
-            targetEntity: Sil\Bundle\SeedBatchBundle\Entity\Plot
-            mappedBy: producer
-            cascade: [ persist, remove ]
-            orphanRemoval: true
+        # seedBatches:
+        #     targetEntity: Sil\Bundle\SeedBatchBundle\Entity\SeedBatchInterface
+        #     mappedBy: producer
+        #     cascade: [ persist, remove ]
+        #     orphanRemoval: true
+        # plots:
+        #     targetEntity: Sil\Bundle\SeedBatchBundle\Entity\Plot
+        #     mappedBy: producer
+        #     cascade: [ persist, remove ]
+        #     orphanRemoval: true
         orders:
             targetEntity: Sil\Bundle\EcommerceBundle\Entity\OrderInterface
             mappedBy: customer

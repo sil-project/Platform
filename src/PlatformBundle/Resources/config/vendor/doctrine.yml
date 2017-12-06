@@ -21,13 +21,6 @@ doctrine:
             Sil\Bundle\StockBundle\Domain\Entity\PartnerInterface:          "%sil_stock.entity.partner.class%"
             Sil\Bundle\StockBundle\Domain\Entity\StockItemInterface:        "%sil_stock.entity.stock_item.class%"
 
-            # SilVarietyBundle
-
-            Sil\Bundle\VarietyBundle\Entity\FamilyInterface:                "%sil_variety.entity.family.class%"
-            Sil\Bundle\VarietyBundle\Entity\VarietyInterface:               "%sil_variety.entity.variety.class%"
-            Sil\Bundle\VarietyBundle\Entity\SpeciesInterface:               "%sil_variety.entity.species.class%"
-            Sil\Bundle\VarietyBundle\Entity\GenusInterface:                 "%sil_variety.entity.genus.class%"
-
             #SilEcommerceBundle
 
             Sil\Bundle\EcommerceBundle\Entity\ProductInterface:             "%sil_ecommerce.entity.product.class%"
@@ -39,9 +32,6 @@ doctrine:
 
             Sil\Bundle\MediaBundle\Entity\FileInterface:                    "%sil_media.entity.file.class%"
 
-            # SilSeedBatchBundle
-
-            Sil\Bundle\SeedBatchBundle\Entity\SeedBatchInterface:           "%sil_seed_batch.entity.seed_batch.class%"
 
 doctrine_migrations:
     dir_name:           '%kernel.project_dir%/src/PlatformBundle/Migrations'

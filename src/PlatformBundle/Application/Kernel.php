@@ -145,8 +145,6 @@ class Kernel extends BaseKernel
 
             new \Sil\Bundle\CRMBundle\SilCRMBundle(),
             new \Sil\Bundle\SonataSyliusUserBundle\SilSonataSyliusUserBundle(),
-            new \Sil\Bundle\VarietyBundle\SilVarietyBundle(),
-            new \Sil\Bundle\SeedBatchBundle\SilSeedBatchBundle(),
             new \Sil\Bundle\EmailBundle\SilEmailBundle(),
             new \Sil\Bundle\EmailCRMBundle\SilEmailCRMBundle(),
             new \Sil\Bundle\MediaBundle\SilMediaBundle(),

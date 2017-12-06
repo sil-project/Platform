@@ -12,8 +12,8 @@
 namespace PlatformBundle\Entity\SilCRMBundle;
 
 use Sil\Bundle\CRMBundle\Entity\OrganismAbstract;
-use Sil\Bundle\SeedBatchBundle\Entity\Association\HasPlotsTrait;
-use Sil\Bundle\SeedBatchBundle\Entity\Association\HasSeedBatchesTrait;
+// use Sil\Bundle\SeedBatchBundle\Entity\Association\HasPlotsTrait;
+// use Sil\Bundle\SeedBatchBundle\Entity\Association\HasSeedBatchesTrait;
 use Sil\Bundle\CRMBundle\Entity\Association\HasCirclesTrait;
 use Sil\Bundle\CRMBundle\Entity\Association\HasPositionsTrait;
 use Sil\Bundle\EcommerceBundle\Entity\Association\HasOrdersTrait;
@@ -35,8 +35,8 @@ use DateTimeInterface;
 class Organism extends OrganismAbstract implements CustomerInterface, ReviewerInterface, SyliusCustomerInterface
 {
     use ToggleableTrait,
-        HasPlotsTrait,
-        HasSeedBatchesTrait,
+        // HasPlotsTrait,
+        // HasSeedBatchesTrait,
         HasOrdersTrait,
         HasShopUserTrait,
         HasCustomerGroupTrait;
@@ -50,22 +50,22 @@ class Organism extends OrganismAbstract implements CustomerInterface, ReviewerIn
      */
     protected $siret;
 
-    /**
-     * @var string
-     */
-    protected $seedProducerCode;
-
-    /**
-     * @var bool
-     */
-    protected $seedProducer = false;
+    // /**
+    //  * @var string
+    //  */
+    // protected $seedProducerCode;
+    //
+    // /**
+    //  * @var bool
+    //  */
+    // protected $seedProducer = false;
 
     public function __construct()
     {
         parent::__construct();
 
-        $this->plots = new ArrayCollection();
-        $this->seedBatches = new ArrayCollection();
+        // $this->plots = new ArrayCollection();
+        // $this->seedBatches = new ArrayCollection();
 
         $this->orders = new ArrayCollection();
         $this->addresses = new ArrayCollection();
