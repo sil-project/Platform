@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 # TODO share this between script (in an include)
 if [ -f .env ]

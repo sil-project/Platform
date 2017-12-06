@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 cd src/PlatformBundle/Resources/doc
 sphinx-build -b html -d _build/doctrees . _build/html
