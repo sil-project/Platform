@@ -234,13 +234,12 @@ sil:
                 label:
                     action: Action
                     name: Nom
+                    category: Catégorie
             form:
                 label:
                     name: Nom
                     tree_parent: Parent
-            list:
-                label:
-                    category: Catégorie
+
 
 
 
