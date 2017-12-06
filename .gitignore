@@ -58,3 +58,5 @@ src/Tests/_output/*
 !src/Tests/_output/.gitkeep
 src/Tests/_support/_generated/*
 !src/Tests/_support/_generated/.gitkeep
+
+.env
