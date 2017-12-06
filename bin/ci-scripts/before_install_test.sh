@@ -3,7 +3,7 @@ set -ev
 
 mkdir --parents "${HOME}/bin"
 
-# add a variable to enable or disable
+# TODO add a variable to enable or disable
 if [ $# -eq 0 ]
 then
     # Ugly hack
