@@ -24,7 +24,7 @@ use Symfony\Component\Serializer\Serializer;
 /**
  * @author Marcos Bezerra de Menezes <marcos.bezerra@libre-informatique.fr>
  */
-final class ImportCsvCommand extends ContainerAwareCommand
+class ImportCsvCommand extends ContainerAwareCommand
 {
     /**
      * @var EntityManager
