@@ -33,8 +33,10 @@ bin/console doctrine:schema:create --no-interaction --em=session
 # TODO move this to another script
 #bin/console lisem:install:setup --with-samples --yes
 
-bin/console blast:patchs:apply
-bin/console assets:install
-bin/console sylius:theme:assets:install # must be done after assets:install
+#bin/console sylius:install:setup --no-interaction
+bin/console sylius:fixtures:load ecommerce_requirements --no-interaction
+bin/console blast:patchs:apply --no-interaction
+bin/console assets:install --no-interaction
+bin/console sylius:theme:assets:install  --no-interaction # must be done after assets:install
 
 
