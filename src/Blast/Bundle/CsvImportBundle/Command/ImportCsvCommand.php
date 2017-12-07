@@ -44,21 +44,16 @@ final class ImportCsvCommand extends ContainerAwareCommand
     /**
      * @var array
      */
-    protected $speciesCodes = [];
-
-    /**
-     * @var array
-     */
-    protected $varietyCodes = [];
+    protected $importClass = [];
 
     protected function configure()
     {
         $this
-        ->setName('lisem:import:csv')
-        ->setDescription('Import data from CSV files into LiSem.')
+        ->setName('blast:import:csv')
+        ->setDescription('Import data from CSV files into Blast.')
         ->addArgument('dir', InputArgument::REQUIRED, 'The directory containing the CSV files.')
         ->setHelp(<<<EOT
-The <info>%command.name%</info> command allows user to populate LiSem application with CSV data files.
+The <info>%command.name%</info> command allows user to populate Database with CSV data files.
 EOT
         )
         ;
@@ -77,13 +72,7 @@ EOT
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $classes = [
-            Family::class,
-            Genus::class,
-            Species::class,
-            Variety::class,
-        ];
-        foreach ($classes as $class) {
+        foreach ($this->classes as $class) {
             $this->importData($class, $output);
         }
     }
@@ -141,30 +130,5 @@ EOT
         }
 
         return $csv;
-    }
-
-    /**
-     * @param Species $species
-     */
-    protected function postDeserializeSpecies(Species $species)
-    {
-        $codeGenerator = $this->getContainer()->get('sil_variety.code_generator.species');
-        $code = $codeGenerator::generate($species, $this->speciesCodes);
-        $this->speciesCodes[] = $code;
-        $species->setCode($code);
-    }
-
-    /**
-     * @param Variety $variety
-     */
-    protected function postDeserializeVariety(Variety $variety)
-    {
-        $code = $variety->getCode();
-        if (!$code) {
-            $codeGenerator = $this->getContainer()->get('sil_variety.code_generator.variety');
-            $code = $codeGenerator::generate($variety, $this->varietyCodes);
-            $variety->setCode($code);
-        }
-        $this->varietyCodes[] = $code;
     }
 }
