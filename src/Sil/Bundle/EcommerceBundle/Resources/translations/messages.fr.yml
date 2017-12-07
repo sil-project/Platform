@@ -12,7 +12,6 @@ sil:
             tax_rate: Taux de TVA
             shop_user: Clients boutique
             order: Commandes
-            payment: Paiements
             sales_journal: Journal des ventes
             payment: Livre de caisse
             channel: Canal de vente
@@ -941,7 +940,6 @@ sil:
 
 
 Action: Action
-Add product: Ajouter un produit
 Add product: Ajouter un produit
 Add: Ajouter
 Amount: Montant
