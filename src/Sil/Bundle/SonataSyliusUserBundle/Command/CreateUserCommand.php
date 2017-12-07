@@ -12,12 +12,11 @@
 namespace Sil\Bundle\SonataSyliusUserBundle\Command;
 
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
+use Symfony\Component\Console\Input\InputDefinition;
 use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Question\Question;
-
-// TODO...
-// TODO...
 
 /**
  * @author Marcos Bezerra de Menezes <marcos.bezerra@libre-informatique.fr>
@@ -34,11 +33,18 @@ class CreateUserCommand extends ContainerAwareCommand
         $this
             ->setName('sil:user:create')
             ->setDescription('Create a Sonata admin user.')
+            ->setDefinition(
+                new InputDefinition([
+                    new InputOption('username', null, InputOption::VALUE_REQUIRED, 'UserName', 'sil-user'),
+                    new InputOption('password', null, InputOption::VALUE_REQUIRED, 'PassWord', 'sil'),
+                    new InputOption('email', null, InputOption::VALUE_REQUIRED, 'EmailAdress', 'sil-user@sil.eu'),
+                ])
+            )
             ->setHelp(<<<EOT
 The <info>%command.name%</info> command allows to create a user.
 EOT
             )
-        ;
+            ;
     }
 
     /**
@@ -55,36 +61,34 @@ EOT
         /** @var AdminUserInterface $user */
         $user = $userFactory->createNew();
 
-        if ($input->getOption('no-interaction')) {
-            $exists = null !== $userRepository->findOneByEmail('sil@example.com');
+        $username = $input->getOption('username');
+        $password = $input->getOption('password');
+        $email = $input->getOption('email');
+        $localeCode = trim($this->getContainer()->getParameter('locale'));
 
-            if ($exists) {
-                return 0;
-            }
-
-            $user->setEmail('sil@example.com');
-            $user->setPlainPassword('sil');
-        } else {
-            do {
-                $email = $this->ask($input, $output, 'E-Mail:');
-                $exists = null !== $userRepository->findOneByEmail($email);
-
-                if ($exists) {
-                    $output->writeln('<error>E-Mail is already in use!</error>');
-                }
-            } while ($exists);
-
-            $user->setEmail($email);
-            $user->setPlainPassword($this->getAdministratorPassword($input, $output));
+        if (!$input->getOption('no-interaction')) {
+            $username = $this->ask($input, $output, 'Username', $username);
+            $email = $this->ask($input, $output, 'E-Mail', $email);
+            $password = $this->getAdministratorPassword($input, $output, $password);
         }
 
-        $user->setEnabled(true);
-        $code = trim($this->getContainer()->getParameter('locale'));
-        $user->setLocaleCode($code);
+        $exists = null !== $userRepository->findOneByEmail($email);
 
+        if ($exists) {
+            $output->writeln('<error>E-Mail is already in use!</error>');
+
+            return 1;
+        }
+
+        $user->setUsername($username);
+        $user->setUsernameCanonical($username);
+        $user->setEmail($email);
+        $user->setPlainPassword($password);
+        $user->setEnabled(true);
+        $user->setLocaleCode($localeCode);
         $userManager->persist($user);
         $userManager->flush();
-        $output->writeln('Administrator account successfully registered.');
+        $output->writeln(sprintf('Account %s (%s) successfully registered.', $username, $email));
     }
 
     /**
@@ -94,11 +98,11 @@ EOT
      *
      * @return mixed
      */
-    protected function ask(InputInterface $input, OutputInterface $output, $question)
+    protected function ask(InputInterface $input, OutputInterface $output, $question, $answer)
     {
         $helper = $this->getHelperSet()->get('question');
 
-        return $helper->ask($input, $output, new Question($question));
+        return $helper->ask($input, $output, new Question($question . " [$answer]:", $answer));
     }
 
     /**
@@ -107,11 +111,11 @@ EOT
      *
      * @return mixed
      */
-    private function getAdministratorPassword(InputInterface $input, OutputInterface $output)
+    private function getAdministratorPassword(InputInterface $input, OutputInterface $output, $answer)
     {
         do {
-            $password = $this->ask($input, $output, 'Choose password:');
-            $repeatedPassword = $this->ask($input, $output, 'Confirm password:');
+            $password = $this->ask($input, $output, 'Choose password', $answer);
+            $repeatedPassword = $this->ask($input, $output, 'Confirm password', $answer);
 
             if ($repeatedPassword !== $password) {
                 $output->writeln('<error>Passwords do not match!</error>');

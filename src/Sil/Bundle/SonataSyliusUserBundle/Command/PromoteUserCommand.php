@@ -26,8 +26,8 @@ class PromoteUserCommand extends ContainerAwareCommand
     {
         $this
             ->setName('sil:user:promote')
-            ->addArgument('email', InputArgument::OPTIONAL, 'The email of existing user')
-            ->addArgument('role', InputArgument::OPTIONAL, 'The role to be granted to user')
+            ->addArgument('email', InputArgument::REQUIRED, 'The email of existing user')
+            ->addArgument('role', InputArgument::REQUIRED, 'The role to be granted to user')
             ->setDescription('Promote a user to specifyed role.')
             ->setHelp(<<<EOT
 The <info>%command.name%</info> command allows to promote a user.

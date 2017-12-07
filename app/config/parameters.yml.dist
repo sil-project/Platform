@@ -29,6 +29,18 @@ parameters:
     symfony-web-dir: web
     sylius_fallback_channel_code: default
     currency: EUR
+    
+    sil.user.fixtures:
+        admin:
+            username: sil
+            password: sil
+            email: sil@sil.eu
+            super: true
+        user:
+            username: lis
+            password: lis
+            email: lis@sil.eu
+            super: false
 
     # ##########################################################################
     # LISEM
