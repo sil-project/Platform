@@ -16,6 +16,17 @@ sil:
             payment: Livre de caisse
             channel: Canal de vente
             dashboard_title: Statistiques de vente
+            shop_settings: Vente en ligne
+            shop_settings_channels: Canaux de vente
+            shop_settings_taxons: Catégories
+            shop_settings_product_attributes: Attributs de produit
+            shop_settings_product_options: Options de produit
+            shop_settings_zones: Zone géographiques
+            shop_settings_payment_methods: Modes de paiement
+            shop_settings_shipping_methods: Modes de livraison
+            shop_settings_tax_categories: Catégories de taxe
+            shop_settings_tax_rates: Taux de TVA
+            shop_settings_shop_users: Clients VEL
         dashboard:
             label:
                 amount: Montant

@@ -75,27 +75,7 @@ class MenuBuilder
         $menu = $root->addChild('blast.menu_label.application_settings');
         $menu->setExtra('icon', '<i class="fa fa-sliders"></i>');
 
-        // if ($this->authorizationChecker->isGranted('ROLE_SUPER_ADMIN', $this->tokenStorage->getToken()->getUser())) {
-        //     $submenu = $menu->addChild('blast.menu_label.application_users');
-        //     $submenu->addChild('blast.menu_label.user_users', ['route' => 'admin_platform_silsonatasyliususerbundle_sonatauser_list']);
-        // }
-
         $this->iterateMenu($this->settingsMenu, $menu);
-
-        // Shop settings
-        /*
-        $submenu = $menu->addChild('blast.menu_label.shop_settings');
-        $submenu->addChild('blast.menu_label.channels_list', ['route' => 'admin_sil_ecommerce_channel_list']);
-        $submenu->addChild('blast.menu_label.taxon_list', ['route' => 'admin_sil_ecommerce_taxon_list']);
-        $submenu->addChild('blast.menu_label.product_attributes', ['route' => 'admin_sil_ecommerce_productattribute_list']);
-        $submenu->addChild('blast.menu_label.product_options', ['route' => 'admin_sil_ecommerce_productoption_list']);
-        $submenu->addChild('blast.menu_label.zones_list', ['route' => 'admin_sil_ecommerce_zone_list']);
-        $submenu->addChild('blast.menu_label.payment_methods_list', ['route' => 'admin_sil_ecommerce_payment_method_list']);
-        $submenu->addChild('blast.menu_label.shipping_methods_list', ['route' => 'admin_sil_ecommerce_shipping_method_list']);
-        $submenu->addChild('blast.menu_label.tax_categories_list', ['route' => 'admin_sil_ecommerce_taxcategory_list']);
-        $submenu->addChild('blast.menu_label.tax_rates_list', ['route' => 'admin_sil_ecommerce_taxrate_list']);
-        $submenu->addChild('blast.menu_label.shop_user', ['route' => 'admin_sil_ecommerce_shop_user_list']);
-        */
 
         // Stock settings
         /*
@@ -132,13 +112,13 @@ class MenuBuilder
             }
 
             if ($display) {
-            $menuNodeCurrent = $menuNode->addChild($label, $route);
-            $menuNodeCurrent->setExtra('icon', isset($item['icon']) ? '<i class="fa fa-' . $item['icon'] . '"></i>' : '');
-            if (isset($item['children']) && count($item['children']) > 0) {
-                $this->iterateMenu($item['children'], $menuNodeCurrent);
-            } else {
-                $menuNodeCurrent->setExtra('on_top', true);
-            }
+                $menuNodeCurrent = $menuNode->addChild($label, $route);
+                $menuNodeCurrent->setExtra('icon', isset($item['icon']) ? '<i class="fa fa-' . $item['icon'] . '"></i>' : '');
+                if (isset($item['children']) && count($item['children']) > 0) {
+                    $this->iterateMenu($item['children'], $menuNodeCurrent);
+                } else {
+                    $menuNodeCurrent->setExtra('on_top', true);
+                }
             }
         }
     }
