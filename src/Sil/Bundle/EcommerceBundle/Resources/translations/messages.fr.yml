@@ -445,6 +445,7 @@ sil:
                     meta_description: Méta description
                     meta_keywords: Méta mot-clés
                     name: Nom
+                    options: Options
                     short_description: Description courte
                     slug: Slug
                     taxons: Catégories
