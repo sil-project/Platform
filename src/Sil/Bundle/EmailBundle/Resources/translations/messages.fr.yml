@@ -1,10 +1,13 @@
 sil:
     email:
         menu_label:
-            email: Emailing
             email_link: Liens d'emailing
-            email_template: Modèles d'emailing
             email_receipt: Réceptions d'emailing
+            email_settings_templates: Modèles
+            email_settings: Emailing
+            email_template: Modèles d'emailing
+            email: Emailing
+            emailing: Emailing
         email:
             breadcrumb:
                 link:
@@ -111,6 +114,8 @@ sil:
 'form_group_ticketing': 'Billetterie'
 'form_group_phones': 'Numéros de téléphone'
 'form_group_members': 'Membres'
+form_group_expeditors: Expéditeurs
+form_group_grouped_expeditors: Expéditeurs (Groupes)
 'Updated At': 'Modifié le'
 'Created At': 'Créé le'
 'Updated By': 'Modifié par'

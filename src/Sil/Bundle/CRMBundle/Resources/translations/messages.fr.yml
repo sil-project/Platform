@@ -21,6 +21,7 @@ sil:
                     action: Action
                     active: Actif
                     alert: Alerte
+                    category.name: Catégorie
                     circles: Groupes
                     customer: Client
                     customer_code: Code client
