@@ -67,9 +67,6 @@ class MenuBuilder
     {
         $root = $this->getRoot();
 
-        dump($this->rootMenu);
-        dump($this->settingsMenu);
-
         $this->iterateMenu($this->rootMenu, $root);
 
         $menu = $root->addChild('blast.menu_label.application_settings');
@@ -91,30 +88,46 @@ class MenuBuilder
 
     private function iterateMenu($items, $menuNode)
     {
+        // Sorting current menu items
         uasort($items, function ($item1, $item2) {
             return $item1['order'] <=> $item2['order'];
         });
 
         foreach ($items as $label => $item) {
+            $displayItem = true;
             $route = isset($item['route'])
                 ? ['route' => $item['route']]
                 : []
             ;
-            if (isset($item['roles'])) {
-                $display = false;
-                foreach ($item['roles'] as $role) {
-                    if ($this->authorizationChecker->isGranted($role, $this->tokenStorage->getToken()->getUser())) {
-                        $display = true;
-                    }
-                }
-            } else {
-                $display = true;
+
+            // Handling explicit hide of item
+            if (isset($item['display'])) {
+                $displayItem = (bool) $item['display'];
             }
 
-            if ($display) {
+            // Handling role(s) access of item
+            if (isset($item['roles'])) {
+                $displayItem = false;
+                foreach ($item['roles'] as $role) {
+                    if ($this->authorizationChecker->isGranted($role, $this->tokenStorage->getToken()->getUser())) {
+                        $displayItem = true;
+                    }
+                }
+            }
+
+            if ($displayItem) {
                 $menuNodeCurrent = $menuNode->addChild($label, $route);
-                $menuNodeCurrent->setExtra('icon', isset($item['icon']) ? '<i class="fa fa-' . $item['icon'] . '"></i>' : '');
+
+                $menuNodeCurrent
+                    ->setExtra(
+                        'icon',
+                        isset($item['icon'])
+                            ? '<i class="fa fa-' . $item['icon'] . '"></i>'
+                            : ''
+                    );
+
                 if (isset($item['children']) && count($item['children']) > 0) {
+                    // Recursive call
                     $this->iterateMenu($item['children'], $menuNodeCurrent);
                 } else {
                     $menuNodeCurrent->setExtra('on_top', true);
