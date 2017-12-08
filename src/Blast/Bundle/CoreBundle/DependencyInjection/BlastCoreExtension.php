@@ -230,7 +230,7 @@ class BlastCoreExtension extends Extension
             return $this;
         }
 
-        $container->setParameter($var, array_merge(
+        $container->setParameter($var, array_replace_recursive(
             $container->getParameter($var),
             $newContainer->getParameter($var)
         ));
