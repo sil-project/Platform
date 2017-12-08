@@ -3,7 +3,7 @@ parameters:
     blast_menu.settings:
 
         sil.sonata_sylius_user.menu_label.application_access:
-            icon: user-secret
+            icon: lock
             order: 10090
             roles:
                  - ROLE_SUPER_ADMIN
