@@ -12,10 +12,6 @@ services:
     sonata.exporter.exporter:
         class: Blast\Bundle\CoreBundle\Exporter\Exporter
 
-
-#    blast_core.label.strategy.blast:
-#        class: Blast\Bundle\CoreBundle\Translator\SilLabelTranslatorStrategy
-
     ######### FORM TYPES ###########
     blast_core.form.type.entity_code:
         class: Blast\Bundle\CoreBundle\Form\Type\EntityCodeType
@@ -79,6 +75,22 @@ services:
         calls:
             - [ setTemplating, ["@templating"]]
             - [ setContainer, ["@service_container"]]
+
+    blast.menu_builder:
+        class: Blast\Bundle\CoreBundle\Menu\MenuBuilder
+        arguments: ["@knp_menu.factory"]
+        calls:
+            - [setTokenStorage, ['@security.token_storage']]
+            - [setAuthorizationChecker, ['@security.authorization_checker']]
+            - [setRootMenu, ['%blast_menu.root%']]
+            - [setSettingsMenu, ['%blast_menu.settings%']]
+
+    blast.sidebar_menu.global:
+        class: Knp\Menu\MenuItem
+        factory: ["@blast.menu_builder", createGlobalSidebarMenu]
+        arguments: ["@request_stack"]
+        tags:
+            - { name: knp_menu.menu, alias: global_sidebar_menu }
 
     ############ HOOK ##########
     blast_core.twig.fake_hook:

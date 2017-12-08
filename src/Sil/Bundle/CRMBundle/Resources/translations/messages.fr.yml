@@ -5,6 +5,11 @@ sil:
             organism: Tiers
             circle: Groupe
             category: Catégorie
+            crm_settings: Relations Pro
+            crm_settings_circles: Groupes
+            crm_settings_categories: Catégories
+            crm_settings_position_types: Types de fonctions
+            crm_settings_phone_types: Types de téléphones
         organism:
             breadcrumb:
                 link:
@@ -52,6 +57,7 @@ sil:
                     catalogue_sent: Catalogue envoyé
                     catalogue_type: Type du catalogue
                     alert: Alerte
+                    category: Catégorie
                     circles: Groupes
                     created_at: Créé le
                     customer_code: Code client
@@ -110,6 +116,7 @@ sil:
                     last_catalogue_sent_date: Date du dernier envoi
                     mean: Moyens
                     organism: Tiers
+                    organization: Organisation
                     organizations: Organisations
                     plots: Parcelles
                     seed_batches: Lots

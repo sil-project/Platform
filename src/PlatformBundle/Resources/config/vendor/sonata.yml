@@ -4,6 +4,13 @@ sonata_block:
         sonata.admin.block.admin_list: ~
 
 sonata_admin:
+    show_mosaic_button: false
+
+    options:
+        use_icheck: true
+        confirm_exit: false
+        html5_validate: false
+
     dashboard:
         blocks:
             -
@@ -11,6 +18,10 @@ sonata_admin:
                 type: sonata.admin.block.admin_list
                 settings:
                     groups: ['none']
+        groups:
+            App:
+                provider: global_sidebar_menu
+                icon: ' '
 
     templates:
         history_revision_timestamp: SonataIntlBundle:CRUD:history_revision_timestamp.html.twig
@@ -44,7 +55,7 @@ sonata_admin:
         pager_links:                SonataAdminBundle:Pager:links.html.twig
         pager_results:              SonataAdminBundle:Pager:results.html.twig
         tab_menu_template:          SonataAdminBundle:Core:tab_menu_template.html.twig
-        knp_menu_template:          SonataAdminBundle:Menu:sonata_menu.html.twig
+        knp_menu_template:          BlastDecoratorBundle:Menu:sonata_menu.html.twig
         action_create:              SonataAdminBundle:CRUD:dashboard__action_create.html.twig
         button_acl:                 SonataAdminBundle:Button:acl_button.html.twig
         button_create:              SonataAdminBundle:Button:create_button.html.twig

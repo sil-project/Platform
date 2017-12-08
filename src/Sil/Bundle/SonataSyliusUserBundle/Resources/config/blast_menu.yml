@@ -1,0 +1,17 @@
+parameters:
+
+    blast_menu.settings:
+
+        sil.sonata_sylius_user.menu_label.application_access:
+            icon: user-secret
+            order: 10090
+            roles:
+                 - ROLE_SUPER_ADMIN
+            children:
+
+                sil.sonata_sylius_user.menu_label.application_access_users:
+                    icon: users
+                    route: admin_sil_sonata_sylius_user_list
+                    order: 10091
+                    roles:
+                         - ROLE_SUPER_ADMIN

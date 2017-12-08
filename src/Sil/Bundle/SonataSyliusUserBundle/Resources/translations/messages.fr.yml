@@ -5,6 +5,8 @@ sil:
 
         menu_label:
             sonata_user: Utilisateur
+            application_access: Gestion des accès
+            application_access_users: Utilisateurs
 
         sonata_user:
             breadcrumb:
@@ -44,6 +46,8 @@ sil:
                     locked: Vérrouillé
                     roles: Rôles
                     username: 'Nom d''utilisateur'
+                    first_password: Mot de passe
+                    second_password: Confirmation du mot de passe
             show:
                 label:
                     email: Email
