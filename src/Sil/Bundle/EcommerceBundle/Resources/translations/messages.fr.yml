@@ -2,31 +2,34 @@
 sil:
     ecommerce:
         menu_label:
-            taxon: Catégories
-            product_attribute: Attributs de articles
-            product_option: Options de articles
-            zone: Zones géographiques
-            payment_method: Méthodes de payment
-            shipping_method: Méthodes de livraison
-            tax_category: Catégories de taxe
-            tax_rate: Taux de TVA
-            shop_user: Clients boutique
-            order: Commandes
-            sales_journal: Journal des ventes
-            payment: Livre de caisse
             channel: Canal de vente
             dashboard_title: Statistiques de vente
-            shop_settings: Vente en ligne
+            ecommerce: Vente en ligne
+            order: Commandes
+            orders: Commandes
+            payment_method: Méthodes de payment
+            payment: Livre de caisse
+            product_attribute: Attributs de articles
+            product_option: Options de articles
+            products: Produits
+            sales_journal: Journal des ventes
+            shipping_method: Méthodes de livraison
             shop_settings_channels: Canaux de vente
-            shop_settings_taxons: Catégories
+            shop_settings_payment_methods: Modes de paiement
             shop_settings_product_attributes: Attributs de produit
             shop_settings_product_options: Options de produit
-            shop_settings_zones: Zone géographiques
-            shop_settings_payment_methods: Modes de paiement
             shop_settings_shipping_methods: Modes de livraison
+            shop_settings_shop_users: Clients VEL
             shop_settings_tax_categories: Catégories de taxe
             shop_settings_tax_rates: Taux de TVA
-            shop_settings_shop_users: Clients VEL
+            shop_settings_taxons: Catégories
+            shop_settings_zones: Zone géographiques
+            shop_settings: Vente en ligne
+            shop_user: Clients boutique
+            tax_category: Catégories de taxe
+            tax_rate: Taux de TVA
+            taxon: Catégories
+            zone: Zones géographiques
         dashboard:
             label:
                 amount: Montant
@@ -124,6 +127,7 @@ sil:
             show:
                 label:
                     code: Code
+                    slug: Slug
                     translation.name: Nom
 
         product_attribute:
@@ -451,9 +455,10 @@ sil:
                     code: Code
                     enabled: Activé
                     name: Nom
+                    otherproduct: Autres articles
+                    product: Produit
                     seedsproduct: Semance
                     variety: Variété
-                    otherproduct: Autres articles
             show:
                 label:
                     available: Disponible

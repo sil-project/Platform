@@ -1,11 +1,12 @@
 sil:
     crm:
         menu_label:
+            crm: Relations Professionnelles
             position_type: Type de position
             organism: Tiers
             circle: Groupe
             category: Catégorie
-            crm_settings: Relations Pro
+            crm_settings: Relations Professionnelles
             crm_settings_circles: Groupes
             crm_settings_categories: Catégories
             crm_settings_position_types: Types de fonctions

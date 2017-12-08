@@ -18,6 +18,13 @@ blast_base_entities:
 
     entity_searchable_indexes: ~
 
+stof_doctrine_extensions:
+    orm:
+        default:
+            tree:          true
+            sluggable:     true
+            timestampable: true
+            
 blast_utils:
     features:
         customFilters:

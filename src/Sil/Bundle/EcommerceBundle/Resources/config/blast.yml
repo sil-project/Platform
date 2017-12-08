@@ -1300,6 +1300,7 @@ parameters:
             Sonata\AdminBundle\Show\ShowMapper:
                 add:
                     translation.name: ~
+                    slug: ~
                     code: ~
             Sonata\AdminBundle\Form\FormMapper:
                 add:

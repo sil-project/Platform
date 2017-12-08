@@ -1,5 +1,33 @@
 parameters:
 
+    blast_menu.root:
+
+        sil.ecommerce.menu_label.ecommerce:
+            icon: shopping-cart
+            order: 20000
+            children:
+
+                sil.ecommerce.menu_label.products:
+                    icon: cubes
+                    route: admin_sil_ecommerce_product_list
+                    order: 20010
+
+                sil.ecommerce.menu_label.orders:
+                    icon: money
+                    route: admin_sil_ecommerce_order_list
+                    order: 20020
+
+                sil.ecommerce.menu_label.sales_journal:
+                    icon: file-text-o
+                    route: admin_sil_ecommerce_sales_journal_list
+                    order: 20030
+
+                sil.ecommerce.menu_label.payment:
+                    icon: eur
+                    route: admin_sil_ecommerce_payment_list
+                    order: 20040
+
+
     blast_menu.settings:
 
         sil.ecommerce.menu_label.shop_settings:
