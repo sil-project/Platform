@@ -10,4 +10,4 @@ parameters:
                 sil.email.menu_label.email:
                     icon: cloud-upload
                     route: admin_sil_email_list
-                    order: 10020
+                    order: 20

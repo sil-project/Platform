@@ -9,31 +9,31 @@ parameters:
                 sil.crm.menu_label.organism:
                     icon: address-card
                     route: admin_sil_crm_organism_list
-                    order: 10010
+                    order: 10
 
     blast_menu.settings:
 
         sil.crm.menu_label.crm_settings:
             icon: address-card
-            order: 10000
+            order: 10
             children:
 
                 sil.crm.menu_label.crm_settings_circles:
                     icon: circle-o-notch
                     route: admin_sil_crm_circle_list
-                    order: 10010
+                    order: 10
 
                 sil.crm.menu_label.crm_settings_categories:
                     icon: tags
                     route: admin_sil_crm_category_list
-                    order: 10020
+                    order: 20
 
                 sil.crm.menu_label.crm_settings_position_types:
                     icon: id-badge
                     route: admin_sil_crm_positiontype_list
-                    order: 10030
+                    order: 30
 
                 sil.crm.menu_label.crm_settings_phone_types:
                     icon: phone-square
                     route: admin_sil_crm_phonetype_list
-                    order: 10040
+                    order: 40
