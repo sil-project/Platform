@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Blast\Bundle\CsvImportBundle\Command\Configuration;
+namespace Blast\Bundle\CsvImportBundle\Services;
 
 use Symfony\Component\Yaml\Yaml;
 use Symfony\Component\Config\FileLocator;
@@ -25,19 +25,35 @@ class CsvMappingConfiguration
 
     /**
      * @var CsvMappingConfiguration
+     * @todo remove this
      */
     private static $instance = null;
 
+    /**
+     * @var string
+     */
+    private $configDirectory;
+
+    /**
+     * @var string
+     */
+    private $configFileName;
+    
+    
+    
     /**
      * Loads Csv mapping information from yaml config file.
      */
     private function loadCsvMapping(): void
     {
-        $configDirectory = 'src/Li/LisemBundle/Resources/config';
+        /** @todo add this as param in a setter with default value */
+        $this->configDirectory = 'src/Li/LisemBundle/Resources/config';
+        $this->configFileName = 'csv_import.yml';
+        
+        $locator = new FileLocator([$this->configDirectory]);
+        $configFile = $locator->locate($this->configFileName, null, true);
 
-        $locator = new FileLocator([$configDirectory]);
-        $configFile = $locator->locate('csv_import.yml', null, true);
-
+        /** @todo: use a real object */
         $rawConfig = Yaml::parse(file_get_contents($configFile));
 
         if (!array_key_exists('csv_mapping', $rawConfig)) {
@@ -59,8 +75,10 @@ class CsvMappingConfiguration
         return $this->mapping;
     }
 
+   
     /**
      * @return CsvMappingConfiguration
+     * @todo remove this
      */
     public static function getInstance(): CsvMappingConfiguration
     {

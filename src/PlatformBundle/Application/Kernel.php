@@ -138,6 +138,7 @@ class Kernel extends BaseKernel
             new \Blast\Bundle\DoctrineSessionBundle\BlastDoctrineSessionBundle(),
             new \Blast\Bundle\ResourceBundle\BlastResourceBundle(),
             new \Blast\Bundle\DecoratorBundle\BlastDecoratorBundle(),
+            new \Blast\Bundle\CsvImportBundle\BlastCsvImportBundle(),
 
             // -------------------------------------------------------------------------------------
             // Librinfo bundles

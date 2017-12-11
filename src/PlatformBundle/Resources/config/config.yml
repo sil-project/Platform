@@ -18,6 +18,8 @@ imports:
     # - { resource: "@BlastBaseEntitiesBundle/Resources/config/app/config.yml" }# overriden in app/config/vendors/blast.yml
     # - { resource: "@BlastResourceBundle/Resources/config/app/config.yml" }    # overriden in app/config/vendors/blast.yml
     - { resource: "@BlastUtilsBundle/Resources/config/app/config.yml" }
+    # TODO : should add a load on config too (or not)
+    - { resource: "@BlastCsvImportBundle/Resources/config/services.yml" }
 
     # SIL Bundles
 
