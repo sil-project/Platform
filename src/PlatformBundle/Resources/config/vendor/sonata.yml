@@ -21,7 +21,6 @@ sonata_admin:
         groups:
             App:
                 provider: global_sidebar_menu
-                icon: ' '
 
     templates:
         history_revision_timestamp: SonataIntlBundle:CRUD:history_revision_timestamp.html.twig
