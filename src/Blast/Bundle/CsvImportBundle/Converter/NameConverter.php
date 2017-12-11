@@ -9,15 +9,15 @@
  * file that was distributed with this source code.
  */
 
-namespace Blast\Bundle\CsvImportBundle\Command\NameConverter;
+namespace Blast\Bundle\CsvImportBundle\Converter;
 
 use Symfony\Component\Serializer\NameConverter\NameConverterInterface;
-use Blast\Bundle\CsvImportBundle\Command\Configuration\CsvMappingConfiguration;
+use Blast\Bundle\CsvImportBundle\Mapping\MappingConfiguration;
 
 /**
  * @author Marcos Bezerra de Menezes <marcos.bezerra@libre-informatique.fr>
  */
-class CsvNameConverter implements NameConverterInterface
+class NameConverter implements NameConverterInterface
 {
     /**
      * @var array
@@ -34,7 +34,8 @@ class CsvNameConverter implements NameConverterInterface
      */
     public function __construct($entityClass)
     {
-        $this->mapping = CsvMappingConfiguration::getInstance()->getMapping();
+        /** @todo: use a service */
+        $this->mapping = new MappingConfiguration(); //CsvMappingConfiguration::getInstance()->getMapping();
         $this->configureNames($entityClass);
     }
 

@@ -12,7 +12,6 @@
 namespace Blast\Bundle\CsvImportBundle\Command;
 
 use Doctrine\ORM\EntityManager;
-use Blast\Bundle\CsvImportBundle\Command\Configuration\CsvMappingConfiguration;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -120,7 +119,7 @@ EOT
      */
     protected function getCsvFilePath($entityClass)
     {
-        $this->mapping = CsvMappingConfiguration::getInstance()->getMapping();
+        $this->mapping = $this->getContainer()->get('blast_csv_import.mapping.configuration')->getMapping(); //CsvMappingConfiguration::getInstance()->getMapping();
 
         if (!key_exists($entityClass, $this->mapping)) {
             throw new \Exception('Entity class not supported: ' . $entityClass);

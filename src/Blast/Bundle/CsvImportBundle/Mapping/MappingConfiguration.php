@@ -9,12 +9,12 @@
  * file that was distributed with this source code.
  */
 
-namespace Blast\Bundle\CsvImportBundle\Services;
+namespace Blast\Bundle\CsvImportBundle\Mapping;
 
 use Symfony\Component\Yaml\Yaml;
 use Symfony\Component\Config\FileLocator;
 
-class CsvMappingConfiguration
+class MappingConfiguration
 {
     /**
      * Mapping configuration of csv datas.
@@ -22,12 +22,6 @@ class CsvMappingConfiguration
      * @var array
      */
     private $mapping = null;
-
-    /**
-     * @var CsvMappingConfiguration
-     * @todo remove this
-     */
-    private static $instance = null;
 
     /**
      * @var string
@@ -73,19 +67,5 @@ class CsvMappingConfiguration
         }
 
         return $this->mapping;
-    }
-
-   
-    /**
-     * @return CsvMappingConfiguration
-     * @todo remove this
-     */
-    public static function getInstance(): CsvMappingConfiguration
-    {
-        if (self::$instance === null) {
-            self::$instance = new self();
-        }
-
-        return self::$instance;
     }
 }

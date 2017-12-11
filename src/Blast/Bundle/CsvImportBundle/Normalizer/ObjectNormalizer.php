@@ -9,20 +9,20 @@
  * file that was distributed with this source code.
  */
 
-namespace Blast\Bundle\CsvImportBundle\Command\Normalizer;
+namespace Blast\Bundle\CsvImportBundle\Normalizer;
 
-use Blast\Bundle\CsvImportBundle\Command\NameConverter\CsvNameConverter;
+use Blast\Bundle\CsvImportBundle\Converter\NameConverter;
 use Doctrine\ORM\EntityManager;
 // use Sil\Bundle\VarietyBundle\Entity\Family;
 // use Sil\Bundle\VarietyBundle\Entity\Genus;
 // use Sil\Bundle\VarietyBundle\Entity\Species;
 // use Sil\Bundle\VarietyBundle\Entity\Variety;
-use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer as BaseObjectNormalizer;
 
 /**
  * @author Marcos Bezerra de Menezes <marcos.bezerra@libre-informatique.fr>
  */
-class CsvObjectNormalizer extends ObjectNormalizer
+class ObjectNormalizer extends BaseObjectNormalizer
 {
     /**
      * @var EntityManager
@@ -40,7 +40,8 @@ class CsvObjectNormalizer extends ObjectNormalizer
      */
     public function __construct($entityClass, EntityManager $entityManager)
     {
-        $nameConverter = new CsvNameConverter($entityClass);
+        /** @todo: use a service */
+        $nameConverter = new NameConverter($entityClass);
         parent::__construct(null, $nameConverter);
         $this->em = $entityManager;
         $this->mappings = $this->getMappings();
