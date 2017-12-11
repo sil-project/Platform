@@ -27,7 +27,7 @@ class ObjectNormalizer extends BaseObjectNormalizer
     /**
      * @var EntityManager
      */
-    private $em;
+    //  private $em;
 
     /**
      * @var array
@@ -35,15 +35,15 @@ class ObjectNormalizer extends BaseObjectNormalizer
     private $mappings;
 
     /**
-     * @param string        $entityClass   entity class FQDN
-     * @param EntityManager $entityManager
+     // * @param string        $entityClass   entity class FQDN
+     // * @param EntityManager $entityManager
      */
-    public function __construct($entityClass, EntityManager $entityManager)
+    public function __construct(MappingConfiguration $mappingConf, NameConverter $nameConverter)// $entityClass, EntityManager $entityManager)
     {
-        /** @todo: use a service */
-        $nameConverter = new NameConverter($entityClass);
+        /* @todo: use a service */
+        //        $nameConverter = new NameConverter($entityClass);
         parent::__construct(null, $nameConverter);
-        $this->em = $entityManager;
+        // $this->em = $entityManager;
         $this->mappings = $this->getMappings();
     }
 
@@ -98,6 +98,8 @@ class ObjectNormalizer extends BaseObjectNormalizer
 
     /**
      * @param Species $species
+     *
+     * @todo remove this
      */
     protected function postDenormalizeSpecies(Species $species)
     {

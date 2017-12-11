@@ -1,3 +1,14 @@
 services:
     blast_csv_import.mapping.configuration:
         class: Blast\Bundle\CsvImportBundle\Mapping\MappingConfiguration
+
+    blast_csv_import.converter.name:
+        class: Blast\Bundle\CsvImportBundle\Converter\NameConverter        
+        arguments:
+            - '@blast_csv_import.mapping.configuration'
+         
+    blast_csv_import.normalizer.object:
+        class: Blast\Bundle\CsvImportBundle\Normalizer\ObjectNormalizer
+        arguments:
+            - '@blast_csv_import.mapping.configuration'
+            - '@blast_csv_import.converter.name'

@@ -87,7 +87,7 @@ EOT
         $output->write(' (' . basename($csv) . ')...');
         $data = file_get_contents($csv);
 
-        $normalizer = new CsvObjectNormalizer($entityClass, $this->em);
+        $normalizer = $this->getContainer()->get('blast_csv_import.mapping.configuration'); // new ObjectNormalizer($entityClass, $this->em);
         $serializer = new Serializer([$normalizer, new ArrayDenormalizer()], [new CsvEncoder()]);
         $objects = $serializer->deserialize($data, $entityClass . '[]', 'csv');
         $output->writeln(sprintf(' <info>%d objects</info>', count($objects)));
