@@ -1,5 +1,6 @@
 Sil\Bundle\EcommerceBundle\Entity\CustomerGroup:
     type: entity
+    table: sil_ecommerce_customer_group
     # oneToMany:
     #     customers:
     #         targetEntity: Sylius\Component\Core\Model\Customer

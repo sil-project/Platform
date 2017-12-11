@@ -1,0 +1,13 @@
+parameters:
+    blast_menu.root:
+
+        sil.email.menu_label.emailing:
+            display: false
+
+        sil.crm.menu_label.crm:
+            children:
+
+                sil.email.menu_label.email:
+                    icon: cloud-upload
+                    route: admin_sil_email_list
+                    order: 20

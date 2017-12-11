@@ -1,5 +1,6 @@
 PlatformBundle\Entity\SilMediaBundle\File:
     type: entity
+    table: sil_media_file
     fields:
         path:
             type: string

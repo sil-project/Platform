@@ -43,6 +43,7 @@ matrix:
     - env: SONATA_BLOCK=dev-master@dev
 
 before_install:
+    - ln -s .env.travis .env # Enable env
     - if [[ -x ${SCRIPTS_FOLDER}/check_relevant_${TARGET}.sh && "$TRAVIS_PULL_REQUEST" != "false" ]]; then export RELEVANT=$(${SCRIPTS_FOLDER}/check_relevant_${TARGET}.sh); fi;
     - if [[ ! -z ${RELEVANT} ]];then exit 0; fi;
     - if [ -x ${SCRIPTS_FOLDER}/before_install_${TARGET}.sh ]; then ${SCRIPTS_FOLDER}/before_install_${TARGET}.sh; fi;

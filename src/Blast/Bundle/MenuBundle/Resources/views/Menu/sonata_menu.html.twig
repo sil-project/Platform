@@ -1,0 +1,8 @@
+{% extends 'SonataAdminBundle:Menu:sonata_menu.html.twig' %}
+
+{% block root %}
+{% if item.parent is null and item.children['sil_menu_root'] is defined %}
+    {% set item = item.children['sil_menu_root'] %}
+{% endif %}
+{{ parent()}}
+{% endblock %}

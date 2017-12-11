@@ -12,9 +12,9 @@
 // @group ecommerce
 // @group all
 
-use Step\Acceptance\Lisem as LisemTester;
-use Step\Acceptance\Ecommerce as EcommerceTester;
-use Step\Acceptance\Sylius as SyliusTester;
+use Blast\Bundle\TestsBundle\Codeception\Step\Acceptance\Lisem as LisemTester;
+use Blast\Bundle\TestsBundle\Codeception\Step\Acceptance\Ecommerce as EcommerceTester;
+use Blast\Bundle\TestsBundle\Codeception\Step\Acceptance\Sylius as SyliusTester;
 
 $lisem = new LisemTester($scenario);
 $ecommerce = new EcommerceTester($scenario);
@@ -31,11 +31,11 @@ $sylius->createAccount($randSelName, $randSelEmail);
 $ecommerce->activeAccount($randSelEmail);
 $sylius->loginSylius($randSelEmail);
 
-//$sylius->addToCart();
-$sylius->addToCart('coriandre');
-//$sylius->addToCart('carotte-de-l-est');
-$sylius->addToCart('tomate-saint-pierre');
-//$sylius->addToCart('tomate-merveille-des-marches');
+$productsUrls = $sylius->selectHomePageProducts(2);
+
+$sylius->addToCart($productsUrls[0]);
+$sylius->addToCart($productsUrls[1]);
+
 $sylius->checkoutCart();
 
 $ecommerce->checkOrder($randSelName);

@@ -1,5 +1,6 @@
 Sil\Bundle\EcommerceBundle\Entity\OrderItem:
     type: entity
+    table: sil_ecommerce_order_item
     fields:
         bulk:
             type: boolean

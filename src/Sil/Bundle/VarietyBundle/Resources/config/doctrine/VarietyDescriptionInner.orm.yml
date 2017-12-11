@@ -1,9 +1,0 @@
-
-Sil\Bundle\VarietyBundle\Entity\VarietyDescriptionInner:
-    type: entity
-    manyToOne:
-        variety:
-            targetEntity: Sil\Bundle\VarietyBundle\Entity\VarietyInterface
-            inversedBy: inner_descriptions
-            joinColumn:
-                name: variety_id

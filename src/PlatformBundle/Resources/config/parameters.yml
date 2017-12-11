@@ -5,10 +5,10 @@ parameters:
     sil_stock.entity.partner.class:                     "%sil_crm.entity.organism.class%"
     sil_stock.entity.stock_item.class:                  "%sil_ecommerce.entity.product.class%"
 
-    sil_ecommerce.entity.product.class:                 LisemBundle\Entity\SilEcommerceBundle\Product
-    sil_ecommerce.entity.order.class:                   LisemBundle\Entity\SilEcommerceBundle\Order
-    sil_ecommerce.entity.product_variant.class:         LisemBundle\Entity\SilEcommerceBundle\ProductVariant
-    sil_ecommerce.entity.product_option_value.class:    LisemBundle\Entity\SilEcommerceBundle\ProductOptionValue
+    sil_ecommerce.entity.product.class:                 Sil\Bundle\EcommerceBundle\Entity\Product
+    sil_ecommerce.entity.order.class:                   Sil\Bundle\EcommerceBundle\Entity\Order
+    sil_ecommerce.entity.product_variant.class:         Sil\Bundle\EcommerceBundle\Entity\ProductVariant
+    sil_ecommerce.entity.product_option_value.class:    Sil\Bundle\EcommerceBundle\Entity\ProductOptionValue
 
     sil_media.entity.file.class:                        PlatformBundle\Entity\SilMediaBundle\File
 
@@ -16,12 +16,3 @@ parameters:
 
     sil_sonata_sylius_user.entity.sonata_user.class:    PlatformBundle\Entity\SilSonataSyliusUserBundle\SonataUser
     sil_sonata_sylius_user.entity.sonata_group.class:   Sil\Bundle\SonataSyliusUserBundle\Entity\SonataGroup
-
-    sil_variety.entity.family.class:                    PlatformBundle\Entity\SilVarietyBundle\Family
-    sil_variety.entity.variety.class:                   PlatformBundle\Entity\SilVarietyBundle\Variety
-    sil_variety.entity.species.class:                   PlatformBundle\Entity\SilVarietyBundle\Species
-    sil_variety.entity.genus.class:                     PlatformBundle\Entity\SilVarietyBundle\Genus
-
-    sil_seed_batch.entity.seed_batch.class:             Sil\Bundle\SeedBatchBundle\Entity\SeedBatch
-
-    sil_platform.entity.channel_description.class:      PlatformBundle\Entity\ChannelDescription

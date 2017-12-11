@@ -23,6 +23,9 @@ class SonataUserAdmin extends CoreAdmin
      */
     protected $translationLabelPrefix = 'sil.sonata_sylius_user.sonata_user';
 
+    protected $baseRouteName = 'admin_sil_sonata_sylius_user';
+    protected $baseRoutePattern = 'user/user';
+
     protected function configureRoutes(RouteCollection $collection)
     {
         parent::configureRoutes($collection);

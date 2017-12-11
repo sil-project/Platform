@@ -1,9 +1,0 @@
-
-Sil\Bundle\VarietyBundle\Entity\VarietyDescriptionCulture:
-    type: entity
-    manyToOne:
-        variety:
-            targetEntity: Sil\Bundle\VarietyBundle\Entity\VarietyInterface
-            inversedBy: culture_descriptions
-            joinColumn:
-                name: variety_id

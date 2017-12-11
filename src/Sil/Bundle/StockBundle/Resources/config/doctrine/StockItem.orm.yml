@@ -1,7 +1,8 @@
 Sil\Bundle\StockBundle\Domain\Entity\StockItem:
     type: mappedSuperclass
+    table: sil_stock_item
     repositoryClass: Sil\Bundle\StockBundle\Doctrine\ORM\StockItemRepository
-       
+
     fields:
         name:
             type: string(255)
@@ -10,18 +11,17 @@ Sil\Bundle\StockBundle\Domain\Entity\StockItem:
             type: string(64)
             unique: true
             nullable: false
-        
+
     manyToOne:
-        uom: 
-            targetEntity: Uom   
+        uom:
+            targetEntity: Uom
             joinColumn:
                 name: uom_id
                 referencedColumnName: id
                 nullable: false
-        outputStrategy: 
+        outputStrategy:
             targetEntity: OutputStrategy
             joinColumn:
                 name: strategy_output_id
                 referencedColumnName: id
                 nullable: false
-   

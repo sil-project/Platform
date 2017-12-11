@@ -13,9 +13,9 @@
  * @group user
  * @group all
  */
-use Step\Acceptance\SonataSyliusUser as SonataSyliusUserTester;
-use Step\Acceptance\Ecommerce as EcommerceTester;
-use Step\Acceptance\Sylius as SyliusTester;
+use Blast\Bundle\TestsBundle\Codeception\Step\Acceptance\SonataSyliusUser as SonataSyliusUserTester;
+use Blast\Bundle\TestsBundle\Codeception\Step\Acceptance\Ecommerce as EcommerceTester;
+use Blast\Bundle\TestsBundle\Codeception\Step\Acceptance\Sylius as SyliusTester;
 
 class CreateUserCest
 {

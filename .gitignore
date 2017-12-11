@@ -18,6 +18,7 @@
 
 # Composer PHAR
 /composer.phar
+composer.lock
 
 /vendor/
 
@@ -57,3 +58,5 @@ src/Tests/_output/*
 !src/Tests/_output/.gitkeep
 src/Tests/_support/_generated/*
 !src/Tests/_support/_generated/.gitkeep
+
+.env

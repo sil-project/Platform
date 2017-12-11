@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-define('SILURL', '/sil');
+// if (!getenv('SILURL')) {
+//     die('Env Variable SILURL is mandatory');
+//putenv('SILURL', '/sil');
+// }
 
-//Codeception\Util\Autoload::addNamespace('Step', __DIR__ . '../../Blast/Bundle/TestsBundle/Codeception/Step/');
-
-/* @warning it look like it does not work with relative path */
-
-Codeception\Util\Autoload::addNamespace('Step\\', 'src/Blast/Bundle/TestsBundle/Codeception/Step');
+//die(__DIR__ . '/../../../src/Blast/Bundle/TestsBundle/Codeception/Step');
+//Codeception\Util\Autoload::addNamespace('Step\\', __DIR__ . '/../../Blast/Bundle/TestsBundle/Codeception/Step');

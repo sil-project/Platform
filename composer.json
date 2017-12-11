@@ -5,22 +5,15 @@
     "description": "Platform Is The Sil Dev Platform.",
     "autoload": {
         "psr-4": {
-            "PlatformBundle\\": "src/PlatformBundle"
-        },
+            "PlatformBundle\\": "src/PlatformBundle",
+            "Blast\\": "src/Blast",
+            "Sil\\": "src/Sil"
+        }
+    },
+    "autoload-dev": {
         "classmap": [
             "app/AppKernel.php",
             "app/AppCache.php"
-        ]
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "Tests\\": "Tests/",
-            "Blast\\": "src/Blast",
-            "Sil\\": "src/Sil",
-            "LisemBundle\\": "src/Li/LisemBundle"
-        },
-        "files": [
-            "vendor/symfony/symfony/src/Symfony/Component/VarDumper/Resources/functions/dump.php"
         ]
     },
     "require": {
@@ -35,6 +28,7 @@
         "ext-zip": "*",
 
         "doctrine/doctrine-bundle": ">=1.6",
+        "doctrine/doctrine-migrations-bundle": "^1.2",
         "doctrine/orm": "^2.5",
         "friendsofsymfony/jsrouting-bundle": ">=1.6",
         "h4cc/wkhtmltoimage-amd64": "^0.12.3",
@@ -91,7 +85,7 @@
         ],
         "post-update-cmd": [
             "@symfony-scripts",
-             "@git-hook"
+            "@git-hook"
         ]
     },
     "config": {

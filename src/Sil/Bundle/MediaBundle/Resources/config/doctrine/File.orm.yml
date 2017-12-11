@@ -1,5 +1,6 @@
 Sil\Bundle\MediaBundle\Entity\File:
     type: mappedSuperclass
+    table: sil_media_file
     fields:
         name:
             type: string

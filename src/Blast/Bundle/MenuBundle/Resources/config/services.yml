@@ -1,0 +1,17 @@
+services:
+
+    blast.menu_builder:
+        class: Blast\Bundle\MenuBundle\Menu\MenuBuilder
+        arguments: ["@knp_menu.factory"]
+        calls:
+            - [setTokenStorage, ['@security.token_storage']]
+            - [setAuthorizationChecker, ['@security.authorization_checker']]
+            - [setRootMenu, ['%blast_menu.root%']]
+            - [setSettingsMenu, ['%blast_menu.settings%']]
+
+    blast.sidebar_menu.global:
+        class: Knp\Menu\MenuItem
+        factory: ["@blast.menu_builder", createGlobalSidebarMenu]
+        arguments: ["@request_stack"]
+        tags:
+            - { name: knp_menu.menu, alias: global_sidebar_menu }

@@ -80,7 +80,7 @@ class SortableListener implements LoggerAwareInterface, EventSubscriber
             $metadata->table['indexes'] = [];
         }
 
-        $metadata->table['indexes']['sort_rank'] = ['columns' => ['sort_rank']];
+        $metadata->table['indexes'][$metadata->getTableName() . '_sort_rank'] = ['columns' => ['sort_rank']];
 
         $this->logger->debug(
             '[SortableListener] Added Sortable mapping metadata to Entity', ['class' => $metadata->getName()]

@@ -1,5 +1,6 @@
 Sil\Bundle\EmailBundle\Entity\Email:
     type: mappedSuperclass
+    table: sil_email
     blast:
         loggable: true
     fields:
@@ -34,7 +35,7 @@ Sil\Bundle\EmailBundle\Entity\Email:
         attachments:
             targetEntity: Sil\Bundle\MediaBundle\Entity\FileInterface
             joinTable:
-                name: sil_email_file
+                name: sil_email__file
                 joinColumns:
                     email_id:
                         referencedColumnName: id
@@ -59,7 +60,7 @@ Sil\Bundle\EmailBundle\Entity\Email:
             orphanRemoval:  true
     oneToOne:
         template:
-          targetEntity: Sil\Bundle\EmailBundle\Entity\EmailTemplate
-          joinColumn:
-            name: template_id
-            referencedColumnName: id
+            targetEntity: Sil\Bundle\EmailBundle\Entity\EmailTemplate
+            joinColumn:
+                name: template_id
+                referencedColumnName: id

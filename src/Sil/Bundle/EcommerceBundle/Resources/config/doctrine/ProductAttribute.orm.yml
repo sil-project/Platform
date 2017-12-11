@@ -1,2 +1,3 @@
 Sil\Bundle\EcommerceBundle\Entity\ProductAttribute:
     type: entity
+    table: sil_ecommerce_product_attribute

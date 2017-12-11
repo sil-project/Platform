@@ -1,5 +1,6 @@
 Sil\Bundle\EmailBundle\Entity\EmailLink:
     type: entity
+    table: sil_email_link
     fields:
         destination:
             type:    text

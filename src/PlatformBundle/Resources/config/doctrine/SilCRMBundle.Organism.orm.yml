@@ -1,30 +1,31 @@
 PlatformBundle\Entity\SilCRMBundle\Organism:
     type: entity
+    table: sil_crm_organism
     fields:
-        seedProducerCode:
-            type:       string
-            length:     255
-            nullable:   true
-        seedProducer:
-            type:        boolean
-            options:
-                default: false
+#        seedProducerCode:
+#            type:       string
+#            length:     255
+#            nullable:   true
+#        seedProducer:
+#            type:        boolean
+#            options:
+#                default: false
         emailCanonical:
             type:       string
             length:     255
             nullable:   true
 
     oneToMany:
-        seedBatches:
-            targetEntity: Sil\Bundle\SeedBatchBundle\Entity\SeedBatchInterface
-            mappedBy: producer
-            cascade: [ persist, remove ]
-            orphanRemoval: true
-        plots:
-            targetEntity: Sil\Bundle\SeedBatchBundle\Entity\Plot
-            mappedBy: producer
-            cascade: [ persist, remove ]
-            orphanRemoval: true
+        # seedBatches:
+        #     targetEntity: Sil\Bundle\SeedBatchBundle\Entity\SeedBatchInterface
+        #     mappedBy: producer
+        #     cascade: [ persist, remove ]
+        #     orphanRemoval: true
+        # plots:
+        #     targetEntity: Sil\Bundle\SeedBatchBundle\Entity\Plot
+        #     mappedBy: producer
+        #     cascade: [ persist, remove ]
+        #     orphanRemoval: true
         orders:
             targetEntity: Sil\Bundle\EcommerceBundle\Entity\OrderInterface
             mappedBy: customer
@@ -53,7 +54,7 @@ PlatformBundle\Entity\SilCRMBundle\Organism:
             targetEntity: Sil\Bundle\CRMBundle\Entity\Circle
             inversedBy: organisms
             joinTable:
-                name: ~
+                name: sil_crm_organism__circle
                 joinColumns:
                     circle_id:
                         referencedColumnName: id

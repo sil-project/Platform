@@ -17,16 +17,16 @@ sylius_product:
     resources:
         product:
             classes:
-                model: Sil\Bundle\EcommerceBundle\Entity\Product
+                model: "%sil_ecommerce.entity.product.class%"
         product_variant:
             classes:
-                model: Sil\Bundle\EcommerceBundle\Entity\ProductVariant
+                model: "%sil_ecommerce.entity.product_variant.class%"
         product_option:
             classes:
-                model: Sil\Bundle\EcommerceBundle\Entity\ProductOption
+                model: "%sil_ecommerce.entity.product_option.class%"
         product_option_value:
             classes:
-                model: Sil\Bundle\EcommerceBundle\Entity\ProductOptionValue
+                model: "%sil_ecommerce.entity.product_option_value.class%"
 
 sylius_review:
     resources:
@@ -34,23 +34,23 @@ sylius_review:
             subject: "%sylius.model.product.class%"
             review:
                 classes:
-                    model: Sil\Bundle\EcommerceBundle\Entity\ProductReview
+                    model: "%sil_ecommerce.entity.product_review.class%"
 
 sylius_order:
     resources:
         order:
             classes:
-                model: Sil\Bundle\EcommerceBundle\Entity\Order
+                model: "%sil_ecommerce.entity.order.class%"
         order_item:
             classes:
-                model: Sil\Bundle\EcommerceBundle\Entity\OrderItem
+                model: "%sil_ecommerce.entity.order_item.class%"
                 controller: Sil\Bundle\EcommerceBundle\Controller\SyliusOrderItemController
 
 sylius_taxation:
     resources:
         tax_rate:
             classes:
-                model: Sil\Bundle\EcommerceBundle\Entity\TaxRate
+                model: "%sil_ecommerce.entity.tax_rate.class%"
 
 
 sylius_channel:
@@ -58,54 +58,55 @@ sylius_channel:
     resources:
         channel:
             classes:
+                model: "%sil_ecommerce.entity.channel.class%"
                 repository: Sil\Bundle\EcommerceBundle\Repository\ChannelRepository
 
 sylius_attribute:
     resources:
         product:
-            subject: Sil\Bundle\EcommerceBundle\Entity\Product
+            subject: "%sil_ecommerce.entity.product.class%"
             attribute:
                 classes:
-                    model: Sil\Bundle\EcommerceBundle\Entity\ProductAttribute
+                    model: "%sil_ecommerce.entity.product_attribute.class%"
 
 sylius_customer:
     driver: doctrine/orm
     resources:
         customer_group:
             classes:
-                model: Sil\Bundle\EcommerceBundle\Entity\CustomerGroup
+                model: "%sil_ecommerce.entity.customer_group.class%"
 
 sylius_addressing:
     resources:
         zone:
             classes:
-                model: Sil\Bundle\EcommerceBundle\Entity\Zone
+                model: "%sil_ecommerce.entity.zone.class%"
 
 sylius_core:
     resources:
         product_image:
             classes:
-                model: Sil\Bundle\EcommerceBundle\Entity\ProductImage
+                model: "%sil_ecommerce.entity.product_image.class%"
 
 sylius_taxonomy:
     resources:
         taxon:
             classes:
-                model: Sil\Bundle\EcommerceBundle\Entity\Taxon
+                model: "%sil_ecommerce.entity.taxon.class%"
 
 sylius_shipping:
     driver: doctrine/orm
     resources:
         shipping_method:
             classes:
-                model: Sil\Bundle\EcommerceBundle\Entity\ShippingMethod
+                model: "%sil_ecommerce.entity.shipping_method.class%"
 
 sylius_payment:
     driver: doctrine/orm
     resources:
         payment:
             classes:
-                model: Sil\Bundle\EcommerceBundle\Entity\Payment
+                model: "%sil_ecommerce.entity.payment.class%"
 
 sylius_shop:
     checkout_resolver:

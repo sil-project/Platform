@@ -19,9 +19,9 @@ file that was distributed with this source code.
         <input type="hidden" name="recipients[]" value="{{ value }}">
     </form>
     {% if ( object.emailNpai ) %}
-        <span class="label label-danger">{{ 'sil.label.npai'|trans }}</span>
+        <span class="label label-danger">{{ 'sil.email.email.form.label.npai'|trans }}</span>
     {% endif %}
     {% if ( object.emailNoNewsletter ) %}
-        <span class="label label-danger">{{ 'sil.label.email_no_newsletter'|trans }}</span>
+        <span class="label label-danger">{{ 'sil.email.email.form.label.no_newsletter'|trans }}</span>
     {% endif %}
 {% endblock %}

@@ -1,8 +1,9 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 set -ev
 
 mkdir --parents "${HOME}/bin"
 
+# TODO add a variable to enable or disable
 if [ $# -eq 0 ]
 then
     # Ugly hack

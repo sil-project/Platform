@@ -1,22 +1,28 @@
 <?php
 
 /*
- * This file is part of the Lisem Project.
  *
  * Copyright (C) 2015-2017 Libre Informatique
  *
- * This file is licenced under the GNU GPL v3.
+ * This file is licenced under the GNU LGPL v3.
  * For the full copyright and license information, please view the LICENSE.md
  * file that was distributed with this source code.
  */
 
-namespace Step\Acceptance;
+namespace Blast\Bundle\TestsBundle\Codeception\Step\Acceptance;
 
 /** @todo find a clean way to extends the good configured class in codeception config suite file */
 class Common extends \WebGuy
 {
     public $randNbr = null;
     public $randName = null;
+
+    public function fillField($field, $value)
+    {
+        $this->executeJS('if (typeof tinyMCE !== "undefined") {try{tinyMCE.remove();} catch(e) {};}');
+
+        return parent::fillField($field, $value);
+    }
 
     public function setRand($new = false)
     {

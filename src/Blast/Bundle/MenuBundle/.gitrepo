@@ -1,0 +1,12 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = git@github.com:blast-project/MenuBundle.git
+	branch = wip-platform
+	commit = 875951412bf7e3aaa8524644ccdccc12982e0951
+	method = merge
+	cmdver = 0.4.0
+	parent = 7013eeb574111429bc6059fbe17f0b3a31c314be

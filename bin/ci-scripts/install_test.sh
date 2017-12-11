@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 set -ev
 
 rm -rf composer.lock # vendor
@@ -30,9 +30,17 @@ bin/console doctrine:schema:create --no-interaction --em=session
 
 # asset and data
 
-bin/console lisem:install:setup --with-samples --yes
-bin/console blast:patchs:apply
-bin/console assets:install
-bin/console sylius:theme:assets:install # must be done after assets:install
+# TODO move this to another script
+#bin/console lisem:install:setup --with-samples --yes
+
+#bin/console sylius:install:setup --no-interaction
+bin/console sylius:fixtures:load ecommerce_requirements --no-interaction
+
+bin/console sil:user:fixture --no-interaction
+
+
+bin/console blast:patchs:apply --no-interaction
+bin/console assets:install --no-interaction
+bin/console sylius:theme:assets:install  --no-interaction # must be done after assets:install
 
 

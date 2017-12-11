@@ -159,18 +159,20 @@ class ProxyQuery extends BaseProxyQuery
         return $queryBuilder;
     }
 
-    /**
-     * Sets a query hint that will be used just before the query execution.
-     *
-     * @param string $name  the name of the hint
-     * @param mixed  $value the value of the hint
-     *
-     * @return static this instance
-     */
-    public function setHint($name, $value)
-    {
-        $this->_hints[$name] = $value;
-
-        return $this;
-    }
+    // Sonata has overriden the function and flagged with a F***ing final...
+    //
+    // /**
+    //  * Sets a query hint that will be used just before the query execution.
+    //  *
+    //  * @param string $name  the name of the hint
+    //  * @param mixed  $value the value of the hint
+    //  *
+    //  * @return static this instance
+    //  */
+    // public function setHint($name, $value)
+    // {
+    //     $this->_hints[$name] = $value;
+    //
+    //     return $this;
+    // }
 }

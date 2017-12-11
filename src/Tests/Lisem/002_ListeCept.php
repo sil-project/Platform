@@ -12,7 +12,7 @@
 // @group menu
 // @group all
 
-use Step\Acceptance\Lisem as LisemTester;
+use Blast\Bundle\TestsBundle\Codeception\Step\Acceptance\Lisem as LisemTester;
 
 $lisem = new LisemTester($scenario);
 $lisem->loginLisem();

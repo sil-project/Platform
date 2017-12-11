@@ -1,5 +1,6 @@
 Blast\Bundle\DoctrineSessionBundle\Entity\Session:
     type: entity
+    table: blast_session
     id:
         id:
           type: integer
@@ -18,6 +19,6 @@ Blast\Bundle\DoctrineSessionBundle\Entity\Session:
         expiresAt:
             type: datetime
     indexes:
-        session_id_index:
+        blast_session_session_id_index:
             columns: [session_id]
     lifecycleCallbacks: {  }

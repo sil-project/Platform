@@ -1,5 +1,6 @@
 Sil\Bundle\EcommerceBundle\Entity\Taxon:
     type: entity
+    table: sil_ecommerce_taxon
     oneToMany:
         images:
             targetEntity: Sylius\Component\Core\Model\TaxonImage

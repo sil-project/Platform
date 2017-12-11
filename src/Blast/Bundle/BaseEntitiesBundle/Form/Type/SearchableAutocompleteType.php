@@ -84,23 +84,26 @@ class SearchableAutocompleteType extends ModelAutocompleteType
         };
 
         $resolver->setDefaults(array(
-            'attr'                       => array(),
-            'compound'                   => $compound,
-            'model_manager'              => null,
-            'class'                      => null,
-            'admin_code'                 => null,
-            'callback'                   => $callback,
-            'multiple'                   => false,
-            'width'                      => '',
-            'context'                    => '',
-            'property'                   => '',
-            'placeholder'                => '',
-            'minimum_input_length'       => 3,
-            'items_per_page'             => 10,
-            'quiet_millis'               => 100,
-            'cache'                      => false,
-            'target_admin_access_action' => 'list',
-            'to_string_callback'         => null,
+            'attr'                          => array(),
+            'compound'                      => $compound,
+            'model_manager'                 => null,
+            'class'                         => null,
+            'admin_code'                    => null,
+            'callback'                      => $callback,
+            'multiple'                      => false,
+            'width'                         => '',
+            'context'                       => '',
+            'property'                      => '',
+            'placeholder'                   => '',
+            'minimum_input_length'          => 3,
+            'items_per_page'                => 10,
+            'quiet_millis'                  => 100,
+            'cache'                         => false,
+            'target_admin_access_action'    => 'list',
+            'to_string_callback'            => null,
+
+            'btn_add'                       => false,
+            'btn_catalogue'                 => 'SonataAdminBundle',
 
             // ajax parameters
             'url'                           => '',
@@ -111,13 +114,13 @@ class SearchableAutocompleteType extends ModelAutocompleteType
             'req_param_name_items_per_page' => '_per_page',
 
             // CSS classes
-            'container_css_class'     => '',
-            'dropdown_css_class'      => '',
-            'dropdown_item_css_class' => '',
+            'container_css_class'           => '',
+            'dropdown_css_class'            => '',
+            'dropdown_item_css_class'       => '',
 
-            'dropdown_auto_width' => false,
+            'dropdown_auto_width'           => false,
 
-            'template' => 'SonataAdminBundle:Form/Type:sonata_type_model_autocomplete.html.twig',
+            'template'                      => 'SonataAdminBundle:Form/Type:sonata_type_model_autocomplete.html.twig',
         ));
     }
 

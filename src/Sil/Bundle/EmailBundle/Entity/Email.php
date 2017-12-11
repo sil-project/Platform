@@ -207,7 +207,7 @@ class Email extends Spoolable implements EmailInterface
             });
         }
 
-        return $toArray;
+        return array_flip($toArray);
     }
 
     /**

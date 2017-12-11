@@ -1,6 +1,6 @@
 Sil\Bundle\StockBundle\Domain\Entity\Batch:
     type: mappedSuperclass
-    
+    table: sil_stock_batch
     fields:
         code:
             type: string(64)

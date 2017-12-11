@@ -1,16 +1,19 @@
 parameters:
+    sil_ecommerce.entity.channel.class:                     Sil\Bundle\EcommerceBundle\Entity\Channel
     sil_ecommerce.entity.customer_group.class:              Sil\Bundle\EcommerceBundle\Entity\CustomerGroup
-    sil_ecommerce.entity.product.class:                     Sil\Bundle\EcommerceBundle\Entity\Product
     sil_ecommerce.entity.invoice.class:                     Sil\Bundle\EcommerceBundle\Entity\Invoice
-    sil_ecommerce.entity.product_variant.class:             Sil\Bundle\EcommerceBundle\Entity\ProductVariant
+    sil_ecommerce.entity.order.class:                       Sil\Bundle\EcommerceBundle\Entity\Order
+    sil_ecommerce.entity.order_item.class:                  Sil\Bundle\EcommerceBundle\Entity\OrderItem
     sil_ecommerce.entity.payment.class:                     Sil\Bundle\EcommerceBundle\Entity\Payment
+    sil_ecommerce.entity.product_attribute.class:           Sil\Bundle\EcommerceBundle\Entity\ProductAttribute
+    sil_ecommerce.entity.product_image.class:               Sil\Bundle\EcommerceBundle\Entity\ProductImage
+    sil_ecommerce.entity.product_option_value.class:        Sil\Bundle\EcommerceBundle\Entity\ProductOptionValue
+    sil_ecommerce.entity.product_option.class:              Sil\Bundle\EcommerceBundle\Entity\ProductOption
+    sil_ecommerce.entity.product_review.class:              Sil\Bundle\EcommerceBundle\Entity\ProductReview
+    sil_ecommerce.entity.product_variant.class:             Sil\Bundle\EcommerceBundle\Entity\ProductVariant
+    sil_ecommerce.entity.product.class:                     Sil\Bundle\EcommerceBundle\Entity\Product
+    sil_ecommerce.entity.sales_journal_item.class:          Sil\Bundle\EcommerceBundle\Entity\SalesJournalItem
+    sil_ecommerce.entity.shipping_method.class:             Sil\Bundle\EcommerceBundle\Entity\ShippingMethod
     sil_ecommerce.entity.tax_rate.class:                    Sil\Bundle\EcommerceBundle\Entity\TaxRate
     sil_ecommerce.entity.taxon.class:                       Sil\Bundle\EcommerceBundle\Entity\Taxon
-    sil_ecommerce.entity.product_option.class:              Sil\Bundle\EcommerceBundle\Entity\ProductOption
-    sil_ecommerce.entity.channel.class:                     Sil\Bundle\EcommerceBundle\Entity\Channel
-    sil_ecommerce.entity.shipping_method.class:             Sil\Bundle\EcommerceBundle\Entity\ShippingMethod
-    sil_ecommerce.entity.sales_journal_item.class:          Sil\Bundle\EcommerceBundle\Entity\SalesJournalItem
-    sil_ecommerce.entity.product_attribute.class:           Sil\Bundle\EcommerceBundle\Entity\ProductAttribute
-    sil_ecommerce.entity.product_option_value.class:        Sil\Bundle\EcommerceBundle\Entity\ProductOptionValue
     sil_ecommerce.entity.zone.class:                        Sil\Bundle\EcommerceBundle\Entity\Zone
-    sil_ecommerce.entity.order.class:                       Sil\Bundle\EcommerceBundle\Entity\Order

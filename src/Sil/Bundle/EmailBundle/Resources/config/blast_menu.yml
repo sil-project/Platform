@@ -1,0 +1,24 @@
+parameters:
+    blast_menu.root:
+
+        sil.email.menu_label.emailing:
+            icon: envelope-o
+            order: 11000
+            children:
+
+                sil.email.menu_label.email:
+                    icon: cloud-upload
+                    route: admin_sil_email_list
+                    order: 10
+
+    blast_menu.settings:
+
+        sil.email.menu_label.email_settings:
+            icon: envelope
+            order: 11000
+            children:
+
+                sil.email.menu_label.email_settings_templates:
+                    icon: crop
+                    route: admin_sil_email_emailtemplate_list
+                    order: 10

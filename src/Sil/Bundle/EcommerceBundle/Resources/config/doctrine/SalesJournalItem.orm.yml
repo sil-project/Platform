@@ -1,5 +1,6 @@
 Sil\Bundle\EcommerceBundle\Entity\SalesJournalItem:
     type: entity
+    table: sil_ecommerce_sales_journal_item
     repositoryClass: Sil\Bundle\EcommerceBundle\Repository\SalesJournalItemRepository
     fields:
         operationDate:

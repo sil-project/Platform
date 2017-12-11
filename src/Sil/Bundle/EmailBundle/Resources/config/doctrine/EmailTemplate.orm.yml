@@ -1,5 +1,6 @@
 Sil\Bundle\EmailBundle\Entity\EmailTemplate:
     type: entity
+    table: sil_email_template
     fields:
         name:
             type: string

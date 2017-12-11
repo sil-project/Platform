@@ -1,5 +1,6 @@
 Sil\Bundle\EcommerceBundle\Entity\ProductImage:
     type: entity
+    table: sil_ecommerce_product_image
     manyToOne:
         realFile:
             targetEntity: Sil\Bundle\MediaBundle\Entity\FileInterface
@@ -14,7 +15,7 @@ Sil\Bundle\EcommerceBundle\Entity\ProductImage:
             orphanRemoval: true
             inversedBy: images
             joinTable:
-                name: sil_ecommerce_productimage__productvariants
+                name: sil_ecommerce_product_image__product_variant
                 joinColumns:
                     joinColumn:
                         name: image_id

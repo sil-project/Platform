@@ -57,12 +57,12 @@ class OrderAdmin extends CoreAdmin
 
         $actions['cancel'] = [
             'ask_confirmation' => true,
-            'label'            => 'sil.label.cancel_order',
+            'label'            => $this->translationLabelPrefix . '.form.action.cancel_order',
         ];
 
         $actions['validate'] = [
             'ask_confirmation' => true,
-            'label'            => 'sil.label.fulfill_order',
+            'label'            => $this->translationLabelPrefix . '.form.action.fulfill_order',
         ];
 
         return $actions;
@@ -141,7 +141,7 @@ class OrderAdmin extends CoreAdmin
                         ->getQuery()->getResult();
 
                     $form->add('payment', PaymentMethodChoiceType::class, [
-                        'label'    => 'sil.label.payment_method',
+                        'label'    => $this->translationLabelPrefix . '.form.label.payment_method',
                         'multiple' => false,
                         'mapped'   => false,
                         'required' => true,
@@ -162,7 +162,7 @@ class OrderAdmin extends CoreAdmin
                         ->getQuery()->getResult();
 
                     $form->add('shipment', ShippingMethodChoiceType::class, [
-                        'label'    => 'sil.label.shipping_method',
+                        'label'    => $this->translationLabelPrefix . '.form.label.shipping_method',
                         'multiple' => false,
                         'mapped'   => false,
                         'required' => true,

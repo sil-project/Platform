@@ -1,6 +1,6 @@
 Sil\Bundle\SonataSyliusUserBundle\Entity\SonataUser:
     type: mappedSuperclass
-
+    table: sil_sonata_user
     fields:
         firstName:
             type: string
@@ -19,7 +19,7 @@ Sil\Bundle\SonataSyliusUserBundle\Entity\SonataUser:
             inversedBy: users
             targetEntity: Sil\Bundle\SonataSyliusUserBundle\Entity\SonataGroupInterface
             joinTable:
-                name: sil_user_groups_users
+                name: sil_sonata_user__group
                 joinColumns:
                     user_id:
                         referencedColumnName: id

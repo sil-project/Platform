@@ -3,71 +3,11 @@ imports:
     - { resource: security.yml }
     - { resource: services.yml }
 
-    # Vendors
-
-    - { resource: vendors/blast.yml }
-    - { resource: vendors/sil.yml }
-    - { resource: vendors/sonata.yml }
-    - { resource: vendors/sylius.yml }
-    - { resource: vendors/lexik.yml }
-    - { resource: vendors/fos.yml }
-    - { resource: vendors/doctrine.yml }
-
-    # BLAST Bundles
-
-    - { resource: "@BlastCoreBundle/Resources/config/config.yml" }
-    # - { resource: "@BlastBaseEntitiesBundle/Resources/config/app/config.yml" }# overriden in app/config/vendors/blast.yml
-    # - { resource: "@BlastResourceBundle/Resources/config/app/config.yml" }    # overriden in app/config/vendors/blast.yml
-    - { resource: "@BlastUtilsBundle/Resources/config/app/config.yml" }
-
-    # SIL Bundles
-
-    - { resource: "@SilSonataSyliusUserBundle/Resources/config/parameters.yml" }
-    - { resource: "@SilSonataSyliusUserBundle/Resources/config/app/config.yml" }
-
-    - { resource: "@SilEmailBundle/Resources/config/parameters.yml" }
-
-    - { resource: "@SilSeedBatchBundle/Resources/config/parameters.yml" }
-    - { resource: "@SilSeedBatchBundle/Resources/config/app/config.yml" }
-
-    - { resource: "@SilEcommerceBundle/Resources/config/parameters.yml" }
-    # - { resource: "@SilEcommerceBundle/Resources/config/app/config.yml" }     # overriden in LisemBundle
-
-    - { resource: "@SilCRMBundle/Resources/config/parameters.yml" }
-    - { resource: "@SilCRMBundle/Resources/config/app/config.yml" }
-
-    - { resource: "@SilMediaBundle/Resources/config/parameters.yml" }
-    - { resource: "@SilMediaBundle/Resources/config/app/config.yml" }
-
-    - { resource: "@SilSyliusPayboxBundle/Resources/config/parameters.yml" }
-    - { resource: "@SilSyliusPayboxBundle/Resources/config/app/config.yml" }
-
-    - { resource: "@SilStockBundle/Resources/config/parameters.yml" }
-    - { resource: "@SilStockBundle/Resources/config/app/config.yml" }
-    - { resource: "@SilStockBundle/Resources/config/services.yml" }
-
-    - { resource: "@SilManufacturingBundle/Resources/config/parameters.yml" }
-    - { resource: "@SilManufacturingBundle/Resources/config/app/config.yml" }
-    - { resource: "@SilManufacturingBundle/Resources/config/services.yml" }
-
-    - { resource: "@SilVarietyBundle/Resources/config/parameters.yml" }
-
     # Platform Bundle
 
-    - { resource: "@PlatformBundle/Resources/config/parameters.yml" }
+
     - { resource: "@PlatformBundle/Resources/config/config.yml" }
-
-    # Li LISEM
-
-    - { resource: "@LisemBundle/Resources/config/parameters.yml" }
-    - { resource: "@LisemBundle/Resources/config/config.yml" }
-    - { resource: "@LisemBundle/Resources/config/varieties.yml" }
-    - { resource: "@LisemBundle/Resources/config/sonata.yml" }
-    - { resource: "@LisemBundle/Resources/config/services.yml" }
-    - { resource: "@LisemBundle/Resources/config/sylius-fixtures.yml" }
-    - { resource: "@LisemBundle/Resources/config/grids.yml" }
-    - { resource: "@LisemBundle/Resources/config/state_machine.yml" }
-    - { resource: "@LisemBundle/Resources/config/admin.yml" }
+    - { resource: "@PlatformBundle/Resources/config/parameters.yml" }
 
 parameters:
     locale: fr
@@ -163,24 +103,15 @@ doctrine:
                         prefix: Sil\Bundle\ManufacturingBundle\Domain\Entity
                     SilMediaBundle:
                         type: yml
-                    SilSeedBatchBundle:
-                        type: yml
                     SilSonataSyliusUserBundle:
                         type: yml
                     SilStockBundle:
                         type: yml
                         prefix: Sil\Bundle\StockBundle\Domain\Entity
-                    SilVarietyBundle:
-                        type: yml
 
                     # Platform
 
                     PlatformBundle:
-                        type: yml
-
-                    # Project
-
-                    LisemBundle:
                         type: yml
 
                     gedmo_loggable:
@@ -212,7 +143,7 @@ swiftmailer:
             port:      "%mailer_port%"
             username:  "%mailer_user%"
             password:  "%mailer_password%"
-            delivery_addresses: ['jardinenvie@lisem.eu']
+            delivery_addresses: "%mailer_delivery_addresses%"
             disable_delivery:  "%mailer_disable_delivery%"
         spool_mailer:
             transport: "%mailer_transport%"
@@ -221,5 +152,5 @@ swiftmailer:
             username:  "%mailer_user%"
             password:  "%mailer_password%"
             spool: { type: db }
-            delivery_addresses: ['jardinenvie@lisem.eu']
+            delivery_addresses: "%mailer_delivery_addresses%"
             disable_delivery:  "%mailer_disable_delivery%"

@@ -1,0 +1,3 @@
+services:
+    blast_csv_import.mapping.configuration:
+        class: Blast\Bundle\CsvImportBundle\Mapping\MappingConfiguration

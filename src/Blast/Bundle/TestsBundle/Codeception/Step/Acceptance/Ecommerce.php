@@ -9,8 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Step\Acceptance;
+namespace Blast\Bundle\TestsBundle\Codeception\Step\Acceptance;
 
+// @TODO: sould use Sil (Not Lisem)
 class Ecommerce extends Lisem
 {
     public function createShopCategory($categoryName)
@@ -21,7 +22,7 @@ class Ecommerce extends Lisem
     public function createChannel($channelName)
     {
         $this->amGoingTo('Create Channel ' . $channelName);
-        $this->amOnPage(constant('SILURL') . '/sil/ecommerce/channel/create');
+        $this->amOnPage($this->getSilUrl() . '/sil/ecommerce/channel/create');
 
         $this->fillField("//input[contains(@id,'_name')]", $channelName);
         $this->fillField(
@@ -38,7 +39,7 @@ class Ecommerce extends Lisem
     public function activeAccount($userLogin)
     {
         $this->amGoingTo('Active Shop User Account ' . $userLogin);
-        $this->amOnPage(constant('SILURL') . '/sil/ecommerce/shop_user/list');
+        $this->amOnPage($this->getSilUrl() . '/sil/ecommerce/shop_user/list');
 
         $this->filterList($userLogin, 'username');
 
@@ -52,7 +53,7 @@ class Ecommerce extends Lisem
     public function checkOrder($customerName)
     {
         $this->amGoingTo('CheckCmd');
-        $this->amOnPage(constant('SILURL') . '/sil/ecommerce/order/list');
+        $this->amOnPage($this->getSilUrl() . '/sil/ecommerce/order/list');
 
         $this->filterList($customerName, 'fulltextName');
         $this->click("(//a[contains(@href, '/show')])");

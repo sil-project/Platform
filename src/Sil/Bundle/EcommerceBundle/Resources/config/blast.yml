@@ -640,13 +640,13 @@ parameters:
                                 type: Symfony\Component\Form\Extension\Core\Type\TextareaType
                         form_group_shipping_and_payment_methods:
                             payment: # OVERRIDEN IN ORDER ADMIN
-                                label: sil.label.payment_method
+                                label: sil.ecommerce.order.form.label.payment_method
                                 type: Sylius\Bundle\PaymentBundle\Form\Type\PaymentMethodChoiceType
                                 multiple: false
                                 mapped: false
                                 required: true
                             shipment: # OVERRIDEN IN ORDER ADMIN
-                                label: sil.label.shipping_method
+                                label: sil.ecommerce.order.form.label.shipping_method
                                 type: Sylius\Bundle\ShippingBundle\Form\Type\ShippingMethodChoiceType
                                 multiple: false
                                 mapped: false
@@ -886,7 +886,7 @@ parameters:
                             amount:
                                 template: SilEcommerceBundle:CRUD:show_field_money.html.twig
                             updatedAt:
-                                label: sil.ecommercebundle.paid_at
+                                label: sil.ecommerce.payment.show.label.paid_at
                         show_group_order:
                             order.customer:
                                 admin_code: sil_ecommerce.admin.customer
@@ -933,16 +933,16 @@ parameters:
                     _list_actions: [create,edit]
                 add:
                     order:
-                        label: sil.ecommercebundle.order_number
+                        label: sil.ecommerce.payment.list.label.order_number
                         admin_code: sil_ecommerce.admin.order
                     order.getLastDebitInvoice.number:
-                        label: sil.ecommercebundle.invoice_number
+                        label: sil.ecommerce.payment.list.label.invoice_number
                     order.customer:
-                        label: sil.ecommercebundle.customer
+                        label: sil.ecommerce.payment.list.label.customer
                         admin_code: sil_ecommerce.admin.customer
                     order.channel: ~
                     method:
-                        label: sil.ecommercebundle.payment_method
+                        label: sil.ecommerce.payment.list.label.payment_method
                     order.paymentState:
                         template: SilEcommerceBundle:PaymentAdmin:list_field_state.html.twig
                     amount:
@@ -961,9 +961,9 @@ parameters:
             Sonata\AdminBundle\Datagrid\DatagridMapper:
                 add:
                     order.number:
-                        label: sil.ecommercebundle.order_number
+                        label: sil.ecommerce.payment.filter.label.order_number
                     order.getLastDebitInvoice.number:
-                        label: sil.ecommercebundle.invoice_number
+                        label: sil.ecommerce.payment.filter.label.invoice_number
                     order.customer.name: ~
                     order.customer.customerCode: ~
                     # order.customer.circle: ~
@@ -997,9 +997,9 @@ parameters:
                     operationDate: ~
                     # account: ~
                     order:
-                        label: sil.ecommercebundle.order_number
+                        label: sil.ecommerce.payment.show.label.order_number
                     invoice:
-                        label: sil.ecommercebundle.invoice_number
+                        label: sil.ecommerce.payment.show.label.invoice_number
                     payment: ~
                     label: ~
                     debit:
@@ -1014,9 +1014,9 @@ parameters:
                     operationDate: ~
                     # account: ~
                     order:
-                        label: sil.ecommercebundle.order_number
+                        label: sil.ecommerce.payment.show.order_number
                     invoice:
-                        label: sil.ecommercebundle.invoice_number
+                        label: sil.ecommerce.payment.show.invoice_number
                     payment: ~
                     label: ~
                     debit:
@@ -1062,7 +1062,7 @@ parameters:
                             translation.instructions:
                                 type: Blast\Bundle\UtilsBundle\Form\Type\TinyMceType
                                 required: true
-                                help: sil.ecommercebundle.translation__instructions_help
+                                help: sil.ecommerce.payment_method.form.help.instructions
 ############
 # CUSTOMER
 ############
@@ -1300,6 +1300,7 @@ parameters:
             Sonata\AdminBundle\Show\ShowMapper:
                 add:
                     translation.name: ~
+                    slug: ~
                     code: ~
             Sonata\AdminBundle\Form\FormMapper:
                 add:
@@ -1549,7 +1550,7 @@ parameters:
                         show_group_channel:
                             channels: ~
                             configuration:
-                                label: 'sil.ecommercebundle.amount'
+                                label: 'sil.ecommerce.shipping_method.show.label.amount'
                                 template: SilEcommerceBundle:CRUD:show_shipping_method_configuration_array.html.twig
                             zone: ~
 

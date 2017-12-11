@@ -1,6 +1,7 @@
 # Entity to persist select choices lists
 Blast\Bundle\UtilsBundle\Entity\SelectChoice:
     type: entity
+    table: blast_select_choice
     blast:
         loggable:     true
     fields:

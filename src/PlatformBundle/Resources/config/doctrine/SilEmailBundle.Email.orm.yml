@@ -1,2 +1,15 @@
 PlatformBundle\Entity\SilEmailBundle\Email:
     type: entity
+    table: sil_email
+
+    manyToMany:
+        circles:
+            targetEntity: Sil\Bundle\CRMBundle\Entity\Circle
+            joinTable:
+                name: sil_email__circle
+                joinColumns:
+                    email_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    circle_id:
+                        referencedColumnName: id

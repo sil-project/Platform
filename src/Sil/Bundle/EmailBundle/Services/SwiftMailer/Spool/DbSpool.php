@@ -119,7 +119,7 @@ class DbSpool extends \Swift_ConfigurableSpool
         }
 
         $emails = $this->repository->findBy(
-                array('status' => SpoolStatus::STATUS_READY, 'environment' => $this->environment), null
+            array('status' => SpoolStatus::STATUS_READY, 'environment' => $this->environment), null
         );
 
         if (!count($emails)) {

@@ -12,8 +12,8 @@
 // @group user
 // @group all
 
-use Step\Acceptance\Lisem as LisemTester;
-use Step\Acceptance\SonataSyliusUser as SonataSyliusUserTester;
+use Blast\Bundle\TestsBundle\Codeception\Step\Acceptance\Lisem as LisemTester;
+use Blast\Bundle\TestsBundle\Codeception\Step\Acceptance\SonataSyliusUser as SonataSyliusUserTester;
 
 $lisem = new LisemTester($scenario);
 $lisem->loginLisem();

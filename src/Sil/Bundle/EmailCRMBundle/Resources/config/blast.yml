@@ -29,52 +29,58 @@ parameters:
 # EMAIL
 #########
 
-        Sil\Bundle\EmailBundle\Admin\EmailAdmin:
-            Sonata\AdminBundle\Form\FormMapper:
-                add:
-                    form_group_general:
-                        '':
-                            organizations:
-                                type: Blast\Bundle\BaseEntitiesBundle\Form\Type\SearchableAutocompleteType
-                                callback: Sil\Bundle\CRMBundle\Admin\PositionAdmin::organizationsCallback
-                                multiple: true
-                                required: false
-                                _options:
-                                    admin_code: sil_crm.admin.organism
-                            individuals:
-                                type: Blast\Bundle\BaseEntitiesBundle\Form\Type\SearchableAutocompleteType
-                                callback: Sil\Bundle\CRMBundle\Admin\PositionAdmin::individualsCallback
-                                multiple: true
-                                required: false
-                                _options:
-                                    admin_code: sil_crm.admin.organism
-                            _options:
-                                fieldsOrder:
-                                    - field_from
-                                    - field_to
-                                    - field_cc
-                                    - field_bcc
-                                    - organisms
-                                    - individuals
-                                    - field_subject
-                                    - template
-                                    - content
-                                    - attachments
-            Sonata\AdminBundle\Datagrid\DatagridMapper:
-                add:
-                    individuals:
-                        type: doctrine_orm_model_autocomplete
-                        admin_code: sil_crm.admin.organism
-                        multiple: true
-                        field_options:
-                            property: label
-                            admin_code: sil_email.admin.email
-                            callback: Sil\Bundle\CRMBundle\Admin\PositionAdmin::individualsCallback
-                    organizations:
-                        type: doctrine_orm_model_autocomplete
-                        admin_code: sil_crm.admin.organism
-                        multiple: true
-                        field_options:
-                            property: title
-                            admin_code: sil_email.admin.email
-                            callback: Sil\Bundle\CRMBundle\Admin\PositionAdmin::organizationsCallback
+        # Sil\Bundle\EmailBundle\Admin\EmailAdmin:
+        #     Sonata\AdminBundle\Form\FormMapper:
+        #         add:
+        #             form_group_general:
+        #                 '':
+        #                     organizations:
+        #                         type: Blast\Bundle\BaseEntitiesBundle\Form\Type\SearchableAutocompleteType
+        #                         serviceCallback: [sil_crm.admin.position, organizationsCallback, callback]
+        #                         multiple: true
+        #                         required: false
+        #                         _options:
+        #                             admin_code: sil_crm.admin.organism
+        #                             btn_add: false
+        #                     individuals:
+        #                         type: Blast\Bundle\BaseEntitiesBundle\Form\Type\SearchableAutocompleteType
+        #                         serviceCallback: [sil_crm.admin.position, individualsCallback, callback]
+        #                         multiple: true
+        #                         required: false
+        #                         _options:
+        #                             admin_code: sil_crm.admin.organism
+        #                             btn_add: false
+        #                     _options:
+        #                         fieldsOrder:
+        #                             - field_from
+        #                             - field_to
+        #                             - field_cc
+        #                             - field_bcc
+        #                             - organisms
+        #                             - individuals
+        #                             - field_subject
+        #                             - template
+        #                             - content
+        #                             - attachments
+        #     Sonata\AdminBundle\Datagrid\DatagridMapper:
+        #         add:
+        #             individuals:
+        #                 type: doctrine_orm_model_autocomplete
+        #                 admin_code: sil_crm.admin.organism
+        #                 multiple: true
+        #                 serviceCallback: [sil_crm.admin.position, individualsCallback, callback]
+        #                 field_options:
+        #                     class: "%sil_crm.entity.organism.class%"
+        #                     property: label
+        #                     admin_code: sil_email.admin.email
+        #                     btn_add: false
+        #             organizations:
+        #                 type: doctrine_orm_model_autocomplete
+        #                 admin_code: sil_crm.admin.organism
+        #                 multiple: true
+        #                 serviceCallback: [sil_crm.admin.position, organizationsCallback, callback]
+        #                 field_options:
+        #                     class: "%sil_crm.entity.organism.class%"
+        #                     property: title
+        #                     admin_code: sil_email.admin.email
+        #                     btn_add: false

@@ -1,0 +1,123 @@
+imports:
+    - { resource: "@SyliusCoreBundle/Resources/config/app/config.yml" }
+    - { resource: "@SyliusAdminBundle/Resources/config/app/config.yml" }
+    - { resource: "@SyliusShopBundle/Resources/config/app/config.yml" }
+    - { resource: "@SyliusAdminApiBundle/Resources/config/app/config.yml" }
+
+sylius_theme:
+    sources:
+        filesystem: ~
+
+sylius_product:
+    driver: doctrine/orm
+    resources:
+        product:
+            classes:
+                model: "%sil_ecommerce.entity.product.class%"
+
+sylius_review:
+    resources:
+        product:
+            subject: "%sil_ecommerce.entity.product.class%"
+            review:
+                classes:
+                    model:  "%sil_ecommerce.entity.product_review.class%"
+            reviewer:
+                classes:
+                    model: "%sylius.model.customer.class%"
+
+sylius_customer:
+    driver: doctrine/orm
+    resources:
+        customer:
+            classes:
+                model: PlatformBundle\Entity\SilCRMBundle\Organism
+
+sylius_addressing:
+    resources:
+        address:
+            classes:
+                model: PlatformBundle\Entity\SilCRMBundle\Address
+
+sylius_fixtures:
+    suites:
+        ecommerce_requirements:
+            listeners:
+                orm_purger: true
+
+            fixtures:
+                locale: ~
+                currency:
+                    options:
+                        currencies:
+                            - "%currency%"
+                geographical:
+                    options:
+                        countries:
+                            - "FR"
+                        zones:
+                            FR:
+                                name: "France métropolitaine"
+                                countries:
+                                    - "FR"
+
+                channel:
+                    options:
+                        custom:
+                            fr_web_store:
+                                name: "VEL FR"
+                                code: "FR_WEB"
+                                hostname: "%sylius_fr_web_channel_hostname%"
+                                locales:
+                                    - "%locale%"
+                                currencies:
+                                    - "%currency%"
+                                enabled: true
+                                theme_name: ~
+                                contact_email: contact@sil.eu
+
+                payment_method:
+                    options:
+                        custom:
+                            cheque:
+                                code: "cheque"
+                                name: "Chèque"
+                                channels:
+                                    - "FR_WEB"
+                                enabled: true
+
+                shipping_method:
+                    options:
+                        custom:
+                            delivery_to_home:
+                                code: "delivery_to_home"
+                                name: "Livraison à domicile"
+                                channels:
+                                    - "FR_WEB"
+                                enabled: true
+
+                tax_category:
+                    options:
+                        custom:
+                            intra_eu:
+                                code: "tva_20"
+                                name: "TVA 20%"
+                            extra_eu:
+                                code: "tva_0"
+                                name: "Exonération de TVA, article 262-1 CGI"
+
+                tax_rate:
+                    options:
+                        custom:
+                            default_sales_tax:
+                                code: "sales_tax_20"
+                                name: "TVA 20%"
+                                zone: "FR"
+                                category: "tva_20"
+                                amount: 0.20
+                            extra_eu_sales_tax:
+                                code: "sales_tax_0"
+                                name: "TVA 0%"
+                                zone: "FR"
+                                category: "tva_0"
+                                amount: 0.0

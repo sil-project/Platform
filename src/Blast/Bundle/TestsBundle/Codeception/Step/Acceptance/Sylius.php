@@ -1,16 +1,16 @@
 <?php
 
 /*
- * This file is part of the Lisem Project.
+ * This file is part of the Blast Project package.
  *
  * Copyright (C) 2015-2017 Libre Informatique
  *
- * This file is licenced under the GNU GPL v3.
+ * This file is licenced under the GNU LGPL v3.
  * For the full copyright and license information, please view the LICENSE.md
  * file that was distributed with this source code.
  */
 
-namespace Step\Acceptance;
+namespace Blast\Bundle\TestsBundle\Codeception\Step\Acceptance;
 
 class Sylius extends Common
 {
@@ -29,6 +29,27 @@ class Sylius extends Common
     {
         $this->amGoingTo('LogOut Online Shop');
         $this->amOnPage('/logout');
+    }
+
+    public function selectHomePageProducts($number = 2)
+    {
+        $this->amOnPage('/');
+        $productLinks = $this->grabMultiple('a.sylius-product-name', 'href');
+
+        $selectedProductsLinks = [];
+
+        if ($number > count($productLinks)) {
+            $number = count($productLinks);
+        }
+
+        for ($i = 0; $i < $number; ++$i) {
+            $j = rand(0, count($productLinks) - 1);
+            $selectedProductsLinks[] = $productLinks[$j];
+            unset($productLinks[$j]);
+            $productLinks = array_values($productLinks);
+        }
+
+        return $selectedProductsLinks;
     }
 
     public function createAccount($userName = null, $userEmail = null, $userPassword = 'selpwd')
@@ -51,10 +72,10 @@ class Sylius extends Common
         return $userEmail;
     }
 
-    public function addToCart($productName = 'carotte-nantaise')
+    public function addToCart($productUrl)
     {
-        $this->amGoingTo('Add To Cart ' . $productName);
-        $this->amOnPage('/products/' . $productName);
+        $this->amGoingTo('Add To Cart ' . $productUrl);
+        $this->amOnUrl($productUrl);
         $this->waitForText('Ajouter au panier', 30);
         $this->click("//button[@type='submit']"); // $this->click('Ajouter au panier');
         //$this->waitForText('Votre panier', 30);

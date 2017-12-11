@@ -44,7 +44,7 @@ class ChannelAdmin extends SyliusGenericAdmin
             'taxCalculationStrategy',
             ChoiceType::class,
             [
-                'label'    => 'sil.label.taxCalculationStrategy',
+                'label'    => 'sil.ecommerce.channel.form.label.tax_calculation_strategy',
                 'choices'  => array_flip($this->getConfigurationPool()->getContainer()->getParameter('sylius.taxation.calculation_strategy.list_values')),
                 'required' => true,
                 'attr'     => [
@@ -59,7 +59,7 @@ class ChannelAdmin extends SyliusGenericAdmin
             'themeName',
             ChoiceType::class,
             [
-                'label'    => 'sil.label.themeName',
+                'label'    => 'sil.ecommerce.channel.form.label.theme_name',
                 'choices'  => array_flip($listOfThemes),
                 'required' => true,
                 'attr'     => [

@@ -1,5 +1,5 @@
 Sil\Bundle\EcommerceBundle\Entity\Channel:
     type: entity
-
+    table: sil_ecommerce_channel
     blast:
         loggable: true

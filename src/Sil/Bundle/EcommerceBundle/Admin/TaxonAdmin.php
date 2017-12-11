@@ -27,4 +27,13 @@ class TaxonAdmin extends SyliusGenericAdmin
 
         return $query;
     }
+
+    public function prePersist($object)
+    {
+        parent::prePersist($object);
+
+        $slugGenerator = $this->getConfigurationPool()->getContainer()->get('sylius.generator.slug');
+
+        $object->setSlug($slugGenerator->generate($object->getName()));
+    }
 }

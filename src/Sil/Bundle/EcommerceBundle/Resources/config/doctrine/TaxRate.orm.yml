@@ -1,5 +1,6 @@
 Sil\Bundle\EcommerceBundle\Entity\TaxRate:
     type: entity
+    table: sil_ecommerce_tax_rate
     blast:
         loggable: true
         #    manyToOne:
