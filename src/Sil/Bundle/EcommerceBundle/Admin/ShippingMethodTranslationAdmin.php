@@ -17,4 +17,7 @@ class ShippingMethodTranslationAdmin extends SyliusGenericAdmin
      * @var string
      */
     protected $translationLabelPrefix = 'sil.ecommerce.shipping_method_translation';
+
+    protected $baseRouteName = 'admin_sil_ecommerce_shipping_method_translation';
+    protected $baseRoutePattern = 'ecommerce/shipping_method_translation';
 }

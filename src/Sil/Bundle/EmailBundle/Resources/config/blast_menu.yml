@@ -20,5 +20,5 @@ parameters:
 
                 sil.email.menu_label.email_settings_templates:
                     icon: crop
-                    route: admin_sil_email_emailtemplate_list
+                    route: admin_sil_email_template_list
                     order: 10

@@ -21,6 +21,9 @@ class ShippingMethodAdmin extends SyliusGenericAdmin
      */
     protected $translationLabelPrefix = 'sil.ecommerce.shipping_method';
 
+    protected $baseRouteName = 'admin_sil_ecommerce_shipping_method';
+    protected $baseRoutePattern = 'ecommerce/shipping_method';
+
     public function genChannelArray(string $sonataType = 'sonata_type_immutable_array')
     {
         $channelKeyTab = [];

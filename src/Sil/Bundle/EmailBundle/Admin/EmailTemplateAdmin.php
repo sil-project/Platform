@@ -24,4 +24,7 @@ class EmailTemplateAdmin extends CoreAdmin
      * @var string
      */
     protected $translationLabelPrefix = 'sil.email.email_template';
+
+    protected $baseRouteName = 'admin_sil_email_template';
+    protected $baseRoutePattern = 'email/template';
 }

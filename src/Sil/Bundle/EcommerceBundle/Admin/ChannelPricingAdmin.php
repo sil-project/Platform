@@ -22,8 +22,8 @@ class ChannelPricingAdmin extends SyliusGenericAdmin
      */
     protected $translationLabelPrefix = 'sil.ecommerce.channel_pricing';
 
-    protected $baseRouteName = 'admin_sil_ecommerce_channelpricing';
-    protected $baseRoutePattern = 'sil/ecommerce/channelpricing';
+    protected $baseRouteName = 'admin_sil_ecommerce_channel_pricing';
+    protected $baseRoutePattern = 'ecommerce/channel_pricing';
 
     protected function configureRoutes(\Sonata\AdminBundle\Route\RouteCollection $collection)
     {

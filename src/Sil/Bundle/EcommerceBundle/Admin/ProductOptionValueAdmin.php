@@ -23,6 +23,9 @@ class ProductOptionValueAdmin extends SyliusGenericAdmin
      */
     protected $translationLabelPrefix = 'sil.ecommerce.product_option_value';
 
+    protected $baseRouteName = 'admin_sil_ecommerce_product_option_value';
+    protected $baseRoutePattern = 'ecommerce/product_option_value';
+
     /**
      * @param FormMapper $mapper
      */

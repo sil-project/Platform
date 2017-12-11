@@ -47,12 +47,12 @@ parameters:
 
                 sil.ecommerce.menu_label.shop_settings_product_attributes:
                     icon: tag
-                    route: admin_sil_ecommerce_productattribute_list
+                    route: admin_sil_ecommerce_product_attribute_list
                     order: 30
 
                 sil.ecommerce.menu_label.shop_settings_product_options:
                     icon: sliders
-                    route: admin_sil_ecommerce_productoption_list
+                    route: admin_sil_ecommerce_product_option_list
                     order: 40
 
                 sil.ecommerce.menu_label.shop_settings_zones:
@@ -72,12 +72,12 @@ parameters:
 
                 sil.ecommerce.menu_label.shop_settings_tax_categories:
                     icon: gavel
-                    route: admin_sil_ecommerce_taxcategory_list
+                    route: admin_sil_ecommerce_tax_category_list
                     order: 80
 
                 sil.ecommerce.menu_label.shop_settings_tax_rates:
                     icon: percent
-                    route: admin_sil_ecommerce_taxrate_list
+                    route: admin_sil_ecommerce_tax_rate_list
                     order: 90
 
                 sil.ecommerce.menu_label.shop_settings_shop_users:

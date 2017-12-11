@@ -21,4 +21,7 @@ class ProductVariantEmbeddedAdmin extends ProductVariantAdmin
      * @var string
      */
     protected $translationLabelPrefix = 'sil.ecommerce.product_variant';
+
+    protected $baseRouteName = 'admin_sil_ecommerce_product_variant';
+    protected $baseRoutePattern = 'ecommerce/product_variant';
 }

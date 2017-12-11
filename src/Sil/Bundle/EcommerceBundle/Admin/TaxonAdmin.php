@@ -18,6 +18,9 @@ class TaxonAdmin extends SyliusGenericAdmin
      */
     protected $translationLabelPrefix = 'sil.ecommerce.taxon';
 
+    protected $baseRouteName = 'admin_sil_ecommerce_taxon';
+    protected $baseRoutePattern = 'ecommerce/taxon';
+
     public function createQuery($context = 'list')
     {
         $query = parent::createQuery($context);

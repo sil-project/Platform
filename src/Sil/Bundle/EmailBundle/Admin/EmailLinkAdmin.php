@@ -22,4 +22,7 @@ class EmailLinkAdmin extends CoreAdmin
      * @var string
      */
     protected $translationLabelPrefix = 'sil.email.email_link';
+
+    protected $baseRouteName = 'admin_sil_email_link';
+    protected $baseRoutePattern = 'email/link';
 }

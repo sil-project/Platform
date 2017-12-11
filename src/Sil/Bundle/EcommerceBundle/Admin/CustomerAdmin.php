@@ -20,6 +20,9 @@ class CustomerAdmin extends BaseCustomerAdmin
      */
     protected $translationLabelPrefix = 'sil.ecommerce.customer';
 
+    protected $baseRouteName = 'admin_sil_ecommerce_customer';
+    protected $baseRoutePattern = 'ecommerce/customer';
+
     /**
      * {@inheritdoc}
      */

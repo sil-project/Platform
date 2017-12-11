@@ -20,4 +20,7 @@ class ProductOptionAdmin extends SyliusGenericAdmin
      * @var string
      */
     protected $translationLabelPrefix = 'sil.ecommerce.product_option';
+
+    protected $baseRouteName = 'admin_sil_ecommerce_product_option';
+    protected $baseRoutePattern = 'ecommerce/product_option';
 }

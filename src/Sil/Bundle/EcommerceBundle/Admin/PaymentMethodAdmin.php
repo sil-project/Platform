@@ -20,7 +20,7 @@ class PaymentMethodAdmin extends SyliusGenericAdmin
      */
     protected $translationLabelPrefix = 'sil.ecommerce.payment_method';
     protected $baseRouteName = 'admin_sil_ecommerce_payment_method';
-    protected $baseRoutePattern = 'sil/ecommerce/payment_method';
+    protected $baseRoutePattern = 'ecommerce/payment_method';
     protected $classnameLabel = 'PaymentMethod';
 
     public function createQuery($context = 'list')

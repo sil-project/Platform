@@ -23,7 +23,7 @@ class SalesJournalAdmin extends CoreAdmin
     protected $translationLabelPrefix = 'sil.ecommerce.sales_journal';
 
     protected $baseRouteName = 'admin_sil_ecommerce_sales_journal';
-    protected $baseRoutePattern = 'sil/ecommerce/sales_journal';
+    protected $baseRoutePattern = 'ecommerce/sales_journal';
     protected $classnameLabel = 'SalesJournal';
 
     protected $datagridValues = array(
