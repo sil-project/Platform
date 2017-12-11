@@ -72,11 +72,15 @@ EOT
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        foreach ($this->classes as $class) {
+        /* @todo: import class should be load from config file */
+        foreach ($this->importClass as $class) {
             $this->importData($class, $output);
         }
     }
 
+    /**
+     * @todo move this to a Csv Import Data service
+     */
     protected function importData($entityClass, OutputInterface $output)
     {
         $output->write("Importing <info>$entityClass</info>");
