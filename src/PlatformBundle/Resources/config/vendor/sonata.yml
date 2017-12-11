@@ -55,7 +55,7 @@ sonata_admin:
         pager_links:                SonataAdminBundle:Pager:links.html.twig
         pager_results:              SonataAdminBundle:Pager:results.html.twig
         tab_menu_template:          SonataAdminBundle:Core:tab_menu_template.html.twig
-        knp_menu_template:          BlastDecoratorBundle:Menu:sonata_menu.html.twig
+        knp_menu_template:          BlastMenuBundle:Menu:sonata_menu.html.twig
         action_create:              SonataAdminBundle:CRUD:dashboard__action_create.html.twig
         button_acl:                 SonataAdminBundle:Button:acl_button.html.twig
         button_create:              SonataAdminBundle:Button:create_button.html.twig
