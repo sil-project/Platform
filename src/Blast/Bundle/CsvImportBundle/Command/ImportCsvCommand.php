@@ -13,8 +13,9 @@ namespace Blast\Bundle\CsvImportBundle\Command;
 
 use Doctrine\ORM\EntityManager;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
-use Symfony\Component\Console\Input\InputArgument;
+use Symfony\Component\Console\Input\InputDefinition;
 use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Serializer\Encoder\CsvEncoder;
 use Symfony\Component\Serializer\Normalizer\ArrayDenormalizer;
@@ -41,6 +42,11 @@ class ImportCsvCommand extends ContainerAwareCommand
     private $mapping;
 
     /**
+     * @var ObjectNormalizer
+     */
+    private $normalizer;
+
+    /**
      * @var array
      */
     protected $importClass = [];
@@ -48,10 +54,16 @@ class ImportCsvCommand extends ContainerAwareCommand
     protected function configure()
     {
         $this
-        ->setName('blast:import:csv')
-        ->setDescription('Import data from CSV files into Blast.')
-        ->addArgument('dir', InputArgument::REQUIRED, 'The directory containing the CSV files.')
-        ->setHelp(<<<EOT
+            ->setName('blast:import:csv')
+            ->setDescription('Import data from CSV files into Blast.')
+            ->setDefinition(
+                new InputDefinition([
+                    new InputOption('mapping', 'm', InputOption::VALUE_REQUIRED, 'The mapping files.', 'src/Resources/config/csv_import.yml'),
+                    new InputOption('dir', 'd', InputOption::VALUE_REQUIRED, 'The directory containing the CSV files.', 'src/Resources/data'),
+                ])
+            )
+
+            ->setHelp(<<<EOT
 The <info>%command.name%</info> command allows user to populate Database with CSV data files.
 EOT
         )
@@ -63,7 +75,13 @@ EOT
         parent::initialize($input, $output);
 
         $this->em = $this->getContainer()->get('doctrine')->getEntityManager();
-        $this->dir = $input->getArgument('dir');
+        $this->dir = $input->getOption('dir');
+        $this->mapping = $this->getContainer()
+                       ->get('blast_csv_import.mapping.configuration')
+                       ->loadMappingFromFile($input->getOption('mapping'))
+                       ->getMapping(); //CsvMappingConfiguration::getInstance()->getMapping();
+
+        $this->normalizer = $this->getContainer()->get('blast_csv_import.mapping.configuration'); // new ObjectNormalizer($entityClass, $this->em);
     }
 
     /**
@@ -72,9 +90,10 @@ EOT
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         /* @todo: import class should be load from config file */
-        foreach ($this->importClass as $class) {
-            $this->importData($class, $output);
-        }
+
+        // foreach ($this->importClass as $class) {
+        //     $this->importData($class, $output);
+        // }
     }
 
     /**
@@ -87,8 +106,7 @@ EOT
         $output->write(' (' . basename($csv) . ')...');
         $data = file_get_contents($csv);
 
-        $normalizer = $this->getContainer()->get('blast_csv_import.mapping.configuration'); // new ObjectNormalizer($entityClass, $this->em);
-        $serializer = new Serializer([$normalizer, new ArrayDenormalizer()], [new CsvEncoder()]);
+        $serializer = new Serializer([$this->normalizer, new ArrayDenormalizer()], [new CsvEncoder()]);
         $objects = $serializer->deserialize($data, $entityClass . '[]', 'csv');
         $output->writeln(sprintf(' <info>%d objects</info>', count($objects)));
 
@@ -119,8 +137,6 @@ EOT
      */
     protected function getCsvFilePath($entityClass)
     {
-        $this->mapping = $this->getContainer()->get('blast_csv_import.mapping.configuration')->getMapping(); //CsvMappingConfiguration::getInstance()->getMapping();
-
         if (!key_exists($entityClass, $this->mapping)) {
             throw new \Exception('Entity class not supported: ' . $entityClass);
         }
