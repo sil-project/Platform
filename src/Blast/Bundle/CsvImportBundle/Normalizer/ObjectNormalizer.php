@@ -115,7 +115,7 @@ class ObjectNormalizer extends BaseObjectNormalizer
 
     protected function getMappings()
     {
-        /* @todo : move this in import config file */
+        /* @todo : use association from config file*/
         return [
             Genus::class . '.family'           => [Family::class, 'name'],
             Species::class . '.genus'          => [Genus::class, 'name'],
