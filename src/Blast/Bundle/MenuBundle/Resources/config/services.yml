@@ -1,7 +1,7 @@
 services:
 
     blast.menu_loader:
-        class: Blast\Bundle\MenuBundle\Configuration\ParametersLoader
+        class: Blast\Bundle\MenuBundle\Configuration\Loader
         calls:
             - [setParameters, ['%blast_menu%']]
 

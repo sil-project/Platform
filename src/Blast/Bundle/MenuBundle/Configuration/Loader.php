@@ -14,7 +14,7 @@ namespace Blast\Bundle\MenuBundle\Configuration;
 use Blast\Bundle\MenuBundle\Model\Item;
 use Blast\Bundle\MenuBundle\Model\ItemInterface;
 
-class ParametersLoader
+class Loader
 {
     /**
      * @var array
@@ -33,10 +33,6 @@ class ParametersLoader
         foreach ($this->parameters as $menuItemName => $menuItem) {
             $item = Item::fromArray([$menuItemName => ['children' => $menuItem]]);
             $root->addChild($item);
-
-            if ($item->getId() === 'settings') {
-                $item->setIcon('sliders');
-            }
         }
 
         return $root;
