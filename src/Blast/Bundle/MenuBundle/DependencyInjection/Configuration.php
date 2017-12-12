@@ -21,7 +21,7 @@ class Configuration implements ConfigurationInterface
         $rootNode = $treeBuilder->root('blast_menu');
 
         // @TODO: Handle menu configuration by bundle configuration insteadof container parameter
-        // 
+        //
         // $rootNode
         //     ->children()
         //         ->arrayNode('root')

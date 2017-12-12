@@ -32,7 +32,8 @@ class ConfigurationLoaderTestCase extends BlastTestCase
         $this->assertEquals($output, $this->getOuputMenuTree());
     }
 
-    public function testLabelSameThanIdIfNotSetted() {
+    public function testLabelSameThanIdIfNotSetted()
+    {
         $tree = $this->getOuputMenuTree();
 
         $itemWithCustomLabel = $tree->getChild('root')->getChild('item_1');
@@ -41,7 +42,8 @@ class ConfigurationLoaderTestCase extends BlastTestCase
         $this->assertEquals($itemWithCustomLabel->getLabel(), 'item_1');
     }
 
-    public function testLabelDifferentThanIdIfSetted() {
+    public function testLabelDifferentThanIdIfSetted()
+    {
         $tree = $this->getOuputMenuTree();
 
         $itemWithCustomLabel = $tree->getChild('root')->getChild('item_1')->getChild('item_2');
