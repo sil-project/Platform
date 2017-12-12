@@ -4,7 +4,7 @@ parameters:
 
         sil.sonata_sylius_user.menu_label.application_access:
             icon: lock
-            order: 9090
+            order: 5
             roles:
                  - ROLE_SUPER_ADMIN
             children:
