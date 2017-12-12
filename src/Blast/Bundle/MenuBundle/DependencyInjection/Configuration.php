@@ -20,9 +20,18 @@ class Configuration implements ConfigurationInterface
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('blast_menu');
 
-        // Here you should define the parameters that are allowed to
-        // configure your bundle. See the documentation linked above for
-        // more information on that topic.
+        // @TODO: Handle menu configuration by bundle configuration insteadof container parameter
+        // 
+        // $rootNode
+        //     ->children()
+        //         ->arrayNode('root')
+        //             ->prototype('array')
+        //                 ->children()
+        //                     ->scalarNode('class')->end()
+        //                     ->variableNode('fields')->end()
+        //                 ->end()
+        //             ->end()
+        //         ->arrayNode('settings')
 
         return $treeBuilder;
     }
