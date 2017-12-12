@@ -330,7 +330,9 @@ class Item implements ItemInterface, NestedItemInterface, RolableItemInterface
         }
 
         if (isset($itemArray[$itemName]['roles'])) {
-            $item->setRoles($itemArray[$itemName]['roles']);
+            foreach ($itemArray[$itemName]['roles'] as $role) {
+                $item->addRole($role);
+            }
         }
 
         if ($parent !== null) {
