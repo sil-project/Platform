@@ -1,13 +1,17 @@
 services:
 
+    blast.menu_loader:
+        class: Blast\Bundle\MenuBundle\Configuration\ParametersLoader
+        calls:
+            - [setParameters, ['%blast_menu%']]
+
     blast.menu_builder:
-        class: Blast\Bundle\MenuBundle\Menu\MenuBuilder
+        class: Blast\Bundle\MenuBundle\Builder\MenuBuilder
         arguments: ["@knp_menu.factory"]
         calls:
             - [setTokenStorage, ['@security.token_storage']]
             - [setAuthorizationChecker, ['@security.authorization_checker']]
-            - [setRootMenu, ['%blast_menu.root%']]
-            - [setSettingsMenu, ['%blast_menu.settings%']]
+            - [setLoader, ['@blast.menu_loader']]
 
     blast.sidebar_menu.global:
         class: Knp\Menu\MenuItem
