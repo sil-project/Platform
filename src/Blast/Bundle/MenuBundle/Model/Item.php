@@ -283,6 +283,7 @@ class Item implements ItemInterface, NestedItemInterface, RolableItemInterface
     {
         return [
             $this->id => [
+                'label'   => $this->label,
                 'icon'    => $this->icon,
                 'route'   => $this->route,
                 'order'   => $this->order,
@@ -307,6 +308,10 @@ class Item implements ItemInterface, NestedItemInterface, RolableItemInterface
         $itemName = (string) array_keys($itemArray)[0];
 
         $item = new self($itemName);
+
+        if (isset($itemArray[$itemName]['label'])) {
+            $item->setLabel($itemArray[$itemName]['label']);
+        }
 
         if (isset($itemArray[$itemName]['icon'])) {
             $item->setIcon($itemArray[$itemName]['icon']);

@@ -47,13 +47,13 @@ class MenuBuilder
     {
         $menuTree = $this->loader->load();
 
-        $silRoot = $this->factory->createItem($menuTree->getId());
+        $silRoot = $this->factory->createItem($menuTree->getLabel());
 
         // Handle app root menu items
 
         $appRoot = $menuTree->getChild('root');
 
-        $this->sortMenuItems($appRoot->getChildren());
+        $this->sortMenuItems($appRoot);
 
         foreach ($appRoot->getChildren() as $menuItem) {
             $this->buildKnpMenu($menuItem, $silRoot);
@@ -62,11 +62,12 @@ class MenuBuilder
         // Handle app settings menu items
 
         $settingsRoot = $menuTree->getChild('settings');
+        $settingsRoot->setLabel('blast.menu_label.application_settings');
 
-        $settingsKnpNode = $silRoot->addChild($settingsRoot->getId());
+        $settingsKnpNode = $silRoot->addChild($settingsRoot->getLabel());
         $this->setIcon($settingsKnpNode, 'sliders');
 
-        $this->sortMenuItems($settingsRoot->getChildren());
+        $items = $this->sortMenuItems($settingsRoot);
 
         foreach ($settingsRoot->getChildren() as $menuItem) {
             $this->buildKnpMenu($menuItem, $settingsKnpNode);
@@ -97,7 +98,7 @@ class MenuBuilder
         }
 
         if ($item->getDisplay() === true) {
-            $currentKnpNode = $knpNode->addChild($item->getId(), [$item->getRoute()]);
+            $currentKnpNode = $knpNode->addChild($item->getLabel(), ['route' => $item->getRoute()]);
 
             if ($item->getIcon() !== null) {
                 $this->setIcon($currentKnpNode, $item->getIcon());
@@ -105,7 +106,7 @@ class MenuBuilder
 
             if (count($item->getChildren()) > 0) {
                 // Sorting current menu items
-                $this->sortMenuItems($item->getChildren());
+                $this->sortMenuItems($item);
 
                 foreach ($item->getChildren() as $child) {
                     $this->buildKnpMenu($child, $currentKnpNode);
@@ -116,14 +117,19 @@ class MenuBuilder
         }
     }
 
-    private function setIcon($node, $icon) {
+    private function setIcon($node, $icon)
+    {
         $node->setExtra('icon', sprintf('<i class="fa fa-%s"></i>', $icon));
     }
 
-    private function sortMenuItems($items) {
-        uasort($items, function ($item1, $item2) {
+    private function sortMenuItems($item)
+    {
+        $children = $item->getChildren();
+        uasort($children, function ($item1, $item2) {
             return $item1->getOrder() <=> $item2->getOrder();
         });
+
+        return $item->setChildren($children);
     }
 
     /**
