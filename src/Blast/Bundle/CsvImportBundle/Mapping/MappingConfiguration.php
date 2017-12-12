@@ -23,29 +23,24 @@ class MappingConfiguration
      */
     private $mapping = null;
 
-    /**
-     * @var string
-     */
-    private $configDirectory;
+    public function setMapping(array $newMapping): MappingConfiguration
+    {
+        $this->mapping = $newMapping;
+
+        return $this;
+    }
 
     /**
-     * @var string
+     * Loads mapping information from yaml config file.
      */
-    private $configFileName;
-    
-    
-    
-    /**
-     * Loads Csv mapping information from yaml config file.
-     */
-    private function loadCsvMapping(): void
+    public function loadMappingFromFile(string $configFile): MappingConfiguration
     {
-        /** @todo add this as param in a setter with default value */
-        $this->configDirectory = 'src/Li/LisemBundle/Resources/config';
-        $this->configFileName = 'csv_import.yml';
-        
-        $locator = new FileLocator([$this->configDirectory]);
-        $configFile = $locator->locate($this->configFileName, null, true);
+        /**
+         * @todo add this as param in a setter with default value
+         */
+
+        // $locator = new FileLocator([$configDirectory]);
+        // $configFile = $locator->locate($configFileName, null, true);
 
         /** @todo: use a real object */
         $rawConfig = Yaml::parse(file_get_contents($configFile));
@@ -55,16 +50,16 @@ class MappingConfiguration
         }
 
         $this->mapping = $rawConfig['csv_mapping'];
+
+        return $this;
     }
 
-    /**
-     * @return array
-     */
     public function getMapping(): array
     {
         if ($this->mapping === null) {
-            $this->loadCsvMapping();
+            throw new \Exception('Invalid csv mapping config , missing root key « csv_mapping »');
         }
+        var_export($this->mapping);
 
         return $this->mapping;
     }
