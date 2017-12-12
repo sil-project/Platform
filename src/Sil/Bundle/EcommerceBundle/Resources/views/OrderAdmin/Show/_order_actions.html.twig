@@ -13,7 +13,7 @@
                     </span>
                 </div>
                 <div class="col-md-6">
-                    <a href="{{ path('admin_sil_ecommerce_order_confirmOrder',{id: object.id})}}" class="btn btn-default confirmable" data-confirm-title="{{ 'sil.help.confirm_confirmOrder'|trans}}">
+                    <a href="{{ path('admin_ecommerce_order_confirmOrder',{id: object.id})}}" class="btn btn-default confirmable" data-confirm-title="{{ 'sil.help.confirm_confirmOrder'|trans}}">
                         {{ 'sil.ecommerce.order.form.action.confirm_order'|trans }}&nbsp;<i class="fa fa-paper-plane"></i>
                     </a>
                 </div>
@@ -28,7 +28,7 @@
                     </span>
                 </div>
                 <div class="col-md-6">
-                    <a href="{{ path('admin_sil_ecommerce_order_validateOrder',{id: object.id})}}" class="btn btn-success confirmable" data-confirm-title="{{ 'sil.help.confirm_validate'|trans}}">
+                    <a href="{{ path('admin_ecommerce_order_validateOrder',{id: object.id})}}" class="btn btn-success confirmable" data-confirm-title="{{ 'sil.help.confirm_validate'|trans}}">
                         {{ 'sil.ecommerce.order.form.action.fulfill_order'|trans }}&nbsp;<i class="fa fa-check"></i>
                     </a>
                 </div>
@@ -43,7 +43,7 @@
                     </span>
                 </div>
                 <div class="col-md-6">
-                    <a href="{{ path('admin_sil_ecommerce_order_cancelOrder',{id: object.id})}}" class="btn btn-danger confirmable" data-confirm-title="{{ 'sil.help.confirm_cancel'|trans}}">
+                    <a href="{{ path('admin_ecommerce_order_cancelOrder',{id: object.id})}}" class="btn btn-danger confirmable" data-confirm-title="{{ 'sil.help.confirm_cancel'|trans}}">
                         {{ 'sil.ecommerce.order.form.action.cancel_order'|trans }}&nbsp;<i class="fa fa-ban"></i>
                     </a>
                 </div>

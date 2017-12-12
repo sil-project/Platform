@@ -18,6 +18,6 @@ class CustomerGroupAdmin extends SyliusGenericAdmin
      */
     protected $translationLabelPrefix = 'sil.ecommerce.customer_group';
 
-    protected $baseRouteName = 'admin_sil_ecommerce_customer_group';
+    protected $baseRouteName = 'admin_ecommerce_customer_group';
     protected $baseRoutePattern = 'ecommerce/customer_group';
 }

@@ -34,7 +34,7 @@
                     {% for order in lastOrdersToProcess %}
                         <tr>
                             <td>
-                                <a href="{{ path('admin_sil_ecommerce_order_show', {'id': order.id}) }}">
+                                <a href="{{ path('admin_ecommerce_order_show', {'id': order.id}) }}">
                                     {{ order.number }}
                                 </a>
                             </td>
@@ -48,7 +48,7 @@
                     {% endfor %}
                     <tr>
                         <td colspan="100%" class="text-center">
-                            <a href="{{ path('admin_sil_ecommerce_order_list') }}">
+                            <a href="{{ path('admin_ecommerce_order_list') }}">
                                 {{ 'sil.ecommerce.dashboard.label.manage_orders'|trans }}
                             </a>
                         </td>

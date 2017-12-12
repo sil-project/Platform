@@ -6,7 +6,7 @@
         {% for invoice in object.invoices %}
             <tr class="sonata-ba-view-container">
                 <th>
-                    <a href="{{ path('admin_sil_ecommerce_invoice_showFile', {id: invoice.id}) }}" target="_blank">{{ invoice.number}}</a>
+                    <a href="{{ path('admin_ecommerce_invoice_showFile', {id: invoice.id}) }}" target="_blank">{{ invoice.number}}</a>
                 </th>
                 <td>
                     {{ invoice.createdAt|format_date }}
@@ -21,7 +21,7 @@
 {% endif %}
 
 {% if object.invoices|length == 0 and object.checkoutState == "completed" %}
-    <a href="#" id="generate-invoice" data-url="{{ path('admin_sil_ecommerce_invoice_generate', {order_id: object.id}) }}">
+    <a href="#" id="generate-invoice" data-url="{{ path('admin_ecommerce_invoice_generate', {order_id: object.id}) }}">
         {{ 'sil.action.generate_invoice'|trans }}
     </a>
 {% endif %}

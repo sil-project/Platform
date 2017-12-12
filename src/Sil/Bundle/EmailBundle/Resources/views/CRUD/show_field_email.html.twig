@@ -14,7 +14,7 @@ file that was distributed with this source code.
 
 {% block field %}
     <a class="email-link" href="#">{{ value }}</a>
-    <form method="GET" action="{{ path('admin_sil_email_email_create') }}" id="send-email-form">
+    <form method="GET" action="{{ path('admin_email_email_create') }}" id="send-email-form">
         <input type="hidden" name="force_user" value="1">
         <input type="hidden" name="recipients[]" value="{{ value }}">
     </form>

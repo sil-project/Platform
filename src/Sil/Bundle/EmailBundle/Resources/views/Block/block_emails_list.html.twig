@@ -42,12 +42,12 @@
                     <td>{{ email.updatedAt|date('d/m/Y H:i') }}</td>
                     <td class="email-actions">
                         <div class="btn-group">
-                            <a title="Afficher" class="btn btn-sm btn-default view_link" href="{{ path('admin_sil_email_email_show', {'id': email.id}) }}">
+                            <a title="Afficher" class="btn btn-sm btn-default view_link" href="{{ path('admin_email_email_show', {'id': email.id}) }}">
                                 <i class="fa fa-search-plus"></i>
                                 Afficher
                             </a>
                             {% if not email.sent %}
-                                <a href="{{ path('admin_sil_email_email_send') }}"
+                                <a href="{{ path('admin_email_email_send') }}"
                                    class="btn btn-sm btn-default ajax-send-email"
                                    title="{{ 'Send'|trans({}, 'SilEmailBundle') }}">
                                     <i class="fa fa-paper-plane"></i>

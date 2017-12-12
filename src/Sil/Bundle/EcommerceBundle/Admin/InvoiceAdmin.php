@@ -21,7 +21,7 @@ class InvoiceAdmin extends CoreAdmin
      */
     protected $translationLabelPrefix = 'sil.ecommerce.invoice';
 
-    protected $baseRouteName = 'admin_sil_ecommerce_invoice';
+    protected $baseRouteName = 'admin_ecommerce_invoice';
     protected $baseRoutePattern = 'ecommerce/invoice';
 
     protected function configureRoutes(RouteCollection $collection)

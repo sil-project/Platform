@@ -23,6 +23,6 @@ class EmailReceiptAdmin extends CoreAdmin
      */
     protected $translationLabelPrefix = 'sil.email.email_receipt';
 
-    protected $baseRouteName = 'admin_sil_email_receipt';
+    protected $baseRouteName = 'admin_email_receipt';
     protected $baseRoutePattern = 'email/receipt';
 }

@@ -34,7 +34,7 @@ class ProductAdmin extends SyliusGenericAdmin
      */
     protected $translationLabelPrefix = 'sil.ecommerce.product';
 
-    protected $baseRouteName = 'admin_sil_ecommerce_product';
+    protected $baseRouteName = 'admin_ecommerce_product';
     protected $baseRoutePattern = 'ecommerce/product';
 
     public function configureActionButtons($action, $object = null)

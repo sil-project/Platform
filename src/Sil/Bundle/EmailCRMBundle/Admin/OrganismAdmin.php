@@ -15,6 +15,6 @@ use Sil\Bundle\CRMBundle\Admin\OrganismAdmin as BaseOrganismAdmin;
 
 class OrganismAdmin extends BaseOrganismAdmin
 {
-    protected $baseRouteName = 'admin_sil_email_organism';
+    protected $baseRouteName = 'admin_email_organism';
     protected $baseRoutePattern = 'email/organism';
 }

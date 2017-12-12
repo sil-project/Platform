@@ -5,7 +5,7 @@
 
 {% block send_new_email %}
     {% if object.email %}
-        <form method="GET" action="{{ path('admin_sil_email_email_create') }}" id='send-email-form'>
+        <form method="GET" action="{{ path('admin_email_email_create') }}" id='send-email-form'>
             <label>Envoyer un email à {{ object.email }}</label>
             <input type="hidden" name="force_user" value="1">
             <input type="hidden" name="recipient_class" value="{{ admin.class }}">

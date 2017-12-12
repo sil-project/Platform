@@ -27,7 +27,7 @@ class ProductAttributeAdmin extends SyliusGenericAdmin
      */
     protected $translationLabelPrefix = 'sil.ecommerce.product_attribute';
 
-    protected $baseRouteName = 'admin_sil_ecommerce_product_attribute';
+    protected $baseRouteName = 'admin_ecommerce_product_attribute';
     protected $baseRoutePattern = 'ecommerce/product_attribute';
 
     /**

@@ -31,7 +31,7 @@ class OrderAdmin extends CoreAdmin
      */
     protected $translationLabelPrefix = 'sil.ecommerce.order';
 
-    protected $baseRouteName = 'admin_sil_ecommerce_order';
+    protected $baseRouteName = 'admin_ecommerce_order';
     protected $baseRoutePattern = 'ecommerce/order';
     protected $classnameLabel = 'Order';
     protected $datagridValues = [

@@ -21,7 +21,7 @@ class ShopUserAdmin extends SyliusGenericAdmin
      */
     protected $translationLabelPrefix = 'sil.ecommerce.shop_user';
 
-    protected $baseRouteName = 'admin_sil_ecommerce_shop_user';
+    protected $baseRouteName = 'admin_ecommerce_shop_user';
     protected $baseRoutePattern = 'ecommerce/shop_user';
 
     protected function configureRoutes(RouteCollection $collection)

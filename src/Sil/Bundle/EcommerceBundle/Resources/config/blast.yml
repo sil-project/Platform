@@ -1147,7 +1147,7 @@ parameters:
 
         Sil\Bundle\EcommerceBundle\Entity\TaxRate:
             baseRoute:
-                name: admin_sil_ecommerce_taxrate
+                name: admin_ecommerce_taxrate
                 pattern: sil/ecommerce/taxrate
             # SHOW
             Sonata\AdminBundle\Show\ShowMapper:
@@ -1209,7 +1209,7 @@ parameters:
 
         Sylius\Component\Taxation\Model\TaxCategory:
             baseRoute:
-                name: admin_sil_ecommerce_taxcategory
+                name: admin_ecommerce_taxcategory
                 pattern: sil/ecommerce/taxcategory
             # SHOW
             Sonata\AdminBundle\Show\ShowMapper:
@@ -1260,7 +1260,7 @@ parameters:
 
         Sil\Bundle\EcommerceBundle\Entity\Zone:
             baseRoute:
-                name: admin_sil_ecommerce_zone
+                name: admin_ecommerce_zone
                 pattern: sil/ecommerce/zone
             Sonata\AdminBundle\Show\ShowMapper:
                 add:
@@ -1295,7 +1295,7 @@ parameters:
 
         Sil\Bundle\EcommerceBundle\Entity\Taxon:
             baseRoute:
-                name: admin_sil_ecommerce_taxon
+                name: admin_ecommerce_taxon
                 pattern: sil/ecommerce/taxon
             Sonata\AdminBundle\Show\ShowMapper:
                 add:
@@ -1330,7 +1330,7 @@ parameters:
 
         Sil\Bundle\EcommerceBundle\Entity\Channel:
             baseRoute:
-                name: admin_sil_ecommerce_channel
+                name: admin_ecommerce_channel
                 pattern: sil/ecommerce/channel
             # SHOW
             Sonata\AdminBundle\Show\ShowMapper:
@@ -1529,7 +1529,7 @@ parameters:
 
         Sil\Bundle\EcommerceBundle\Entity\ShippingMethod:
             baseRoute:
-                name: admin_sil_ecommerce_shipping_method
+                name: admin_ecommerce_shipping_method
                 pattern: sil/ecommerce/shipping_method
 
             # SHOW
@@ -1639,7 +1639,7 @@ parameters:
 
         Sylius\Component\Shipping\Model\ShippingMethodTranslation:
             baseRoute:
-                name: admin_sil_ecommerce_shipping_method_translation
+                name: admin_ecommerce_shipping_method_translation
                 pattern: sil/ecommerce/shipping_method_translation
             # SHOW
             Sonata\AdminBundle\Show\ShowMapper:
@@ -1689,7 +1689,7 @@ parameters:
 
         Sylius\Component\Core\Model\ShopUser:
             baseRoute:
-                name: admin_sil_ecommerce_shop_user
+                name: admin_ecommerce_shop_user
                 pattern: sil/ecommerce/shop_user
 
             # SHOW

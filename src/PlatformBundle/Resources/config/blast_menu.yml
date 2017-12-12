@@ -9,5 +9,5 @@ parameters:
 
                 sil.email.menu_label.email:
                     icon: cloud-upload
-                    route: admin_sil_email_list
+                    route: admin_email_list
                     order: 20

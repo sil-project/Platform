@@ -22,7 +22,7 @@ class ChannelAdmin extends SyliusGenericAdmin
      */
     protected $translationLabelPrefix = 'sil.ecommerce.channel';
 
-    protected $baseRouteName = 'admin_sil_ecommerce_channel';
+    protected $baseRouteName = 'admin_ecommerce_channel';
     protected $baseRoutePattern = 'ecommerce/channel';
 
     /**

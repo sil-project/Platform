@@ -11,7 +11,7 @@ parameters:
 
                 sil.sonata_sylius_user.menu_label.application_access_users:
                     icon: users
-                    route: admin_sil_sonata_sylius_user_list
+                    route: admin_sonata_sylius_user_list
                     order: 10
                     roles:
                          - ROLE_SUPER_ADMIN

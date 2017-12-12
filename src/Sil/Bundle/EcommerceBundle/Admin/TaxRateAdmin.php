@@ -18,6 +18,6 @@ class TaxRateAdmin extends SyliusGenericAdmin
      */
     protected $translationLabelPrefix = 'sil.ecommerce.tax_rate';
 
-    protected $baseRouteName = 'admin_sil_ecommerce_tax_rate';
+    protected $baseRouteName = 'admin_ecommerce_tax_rate';
     protected $baseRoutePattern = 'ecommerce/tax_rate';
 }

@@ -28,7 +28,7 @@ class EmailAdmin extends CoreAdmin
      */
     protected $translationLabelPrefix = 'sil.email.email';
 
-    protected $baseRouteName = 'admin_sil_email';
+    protected $baseRouteName = 'admin_email';
     protected $baseRoutePattern = 'email/email';
 
     protected function configureRoutes(RouteCollection $collection)

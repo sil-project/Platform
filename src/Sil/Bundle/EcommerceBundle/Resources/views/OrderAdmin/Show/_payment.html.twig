@@ -12,7 +12,7 @@
 
     {% if sm_can(payment, 'complete', 'sylius_payment') %}
         <div>
-            <form action="{{ path('admin_sil_ecommerce_order_updatePayment',{id: object.id}) }}" method="post" novalidate>
+            <form action="{{ path('admin_ecommerce_order_updatePayment',{id: object.id}) }}" method="post" novalidate>
                 <input type="hidden" name="_action" value="complete"/>
                 <input type="hidden" name="_paymentId" value="{{ payment.id }}"/>
                 <a href="#" onclick="$(this).closest('form').submit()" class="btn btn-success pull-right confirmable" data-confirm-action="triggerClick">
@@ -25,7 +25,7 @@
 
     {% if sm_can(payment, 'refund', 'sylius_payment') %}
         <div>
-            <form action="{{ path('admin_sil_ecommerce_order_updatePayment',{id: object.id}) }}" method="post" novalidate>
+            <form action="{{ path('admin_ecommerce_order_updatePayment',{id: object.id}) }}" method="post" novalidate>
                 <input type="hidden" name="_action" value="refund"/>
                 <input type="hidden" name="_paymentId" value="{{ payment.id }}"/>
                 <a href="#" onclick="$(this).closest('form').submit()" class="btn btn-warning pull-right confirmable" data-confirm-action="triggerClick">

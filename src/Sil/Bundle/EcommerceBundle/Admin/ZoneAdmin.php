@@ -18,6 +18,6 @@ class ZoneAdmin extends SyliusGenericAdmin
      */
     protected $translationLabelPrefix = 'sil.ecommerce.zone';
 
-    protected $baseRouteName = 'admin_sil_ecommerce_zone';
+    protected $baseRouteName = 'admin_ecommerce_zone';
     protected $baseRoutePattern = 'ecommerce/zone';
 }

@@ -2,7 +2,7 @@
 
 {% block individual %}
     {% if organism_admin.isGranted('SHOW') %}
-        <a href="{{ path('admin_sil_emailcrm_organism_show', {'id': position.organization.id}) }}">{{ position.organization|render_relation_element(elems['organization']) }}</a>
+        <a href="{{ path('admin_emailcrm_organism_show', {'id': position.organization.id}) }}">{{ position.organization|render_relation_element(elems['organization']) }}</a>
     {% else %}
         {{ position.organism|render_relation_element(elems['organism']) }}
     {% endif %}

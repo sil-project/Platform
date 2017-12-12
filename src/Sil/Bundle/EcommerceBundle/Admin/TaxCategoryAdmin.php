@@ -18,7 +18,7 @@ class TaxCategoryAdmin extends SyliusGenericAdmin
      */
     protected $translationLabelPrefix = 'sil.ecommerce.tax_category';
 
-    protected $baseRouteName = 'admin_sil_ecommerce_tax_category';
+    protected $baseRouteName = 'admin_ecommerce_tax_category';
     protected $baseRoutePattern = 'ecommerce/tax_category';
 
     public function toString($object)
