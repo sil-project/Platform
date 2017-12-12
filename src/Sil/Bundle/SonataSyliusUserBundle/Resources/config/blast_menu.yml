@@ -1,17 +1,18 @@
 parameters:
 
-    blast_menu.settings:
+    blast_menu:
+        settings:
 
-        sil.sonata_sylius_user.menu_label.application_access:
-            icon: lock
-            order: 5
-            roles:
-                 - ROLE_SUPER_ADMIN
-            children:
+            sil.sonata_sylius_user.menu_label.application_access:
+                icon: lock
+                order: 5
+                roles:
+                     - ROLE_SUPER_ADMIN
+                children:
 
-                sil.sonata_sylius_user.menu_label.application_access_users:
-                    icon: users
-                    route: admin_sonata_sylius_user_list
-                    order: 10
-                    roles:
-                         - ROLE_SUPER_ADMIN
+                    sil.sonata_sylius_user.menu_label.application_access_users:
+                        icon: users
+                        route: admin_sonata_sylius_user_list
+                        order: 10
+                        roles:
+                             - ROLE_SUPER_ADMIN

@@ -1,86 +1,87 @@
 parameters:
 
-    blast_menu.root:
+    blast_menu:
 
-        sil.ecommerce.menu_label.ecommerce:
-            icon: shopping-cart
-            order: 20000
-            children:
+        root:
 
-                sil.ecommerce.menu_label.products:
-                    icon: cubes
-                    route: admin_ecommerce_product_list
-                    order: 10
+            sil.ecommerce.menu_label.ecommerce:
+                icon: shopping-cart
+                order: 20000
+                children:
 
-                sil.ecommerce.menu_label.orders:
-                    icon: money
-                    route: admin_ecommerce_order_list
-                    order: 20
+                    sil.ecommerce.menu_label.products:
+                        icon: cubes
+                        route: admin_ecommerce_product_list
+                        order: 10
 
-                sil.ecommerce.menu_label.sales_journal:
-                    icon: file-text-o
-                    route: admin_ecommerce_sales_journal_list
-                    order: 30
+                    sil.ecommerce.menu_label.orders:
+                        icon: money
+                        route: admin_ecommerce_order_list
+                        order: 20
 
-                sil.ecommerce.menu_label.payment:
-                    icon: eur
-                    route: admin_ecommerce_payment_list
-                    order: 40
+                    sil.ecommerce.menu_label.sales_journal:
+                        icon: file-text-o
+                        route: admin_ecommerce_sales_journal_list
+                        order: 30
 
+                    sil.ecommerce.menu_label.payment:
+                        icon: eur
+                        route: admin_ecommerce_payment_list
+                        order: 40
 
-    blast_menu.settings:
+        settings:
 
-        sil.ecommerce.menu_label.shop_settings:
-            icon: cart-plus
-            order: 20000
-            children:
+            sil.ecommerce.menu_label.shop_settings:
+                icon: cart-plus
+                order: 20000
+                children:
 
-                sil.ecommerce.menu_label.shop_settings_channels:
-                    icon: random
-                    route: admin_ecommerce_channel_list
-                    order: 10
+                    sil.ecommerce.menu_label.shop_settings_channels:
+                        icon: random
+                        route: admin_ecommerce_channel_list
+                        order: 10
 
-                sil.ecommerce.menu_label.shop_settings_taxons:
-                    icon: list
-                    route: admin_ecommerce_taxon_list
-                    order: 20
+                    sil.ecommerce.menu_label.shop_settings_taxons:
+                        icon: list
+                        route: admin_ecommerce_taxon_list
+                        order: 20
 
-                sil.ecommerce.menu_label.shop_settings_product_attributes:
-                    icon: tag
-                    route: admin_ecommerce_product_attribute_list
-                    order: 30
+                    sil.ecommerce.menu_label.shop_settings_product_attributes:
+                        icon: tag
+                        route: admin_ecommerce_product_attribute_list
+                        order: 30
 
-                sil.ecommerce.menu_label.shop_settings_product_options:
-                    icon: sliders
-                    route: admin_ecommerce_product_option_list
-                    order: 40
+                    sil.ecommerce.menu_label.shop_settings_product_options:
+                        icon: sliders
+                        route: admin_ecommerce_product_option_list
+                        order: 40
 
-                sil.ecommerce.menu_label.shop_settings_zones:
-                    icon: globe
-                    route: admin_ecommerce_zone_list
-                    order: 50
+                    sil.ecommerce.menu_label.shop_settings_zones:
+                        icon: globe
+                        route: admin_ecommerce_zone_list
+                        order: 50
 
-                sil.ecommerce.menu_label.shop_settings_payment_methods:
-                    icon: credit-card
-                    route: admin_ecommerce_payment_method_list
-                    order: 60
+                    sil.ecommerce.menu_label.shop_settings_payment_methods:
+                        icon: credit-card
+                        route: admin_ecommerce_payment_method_list
+                        order: 60
 
-                sil.ecommerce.menu_label.shop_settings_shipping_methods:
-                    icon: truck
-                    route: admin_ecommerce_shipping_method_list
-                    order: 70
+                    sil.ecommerce.menu_label.shop_settings_shipping_methods:
+                        icon: truck
+                        route: admin_ecommerce_shipping_method_list
+                        order: 70
 
-                sil.ecommerce.menu_label.shop_settings_tax_categories:
-                    icon: gavel
-                    route: admin_ecommerce_tax_category_list
-                    order: 80
+                    sil.ecommerce.menu_label.shop_settings_tax_categories:
+                        icon: gavel
+                        route: admin_ecommerce_tax_category_list
+                        order: 80
 
-                sil.ecommerce.menu_label.shop_settings_tax_rates:
-                    icon: percent
-                    route: admin_ecommerce_tax_rate_list
-                    order: 90
+                    sil.ecommerce.menu_label.shop_settings_tax_rates:
+                        icon: percent
+                        route: admin_ecommerce_tax_rate_list
+                        order: 90
 
-                sil.ecommerce.menu_label.shop_settings_shop_users:
-                    icon: user-circle-o
-                    route: admin_ecommerce_shop_user_list
-                    order: 100
+                    sil.ecommerce.menu_label.shop_settings_shop_users:
+                        icon: user-circle-o
+                        route: admin_ecommerce_shop_user_list
+                        order: 100
