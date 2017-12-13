@@ -13,6 +13,7 @@ namespace Blast\bundle\MenuBundle\Tests\Functional;
 
 use Blast\Bundle\TestsBundle\Functional\BlastTestCase;
 use Blast\Bundle\MenuBundle\Model\Item;
+use Symfony\Component\Yaml\Yaml;
 
 class ConfigurationLoaderTestCase extends BlastTestCase
 {

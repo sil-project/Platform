@@ -17,21 +17,3 @@ blast_base_entities:
             syliusGuidable:  true
 
     entity_searchable_indexes: ~
-
-stof_doctrine_extensions:
-    orm:
-        default:
-            tree:          true
-            sluggable:     true
-            timestampable: true
-            
-blast_utils:
-    features:
-        customFilters:
-            enabled: true
-
-blast_resource:
-    resources: ~
-    underscored_bundle_prefix_strategy:
-        fallback: doctrine.orm.naming_strategy.underscore
-        filter: ['Sil', 'Blast', 'Platform', 'Lisem']

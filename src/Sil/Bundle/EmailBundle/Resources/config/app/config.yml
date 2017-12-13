@@ -1,3 +1,6 @@
+imports:
+    - { resource: '@SilEmailBundle/Resources/config/vendor/blast/menu.yml' }
+
 blast_base_entities:
     entity_searchable_indexes:
         -
