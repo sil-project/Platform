@@ -33,7 +33,7 @@ class MappingConfiguration
     /**
      * Loads mapping information from yaml config file.
      */
-    public function loadMappingFromFile(string $configFile): MappingConfiguration
+    public function loadMappingFromFile(string $configFile, string $yamlKey = 'csv_mapping'): MappingConfiguration
     {
         /**
          * @todo add this as param in a setter with default value
@@ -49,17 +49,21 @@ class MappingConfiguration
             throw new \Exception(sprintf('Invalid csv mapping config file ( %s ), missing root key « csv_mapping »', $configFile));
         }
 
-        $this->mapping = $rawConfig['csv_mapping'];
+        $this->mapping = $rawConfig[$yamlKey];
 
         return $this;
+    }
+
+    public function getImportClass(): array
+    {
+        return array_keys($this->GetMapping());
     }
 
     public function getMapping(): array
     {
         if ($this->mapping === null) {
-            throw new \Exception('Invalid csv mapping config , missing root key « csv_mapping »');
+            throw new \Exception('Invalid Null Mapping Config');
         }
-        var_export($this->mapping);
 
         return $this->mapping;
     }

@@ -12,7 +12,7 @@
 namespace Blast\Bundle\CsvImportBundle\Normalizer;
 
 use Blast\Bundle\CsvImportBundle\Converter\NameConverter;
-use Doctrine\ORM\EntityManager;
+use Blast\Bundle\CsvImportBundle\Mapping\MappingConfiguration;
 // use Sil\Bundle\VarietyBundle\Entity\Family;
 // use Sil\Bundle\VarietyBundle\Entity\Genus;
 // use Sil\Bundle\VarietyBundle\Entity\Species;
@@ -25,26 +25,20 @@ use Symfony\Component\Serializer\Normalizer\ObjectNormalizer as BaseObjectNormal
 class ObjectNormalizer extends BaseObjectNormalizer
 {
     /**
-     * @var EntityManager
+     * @var array //MappingConfiguration
      */
-    //  private $em;
+    private $mapping;
 
     /**
-     * @var array
+     * @var NameConverter
      */
-    private $mappings;
+    private $converter;
 
-    /**
-     // * @param string        $entityClass   entity class FQDN
-     // * @param EntityManager $entityManager
-     */
-    public function __construct(MappingConfiguration $mappingConf, NameConverter $nameConverter)// $entityClass, EntityManager $entityManager)
+    public function __construct(MappingConfiguration $mappingConf, NameConverter $nameConverter)
     {
-        /* @todo: use a service */
-        //        $nameConverter = new NameConverter($entityClass);
         parent::__construct(null, $nameConverter);
-        // $this->em = $entityManager;
-        $this->mappings = $this->getMappings();
+        $this->mapping = $this->getMappings();
+        $this->converter = $nameConverter;
     }
 
     /**
@@ -52,6 +46,7 @@ class ObjectNormalizer extends BaseObjectNormalizer
      */
     public function denormalize($data, $class, $format = null, array $context = array())
     {
+        $this->converter->configureNames($class);
         $object = parent::denormalize($data, $class, $format, $context);
 
         $rc = new \ReflectionClass($class);
@@ -70,8 +65,8 @@ class ObjectNormalizer extends BaseObjectNormalizer
         $this->cleanUpValue($value);
 
         $key = get_class($object) . '.' . $attribute;
-        if (isset($this->mappings[$key])) {
-            list($associationClass, $field) = $this->mappings[$key];
+        if (isset($this->mapping[$key])) {
+            list($associationClass, $field) = $this->mapping[$key];
             $value = $this->fetchAssociation($associationClass, $field, $value);
         }
 

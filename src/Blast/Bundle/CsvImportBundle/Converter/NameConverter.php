@@ -29,12 +29,10 @@ class NameConverter implements NameConverterInterface
      */
     private $mapping;
 
-    /**
-     * @param string $entityClass entity class FQDN
-     */
-    public function __construct(MappingConfiguration $mappingConf) //$entityClass)
+    public function __construct(MappingConfiguration $mappingConf)
     {
-        $this->mapping = $mappingConf; //CsvMappingConfiguration::getInstance()->getMapping();
+        $this->mapping = $mappingConf->getMapping();
+
         //$this->configureNames($entityClass);
     }
 
@@ -49,7 +47,7 @@ class NameConverter implements NameConverterInterface
     public function denormalize($propertyName)
     {
         if (!isset($this->names)) {
-            throw new \Exception(self::class . ' configureName not called ' . $entityClass);
+            throw new \Exception(self::class . ' configureName not called ');
         }
 
         return isset($this->names[$propertyName]) ? $this->names[$propertyName] : $propertyName;
@@ -58,8 +56,9 @@ class NameConverter implements NameConverterInterface
     /**
      * @param string $entityClass entity class FQDN
      */
-    private function configureNames($entityClass)
+    public function configureNames($entityClass)
     {
+        /* @warning last call set the current Mapping States, @todo find a clean way to do it */
         if (!key_exists($entityClass, $this->mapping)) {
             throw new \Exception(self::class . ' cannot handle this entity class: ' . $entityClass);
         }
