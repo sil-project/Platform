@@ -58,8 +58,20 @@ class ImportCsvCommand extends ContainerAwareCommand
         ->setDescription('Import data from CSV files into Blast.')
         ->setDefinition(
             new InputDefinition([
-            new InputOption('mapping', 'm', InputOption::VALUE_REQUIRED, 'The mapping files.', 'src/Resources/config/csv_import.yml'),
-            new InputOption('dir', 'd', InputOption::VALUE_REQUIRED, 'The directory containing the CSV files.', 'src/Resources/data'),
+            new InputOption(
+                'mapping',
+                'm',
+                InputOption::VALUE_REQUIRED,
+                'The mapping files.',
+                'src/Resources/config/csv_import.yml'
+            ),
+            new InputOption(
+                'dir',
+                'd',
+                InputOption::VALUE_REQUIRED,
+                'The path directory containing the CSV files.',
+                'src/Resources/data'
+            ),
             ])
         )
 
@@ -91,6 +103,7 @@ EOT
     {
         foreach ($this->importClass as $class) {
             if (class_exists($class)) {
+                $this->beforeImport($class, $output);
                 $this->importData($class, $output);
             } else {
                 $output->writeln(sprintf('%s does not exist', $class));
@@ -126,12 +139,31 @@ EOT
 
             $this->em->persist($object);
 
+            // Hum Lol
             if ($k % 50 == 0) {
                 $this->em->flush();
             }
         }
         $this->em->flush();
         $output->writeln('DONE (' . basename($csv) . ')...');
+    }
+
+    /**
+     * @param string $entityClass
+     */
+    protected function beforeImport($entityClass, OutputInterface $output)
+    {
+        $doDelete = false;
+        if (array_key_exists('delete', $this->mapping[$entityClass])) {
+            $doDelete = $this->mapping[$entityClass]['delete'];
+        }
+        if ($doDelete) {
+            $output->writeln(sprintf('Delete from %s', $entityClass));
+            $em = $this->getContainer()->get('doctrine')->getEntityManager();
+
+            $em->createQuery('DELETE FROM ' . $entityClass)->execute();
+            //$em->createQuery('DELETE FROM :entityClass')->execute(['entityClass', $entityClass]);
+        }
     }
 
     /**
