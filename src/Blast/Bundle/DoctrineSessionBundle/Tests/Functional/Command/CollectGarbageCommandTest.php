@@ -18,13 +18,6 @@ class CollectGarbageCommandTest extends BlastTestCase
     protected function setUp()
     {
         parent::setUp();
-        // $this->createDatabase();
-        /*
-         * @todo: grrr cacheClear need the database...
-         */
-        $this->cacheClear();
-        $this->updateSchema();
-        $this->validateSchema();
     }
 
     protected function tearDown()
