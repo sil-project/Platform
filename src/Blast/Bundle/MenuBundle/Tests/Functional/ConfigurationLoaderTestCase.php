@@ -28,8 +28,6 @@ class ConfigurationLoaderTestCase extends BlastTestCase
 
         $parameterLoader->setParameters($this->getTestParameter());
 
-        echo Yaml::dump($this->getTestParameter());
-
         $output = $parameterLoader->load();
 
         $this->assertEquals($output, $this->getOuputMenuTree());
