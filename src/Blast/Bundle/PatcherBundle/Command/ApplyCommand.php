@@ -9,18 +9,20 @@
  * file that was distributed with this source code.
  */
 
-namespace Blast\Bundle\CoreBundle\Command;
+namespace Blast\Bundle\PatcherBundle\Command;
 
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Yaml\Yaml;
+use Blast\Bundle\PatcherBundle\Command\Helper\Config;
+use Blast\Bundle\PatcherBundle\Command\Helper\Logger;
 
-class PatcherApplyCommand extends ContainerAwareCommand
+class ApplyCommand extends ContainerAwareCommand
 {
-    use PatcherConfig,
-        PatcherLogger;
+    use Config,
+        Logger;
 
     private $dryRun = true;
 
@@ -35,7 +37,7 @@ class PatcherApplyCommand extends ContainerAwareCommand
     {
         $this
             ->setName('blast:patchs:apply')
-            ->setDescription('Apply Patches from Librinfo on misc vendors')
+            ->setDescription('Apply Patches from any bundle on misc vendors')
             ->addOption('force', 'f', InputOption::VALUE_NONE, 'Force patch apply');
     }
 

@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Blast\Bundle\CoreBundle\Command;
+namespace Blast\Bundle\PatcherBundle\Command;
 
 use DateTime;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
@@ -17,8 +17,10 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Yaml\Yaml;
+use Blast\Bundle\PatcherBundle\Command\Helper\Config;
+use Blast\Bundle\PatcherBundle\Command\Helper\Logger;
 
-class PatcherGenerateCommand extends ContainerAwareCommand
+class GenerateCommand extends ContainerAwareCommand
 {
     /**
      * Command generates patch file [originalFilePath, modifiedPathFile, outputFilename].
@@ -32,14 +34,14 @@ class PatcherGenerateCommand extends ContainerAwareCommand
      */
     private $now;
 
-    use PatcherConfig,
-        PatcherLogger;
+    use Config,
+        Logger;
 
     protected function configure()
     {
         $this
             ->setName('blast:patchs:generate')
-            ->setDescription('Generate Patches from Librinfo on misc vendors')
+            ->setDescription('Generate Patches from any bundle on misc vendors')
             ->addArgument(
                 'original-file',
                 InputArgument::REQUIRED,

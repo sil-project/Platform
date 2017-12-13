@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Blast\Bundle\CoreBundle\Tools\Patches;
+namespace Blast\Bundle\PatcherBundle\Composer;
 
 use Composer\Script\Event;
 use Sensio\Bundle\DistributionBundle\Composer\ScriptHandler;

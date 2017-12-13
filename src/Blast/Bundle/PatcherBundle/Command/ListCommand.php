@@ -9,16 +9,18 @@
  * file that was distributed with this source code.
  */
 
-namespace Blast\Bundle\CoreBundle\Command;
+namespace Blast\Bundle\PatcherBundle\Command;
 
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Blast\Bundle\PatcherBundle\Command\Helper\Config;
+use Blast\Bundle\PatcherBundle\Command\Helper\Logger;
 
-class PatcherListCommand extends ContainerAwareCommand
+class ListCommand extends ContainerAwareCommand
 {
-    use PatcherConfig,
-        PatcherLogger;
+    use Config,
+        Logger;
 
     protected function configure()
     {
@@ -38,8 +40,6 @@ class PatcherListCommand extends ContainerAwareCommand
             $this->comment($patch['id']);
             $this->info('enabled: ', false);
             $this->comment($patch['enabled'] ? 'true' : 'false');
-            // $this->info('patched: ', false);
-            // $this->comment($patch['patched'] ? 'true' : 'false');
             $this->info('targetFile: ', false);
             $this->comment($patch['targetFile']);
             $this->info('patchFile: ', false);

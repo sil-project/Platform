@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Blast\Bundle\CoreBundle\Command;
+namespace Blast\Bundle\PatcherBundle\Command\Helper;
 
-trait PatcherLogger
+trait Logger
 {
     private $messages = [];
 

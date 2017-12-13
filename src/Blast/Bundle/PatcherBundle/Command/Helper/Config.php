@@ -9,17 +9,17 @@
  * file that was distributed with this source code.
  */
 
-namespace Blast\Bundle\CoreBundle\Command;
+namespace Blast\Bundle\PatcherBundle\Command\Helper;
 
 use Symfony\Component\Yaml\Yaml;
 
-trait PatcherConfig
+trait Config
 {
     private $config;
 
     private function loadConfig()
     {
-        $configPath = $this->getContainer()->get('kernel')->locateResource('@BlastCoreBundle/Tools/Patches/patches.yml');
+        $configPath = $this->getContainer()->get('kernel')->locateResource('@BlastPatcherBundle/Patches/patches.yml');
         $baseDir = str_replace('/patches.yml', '', $configPath);
 
         $this->config = Yaml::parse(
