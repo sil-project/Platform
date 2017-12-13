@@ -13,6 +13,7 @@ namespace Blast\bundle\MenuBundle\Tests\Functional;
 
 use Blast\Bundle\TestsBundle\Functional\BlastTestCase;
 use Blast\Bundle\MenuBundle\Model\Item;
+use Symfony\Component\Yaml\Yaml;
 
 class ConfigurationLoaderTestCase extends BlastTestCase
 {
@@ -26,6 +27,8 @@ class ConfigurationLoaderTestCase extends BlastTestCase
         $parameterLoader = $this->container->get('blast.menu_loader');
 
         $parameterLoader->setParameters($this->getTestParameter());
+
+        echo Yaml::dump($this->getTestParameter());
 
         $output = $parameterLoader->load();
 

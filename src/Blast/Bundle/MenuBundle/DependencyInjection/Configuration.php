@@ -1,15 +1,19 @@
 <?php
 
+/*
+ *
+ * Copyright (C) 2015-2017 Libre Informatique
+ *
+ * This file is licenced under the GNU LGPL v3.
+ * For the full copyright and license information, please view the LICENSE.md
+ * file that was distributed with this source code.
+ */
+
 namespace Blast\Bundle\MenuBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 
-/**
- * This is the class that validates and merges configuration from your app/config files.
- *
- * To learn more see {@link http://symfony.com/doc/current/cookbook/bundles/configuration.html}
- */
 class Configuration implements ConfigurationInterface
 {
     /**
@@ -20,19 +24,46 @@ class Configuration implements ConfigurationInterface
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('blast_menu');
 
-        // @TODO: Handle menu configuration by bundle configuration insteadof container parameter
-        //
-        // $rootNode
-        //     ->children()
-        //         ->arrayNode('root')
-        //             ->prototype('array')
-        //                 ->children()
-        //                     ->scalarNode('class')->end()
-        //                     ->variableNode('fields')->end()
-        //                 ->end()
-        //             ->end()
-        //         ->arrayNode('settings')
+        $rootNode
+            ->children()
+                ->append(
+                    $this->getMenuItemConfiguration('root')
+                )
+                ->append(
+                    $this->getMenuItemConfiguration('settings')
+                )
+            ->end()
+        ;
 
         return $treeBuilder;
+    }
+
+    protected function getMenuItemConfiguration($name, $depth = 5)
+    {
+        $treeBuilder = new TreeBuilder();
+        $node = $treeBuilder->root($name);
+
+        if ($depth > 0) {
+            $node
+            ->useAttributeAsKey('id')
+            ->prototype('array')
+                ->children()
+                    ->scalarNode('label')->end()
+                    ->scalarNode('icon')->end()
+                    ->scalarNode('route')->end()
+                    ->scalarNode('order')->end()
+                    ->booleanNode('display')->end()
+                    ->arrayNode('roles')
+                        ->prototype('variable')
+                        ->end()
+                    ->end()
+                    ->scalarNode('parent')->end()
+                    ->append($this->getMenuItemConfiguration('children', --$depth))
+                ->end()
+            ->end()
+            ;
+        }
+
+        return $node;
     }
 }
