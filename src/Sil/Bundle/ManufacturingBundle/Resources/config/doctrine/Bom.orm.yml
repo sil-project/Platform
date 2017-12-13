@@ -14,7 +14,8 @@ Sil\Bundle\ManufacturingBundle\Domain\Entity\Bom:
 
     manyToOne:
         qtyUom:
-            targetEntity: Sil\Bundle\StockBundle\Domain\Entity\Uom
+            targetEntity: Sil\Bundle\UomBundle\Entity\Uom
+
             joinColumn:
                 name: qty_uom_id
                 referencedColumnName: id
@@ -28,6 +29,6 @@ Sil\Bundle\ManufacturingBundle\Domain\Entity\Bom:
 
     oneToMany:
         lines:
-          targetEntity: BomLine
+          targetEntity: Sil\Bundle\ManufacturingBundle\Domain\Entity\BomLine
           mappedBy: bom
           cascade: ["remove", "persist"]

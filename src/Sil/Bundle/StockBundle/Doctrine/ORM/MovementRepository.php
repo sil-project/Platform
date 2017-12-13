@@ -15,9 +15,7 @@ use Sil\Bundle\StockBundle\Domain\Repository\MovementRepositoryInterface;
 use Blast\Bundle\ResourceBundle\Doctrine\ORM\Repository\ResourceRepository;
 
 /**
- * Description of UomTypeRepository.
- *
- * @author glenn
+ * @author Glenn Cavarlé <glenn.cavarle@libre-informatique.fr>
  */
 class MovementRepository extends ResourceRepository implements MovementRepositoryInterface
 {

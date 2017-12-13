@@ -14,5 +14,5 @@ Sil\Bundle\StockBundle\Domain\Entity\Warehouse:
 
     oneToMany:
         locations:
-          targetEntity: Location
+          targetEntity: Sil\Bundle\StockBundle\Domain\Entity\Location
           mappedBy: warehouse

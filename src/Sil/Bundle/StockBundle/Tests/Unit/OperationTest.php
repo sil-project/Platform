@@ -18,10 +18,8 @@ class OperationTest extends AbstractStockTestCase
 {
     public function testOperationLifecycle()
     {
-        $this->markTestSkipped(
-            'Not working due to createDraft() need 2 args.'
-        );
-        $op = $this->opService->createDraft();
+        $op = $this->createInternalTransferOperation();
+        $this->createMovement();
 
         $this->assertTrue($op->isDraft());
 
@@ -34,7 +32,7 @@ class OperationTest extends AbstractStockTestCase
         $this->opService->apply($op);
         $this->assertTrue($op->isDone());
 
-        $this->expectException(\DomainException::class);
+        $this->expectException(\SM\SMException::class);
         $this->opService->cancel($op);
     }
 }

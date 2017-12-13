@@ -16,8 +16,8 @@ namespace Sil\Bundle\StockBundle\Domain\Query;
 use Sil\Bundle\StockBundle\Domain\Entity\StockItemInterface;
 use Sil\Bundle\StockBundle\Domain\Entity\Location;
 use Sil\Bundle\StockBundle\Domain\Entity\Movement;
-use Sil\Bundle\StockBundle\Domain\Entity\Uom;
-use Sil\Bundle\StockBundle\Domain\Entity\UomQty;
+use Sil\Bundle\UomBundle\Entity\Uom;
+use Sil\Component\Uom\Model\UomQty;
 use Sil\Bundle\StockBundle\Domain\Repository\StockUnitRepositoryInterface;
 
 /**

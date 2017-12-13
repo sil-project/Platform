@@ -21,9 +21,7 @@ use Sil\Bundle\StockBundle\Domain\Entity\BatchInterface;
 use Doctrine\ORM\QueryBuilder;
 
 /**
- * Description of UomTypeRepository.
- *
- * @author glenn
+ * @author Glenn Cavarlé <glenn.cavarle@libre-informatique.fr>
  */
 class StockUnitRepository extends ResourceRepository implements StockUnitRepositoryInterface
 {
@@ -178,11 +176,9 @@ class StockUnitRepository extends ResourceRepository implements StockUnitReposit
      *
      * @return QueryBuilder
      */
-    private function filterByLocation(QueryBuilder $qb,
-        ?Location $location = null, ?string $locationType = null,
-        array $excludedLocations = [])
+    private function filterByLocation(QueryBuilder $qb, ?Location $location = null, ?string $locationType = null, array $excludedLocations = [])
     {
-        if (null == $locationType && null == $location) {
+        if (null === $locationType && null === $location) {
             return $qb;
         }
 

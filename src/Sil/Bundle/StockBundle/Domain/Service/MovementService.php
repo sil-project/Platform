@@ -20,7 +20,7 @@ use Sil\Bundle\StockBundle\Domain\Factory\MovementFactoryInterface;
 use Sil\Bundle\StockBundle\Domain\Entity\StockItemInterface;
 use Sil\Bundle\StockBundle\Domain\Entity\BatchInterface;
 use Sil\Bundle\StockBundle\Domain\Entity\StockUnit;
-use Sil\Bundle\StockBundle\Domain\Entity\UomQty;
+use Sil\Component\Uom\Model\UomQty;
 use Sil\Bundle\StockBundle\Domain\Entity\Location;
 use Sil\Bundle\StockBundle\Domain\Entity\Movement;
 
@@ -78,8 +78,10 @@ class MovementService implements MovementServiceInterface
     public function createDraft(StockItemInterface $item, UomQty $qty,
         Location $srcLoc, Location $destLoc, ?BatchInterface $batch = null): Movement
     {
-        $mvt = $this->movementFactory
-            ->createDraft($item, $qty, $srcLoc, $destLoc);
+        $mvt = $this->movementFactory->createDraft($item, $qty);
+        $mvt->setSrcLocation($srcLoc);
+        $mvt->setDestLocation($destLoc);
+
 
         if (null == $batch) {
             $mvt->setBatch($mvt->getBatch());
@@ -106,14 +108,13 @@ class MovementService implements MovementServiceInterface
     public function reserveUnits(Movement $mvt): void
     {
         if (!$mvt->isToDo()) {
-            throw new \DomainException('The Movement is not in the right state to be applied');
+            throw new \DomainException('The Movement is not in the right state to be reserved');
         }
         if ($mvt->isAvailable()) {
             return;
         }
 
         $availableUnits = $this->getAvailableStockUnits($mvt);
-
         //reserve needed StockUnits and split the last if necessary
         foreach ($availableUnits as $srcUnit) {
             $unit = $srcUnit;

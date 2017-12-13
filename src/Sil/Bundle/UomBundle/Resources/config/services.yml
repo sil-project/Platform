@@ -1,0 +1,29 @@
+services:
+
+    ###################
+    # ORM REPOSITORIES
+    ###################
+
+    sil.uom.repository:
+        class:  Sil\Bundle\UomBundle\Doctrine\ORM\UomRepository
+        factory: ['@doctrine.orm.default_entity_manager', getRepository]
+        arguments:
+            - Sil\Bundle\UomBundle\Entity\Uom
+
+
+    sil.uom_type.repository:
+        class:  Sil\Bundle\UomBundle\Doctrine\ORM\UomTypeRepository
+        factory: ['@doctrine.orm.default_entity_manager', getRepository]
+        arguments:
+            - Sil\Bundle\UomBundle\Entity\UomType
+
+    ###################
+    # FORM TYPES
+    ###################
+
+    sil.uom_qty.form_type:
+        class: Sil\Bundle\UomBundle\Form\Type\UomQtyFormType
+        tags:
+            - {name: form.type, alias: form}
+        arguments:
+            - '@sil.uom.repository'

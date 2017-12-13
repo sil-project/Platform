@@ -14,31 +14,31 @@ Sil\Bundle\StockBundle\Domain\Entity\StockUnit:
 
     manyToOne:
         stockItem:
-            targetEntity: StockItemInterface
+            targetEntity: Sil\Bundle\StockBundle\Domain\Entity\StockItemInterface
             joinColumn:
                 name: stockitem_id
                 referencedColumnName: id
         location:
-            targetEntity: Location
+            targetEntity: Sil\Bundle\StockBundle\Domain\Entity\Location
             inversedBy: stockUnits
             joinColumn:
                 name: location_id
                 referencedColumnName: id
         qtyUom:
-            targetEntity: Uom
+            targetEntity: Sil\Bundle\UomBundle\Entity\Uom
             joinColumn:
                 name: qty_uom_id
                 referencedColumnName: id
                 nullable: false
         batch:
-            targetEntity: BatchInterface
+            targetEntity: Sil\Bundle\StockBundle\Domain\Entity\BatchInterface
             joinColumn:
                 name: batch_id
                 referencedColumnName: id
                 nullable: true
 
         reservationMovement:
-            targetEntity: Movement
+            targetEntity: Sil\Bundle\StockBundle\Domain\Entity\Movement
             inversedBy: reservedStockUnits
             joinColumn:
                 name: movement_id

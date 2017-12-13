@@ -12,216 +12,212 @@
 namespace Sil\Bundle\StockBundle\Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
-use Sil\Bundle\StockBundle\Domain\Entity\UomType;
-use Sil\Bundle\StockBundle\Domain\Entity\Uom;
-use Sil\Bundle\StockBundle\Domain\Entity\UomQty;
-use Sil\Bundle\StockBundle\Domain\Entity\Warehouse;
-use Sil\Bundle\StockBundle\Domain\Entity\Location;
-use Sil\Bundle\StockBundle\Domain\Entity\StockItem;
-use Sil\Bundle\StockBundle\Domain\Entity\OutputStrategy;
-use Sil\Bundle\StockBundle\Domain\Repository\StockUnitRepositoryInterface;
-use Sil\Bundle\StockBundle\Tests\Unit\InMemoryRepository\StockUnitRepository;
-use Sil\Bundle\StockBundle\Domain\Repository\MovementRepositoryInterface;
-use Sil\Bundle\StockBundle\Tests\Unit\InMemoryRepository\MovementRepository;
-use Sil\Bundle\StockBundle\Domain\Repository\OperationRepositoryInterface;
-use Sil\Bundle\StockBundle\Tests\Unit\InMemoryRepository\OperationRepository;
-use Sil\Bundle\StockBundle\Domain\Repository\StockItemRepositoryInterface;
-use Sil\Bundle\StockBundle\Tests\Unit\InMemoryRepository\StockItemRepository;
-use Sil\Bundle\StockBundle\Domain\Service\MovementServiceInterface;
-use Sil\Bundle\StockBundle\Domain\Service\MovementService;
-use Sil\Bundle\StockBundle\Domain\Service\OperationServiceInterface;
-use Sil\Bundle\StockBundle\Domain\Service\OperationService;
-use Sil\Bundle\StockBundle\Domain\Service\UomService;
-use Sil\Bundle\StockBundle\Domain\Service\UomServiceInterface;
-use Sil\Bundle\StockBundle\Domain\Query\StockItemQueriesInterface;
-use Sil\Bundle\StockBundle\Domain\Query\StockItemQueries;
-use Sil\Bundle\StockBundle\Domain\Factory\StockUnitFactoryInterface;
-use Sil\Bundle\StockBundle\Domain\Factory\StockUnitFactory;
-use Sil\Bundle\StockBundle\Domain\Factory\MovementFactoryInterface;
-use Sil\Bundle\StockBundle\Domain\Factory\MovementFactory;
-use Sil\Bundle\StockBundle\Domain\Factory\OperationFactoryInterface;
-use Sil\Bundle\StockBundle\Domain\Factory\OperationFactory;
-use Sil\Bundle\StockBundle\Domain\Generator\StockUnitCodeGenerator;
-use Sil\Bundle\StockBundle\Domain\Generator\MovementCodeGenerator;
-use Sil\Bundle\StockBundle\Domain\Generator\OperationCodeGenerator;
+use Sil\Bundle\StockBundle\Domain\Entity;
+use Sil\Bundle\StockBundle\Domain\Repository;
+use Sil\Bundle\StockBundle\Domain\Service;
+use Sil\Bundle\StockBundle\Domain\Query;
+use Sil\Bundle\StockBundle\Domain\Factory;
+use Sil\Bundle\StockBundle\Domain\Generator;
+use Sil\Bundle\UomBundle\Entity\Uom;
+use Sil\Bundle\UomBundle\Entity\UomType;
+use Sil\Component\Uom\Model\UomQty;
+use Sil\Component\Uom\Tests\Unit\Fixture\UomFixturesTrait;
+use Sil\Bundle\StockBundle\Domain\Entity\OperationType;
 
 /**
  * @author Glenn Cavarlé <glenn.cavarle@libre-informatique.fr>
  */
 class AbstractStockTestCase extends TestCase
 {
-    /**
-     * @var UomType
-     */
-    protected $uomTypeMass;
+    use UomFixturesTrait;
 
     /**
-     * @var Uom
-     */
-    protected $uomKg;
-
-    /**
-     * @var Uom
-     */
-    protected $uomGr;
-
-    /**
-     * @var Warehouse
-     */
-    protected $ws;
-
-    /**
-     * @var Location
-     */
-    protected $whLocSrc;
-
-    /**
-     * @var Location
-     */
-    protected $whLocDest;
-
-    /**
-     * @var StockItem
-     */
-    protected $stockItem;
-
-    /**
-     * @var StockUnitRepositoryInterface
+     * @var Repository\StockUnitRepositoryInterface
      */
     protected $unitRepo;
 
     /**
-     * @var MovementRepositoryInterface
+     * @var Repository\MovementRepositoryInterface
      */
     protected $mvtRepo;
 
     /**
-     * @var OperationRepositoryInterface
+     * @var Repository\OperationRepositoryInterface
      */
     protected $opRepo;
 
     /**
-     * @var StockItemRepositoryInterface
+     * @var Repository\StockItemRepositoryInterface
      */
     protected $stockItemRepo;
 
     /**
-     * @var MovementServiceInterface
+     * @var Repository\MovementServiceInterface
      */
     protected $mvtService;
 
     /**
-     * @var OperationServiceInterface
+     * @var Service\OperationServiceInterface
      */
     protected $opService;
 
     /**
-     * @var UomServiceInterface
-     */
-    protected $uomService;
-
-    /**
-     * @var StockItemQueriesInterface
+     * @var Query\StockItemQueriesInterface
      */
     protected $stockItemQueries;
 
     /**
-     * @var StockUnitFactoryInterface
+     * @var Factory\StockUnitFactoryInterface
      */
     protected $stockunitFactory;
 
     /**
-     * @var MovementFactoryInterface
+     * @var Factory\MovementFactoryInterface
      */
     protected $movementFactory;
 
     /**
-     * @var OperationFactoryInterface
+     * @var Factory\OperationFactoryInterface
      */
     protected $opFactory;
 
     public function setUp()
     {
+        $this->loadMassUomFixtures();
         $this->initReposAndServices();
-        $this->initUoms();
         $this->initWarehouseLocations();
         $this->initStockItem();
         $this->initSrcStockUnits();
     }
 
-    protected function initUoms()
-    {
-        $this->uomTypeMass = new UomType('Mass');
-        $this->uomT = new Uom($this->uomTypeMass, 'T', 0.001);
-        $this->uomKg = new Uom($this->uomTypeMass, 'Kg', 1);
-        $this->uomGr = new Uom($this->uomTypeMass, 'g', 1000);
-        $this->uomMg = new Uom($this->uomTypeMass, 'mg', 1000000);
-    }
-
     protected function initWarehouseLocations()
     {
-        $this->wh = new Warehouse('Entrepôt #1', 'WH-1');
-        $this->whLocSrc = new Location('Etagère #1', 'LOC-ET-1');
-        $this->whLocDest = new Location('Etagère #2', 'LOC-ET-2');
-        $this->wh->addLocation($this->whLocSrc);
-        $this->wh->addLocation($this->whLocDest);
+        $wh = new Entity\Warehouse('Entrepôt #1', 'WH-1');
+        $this->createLocation($wh, 'LOC-ET-1', 'Etagère #1', Entity\LocationType::internal());
+        $this->createLocation($wh, 'LOC-ET-2', 'Etagère #2', Entity\LocationType::internal());
+    }
+
+    protected function createLocation(Entity\Warehouse $wh, string $code, string $name, Entity\LocationType $type)
+    {
+        $loc = Entity\Location::createDefault($code, $name, $type);
+        $wh->addLocation($loc);
+        $this->locationRepo->add($loc);
+
+        return $loc;
     }
 
     protected function initStockItem()
     {
-        $this->stockItem = new StockItem('Tomates Vrac', $this->uomKg);
-        $this->stockItem->setOutputStrategy(new OutputStrategy('default', []));
+        $uomKg = $this->getKgUom();
+        $stockItem = new Entity\StockItem();
+        $stockItem->setName('Tomates Vrac');
+        $stockItem->setUom($uomKg);
+        $stockItem->setOutputStrategy(new Entity\OutputStrategy('default', []));
+        $this->stockItemRepo->add($stockItem);
     }
 
     protected function initSrcStockUnits()
     {
-        if ($this->stockItem->getUom() === null) {
-            $this->stockItem->setUom($this->uomGr);
-        }
-        $itemUom = $this->stockItem->getUom();
-        $q1 = $this->stockUnitFactory->createNew(
-            $this->stockItem,
-            new UomQty($itemUom, 5),
-            $this->whLocSrc
-        );
-        $q2 = $this->stockUnitFactory->createNew(
-            $this->stockItem,
-            new UomQty($itemUom, 3),
-            $this->whLocSrc
-        );
-        $q3 = $this->stockUnitFactory->createNew(
-            $this->stockItem,
-            new UomQty($itemUom, 10),
-            $this->whLocSrc
-        );
+        $stockItem = $this->getStockItem();
+        $itemUom = $stockItem->getUom();
+        $srcLoc = $this->getSrcLocation();
+        $this->createStockUnit($stockItem, $itemUom, 5, $srcLoc);
+        $this->createStockUnit($stockItem, $itemUom, 3, $srcLoc);
+        $this->createStockUnit($stockItem, $itemUom, 10, $srcLoc);
+    }
 
-        $this->unitRepo->addAll([$q1, $q2, $q3]);
+    protected function createStockUnit(Entity\StockItemInterface $stockItem, Uom $itemUom, float $qtyValue, Entity\Location $loc)
+    {
+        $stockUnit = $this->stockUnitFactory->createNew($stockItem, new UomQty($itemUom, $qtyValue), $loc);
+        $this->unitRepo->add($stockUnit);
+
+        return $stockUnit;
     }
 
     protected function initReposAndServices()
     {
-        $this->mvtRepo = new MovementRepository();
-        $this->unitRepo = new StockUnitRepository();
-        $this->opRepo = new OperationRepository();
-        $this->stockItemRepo = new StockItemRepository();
+        $this->mvtRepo = new InMemoryRepository\MovementRepository();
+        $this->unitRepo = new InMemoryRepository\StockUnitRepository();
+        $this->opRepo = new InMemoryRepository\OperationRepository();
+        $this->stockItemRepo = new InMemoryRepository\StockItemRepository();
+        $this->locationRepo = new InMemoryRepository\LocationRepository();
 
-        $this->movementFactory = new MovementFactory(new MovementCodeGenerator());
-        $this->stockUnitFactory = new StockUnitFactory(new StockUnitCodeGenerator());
-        $this->opFactory = new OperationFactory(new OperationCodeGenerator());
+        $this->movementFactory = new Factory\MovementFactory(new Generator\MovementCodeGenerator());
+        $this->stockUnitFactory = new Factory\StockUnitFactory(new Generator\StockUnitCodeGenerator());
+        $this->opFactory = new Factory\OperationFactory(new Generator\OperationCodeGenerator());
 
-        $this->mvtService = new MovementService(
+        $this->mvtService = new Service\MovementService(
             $this->mvtRepo,
             $this->unitRepo,
             $this->movementFactory,
             $this->stockUnitFactory
         );
-        $this->opService = new OperationService(
+        $this->opService = new Service\OperationService(
             $this->opRepo,
             $this->mvtService,
             $this->opFactory
         );
-        $this->uomService = new UomService($this->unitRepo);
+        $this->uomService = new Service\UomService($this->unitRepo);
+        $this->stockItemQueries = new Query\StockItemQueries($this->unitRepo);
+    }
 
-        $this->stockItemQueries = new StockItemQueries($this->unitRepo);
+    protected function getStockItem()
+    {
+        return $this->stockItemRepo->findOneBy(['name' => 'Tomates Vrac']);
+    }
+
+    protected function getGrUom()
+    {
+        return $this->getUomByName('g');
+    }
+
+    protected function getKgUom()
+    {
+        return $this->getUomByName('Kg');
+    }
+
+    protected function getSrcLocation()
+    {
+        return $this->locationRepo->findOneBy(['code' => 'LOC-ET-1']);
+    }
+
+    protected function getDestLocation()
+    {
+        return $this->locationRepo->findOneBy(['code' => 'LOC-ET-2']);
+    }
+
+    public function getUomClass()
+    {
+        return Uom::class;
+    }
+
+    public function getUomTypeClass()
+    {
+        return UomType::class;
+    }
+
+    protected function createInternalTransferOperation()
+    {
+        $srcLoc = $this->getSrcLocation();
+        $destLoc = $this->getDestLocation();
+
+        return $this->opService->createDraft(OperationType::internalTransfer(), $srcLoc, $destLoc);
+    }
+
+    protected function createMovement()
+    {
+        $stockItem = $this->getStockItem();
+        $uomGr = $this->getGrUom();
+        $uomQty = new UomQty($uomGr, 1500);
+
+        $op = $this->createInternalTransferOperation();
+        $mvt = $this->mvtService->createDraft(
+          $stockItem, $uomQty,
+          $this->getSrcLocation(),
+          $this->getDestLocation()
+        );
+        $mvt->setOperation($op);
+
+        return $mvt;
     }
 }

@@ -15,6 +15,7 @@ namespace Sil\Bundle\StockBundle\Domain\Entity;
 
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Guidable;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Timestampable;
+use Sil\Component\Uom\Model\UomQty;
 use DomainException;
 
 /**
@@ -70,7 +71,7 @@ class StockUnit
     public static function createDefault($code, StockItemInterface $item,
         UomQty $qty, Location $location, BatchInterface $batch = null)
     {
-        $o = new self();
+        $o = new static();
         $o->code = $code;
         $o->setQty($qty->convertTo($item->getUom()));
         $o->stockItem = $item;

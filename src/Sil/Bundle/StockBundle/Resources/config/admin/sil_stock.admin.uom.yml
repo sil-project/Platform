@@ -4,7 +4,7 @@ services:
         class: Sil\Bundle\StockBundle\Admin\UomAdmin
         arguments: [~, "%sil_stock.entity.uom.class%", BlastCoreBundle:CRUD]
         calls:
-            - [setResourceRepository, ['@sil.stock.repository.uom']]
+            - [setResourceRepository, ['@sil.uom.repository']]
             - [ setTemplates, [{show: SilStockBundle:CRUD:show.html.twig,edit: SilStockBundle:CRUD:edit.html.twig,list: SilStockBundle:CRUD:list.html.twig}]]
         tags:
             -

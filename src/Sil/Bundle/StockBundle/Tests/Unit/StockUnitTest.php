@@ -18,11 +18,12 @@ class StockUnitTest extends AbstractStockTestCase
 {
     public function testLocationQty()
     {
-        $srcLocQty = $this->stockItemQueries
-            ->getQtyByLocation($this->stockItem, $this->whLocSrc);
+        $stockItem = $this->getStockItem();
+        $srcLoc = $this->getSrcLocation();
+        $destLoc = $this->getDestLocation();
 
-        $destLocQty = $this->stockItemQueries
-            ->getQtyByLocation($this->stockItem, $this->whLocDest);
+        $srcLocQty = $this->stockItemQueries->getQtyByLocation($stockItem, $srcLoc);
+        $destLocQty = $this->stockItemQueries->getQtyByLocation($stockItem, $destLoc);
 
         $this->assertTrue($srcLocQty->getValue() == 18);
         $this->assertTrue($destLocQty->isZero());

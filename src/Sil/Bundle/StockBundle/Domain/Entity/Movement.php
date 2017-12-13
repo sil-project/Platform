@@ -19,6 +19,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Guidable;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Timestampable;
+use Sil\Component\Uom\Model\UomQty;
 use DomainException;
 
 /**
@@ -95,10 +96,9 @@ class Movement implements ProgressStateAwareInterface
      * @param StockItemInterface $stockItem
      * @param UomQty             $qty
      */
-    public static function createDefault(string $code, StockItemInterface $item,
-        UomQty $qty)
+    public static function createDefault(string $code, StockItemInterface $item, UomQty $qty)
     {
-        $o = new self();
+        $o = new static();
         $o->code = $code;
         $o->stockItem = $item;
         $o->setQty($qty);
@@ -344,6 +344,7 @@ class Movement implements ProgressStateAwareInterface
     }
 
     /**
+     * @deprecated
      * @return UomQty
      */
     public function getReservedQty(): UomQty

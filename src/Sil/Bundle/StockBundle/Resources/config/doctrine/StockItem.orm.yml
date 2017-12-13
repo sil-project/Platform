@@ -14,13 +14,13 @@ Sil\Bundle\StockBundle\Domain\Entity\StockItem:
 
     manyToOne:
         uom:
-            targetEntity: Uom
+            targetEntity: Sil\Bundle\UomBundle\Entity\Uom
             joinColumn:
                 name: uom_id
                 referencedColumnName: id
                 nullable: false
         outputStrategy:
-            targetEntity: OutputStrategy
+            targetEntity: Sil\Bundle\StockBundle\Domain\Entity\OutputStrategy
             joinColumn:
                 name: strategy_output_id
                 referencedColumnName: id

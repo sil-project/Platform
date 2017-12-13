@@ -20,26 +20,26 @@ Sil\Bundle\StockBundle\Domain\Entity\Operation:
 
     manyToOne:
         srcLocation:
-            targetEntity: Location
+            targetEntity: Sil\Bundle\StockBundle\Domain\Entity\Location
             joinColumn:
                 name: location_src_id
                 referencedColumnName: id
                 nullable: true
         destLocation:
-            targetEntity: Location
+            targetEntity: Sil\Bundle\StockBundle\Domain\Entity\Location
             joinColumn:
                 name: location_dest_id
                 referencedColumnName: id
                 nullable: true
 
         partner:
-            targetEntity: PartnerInterface
+            targetEntity: Sil\Bundle\StockBundle\Domain\Entity\PartnerInterface
             joinColumn:
                 name: partner_id
                 referencedColumnName: id
                 nullable: true
     oneToMany:
         movements:
-          targetEntity: Movement
+          targetEntity: Sil\Bundle\StockBundle\Domain\Entity\Movement
           mappedBy: operation
           cascade: ["remove", "persist"]

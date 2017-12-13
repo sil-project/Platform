@@ -34,15 +34,11 @@ class StockUnitRepository extends InMemoryRepository implements StockUnitReposit
      *
      * @return array|StockUnit[]
      */
-    public function findByStockItem(
-        StockItemInterface $item,
-        ?BatchInterface $batch = null
-    ): array {
-        return array_filter(
-            $this->findAll(),
-            function ($su) use ($item) {
-                return $su->getStockItem() == $item;
-            }
+    public function findByStockItem(StockItemInterface $item, ?BatchInterface $batch = null): array
+    {
+        return array_filter($this->findAll(), function ($su) use ($item) {
+            return $su->getStockItem() == $item;
+        }
         );
     }
 
@@ -52,13 +48,13 @@ class StockUnitRepository extends InMemoryRepository implements StockUnitReposit
      *
      * @return array
      */
-    public function findByLocation(
-        Location $location,
-        array $orderBy = [],
-        ?int $limit = null
-    ): array {
-        /* @todo: implement this method */
-        return [];
+    public function findByLocation(Location $location, array $orderBy = [], ?int $limit = null): array
+    {
+        return array_filter($this->findAll(),
+          function ($su) use ($location) {
+              return $su->getLocation() == $location;
+          }
+      );
     }
 
     /**
@@ -66,13 +62,9 @@ class StockUnitRepository extends InMemoryRepository implements StockUnitReposit
      *
      * @return array|StockUnit[]
      */
-    public function findByStockItemAndLocation(
-        StockItemInterface $item,
-        Location $location,
-        ?BatchInterface $batch = null
-    ): array {
-        return array_filter(
-            $this->findAll(),
+    public function findByStockItemAndLocation(StockItemInterface $item, Location $location, ?BatchInterface $batch = null): array
+    {
+        return array_filter($this->findAll(),
             function ($su) use ($item, $location) {
                 return $su->getLocation() == $location && $su->getStockItem() == $item;
             }
@@ -86,8 +78,18 @@ class StockUnitRepository extends InMemoryRepository implements StockUnitReposit
      */
     public function findAvailableForMovementReservation(Movement $mvt): array
     {
-        /* @todo: implement this method */
-        return [];
+        $outStrategy = $mvt->getStockItem()->getOutputStrategy();
+        $units = array_filter($this->findAll(),
+          function ($su) use ($mvt) {
+              $isAvailable = !$su->isReserved();
+              $sameStockItem = ($su->getStockItem() === $mvt->getStockItem());
+              $isInSrcLocation = $mvt->getSrcLocation()->hasStockUnit($su);
+
+              return $isAvailable && $sameStockItem && $isInSrcLocation;
+          }
+      );
+
+        return $this->applyOrder($units, $outStrategy->getOrderBy());
     }
 
     /**
@@ -96,11 +98,8 @@ class StockUnitRepository extends InMemoryRepository implements StockUnitReposit
      *
      * @return array|StockUnit[]
      */
-    public function findAvailableByStockItem(
-        StockItemInterface $item,
-        ?BatchInterface $batch = null,
-        array $orderBy = []
-    ): array {
+    public function findAvailableByStockItem(StockItemInterface $item, ?BatchInterface $batch = null, array $orderBy = []): array
+    {
         /* @todo: implement this method */
         return [];
     }
@@ -110,10 +109,8 @@ class StockUnitRepository extends InMemoryRepository implements StockUnitReposit
      *
      * @return array|StockUnit[]
      */
-    public function findReservedByStockItem(
-        StockItemInterface $item,
-        ?BatchInterface $batch = null
-    ): array {
+    public function findReservedByStockItem(StockItemInterface $item, ?BatchInterface $batch = null): array
+    {
         /* @todo: implement this method */
         return [];
     }
@@ -136,8 +133,7 @@ class StockUnitRepository extends InMemoryRepository implements StockUnitReposit
      */
     public function findAllAvailableBy(array $criteria)
     {
-        return array_filter(
-            $this->findBy($criteria),
+        return array_filter($this->findBy($criteria),
             function ($su) {
                 return !$su->isReserved();
             }

@@ -10,14 +10,14 @@ Sil\Bundle\ManufacturingBundle\Domain\Entity\BomLine:
 
     manyToOne:
         qtyUom:
-            targetEntity: Sil\Bundle\StockBundle\Domain\Entity\Uom
+            targetEntity: Sil\Bundle\UomBundle\Entity\Uom
             joinColumn:
                 name: qty_uom_id
                 referencedColumnName: id
                 nullable: false
 
         bom:
-            targetEntity: Bom
+            targetEntity: Sil\Bundle\ManufacturingBundle\Domain\Entity\Bom
             inversedBy: lines
             joinColumn:
                 name: bom_id

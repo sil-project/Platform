@@ -16,9 +16,7 @@ use Blast\Bundle\ResourceBundle\Doctrine\ORM\Repository\ResourceRepository;
 use Sil\Bundle\StockBundle\Domain\Entity\Location;
 
 /**
- * Description of UomTypeRepository.
- *
- * @author glenn
+ * @author Glenn Cavarlé <glenn.cavarle@libre-informatique.fr>
  */
 class StockItemRepository extends ResourceRepository implements StockItemRepositoryInterface
 {

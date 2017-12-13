@@ -1,0 +1,14 @@
+Sil\Bundle\UomBundle\Entity\UomType:
+    type:                            entity
+    repositoryClass:                 Sil\Bundle\UomBundle\Doctrine\ORM\UomTypeRepository
+    table:                           sil_uom_type
+    fields:
+        name:
+            type:                    string(64)
+            unique:                  true
+            nullable:                false
+
+    oneToMany:
+        uoms:
+          targetEntity:              Sil\Bundle\UomBundle\Entity\Uom
+          mappedBy:                  type

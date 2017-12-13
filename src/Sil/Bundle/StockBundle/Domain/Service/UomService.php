@@ -15,7 +15,7 @@ namespace Sil\Bundle\StockBundle\Domain\Service;
 
 use Sil\Bundle\StockBundle\Domain\Repository\StockUnitRepositoryInterface;
 use Sil\Bundle\StockBundle\Domain\Entity\StockItemInterface;
-use Sil\Bundle\StockBundle\Domain\Entity\Uom;
+use Sil\Bundle\UomBundle\Entity\Uom;
 
 /**
  * @author Glenn Cavarlé <glenn.cavarle@libre-informatique.fr>

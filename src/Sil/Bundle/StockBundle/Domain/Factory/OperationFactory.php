@@ -15,6 +15,7 @@ namespace Sil\Bundle\StockBundle\Domain\Factory;
 
 use Sil\Bundle\StockBundle\Domain\Entity\Operation;
 use Sil\Bundle\StockBundle\Domain\Entity\Location;
+use Sil\Bundle\StockBundle\Domain\Entity\OperationType;
 use Sil\Bundle\StockBundle\Domain\Generator\OperationCodeGeneratorInterface;
 
 /**
@@ -38,10 +39,10 @@ class OperationFactory implements OperationFactoryInterface
     /**
      * @return Operation
      */
-    public function createDraft(Location $srcLocation, Location $destLocation): Operation
+    public function createDraft(OperationType $type, Location $srcLocation, Location $destLocation): Operation
     {
         $code = $this->codeGenerator->generate();
 
-        return Operation::createDefault($code, $srcLocation, $destLocation);
+        return Operation::createDefault($code, $srcLocation, $destLocation, $type);
     }
 }

@@ -14,6 +14,8 @@ declare(strict_types=1);
 namespace Sil\Bundle\StockBundle\Domain\Service;
 
 use Sil\Bundle\StockBundle\Domain\Entity\Operation;
+use Sil\Bundle\StockBundle\Domain\Entity\Location;
+use Sil\Bundle\StockBundle\Domain\Entity\OperationType;
 
 /**
  * @author Glenn Cavarlé <glenn.cavarle@libre-informatique.fr>
@@ -23,7 +25,7 @@ interface OperationServiceInterface
     /**
      * @return Operation
      */
-    public function createDraft(): Operation;
+    public function createDraft(OperationType $type, Location $srcLocation, Location $destLocation): Operation;
 
     /**
      * @param Operation $op

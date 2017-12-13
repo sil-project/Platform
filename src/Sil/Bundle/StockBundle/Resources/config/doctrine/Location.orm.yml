@@ -20,7 +20,7 @@ Sil\Bundle\StockBundle\Domain\Entity\Location:
 
     manyToOne:
         warehouse:
-            targetEntity: Warehouse
+            targetEntity: Sil\Bundle\StockBundle\Domain\Entity\Warehouse
             inversedBy: locations
             joinColumn:
                 name: wharehouse_id
@@ -28,6 +28,6 @@ Sil\Bundle\StockBundle\Domain\Entity\Location:
 
     oneToMany:
         stockUnits:
-          targetEntity: StockUnit
+          targetEntity: Sil\Bundle\StockBundle\Domain\Entity\StockUnit
           mappedBy: location
           cascade: ["remove", "persist"]

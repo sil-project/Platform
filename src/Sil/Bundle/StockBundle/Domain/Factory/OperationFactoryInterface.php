@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Sil\Bundle\StockBundle\Domain\Factory;
 
 use Sil\Bundle\StockBundle\Domain\Entity\Operation;
+use Sil\Bundle\StockBundle\Domain\Entity\OperationType;
 use Sil\Bundle\StockBundle\Domain\Entity\Location;
 
 /**
@@ -24,6 +25,6 @@ interface OperationFactoryInterface
     /**
      * @return Operation
      */
-    public function createDraft(Location $srcLocation,
+    public function createDraft(OperationType $type, Location $srcLocation,
         Location $destLocation): Operation;
 }

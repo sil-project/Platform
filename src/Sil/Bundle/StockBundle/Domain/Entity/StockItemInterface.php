@@ -13,6 +13,8 @@ declare(strict_types=1);
 
 namespace Sil\Bundle\StockBundle\Domain\Entity;
 
+use Sil\Bundle\UomBundle\Entity\Uom;
+
 /**
  * @author Glenn Cavarlé <glenn.cavarle@libre-informatique.fr>
  */

@@ -20,6 +20,9 @@ use Symfony\Component\PropertyAccess\PropertyAccessor;
  */
 class InMemoryRepository
 {
+    const ORDER_ASCENDING = 'ASC';
+    const ORDER_DESCENDING = 'DESC';
+
     /**
      * @var string
      */
@@ -143,7 +146,7 @@ class InMemoryRepository
         return $resources;
     }
 
-    private function applyOrder(array $resources, array $orderBy)
+    protected function applyOrder(array $resources, array $orderBy)
     {
         $results = $resources;
         foreach ($orderBy as $property => $order) {
@@ -151,10 +154,10 @@ class InMemoryRepository
             foreach ($results as $key => $object) {
                 $sortable[$key] = $this->accessor->getValue($object, $property);
             }
-            if (RepositoryInterface::ORDER_ASCENDING === $order) {
+            if (self::ORDER_ASCENDING === $order) {
                 asort($sortable);
             }
-            if (RepositoryInterface::ORDER_DESCENDING === $order) {
+            if (self::ORDER_DESCENDING === $order) {
                 arsort($sortable);
             }
             $results = [];

@@ -16,8 +16,8 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Guidable;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Timestampable;
 use Sil\Bundle\StockBundle\Domain\Entity\StockItemInterface;
-use Sil\Bundle\StockBundle\Domain\Entity\Uom;
-use Sil\Bundle\StockBundle\Domain\Entity\UomQty;
+use Sil\Bundle\UomBundle\Entity\Uom;
+use Sil\Bundle\UomBundle\Entity\UomQty;
 
 /**
  * @author Glenn Cavarlé <glenn.cavarle@libre-informatique.fr>

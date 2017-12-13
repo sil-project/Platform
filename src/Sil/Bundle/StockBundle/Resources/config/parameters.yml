@@ -2,9 +2,9 @@ parameters:
     sil_stock.entity.location.class:        Sil\Bundle\StockBundle\Domain\Entity\Location
     sil_stock.entity.movement.class:        Sil\Bundle\StockBundle\Domain\Entity\Movement
     sil_stock.entity.stock_item.class:      Sil\Bundle\StockBundle\Domain\Entity\StockItem
-    sil_stock.entity.uom_type.class:        Sil\Bundle\StockBundle\Domain\Entity\UomType
+    sil_stock.entity.uom_type.class:        Sil\Bundle\UomBundle\Entity\UomType
     sil_stock.entity.stock_unit.class:      Sil\Bundle\StockBundle\Domain\Entity\StockUnit
-    sil_stock.entity.uom.class:             Sil\Bundle\StockBundle\Domain\Entity\Uom
+    sil_stock.entity.uom.class:             Sil\Bundle\UomBundle\Entity\Uom
     sil_stock.entity.warehouse.class:       Sil\Bundle\StockBundle\Domain\Entity\Warehouse
     sil_stock.entity.partner.class:         Sil\Bundle\StockBundle\Domain\Entity\Partner
     sil_stock.entity.operation.class:       Sil\Bundle\StockBundle\Domain\Entity\Operation

@@ -21,38 +21,38 @@ Sil\Bundle\StockBundle\Domain\Entity\Movement:
 
     manyToOne:
         stockItem:
-            targetEntity: StockItemInterface
+            targetEntity: Sil\Bundle\StockBundle\Domain\Entity\StockItemInterface
             joinColumn:
                 name: stockitem_id
                 referencedColumnName: id
                 nullable: false
         qtyUom:
-            targetEntity: Uom
+            targetEntity: Sil\Bundle\UomBundle\Entity\Uom
             joinColumn:
                 name: qty_uom_id
                 referencedColumnName: id
                 nullable: false
         operation:
-            targetEntity: Operation
+            targetEntity: Sil\Bundle\StockBundle\Domain\Entity\Operation
             inversedBy: movements
             joinColumn:
                 name: operation_id
                 referencedColumnName: id
                 nullable: false
         srcLocation:
-            targetEntity: Location
+            targetEntity: Sil\Bundle\StockBundle\Domain\Entity\Location
             joinColumn:
                 name: location_src_id
                 referencedColumnName: id
                 nullable: true
         destLocation:
-            targetEntity: Location
+            targetEntity: Sil\Bundle\StockBundle\Domain\Entity\Location
             joinColumn:
                 name: location_dest_id
                 referencedColumnName: id
                 nullable: true
         batch:
-            targetEntity: BatchInterface
+            targetEntity: Sil\Bundle\StockBundle\Domain\Entity\BatchInterface
             joinColumn:
                 name: batch_id
                 referencedColumnName: id
@@ -60,5 +60,5 @@ Sil\Bundle\StockBundle\Domain\Entity\Movement:
 
     oneToMany:
         reservedStockUnits:
-          targetEntity: StockUnit
+          targetEntity: Sil\Bundle\StockBundle\Domain\Entity\StockUnit
           mappedBy: reservationMovement

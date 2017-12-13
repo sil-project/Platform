@@ -16,6 +16,8 @@ namespace Sil\Bundle\StockBundle\Domain\Service;
 use Sil\Bundle\StockBundle\Domain\Repository\OperationRepositoryInterface;
 use Sil\Bundle\StockBundle\Domain\Factory\OperationFactoryInterface;
 use Sil\Bundle\StockBundle\Domain\Entity\Operation;
+use Sil\Bundle\StockBundle\Domain\Entity\OperationType;
+use Sil\Bundle\StockBundle\Domain\Entity\Location;
 use DomainException;
 
 /**
@@ -54,9 +56,9 @@ class OperationService implements OperationServiceInterface
     /**
      * @return Operation
      */
-    public function createDraft(): Operation
+    public function createDraft(OperationType $type, Location $srcLocation, Location $destLocation): Operation
     {
-        $op = $this->operationFactory->createDraft();
+        $op = $this->operationFactory->createDraft($type, $srcLocation, $destLocation);
         $this->operationRepository->add($op);
 
         return $op;

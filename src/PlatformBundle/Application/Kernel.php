@@ -152,6 +152,7 @@ class Kernel extends BaseKernel
             new \Sil\Bundle\MediaBundle\SilMediaBundle(),
             new \Sil\Bundle\EcommerceBundle\SilEcommerceBundle(),
             new \Sil\Bundle\SyliusPayboxBundle\SilSyliusPayboxBundle(),
+            new \Sil\Bundle\UomBundle\SilUomBundle(),
             new \Sil\Bundle\StockBundle\SilStockBundle(),
             new \Sil\Bundle\ManufacturingBundle\SilManufacturingBundle(),
         ];

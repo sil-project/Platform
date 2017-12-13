@@ -1,0 +1,27 @@
+Sil\Bundle\UomBundle\Entity\Uom:
+    type:                             entity
+    repositoryClass:                  Sil\Bundle\UomBundle\Doctrine\ORM\UomRepository
+    table:                            sil_uom
+    fields:
+        name:
+            type:                     string(255)
+            nullable:                 false
+        factor:
+            type:                     decimal
+            precision:                15
+            scale:                    5
+            nullable:                 false
+        rounding:
+            type:                     integer
+            nullable:                 false
+        active:
+            type:                     boolean
+            nullable:                 false
+
+    manyToOne:
+        type:
+            targetEntity:             Sil\Bundle\UomBundle\Entity\UomType
+            inversedBy:               uoms
+            joinColumn:
+                name:                 uom_type_id
+                referencedColumnName: id

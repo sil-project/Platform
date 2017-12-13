@@ -11,53 +11,84 @@
 
 namespace Sil\Bundle\StockBundle\Tests\Unit;
 
-use Sil\Bundle\StockBundle\Domain\Entity\UomQty;
-
 /**
  * @author Glenn Cavarlé <glenn.cavarle@libre-informatique.fr>
  */
 class MovementTest extends AbstractStockTestCase
 {
-    public function testMovementLifecycle()
+    /**
+     * @test
+     */
+    public function newly_created_movement_should_be_in_draft_mode()
     {
-        $this->markTestSkipped(
-            'Not working due to getOperation() returning null.'
-        );
-        $uomQty = new UomQty($this->uomGr, 6500);
+        $mvt = $this->createMovement();
 
-        $mvt = $this->mvtService->createDraft(
-            $this->stockItem,
-            $uomQty,
-            $this->whLocSrc,
-            $this->whLocDest
-        );
+        $this->assertTrue($mvt->isDraft(), 'a newly created Movement should be in DRAFT state');
 
-        $this->assertTrue($mvt->isDraft());
+        return $mvt;
+    }
 
-        $this->mvtService->confirm($mvt);
-        $this->assertTrue($mvt->isConfirmed());
-
-        $this->mvtService->reserveUnits($mvt);
-        $this->assertTrue($mvt->isFullyReserved() && $mvt->isAvailable());
-
-        $this->mvtService->apply($mvt);
-        $this->assertTrue($mvt->isDone());
-
-        $srcLocQty = $this->stockItemQueries
-            ->getQtyByLocation($this->stockItem, $this->whLocSrc);
-
-        $destLocQty = $this->stockItemQueries
-            ->getQtyByLocation($this->stockItem, $this->whLocDest);
-
-        $itemQty = $this->stockItemQueries->getQty($this->stockItem);
-        
-        /* @todo should never use assertTrue to compare value (other usefull assert exist) */
-        $this->assertTrue($itemQty->getValue() == 18);
-        $this->assertTrue($srcLocQty->getValue() == 11.5);
-        $this->assertTrue($destLocQty->getValue() == 6.5);
+    /**
+     * @test
+     */
+    public function movement_should_be_confirmed_before_reservation()
+    {
+        $mvt = $this->createMovement();
 
         $this->expectException(\DomainException::class);
+        $this->mvtService->reserveUnits($mvt);
 
+        $this->mvtService->confirm($mvt);
+        $this->assertTrue($mvt->isConfirmed(), 'Movement should be in CONFIRMED state');
+
+        return $mvt;
+    }
+
+    /**
+     * @test
+     */
+    public function reserved_movement_should_be_fully_confirmed_and_available()
+    {
+        $mvt = $this->createMovement();
+        $this->mvtService->confirm($mvt);
+
+        $this->mvtService->reserveUnits($mvt);
+        $stockItem = $this->getStockItem();
+
+        $reservedQty = $this->stockItemQueries->getReservedQty($stockItem);
+
+        $this->assertTrue($mvt->isFullyReserved(), 'should be fully reserved - reserved qty');
+        $this->assertTrue($mvt->isAvailable(), 'should be in AVAILABLE state');
+
+        return $mvt;
+    }
+
+    /**
+     * @test
+     */
+    public function applied_movement_should_be_done()
+    {
+        $mvt = $this->createMovement();
+        $this->mvtService->confirm($mvt);
+        $this->mvtService->reserveUnits($mvt);
+        $this->mvtService->apply($mvt);
+        $this->assertTrue($mvt->isDone(), 'should be in DONE state');
+
+        $stockItem = $this->getStockItem();
+
+        $srcLocQty = $this->stockItemQueries
+            ->getQtyByLocation($stockItem, $this->getSrcLocation());
+
+        $destLocQty = $this->stockItemQueries
+            ->getQtyByLocation($stockItem, $this->getDestLocation());
+
+        $itemQty = $this->stockItemQueries->getQty($stockItem);
+
+        $this->assertEquals($itemQty->getValue(), 18);
+        $this->assertEquals($srcLocQty->getValue(), 16.5);
+        $this->assertEquals($destLocQty->getValue(), 1.5);
+
+        $this->expectException(\DomainException::class);
         $this->mvtService->cancel($mvt);
     }
 }

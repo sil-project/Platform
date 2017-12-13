@@ -12,7 +12,7 @@
 namespace Sil\Bundle\StockBundle\Domain\Generator;
 
 use Sil\Bundle\StockBundle\Domain\Entity\StockItemInterface;
-use Sil\Bundle\StockBundle\Domain\Entity\UomQty;
+use Sil\Component\Uom\Model\UomQty;
 use Sil\Bundle\StockBundle\Domain\Entity\Location;
 use Sil\Bundle\StockBundle\Domain\Entity\BatchInterface;
 

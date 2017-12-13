@@ -9,22 +9,22 @@ parameters:
             Sonata\AdminBundle\Form\FormMapper:
                 add:
                     sil.stock.operation.form.tab.general:
-                        
+
                         sil.stock.operation.form.group.description:
-                                                            
+
                             dummy_1:
                                 type: hidden
                                 mapped: false
-                            
-                                
+
+
                         sil.stock.operation.form.group.locations:
-                            
+
                              dummy_2:
                                 type: hidden
                                 mapped: false
-                           
-                            
-                        
+
+
+
                         sil.stock.operation.form.group.movements:
                             _options:
                                 class: col-md-12
@@ -40,16 +40,16 @@ parameters:
                         tabsOrder:
                             - sil.stock.operation.form.tab.general
                             - form_tab_history
-                            
+
             Sonata\AdminBundle\Show\ShowMapper:
                 titleTemplate: SilStockBundle:OperationAdmin/Show:show_title.html.twig
                 forceTabs: true
                 add:
                     sil.stock.operation.show.tab.general:
-                        
+
                         sil.stock.operation.show.group.description:
                             code: ~
-                            type: 
+                            type:
                                 template: SilStockBundle:Field:show_operation_type_field.html.twig
                             partner:
                                 associated_property: fulltextName
@@ -58,24 +58,24 @@ parameters:
                             completedAt: ~
                             state:
                                 template: SilStockBundle:Field:show_progress_state_field.html.twig
-                                
+
                         sil.stock.operation.show.group.locations:
                             srcLocation:
                                 associated_property: name
                             destLocation:
                                 associated_property: name
-                                
+
                         sil.stock.operation.show.group.movements:
                             _options:
                                 class: col-md-12
-                            movements: 
+                            movements:
                                 template: SilStockBundle:OperationAdmin/Show:show_movements.html.twig
-                            
+
                     _options:
                         tabsOrder:
                             - sil.stock.operation.show.tab.general
                             - show_tab_history
-                            
+
             Sonata\AdminBundle\Datagrid\ListMapper:
                 remove:
                     createdAt: ~
@@ -83,7 +83,7 @@ parameters:
                 add:
                     code:
                         identifier: true
-                    type: 
+                    type:
                         template: SilStockBundle:Field:list_operation_type_field.html.twig
                     partner:
                         associated_property: fulltextName
@@ -96,10 +96,10 @@ parameters:
                         associated_property: name
                     state:
                         template: SilStockBundle:Field:list_progress_state_field.html.twig
-                    
+
             Sonata\AdminBundle\Datagrid\DatagridMapper:
                 add: ~
-                
+
 
 ##############
 # MOVEMENTS
@@ -112,24 +112,24 @@ parameters:
                     updatedAt: ~
                 add:
                     sil.stock.movement.form.tab.general:
-                        
+
                         sil.stock.movement.form.group.general:
                             stockItem:
                                 choice_label: name
                             batch:
                                 choice_label: code
                             qty:
-                                type: Sil\Bundle\StockBundle\Form\Type\UomQtyFormType
+                                type: Sil\Bundle\UomBundle\Form\Type\UomQtyFormType
                     _options:
                         tabsOrder:
                             - sil.stock.movement.form.tab.general
                             - form_tab_history
-                            
+
             Sonata\AdminBundle\Show\ShowMapper:
                 forceTabs: true
                 add:
                     sil.stock.movement.show.tab.general:
-                        
+
                         sil.stock.movement.show.group.general:
                             code: ~
                             expectedAt: ~
@@ -147,9 +147,9 @@ parameters:
                         tabsOrder:
                             - sil.stock.movement.show.tab.general
                             - show_tab_history
-                            
+
             Sonata\AdminBundle\Datagrid\ListMapper:
-                add: 
+                add:
                     code:
                         identifier: true
                     expectedAt: ~
@@ -163,8 +163,8 @@ parameters:
                         associated_property: name
                     state:
                         template: SilStockBundle:Field:list_progress_state_field.html.twig
-                    
-                        
+
+
             Sonata\AdminBundle\Datagrid\DatagridMapper:
                 add:
                     code: ~
@@ -173,7 +173,7 @@ parameters:
                     qtyUom.name: ~
                     srcLocation.name: ~
                     destLocation.name: ~
-                        
+
 ##############
 # WAREHOUSES
 ##############
@@ -182,29 +182,29 @@ parameters:
             Sonata\AdminBundle\Form\FormMapper:
                 add:
                     sil.stock.warehouse.form.tab.general:
-                        
+
                         sil.stock.warehouse.form.group.general:
                             code: ~
                             name: ~
-                            
+
             Sonata\AdminBundle\Show\ShowMapper:
                 forceTabs: true
                 add:
                     sil.stock.warehouse.show.tab.general:
-                        
+
                         sil.stock.warehouse.show.group.general:
                             code: ~
                             name: ~
-                            
+
             Sonata\AdminBundle\Datagrid\ListMapper:
-                add: 
+                add:
                     code: ~
                     name: ~
             Sonata\AdminBundle\Datagrid\DatagridMapper:
-                add: 
+                add:
                     code: ~
-                    name: ~                 
-                        
+                    name: ~
+
 ##############
 # LOCATIONS
 ##############
@@ -213,11 +213,11 @@ parameters:
             Sonata\AdminBundle\Form\FormMapper:
                 add:
                     sil.stock.location.form.tab.general:
-                        
+
                         sil.stock.location.form.group.general:
                             code:
                                 required: true
-                            name: 
+                            name:
                                 required: true
                             managed: ~
                             type:
@@ -229,13 +229,13 @@ parameters:
                             warehouse:
                                 choice_label: name
                                 required: true
-                        
-                            
+
+
             Sonata\AdminBundle\Show\ShowMapper:
                 forceTabs: false
                 add:
                     sil.stock.location.show.tab.general:
-                        
+
                         sil.stock.location.show.group.general:
                             code: ~
                             name: ~
@@ -246,31 +246,31 @@ parameters:
                                 associated_property: name
                             warehouse:
                                 associated_property: name
-                                
+
                         sil.stock.location.show.group.children:
                             children:
                                 label: false
                                 mapped: false
                                 template: SilStockBundle:LocationAdmin\Show:show_children.html.twig
-                    
+
                     sil.stock.location.show.tab.stocks:
-                        
+
                         sil.stock.location.show.group.stockunits:
                             stockUnits:
-                                template: SilStockBundle:LocationAdmin\Show:show_stock_units.html.twig 
-                            
+                                template: SilStockBundle:LocationAdmin\Show:show_stock_units.html.twig
+
             Sonata\AdminBundle\Datagrid\ListMapper:
-                add: 
+                add:
                     codePath:
                         identifier: true
-                        
+
                     indentedName: ~
                     type:
                         template: SilStockBundle:Field:list_location_type_field.html.twig
                     managed: ~
                     warehouse:
                         associated_property: name
-                     
+
             Sonata\AdminBundle\Datagrid\DatagridMapper:
                 add: ~
 
@@ -279,95 +279,95 @@ parameters:
 # UOM TYPES
 ##############
 
-        Sil\Bundle\StockBundle\Domain\Entity\UomType:
+        Sil\Bundle\UomBundle\Entity\UomType:
             Sonata\AdminBundle\Form\FormMapper:
                 add:
                     sil.stock.uom_type.form.tab.general:
-                        
+
                         sil.stock.uom_type.form.group.general:
                             name: ~
-                            
+
             Sonata\AdminBundle\Show\ShowMapper:
                 forceTabs: true
                 add:
                     sil.stock.uom_type.show.tab.general:
-                        
+
                         sil.stock.uom_type.show.group.general:
-                            name: ~                               
-                            
+                            name: ~
+
             Sonata\AdminBundle\Datagrid\ListMapper:
-                add: 
-                    name: 
+                add:
+                    name:
                         identifier: true
-                     
+
             Sonata\AdminBundle\Datagrid\DatagridMapper:
-                add: 
-                    name: ~           
-                    
+                add:
+                    name: ~
+
 ##############
 # UOMS
 ##############
 
-        Sil\Bundle\StockBundle\Domain\Entity\Uom:
+        Sil\Bundle\UomBundle\Entity\Uom:
             Sonata\AdminBundle\Form\FormMapper:
                 add:
                     sil.stock.uom.form.tab.general:
-                        
+
                         sil.stock.uom.form.group.general:
                             name: ~
                             type:
                                 choice_label: name
-                                
+
                             factor: ~
                             rounding: ~
-                    
+
                     _options:
                         tabsOrder:
                             - sil.stock.uom.form.tab.general
                             - show_tab_history
-                            
+
             Sonata\AdminBundle\Show\ShowMapper:
                 forceTabs: true
                 add:
                     sil.stock.uom.show.tab.general:
-                        
+
                         sil.stock.uom.show.group.general:
                             name: ~
                             type:
                                 associated_property: name
                             factor: ~
-                            rounding: ~                              
-                    
+                            rounding: ~
+
                     _options:
                         tabsOrder:
                             - sil.stock.uom.show.tab.general
-                            - show_tab_history   
-                            
+                            - show_tab_history
+
             Sonata\AdminBundle\Datagrid\ListMapper:
-                add: 
+                add:
                     name: ~
                     type:
                         associated_property: name
                     rounding: ~
-                     
+
             Sonata\AdminBundle\Datagrid\DatagridMapper:
-                add: 
+                add:
                     name: ~
                     type:
                         associated_property: name
                     factor: ~
                     rounding: ~
-                    
+
 ##############
 # STOCK ITEMS
 ##############
 
         Sil\Bundle\StockBundle\Domain\Entity\StockItemInterface:
-            
+
             Sonata\AdminBundle\Form\FormMapper:
                 add:
                     sil.stock.stock_item.form.tab.general:
-                        
+
                         sil.stock.stock_item.form.group.general:
                             code: ~
                             name: ~
@@ -375,20 +375,20 @@ parameters:
                                 choice_label: name
                             outputStrategy:
                                 choice_label: name
-                    
+
                     _options:
                         tabsOrder:
                             - sil.stock.stock_item.form.tab.general
-                            - show_tab_history        
-                            
+                            - show_tab_history
+
             Sonata\AdminBundle\Show\ShowMapper:
                 titleTemplate: SilStockBundle:StockItemAdmin/Show:show_title.html.twig
                 forceTabs: true
                 add:
                     sil.stock.stock_item.show.tab.general:
-                        
+
                         sil.stock.stock_item.show.group.general:
-                            code: ~   
+                            code: ~
                             name: ~
                             uom:
                                 associated_property: name
@@ -403,24 +403,24 @@ parameters:
                             availableQty:
                                 mapped: false
                                 template: SilStockBundle:StockItemAdmin/Show:show_computed_qty.html.twig
-                    
+
                     sil.stock.stock_item.show.tab.stocks:
-                        
+
                         sil.stock.stock_item.show.group.stocks:
                             locations:
                                 mapped: false
                                 template: SilStockBundle:StockItemAdmin/Show:show_stock_locations.html.twig
-                                
+
                     _options:
                         tabsOrder:
                             - sil.stock.stock_item.show.tab.general
                             - sil.stock.stock_item.show.tab.stocks
                             - show_tab_history
-                        
-                                
-                            
+
+
+
             Sonata\AdminBundle\Datagrid\ListMapper:
-                add: 
+                add:
                     code:
                         identifier: true
                     name: ~
@@ -428,24 +428,24 @@ parameters:
                         associated_property: name
                     outputStrategy:
                         associated_property: name
-                     
+
             Sonata\AdminBundle\Datagrid\DatagridMapper:
-                add: 
+                add:
                     name: ~
-                    code: ~    
+                    code: ~
                     uom.name: ~
                     outputStrategy.name: ~
-            
+
     ##############
     # STOCK UNITS
     ##############
 
         Sil\Bundle\StockBundle\Domain\Entity\StockUnit:
             Sonata\AdminBundle\Form\FormMapper:
-                
+
                 add:
                     sil.stock.stock_unit.form.tab.general:
-                         
+
                         sil.stock.stock_unit.form.group.general:
                             stockItem:
                                 choice_label: name
@@ -473,13 +473,13 @@ parameters:
                         tabsOrder:
                             - sil.stock.stock_unit.form.tab.general
                             - show_tab_history
-                             
-            
+
+
             Sonata\AdminBundle\Show\ShowMapper:
                 forceTabs: true
                 add:
                     sil.stock.stock_unit.show.tab.general:
-                         
+
                         sil.stock.stock_unit.show.group.general:
                             code: ~
                             stockItem:
@@ -489,15 +489,15 @@ parameters:
                             location:
                                 associated_property: name
                             qty: ~
-                            
-                            
+
+
                     _options:
                         tabsOrder:
                             - sil.stock.stock_unit.show.tab.general
                             - show_tab_history
-                            
+
             Sonata\AdminBundle\Datagrid\ListMapper:
-                add: 
+                add:
                     code: ~
                     stockItem:
                         associated_property: name
