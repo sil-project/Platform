@@ -281,14 +281,24 @@ class Item implements ItemInterface, NestedItemInterface, RolableItemInterface
      */
     public function toArray(): array
     {
+        $children = [];
+
+        if (count($this->children) > 0) {
+            foreach ($this->getChildren() as $child) {
+                $children[] = $child->toArray();
+            }
+        }
+
         return [
             $this->id => [
-                'label'   => $this->label,
-                'icon'    => $this->icon,
-                'route'   => $this->route,
-                'order'   => $this->order,
-                'display' => $this->display,
-                'roles'   => $this->roles,
+                'label'    => $this->label,
+                'icon'     => $this->icon,
+                'route'    => $this->route,
+                'order'    => $this->order,
+                'display'  => $this->display,
+                'roles'    => $this->roles,
+                'parent'   => ($this->getParent() !== null ? $this->getParent()->getId() : null),
+                'children' => $children,
             ],
         ];
     }
