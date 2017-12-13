@@ -24,7 +24,7 @@ stof_doctrine_extensions:
             tree:          true
             sluggable:     true
             timestampable: true
-            
+
 blast_utils:
     features:
         customFilters:
