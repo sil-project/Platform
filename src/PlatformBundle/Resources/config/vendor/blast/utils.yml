@@ -1,0 +1,4 @@
+blast_utils:
+    features:
+        customFilters:
+            enabled: true

@@ -3,9 +3,13 @@ imports:
 
     # Vendors
 
-    - { resource: vendor/blast.yml }
+
+    - { resource: vendor/blast/base_entities.yml }
     - { resource: vendor/blast/menu.yml }
-    
+    - { resource: vendor/blast/resource.yml }
+    - { resource: vendor/blast/utils.yml }
+
+    - { resource: vendor/stof.yml }
     - { resource: vendor/sil.yml }
     - { resource: vendor/sonata.yml }
     - { resource: vendor/sylius.yml }
