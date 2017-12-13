@@ -132,6 +132,7 @@ class Kernel extends BaseKernel
 
             new \Blast\Bundle\CoreBundle\BlastCoreBundle(),
             new \Blast\Bundle\MenuBundle\BlastMenuBundle(),
+            new \Blast\Bundle\PatcherBundle\BlastPatcherBundle(),
             new \Blast\Bundle\OuterExtensionBundle\BlastOuterExtensionBundle(),
             new \Blast\Bundle\BaseEntitiesBundle\BlastBaseEntitiesBundle(),
             new \Blast\Bundle\UtilsBundle\BlastUtilsBundle(),
