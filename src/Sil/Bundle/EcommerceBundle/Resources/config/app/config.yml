@@ -3,6 +3,7 @@ parameters:
 
 imports:
      - { resource: "state_machine.yml" }
+     - { resource: '@SilEcommerceBundle/Resources/config/vendor/blast/menu.yml' }
 
 doctrine:
     orm:

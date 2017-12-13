@@ -4,6 +4,8 @@ imports:
     # Vendors
 
     - { resource: vendor/blast.yml }
+    - { resource: vendor/blast/menu.yml }
+    
     - { resource: vendor/sil.yml }
     - { resource: vendor/sonata.yml }
     - { resource: vendor/sylius.yml }
@@ -27,6 +29,7 @@ imports:
     - { resource: "@SilSonataSyliusUserBundle/Resources/config/app/config.yml" }
 
     - { resource: "@SilEmailBundle/Resources/config/parameters.yml" }
+    - { resource: "@SilEmailBundle/Resources/config/app/config.yml" }
 
     - { resource: "@SilEcommerceBundle/Resources/config/parameters.yml" }
     - { resource: "@SilEcommerceBundle/Resources/config/app/config.yml" }
