@@ -14,7 +14,7 @@ namespace Blast\Bundle\MenuBundle\Tests\Unit;
 use PHPUnit\Framework\TestCase;
 use Blast\Bundle\MenuBundle\Model\Item;
 
-class ItemTestCase extends TestCase
+class ItemTest extends TestCase
 {
     private $itemName = 'test_item';
     private $item;

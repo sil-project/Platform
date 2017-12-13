@@ -14,15 +14,9 @@ namespace Blast\Bundle\MenuBundle\DependencyInjection;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
-use Blast\Bundle\CoreBundle\DependencyInjection\BlastCoreExtension;
 use Symfony\Component\DependencyInjection\Loader;
 
-/**
- * This is the class that loads and manages your bundle configuration.
- *
- * @see http://symfony.com/doc/current/cookbook/bundles/extension.html
- */
-class BlastMenuExtension extends BlastCoreExtension
+class BlastMenuExtension extends Extension
 {
     /**
      * {@inheritdoc}

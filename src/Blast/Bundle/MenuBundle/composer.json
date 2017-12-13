@@ -1,0 +1,53 @@
+{
+    "name": "blast-project/menu-bundle",
+    "type": "symfony-bundle",
+    "description": "Manage your sonata admin menu",
+    "require": {
+        "php": ">=7.1",
+        "symfony/symfony": ">=3.2",
+        "doctrine/doctrine-bundle": ">=1.6",
+        "sonata-project/doctrine-orm-admin-bundle": ">=3.1"
+    },
+    "require-dev": {
+        "symfony/phpunit-bridge": ">=3.2",
+        "blast-project/core-bundle": "self.version",
+        "blast-project/tests-bundle": "self.version",
+        "symfony/console": ">=3.2",
+        "phpunit/phpunit": "^6.4"
+    },
+    "scripts": {
+        "test": [
+    	    "phpunit"
+    	],
+        "test-full": [
+    	    "@composer install"
+    	]
+    },
+    "license": "LGPL-3.0",
+    "keywords": [
+        "symfony",
+        "sonata",
+        "blast",
+        "menu"
+    ],
+    "homepage": "https://github.com/blast-project/MenuBundle",
+    "authors": [
+        {
+            "name": "Vivien FRASCA",
+            "email": "vivien.frasca@libre-informatique.fr"
+        },
+        {
+            "name": "Libre Informatique",
+            "homepage": "http://www.libre-informatique.fr/"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Blast\\Bundle\\MenuBundle\\": "."
+        }
+    },
+    "suggest": {
+        "blast-project/core-bundle": "Define sonata admins in yml and more"
+    },
+    "version": "dev-wip-platform"
+}
