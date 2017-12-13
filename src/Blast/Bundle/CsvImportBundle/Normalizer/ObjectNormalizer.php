@@ -91,23 +91,6 @@ class ObjectNormalizer extends BaseObjectNormalizer
         return $this->em->getRepository($entityClass)->findOneBy([$field => $value]);
     }
 
-    /**
-     * @param Species $species
-     *
-     * @todo remove this
-     */
-    protected function postDenormalizeSpecies(Species $species)
-    {
-        //        if ($species->getLegalGerminationRate() === "")
-//            $species->setLegalGerminationRate(null);
-//        if ($species->getSeedLifespan() === "")
-//            $species->setSeedLifespan(null);
-//        if ($species->getRaiseDuration() === "")
-//            $species->setRaiseDuration(null);
-//        if ($species->getTkw() === "")
-//            $species->setTkw(null);
-    }
-
     protected function getMappings()
     {
         /* @todo : use association from config file*/
