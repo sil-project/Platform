@@ -8,16 +8,18 @@
  * file that was distributed with this source code.
  */
 
-namespace Blast\Bundle\ProfilerBundle\Collector;
+namespace PlatformBundle\Profiler;
 
+use Blast\Bundle\ProfilerBundle\Collector\AbstractCollector;
+use Blast\Bundle\ProfilerBundle\Collector\DataCollection;
 use Sonata\AdminBundle\Mapper\BaseGroupedMapper;
 use Sonata\AdminBundle\Mapper\BaseMapper;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class AdminCollector extends AbstractCollector
+class BlastCollector extends AbstractCollector
 {
-    /**=
+    /**
      * @var mixed
      */
     private $hookRegistry;
@@ -45,8 +47,8 @@ class AdminCollector extends AbstractCollector
 
             if (preg_replace('/\#[0-9]*\W/', '', $k) === 'Managed classes') {
                 $this->addToProfiler($k, 'Managed classes', [
-                    'display'         => DataCollection::DESTINATION_TOOLBAR, // 'toolbar', 'profiler', 'both'
-                    'class'           => count($data),
+                    'display' => DataCollection::DESTINATION_TOOLBAR,
+                    'class'   => count($data),
                 ]);
             }
 
@@ -123,7 +125,7 @@ class AdminCollector extends AbstractCollector
 
     public function getName()
     {
-        return 'blast.admin_collector';
+        return 'blast.blast_collector';
     }
 
     /**

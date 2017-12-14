@@ -1,7 +1,6 @@
 <?php
 
 /*
- *
  * Copyright (C) 2015-2017 Libre Informatique
  *
  * This file is licenced under the GNU LGPL v3.
@@ -80,5 +79,19 @@ abstract class AbstractCollector extends DataCollector
                     $this->data[DataCollection::DESTINATION_PROFILER][$rootKey][$key] = $data;
             }
         }
+    }
+
+    protected function isSerializable($value)
+    {
+        $serializable = true;
+        $arr = [$value];
+
+        array_walk_recursive($arr, function ($element) use (&$serializable) {
+            if (is_object($element) && get_class($element) === 'Closure') {
+                $serializable = false;
+            }
+        });
+
+        return $serializable;
     }
 }
