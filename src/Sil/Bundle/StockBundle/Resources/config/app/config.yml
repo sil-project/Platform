@@ -1,3 +1,5 @@
+imports:
+    - { resource: '@SilStockBundle/Resources/config/vendor/blast/menu.yml' }
 
 doctrine:
     orm:
@@ -8,7 +10,8 @@ doctrine:
                 dir: Resources/config/doctrine
 
         resolve_target_entities:
-            Sil\Bundle\StockBundle\Domain\Entity\StockItemInterface: Sil\Bundle\StockBundle\Domain\Entity\StockItem
-            Sil\Bundle\StockBundle\Domain\Entity\BatchInterface: Sil\Bundle\StockBundle\Domain\Entity\Batch
-            Sil\Bundle\StockBundle\Domain\Entity\PartnerInterface:  Sil\Bundle\StockBundle\Domain\Entity\Partner
+            Sil\Bundle\StockBundle\Domain\Entity\StockItemInterface:                Sil\Bundle\StockBundle\Domain\Entity\StockItem
+            Sil\Bundle\StockBundle\Domain\Entity\BatchInterface:                    Sil\Bundle\StockBundle\Domain\Entity\Batch
+            Sil\Bundle\StockBundle\Domain\Entity\PartnerInterface:                  Sil\Bundle\StockBundle\Domain\Entity\Partner
+
             Sil\Bundle\StockBundle\Domain\Repository\StockUnitRepositoryInterface:  Sil\Bundle\StockBundle\Doctrine\ORM\StockUnitRepository

@@ -4,7 +4,7 @@ blast_menu:
 
         sil.ecommerce.menu_label.ecommerce:
             icon: shopping-cart
-            order: 20000
+            order: 20
             children:
 
                 sil.ecommerce.menu_label.products:
@@ -31,7 +31,7 @@ blast_menu:
 
         sil.ecommerce.menu_label.shop_settings:
             icon: cart-plus
-            order: 20000
+            order: 20
             children:
 
                 sil.ecommerce.menu_label.shop_settings_channels:

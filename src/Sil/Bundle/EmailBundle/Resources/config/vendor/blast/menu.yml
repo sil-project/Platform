@@ -1,9 +1,10 @@
 blast_menu:
+
     root:
 
         sil.email.menu_label.emailing:
             icon: envelope-o
-            order: 11000
+            order: 30
             children:
 
                 sil.email.menu_label.email:
@@ -15,7 +16,7 @@ blast_menu:
 
         sil.email.menu_label.email_settings:
             icon: envelope
-            order: 11000
+            order: 30
             children:
 
                 sil.email.menu_label.email_settings_templates:

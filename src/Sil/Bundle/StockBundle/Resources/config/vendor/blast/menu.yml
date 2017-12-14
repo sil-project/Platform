@@ -1,0 +1,46 @@
+blast_menu:
+
+    root:
+
+        sil.stock.menu_label.stock_management:
+            icon: cubes
+            order: 15
+            children:
+
+                sil.stock.menu_label.items:
+                    icon: cube
+                    route: admin_stock_item_list
+                    order: 10
+
+                sil.stock.menu_label.movements:
+                    icon: random
+                    route: admin_stock_movement_list
+                    order: 20
+
+
+    settings:
+
+        sil.stock.menu_label.stock_management_settings:
+            icon: archive
+            order: 15
+            children:
+
+                sil.stock.menu_label.warehouses:
+                    icon: industry
+                    order: 10
+                    route: admin_stock_warehouse_list
+
+                sil.stock.menu_label.locations:
+                    icon: map-marker
+                    order: 20
+                    route: admin_stock_location_list
+
+                sil.stock.menu_label.uom_types:
+                    icon: wrench
+                    order: 30
+                    route: admin_stock_uomtype_list
+
+                sil.stock.menu_label.uoms:
+                    icon: braille
+                    order: 40
+                    route: admin_stock_uom_list
