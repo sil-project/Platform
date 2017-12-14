@@ -1,7 +1,6 @@
 <?php
 
 /*
- *
  * Copyright (C) 2015-2017 Libre Informatique
  *
  * This file is licenced under the GNU LGPL v3.
@@ -23,7 +22,7 @@ class MappingConfiguration
      */
     private $mapping = null;
 
-    public function setMapping(array $newMapping): MappingConfiguration
+    public function setMapping(array $newMapping): self
     {
         $this->mapping = $newMapping;
 
@@ -33,7 +32,7 @@ class MappingConfiguration
     /**
      * Loads mapping information from yaml config file.
      */
-    public function loadMappingFromFile(string $configFile, string $yamlKey = 'csv_mapping'): MappingConfiguration
+    public function loadMappingFromFile(string $configFile, string $yamlKey = 'csv_mapping'): self
     {
         /**
          * @todo add this as param in a setter with default value

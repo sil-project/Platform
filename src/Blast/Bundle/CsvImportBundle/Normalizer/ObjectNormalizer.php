@@ -1,7 +1,6 @@
 <?php
 
 /*
- *
  * Copyright (C) 2015-2017 Libre Informatique
  *
  * This file is licenced under the GNU LGPL v3.
@@ -21,7 +20,6 @@ use Symfony\Component\Serializer\Normalizer\ObjectNormalizer as BaseObjectNormal
  */
 class ObjectNormalizer extends BaseObjectNormalizer
 {
- 
     /**
      * @var MappingConfiguration
      */
@@ -77,11 +75,11 @@ class ObjectNormalizer extends BaseObjectNormalizer
                 $value = $this->fetchAssociation($associationClass, $field, $value);
             }
         }
-        
+
         if ($value === '') {
             $value = null;
         }
-              
+
         if ($attribute !== '' && $attribute !== null) {
             parent::setAttributeValue($object, $attribute, $value, $format, $context);
         }
@@ -99,7 +97,6 @@ class ObjectNormalizer extends BaseObjectNormalizer
         return $this->em->getRepository($entityClass)->findOneBy([$field => $value]);
     }
 
- 
     protected function cleanUpValue(&$value): void
     {
         $value = trim($value);

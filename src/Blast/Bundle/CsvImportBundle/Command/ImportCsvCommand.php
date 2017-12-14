@@ -1,7 +1,6 @@
 <?php
 
 /*
- *
  * Copyright (C) 2015-2017 Libre Informatique
  *
  * This file is licenced under the GNU LGPL v3.
@@ -30,22 +29,22 @@ class ImportCsvCommand extends ContainerAwareCommand
      * @var EntityManager
      */
     protected $em;
-    
+
     /**
      * @var string Directory where the CSV files are located
      */
     protected $dir;
-    
+
     /**
      * @var array Mapping configuration of csv datas
      */
     private $mapping;
-    
+
     /**
      * @var ObjectNormalizer
      */
     private $normalizer;
-    
+
     /**
      * @var array
      */
@@ -55,7 +54,7 @@ class ImportCsvCommand extends ContainerAwareCommand
      * @var array
      */
     protected $codeList = [];
-    
+
     protected function configure()
     {
         $this
@@ -90,7 +89,7 @@ EOT
     protected function initialize(InputInterface $input, OutputInterface $output)
     {
         parent::initialize($input, $output);
-        
+
         $this->em = $this->getContainer()->get('doctrine')->getEntityManager();
         $this->dir = $input->getOption('dir');
         $mappingConfig = $this->getContainer()
@@ -115,7 +114,7 @@ EOT
             }
         }
     }
-    
+
     /**
      * @todo move this to a Csv Import Data service
      */
@@ -125,27 +124,27 @@ EOT
         $csv = $this->getCsvFilePath($entityClass);
         $output->write(' (' . basename($csv) . ')...');
         $data = file_get_contents($csv);
-        
+
         /* @todo: allow import from other format (or not) */
         $serializer = new Serializer([$this->normalizer, new ArrayDenormalizer()], [new CsvEncoder()]);
 
         /* @todo: should not use the . [] and update setAttributeValue from Normalizer */
         $objects = $serializer->deserialize($data, $entityClass . '[]', 'csv');
-        
+
         $output->writeln(sprintf(' <info>%d objects</info>', count($objects)));
 
         // $rc = new \ReflectionClass($entityClass);
         // $method = 'postDeserialize' . $rc->getShortName();
-        
+
         $this->codeList = []; // Init table of code
         foreach ($objects as $k => $object) {
             // if (method_exists($this, $method)) {
             //    $this->{$method}($object);
             //}
             $this->postDeserialize($entityClass, $object, $output);
-            
+
             $this->em->persist($object);
-            
+
             // Hum Lol
             if ($k % 50 == 0) {
                 $this->em->flush();
@@ -161,11 +160,12 @@ EOT
             foreach (keys($this->mapping[$class]['generators']) as $field) {
                 $generator = $this->getContainer()->get($this->mapping[$class]['generators'][$field]);
                 $code = $generator->generate($object, $codeList);
-                $object->set{$field}($code);
+                $object->set[$field]($code);
                 $codeList[] = $code;
             }
         }
     }
+
     /**
      * @param string $entityClass
      */
