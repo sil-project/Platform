@@ -91,6 +91,28 @@ sil:
                     created_at: Créé le
                     updated_at: Mise à jour le
 
+        email_template:
+
+            breadcrumb:
+                link:
+                    create: Nouveau modèle
+                    list: Liste des modèles
+            form:
+                label:
+                    content: Contenu
+                    created_at: Créé le
+                    name: Nom
+                    updated_at: Mis à jour le
+            list:
+                label:
+                    emailtemplate: Modèle
+            show:
+                label:
+                    name: Nom
+                    content: Contenu
+                    created_at: Créé le
+                    updated_at: Mis à jour le
+
 'Email': 'Email'
 'Email List': 'Liste Emails'
 'Field From': 'Expéditeur'
