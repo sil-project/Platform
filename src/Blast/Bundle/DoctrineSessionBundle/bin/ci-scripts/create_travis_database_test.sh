@@ -27,8 +27,10 @@ set -ev
 psql -c 'CREATE DATABASE travis;' -U postgres
 psql -c 'ALTER DATABASE travis OWNER TO travis' -U postgres
 
+psql -c 'CREATE EXTENSION "uuid-ossp";' -U postgres -d travis
 
-#psql -U postgres -c "CREATE EXTENSION 'uuid-ossp';"
+
+
 
 ###
 ###
