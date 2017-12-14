@@ -4,13 +4,13 @@
     "description": "This is the basis of a GUI for Libre Informatique Symfony2 projects",
     "require": {
         "php": "^7.1",
-        "symfony/symfony": "^3.3",
+        "symfony/symfony": "3.3.*",
         "sonata-project/doctrine-orm-admin-bundle": ">=3.1",
         "blast-project/core-bundle": "self.version",
         "friendsofsymfony/jsrouting-bundle": ">=1.6"
     },
     "require-dev": {
-        "symfony/phpunit-bridge": "^3.3",
+        "symfony/phpunit-bridge": "3.3.*",
         "phpunit/phpunit": "^6.4"
     },
     "license": "GPL-3.0",
@@ -39,5 +39,8 @@
     "suggest": {
         "libre-informatique/crm-bundle": "Manage contacts, organisms and more..."
     },
-    "version": "dev-wip-platform"
+    "version": "dev-wip-platform",
+    "config": {
+        "bin-dir": "bin/"
+    }
 }

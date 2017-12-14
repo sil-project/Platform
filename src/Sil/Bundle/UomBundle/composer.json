@@ -34,5 +34,8 @@
       "Sil\\Bundle\\UomBundle\\": "."
     }
   },
-  "version": "dev-wip-platform"
+  "version": "dev-wip-platform",
+  "config": {
+    "bin-dir": "bin/"
+  }
 }

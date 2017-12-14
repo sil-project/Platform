@@ -4,13 +4,13 @@
     "description": "This bundle extends the Postgresql functionalities of Doctrine and Sonata projects",
     "require": {
         "php": "^7.1",
-        "symfony/symfony": "^3.3",
+        "symfony/symfony": "3.3.*",
         "sonata-project/admin-bundle": ">=3.1",
         "sonata-project/doctrine-orm-admin-bundle": ">=3.1",
         "oro/doctrine-extensions": ">=1.2"
     },
     "require-dev": {
-        "symfony/phpunit-bridge": "^3.3",
+        "symfony/phpunit-bridge": "3.3.*",
         "phpunit/phpunit": "^6.4"
     },
     "license": "LGPL-3.0",
@@ -37,5 +37,8 @@
             "Blast\\Bundle\\DoctrinePgsqlBundle\\": "."
         }
     },
-    "version": "dev-wip-platform"
+    "version": "dev-wip-platform",
+    "config": {
+        "bin-dir": "bin/"
+    }
 }

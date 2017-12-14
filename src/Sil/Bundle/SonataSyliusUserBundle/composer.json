@@ -4,13 +4,13 @@
     "description": "Symfony bundle providing a bridge between SonataAdmin and SyliusUser (an alternative to SonataUserBundle)",
     "require": {
         "php": "^7.1",
-        "symfony/symfony": "^3.3",
+        "symfony/symfony": "3.3.*",
         "sylius/sylius": "^1.0",
         "blast-project/core-bundle": "self.version",
         "blast-project/base-entities-bundle": "self.version"
     },
     "require-dev": {
-        "symfony/phpunit-bridge": "^3.3",
+        "symfony/phpunit-bridge": "3.3.*",
         "phpunit/phpunit": "^6.4"
     },
     "license": "LGPL-3.0",
@@ -35,5 +35,8 @@
             "Sil\\Bundle\\SonataSyliusUserBundle\\": "."
         }
     },
-    "version": "dev-wip-platform"
+    "version": "dev-wip-platform",
+    "config": {
+        "bin-dir": "bin/"
+    }
 }

@@ -4,12 +4,12 @@
     "description": "Patch Vendor",
     "require": {
         "php": "^7.1",
-        "symfony/symfony": "^3.3",
+        "symfony/symfony": "3.3.*",
         "doctrine/doctrine-bundle": ">=1.6",
         "sonata-project/doctrine-orm-admin-bundle": ">=3.1"
     },
     "require-dev": {
-        "symfony/phpunit-bridge": "^3.3",
+        "symfony/phpunit-bridge": "3.3.*",
         "blast-project/core-bundle": "self.version",
         "blast-project/tests-bundle": "self.version",
         "symfony/console": ">=3.2",
@@ -48,5 +48,8 @@
     "suggest": {
         "blast-project/core-bundle": "Define sonata admins in yml and more"
     },
-    "version": "dev-wip-platform"
+    "version": "dev-wip-platform",
+    "config": {
+        "bin-dir": "bin/"
+    }
 }
