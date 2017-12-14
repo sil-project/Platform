@@ -7,14 +7,14 @@
          convertNoticesToExceptions="true"
          convertWarningsToExceptions="true"
          processIsolation="false"
-         stopOnFailure="false"
-         syntaxCheck="false"
-	 >
+         stopOnFailure="true"
+         syntaxCheck="true"
+	 verbose="true"
+         >
 
 
   <testsuites>
     <testsuite name="Unit">
-      <directory>./Tests/Unit</directory>
       <directory>./src/*/Bundle/*/Tests/Unit</directory>
     </testsuite>
     <testsuite name="Functional">
