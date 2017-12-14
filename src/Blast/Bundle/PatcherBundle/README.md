@@ -58,9 +58,9 @@ It will apply patches by parsing `patches.yml`.
 
 A composer command has been created in order to automate the patching process when doing composer updates and installations.
 
-To enable this feature, just add this line in your composer.json :
+To enable this feature, just add this line in your `composer.json` :
 
-```
+```json
 {
     "name": "you/your-project",
     # ...
