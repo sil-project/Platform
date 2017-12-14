@@ -11,12 +11,12 @@
 
 namespace Sil\Bundle\EcommerceBundle\Dashboard;
 
-use Blast\Bundle\CoreBundle\Dashboard\AbstractDashboardBlock;
+use Blast\Bundle\DashboardBundle\Block\AbstractBlock;
 use Sil\Bundle\EcommerceBundle\Dashboard\Stats\Misc;
 use Sil\Bundle\EcommerceBundle\Dashboard\Stats\Sales;
 use Sil\Bundle\EcommerceBundle\Dashboard\Stats\OrdersToProcess;
 
-class EcommerceDashboardBlock extends AbstractDashboardBlock
+class EcommerceDashboardBlock extends AbstractBlock
 {
     /**
      * @var Sales

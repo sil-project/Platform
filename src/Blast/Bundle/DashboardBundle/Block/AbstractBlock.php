@@ -1,7 +1,6 @@
 <?php
 
 /*
- *
  * Copyright (C) 2015-2017 Libre Informatique
  *
  * This file is licenced under the GNU LGPL v3.
@@ -9,13 +8,13 @@
  * file that was distributed with this source code.
  */
 
-namespace Blast\Bundle\CoreBundle\Dashboard;
+namespace Blast\Bundle\DashboardBundle\Block;
 
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Bundle\TwigBundle\TwigEngine;
 
-abstract class AbstractDashboardBlock implements ContainerAwareInterface
+abstract class AbstractBlock implements ContainerAwareInterface
 {
     /**
      * @var TwigEngine

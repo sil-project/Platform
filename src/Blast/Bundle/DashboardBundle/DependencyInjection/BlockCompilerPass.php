@@ -1,7 +1,6 @@
 <?php
 
 /*
- *
  * Copyright (C) 2015-2017 Libre Informatique
  *
  * This file is licenced under the GNU LGPL v3.
@@ -9,21 +8,21 @@
  * file that was distributed with this source code.
  */
 
-namespace Blast\Bundle\CoreBundle\DependencyInjection;
+namespace Blast\Bundle\DashboardBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\Reference;
 
-class DashboardBlocksCompilerPass implements CompilerPassInterface
+class BlockCompilerPass implements CompilerPassInterface
 {
     public function process(ContainerBuilder $container)
     {
-        if (!$container->has('blast_core.dashboard.registry')) {
+        if (!$container->has('blast_dashboard.registry')) {
             return;
         }
 
-        $registry = $container->findDefinition('blast_core.dashboard.registry');
+        $registry = $container->findDefinition('blast_dashboard.registry');
 
         $taggedServices = $container->findTaggedServiceIds('blast.dashboard_block');
 

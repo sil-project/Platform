@@ -18,7 +18,7 @@ class SyliusTaxCalculationStrategiesCompilerPass implements CompilerPassInterfac
 {
     public function process(ContainerBuilder $container)
     {
-        if (!$container->has('blast_core.dashboard.registry')) {
+        if (!$container->has('sylius.taxation.calculation_strategy')) {
             return;
         }
 

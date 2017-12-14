@@ -1,7 +1,6 @@
 <?php
 
 /*
- *
  * Copyright (C) 2015-2017 Libre Informatique
  *
  * This file is licenced under the GNU LGPL v3.
@@ -9,19 +8,18 @@
  * file that was distributed with this source code.
  */
 
-namespace Blast\Bundle\CoreBundle;
+namespace Blast\Bundle\DashboardBundle;
 
-use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
-use Blast\Bundle\CoreBundle\DependencyInjection\CodeGeneratorCompilerPass;
-use Blast\Bundle\CoreBundle\DependencyInjection\DashboardBlocksCompilerPass;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Blast\Bundle\DashboardBundle\DependencyInjection\BlockCompilerPass;
 
-class BlastCoreBundle extends Bundle
+class BlastDashboardBundle extends Bundle
 {
     public function build(ContainerBuilder $container)
     {
         parent::build($container);
 
-        $container->addCompilerPass(new CodeGeneratorCompilerPass());
+        $container->addCompilerPass(new BlockCompilerPass());
     }
 }

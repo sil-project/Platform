@@ -1,0 +1,20 @@
+services:
+    blast_dashboard.registry:
+        class: Blast\Bundle\DashboardBundle\Block\BlockRegistry
+
+    blast_dashboard.main_block:
+        class: Blast\Bundle\DashboardBundle\Block\SonataBlock
+        arguments:
+            - blast_dashboard.main_block
+            - "@templating"
+        calls:
+            - [ setRegistry, ["@blast_dashboard.registry"]]
+        tags:
+            - { name: sonata.block }
+
+    blast_dashboard.block:
+        abstract: true
+        class: Blast\Bundle\DashboardBundle\Block\AbstractBlock
+        calls:
+            - [ setTemplating, ["@templating"]]
+            - [ setContainer, ["@service_container"]]

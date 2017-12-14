@@ -1,7 +1,6 @@
 <?php
 
 /*
- *
  * Copyright (C) 2015-2017 Libre Informatique
  *
  * This file is licenced under the GNU LGPL v3.
@@ -9,17 +8,17 @@
  * file that was distributed with this source code.
  */
 
-namespace Blast\Bundle\CoreBundle\Dashboard;
+namespace Blast\Bundle\DashboardBundle\Block;
 
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\HttpFoundation\Response;
 use Sonata\BlockBundle\Block\Service\AbstractBlockService;
 use Sonata\BlockBundle\Block\BlockContextInterface;
 
-class DashboardSonataBlock extends AbstractBlockService
+class SonataBlock extends AbstractBlockService
 {
     /**
-     * @var DashboardBlockRegistry
+     * @var BlockRegistry
      */
     private $registry;
 
@@ -31,7 +30,7 @@ class DashboardSonataBlock extends AbstractBlockService
         $resolver->setDefaults(array(
             'url'      => false,
             'title'    => 'blast.label.dashboard_block_title',
-            'template' => 'BlastCoreBundle:Dashboard:mainDashboard.html.twig',
+            'template' => '@BlastDashboardBundle/Resources/views/mainDashboard.html.twig',
         ));
     }
 
@@ -50,11 +49,11 @@ class DashboardSonataBlock extends AbstractBlockService
     }
 
     /**
-     * @param DashboardBlockRegistry registry
+     * @param BlockRegistry registry
      *
      * @return self
      */
-    public function setRegistry(DashboardBlockRegistry $registry)
+    public function setRegistry(BlockRegistry $registry)
     {
         $this->registry = $registry;
 

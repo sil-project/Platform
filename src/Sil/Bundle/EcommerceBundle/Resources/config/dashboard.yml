@@ -3,7 +3,7 @@ services:
     # BLOCKS
 
     sil_ecommerce.dashboard.main:
-        parent: blast_core.dashboard.block
+        parent: blast_dashboard.block
         class: Sil\Bundle\EcommerceBundle\Dashboard\EcommerceDashboardBlock
         arguments:
             - 'SilEcommerceBundle:Dashboard:ecommerce_dashboard.html.twig'

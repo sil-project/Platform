@@ -1,7 +1,6 @@
 <?php
 
 /*
- *
  * Copyright (C) 2015-2017 Libre Informatique
  *
  * This file is licenced under the GNU LGPL v3.
@@ -9,9 +8,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Blast\Bundle\CoreBundle\Dashboard;
+namespace Blast\Bundle\DashboardBundle\Block;
 
-class DashboardBlockRegistry
+class BlockRegistry
 {
     /**
      * @var array
