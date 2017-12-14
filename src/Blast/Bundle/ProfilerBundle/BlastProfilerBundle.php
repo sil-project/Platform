@@ -12,7 +12,15 @@
 namespace Blast\Bundle\ProfilerBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Blast\Bundle\ProfilerBundle\DependencyInjection\ProfilerCompilerPass;
 
 class BlastProfilerBundle extends Bundle
 {
+    public function build(ContainerBuilder $container)
+    {
+        parent::build($container);
+
+        $container->addCompilerPass(new ProfilerCompilerPass());
+    }
 }

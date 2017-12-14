@@ -30,18 +30,12 @@ class DataCollection
     /**
      * @var string
      */
-    private $type;
-
-    /**
-     * @var string
-     */
     private $destination;
 
-    public function __construct($name, $data, $destination = self::DESTINATION_PROFILER, $type = null)
+    public function __construct($name, $data, $destination = self::DESTINATION_PROFILER)
     {
         $this->name = $name;
         $this->data = $data;
-        $this->type = ($type !== null ? $type : (is_array($data) ? 'Array' : get_class($data)));
         $this->destination = $destination;
     }
 
@@ -81,26 +75,6 @@ class DataCollection
     public function setData($data)
     {
         $this->data = $data;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
-
-    /**
-     * @param string type
-     *
-     * @return self
-     */
-    public function setType($type)
-    {
-        $this->type = $type;
 
         return $this;
     }

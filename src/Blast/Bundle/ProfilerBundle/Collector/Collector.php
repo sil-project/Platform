@@ -33,15 +33,14 @@ class Collector
      * @param string $name
      * @param mixed  $data
      * @param string $destination
-     * @param string $type
      *
      * @return $this
      */
-    public function collect($name, $data, $destination = DataCollection::DESTINATION_PROFILER, $type = null)
+    public function collect($name, $data, $destination = DataCollection::DESTINATION_PROFILER)
     {
         $this->collectedKeys[] = $name;
 
-        $dataCollection = new DataCollection($name, $data, $destination, $type);
+        $dataCollection = new DataCollection($name, $data, $destination);
         $this->data[$this->handleDataKey($name)] = $dataCollection;
 
         return $this;
@@ -51,15 +50,14 @@ class Collector
      * @param string $name
      * @param mixed  $data
      * @param string $destination
-     * @param string $type
      *
      * @return $this
      */
-    public function collectOnce($name, $data, $destination = DataCollection::DESTINATION_PROFILER, $type = null)
+    public function collectOnce($name, $data, $destination = DataCollection::DESTINATION_PROFILER)
     {
         if (!in_array($name, $this->collectedKeys)) {
             $this->collectedKeys[] = $name;
-            $dataCollection = new DataCollection($name, $data, $destination, $type);
+            $dataCollection = new DataCollection($name, $data, $destination);
             $this->data[$this->handleDataKey($name)] = $dataCollection;
         }
 

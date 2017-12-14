@@ -18,6 +18,11 @@ use Sonata\AdminBundle\Mapper\BaseGroupedMapper;
 
 class AdminCollector extends AbstractCollector
 {
+    /**=
+     * @var mixed
+     */
+    private $hookRegistry;
+
     public function collect(Request $request, Response $response, \Exception $exception = null)
     {
         $this->data = [
@@ -27,13 +32,13 @@ class AdminCollector extends AbstractCollector
 
         $collectedData = $this->collector->getData();
 
+        $this->collectBlastAdminData($collectedData);
 
-        $this->collector->collect('# Hooks', $data, DataCollection::DESTINATION_PROFILER);
+        $this->collectBlastHookData();
+    }
 
-        dump($this->collector);
-
-        $hooks = 0;
-
+    private function collectBlastAdminData($collectedData)
+    {
         foreach ($collectedData as $k => $dataCollection) {
             $data = $dataCollection->getData();
 
@@ -42,10 +47,6 @@ class AdminCollector extends AbstractCollector
                     'display'         => DataCollection::DESTINATION_TOOLBAR, // 'toolbar', 'profiler', 'both'
                     'class'           => count($data),
                 ]);
-            }
-
-            if (preg_replace('/^\#[0-9]*\W/', '', $k) === 'Hook') {
-                ++$hooks;
             }
 
             if ($data instanceof BaseGroupedMapper || $data instanceof BaseMapper) {
@@ -92,16 +93,43 @@ class AdminCollector extends AbstractCollector
             } else {
                 $this->addToProfiler($k, $dataCollection->getName(), $dataCollection);
             }
-
-            $this->addToProfiler('Hook registered', 'Hooks', [
-                'display'         => DataCollection::DESTINATION_TOOLBAR, // 'toolbar', 'profiler', 'both'
-                'class'           => $hooks,
-            ]);
         }
+    }
+
+    private function collectBlastHookData()
+    {
+        $hooks = $this->hookRegistry->getRegistredHooks();
+        $i = 1;
+        foreach ($hooks as $hookName => $hook) {
+            $hookTitle = 'Hook #' . $i;
+
+            $this->addToProfiler($hookTitle, 'name', [
+                'display' => DataCollection::DESTINATION_PROFILER,
+                'name'    => $hookName,
+            ]);
+            $this->addToProfiler($hookTitle, 'class', [
+                'display' => DataCollection::DESTINATION_PROFILER,
+                'class'   => get_class($hook[0]),
+            ]);
+            ++$i;
+        }
+
+        $this->addToProfiler('Hooks', 'Hooks', [
+            'display' => DataCollection::DESTINATION_TOOLBAR,
+            'class'   => count($hooks),
+        ]);
     }
 
     public function getName()
     {
         return 'blast.admin_collector';
+    }
+
+    /**
+     * @param mixed $hookRegistry
+     */
+    public function setHookRegistry($hookRegistry): void
+    {
+        $this->hookRegistry = $hookRegistry;
     }
 }
