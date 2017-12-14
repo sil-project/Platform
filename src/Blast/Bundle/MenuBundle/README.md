@@ -4,22 +4,6 @@ Bundle that generates a sonata admin global menu via `blast_menu.yml` configurat
 
 ## Requirements
 
-Your bundle Extension must extends BlastCoreBundle extension
-
-```php
-<?php
-
-namespace My\Bundle\MyMenuBundle\DependencyInjection;
-
-// [...]
-use Blast\Bundle\CoreBundle\DependencyInjection\BlastCoreExtension;
-
-class MyMenuExtension extends BlastCoreExtension
-{
-
-}
-```
-
 You must have defined the `sonata_admin` configuration as below :
 
 ```yaml
@@ -40,16 +24,14 @@ sonata_admin:
                 provider: global_sidebar_menu     # « global_sidebar_menu » is the BlastMenuBundle menu provider
 ```
 
-Your bundle should have the file `blast_menu.yml` created into `Resource/config` folder.
-
 ## Usage
 
 Here an example of using blast_menu :
 
 ```yaml
-parameters:
+blast_menu:
 
-    blast_menu.root:                        # The main menu element
+    root:                        # The main menu element
 
         my.menu.item:
             icon: add                       # Any FontAwesome icon class name (without the « fa- »)
@@ -72,7 +54,7 @@ parameters:
                     order: 12
                     display: false          # Hide this menu item
 
-    blast_menu.settings:                    # The settings menu element
+    settings:                    # The settings menu element
 
         my.menu.item_settings:
             icon: gear
@@ -85,14 +67,14 @@ Supposing that the previous menu example is used in your application, you can, f
 
 _Note : Your bundle **must be included after** the bundle you want to override._
 
-You can overrind any attribute of any item (`icon`, `route`, `order`, `display`). You can't override `children` but you can append elements into an existing `children` attribute. You can't remove item from `children` but it's possible to hide item by setting `display` to `false`.
+You can override any attribute of any item (`icon`, `route`, `order`, `display`, `label`). You can't override `children` but you can append elements into an existing `children` attribute. You can't remove item from `children` but it's possible to hide item by setting `display` to `false`.
 
 ### Overrinding icon
 
 ```yaml
-parameters:
+blast_menu:
 
-    blast_menu.root:
+    root:
 
         my.menu.item:
             icon: remove                    # The item icon will be overriden
@@ -101,9 +83,9 @@ parameters:
 ### Hidding item
 
 ```yaml
-parameters:
+blast_menu:
 
-    blast_menu.root:
+    root:
 
         my.menu.item:
             children:
@@ -115,13 +97,14 @@ parameters:
 ### Reordering item
 
 ```yaml
-parameters:
+blast_menu:
 
-    blast_menu.root:
+    root:
 
         my.menu.item:
             children:
 
                 my.menu.sub_item_3:
                     order: 5               # « sub_item_3 » will be displayed before « my.menu.sub_item »
+                    display: true          # Displaying the hidden item
 ```
