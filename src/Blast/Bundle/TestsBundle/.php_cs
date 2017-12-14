@@ -1,8 +1,6 @@
 <?php
 
 /*
- * This file is part of the Blast Project package.
- *
  * Copyright (C) 2015-2017 Libre Informatique
  *
  * This file is licenced under the GNU LGPL v3.
@@ -11,8 +9,6 @@
  */
 
 $header = <<<EOF
-This file is part of the Blast Project package.
-
 Copyright (C) 2015-2017 Libre Informatique
 
 This file is licenced under the GNU LGPL v3.
@@ -26,8 +22,6 @@ if (class_exists('Symfony\CS\Fixer\Contrib\HeaderCommentFixer')) {
 }
 
 $finder = PhpCsFixer\Finder::create()
-    ->exclude('somedir')
-    ->notPath('src/Symfony/Component/Translation/Tests/fixtures/resources.php')
     ->in(__DIR__)
 ;
 
@@ -35,8 +29,9 @@ $config = PhpCsFixer\Config::create()
     ->setRules(array(
         '@Symfony'               => true,
         'binary_operator_spaces' => ['align_double_arrow' => true],
-        'yoda_style'             => null,
         'concat_space'           => ['spacing'=>'one'],
+        'yoda_style'             => null,
+        'increment_style'        => ['style' => 'post'],
     ))
     ->setFinder($finder);
 

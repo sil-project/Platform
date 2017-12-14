@@ -1,0 +1,12 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = git@github.com:blast-project/ProfilerBundle.git
+	branch = wip-platform
+	commit = 69289e9270110549500c34a8f9c3742e0ee44dea
+	method = merge
+	cmdver = 0.4.0
+	parent = ff2de926fe0e8436be442357e92fcf59a7917457

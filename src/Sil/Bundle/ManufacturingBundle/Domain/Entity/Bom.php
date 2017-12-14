@@ -17,7 +17,7 @@ use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Guidable;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Timestampable;
 use Sil\Bundle\StockBundle\Domain\Entity\StockItemInterface;
 use Sil\Bundle\UomBundle\Entity\Uom;
-use Sil\Bundle\UomBundle\Entity\UomQty;
+use Sil\Component\Uom\Model\UomQty;
 
 /**
  * @author Glenn Cavarlé <glenn.cavarle@libre-informatique.fr>

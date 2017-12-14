@@ -9,22 +9,19 @@
  * file that was distributed with this source code.
  */
 
-namespace Blast\Bundle\CoreBundle\Profiler;
+namespace Blast\Bundle\ProfilerBundle\Collector;
 
-use Symfony\Component\HttpKernel\DataCollector\DataCollector;
+use Sonata\AdminBundle\Mapper\BaseGroupedMapper;
+use Sonata\AdminBundle\Mapper\BaseMapper;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Sonata\AdminBundle\Mapper\BaseMapper;
-use Sonata\AdminBundle\Mapper\BaseGroupedMapper;
 
-class AdminCollector extends DataCollector
+class AdminCollector extends AbstractCollector
 {
-    const TYPE_NOT_MANAGED = 'Not Managed';
-
-    /**
-     * @var Collector
+    /**=
+     * @var mixed
      */
-    private $collector;
+    private $hookRegistry;
 
     public function collect(Request $request, Response $response, \Exception $exception = null)
     {
@@ -35,8 +32,13 @@ class AdminCollector extends DataCollector
 
         $collectedData = $this->collector->getData();
 
-        $hooks = 0;
+        $this->collectBlastAdminData($collectedData);
 
+        $this->collectBlastHookData();
+    }
+
+    private function collectBlastAdminData($collectedData)
+    {
         foreach ($collectedData as $k => $dataCollection) {
             $data = $dataCollection->getData();
 
@@ -45,10 +47,6 @@ class AdminCollector extends DataCollector
                     'display'         => DataCollection::DESTINATION_TOOLBAR, // 'toolbar', 'profiler', 'both'
                     'class'           => count($data),
                 ]);
-            }
-
-            if (preg_replace('/^\#[0-9]*\W/', '', $k) === 'Hook') {
-                ++$hooks;
             }
 
             if ($data instanceof BaseGroupedMapper || $data instanceof BaseMapper) {
@@ -66,14 +64,6 @@ class AdminCollector extends DataCollector
                     'class'   => get_class($admin),
                     'file'    => $this->getClassLink(get_class($admin)),
                 ]);
-
-                // Not really usefull because other type of mapper have not been tested
-                //
-                // $this->addToProfiler($k, 'mapper', [
-                //     'display' => DataCollection::DESTINATION_PROFILER,
-                //     'class'   => get_class($data),
-                //     'file'    => $this->getClassLink(get_class($data)),
-                // ]);
 
                 $this->addToProfiler($k, 'form tabs / groups', [
                     'display' => DataCollection::DESTINATION_PROFILER,
@@ -104,24 +94,30 @@ class AdminCollector extends DataCollector
                 $this->addToProfiler($k, $dataCollection->getName(), $dataCollection);
             }
         }
-
-        $this->addToProfiler('Hook registered', 'Hooks', [
-            'display'         => DataCollection::DESTINATION_TOOLBAR, // 'toolbar', 'profiler', 'both'
-            'class'           => $hooks,
-        ]);
     }
 
-    public function getData($name = null)
+    private function collectBlastHookData()
     {
-        if ($name === null) {
-            return $this->data;
+        $hooks = $this->hookRegistry->getRegistredHooks();
+        $i = 1;
+        foreach ($hooks as $hookName => $hook) {
+            $hookTitle = 'Hook #' . $i;
+
+            $this->addToProfiler($hookTitle, 'name', [
+                'display' => DataCollection::DESTINATION_PROFILER,
+                'name'    => $hookName,
+            ]);
+            $this->addToProfiler($hookTitle, 'class', [
+                'display' => DataCollection::DESTINATION_PROFILER,
+                'class'   => get_class($hook[0]),
+            ]);
+            $i++;
         }
 
-        if (array_key_exists($name, $this->data)) {
-            return $this->data[$name];
-        } else {
-            return self::TYPE_NOT_MANAGED;
-        }
+        $this->addToProfiler('Hooks', 'Hooks', [
+            'display' => DataCollection::DESTINATION_TOOLBAR,
+            'class'   => count($hooks),
+        ]);
     }
 
     public function getName()
@@ -130,49 +126,10 @@ class AdminCollector extends DataCollector
     }
 
     /**
-     * @return Collector
+     * @param mixed $hookRegistry
      */
-    public function getCollector()
+    public function setHookRegistry($hookRegistry): void
     {
-        return $this->collector;
-    }
-
-    /**
-     * @param Collector collector
-     *
-     * @return self
-     */
-    public function setCollector(Collector $collector)
-    {
-        $this->collector = $collector;
-
-        return $this;
-    }
-
-    private function getClassLink($class)
-    {
-        $reflector = new \ReflectionClass($class);
-
-        return $reflector->getFileName();
-    }
-
-    private function addToProfiler($rootKey, $key, $data)
-    {
-        if ($data instanceof DataCollection) {
-            $this->data[$data->getDestination()][$rootKey][$key] = $data->getData();
-        } else {
-            switch ($data['display']) {
-                case DataCollection::DESTINATION_TOOLBAR:
-                case DataCollection::DESTINATION_PROFILER:
-                    $this->data[$data['display']][$rootKey][$key] = $data;
-                    break;
-                case DataCollection::DESTINATION_BOTH:
-                    $this->data[DataCollection::DESTINATION_TOOLBAR][$rootKey][$key] = $data;
-                    $this->data[DataCollection::DESTINATION_PROFILER][$rootKey][$key] = $data;
-                    break;
-                default:
-                    $this->data[DataCollection::DESTINATION_PROFILER][$rootKey][$key] = $data;
-            }
-        }
+        $this->hookRegistry = $hookRegistry;
     }
 }
