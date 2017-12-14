@@ -49,5 +49,8 @@
     <ini name="display_startup_errors" value="On" />
     <env name="SYMFONY_DEPRECATIONS_HELPER" value="weak" />
   </php>
-
+  
+  <listeners>
+    <listener class="Symfony\Bridge\PhpUnit\SymfonyTestsListener" />
+  </listeners>
 </phpunit>
