@@ -1,0 +1,12 @@
+blast_menu:
+
+    root:
+        sil.manufacturing.menu_label.manufacturing:
+            icon: list
+            order: 17
+            children:
+
+                sil.manufacturing.menu_label.bom:
+                    icon: list-ul
+                    route: admin_manufacturing_bom_list
+                    order: 10
