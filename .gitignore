@@ -50,6 +50,7 @@ composer.lock
 **/.php_cs.cache
 /npm-debug.log
 yarn-error.log
+selenium.log
 package-lock.json
 
 # Ignore Test config files
