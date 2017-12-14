@@ -4,11 +4,11 @@
     "description": "Store your Symfony sessions in database through doctrine",
     "require": {
         "php": "^7.1",
-        "symfony/symfony": "^3.3",
+        "symfony/symfony": "3.3.*",
         "doctrine/doctrine-bundle": ">=1.6"
     },
     "require-dev": {
-        "symfony/phpunit-bridge": "^3.3",
+        "symfony/phpunit-bridge": "3.3.*",
         "sonata-project/doctrine-orm-admin-bundle": ">=3.1",
         "blast-project/core-bundle": "self.version",
         "blast-project/tests-bundle": "self.version",
@@ -63,5 +63,8 @@
     "suggest": {
         "blast-project/core-bundle": "Define sonata admins in yml and more"
     },
-    "version": "dev-wip-platform"
+    "version": "dev-wip-platform",
+    "config": {
+        "bin-dir": "bin/"
+    }
 }
