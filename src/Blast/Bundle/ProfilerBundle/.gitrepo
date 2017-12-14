@@ -6,6 +6,7 @@
 [subrepo]
 	remote = git@github.com:blast-project/ProfilerBundle.git
 	branch = wip-platform
-	commit = 
+	commit = 1839b41a7f1da9fae9817f6ae8471a7d30baa846
 	method = merge
 	cmdver = 0.4.0
+	parent = e27c4862f5c1f6a9caf16170fd8064d402acd524
