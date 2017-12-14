@@ -1,8 +1,6 @@
 <?php
 
 /*
- * This file is part of the Blast Project package.
- *
  * Copyright (C) 2015-2017 Libre Informatique
  *
  * This file is licenced under the GNU LGPL v3.
@@ -11,8 +9,6 @@
  */
 
 $header = <<<EOF
-This file is part of the Blast Project package.
-
 Copyright (C) 2015-2017 Libre Informatique
 
 This file is licenced under the GNU LGPL v3.
@@ -35,6 +31,7 @@ $config = PhpCsFixer\Config::create()
         'binary_operator_spaces' => ['align_double_arrow' => true],
         'concat_space'           => ['spacing'=>'one'],
         'yoda_style'             => null,
+        'increment_style'        => ['style' => 'post'],
     ))
     ->setFinder($finder);
 
