@@ -37,8 +37,6 @@ services:
     #########  HOOK SYSTEM ############
     blast_utils.hook.registry:
         class: Blast\Bundle\UtilsBundle\Hook\Component\Registry
-        calls:
-            - [setProfiler,['@blast_core.profiler.collector']]
 
     blast_utils.hooks.abstract_hook:
         abstract: true

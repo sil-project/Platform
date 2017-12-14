@@ -11,7 +11,7 @@
 
 namespace Blast\Bundle\UtilsBundle\Hook\Component;
 
-use Blast\Bundle\CoreBundle\Profiler\Collector;
+use Blast\Bundle\ProfilerBundle\Collector\Collector;
 
 class Registry
 {
@@ -46,10 +46,9 @@ class Registry
             throw new \Exception(sprintf('Your hook « %s » must redefine the attribute « hookName » in order to be attached to a real hook', get_class($hook)));
         }
 
-        $this->profiler->collect('Hook', [
-            'name'  => $hook->getHookName(),
-            'class' => get_class($hook),
-        ]);
+        if ($this->profiler) {
+            $this->profiler->collect('Hook',['name' => $hookName, 'class' => get_class($hook)]);
+        }
 
         $this->hooks[$hook->getHookName()][] = $hook;
     }
