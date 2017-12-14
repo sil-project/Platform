@@ -1,0 +1,38 @@
+{
+    "name": "blast-project/dashboard-bundle",
+    "type": "symfony-bundle",
+    "description": "A Dashboard system that handle blocks on a normalized dashboard",
+    "require": {
+        "php": "^7.1",
+        "symfony/symfony": "^3.3",
+        "sonata-project/block-bundle": "^3.9"
+    },
+    "require-dev": {
+        "symfony/phpunit-bridge": "^3.3",
+        "phpunit/phpunit": "^6.4"
+    },
+    "license": "LGPL-3.0",
+    "keywords": [
+        "blast",
+        "sonata",
+        "symfony",
+        "dashboard"
+    ],
+    "homepage": "https://github.com/blast-project/DashboardBundle",
+    "authors": [
+        {
+            "name": "Vivien FRASCA",
+            "email": "vivien.frasca@libre-informatique.fr"
+        },
+        {
+            "name": "Libre Informatique",
+            "homepage": "http://www.libre-informatique.fr/"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Blast\\Bundle\\DashboardBundle\\": "."
+        }
+    },
+    "version": "dev-wip-platform"
+}
