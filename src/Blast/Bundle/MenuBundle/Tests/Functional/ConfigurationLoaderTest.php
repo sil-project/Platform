@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Blast\bundle\MenuBundle\Tests\Functional;
+namespace Blast\Bundle\MenuBundle\Tests\Functional;
 
 use Blast\Bundle\TestsBundle\Functional\BlastTestCase;
 use Blast\Bundle\MenuBundle\Model\Item;
