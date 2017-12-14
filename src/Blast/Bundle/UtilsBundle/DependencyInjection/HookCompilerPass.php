@@ -25,10 +25,6 @@ class HookCompilerPass implements CompilerPassInterface
 
         $registry = $container->findDefinition('blast_utils.hook.registry');
 
-        if ($container->hasDefinition('blast_profiler.profiler.collector')) {
-            $registry->addMethodCall('setProfiler', [new Reference('blast_profiler.profiler.collector')]);
-        }
-
         $taggedServices = $container->findTaggedServiceIds('blast.hook');
 
         foreach ($taggedServices as $id => $tags) {
