@@ -11,10 +11,10 @@
 
 namespace Blast\Bundle\ProfilerBundle\Collector;
 
+use Sonata\AdminBundle\Mapper\BaseGroupedMapper;
+use Sonata\AdminBundle\Mapper\BaseMapper;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Sonata\AdminBundle\Mapper\BaseMapper;
-use Sonata\AdminBundle\Mapper\BaseGroupedMapper;
 
 class AdminCollector extends AbstractCollector
 {
@@ -111,7 +111,7 @@ class AdminCollector extends AbstractCollector
                 'display' => DataCollection::DESTINATION_PROFILER,
                 'class'   => get_class($hook[0]),
             ]);
-            ++$i;
+            $i++;
         }
 
         $this->addToProfiler('Hooks', 'Hooks', [
