@@ -30,4 +30,13 @@ CREATE INDEX blast_session_session_id_index
   (session_id COLLATE pg_catalog."default");
 EOF
 
-
+psql -U postgres -d blast_session <<EOF
+CREATE SEQUENCE public.blast_session_id_seq
+  INCREMENT 1
+  MINVALUE 1
+  MAXVALUE 9223372036854775807
+  START 80
+  CACHE 1;
+ALTER TABLE public.blast_session_id_seq
+  OWNER TO blast_session_user;
+EOF
