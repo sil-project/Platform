@@ -1,7 +1,6 @@
 <?php
 
 /*
- *
  * Copyright (C) 2015-2017 Libre Informatique
  *
  * This file is licenced under the GNU LGPL v3.
@@ -34,7 +33,9 @@ class AdminCollector extends AbstractCollector
 
         $this->collectBlastAdminData($collectedData);
 
-        $this->collectBlastHookData();
+        if ($this->hookRegistry !== null) {
+            $this->collectBlastHookData();
+        }
     }
 
     private function collectBlastAdminData($collectedData)
