@@ -1,0 +1,88 @@
+csv_mapping:
+    Sil\Bundle\CRMBundle\Entity\City:
+        delete: true
+        filename: france.csv
+        fields:
+            'pays':        country_code
+            'ville':       city
+            'code postal': zip
+              
+    VarietyBundle\Entity\Family:
+        filename: famille.csv
+        fields:
+            'nom':         name
+            'alias':       alias
+            'nom latin':   latin_name
+            'description': description
+
+    VarietyBundle\Entity\Genus:
+        filename: genre.csv
+        fields:
+            'nom':         name
+            'alias':       alias
+            'nom latin':   latin_name
+            'description': description
+            'famille':     family
+        associations:            
+            family:
+              entity: 'VarietyBundle\Entity\Family'
+              target: 'name'
+            
+            
+    VarietyBundle\Entity\Species:
+        filename: espece.csv
+        fields:
+            'nom':                    name
+            'alias':                  alias
+            'nom latin':              latin_name
+            'description':            description
+            'genre':                  genus
+            'sous-espèce de':         parent_species
+            'taux germination légal': legal_germination_rate
+            'PMG':                    tkw
+            'durée de levée':         raise_duration
+            'cycle végétatif':        life_cycle
+            'statut réglementaire':   regulatory_status
+            'taux germination':       legal_germination_rate
+            'durée vie':              seed_lifespan
+            'taux germination AS':    germination_rate
+        generators:
+            Code: variety.code_generator.species
+        associations:             
+            genus:
+              entity: VarietyBundle\Entity\Genus               
+              target: name
+            parent_species:
+              entity: VarietyBundle\Entity\Species                
+              target: name
+            
+            
+    VarietyBundle\Entity\Variety:
+        filename: variete.csv
+        fields:
+            'nom':                    name
+            'code':                   code
+            'alias':                  alias
+            'nom latin':              latin_name
+            'description':            description
+            'espèce':                 species
+            'taux germination légal': legal_germination_rate
+            'taux germination AS':    germination_rate
+            'PMG':                    tkw
+            'durée vie':              seed_lifespan
+            'durée de levée':         raise_duration
+            'maladies transmises':    transmitted_diseases
+            'cycle végétatif':        life_cycle
+            'statut réglementaire':   regulatory_status
+            'inscrit CO':             official
+            'nom CO':                 official_name
+            'date inscription CO':    official_date_in
+            'date radiation CO':      official_date_out
+            'mainteneur':             official_maintainer
+        generators:
+            Code: variety.code_generator.variety
+        associations:            
+            species:
+              entity: VarietyBundle\Entity\Species
+              target: name
+            
