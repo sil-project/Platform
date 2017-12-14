@@ -3,14 +3,14 @@
     "type": "symfony-bundle",
     "description": "This is the basis of a GUI for Libre Informatique Symfony2 projects",
     "require": {
-        "php": ">=7.1",
-        "symfony/symfony": ">=3.2",
+        "php": "^7.1",
+        "symfony/symfony": "^3.3",
         "sonata-project/doctrine-orm-admin-bundle": ">=3.1",
         "blast-project/core-bundle": "self.version",
         "friendsofsymfony/jsrouting-bundle": ">=1.6"
     },
     "require-dev": {
-        "symfony/phpunit-bridge": ">=3.2",
+        "symfony/phpunit-bridge": "^3.3",
         "phpunit/phpunit": "^6.4"
     },
     "license": "GPL-3.0",

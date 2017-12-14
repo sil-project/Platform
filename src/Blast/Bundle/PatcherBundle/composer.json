@@ -1,7 +1,7 @@
 {
-    "name": "blast-project/menu-bundle",
+    "name": "blast-project/patcher-bundle",
     "type": "symfony-bundle",
-    "description": "Manage your sonata admin menu",
+    "description": "Patch Vendor",
     "require": {
         "php": "^7.1",
         "symfony/symfony": "^3.3",
@@ -27,8 +27,7 @@
     "keywords": [
         "symfony",
         "sonata",
-        "blast",
-        "menu"
+        "blast"
     ],
     "homepage": "https://github.com/blast-project/MenuBundle",
     "authors": [
