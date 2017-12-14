@@ -105,12 +105,12 @@ EOT
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        foreach ($this->importClass as $class) {
-            if (class_exists($class)) {
-                $this->beforeImport($class, $output);
-                $this->importData($class, $output);
+        foreach ($this->importClass as $entityClass) {
+            if (class_exists($entityClass)) {
+                $this->beforeImport($entityClass, $output);
+                $this->importData($entityClass, $output);
             } else {
-                $output->writeln(sprintf('%s does not exist', $class));
+                $output->writeln(sprintf('%s does not exist', $entityClass));
             }
         }
     }
@@ -156,9 +156,9 @@ EOT
 
     protected function postDeserialize($entityClass, $object, OutputInterface $output)
     {
-        if (array_key_exists('generators', $this->mapping[$class])) {
-            foreach (keys($this->mapping[$class]['generators']) as $field) {
-                $generator = $this->getContainer()->get($this->mapping[$class]['generators'][$field]);
+        if (array_key_exists('generators', $this->mapping[$entityClass])) {
+            foreach (keys($this->mapping[$entityClass]['generators']) as $field) {
+                $generator = $this->getContainer()->get($this->mapping[$entityClass]['generators'][$field]);
                 $code = $generator->generate($object, $codeList);
                 $object->set[$field]($code);
                 $codeList[] = $code;
