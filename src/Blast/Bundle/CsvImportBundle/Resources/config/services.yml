@@ -10,5 +10,6 @@ services:
     blast_csv_import.normalizer.object:
         class: Blast\Bundle\CsvImportBundle\Normalizer\ObjectNormalizer
         arguments:
+            - '@doctrine.orm.default_entity_manager'
             - '@blast_csv_import.mapping.configuration'
             - '@blast_csv_import.converter.name'

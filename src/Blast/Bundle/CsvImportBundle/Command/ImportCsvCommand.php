@@ -30,50 +30,55 @@ class ImportCsvCommand extends ContainerAwareCommand
      * @var EntityManager
      */
     protected $em;
-
+    
     /**
      * @var string Directory where the CSV files are located
      */
     protected $dir;
-
+    
     /**
      * @var array Mapping configuration of csv datas
      */
     private $mapping;
-
+    
     /**
      * @var ObjectNormalizer
      */
     private $normalizer;
-
+    
     /**
      * @var array
      */
     protected $importClass = [];
 
+    /**
+     * @var array
+     */
+    protected $codeList = [];
+    
     protected function configure()
     {
         $this
-        ->setName('blast:import:csv')
-        ->setDescription('Import data from CSV files into Blast.')
-        ->setDefinition(
-            new InputDefinition([
-            new InputOption(
-                'mapping',
-                'm',
-                InputOption::VALUE_REQUIRED,
-                'The mapping files.',
-                'src/Resources/config/csv_import.yml'
-            ),
-            new InputOption(
-                'dir',
-                'd',
-                InputOption::VALUE_REQUIRED,
-                'The path directory containing the CSV files.',
-                'src/Resources/data'
-            ),
-            ])
-        )
+            ->setName('blast:import:csv')
+            ->setDescription('Import data from CSV files into Blast.')
+            ->setDefinition(
+                new InputDefinition([
+                new InputOption(
+                    'mapping',
+                    'm',
+                    InputOption::VALUE_REQUIRED,
+                    'The mapping files.',
+                    'src/Resources/config/csv_import.yml'
+                ),
+                new InputOption(
+                    'dir',
+                    'd',
+                    InputOption::VALUE_REQUIRED,
+                    'The path directory containing the CSV files.',
+                    'src/Resources/data'
+                ),
+                ])
+            )
 
         ->setHelp(<<<EOT
 The <info>%command.name%</info> command allows user to populate Database with CSV data files.
@@ -85,12 +90,12 @@ EOT
     protected function initialize(InputInterface $input, OutputInterface $output)
     {
         parent::initialize($input, $output);
-
+        
         $this->em = $this->getContainer()->get('doctrine')->getEntityManager();
         $this->dir = $input->getOption('dir');
         $mappingConfig = $this->getContainer()
-               ->get('blast_csv_import.mapping.configuration')
-               ->loadMappingFromFile($input->getOption('mapping'));
+                       ->get('blast_csv_import.mapping.configuration')
+                       ->loadMappingFromFile($input->getOption('mapping'));
         $this->mapping = $mappingConfig->getMapping();
         $this->importClass = $mappingConfig->getImportClass();
         $this->normalizer = $this->getContainer()->get('blast_csv_import.normalizer.object');
@@ -110,7 +115,7 @@ EOT
             }
         }
     }
-
+    
     /**
      * @todo move this to a Csv Import Data service
      */
@@ -120,25 +125,27 @@ EOT
         $csv = $this->getCsvFilePath($entityClass);
         $output->write(' (' . basename($csv) . ')...');
         $data = file_get_contents($csv);
-
+        
         /* @todo: allow import from other format (or not) */
         $serializer = new Serializer([$this->normalizer, new ArrayDenormalizer()], [new CsvEncoder()]);
 
         /* @todo: should not use the . [] and update setAttributeValue from Normalizer */
         $objects = $serializer->deserialize($data, $entityClass . '[]', 'csv');
-
+        
         $output->writeln(sprintf(' <info>%d objects</info>', count($objects)));
 
-        $rc = new \ReflectionClass($entityClass);
-        $method = 'postDeserialize' . $rc->getShortName();
-
+        // $rc = new \ReflectionClass($entityClass);
+        // $method = 'postDeserialize' . $rc->getShortName();
+        
+        $this->codeList = []; // Init table of code
         foreach ($objects as $k => $object) {
-            if (method_exists($this, $method)) {
-                $this->{$method}($object);
-            }
-
+            // if (method_exists($this, $method)) {
+            //    $this->{$method}($object);
+            //}
+            $this->postDeserialize($entityClass, $object, $output);
+            
             $this->em->persist($object);
-
+            
             // Hum Lol
             if ($k % 50 == 0) {
                 $this->em->flush();
@@ -148,6 +155,17 @@ EOT
         $output->writeln('DONE (' . basename($csv) . ')...');
     }
 
+    protected function postDeserialize($entityClass, $object, OutputInterface $output)
+    {
+        if (array_key_exists('generators', $this->mapping[$class])) {
+            foreach (keys($this->mapping[$class]['generators']) as $field) {
+                $generator = $this->getContainer()->get($this->mapping[$class]['generators'][$field]);
+                $code = $generator->generate($object, $codeList);
+                $object->set{$field}($code);
+                $codeList[] = $code;
+            }
+        }
+    }
     /**
      * @param string $entityClass
      */
