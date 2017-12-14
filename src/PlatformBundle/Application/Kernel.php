@@ -164,6 +164,7 @@ class Kernel extends BaseKernel
             $bundles[] = new \Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
             $bundles[] = new \Symfony\Bundle\WebServerBundle\WebServerBundle();
             $bundles[] = new \Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();
+            $bundles[] = new \Blast\Bundle\ProfilerBundle\BlastProfilerBundle();
         }
 
         return $bundles;
