@@ -431,3 +431,10 @@ section.content {
 .skin-blue .table .table {
     margin-bottom: 0;
 }
+
+.skin-blue .sidebar-menu .treeview-menu > li > a > .fa,
+.skin-blue .sidebar-menu .treeview-menu > li > a > .glyphicon,
+.skin-blue .sidebar-menu .treeview-menu > li > a > .ion {
+   text-align: center;
+   margin-right:3px;
+}
