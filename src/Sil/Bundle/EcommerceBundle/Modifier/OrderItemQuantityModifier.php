@@ -1,7 +1,6 @@
 <?php
 
 /*
- *
  * Copyright (C) 2015-2017 Libre Informatique
  *
  * This file is licenced under the GNU LGPL v3.
@@ -54,7 +53,7 @@ class OrderItemQuantityModifier implements OrderItemQuantityModifierInterface
     private function increaseUnitsNumber(OrderItemInterface $orderItem, int $increaseBy): void
     {
         if (!$orderItem->isBulk()) {
-            for ($i = 0; $i < $increaseBy; ++$i) {
+            for ($i = 0; $i < $increaseBy; $i++) {
                 $this->orderItemUnitFactory->createForItem($orderItem);
             }
         } else {
@@ -80,7 +79,7 @@ class OrderItemQuantityModifier implements OrderItemQuantityModifierInterface
             }
         } else {
             if ($totalItemCount = $orderItem->getUnits()->count() > 1) {
-                for ($i = $totalItemCount; $i < 1; ++$i) {
+                for ($i = $totalItemCount; $i < 1; $i++) {
                     $orderItem->removeUnit($orderItem->getUnits()->get($i));
                 }
             }

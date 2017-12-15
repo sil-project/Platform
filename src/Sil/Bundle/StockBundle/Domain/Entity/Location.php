@@ -3,7 +3,6 @@
 declare(strict_types=1);
 
 /*
- *
  * Copyright (C) 2015-2017 Libre Informatique
  *
  * This file is licenced under the GNU LGPL v3.
@@ -128,7 +127,7 @@ class Location
     /**
      * @return Location
      */
-    public function getParent(): ?Location
+    public function getParent(): ?self
     {
         return $this->getTreeParent();
     }
@@ -220,7 +219,7 @@ class Location
     /**
      * @param Location $parent
      */
-    public function setParent(?Location $parent): void
+    public function setParent(?self $parent): void
     {
         $this->setTreeParent($parent);
     }
@@ -230,7 +229,7 @@ class Location
      *
      * @return bool
      */
-    public function hasChild(Location $location): bool
+    public function hasChild(self $location): bool
     {
         return $this->getChildren()->contains($location);
     }
@@ -240,7 +239,7 @@ class Location
      *
      * @throws InvalidArgumentException
      */
-    public function addChild(Location $location): void
+    public function addChild(self $location): void
     {
         if ($this->hasChild($location)) {
             throw new InvalidArgumentException(
@@ -258,7 +257,7 @@ class Location
      *
      * @throws InvalidArgumentException
      */
-    public function removeChild(Location $location): void
+    public function removeChild(self $location): void
     {
         if (!$this->hasChild($location)) {
             throw new InvalidArgumentException(

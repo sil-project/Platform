@@ -1,7 +1,6 @@
 <?php
 
 /*
- *
  * Copyright (C) 2015-2017 Libre Informatique
  *
  * This file is licenced under the GNU LGPL v3.
@@ -74,14 +73,14 @@ interface NodeInterface
      *
      * @return NodeInterface $this Fluent interface
      **/
-    public function setChildNodeOf(NodeInterface $node);
+    public function setChildNodeOf(self $node);
 
     /**
      * @param NodeInterface $node the node to append to the children collection
      *
      * @return NodeInterface $this Fluent interface
      **/
-    public function addChildNode(NodeInterface $node);
+    public function addChildNode(self $node);
 
     /**
      * @return Collection the children collection
@@ -110,7 +109,7 @@ interface NodeInterface
      *
      * @return bool true if this node is a direct child of $node
      **/
-    public function isChildNodeOf(NodeInterface $node);
+    public function isChildNodeOf(self $node);
 
     /**
      * @return int the level of this node, eg: the depth compared to root node

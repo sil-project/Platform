@@ -1,7 +1,6 @@
 <?php
 
 /*
- *
  * Copyright (C) 2015-2017 Libre Informatique
  *
  * This file is licenced under the GNU LGPL v3.
@@ -160,7 +159,7 @@ class EmailStats
             if (!isset($clicks[$uri])) {
                 $clicks[$uri] = 1;
             } else {
-                ++$clicks[$uri];
+                $clicks[$uri]++;
             }
         }
 

@@ -1,7 +1,6 @@
 <?php
 
 /*
- *
  * Copyright (C) 2015-2017 Libre Informatique
  *
  * This file is licenced under the GNU LGPL v3.
@@ -13,7 +12,6 @@ namespace Blast\Bundle\MenuBundle\Tests\Functional;
 
 use Blast\Bundle\TestsBundle\Functional\BlastTestCase;
 use Blast\Bundle\MenuBundle\Model\Item;
-use Symfony\Component\Yaml\Yaml;
 
 class ConfigurationLoaderTest extends BlastTestCase
 {
@@ -37,7 +35,7 @@ class ConfigurationLoaderTest extends BlastTestCase
     {
         $this->data = [];
 
-        for ($i = 4; $i > 0; --$i) {
+        for ($i = 4; $i > 0; $i--) {
             $key = 'item_' . $i;
             $this->data[$key] = [
                 'label' => $key,

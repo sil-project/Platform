@@ -3,7 +3,6 @@
 declare(strict_types=1);
 
 /*
- *
  * Copyright (C) 2015-2017 Libre Informatique
  *
  * This file is licenced under the GNU LGPL v3.
@@ -345,6 +344,7 @@ class Movement implements ProgressStateAwareInterface
 
     /**
      * @deprecated
+     *
      * @return UomQty
      */
     public function getReservedQty(): UomQty

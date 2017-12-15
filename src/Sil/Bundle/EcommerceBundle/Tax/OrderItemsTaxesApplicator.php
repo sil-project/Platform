@@ -1,7 +1,6 @@
 <?php
 
 /*
- *
  * Copyright (C) 2015-2017 Libre Informatique
  *
  * This file is licenced under the GNU LGPL v3.
@@ -96,7 +95,7 @@ class OrderItemsTaxesApplicator implements OrderTaxesApplicatorInterface
                 }
 
                 $this->addAdjustment($unit, $splitTaxes[$i], $taxRate->getLabel(), $taxRate->isIncludedInPrice());
-                ++$i;
+                $i++;
             }
         }
     }

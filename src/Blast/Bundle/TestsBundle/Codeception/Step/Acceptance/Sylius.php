@@ -1,8 +1,6 @@
 <?php
 
 /*
- * This file is part of the Blast Project package.
- *
  * Copyright (C) 2015-2017 Libre Informatique
  *
  * This file is licenced under the GNU LGPL v3.
@@ -42,7 +40,7 @@ class Sylius extends Common
             $number = count($productLinks);
         }
 
-        for ($i = 0; $i < $number; ++$i) {
+        for ($i = 0; $i < $number; $i++) {
             $j = rand(0, count($productLinks) - 1);
             $selectedProductsLinks[] = $productLinks[$j];
             unset($productLinks[$j]);

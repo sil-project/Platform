@@ -3,7 +3,6 @@
 declare(strict_types=1);
 
 /*
- *
  * Copyright (C) 2015-2017 Libre Informatique
  *
  * This file is licenced under the GNU LGPL v3.
@@ -96,7 +95,7 @@ class UomQty
      *
      * @return UomQty
      */
-    public function increasedBy(UomQty $qty)
+    public function increasedBy(self $qty)
     {
         $convertedValue = $qty->convertValueTo($this->uom);
         $newValue = $this->value + $convertedValue;
@@ -109,7 +108,7 @@ class UomQty
      *
      * @return UomQty
      */
-    public function decreasedBy(UomQty $qty)
+    public function decreasedBy(self $qty)
     {
         $convertedValue = $qty->convertValueTo($this->uom);
 
@@ -160,7 +159,7 @@ class UomQty
      *
      * @return bool
      */
-    public function isEqualTo(UomQty $qty)
+    public function isEqualTo(self $qty)
     {
         $convertedValue = $qty->convertValueTo($this->uom);
 
@@ -172,7 +171,7 @@ class UomQty
      *
      * @return bool
      */
-    public function isGreaterThan(UomQty $qty)
+    public function isGreaterThan(self $qty)
     {
         $convertedValue = $qty->convertValueTo($this->uom);
 
@@ -184,7 +183,7 @@ class UomQty
      *
      * @return bool
      */
-    public function isGreaterOrEqualTo(UomQty $qty)
+    public function isGreaterOrEqualTo(self $qty)
     {
         $convertedValue = $qty->convertValueTo($this->uom);
 
@@ -196,7 +195,7 @@ class UomQty
      *
      * @return bool
      */
-    public function isSmallerThan(UomQty $qty)
+    public function isSmallerThan(self $qty)
     {
         $convertedValue = $qty->convertValueTo($this->uom);
 
@@ -208,7 +207,7 @@ class UomQty
      *
      * @return bool
      */
-    public function isSmallerOrEqualTo(UomQty $qty)
+    public function isSmallerOrEqualTo(self $qty)
     {
         $convertedValue = $qty->convertValueTo($this->uom);
 

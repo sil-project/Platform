@@ -1,7 +1,6 @@
 <?php
 
 /*
- *
  * Copyright (C) 2015-2017 Libre Informatique
  *
  * This file is licenced under the GNU LGPL v3.
@@ -78,6 +77,7 @@ EOT
 
         if (!$user) {
             $output->writeln('<error>User with this email does not exists</error>');
+
             return 0;
         }
 

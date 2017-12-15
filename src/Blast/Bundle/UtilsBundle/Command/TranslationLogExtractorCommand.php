@@ -1,7 +1,6 @@
 <?php
 
 /*
- *
  * Copyright (C) 2015-2017 Libre Informatique
  *
  * This file is licenced under the GNU LGPL v3.
@@ -170,7 +169,7 @@ class TranslationLogExtractorCommand extends ContainerAwareCommand
         $count = 0;
         foreach ($this->translations as $sign => $translation) {
             $io->text(json_encode($translation, JSON_FORCE_OBJECT) . ($count < $totalTranslations - 1 ? ',' : ''));
-            ++$count;
+            $count++;
         }
         $io->text(']');
     }

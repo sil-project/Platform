@@ -1,7 +1,6 @@
 <?php
 
 /*
- *
  * Copyright (C) 2015-2017 Libre Informatique
  *
  * This file is licenced under the GNU LGPL v3.
@@ -85,7 +84,7 @@ class TrackingController extends Controller
         if ($receipts->count() > 0) {
             foreach ($receipts->getSnapshot() as $receipt) {
                 if ($receipt->getAddress() == $recipient) {
-                    ++$count;
+                    $count++;
                 }
             }
         }
@@ -116,7 +115,7 @@ class TrackingController extends Controller
         if ($links->count() > 0) {
             foreach ($links->getSnapshot() as $link) {
                 if ($link->getAddress() == $recipient && $link->getDestination() == $destination) {
-                    ++$count;
+                    $count++;
                 }
             }
         }

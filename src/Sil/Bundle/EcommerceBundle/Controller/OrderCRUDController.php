@@ -1,7 +1,6 @@
 <?php
 
 /*
- *
  * Copyright (C) 2015-2017 Libre Informatique
  *
  * This file is licenced under the GNU LGPL v3.
@@ -204,7 +203,7 @@ class OrderCRUDController extends CRUDController
             $stateMachine = $stateMachineFactory->get($selectedModel, OrderTransitions::GRAPH);
             $stateMachine->apply($action);
             $this->container->get('sylius.manager.order')->flush();
-            ++$successes;
+            $successes++;
             // } catch (\Exception $e) {
             //     $this->addFlash('sonata_flash_error', $e->getMessage());
             // }

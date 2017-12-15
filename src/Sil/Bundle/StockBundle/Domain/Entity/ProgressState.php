@@ -3,7 +3,6 @@
 declare(strict_types=1);
 
 /*
- *
  * Copyright (C) 2015-2017 Libre Informatique
  *
  * This file is licenced under the GNU LGPL v3.
@@ -33,7 +32,7 @@ class ProgressState
     /**
      * @return ProgressState
      */
-    public static function draft(): ProgressState
+    public static function draft(): self
     {
         return new self(ProgressStateMachine::DRAFT);
     }
@@ -41,7 +40,7 @@ class ProgressState
     /**
      * @return ProgressState
      */
-    public static function confirmed(): ProgressState
+    public static function confirmed(): self
     {
         return new self(ProgressStateMachine::CONFIRMED);
     }
@@ -49,7 +48,7 @@ class ProgressState
     /**
      * @return ProgressState
      */
-    public static function partiallyAvailable(): ProgressState
+    public static function partiallyAvailable(): self
     {
         return new self(ProgressStateMachine::PARTIALLY_AVAILABLE);
     }
@@ -57,7 +56,7 @@ class ProgressState
     /**
      * @return ProgressState
      */
-    public static function available(): ProgressState
+    public static function available(): self
     {
         return new self(ProgressStateMachine::AVAILABLE);
     }
@@ -65,7 +64,7 @@ class ProgressState
     /**
      * @return ProgressState
      */
-    public static function done(): ProgressState
+    public static function done(): self
     {
         return new self(ProgressStateMachine::DONE);
     }
@@ -73,7 +72,7 @@ class ProgressState
     /**
      * @return ProgressState
      */
-    public static function cancel(): ProgressState
+    public static function cancel(): self
     {
         return new self(ProgressStateMachine::CANCEL);
     }
@@ -155,7 +154,7 @@ class ProgressState
      *
      * @throws DomainException
      */
-    public function toDraft(): ProgressState
+    public function toDraft(): self
     {
         $this->stateMachine->apply('back_to_draft');
 
@@ -167,7 +166,7 @@ class ProgressState
      *
      * @throws DomainException
      */
-    public function toConfirmed(): ProgressState
+    public function toConfirmed(): self
     {
         $this->stateMachine->apply('confirm');
 
@@ -179,7 +178,7 @@ class ProgressState
      *
      * @throws DomainException
      */
-    public function toPartiallyAvailable(): ProgressState
+    public function toPartiallyAvailable(): self
     {
         $this->stateMachine->apply('partially_available');
 
@@ -191,7 +190,7 @@ class ProgressState
      *
      * @throws DomainException
      */
-    public function toAvailable(): ProgressState
+    public function toAvailable(): self
     {
         $this->stateMachine->apply('available');
 
@@ -203,7 +202,7 @@ class ProgressState
      *
      * @throws DomainException
      */
-    public function toDone(): ProgressState
+    public function toDone(): self
     {
         $this->stateMachine->apply('done');
 
@@ -215,7 +214,7 @@ class ProgressState
      *
      * @throws DomainException
      */
-    public function toCancel(): ProgressState
+    public function toCancel(): self
     {
         $this->stateMachine->apply('cancel');
 

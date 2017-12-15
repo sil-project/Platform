@@ -1,7 +1,6 @@
 <?php
 
 /*
- *
  * Copyright (C) 2015-2017 Libre Informatique
  *
  * This file is licenced under the GNU LGPL v3.
@@ -45,7 +44,7 @@ class RemoveOrphanFilesCommand extends ContainerAwareCommand
         $orphans = $manager->getRepository(FileInterface::class)->findBy(['owned' => false]);
 
         foreach ($orphans as $file) {
-            ++$count;
+            $count++;
             $manager->remove($file);
         }
 

@@ -1,7 +1,6 @@
 <?php
 
 /*
- *
  * Copyright (C) 2015-2017 Libre Informatique
  *
  * This file is licenced under the GNU LGPL v3.
@@ -10,8 +9,6 @@
  */
 
 namespace Blast\Bundle\UtilsBundle\Hook\Component;
-
-use Blast\Bundle\ProfilerBundle\Collector\Collector;
 
 class Registry
 {

@@ -1,7 +1,6 @@
 <?php
 
 /*
- *
  * Copyright (C) 2015-2017 Libre Informatique
  *
  * This file is licenced under the GNU LGPL v3.
@@ -113,7 +112,7 @@ class ItemTest extends TestCase
         $childName = 'test_child_';
         $childNumber = 10;
 
-        for ($i = 0; $i < $childNumber; ++$i) {
+        for ($i = 0; $i < $childNumber; $i++) {
             $child = new Item($childName . $i);
             $this->item->addChild($child);
         }

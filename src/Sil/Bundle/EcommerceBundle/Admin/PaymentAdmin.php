@@ -1,7 +1,6 @@
 <?php
 
 /*
- *
  * Copyright (C) 2015-2017 Libre Informatique
  *
  * This file is licenced under the GNU LGPL v3.
@@ -85,15 +84,15 @@ class PaymentAdmin extends SyliusGenericAdmin
     public function getExportFields()
     {
         return [
-            'order.number'                                              => 'order.number',
+            'order.number'                                                        => 'order.number',
             $this->trans('sil.ecommerce.dashboard.label.invoice_number')          => 'order.getLastDebitInvoice.number',
-            'order.customer'                                            => 'order.customer',
-            'order.channel'                                             => 'order.channel',
-            'method'                                                    => 'method',
-            'order.paymentState'                                        => 'order.paymentState',
-            'amount'                                                    => 'amount',
-            'createdAt'                                                 => 'createdAt',
-            'updatedAt'                                                 => 'updatedAt',
+            'order.customer'                                                      => 'order.customer',
+            'order.channel'                                                       => 'order.channel',
+            'method'                                                              => 'method',
+            'order.paymentState'                                                  => 'order.paymentState',
+            'amount'                                                              => 'amount',
+            'createdAt'                                                           => 'createdAt',
+            'updatedAt'                                                           => 'updatedAt',
         ];
     }
 }
