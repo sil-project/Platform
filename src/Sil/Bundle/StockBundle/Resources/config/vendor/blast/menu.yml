@@ -37,10 +37,10 @@ blast_menu:
 
                 sil.stock.menu_label.uom_types:
                     icon: wrench
-                    order: 30
+                    order: 40
                     route: admin_stock_uomtype_list
 
                 sil.stock.menu_label.uoms:
                     icon: braille
-                    order: 40
+                    order: 30
                     route: admin_stock_uom_list

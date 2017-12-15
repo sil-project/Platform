@@ -10,7 +10,7 @@ sil:
             movements: Mouvements de stock
             warehouses: Entrepôts
             locations: Emplacements
-            uom_types: Catégories d'unité de mesure
+            uom_types: Catégories d'unité
             uoms: Unités de mesure
             operation_types: Types d'opération
             location_types: Types d'emplacement
