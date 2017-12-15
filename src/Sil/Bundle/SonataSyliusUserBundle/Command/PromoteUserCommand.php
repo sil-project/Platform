@@ -76,13 +76,12 @@ EOT
         /** @var AdminUserInterface $user */
         $user = $userRepository->findOneByEmail($email);
 
-        if ($input->getOption('no-interaction')) {
-            if (!$user) {
-                return 0;
-            }
-        } else {
-            $user->addRole($role);
+        if (!$user) {
+            $output->writeln('<error>User with this email does not exists</error>');
+            return 0;
         }
+
+        $user->addRole($role);
 
         $userManager->persist($user);
         $userManager->flush();

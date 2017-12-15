@@ -2,6 +2,7 @@
 
 <div class="thumbnail">
     {% if app.user %}
+    {{ dump(app.user) }}
     <h4>{{ app.user.username }}</h4>
     <ul class="listing-role">
         {% for role in app.user.roles if role != 'ROLE_USER' and role != 'ROLE_ALLOWED_TO_SWITCH' %}
