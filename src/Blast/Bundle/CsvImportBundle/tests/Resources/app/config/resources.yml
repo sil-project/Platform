@@ -1,3 +1,0 @@
-#        my_filesystem:
-#            type: filesystem
-#            base_dir: %kernel.root_dir%/../filesystem
