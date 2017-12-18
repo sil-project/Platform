@@ -61,7 +61,8 @@ class MappingConfiguration
     public function getMapping(): array
     {
         if ($this->mapping === null) {
-            throw new \Exception('Invalid Null Mapping Config');
+            //    throw new \Exception('Invalid Null Mapping Config');
+            $this->mapping = [];
         }
 
         return $this->mapping;
