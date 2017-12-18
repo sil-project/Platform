@@ -7,7 +7,6 @@ mkdir --parents "${HOME}/bin"
 echo "memory_limit=-1" >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
 
 composer install --no-interaction --prefer-dist
-composer require --no-interaction --dev phpunit/phpunit 
 #composer update --prefer-dist --no-interaction --prefer-stable
 
 
