@@ -85,6 +85,7 @@ class BlastTestCase extends KernelTestCase
         return $this->launchCommand([
             'command'     => 'cache:clear',
             '--no-warmup' => true,
+            '--env'       => 'test',
         ]);
     }
 
@@ -94,6 +95,7 @@ class BlastTestCase extends KernelTestCase
             'command'     => 'doctrine:database:drop',
             '--if-exists' => true,
             '--force'     => true,
+            '--env'       => 'test',
         ]);
     }
 
@@ -102,6 +104,7 @@ class BlastTestCase extends KernelTestCase
         return $this->launchCommand([
             'command'         => 'doctrine:database:create',
             '--if-not-exists' => true,
+            '--env'           => 'test',
           ]);
     }
 
@@ -115,15 +118,17 @@ class BlastTestCase extends KernelTestCase
     protected function validateSchema()
     {
         return $this->launchCommand([
-            'command' => 'doctrine:schema:validate',
+            'command'     => 'doctrine:schema:validate',
+            '--env'       => 'test',
         ]);
     }
 
     protected function updateSchema()
     {
         return $this->launchCommand([
-            'command' => 'doctrine:schema:update',
-            '--force' => true,
+            'command'     => 'doctrine:schema:update',
+            '--force'     => true,
+            '--env'       => 'test',
         ]);
     }
 }
