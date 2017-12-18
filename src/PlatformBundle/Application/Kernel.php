@@ -165,6 +165,10 @@ class Kernel extends BaseKernel
             $bundles[] = new \Symfony\Bundle\WebServerBundle\WebServerBundle();
             $bundles[] = new \Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();
             $bundles[] = new \Blast\Bundle\ProfilerBundle\BlastProfilerBundle();
+
+            if ($this->getEnvironment() === 'test') {
+                $bundles[] = new \Blast\Bundle\TestsBundle\BlastTestsBundle();
+            }
         }
 
         return $bundles;
