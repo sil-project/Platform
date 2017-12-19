@@ -349,14 +349,6 @@ services:
         tags:
             - { name: kernel.event_listener, event: sylius.order_item.pre_add, method: onOrderItemAddToCart }
 
-    sil_ecommerce.listener.payement:
-        class: Sil\Bundle\EcommerceBundle\EventListener\PaymentMappingListener
-        calls:
-            - [setLogger, ['@logger']]
-            - [setClassAnalyser, [Blast\Bundle\CoreBundle\Tools\Reflection\ClassAnalyzer]]
-        tags:
-            - { name: doctrine.event_subscriber, connection: default }
-
     sil_ecommerce.form.type.customer_guest_extension:
         class: Sil\Bundle\EcommerceBundle\Form\Type\CustomerGuestTypeExtension
         arguments:
