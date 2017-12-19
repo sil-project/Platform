@@ -71,7 +71,7 @@ class ObjectNormalizer extends BaseObjectNormalizer
         if (array_key_exists('associations', $this->mappingConf[$class])) {
             if (array_key_exists($attribute, $this->mappingConf[$class]['associations'])) {
                 $associationClass = $this->mappingConf[$class]['associations'][$attribute]['entity'];
-                $field = $this->mappingConf[$class]['associations'][$attribute]['field'];
+                $field = $this->mappingConf[$class]['associations'][$attribute]['target'];
                 $value = $this->fetchAssociation($associationClass, $field, $value);
             }
         }
