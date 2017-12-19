@@ -23,17 +23,6 @@ class AppKernel extends Kernel
             // new Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             // new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
-
-            // Sonata
-            new Sonata\CoreBundle\SonataCoreBundle(),
-            new Sonata\BlockBundle\SonataBlockBundle(),
-            new Knp\Bundle\MenuBundle\KnpMenuBundle(),
-            new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
-            new Sonata\AdminBundle\SonataAdminBundle(),
-            // new Sonata\IntlBundle\SonataIntlBundle(),
-
-            // Blast
-            //new Blast\Bundle\CoreBundle\BlastCoreBundle(),
             new Blast\Bundle\DoctrineSessionBundle\BlastDoctrineSessionBundle(),
         ];
 

@@ -25,15 +25,3 @@ framework:
     php_errors:
         log: true
 
-        # Twig Configuration
-twig:
-    debug: '%kernel.debug%'
-    strict_variables: '%kernel.debug%'
-
-# Sonata
-sonata_block:
-  default_contexts: [cms]
-  blocks:
-    # enable the SonataAdminBundle block
-    sonata.admin.block.admin_list:
-      contexts:   [admin]
