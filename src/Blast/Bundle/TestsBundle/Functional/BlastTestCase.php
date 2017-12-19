@@ -32,6 +32,13 @@ class BlastTestCase extends KernelTestCase
         $this->container = self::$kernel->getContainer();
     }
 
+    protected function outputVar($var, $msg = 'Var')
+    {
+        fwrite(STDERR, print_r($this->getName() . ' - ' . $msg . ': ', true));
+        fwrite(STDERR, print_r($var, true));
+        fwrite(STDERR, print_r("\n", true));
+    }
+
     /** Service Test **/
     protected function isServicesAreInitializable($srvname)
     {
@@ -43,6 +50,7 @@ class BlastTestCase extends KernelTestCase
         );
 
         foreach ($serviceIds as $serviceId) {
+            $this->outputVar($serviceId, 'Try to Get');
             $this->assertNotNull($this->container->get($serviceId));
         }
     }
