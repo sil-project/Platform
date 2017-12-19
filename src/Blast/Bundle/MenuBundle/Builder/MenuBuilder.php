@@ -90,8 +90,10 @@ class MenuBuilder
         if (count($item->getRoles()) > 0) {
             $item->setDisplay(false);
             foreach ($item->getRoles() as $role) {
-                if ($this->authorizationChecker->isGranted($role, $this->tokenStorage->getToken()->getUser())) {
-                    $item->setDisplay(true);
+                if ($this->tokenStorage->getToken()) {
+                    if ($this->authorizationChecker->isGranted($role, $this->tokenStorage->getToken()->getUser())) {
+                        $item->setDisplay(true);
+                    }
                 }
             }
         }
