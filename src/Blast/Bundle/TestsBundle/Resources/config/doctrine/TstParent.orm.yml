@@ -1,0 +1,43 @@
+Blast\Bundle\TestsBundle\Entity\TstParent:
+    type: entity
+    table: test_parent_table
+    repositoryClass: Blast\Bundle\TestsBundle\Repository\TstParentRepository
+    
+    fields:
+        name:
+            type:     string(255)
+            nullable: true
+        code:
+            type:     string(15)
+            nullable: true
+            
+    manyToOne:
+        second:
+            targetEntity: Blast\Bundle\TestsBundle\Entity\TstSecond
+            inversedBy: parent
+            joinColumn:
+                name: second_id
+            cascade: [ persist ]
+        parent_parent:
+            targetEntity: Blast\Bundle\TestsBundle\Entity\TstParent
+            inversedBy: subparent
+            joinColumn:
+                name: parent_parent_id
+            cascade: [ persist ]
+
+    oneToMany:
+        final:
+            targetEntity: Blast\Bundle\TestsBundle\Entity\TstFinal
+            mappedBy: parent
+            cascade: [ persist ]
+        subparent:
+            targetEntity: Blast\Bundle\TestsBundle\Entity\TstParent
+            mappedBy: parent_parent
+            cascade: [ persist ]
+
+    uniqueConstraints:
+        test_parent_name_idx:
+            columns: [ name ]
+        test_parent_code_idx:
+            columns: [ code ]
+

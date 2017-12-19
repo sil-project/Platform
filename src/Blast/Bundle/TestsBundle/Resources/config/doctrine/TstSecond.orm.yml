@@ -1,0 +1,28 @@
+Blast\Bundle\TestsBundle\Entity\TstSecond:
+    type: entity
+    table: test_second_table
+    repositoryClass: Blast\Bundle\TestsBundle\Repository\TstSecondRepository
+
+    fields:
+        name:
+            type:     string(255)
+            nullable: true
+            
+    manyToOne:
+        simple:
+            targetEntity: Blast\Bundle\TestsBundle\Entity\TstSimple
+            inversedBy: second
+            joinColumn:
+                name: simple_id
+            cascade: [ persist ]
+
+    oneToMany:
+        parent:
+            targetEntity: Blast\Bundle\TestsBundle\Entity\TstParent
+            mappedBy: second
+            cascade: [ persist ]
+
+    uniqueConstraints:
+        test_second_name_idx:
+            columns: [ name ]
+
