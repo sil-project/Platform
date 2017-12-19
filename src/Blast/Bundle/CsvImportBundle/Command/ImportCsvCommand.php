@@ -146,7 +146,7 @@ EOT
             $this->em->persist($object);
 
             // Hum Lol
-            if ($k % 50 == 0) {
+            if ($k % 1000 == 0) {
                 $this->em->flush();
             }
         }
