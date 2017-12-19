@@ -128,12 +128,13 @@ services:
             - [setEntityManager, ['@doctrine.orm.entity_manager']]
         tags:
             - { name: form.type, alias: blast_treeable }
-    blast_base_entities.form.type.treeablechoice:
-        class: Blast\Bundle\BaseEntitiesBundle\Form\Type\TreeableChoiceType
-        calls:
-            - [setEntityManager, ['@doctrine.orm.entity_manager']]
-        tags:
-            - { name: form.type, alias: blast_treeablechoice }
+# Does not exists : Blast\Bundle\BaseEntitiesBundle\Form\Type\TreeableChoiceType
+#    blast_base_entities.form.type.treeablechoice:
+#        class: Blast\Bundle\BaseEntitiesBundle\Form\Type\TreeableChoiceType
+#        calls:
+#            - [setEntityManager, ['@doctrine.orm.entity_manager']]
+#        tags:
+#            - { name: form.type, alias: blast_treeablechoice }
 
     blast_base_entities.form.type.nested_treeable:
         class: Blast\Bundle\BaseEntitiesBundle\Form\Type\NestedTreeableType
