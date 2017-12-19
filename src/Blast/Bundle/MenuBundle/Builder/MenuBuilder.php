@@ -90,6 +90,7 @@ class MenuBuilder
         if (count($item->getRoles()) > 0) {
             $item->setDisplay(false);
             foreach ($item->getRoles() as $role) {
+                /* @todo: find a cleaner way to avoid null getToken and getUser Execption */
                 if ($this->tokenStorage->getToken()) {
                     if ($this->authorizationChecker->isGranted($role, $this->tokenStorage->getToken()->getUser())) {
                         $item->setDisplay(true);
