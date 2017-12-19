@@ -120,9 +120,11 @@ EOT
      */
     protected function importData($entityClass, OutputInterface $output)
     {
+        $batchSize = 1000;
         $output->write("Importing <info>$entityClass</info>");
         $csv = $this->getCsvFilePath($entityClass);
         $output->write(' (' . basename($csv) . ')...');
+        /** @todo: use $batchSize to load file part by part */
         $data = file_get_contents($csv);
 
         /* @todo: allow import from other format (or not) */
@@ -146,11 +148,14 @@ EOT
             $this->em->persist($object);
 
             // Hum Lol
-            if ($k % 1000 == 0) {
+            if ($k % $batchSize == 0) {
                 $this->em->flush();
+                $this->em->clear();
+                // http://docs.doctrine-project.org/projects/doctrine-orm/en/latest/reference/batch-processing.html
             }
         }
         $this->em->flush();
+        $this->em->clear();
         $output->writeln('DONE (' . basename($csv) . ')...');
     }
 
