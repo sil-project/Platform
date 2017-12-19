@@ -14,13 +14,13 @@ Blast\Bundle\TestsBundle\Entity\TstSecond:
             inversedBy: second
             joinColumn:
                 name: simple_id
-            cascade: [ persist ]
+            cascade: [ persist, remove ]
 
     oneToMany:
         parent:
             targetEntity: Blast\Bundle\TestsBundle\Entity\TstParent
             mappedBy: second
-            cascade: [ persist ]
+            cascade: [ persist, remove ]
 
     uniqueConstraints:
         test_second_name_idx:

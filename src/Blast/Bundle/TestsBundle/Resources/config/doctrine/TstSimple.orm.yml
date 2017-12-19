@@ -12,7 +12,7 @@ Blast\Bundle\TestsBundle\Entity\TstSimple:
         second:
             targetEntity: Blast\Bundle\TestsBundle\Entity\TstSecond
             mappedBy: simple
-            cascade: [ persist ]
+            cascade: [ persist, remove ]
 
     uniqueConstraints:
         test_simple_name_idx:

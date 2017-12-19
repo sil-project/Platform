@@ -26,7 +26,7 @@ Blast\Bundle\TestsBundle\Entity\TstFinal:
             inversedBy: final
             joinColumn:
                 name: parent_id
-            cascade: [ persist ]
+            cascade: [ persist, remove ]
 
     uniqueConstraints:
         test_finale_name_idx:
