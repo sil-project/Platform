@@ -10,9 +10,10 @@
 
 namespace Sil\Bundle\EcommerceBundle\Entity;
 
+use Blast\Component\Resource\Model\ResourceInterface;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\BaseEntity;
 
-class SalesJournalItem
+class SalesJournalItem implements ResourceInterface
 {
     use BaseEntity;
 

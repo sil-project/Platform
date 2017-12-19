@@ -1,5 +1,5 @@
 Sil\Bundle\EcommerceBundle\Entity\ProductImage:
-    type: entity
+    type: mappedSuperclass
     table: sil_ecommerce_product_image
     manyToOne:
         realFile:
@@ -11,7 +11,7 @@ Sil\Bundle\EcommerceBundle\Entity\ProductImage:
             fetch: EAGER
     manyToMany:
         productVariants:
-            targetEntity: Sil\Bundle\EcommerceBundle\Entity\ProductVariantInterface
+            targetEntity: Sylius\Component\Product\Model\ProductVariantInterface
             orphanRemoval: true
             inversedBy: images
             joinTable:

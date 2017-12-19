@@ -12,10 +12,12 @@ declare(strict_types=1);
 
 namespace Sil\Bundle\StockBundle\Domain\Entity;
 
+use Blast\Component\Resource\Model\ResourceInterface;
+
 /**
  * @author Glenn Cavarlé <glenn.cavarle@libre-informatique.fr>
  */
-interface BatchInterface
+interface BatchInterface extends ResourceInterface
 {
     /**
      * @return string

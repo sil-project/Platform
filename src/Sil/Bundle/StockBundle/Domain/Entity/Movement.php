@@ -14,17 +14,18 @@ namespace Sil\Bundle\StockBundle\Domain\Entity;
 
 use DateTimeInterface;
 use DateTime;
+use DomainException;
+use Blast\Component\Resource\Model\ResourceInterface;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Guidable;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Timestampable;
 use Sil\Component\Uom\Model\UomQty;
-use DomainException;
 
 /**
  * @author Glenn Cavarlé <glenn.cavarle@libre-informatique.fr>
  */
-class Movement implements ProgressStateAwareInterface
+class Movement implements ProgressStateAwareInterface, ResourceInterface
 {
     use Guidable,
         Timestampable,

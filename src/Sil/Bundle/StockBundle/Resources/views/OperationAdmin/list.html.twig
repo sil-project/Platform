@@ -6,7 +6,7 @@
             <li>
                 <a class="sonata-action-element" href="{{admin.generateUrl('create_by_type',{'type':item.value}) }}">
                     <i class="fa fa-plus-circle"></i>
-                    {{('sil.stock.operation_type.'~item.value)|trans}}
+                    {{('sil.stock.operation_type_enum.'~item.value)|trans}}
                 </a>
             </li>
         {% endfor %}

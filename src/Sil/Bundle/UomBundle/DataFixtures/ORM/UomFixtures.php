@@ -72,12 +72,12 @@ class UomFixtures extends Fixture implements ContainerAwareInterface
 
     public function getUomRepository()
     {
-        return $this->container->get('sil.uom.repository');
+        return $this->container->get('sil.repository.uom');
     }
 
     public function getUomTypeRepository()
     {
-        return $this->container->get('sil.uom_type.repository');
+        return $this->container->get('sil.repository.uom_type');
     }
 
     public function setContainer(ContainerInterface $container = null)

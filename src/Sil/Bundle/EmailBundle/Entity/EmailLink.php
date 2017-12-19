@@ -10,12 +10,13 @@
 
 namespace Sil\Bundle\EmailBundle\Entity;
 
+use Blast\Component\Resource\Model\ResourceInterface;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\BaseEntity;
 
 /**
  * EmailLink.
  */
-class EmailLink
+class EmailLink implements ResourceInterface
 {
     use BaseEntity;
 

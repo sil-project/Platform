@@ -1,24 +1,24 @@
 {% block field %}
 
     {% set colors = {
-        'customer': 'gray', 
+        'customer': 'gray',
         'internal': 'maroon',
-        'virtual': 'black', 
-        'scrap': 'orange', 
+        'virtual': 'black',
+        'scrap': 'orange',
         'supplier': 'blue'
     } %}
 
     {% set icons = {
-        'customer': 'user', 
-        'internal': 'archive', 
-        'scrap': 'trash', 
-        'virtual': 'cube', 
+        'customer': 'user',
+        'internal': 'archive',
+        'scrap': 'trash',
+        'virtual': 'cube',
         'supplier': 'industry'
     } %}
     {% set type = value.value %}
     <span class="label bg-{{ colors[type]|default('black')  }}">
         <i class="fa fa-{{ icons[type]|default('question') }}"></i>
-        {{ ('sil.stock.location_type.' ~ type)|trans }}
+        {{ ('sil.stock.location_type_enum.' ~ type)|trans }}
     </span>
 
 {% endblock %}

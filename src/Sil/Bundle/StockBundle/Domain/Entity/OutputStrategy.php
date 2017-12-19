@@ -13,11 +13,12 @@ declare(strict_types=1);
 namespace Sil\Bundle\StockBundle\Domain\Entity;
 
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Guidable;
+use Blast\Component\Resource\Model\ResourceInterface;
 
 /**
  * @author Glenn Cavarlé <glenn.cavarle@libre-informatique.fr>
  */
-class OutputStrategy
+class OutputStrategy implements ResourceInterface
 {
     use Guidable;
 

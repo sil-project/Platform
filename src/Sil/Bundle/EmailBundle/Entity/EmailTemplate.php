@@ -10,6 +10,7 @@
 
 namespace Sil\Bundle\EmailBundle\Entity;
 
+use Blast\Component\Resource\Model\ResourceInterface;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\BaseEntity;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Loggable;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Searchable;
@@ -18,7 +19,7 @@ use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Timestampable;
 /**
  * EmailTemplate.
  */
-class EmailTemplate
+class EmailTemplate implements ResourceInterface
 {
     use BaseEntity,
         Searchable,

@@ -1,0 +1,2 @@
+imports:
+    - { resource: "@SilUomBundle/Resources/config/vendor/blast/resource.yml" }

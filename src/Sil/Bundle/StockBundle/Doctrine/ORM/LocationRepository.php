@@ -11,7 +11,7 @@
 namespace Sil\Bundle\StockBundle\Doctrine\ORM;
 
 use Sil\Bundle\StockBundle\Domain\Repository\LocationRepositoryInterface;
-use Blast\Bundle\ResourceBundle\Doctrine\ORM\Repository\ResourceRepository;
+use Blast\Bundle\ResourceBundle\Doctrine\ORM\Repository\NestedTreeResourceRepository;
 use Sil\Bundle\StockBundle\Domain\Entity\Location;
 use Sil\Bundle\StockBundle\Domain\Entity\LocationType;
 use Sil\Bundle\StockBundle\Domain\Entity\StockItemInterface;
@@ -19,7 +19,7 @@ use Sil\Bundle\StockBundle\Domain\Entity\StockItemInterface;
 /**
  * @author glenn
  */
-class LocationRepository extends ResourceRepository implements LocationRepositoryInterface
+class LocationRepository extends NestedTreeResourceRepository implements LocationRepositoryInterface
 {
     public function createQueryBuilder($alias, $indexBy = null)
     {

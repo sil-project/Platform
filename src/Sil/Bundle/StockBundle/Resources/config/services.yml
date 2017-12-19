@@ -4,82 +4,29 @@ imports:
 
 services:
 
-    sil.stock.code_generator.movement:
+    sil.code_generator.stock_movement:
         class: Sil\Bundle\StockBundle\Domain\Generator\MovementCodeGenerator
 
-    sil.stock.code_generator.operation:
+    sil.code_generator.stock_operation:
         class: Sil\Bundle\StockBundle\Domain\Generator\OperationCodeGenerator
 
-    sil.stock.code_generator.stock_unit:
+    sil.code_generator.stock_unit:
         class: Sil\Bundle\StockBundle\Domain\Generator\StockUnitCodeGenerator
 
-    sil.stock.factory.movement:
+    sil.factory.stock_movement:
         class: Sil\Bundle\StockBundle\Domain\Factory\MovementFactory
         arguments:
-            - '@sil.stock.code_generator.movement'
+            - '@sil.code_generator.stock_movement'
 
-    sil.stock.factory.operation:
+    sil.factory.stock_operation:
         class: Sil\Bundle\StockBundle\Domain\Factory\OperationFactory
         arguments:
-            - '@sil.stock.code_generator.operation'
+            - '@sil.code_generator.stock_operation'
 
-    sil.stock.factory.stock_unit:
+    sil.factory.stock_unit:
         class: Sil\Bundle\StockBundle\Domain\Factory\StockUnitFactory
         arguments:
-            - '@sil.stock.code_generator.stock_unit'
-
-    ###################
-    # ORM REPOSITORIES
-    ###################
-
-    sil.stock.repository.operation:
-        class:  Sil\Bundle\StockBundle\Doctrine\ORM\OperationRepository
-        factory: ['@doctrine.orm.default_entity_manager', getRepository]
-        arguments:
-            - Sil\Bundle\StockBundle\Domain\Entity\Operation
-
-
-    sil.stock.repository.movement:
-        class:  Sil\Bundle\StockBundle\Doctrine\ORM\MovementRepository
-        factory: ['@doctrine.orm.default_entity_manager', getRepository]
-        arguments:
-            - Sil\Bundle\StockBundle\Domain\Entity\Movement
-
-    sil.stock.repository.stock_unit:
-        class:  Sil\Bundle\StockBundle\Doctrine\ORM\StockUnitRepository
-        factory: ['@doctrine.orm.default_entity_manager', getRepository]
-        arguments:
-            - Sil\Bundle\StockBundle\Domain\Entity\StockUnit
-
-    sil.stock.repository.stock_item:
-        class:  Sil\Bundle\StockBundle\Doctrine\ORM\StockItemRepository
-        factory: ['@doctrine.orm.default_entity_manager', getRepository]
-        arguments:
-            - Sil\Bundle\StockBundle\Domain\Entity\StockItem
-
-    sil.stock.repository.location:
-        class:  Sil\Bundle\StockBundle\Doctrine\ORM\LocationRepository
-        factory: ['@doctrine.orm.default_entity_manager', getRepository]
-        arguments:
-            - Sil\Bundle\StockBundle\Domain\Entity\Location
-
-    sil.stock.repository.location_type:
-        class:  Sil\Bundle\StockBundle\Doctrine\ORM\LocationTypeRepository
-        factory: ['@doctrine.orm.default_entity_manager', getRepository]
-        arguments:
-            - Sil\Bundle\StockBundle\Domain\Entity\LocationType
-
-    sil.stock.repository.warehouse:
-        class:  Sil\Bundle\StockBundle\Doctrine\ORM\WarehouseRepository
-        factory: ['@doctrine.orm.default_entity_manager', getRepository]
-        arguments:
-            - Sil\Bundle\StockBundle\Domain\Entity\Warehouse
-
-    sil.stock.repository.partner:
-        class:  Sil\Bundle\StockBundle\Doctrine\ORM\PartnerRepository
-        factory: ['@doctrine.orm.default_entity_manager', getRepository]
-        arguments:
-            - Sil\Bundle\StockBundle\Domain\Entity\Partner
+            - '@sil.code_generator.stock_unit'
 
 
     ###################
@@ -93,29 +40,29 @@ services:
     # DOMAIN SERVICE
     ###################
 
-    sil.stock.domain_service.movement:
+    sil.domain_service.stock_movement:
         class: Sil\Bundle\StockBundle\Domain\Service\MovementService
         arguments:
-            - '@sil.stock.repository.movement'
-            - '@sil.stock.repository.stock_unit'
-            - '@sil.stock.factory.movement'
-            - '@sil.stock.factory.stock_unit'
+            - '@sil.repository.stock_movement'
+            - '@sil.repository.stock_unit'
+            - '@sil.factory.stock_movement'
+            - '@sil.factory.stock_unit'
 
-    sil.stock.domain_service.operation:
+    sil.domain_service.stock_operation:
         class: Sil\Bundle\StockBundle\Domain\Service\OperationService
         arguments:
-            - '@sil.stock.repository.operation'
-            - '@sil.stock.domain_service.movement'
-            - '@sil.stock.factory.operation'
+            - '@sil.repository.stock_operation'
+            - '@sil.domain_service.stock_movement'
+            - '@sil.factory.stock_operation'
 
     ###################
     # DOMAIN QUERIES
     ###################
 
-    sil.stock.domain_query.stock_item:
+    sil.domain_query.stock_item:
         class: Sil\Bundle\StockBundle\Domain\Query\StockItemQueries
         arguments:
-            - '@sil.stock.repository.stock_unit'
+            - '@sil.repository.stock_unit'
 
 
 
@@ -124,37 +71,37 @@ services:
     # FORM TYPES
     ###################
 
-    sil.stock.form.type.stock_unit:
+    sil.form_type.stock_unit:
         class: Sil\Bundle\StockBundle\Form\Type\StockUnitFormType
         tags:
             - {name: form.type, alias: form}
         arguments:
-            - '@sil.stock.repository.location'
+            - '@sil.repository.stock_location'
 
-    sil.stock.form.type.location_choice:
+    sil.form_type.stock_location_choice:
         class: Sil\Bundle\StockBundle\Form\Type\LocationChoiceFormType
         tags:
             - {name: form.type, alias: form}
         arguments:
-            - '@sil.stock.repository.location'
+            - '@sil.repository.stock_location'
 
 
     ###################
     # CONTROLLERS
     ###################
 
-    sil.stock.controller.operation:
+    sil.controller.stock_operation:
         class: Sil\Bundle\StockBundle\Controller\OperationCRUDController
         calls:
             - ['setContainer', ['@service_container']]
-            - ['setOperationService', ['@sil.stock.domain_service.operation']]
+            - ['setOperationService', ['@sil.domain_service.stock_operation']]
 
-    sil.stock.controller.stock_item:
+    sil.controller.stock_item:
         class: Sil\Bundle\StockBundle\Controller\StockItemCRUDController
         calls:
             - ['setContainer', ['@service_container']]
 
-    sil.stock.controller.stock_unit:
+    sil.controller.stock_unit:
         class: Sil\Bundle\StockBundle\Controller\StockUnitCRUDController
         calls:
             - ['setContainer', ['@service_container']]

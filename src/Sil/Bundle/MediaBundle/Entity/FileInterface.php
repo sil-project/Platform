@@ -10,6 +10,8 @@
 
 namespace Sil\Bundle\MediaBundle\Entity;
 
-interface FileInterface
+use Blast\Component\Resource\Model\ResourceInterface;
+
+interface FileInterface extends ResourceInterface
 {
 }

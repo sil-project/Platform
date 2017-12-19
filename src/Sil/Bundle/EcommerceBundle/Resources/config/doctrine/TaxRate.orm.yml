@@ -1,5 +1,5 @@
 Sil\Bundle\EcommerceBundle\Entity\TaxRate:
-    type: entity
+    type: mappedSuperclass
     table: sil_ecommerce_tax_rate
     blast:
         loggable: true

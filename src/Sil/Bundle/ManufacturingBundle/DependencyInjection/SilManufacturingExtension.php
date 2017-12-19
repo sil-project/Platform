@@ -14,7 +14,6 @@ namespace Sil\Bundle\ManufacturingBundle\DependencyInjection;
 
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Blast\Bundle\ResourceBundle\DependencyInjection\Extension\ResourceExtensionTrait;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 use Symfony\Component\Config\FileLocator;
 
@@ -23,8 +22,6 @@ use Symfony\Component\Config\FileLocator;
  */
 class SilManufacturingExtension extends Extension
 {
-    use ResourceExtensionTrait;
-
     public function load(array $configs, ContainerBuilder $container): void
     {
         $configuration = new Configuration();
@@ -45,7 +42,5 @@ class SilManufacturingExtension extends Extension
             $container->getParameter('blast'),
             $newContainer->getParameter('blast')
         ));
-
-        $this->registerResources($config['resources'], $container);
     }
 }

@@ -1,7 +1,6 @@
 Sil\Bundle\EcommerceBundle\Entity\SalesJournalItem:
-    type: entity
+    type: mappedSuperclass
     table: sil_ecommerce_sales_journal_item
-    repositoryClass: Sil\Bundle\EcommerceBundle\Repository\SalesJournalItemRepository
     fields:
         operationDate:
             type: datetime

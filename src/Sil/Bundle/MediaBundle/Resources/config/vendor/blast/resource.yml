@@ -1,0 +1,6 @@
+blast_resource:
+  resources:
+    
+    media_file:
+      classes:
+        model: Sil\Bundle\MediaBundle\Entity\File

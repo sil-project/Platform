@@ -12,6 +12,7 @@ declare(strict_types=1);
 
 namespace Sil\Bundle\StockBundle\Domain\Entity;
 
+use Blast\Component\Resource\Model\ResourceInterface;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Guidable;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Timestampable;
 use Sil\Component\Uom\Model\UomQty;
@@ -20,7 +21,7 @@ use DomainException;
 /**
  * @author Glenn Cavarlé <glenn.cavarle@libre-informatique.fr>
  */
-class StockUnit
+class StockUnit implements ResourceInterface
 {
     use Guidable,
         Timestampable;

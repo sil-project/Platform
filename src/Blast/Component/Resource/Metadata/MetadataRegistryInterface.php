@@ -18,54 +18,44 @@
  * file that was distributed with this source code.
  */
 
-namespace Blast\Bundle\ResourceBundle\Metadata;
+namespace Blast\Component\Resource\Metadata;
 
 /**
  * @author glenn
  */
-interface MetadataInterface
+interface MetadataRegistryInterface
 {
     /**
-     * @return string
+     * @return iterable|MetadataInterface[]
      */
-    public function getAlias();
+    public function getAll();
 
     /**
-     * @param string $name
+     * @param string $alias
      *
-     * @return string|array
+     * @return MetadataInterface
      *
      * @throws \InvalidArgumentException
      */
-    public function getParameter(string $name);
+    public function get(string $alias);
 
     /**
-     * Return all the metadata parameters.
+     * @param string $modelClass
      *
-     * @return array
-     */
-    public function getParameters();
-
-    /**
-     * @param string $name
-     *
-     * @return bool
-     */
-    public function hasParameter(string $name);
-
-    /**
-     * @param string $name
-     *
-     * @return string
+     * @return MetadataInterface
      *
      * @throws \InvalidArgumentException
      */
-    public function getClass(string $name);
+    public function getByModelClass(string $modelClass);
 
     /**
-     * @param string $name
-     *
-     * @return bool
+     * @param MetadataInterface $metadata
      */
-    public function hasClass(string $name);
+    public function add(MetadataInterface $metadata);
+
+    /**
+     * @param string $alias
+     * @param array  $parameters
+     */
+    public function addFromAliasAndParameters(string $alias, array $parameters);
 }

@@ -4,10 +4,10 @@ services:
         class: Sil\Bundle\StockBundle\Admin\LocationAdmin
         arguments: [~, "%sil_stock.entity.location.class%", BlastCoreBundle:CRUD]
         calls:
-            - [setResourceRepository, ['@sil.stock.repository.location']]
-            - [setStockUnitRepository, ['@sil.stock.repository.stock_unit']]
-            - [setStockItemRepository, ['@sil.stock.repository.stock_item']]
-            - [setStockItemQueries, ['@sil.stock.domain_query.stock_item']]
+            - [setResourceRepository, ['@sil.repository.stock_location']]
+            - [setStockUnitRepository, ['@sil.repository.stock_unit']]
+            - [setStockItemRepository, ['@sil.repository.stock_item']]
+            - [setStockItemQueries, ['@sil.domain_query.stock_item']]
             - [ setTemplates, [{show: SilStockBundle:CRUD:show.html.twig,edit: SilStockBundle:CRUD:edit.html.twig,list: SilStockBundle:CRUD:list.html.twig}]]
         tags:
             -

@@ -15,5 +15,5 @@ use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\BaseEntity;
 
 class ProductReview extends BaseProductReview
 {
-    use BaseEntity;
+    //use BaseEntity;
 }

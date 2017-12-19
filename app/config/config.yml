@@ -78,7 +78,6 @@ doctrine:
         entity_managers:
             default:
                 connection: default
-                naming_strategy: blast.resource.doctrine.orm.naming_strategy.underscored_bundle_prefix
                 # naming_strategy: doctrine.orm.naming_strategy.underscore
                 auto_mapping: true
                 mappings:
@@ -98,16 +97,19 @@ doctrine:
                         type: yml
                     SilEmailCRMBundle:
                         type: yml
-                    SilManufacturingBundle:
-                        type: yml
-                        prefix: Sil\Bundle\ManufacturingBundle\Domain\Entity
+
                     SilMediaBundle:
                         type: yml
                     SilSonataSyliusUserBundle:
                         type: yml
+                    SilUomBundle:
+                        type: yml
                     SilStockBundle:
                         type: yml
                         prefix: Sil\Bundle\StockBundle\Domain\Entity
+                    SilManufacturingBundle:
+                        type: yml
+                        prefix: Sil\Bundle\ManufacturingBundle\Domain\Entity
 
                     # Platform
 
@@ -126,7 +128,6 @@ doctrine:
                         concat_ws: Oro\ORM\Query\AST\Functions\String\ConcatWs
             session:
                 connection: session
-                naming_strategy: blast.resource.doctrine.orm.naming_strategy.underscored_bundle_prefix
                 # naming_strategy: doctrine.orm.naming_strategy.underscore
                 auto_mapping: false # Only one entity manager can have auto_mappping set to true
                 mappings:

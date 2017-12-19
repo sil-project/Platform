@@ -5,6 +5,7 @@
     "require": {
         "php": "^7.1",
         "symfony/symfony": "3.3.*",
+        "blast-project/resource-bundle": "self.version",
         "blast-project/core-bundle": "self.version",
         "blast-project/base-entities-bundle": "self.version",
         "blast-project/outer-extension-bundle": "self.version",

@@ -1,13 +1,4 @@
 imports:
-    - { resource: admin.yml }
-
-    # Vendors
-
-
-    - { resource: vendor/blast/base_entities.yml }
-    - { resource: vendor/blast/menu.yml }
-    - { resource: vendor/blast/resource.yml }
-    - { resource: vendor/blast/utils.yml }
 
     - { resource: vendor/stof.yml }
     - { resource: vendor/sil.yml }
@@ -47,6 +38,8 @@ imports:
     - { resource: "@SilSyliusPayboxBundle/Resources/config/parameters.yml" }
     - { resource: "@SilSyliusPayboxBundle/Resources/config/app/config.yml" }
 
+    - { resource: "@SilUomBundle/Resources/config/app/config.yml" }
+
     - { resource: "@SilStockBundle/Resources/config/parameters.yml" }
     - { resource: "@SilStockBundle/Resources/config/app/config.yml" }
     - { resource: "@SilStockBundle/Resources/config/services.yml" }
@@ -54,3 +47,11 @@ imports:
     - { resource: "@SilManufacturingBundle/Resources/config/parameters.yml" }
     - { resource: "@SilManufacturingBundle/Resources/config/app/config.yml" }
     - { resource: "@SilManufacturingBundle/Resources/config/services.yml" }
+
+    - { resource: admin.yml }
+
+    # Vendors
+    - { resource: vendor/blast/base_entities.yml }
+    - { resource: vendor/blast/menu.yml }
+    - { resource: vendor/blast/resource.yml }
+    - { resource: vendor/blast/utils.yml }

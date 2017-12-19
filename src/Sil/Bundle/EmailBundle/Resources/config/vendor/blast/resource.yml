@@ -1,0 +1,18 @@
+blast_resource:
+  resources:
+
+    email:
+      classes:
+        model:       Sil\Bundle\EmailBundle\Entity\Email
+
+    email_link:
+      classes:
+        model:       Sil\Bundle\EmailBundle\Entity\EmailLink
+
+    email_receipt:
+      classes:
+        model:       Sil\Bundle\EmailBundle\Entity\EmailReceipt
+
+    email_template:
+      classes:
+        model:       Sil\Bundle\EmailBundle\Entity\EmailTemplate

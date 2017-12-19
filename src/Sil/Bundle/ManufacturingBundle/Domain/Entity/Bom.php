@@ -10,6 +10,7 @@
 
 namespace Sil\Bundle\ManufacturingBundle\Domain\Entity;
 
+use Blast\Component\Resource\Model\ResourceInterface;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Guidable;
@@ -21,7 +22,7 @@ use Sil\Component\Uom\Model\UomQty;
 /**
  * @author Glenn Cavarlé <glenn.cavarle@libre-informatique.fr>
  */
-class Bom
+class Bom implements ResourceInterface
 {
     use Guidable,
         Timestampable;

@@ -2,10 +2,10 @@
 services:
     sil_stock.admin.stock_unit:
         class: Sil\Bundle\StockBundle\Admin\StockUnitAdmin
-        arguments: [~, "%sil_stock.entity.stock_unit.class%", sil.stock.controller.stock_unit]
+        arguments: [~, "%sil_stock.entity.stock_unit.class%", sil.controller.stock_unit]
         calls:
-            - [setStockUnitCodeGenerator, ['@sil.stock.code_generator.stock_unit']]
-            - [setResourceRepository, ['@sil.stock.repository.stock_unit']]
+            - [setStockUnitCodeGenerator, ['@sil.code_generator.stock_unit']]
+            - [setResourceRepository, ['@sil.repository.stock_unit']]
             - [ setTemplates, [{show: SilStockBundle:CRUD:show.html.twig,edit: SilStockBundle:CRUD:edit.html.twig,list: SilStockBundle:CRUD:list.html.twig}]]
 
         tags:

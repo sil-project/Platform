@@ -13,11 +13,12 @@ declare(strict_types=1);
 namespace Sil\Bundle\StockBundle\Domain\Entity;
 
 use Sil\Bundle\UomBundle\Entity\Uom;
+use Blast\Component\Resource\Model\ResourceInterface;
 
 /**
  * @author Glenn Cavarlé <glenn.cavarle@libre-informatique.fr>
  */
-interface StockItemInterface
+interface StockItemInterface extends ResourceInterface
 {
     /**
      * @return string

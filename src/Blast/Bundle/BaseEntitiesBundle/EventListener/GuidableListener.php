@@ -70,14 +70,12 @@ class GuidableListener implements LoggerAwareInterface, EventSubscriber
 
         $this->logger->debug('[GuidableListener] Entering GuidableListener for « loadClassMetadata » event', [$metadata->getReflectionClass()->getName()]);
 
-        if (count($metadata->getIdentifier()) !== 0) {
-            $metadata->setIdGenerator(null);
-            $metadata->setAttributeOverride($this->fieldMappingConfiguration['fieldName'], $this->fieldMappingConfiguration);
-        } else {
+        $metadata->setIdGeneratorType(ClassMetadata::GENERATOR_TYPE_UUID);
+        $metadata->setIdGenerator(new UuidGenerator());
+
+        if (count($metadata->getIdentifier()) === 0) {
             $metadata->mapField($this->fieldMappingConfiguration);
         }
-
-        $metadata->setIdGenerator(new UuidGenerator());
 
         $this->logger->debug(
             '[GuidableListener] Added Guidable mapping metadata to Entity',

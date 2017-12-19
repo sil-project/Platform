@@ -1,0 +1,11 @@
+blast_resource:
+  resources:
+
+    ec_sales_journal_item:
+      classes:
+        model: Sil\Bundle\EcommerceBundle\Entity\SalesJournalItem
+        repository: Sil\Bundle\EcommerceBundle\Repository\SalesJournalItemRepository
+
+    ec_invoice:
+      classes:
+        model: Sil\Bundle\EcommerceBundle\Entity\Invoice

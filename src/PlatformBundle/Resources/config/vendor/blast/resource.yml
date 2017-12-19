@@ -1,5 +1,17 @@
 blast_resource:
-    resources: ~
-    underscored_bundle_prefix_strategy:
-        fallback: doctrine.orm.naming_strategy.underscore
-        filter: ['Sil', 'Blast', 'Platform', 'Lisem']
+    resources:
+        crm_organism:
+            classes:
+                model: PlatformBundle\Entity\SilCRMBundle\Organism
+
+        crm_address:
+            classes:
+                model: PlatformBundle\Entity\SilCRMBundle\Address
+
+        email:
+            classes:
+                model: PlatformBundle\Entity\SilEmailBundle\Email
+
+        media_file:
+            classes:
+                model: PlatformBundle\Entity\SilMediaBundle\File

@@ -10,6 +10,7 @@
 
 namespace Sil\Bundle\EcommerceBundle\Entity;
 
+use Blast\Component\Resource\Model\ResourceInterface;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\BaseEntity;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Timestampable;
 
@@ -18,7 +19,7 @@ use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Timestampable;
  *
  * @author Marcos Bezerra de Menezes <marcos.bezerra@libre-informatique.fr>
  */
-class Invoice
+class Invoice implements ResourceInterface
 {
     use
         BaseEntity,

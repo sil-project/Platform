@@ -12,18 +12,19 @@ declare(strict_types=1);
 
 namespace Sil\Bundle\StockBundle\Domain\Entity;
 
+use DateTimeInterface;
+use DateTime;
+use InvalidArgumentException;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Guidable;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Timestampable;
-use DateTimeInterface;
-use DateTime;
-use InvalidArgumentException;
+use Blast\Component\Resource\Model\ResourceInterface;
 
 /**
  * @author Glenn Cavarlé <glenn.cavarle@libre-informatique.fr>
  */
-class Operation implements ProgressStateAwareInterface
+class Operation implements ProgressStateAwareInterface, ResourceInterface
 {
     use Guidable,
         Timestampable,

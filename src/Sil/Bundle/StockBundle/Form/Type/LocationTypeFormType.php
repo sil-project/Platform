@@ -33,7 +33,7 @@ class LocationTypeFormType extends BaseType
                 return null == $o ? LocationType::internal() : $o->getValue();
             },
             'choice_label' => function ($o) {
-                return 'sil.stock.location_type.' . $o;
+                return 'sil.stock.location_type_enum.' . $o;
             },
         ));
     }

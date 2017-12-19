@@ -2,11 +2,11 @@
 services:
     sil_stock.admin.stock_item:
         class: Sil\Bundle\StockBundle\Admin\StockItemAdmin
-        arguments: [~, "%sil_stock.entity.stock_item.class%", sil.stock.controller.stock_item]
+        arguments: [~, "%sil_stock.entity.stock_item.class%", sil.controller.stock_item]
         calls:
-            - [setResourceRepository, ['@sil.stock.repository.stock_item']]
-            - [setStockItemQueries, ['@sil.stock.domain_query.stock_item']]
-            - [setLocationRepository, ['@sil.stock.repository.location']]
+            - [setResourceRepository, ['@sil.repository.stock_item']]
+            - [setStockItemQueries, ['@sil.domain_query.stock_item']]
+            - [setLocationRepository, ['@sil.repository.stock_location']]
             - [ setTemplates, [{show: SilStockBundle:StockItemAdmin:show.html.twig,edit: SilStockBundle:CRUD:edit.html.twig,list: SilStockBundle:CRUD:list.html.twig}]]
         tags:
             -
@@ -18,13 +18,13 @@ services:
 
     # sil_stock.admin.operation:
     #     class: Sil\Bundle\StockBundle\Admin\OperationAdmin
-    #     arguments: [~, Sil\Bundle\StockBundle\Domain\Entity\Operation, sil.stock.controller.operation]
+    #     arguments: [~, Sil\Bundle\StockBundle\Domain\Entity\Operation, sil.controller.stock_operation]
     #     calls:
-    #         - [setOperationCodeGenerator, ['@sil.stock.code_generator.operation']]
-    #         - [setMovementCodeGenerator, ['@sil.stock.code_generator.movement']]
-    #         - [setLocationRepository, ['@sil.stock.repository.location']]
-    #         - [setPartnerRepository, ['@sil.stock.repository.partner']]
-    #         - [setResourceRepository, ['@sil.stock.repository.operation']]
+    #         - [setOperationCodeGenerator, ['@sil.code_generator.stock_operation']]
+    #         - [setMovementCodeGenerator, ['@sil.code_generator.stock_movement']]
+    #         - [setLocationRepository, ['@sil.repository.stock_location']]
+    #         - [setPartnerRepository, ['@sil.repository.stock_partner']]
+    #         - [setResourceRepository, ['@sil.repository.stock_operation']]
     #         - [ setTemplates, [{show: SilStockBundle:OperationAdmin:show.html.twig,edit: SilStockBundle:OperationAdmin:edit.html.twig,list: SilStockBundle:OperationAdmin:list.html.twig}]]
     #     tags:
     #         -

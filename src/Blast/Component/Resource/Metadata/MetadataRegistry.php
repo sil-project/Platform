@@ -18,7 +18,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Blast\Bundle\ResourceBundle\Metadata;
+namespace Blast\Component\Resource\Metadata;
 
 class MetadataRegistry implements MetadataRegistryInterface
 {
@@ -47,17 +47,28 @@ class MetadataRegistry implements MetadataRegistryInterface
         return $this->metadata[$alias];
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function getByClass(string $className)
+    public function findByModelClass(string $className)
     {
         foreach ($this->metadata as $metadata) {
-            if ($className === $metadata->getClass('entity')) {
+            if ($className === $metadata->getClassMap()->getModel()) {
                 return $metadata;
             }
         }
-        throw new \InvalidArgumentException(sprintf('Resource with entity class "%s" does not exist.', $className));
+
+        return null;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getByModelClass(string $className)
+    {
+        $metadata = $this->findByModelClass($className);
+        if (null === $metadata) {
+            throw new \InvalidArgumentException(sprintf('Resource with entity class "%s" does not exist.', $className));
+        }
+
+        return $metadata;
     }
 
     /**
@@ -70,6 +81,7 @@ class MetadataRegistry implements MetadataRegistryInterface
 
     public function addFromAliasAndParameters(string $alias, array $parameters)
     {
-        $this->add(Metadata::fromAliasAndParameters($alias, $parameters));
+        $metadata = new Metadata($alias, ClassMap::fromArray($parameters['classes']));
+        $this->add($metadata);
     }
 }

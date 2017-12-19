@@ -23,14 +23,14 @@ sil:
             done: Effectué
             cancel: Annulé
 
-        location_type:
+        location_type_enum:
             internal: Emplacement interne
             supplier: Emplacement fournisseur
             customer: Emplacement client
             virtual: Emplacement virtuel
             scrap: Emplacement de rebut
 
-        operation_type:
+        operation_type_enum:
             internalTransfer: Transfert interne
             receipt: Réception
             shipping: Expédition

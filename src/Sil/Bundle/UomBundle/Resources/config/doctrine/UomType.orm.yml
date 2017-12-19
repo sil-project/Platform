@@ -1,6 +1,5 @@
 Sil\Bundle\UomBundle\Entity\UomType:
-    type:                            entity
-    repositoryClass:                 Sil\Bundle\UomBundle\Doctrine\ORM\UomTypeRepository
+    type:                            mappedSuperclass
     table:                           sil_uom_type
     fields:
         name:

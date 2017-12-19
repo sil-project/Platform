@@ -1,5 +1,5 @@
 PlatformBundle\Entity\SilCRMBundle\Address:
-    type: entity
+    type: mappedSuperclass
     table: sil_crm_address
     manyToOne:
         customer:

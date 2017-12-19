@@ -129,6 +129,7 @@ class Kernel extends BaseKernel
             // Blast bundles
             // -------------------------------------------------------------------------------------
 
+            new \Blast\Bundle\ResourceBundle\BlastResourceBundle(),
             new \Blast\Bundle\CoreBundle\BlastCoreBundle(),
             new \Blast\Bundle\MenuBundle\BlastMenuBundle(),
             new \Blast\Bundle\PatcherBundle\BlastPatcherBundle(),
@@ -137,7 +138,6 @@ class Kernel extends BaseKernel
             new \Blast\Bundle\UtilsBundle\BlastUtilsBundle(),
             new \Blast\Bundle\DoctrinePgsqlBundle\BlastDoctrinePgsqlBundle(),
             new \Blast\Bundle\DoctrineSessionBundle\BlastDoctrineSessionBundle(),
-            new \Blast\Bundle\ResourceBundle\BlastResourceBundle(),
             new \Blast\Bundle\DecoratorBundle\BlastDecoratorBundle(),
             new \Blast\Bundle\CsvImportBundle\BlastCsvImportBundle(),
             new \Blast\Bundle\DashboardBundle\BlastDashboardBundle(),

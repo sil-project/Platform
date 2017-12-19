@@ -1,0 +1,45 @@
+blast_resource:
+  resources:
+
+    stock_location:
+      classes:
+        model:                  Sil\Bundle\StockBundle\Domain\Entity\Location
+        repository:             Sil\Bundle\StockBundle\Doctrine\ORM\LocationRepository
+
+    stock_movement:
+      classes:
+        model:                  Sil\Bundle\StockBundle\Domain\Entity\Movement
+        repository:             Sil\Bundle\StockBundle\Doctrine\ORM\MovementRepository
+
+    stock_operation:
+      classes:
+        model:                  Sil\Bundle\StockBundle\Domain\Entity\Operation
+        repository:             Sil\Bundle\StockBundle\Doctrine\ORM\OperationRepository
+
+    stock_output_strategy:
+      classes:
+        model:                  Sil\Bundle\StockBundle\Domain\Entity\OutputStrategy
+
+    stock_item:
+      classes:
+        model:                  Sil\Bundle\StockBundle\Domain\Entity\StockItem
+        repository:             Sil\Bundle\StockBundle\Doctrine\ORM\StockItemRepository
+
+    stock_unit:
+      classes:
+        model:                  Sil\Bundle\StockBundle\Domain\Entity\StockUnit
+        repository:             Sil\Bundle\StockBundle\Doctrine\ORM\StockUnitRepository
+
+    stock_warehouse:
+      classes:
+        model:                  Sil\Bundle\StockBundle\Domain\Entity\Warehouse
+        repository:             Sil\Bundle\StockBundle\Doctrine\ORM\WarehouseRepository
+
+    stock_partner:
+      classes:
+        model:                  Sil\Bundle\StockBundle\Domain\Entity\Partner
+        repository:             Sil\Bundle\StockBundle\Doctrine\ORM\PartnerRepository
+
+    stock_batch:
+      classes:
+        model:                  Sil\Bundle\StockBundle\Domain\Entity\Batch

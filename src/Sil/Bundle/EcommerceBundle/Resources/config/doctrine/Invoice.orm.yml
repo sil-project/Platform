@@ -1,5 +1,5 @@
 Sil\Bundle\EcommerceBundle\Entity\Invoice:
-    type: entity
+    type: mappedSuperclass
     table: sil_ecommerce_invoice
     fields:
         number:
@@ -24,7 +24,7 @@ Sil\Bundle\EcommerceBundle\Entity\Invoice:
 
     manyToOne:
         order:
-            targetEntity: Sil\Bundle\EcommerceBundle\Entity\OrderInterface
+            targetEntity: Sylius\Component\Order\Model\OrderInterface
             inversedBy: invoices
             cascade: ["persist"]
             joinColumn:

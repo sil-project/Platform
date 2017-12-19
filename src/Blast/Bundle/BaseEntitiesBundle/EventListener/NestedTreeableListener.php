@@ -124,9 +124,9 @@ class NestedTreeableListener extends TreeListener implements LoggerAwareInterfac
             ]);
         }
 
-        if (!$metadata->customRepositoryClassName) {
-            $metadata->setCustomRepositoryClass('Gedmo\Tree\Entity\Repository\NestedTreeRepository');
-        }
+        //if (!$metadata->customRepositoryClassName) {
+        //$metadata->setCustomRepositoryClass('Gedmo\Tree\Entity\Repository\NestedTreeRepository');
+        //}
 
         if (isset(self::$configurations[$this->name][$metadata->name]) && self::$configurations[$this->name][$metadata->name]) {
             $this->getStrategy($om, $metadata->name)->processMetadataLoad($om, $metadata);

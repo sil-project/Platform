@@ -2,16 +2,14 @@ parameters:
     sonata.core.flashmessage.manager.class: Sil\Bundle\EcommerceBundle\Services\FlashManager
 
 imports:
-     - { resource: "state_machine.yml" }
+     - { resource: '@SilEcommerceBundle/Resources/config/vendor/blast/resource.yml' }
      - { resource: '@SilEcommerceBundle/Resources/config/vendor/blast/menu.yml' }
+     - { resource: "@SilEcommerceBundle/Resources/config/app/state_machine.yml" }
 
 doctrine:
     orm:
         mappings:
-            SyliusProductBundle:
-                type: xml
-                prefix: Sylius\Component\Product\Model
-                dir: Resources/config/doctrine/model
+
 
 sylius_product:
     driver: doctrine/orm

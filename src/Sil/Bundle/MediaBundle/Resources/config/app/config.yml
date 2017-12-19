@@ -1,2 +1,5 @@
+imports:
+    - { resource: '@SilMediaBundle/Resources/config/vendor/blast/resource.yml' }
+
 liip_imagine:
     data_loader: db_loader

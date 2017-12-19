@@ -1,0 +1,12 @@
+blast_resource:
+  resources:
+
+    uom:
+      classes:
+        model:      Sil\Bundle\UomBundle\Entity\Uom
+        repository: Sil\Bundle\UomBundle\Doctrine\ORM\UomRepository
+
+    uom_type:
+      classes:
+        model:      Sil\Bundle\UomBundle\Entity\UomType
+        repository: Sil\Bundle\UomBundle\Doctrine\ORM\UomTypeRepository

@@ -12,6 +12,7 @@ declare(strict_types=1);
 
 namespace Sil\Bundle\StockBundle\Domain\Entity;
 
+use Blast\Component\Resource\Model\ResourceInterface;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Guidable;
@@ -21,7 +22,7 @@ use InvalidArgumentException;
 /**
  * @author Glenn Cavarlé <glenn.cavarle@libre-informatique.fr>
  */
-class Location
+class Location implements ResourceInterface
 {
     use Guidable;
     use NestedTreeable;

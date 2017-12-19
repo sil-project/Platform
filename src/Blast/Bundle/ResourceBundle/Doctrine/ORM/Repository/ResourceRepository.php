@@ -11,7 +11,7 @@
 namespace Blast\Bundle\ResourceBundle\Doctrine\ORM\Repository;
 
 use Doctrine\ORM\EntityRepository;
-use Blast\Bundle\ResourceBundle\Repository\ResourceRepositoryInterface;
+use Blast\Component\Resource\Repository\ResourceRepositoryInterface;
 use InvalidArgumentException;
 
 /**
