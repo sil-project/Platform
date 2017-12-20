@@ -2,12 +2,11 @@
     "name": "blast-project/csv-import-bundle",
     "type": "blast-bundle",
     "description": "Csv Import bundle for Blast.",
-    "minimum-stability": "stable",
     "require": {
         "php": ">=7.1",
         "blast-project/core-bundle": "self.version",
         "doctrine/doctrine-bundle": ">=1.6",
-        "doctrine/orm": "2.5.14",
+        "doctrine/orm": "2.5.*",
         "symfony/symfony": ">=3.2"
     },
     "require-dev": {
