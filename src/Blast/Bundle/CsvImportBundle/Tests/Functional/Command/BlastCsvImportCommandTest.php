@@ -14,14 +14,12 @@ use Blast\Bundle\TestsBundle\Functional\BlastTestCase;
 
 class BlastCsvImportCommandTest extends BlastTestCase
 {
-    //protected $entitymanager;
-    //protected $registrymanager;
-    //protected $repository;
+    protected $testResourcesPath;
 
     protected function setUp()
     {
         parent::setUp();
-
+        $this->testResourcesPath = $this->locator->locate('@BlastTestsBundle/Resources');
         //  $this->registrymanager = static::$kernel->getContainer()->get('doctrine');
     }
 
@@ -32,8 +30,8 @@ class BlastCsvImportCommandTest extends BlastTestCase
     {
         $this->launchCommand([
             'command'          => 'blast:import:csv',
-            '--dir'            => 'src/Blast/Bundle/TestsBundle/Resources/import',
-            '--mapping'        => 'src/Blast/Bundle/TestsBundle/Resources/config/csv_import_simple.yml',
+            '--dir'            => $this->testResourcesPath . '/import',
+            '--mapping'        => $this->testResourcesPath . '/config/csv_import_simple.yml',
             '--no-interaction' => true,
             '--env'            => 'test',
         ]);
@@ -43,8 +41,8 @@ class BlastCsvImportCommandTest extends BlastTestCase
     {
         $this->launchCommand([
             'command'          => 'blast:import:csv',
-            '--dir'            => 'src/Blast/Bundle/TestsBundle/Resources/import',
-            '--mapping'        => 'src/Blast/Bundle/TestsBundle/Resources/config/csv_import_second.yml',
+            '--dir'            => $this->testResourcesPath . '/import',
+            '--mapping'        => $this->testResourcesPath . '/config/csv_import_second.yml',
             '--no-interaction' => true,
             '--env'            => 'test',
         ]);
@@ -54,8 +52,8 @@ class BlastCsvImportCommandTest extends BlastTestCase
     {
         $this->launchCommand([
             'command'          => 'blast:import:csv',
-            '--dir'            => 'src/Blast/Bundle/TestsBundle/Resources/import',
-            '--mapping'        => 'src/Blast/Bundle/TestsBundle/Resources/config/csv_import_parent.yml',
+            '--dir'            => $this->testResourcesPath . '/import',
+            '--mapping'        => $this->testResourcesPath . '/config/csv_import_parent.yml',
             '--no-interaction' => true,
             '--env'            => 'test',
         ]);
@@ -65,8 +63,8 @@ class BlastCsvImportCommandTest extends BlastTestCase
     {
         $this->launchCommand([
         'command'          => 'blast:import:csv',
-        '--dir'            => 'src/Blast/Bundle/TestsBundle/Resources/import',
-        '--mapping'        => 'src/Blast/Bundle/TestsBundle/Resources/config/csv_import_final.yml',
+        '--dir'            => $this->testResourcesPath . '/import',
+        '--mapping'        => $this->testResourcesPath . '/config/csv_import_final.yml',
         '--no-interaction' => true,
         '--env'            => 'test',
         ]);
