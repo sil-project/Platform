@@ -4,13 +4,13 @@
     "description": "UOM Management",
     "require": {
         "php": "^7.1",
-        "symfony/symfony": "^3.3",
+        "symfony/symfony": "3.3.*",
         "sil-project/uom": "self.version",
         "blast-project/resource-bundle": "self.version",
         "blast-project/resource": "self.version"
     },
     "require-dev": {
-        "symfony/phpunit-bridge": "^3.3",
+        "symfony/phpunit-bridge": "3.3.*",
         "phpunit/phpunit": "^6.4"
         
     },

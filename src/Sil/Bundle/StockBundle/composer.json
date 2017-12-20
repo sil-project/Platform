@@ -16,8 +16,8 @@
         }
     ],
     "require": {
-        "php": ">=7.1",
-        "symfony/symfony": ">=3.2",
+        "php": "^7.1",
+        "symfony/symfony": "3.3.*",
         "blast-project/core-bundle": "self.version",
         "blast-project/base-entities-bundle": "self.version",
         "blast-project/resource-bundle": "self.version",
@@ -27,7 +27,7 @@
         "winzou/state-machine": "^0.3.2"
     },
     "require-dev": {
-        "symfony/phpunit-bridge": ">=3.2",
+        "symfony/phpunit-bridge": "3.3.*",
         "phpunit/phpunit": "^6.4"
     },
     "scripts": {
