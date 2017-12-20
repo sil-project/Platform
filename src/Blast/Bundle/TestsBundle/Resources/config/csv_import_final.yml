@@ -43,4 +43,7 @@ csv_mapping:
             parent:
               entity: Blast\Bundle\TestsBundle\Entity\TstParent
               target: name
+            final_parent:
+              entity: Blast\Bundle\TestsBundle\Entity\TstFinal
+              target: name
             

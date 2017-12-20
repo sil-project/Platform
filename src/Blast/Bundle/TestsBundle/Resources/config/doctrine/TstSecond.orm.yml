@@ -16,6 +16,7 @@ Blast\Bundle\TestsBundle\Entity\TstSecond:
             inversedBy: second
             joinColumn:
                 name: simple_id
+                onDelete : 'CASCADE'
             cascade: [ remove ]
 
     oneToMany:

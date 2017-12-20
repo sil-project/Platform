@@ -17,23 +17,24 @@ Blast\Bundle\TestsBundle\Entity\TstParent:
             inversedBy: parent
             joinColumn:
                 name: second_id
-            cascade: [ persist, remove ]
+                onDelete : 'CASCADE'
+            cascade: [ remove ]
         parent_parent:
             targetEntity: Blast\Bundle\TestsBundle\Entity\TstParent
             inversedBy: subparent
             joinColumn:
                 name: parent_parent_id
-            cascade: [ persist, remove ]
+            cascade: [ remove ]
 
     oneToMany:
         final:
             targetEntity: Blast\Bundle\TestsBundle\Entity\TstFinal
             mappedBy: parent
-            cascade: [ persist, remove ]
+            cascade: [ remove ]
         subparent:
             targetEntity: Blast\Bundle\TestsBundle\Entity\TstParent
             mappedBy: parent_parent
-            cascade: [ persist, remove ]
+            cascade: [ remove ]
 
     uniqueConstraints:
         test_parent_name_idx:

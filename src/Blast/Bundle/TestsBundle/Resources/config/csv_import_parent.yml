@@ -10,8 +10,9 @@ csv_mapping:
         delete: true
         filename: second.csv
         fields:
-            'nom':      name
-            'code':     code
+            'nom':         name
+            'code':        code
+            'nom simple' : simple
         associations:            
             simple:
               entity: Blast\Bundle\TestsBundle\Entity\TstSimple
@@ -32,15 +33,5 @@ csv_mapping:
               entity: Blast\Bundle\TestsBundle\Entity\TstParent
               target: name
            
-            
-#    Blast\Bundle\TestsBundle\Entity\TstFinal:
-#        delete: true
-#        filename: final.csv
-#        fields:
-#            'nom':      name
-#            'code':     code
-#        associations:            
-#            parent:
-#              entity: Blast\Bundle\TestsBundle\Entity\TstParent
-#              target: name
+
             
