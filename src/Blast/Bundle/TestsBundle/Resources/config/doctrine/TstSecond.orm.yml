@@ -7,20 +7,22 @@ Blast\Bundle\TestsBundle\Entity\TstSecond:
         name:
             type:     string(255)
             nullable: true
-            
+        code:
+            type:     string(15)
+            nullable: true
     manyToOne:
         simple:
             targetEntity: Blast\Bundle\TestsBundle\Entity\TstSimple
             inversedBy: second
             joinColumn:
                 name: simple_id
-            cascade: [ persist, remove ]
+            cascade: [ remove ]
 
     oneToMany:
         parent:
             targetEntity: Blast\Bundle\TestsBundle\Entity\TstParent
             mappedBy: second
-            cascade: [ persist, remove ]
+            cascade: [ remove ]
 
     uniqueConstraints:
         test_second_name_idx:

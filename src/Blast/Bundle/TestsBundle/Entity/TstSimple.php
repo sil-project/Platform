@@ -94,4 +94,33 @@ class TstSimple
     {
         return $this->second;
     }
+
+    /**
+     * @var string
+     */
+    private $code;
+
+    /**
+     * Set code.
+     *
+     * @param string $code
+     *
+     * @return TstSimple
+     */
+    public function setCode($code)
+    {
+        $this->code = $code;
+
+        return $this;
+    }
+
+    /**
+     * Get code.
+     *
+     * @return string
+     */
+    public function getCode()
+    {
+        return $this->code;
+    }
 }
