@@ -1,0 +1,46 @@
+csv_mapping:
+#    Blast\Bundle\TestsBundle\Entity\TstSimple:
+#        delete: true
+#        filename: simple.csv
+#        fields:
+#            'nom':         name
+#            'code':        code
+
+    Blast\Bundle\TestsBundle\Entity\TstSecond:
+        delete: true
+        filename: second.csv
+        fields:
+            'nom':      name
+            'code':     code
+        associations:            
+            simple:
+              entity: Blast\Bundle\TestsBundle\Entity\TstSimple
+              target: name
+            
+            
+#    Blast\Bundle\TestsBundle\Entity\TstParent:
+#        delete: true
+#        filename: parent.csv
+#        fields:
+#            'nom':      name
+#            'code':     code
+#        associations:             
+#            second:
+#              entity: Blast\Bundle\TestsBundle\Entity\TstSecond
+#              target: name
+#            parent_parent:
+#              entity: Blast\Bundle\TestsBundle\Entity\TstParent
+#              target: name
+            
+            
+#    Blast\Bundle\TestsBundle\Entity\TstFinal:
+#        delete: true
+#        filename: final.csv
+#        fields:
+#            'nom':      name
+#            'code':     code
+#        associations:            
+#            parent:
+#              entity: Blast\Bundle\TestsBundle\Entity\TstParent
+#              target: name
+            
