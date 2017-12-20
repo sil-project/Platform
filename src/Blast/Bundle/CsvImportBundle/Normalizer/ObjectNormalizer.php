@@ -52,10 +52,12 @@ class ObjectNormalizer extends BaseObjectNormalizer
         $this->converter->configureNames($class);
         $object = parent::denormalize($data, $class, $format, $context);
 
-        $rc = new \ReflectionClass($class);
-        if (method_exists($this, 'postDenormalize' . $rc->getShortName())) {
-            $this->{'postDenormalize' . $rc->getShortName()}($object);
-        }
+        /* @todo: find if it is usefull to enable this */
+        /*
+          $rc = new \ReflectionClass($class);
+          if (method_exists($this, 'postDenormalize' . $rc->getShortName())) {
+          $this->{'postDenormalize' . $rc->getShortName()}($object);
+          }*/
 
         return $object;
     }
@@ -68,6 +70,8 @@ class ObjectNormalizer extends BaseObjectNormalizer
         $this->cleanUpValue($value);
         $class = get_class($object);
 
+        /* warning bug if there is only one line in the csv file ($attribute is set to 0)*/
+        //var_dump($object, $attribute, $value, $format, $context);
         if (array_key_exists('associations', $this->mappingConf[$class])) {
             if (array_key_exists($attribute, $this->mappingConf[$class]['associations'])) {
                 $associationClass = $this->mappingConf[$class]['associations'][$attribute]['entity'];
@@ -79,7 +83,6 @@ class ObjectNormalizer extends BaseObjectNormalizer
         if ($value === '') {
             $value = null;
         }
-
         if ($attribute !== '' && $attribute !== null) {
             parent::setAttributeValue($object, $attribute, $value, $format, $context);
         }
