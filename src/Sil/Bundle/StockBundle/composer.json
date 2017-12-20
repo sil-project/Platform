@@ -21,6 +21,8 @@
         "blast-project/core-bundle": "self.version",
         "blast-project/base-entities-bundle": "self.version",
         "blast-project/resource-bundle": "self.version",
+        "blast-project/resource": "self.version",
+        "sil-project/uom": "self.version",
         "sil-project/uom-bundle": "self.version",
         "winzou/state-machine": "^0.3.2"
     },
