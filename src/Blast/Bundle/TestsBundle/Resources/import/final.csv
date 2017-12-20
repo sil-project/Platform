@@ -1,0 +1,4 @@
+nom,code,parent,final
+nom final 3,c_pa_2,nom parent 1,
+nom final 2,c_pa_1,nom parent 2,nom final 3
+nom final 1,c_pa_3,nom parent 3,nom final 3
