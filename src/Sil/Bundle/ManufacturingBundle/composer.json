@@ -21,8 +21,10 @@
         "blast-project/core-bundle": "self.version",
         "blast-project/base-entities-bundle": "self.version",
         "blast-project/resource-bundle": "self.version",
-        "sil-project/stock-bundle": "self.version"
-
+        "blast-project/resource": "self.version",
+        "sil-project/stock-bundle": "self.version",
+        "sil-project/uom-bundle": "self.version",
+        "sil-project/uom": "self.version"
     },
     "require-dev": {
         "symfony/phpunit-bridge": ">=3.2",
