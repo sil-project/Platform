@@ -12,7 +12,10 @@ for i in src/*/Bundle/*
 do    
     cd $i
     pwd
-    ./bin/ci-scripts/${1}_${2}.sh
+    if [ -x ./bin/ci-scripts/${1}_${2}.sh ]
+       then 
+           ./bin/ci-scripts/${1}_${2}.sh
+    fi
     cd -
 done
 
