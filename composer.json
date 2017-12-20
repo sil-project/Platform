@@ -31,6 +31,7 @@
         "doctrine/doctrine-migrations-bundle": "^1.2",
         "doctrine/orm": "2.5.*",
         "friendsofsymfony/jsrouting-bundle": "^1.6",
+	"friendsofsymfony/elastica-bundle": "^5.0",
         "h4cc/wkhtmltoimage-amd64": "^0.12.3",
         "h4cc/wkhtmltopdf-amd64": "^0.12.3",
         "html2text/html2text": "^4.0",
@@ -45,7 +46,7 @@
         "sensio/generator-bundle": "^3.1",
         "sonata-project/admin-bundle": "^3.1",
         "sonata-project/doctrine-orm-admin-bundle": "^3.1",
-        "sparkling/vat-bundle": "^0.1",
+        "sparkling/vat-bundle": "^0.2",
         "stfalcon/tinymce-bundle": "^2.1",
         "stof/doctrine-extensions-bundle": "^1.2",
         "sylius/sylius": "^1.0",
@@ -55,7 +56,8 @@
         "symfony/symfony": "3.3.*",
         "twig/twig": "^2.0",
         "willdurand/js-translation-bundle": "^2.6",
-        "winzou/state-machine": "^0.3.2"
+        "winzou/state-machine": "^0.3.2",
+        "knplabs/knp-paginator-bundle": "^2.7"
     },
     "require-dev": {
         "codeception/codeception": "^2.3",

@@ -87,6 +87,7 @@ class Kernel extends BaseKernel
             new \FOS\JsRoutingBundle\FOSJsRoutingBundle(),
             new \FOS\OAuthServerBundle\FOSOAuthServerBundle(),
             new \FOS\RestBundle\FOSRestBundle(),
+            new \FOS\ElasticaBundle\FOSElasticaBundle(),
 
             // -------------------------------------------------------------------------------------
             // JMS
@@ -101,6 +102,7 @@ class Kernel extends BaseKernel
             new \Knp\Bundle\GaufretteBundle\KnpGaufretteBundle(),
             new \Knp\Bundle\MenuBundle\KnpMenuBundle(),
             new \Knp\Bundle\SnappyBundle\KnpSnappyBundle(),
+            new \Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
 
             // -------------------------------------------------------------------------------------
             // Misc
@@ -133,7 +135,7 @@ class Kernel extends BaseKernel
             new \Blast\Bundle\CoreBundle\BlastCoreBundle(),
             new \Blast\Bundle\MenuBundle\BlastMenuBundle(),
             new \Blast\Bundle\PatcherBundle\BlastPatcherBundle(),
-            // new \Blast\Bundle\OuterExtensionBundle\BlastOuterExtensionBundle(),
+            new \Blast\Bundle\SearchBundle\BlastSearchBundle(),
             new \Blast\Bundle\BaseEntitiesBundle\BlastBaseEntitiesBundle(),
             new \Blast\Bundle\UtilsBundle\BlastUtilsBundle(),
             new \Blast\Bundle\DoctrinePgsqlBundle\BlastDoctrinePgsqlBundle(),

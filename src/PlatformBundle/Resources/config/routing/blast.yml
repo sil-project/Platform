@@ -18,6 +18,10 @@ blast_decorator:
     resource: "@BlastDecoratorBundle/Resources/config/routing.yml"
     prefix:   '%sil.url_prefix%'
 
+blast_search:
+    resource: "@BlastSearchBundle/Resources/config/routing.yml"
+    prefix:   %sil.url_prefix%
+
 sil_crm:
     resource: "@SilCRMBundle/Resources/config/routing.yml"
     prefix:   '%sil.url_prefix%'

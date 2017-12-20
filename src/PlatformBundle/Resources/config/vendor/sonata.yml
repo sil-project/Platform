@@ -62,3 +62,8 @@ sonata_admin:
         button_history:             SonataAdminBundle:Button:history_button.html.twig
         button_list:                SonataAdminBundle:Button:list_button.html.twig
         button_show:                SonataAdminBundle:Button:show_button.html.twig
+
+    security:
+        handler: sonata.admin.security.handler.role
+        role_admin: ROLE_ADMIN
+        role_super_admin: ROLE_SUPER_ADMIN

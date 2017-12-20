@@ -87,9 +87,10 @@ $(document).ready(function() {
     });
 
     $('form').on('sonata.add_element', function() {
-
-        tinymce.remove();
-        initTinyMCE();
+        if (typeof tinymce === 'function') {
+            tinymce.remove();
+            initTinyMCE();
+        }
     });
 
 });

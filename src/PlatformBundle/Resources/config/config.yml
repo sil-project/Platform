@@ -1,4 +1,15 @@
 imports:
+    - { resource: admin.yml }
+
+    # Vendors
+
+    - { resource: vendor/blast/base_entities.yml }
+    - { resource: vendor/blast/csv_import.yml }
+    - { resource: vendor/blast/dashboard.yml }
+    - { resource: vendor/blast/menu.yml }
+    - { resource: vendor/blast/resource.yml }
+    - { resource: vendor/blast/search.yml }
+    - { resource: vendor/blast/utils.yml }
 
     - { resource: vendor/stof.yml }
     - { resource: vendor/sil.yml }
@@ -8,15 +19,6 @@ imports:
     - { resource: vendor/fos.yml }
     - { resource: vendor/doctrine.yml }
     - { resource: vendor/stfalcon.yml }
-
-    # BLAST Bundles
-
-    - { resource: "@BlastCoreBundle/Resources/config/config.yml" }
-    # - { resource: "@BlastBaseEntitiesBundle/Resources/config/app/config.yml" }# overriden in app/config/vendors/blast.yml
-    # - { resource: "@BlastResourceBundle/Resources/config/app/config.yml" }    # overriden in app/config/vendors/blast.yml
-    - { resource: "@BlastUtilsBundle/Resources/config/app/config.yml" }
-    # TODO : should add a load on config too (or not)
-    - { resource: "@BlastCsvImportBundle/Resources/config/services.yml" }
 
     # SIL Bundles
 

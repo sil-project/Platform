@@ -31,10 +31,10 @@ class SonataUserAdmin extends CoreAdmin
 
         $collection->remove('duplicate');
 
-        if (!$this->isGranted('ROLE_SUPER_ADMIN')) {
-            $collection->remove('delete');
-            $collection->remove('edit');
-        }
+        // if (!$this->isGranted('ROLE_SUPER_ADMIN')) {
+            // $collection->remove('delete');
+            // $collection->remove('edit');
+        // }
     }
 
     protected function configureFormFields(FormMapper $mapper)

@@ -1,0 +1,84 @@
+fos_elastica:
+    clients:
+        default:
+            host: "%blast_search.elastic_search.hostname%"
+            port: "%blast_search.elastic_search.port%"
+    indexes:
+        global:
+            finder: ~
+            use_alias: true
+            index_name: "%blast_search.global_index_name%"
+            types:
+                user:
+                    properties:
+                        username: ~
+                        email: ~
+                    persistence:
+                        driver: orm
+                        model: "%sil_sonata_sylius_user.entity.sonata_user.class%"
+                        listener:
+                            defer: true
+                        finder: ~
+                        elastica_to_model_transformer:
+                            ignore_missing: true
+
+                individual:
+                    properties:
+                        name: ~
+                        firstname: ~
+                        lastname: ~
+                        description: ~
+                        email: ~
+                        url: ~
+                    indexable_callback: isIndividual
+                    persistence:
+                        driver: orm
+                        model: "%sil_crm.entity.organism.class%"
+                        listener:
+                            defer: true
+                        finder: ~
+                        elastica_to_model_transformer:
+                            ignore_missing: true
+
+                organization:
+                    properties:
+                        name: ~
+                        firstname: ~
+                        lastname: ~
+                        description: ~
+                        email: ~
+                        url: ~
+                    indexable_callback: !object.isIndividual()
+                    persistence:
+                        driver: orm
+                        model: "%sil_crm.entity.organism.class%"
+                        listener:
+                            defer: true
+                        finder: ~
+                        elastica_to_model_transformer:
+                            ignore_missing: true
+
+                city:
+                    properties:
+                        country_code: ~
+                        zip: ~
+                        city: ~
+                    persistence:
+                        driver: orm
+                        model: "%sil_crm.entity.city.class%"
+                        listener:
+                            defer: true
+                        finder: ~
+                        elastica_to_model_transformer:
+                            ignore_missing: true
+blast_search:
+    templates:
+        -
+            class: "%sil_sonata_sylius_user.entity.sonata_user.class%"
+            template: PlatformBundle:Search/Results:SonataUser.html.twig
+        -
+            class: "%sil_crm.entity.organism.class%"
+            template: PlatformBundle:Search/Results:Organism.html.twig
+        -
+            class: "%sil_crm.entity.city.class%"
+            template: SilCRMBundle:Search/Results:City.json.twig

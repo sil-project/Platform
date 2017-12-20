@@ -1,0 +1,52 @@
+{% extends 'BlastSearchBundle:Search/Results:result.html.twig' %}
+
+{% set resultUrl = path('admin_crm_organism_show', {'id': result.id}) %}
+
+{% block search_url %}
+    {{ resultUrl }}
+{% endblock %}
+
+{% block search_title %}
+    {% if result.isIndividual %}
+        <i class="fa fa-user"></i>
+        {{ result.firstName }} {{ result.lastName }}
+    {% else %}
+        <i class="fa fa-users"></i>
+        {{ result.name }}
+    {% endif %}
+{% endblock %}
+
+{% block search_main_text %}
+    {% if result.customerCode is not null and result.customerCode != '' %}
+        {{'sil.crm.organism.show.label.customer_code'|trans}}: <b>{{result.customerCode}}</b>
+    {% endif %}
+    {% if result.supplierCode is not null and result.supplierCode != '' %}
+        {{'sil.crm.organism.show.label.supplier_code'|trans}}: <b>{{result.supplierCode}}</b>
+    {% endif %}
+
+    {% if not result.isIndividual %}
+        {% set individualCount = result.individuals|length %}
+        {{ '[0,1] %individualCount% individual|]1,Inf[ %individualCount% individuals'|transchoice(individualCount, { '%individualCount%': individualCount }) }}
+    {% endif %}
+{% endblock %}
+
+{% block search_actions %}
+    <div class="btn-group">
+        <a class="btn btn-default" href="{{ resultUrl }}">
+            {{ 'action_show'|trans({}, 'SonataAdminBundle') }}
+        </a>
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="caret"></span>
+            <span class="sr-only">Toggle Dropdown</span>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-right">
+            {# {% if is_granted('EDIT', result) %} #}
+            <li>
+                <a href="{{ path('admin_crm_organism_edit', {'id': result.id}) }}">
+                    {{ 'action_edit'|trans({}, 'SonataAdminBundle') }}
+                </a>
+            </li>
+            {# {% endif %} #}
+        </ul>
+    </div>
+{% endblock %}

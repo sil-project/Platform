@@ -73,7 +73,7 @@ class SearchableAutocompleteType extends ModelAutocompleteType
         };
 
         $callback = function ($admin, $property, $value) {
-            $this->indexSearch($searchText, $maxResults);
+            $this->searchHandler->indexSearch($searchText, $maxResults);
             $datagrid = $admin->getDatagrid();
             $queryBuilder = $datagrid->getQuery();
             $alias = $queryBuilder->getRootalias();

@@ -46,6 +46,7 @@ twig:
         - 'BlastUtilsBundle:Form:fields.html.twig'
         - 'BlastBaseEntitiesBundle:Form:fields.html.twig'
         - 'SilMediaBundle:Form:fields.html.twig'
+        - 'BlastSearchBundle:Form:fields.html.twig'
     globals:
         sil:
             url_prefix: "%sil.url_prefix%"

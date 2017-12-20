@@ -29,7 +29,7 @@ parameters:
     symfony-web-dir: web
     sylius_fallback_channel_code: default
     currency: EUR
-    
+
     sil.user.fixtures:
         admin:
             username: sil
@@ -42,14 +42,15 @@ parameters:
             email: lis@sil.eu
             super: false
 
-    # ##########################################################################
-    # LISEM
-    # ##########################################################################
-
     sil.fakeEmail:
         domain: sil.eu
         prefix: FAKE
         suffix: ''
+
+    # ##########################################################################
+    # ECOMMERCE
+    # ##########################################################################
+
     sylius_fallback_channel_code: FR_WEB
     sylius_fr_web_channel_hostname: 127.0.0.1
     sylius_fr_web_channel_code: FR_WEB
@@ -60,3 +61,11 @@ parameters:
     paybox.identifiant: test
     paybox.hmac: ABCDEF
     paybox.sandbox: true
+
+    # ##########################################################################
+    # BLAST SEARCH
+    # ##########################################################################
+
+    blast_search.elastic_search.hostname:  127.0.0.1
+    blast_search.elastic_search.port: 9200
+    blast_search.global_index_name: sil_platform
