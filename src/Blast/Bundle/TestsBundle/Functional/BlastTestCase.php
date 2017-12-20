@@ -23,13 +23,13 @@ class BlastTestCase extends KernelTestCase
     protected $input;
     protected $output;
     protected $command;
+    protected $locator;
 
     protected function setUp()
     {
         static::bootKernel();
-
-        /* @var Container $container */
         $this->container = self::$kernel->getContainer();
+        $this->locator = static::$kernel->getContainer()->get('file_locator');
     }
 
     protected function outputVar($var, $msg = 'Var')
