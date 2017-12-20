@@ -32,6 +32,9 @@ composer.lock
 !/bin/console
 !/bin/ci-scripts
 !/bin/git-script
+/src/*/*/*/bin
+!/src/*/*/*/bin/ci-scripts
+!/src/*/*/*/bin/git-script
 
 # Build data
 /build/
