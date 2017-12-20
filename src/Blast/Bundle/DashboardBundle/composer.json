@@ -4,11 +4,11 @@
     "description": "A Dashboard system that handle blocks on a normalized dashboard",
     "require": {
         "php": "^7.1",
-        "symfony/symfony": "^3.3",
+        "symfony/symfony": "3.3.*",
         "sonata-project/block-bundle": "^3.9"
     },
     "require-dev": {
-        "symfony/phpunit-bridge": "^3.3",
+        "symfony/phpunit-bridge": "3.3.*",
         "phpunit/phpunit": "^6.4"
     },
     "license": "LGPL-3.0",
@@ -34,5 +34,8 @@
             "Blast\\Bundle\\DashboardBundle\\": "."
         }
     },
-    "version": "dev-wip-platform"
+    "version": "dev-wip-platform",
+    "config": {
+        "bin-dir": "bin/"
+    }
 }

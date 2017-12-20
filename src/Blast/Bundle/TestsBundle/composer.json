@@ -36,5 +36,6 @@
     },
     "config": {
         "bin-dir": "bin/"
-    }
+    },
+    "version": "dev-wip-platform"
 }

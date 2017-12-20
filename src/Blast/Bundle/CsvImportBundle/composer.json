@@ -3,14 +3,14 @@
     "type": "blast-bundle",
     "description": "Csv Import bundle for Blast.",
     "require": {
-        "php": ">=7.1",
+        "php": "^7.1",
         "blast-project/core-bundle": "self.version",
         "doctrine/doctrine-bundle": ">=1.6",
         "doctrine/orm": "2.5.*",
-        "symfony/symfony": ">=3.2"
+        "symfony/symfony": "3.3.*"
     },
     "require-dev": {
-        "symfony/phpunit-bridge": ">=3.2",
+        "symfony/phpunit-bridge": "3.3.*",
         "symfony/console": ">=3.2",
         "phpunit/phpunit": "^6.4",
         "blast-project/tests-bundle": "self.version"
@@ -29,5 +29,8 @@
             "Blast\\Bundle\\CsvImportBundle\\": "./"
         }
     },
-    "version": "dev-wip-platform"
+    "version": "dev-wip-platform",
+    "config": {
+        "bin-dir": "bin/"
+    }
 }
