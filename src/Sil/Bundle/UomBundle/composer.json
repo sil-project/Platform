@@ -1,41 +1,42 @@
 {
-  "name": "sil-project/uom-bundle",
-  "type": "symfony-bundle",
-  "description": "UOM Management",
-  "require": {
-    "php": "^7.1",
-    "symfony/symfony": "^3.3",
-    "sil-project/uom": "self.version",
-    "blast-project/resource-bundle": "self.version"
-  },
-  "require-dev": {
-    "symfony/phpunit-bridge": "^3.3",
-    "phpunit/phpunit": "^6.4"
-
-  },
-  "license": "LGPL-3.0",
-  "keywords": [
-    "uom",
-    "unit of measure"
-  ],
-  "homepage": "https://github.com/sil-prject/Uom",
-  "authors": [{
-      "name": "Glenn Cavarlé",
-      "email": "glenn.cavarle@libre-informatique.fr"
+    "name": "sil-project/uom-bundle",
+    "type": "symfony-bundle",
+    "description": "UOM Management",
+    "require": {
+        "php": "^7.1",
+        "symfony/symfony": "^3.3",
+        "sil-project/uom": "self.version",
+        "blast-project/resource-bundle": "self.version",
+        "blast-project/resource": "self.version"
     },
-    {
-      "name": "Libre Informatique",
-      "homepage": "http://www.libre-informatique.fr/"
+    "require-dev": {
+        "symfony/phpunit-bridge": "^3.3",
+        "phpunit/phpunit": "^6.4"
+        
+    },
+    "license": "LGPL-3.0",
+    "keywords": [
+        "uom",
+        "unit of measure"
+    ],
+    "homepage": "https://github.com/sil-prject/Uom",
+    "authors": [
+        {
+            "name": "Glenn Cavarlé",
+            "email": "glenn.cavarle@libre-informatique.fr"
+        },
+        {
+            "name": "Libre Informatique",
+            "homepage": "http://www.libre-informatique.fr/"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Sil\\Bundle\\UomBundle\\": "."
+        }
+    },
+    "version": "dev-wip-platform",
+    "config": {
+        "bin-dir": "bin/"
     }
-  ],
-
-  "autoload": {
-    "psr-4": {
-      "Sil\\Bundle\\UomBundle\\": "."
-    }
-  },
-  "version": "dev-wip-platform",
-  "config": {
-    "bin-dir": "bin/"
-  }
 }
