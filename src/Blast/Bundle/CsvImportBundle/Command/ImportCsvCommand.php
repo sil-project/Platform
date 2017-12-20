@@ -120,7 +120,7 @@ EOT
      */
     protected function importData($entityClass, OutputInterface $output)
     {
-        $batchSize = 1000;
+        $batchSize = 10000;
         $output->write("Importing <info>$entityClass</info>");
         $csv = $this->getCsvFilePath($entityClass);
         $output->write(' (' . basename($csv) . ')...');
@@ -150,8 +150,9 @@ EOT
             // Hum Lol
             if ($k % $batchSize == 0) {
                 $this->em->flush();
-                $this->em->clear();
                 // http://docs.doctrine-project.org/projects/doctrine-orm/en/latest/reference/batch-processing.html
+                // Warning ! Should not do a clear as it detach attached foreign entity (so they are not found on persist)
+                // $this->em->clear();
             }
         }
         $this->em->flush();
@@ -161,6 +162,7 @@ EOT
 
     protected function postDeserialize($entityClass, $object, OutputInterface $output)
     {
+        /* @todo: move this to deserialise in normalizer */
         if (array_key_exists('generators', $this->mapping[$entityClass])) {
             foreach (keys($this->mapping[$entityClass]['generators']) as $field) {
                 $generator = $this->getContainer()->get($this->mapping[$entityClass]['generators'][$field]);
@@ -182,9 +184,7 @@ EOT
         }
         if ($doDelete) {
             $output->writeln(sprintf('Delete from %s', $entityClass));
-            $em = $this->getContainer()->get('doctrine')->getEntityManager();
-
-            $em->createQuery('DELETE FROM ' . $entityClass)->execute();
+            $this->em->createQuery('DELETE FROM ' . $entityClass)->execute();
             //$em->createQuery('DELETE FROM :entityClass')->execute(['entityClass', $entityClass]);
         }
     }
