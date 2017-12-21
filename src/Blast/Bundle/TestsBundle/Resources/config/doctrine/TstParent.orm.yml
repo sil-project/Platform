@@ -3,6 +3,12 @@ Blast\Bundle\TestsBundle\Entity\TstParent:
     table: test_parent_table
     repositoryClass: Blast\Bundle\TestsBundle\Repository\TstParentRepository
     
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+                
     fields:
         name:
             type:     string(255)

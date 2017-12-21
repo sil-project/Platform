@@ -10,15 +10,11 @@
 
 namespace Blast\Bundle\TestsBundle\Entity;
 
-use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\BaseEntity;
-
 /**
  * TstSecond.
  */
 class TstSecond
 {
-    use BaseEntity;
-
     /**
      * @var string
      */
@@ -151,5 +147,34 @@ class TstSecond
     public function getCode()
     {
         return $this->code;
+    }
+
+    /**
+     * @var int
+     */
+    private $id;
+
+    /**
+     * Set id.
+     *
+     * @param int $id
+     *
+     * @return TstSecond
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * Get id.
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 }

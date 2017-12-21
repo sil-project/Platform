@@ -10,15 +10,11 @@
 
 namespace Blast\Bundle\TestsBundle\Entity;
 
-use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\BaseEntity;
-
 /**
  * TstParent.
  */
 class TstParent
 {
-    use BaseEntity;
-
     /*
      * @var string
      */
@@ -220,5 +216,34 @@ class TstParent
     public function getParentParent()
     {
         return $this->parent_parent;
+    }
+
+    /**
+     * @var int
+     */
+    private $id;
+
+    /**
+     * Set id.
+     *
+     * @param int $id
+     *
+     * @return TstParent
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * Get id.
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 }

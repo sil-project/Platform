@@ -3,7 +3,12 @@ Blast\Bundle\TestsBundle\Entity\TstSecond:
     table: test_second_table
     repositoryClass: Blast\Bundle\TestsBundle\Repository\TstSecondRepository
 
-    fields:
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+    fields:                
         name:
             type:     string(255)
             nullable: true

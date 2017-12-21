@@ -10,15 +10,11 @@
 
 namespace Blast\Bundle\TestsBundle\Entity;
 
-use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\BaseEntity;
-
 /**
  * TstFinal.
  */
 class TstFinal
 {
-    use BaseEntity;
-
     /**
      * @var string
      */
@@ -180,5 +176,34 @@ class TstFinal
     public function getParent()
     {
         return $this->parent;
+    }
+
+    /**
+     * @var int
+     */
+    private $id;
+
+    /**
+     * Set id.
+     *
+     * @param int $id
+     *
+     * @return TstFinal
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * Get id.
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 }

@@ -3,6 +3,11 @@ Blast\Bundle\TestsBundle\Entity\TstFinal:
     table: test_final_table
     repositoryClass: Blast\Bundle\TestsBundle\Repository\TstFinalRepository
     
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
     fields:
         name:
             type:     string(255)
