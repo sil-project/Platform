@@ -25,7 +25,6 @@ class AppKernel extends Kernel
             // new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new \Knp\Bundle\MenuBundle\KnpMenuBundle(),
             new \Blast\Bundle\MenuBundle\BlastMenuBundle(),
-
         ];
 
         return $bundles;

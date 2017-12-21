@@ -48,7 +48,7 @@ class SessionTest extends KernelTestCase
     {
         static::bootKernel();
         $this->updateSchema();
-        
+
         /*
          * SELECT table_name FROM information_schema.tables where TABLE_SCHEMA='travis'
          *  select * from sf_session

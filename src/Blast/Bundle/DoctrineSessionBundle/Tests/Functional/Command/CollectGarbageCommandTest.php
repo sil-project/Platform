@@ -18,7 +18,7 @@ class CollectGarbageCommandTest extends BlastTestCase
     {
         parent::setUp();
         // $this->cacheClear();
-         $this->updateSchema();
+        $this->updateSchema();
         // $this->validateSchema();
     }
 
