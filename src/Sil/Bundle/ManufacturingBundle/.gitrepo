@@ -6,7 +6,7 @@
 [subrepo]
 	remote = git@github.com:sil-project/ManufacturingBundle.git
 	branch = wip-platform
-	commit = f2cb3712bcbe93808ed697c12d6388e8939129ce
+	commit = a021a7fc84c980e574fbae4078699cff66940ed4
 	cmdver = 0.4.0
-	parent = c321fd54f21c2decfbc56459c2c329d9e51d5039
+	parent = 151192c054f2abda3ec94e46fd412e74b20ce902
 	method = merge
