@@ -11,6 +11,7 @@
     },
     "require-dev": {
         "symfony/phpunit-bridge": "3.3.*",
+        "blast-project/tests-bundle": "self.version",
         "phpunit/phpunit": "^6.4"
     },
     "license": "LGPL-3.0",
