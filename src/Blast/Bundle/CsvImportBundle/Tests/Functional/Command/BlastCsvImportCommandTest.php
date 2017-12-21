@@ -21,6 +21,7 @@ class BlastCsvImportCommandTest extends BlastTestCase
         parent::setUp();
         $this->testResourcesPath = $this->locator->locate('@BlastTestsBundle/Resources');
         //  $this->registrymanager = static::$kernel->getContainer()->get('doctrine');
+        $this->updateSchema();
     }
 
     /* @todo: use relative path to TestBundle Resource dir */

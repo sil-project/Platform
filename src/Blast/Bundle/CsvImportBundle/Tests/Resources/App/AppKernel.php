@@ -17,7 +17,7 @@ class AppKernel extends Kernel
     {
         $bundles = [
             new Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
-             new Symfony\Bundle\TwigBundle\TwigBundle(),
+            new Symfony\Bundle\TwigBundle\TwigBundle(),
             new Symfony\Bundle\SecurityBundle\SecurityBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Blast\Bundle\CsvImportBundle\BlastCsvImportBundle(),
