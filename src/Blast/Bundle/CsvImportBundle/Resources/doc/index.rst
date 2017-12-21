@@ -1,6 +1,6 @@
-============
-Blast Bundle
-============
+===========================
+Blast DoctrineSessionBundle
+===========================
 
 
 .. toctree::
@@ -14,6 +14,5 @@ Blast Bundle
    reference/configuration
    reference/architecture
    reference/contributing
-
 
 

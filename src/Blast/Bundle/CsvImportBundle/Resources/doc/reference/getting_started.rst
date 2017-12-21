@@ -1,4 +1,3 @@
-Getting started with Blast CoreBundle
-=====================================
-
+Getting started 
+================
 
