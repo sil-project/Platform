@@ -6,7 +6,7 @@
 [subrepo]
 	remote = git@github.com:blast-project/BaseEntitiesBundle.git
 	branch = wip-platform
-	commit = 5d318fc76514f41337296571e404093d70c6c93c
+	commit = 5172c1612bc57c3fe67bd0ffa38d0ec283ac2a13
 	cmdver = 0.4.0
-	parent = 13f97055a2269281561d55765ddebd0ebb3399b3
+	parent = ccf8f964ac934fa79796dc67244d824ed6d7079b
 	method = merge
