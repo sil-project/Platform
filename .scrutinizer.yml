@@ -3,6 +3,10 @@ filter:
         - 'vendor/*'
         - 'bin/*'
         - '*.min.js'
+        - 'src/Tests/*'
+        - 'src/Skeleton/*'
+        - 'src/*/*/*/Tests'
+        - 'src/*/*/*/Resources'
 checks:
     php:
         code_rating: true
