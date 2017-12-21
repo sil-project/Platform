@@ -6,7 +6,7 @@
 [subrepo]
 	remote = git@github.com:sil-project/EmailBundle.git
 	branch = wip-platform
-	commit = 8ebcc8cb8f1656cc0f944f574531cabf73f3d0a4
+	commit = 041b66ce2cdcb31da55ea20a516b01093264cb0e
 	cmdver = 0.4.0
-	parent = 0dcb5290bd5478ff273539617542c4aa54d50f28
+	parent = 667df10eed15c8248dc1356e32f139e9941e6322
 	method = merge
