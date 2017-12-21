@@ -6,7 +6,7 @@
 [subrepo]
 	remote = git@github.com:sil-project/EcommerceBundle.git
 	branch = wip-platform
-	commit = 66d16591cd49f17bf73191d34ffeb4bc3878967e
+	commit = 35ac03cd6418d2078bfd8d824950ee8d3aeaf9b6
 	cmdver = 0.4.0
-	parent = b75749d0674d21ac5b88ceb7b4fbffc08a2d3371
+	parent = f226d956148f1c0c1dafba5b46e56926203f5928
 	method = merge
