@@ -6,7 +6,7 @@
 [subrepo]
 	remote = git@github.com:blast-project/TestsBundle.git
 	branch = wip-platform
-	commit = eb949e9ac44fb8c11022eb7656bfd1f92f4e2c2d
-	parent = df026e27190b3b28456b8791d1a36dce4694f0b2
+	commit = 8803a84983b70bfe2e0a18bb3ed66403c511bfbe
+	parent = 03342521bd38300ace1dd2529a04591da23d8944
 	cmdver = 0.4.0
 	method = merge
