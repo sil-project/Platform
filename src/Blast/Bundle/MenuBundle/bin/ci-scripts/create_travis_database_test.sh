@@ -21,14 +21,19 @@ set -ev
 # or here :  sudo /etc/init.d/postgresql start
 
 # (we try to create a travis user)
-# psql -c 'CREATE USER travis;' -U postgres
-# psql -c 'ALTER ROLE travis WITH CREATEDB;' -U postgres
 
-psql -c 'CREATE DATABASE travis;' -U postgres
-psql -c 'ALTER DATABASE travis OWNER TO travis' -U postgres
+# (we try to create a travis user)
+psql -c "CREATE USER blast_test_user WITH PASSWORD 'blast_test';" -U postgres
+psql -c 'ALTER ROLE blast_test_user WITH CREATEDB;' -U postgres
+
+psql -c 'CREATE DATABASE blast_test;' -U postgres
+psql -c 'ALTER DATABASE blast_test OWNER TO blast_test_user' -U postgres
 
 
-#psql -U postgres -c "CREATE EXTENSION 'uuid-ossp';"
+psql -c 'CREATE EXTENSION "uuid-ossp";' -U postgres -d blast_test
+
+
+
 
 ###
 ###
