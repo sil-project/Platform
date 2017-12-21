@@ -6,7 +6,7 @@
 [subrepo]
 	remote = git@github.com:blast-project/SearchBundle.git
 	branch = wip-platform
-	commit = 113e014d64c3c20ddda165da1e789010e39af727
+	commit = ad56607b502e3d254d80e6b0a81a1b569caf0cbc
 	method = merge
 	cmdver = 0.4.0
-	parent = 620ccd2b71ebb1b10957c5bc131554185a8d2b13
+	parent = c2ff801dcb77e71c91d6424ace1001b47726eb70
