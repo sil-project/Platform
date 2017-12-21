@@ -6,7 +6,7 @@
 [subrepo]
 	remote = git@github.com:blast-project/MenuBundle.git
 	branch = wip-platform
-	commit = cc38583db7a5e52ba82358ea6f3ba3023649dcf5
+	commit = 8a76d83eaab01e48140f53086f3f31571b8301dd
 	method = merge
 	cmdver = 0.4.0
-	parent = ee60a811a28b45bec150ac7b5aae256703cac1f0
+	parent = 3fe134c466b602c534b3edb49a7d6f6719005b6f
