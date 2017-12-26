@@ -1,6 +1,5 @@
 # TestsBundle
 
-
 [![Build Status](https://travis-ci.org/blast-project/TestsBundle.svg?branch=master)](https://travis-ci.org/blast-project/TestsBundle)
 [![Coverage Status](https://coveralls.io/repos/github/blast-project/TestsBundle/badge.svg?branch=master)](https://coveralls.io/github/blast-project/TestsBundle?branch=master)
 [![License](https://img.shields.io/github/license/blast-project/TestsBundle.svg?style=flat-square)](./LICENCE.md)
