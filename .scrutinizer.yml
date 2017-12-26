@@ -17,6 +17,3 @@ coding_style:
         spaces:
             around_operators:
                 concatenation: true
-tools:
-    php_cs_fixer:
-        config: { level: psr2 }
