@@ -84,10 +84,10 @@
  <target name="composer"
          unless="composer.done"
          description="Run composer install">
-  <apply executable="composer" taskname="install vendor">
+  <exec executable="composer" taskname="install">
    <arg value="install" />
    <arg value="--no-interaction" />
-  </apply>
+  </exec>
 
   <property name="composer.done" value="true"/>
 </target>
