@@ -154,7 +154,7 @@
   <exec executable="${phpmd}" taskname="phpmd">
    <arg path="${basedir}/src" />
    <arg value="text" />
-   <arg path="${basedir}/build/phpmd.xml" />
+   <arg path="${basedir}/phpmd.xml.dist" />
   </exec>
 
   <property name="phpmd.done" value="true"/>
@@ -167,7 +167,7 @@
   <exec executable="${phpmd}" taskname="phpmd">
    <arg path="${basedir}/src" />
    <arg value="xml" />
-   <arg path="${basedir}/build/phpmd.xml" />
+   <arg path="${basedir}/phpmd.xml.dist" />
    <arg value="--reportfile" />
    <arg path="${basedir}/build/logs/pmd.xml" />
   </exec>
@@ -252,7 +252,7 @@
          unless="phpdox.done"
          depends="phploc-ci,phpcs-ci,phpmd-ci"
          description="Generate project documentation using phpDox">
-  <exec executable="${phpdox}" dir="${basedir}/build" taskname="phpdox"/>
+  <exec executable="${phpdox}" taskname="phpdox"/>
 
   <property name="phpdox.done" value="true"/>
  </target>
