@@ -81,6 +81,17 @@
   <property name="prepare.done" value="true"/>
  </target>
 
+ <target name="composer"
+         unless="composer.done"
+         description="Run composer install">
+  <apply executable="composer" taskname="install vendor">
+   <arg value="install" />
+   <arg value="--no-interaction" />
+  </apply>
+
+  <property name="composer.done" value="true"/>
+</target>
+
  <target name="lint"
          unless="lint.done"
          description="Perform syntax check of sourcecode files">
@@ -218,7 +229,7 @@
 
  <target name="phpunit"
          unless="phpunit.done"
-         depends="prepare"
+         depends="prepare, composer"
          description="Run unit tests with PHPUnit">
   <exec executable="${phpunit}" resultproperty="result.phpunit" taskname="phpunit">
   </exec>
