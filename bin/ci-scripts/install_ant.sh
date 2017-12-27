@@ -31,3 +31,9 @@ wget -O ${HOME}/bin/phpdox http://phpdox.de/releases/phpdox.phar
 chmod +x ${HOME}/bin/phpdox
 ${HOME}/bin/phpdox --version
 
+
+
+
+#### As ant will try to run test ...
+bin/ci-scripts/create_travis_database_test.sh
+bin/ci-scripts/install_test.sh
