@@ -40,10 +40,8 @@ matrix:
       env: TARGET=ant
   allow_failures:
     - php: nightly
+    - env: TARGET=ant
     - env: SYMFONY_DEPRECATIONS_HELPER=0
-    - env: SYMFONY=dev-master@dev
-    - env: SONATA_CORE=dev-master@dev
-    - env: SONATA_BLOCK=dev-master@dev
 
 before_install:
     - ln -s .env.travis .env # Enable env
