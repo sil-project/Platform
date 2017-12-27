@@ -36,6 +36,8 @@ matrix:
       env: TARGET=docs
     - php: '7.1'
       env: TARGET=lint
+    - php: '7.1'
+      env: TARGET=ant
   allow_failures:
     - php: nightly
     - env: SYMFONY_DEPRECATIONS_HELPER=0
