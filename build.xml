@@ -242,8 +242,6 @@
          depends="prepare"
          description="Run unit tests with PHPUnit (without generating code coverage reports)">
   <exec executable="${phpunit}" failonerror="true" taskname="phpunit">
-   <arg value="--configuration"/>
-   <arg path="${basedir}/build/phpunit.xml"/>
    <arg value="--no-coverage"/>
   </exec>
 
