@@ -31,7 +31,7 @@ fos_elastica:
                         description: ~
                         email: ~
                         url: ~
-                    indexable_callback: isIndividual
+                    indexable_callback: 'isIndividual'
                     persistence:
                         driver: orm
                         model: "%sil_crm.entity.organism.class%"
@@ -49,7 +49,7 @@ fos_elastica:
                         description: ~
                         email: ~
                         url: ~
-                    indexable_callback: !object.isIndividual()
+                    indexable_callback: '!object.isIndividual()'
                     persistence:
                         driver: orm
                         model: "%sil_crm.entity.organism.class%"

@@ -3,7 +3,7 @@ lexik_maintenance:
         query: { debug: 1 }
     driver:
         class: '\Lexik\Bundle\MaintenanceBundle\Drivers\FileDriver'                # class for file driver
-        options: {file_path: %kernel.cache_dir%/maintenance.lock}
+        options: { file_path: '%kernel.cache_dir%/maintenance.lock' }
     response:
         code: 503
         status: "Service Temporarily Unavailable"

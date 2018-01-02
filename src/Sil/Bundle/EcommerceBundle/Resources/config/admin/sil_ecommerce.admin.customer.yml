@@ -2,7 +2,7 @@
 services:
     sil_ecommerce.admin.customer:
         class: Sil\Bundle\EcommerceBundle\Admin\CustomerAdmin
-        arguments: [~, %sylius.model.customer.class%, SilCRMBundle:OrganismAdmin]
+        arguments: [~, '%sylius.model.customer.class%', SilCRMBundle:OrganismAdmin]
         tags:
             -
                 name: sonata.admin

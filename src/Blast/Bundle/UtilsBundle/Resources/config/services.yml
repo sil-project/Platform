@@ -79,7 +79,7 @@ services:
         parent: blast_utils.hooks.abstract_hook
         class: Blast\Bundle\UtilsBundle\Hook\Hooks\Layout\Stylesheets
         tags:
-            - { name: blast.hook, hook: layout.stylesheets, template:BlastUtilsBundle:Hook/Layout:stylesheets.html.twig  }
+            - { name: blast.hook, hook: layout.stylesheets, template: BlastUtilsBundle:Hook/Layout:stylesheets.html.twig }
 
     blast_utils.hooks.custom_filters.dropdown:
         parent: blast_utils.hooks.abstract_hook
