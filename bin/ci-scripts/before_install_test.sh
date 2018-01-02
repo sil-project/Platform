@@ -8,16 +8,18 @@ if [ $# -eq 0 ]
 then
     # Ugly hack
     echo "memory_limit=-1" >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
+
+    # for selenium
+    sudo apt-get install xvfb
+    sudo apt-get install chromium-browser
+    sudo apt-get install firefox
+    #sudo apt-get install chromium-chromedriver
 fi
    
 composer self-update --stable
 composer clear-cache
 
-# for selenium
-sudo apt-get install xvfb
-sudo apt-get install chromium-browser
-sudo apt-get install firefox
-#sudo apt-get install chromium-chromedriver
+
 
 #wget http://chromedriver.storage.googleapis.com/2.12/chromedriver_linux64.zip
 #wget http://chromedriver.storage.googleapis.com/2.29/chromedriver_linux64.zip
