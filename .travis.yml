@@ -40,7 +40,6 @@ matrix:
       env: TARGET=ant
   allow_failures:
     - php: nightly
-    - env: TARGET=ant
     - env: SYMFONY_DEPRECATIONS_HELPER=0
 
 before_install:
