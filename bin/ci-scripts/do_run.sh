@@ -1,8 +1,11 @@
 #!/usr/bin/env bash
 set -ev
 
-name=./${1}_${TARGET}.sh
-if [ -x ${name} ]
-then
-    ${name} 
-fi
+for name in $@
+do
+    script_name=$(dirname $0)/$name
+    if [ -x $script_name ]
+    then
+        $script_name
+    fi
+done
