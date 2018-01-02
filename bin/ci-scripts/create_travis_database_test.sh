@@ -16,7 +16,7 @@ set -v
 ###
 
 #psql auto password
-#echo  localhost:5432:postgres:postgres:postgres24 >> ~/.pgpass
+#echo  localhost:5432:*:postgres:postgres24 >> ~/.pgpass
 
 # needed in .travis.yml
 #services:
