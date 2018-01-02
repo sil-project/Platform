@@ -6,8 +6,9 @@ fos_elastica:
     indexes:
         global:
             finder: ~
-            use_alias: true
             index_name: "%blast_search.global_index_name%"
+            settings:
+                index.max_result_window: 100000
             types:
                 user:
                     properties:
@@ -81,4 +82,9 @@ blast_search:
             template: PlatformBundle:Search/Results:Organism.html.twig
         -
             class: "%sil_crm.entity.city.class%"
-            template: SilCRMBundle:Search/Results:City.json.twig
+            template: SilCRMBundle:Search/Results:City.html.twig
+
+knp_paginator:
+    page_range: 10
+    template:
+        pagination: '@KnpPaginator/Pagination/twitter_bootstrap_v3_pagination.html.twig'
