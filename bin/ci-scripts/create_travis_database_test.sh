@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -v
+set -ev
 
 # Database creation
 
