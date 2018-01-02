@@ -62,20 +62,20 @@ class ImportCsvCommand extends ContainerAwareCommand
             ->setDescription('Import data from CSV files into Blast.')
             ->setDefinition(
                 new InputDefinition([
-                new InputOption(
-                    'mapping',
-                    'm',
-                    InputOption::VALUE_REQUIRED,
-                    'The mapping files.',
-                    'src/Resources/config/csv_import.yml'
-                ),
-                new InputOption(
-                    'dir',
-                    'd',
-                    InputOption::VALUE_REQUIRED,
-                    'The path directory containing the CSV files.',
-                    'src/Resources/data'
-                ),
+                    new InputOption(
+                        'mapping',
+                        'm',
+                        InputOption::VALUE_REQUIRED,
+                        'The mapping files.',
+                        'src/Resources/config/csv_import.yml'
+                    ),
+                    new InputOption(
+                        'dir',
+                        'd',
+                        InputOption::VALUE_REQUIRED,
+                        'The path directory containing the CSV files.',
+                        'src/Resources/data'
+                    ),
                 ])
             )
 
