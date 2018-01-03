@@ -70,7 +70,7 @@ parameters:
         #                 multiple: true
         #                 serviceCallback: [sil_crm.admin.position, individualsCallback, callback]
         #                 field_options:
-        #                     class: "%sil_crm.entity.organism.class%"
+        #                     class: "%sil.model.crm_organism.class%"
         #                     property: label
         #                     admin_code: sil_email.admin.email
         #                     btn_add: false
@@ -80,7 +80,7 @@ parameters:
         #                 multiple: true
         #                 serviceCallback: [sil_crm.admin.position, organizationsCallback, callback]
         #                 field_options:
-        #                     class: "%sil_crm.entity.organism.class%"
+        #                     class: "%sil.model.crm_organism.class%"
         #                     property: title
         #                     admin_code: sil_email.admin.email
         #                     btn_add: false

@@ -1,8 +1,8 @@
 parameters:
     sil_crm.entity.address.class:                       PlatformBundle\Entity\SilCRMBundle\Address
-    sil_crm.entity.organism.class:                      PlatformBundle\Entity\SilCRMBundle\Organism
+    sil.model.crm_organism.class:                      PlatformBundle\Entity\SilCRMBundle\Organism
 
-    sil_stock.entity.partner.class:                     "%sil_crm.entity.organism.class%"
+    sil_stock.entity.partner.class:                     "%sil.model.crm_organism.class%"
     sil_stock.entity.stock_item.class:                  "%sil_ecommerce.entity.product.class%"
 
     sil_ecommerce.entity.product.class:                 Sil\Bundle\EcommerceBundle\Entity\Product

@@ -1,7 +1,7 @@
 services:
     sil_emailcrm.admin.organism:
         class: Sil\Bundle\EmailCRMBundle\Admin\OrganismAdmin
-        arguments: [~, "%sil_crm.entity.organism.class%", SilCRMBundle:OrganismAdmin]
+        arguments: [~, "%sil.model.crm_organism.class%", SilCRMBundle:OrganismAdmin]
         tags:
             -   name: sonata.admin
                 manager_type: orm

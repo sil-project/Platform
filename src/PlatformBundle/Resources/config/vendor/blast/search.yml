@@ -34,7 +34,7 @@ fos_elastica:
                     indexable_callback: 'isIndividual'
                     persistence:
                         driver: orm
-                        model: "%sil_crm.entity.organism.class%"
+                        model: "%sil.model.crm_organism.class%"
                         listener:
                             defer: true
                         finder: ~
@@ -52,7 +52,7 @@ fos_elastica:
                     indexable_callback: '!object.isIndividual()'
                     persistence:
                         driver: orm
-                        model: "%sil_crm.entity.organism.class%"
+                        model: "%sil.model.crm_organism.class%"
                         listener:
                             defer: true
                         finder: ~
@@ -78,7 +78,7 @@ blast_search:
             class: "%sil_sonata_sylius_user.entity.sonata_user.class%"
             template: PlatformBundle:Search/Results:SonataUser.html.twig
         -
-            class: "%sil_crm.entity.organism.class%"
+            class: "%sil.model.crm_organism.class%"
             template: PlatformBundle:Search/Results:Organism.html.twig
         -
             class: "%sil_crm.entity.city.class%"

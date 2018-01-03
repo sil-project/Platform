@@ -9,7 +9,7 @@ doctrine:
 
             # SilCRMBundle
 
-            Sil\Bundle\CRMBundle\Entity\OrganismInterface:                  "%sil_crm.entity.organism.class%"
+            Sil\Bundle\CRMBundle\Entity\OrganismInterface:                  "%sil.model.crm_organism.class%"
             Sil\Bundle\CRMBundle\Entity\AddressInterface:                   "%sil_crm.entity.address.class%"
 
             # SilEmailBundle
