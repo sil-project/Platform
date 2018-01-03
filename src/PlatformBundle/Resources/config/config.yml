@@ -3,14 +3,6 @@ imports:
 
     # Vendors
 
-    - { resource: "@PlatformBundle/Resources/config/vendor/blast/base_entities.yml" }
-    - { resource: "@PlatformBundle/Resources/config/vendor/blast/csv_import.yml" }
-    - { resource: "@PlatformBundle/Resources/config/vendor/blast/dashboard.yml" }
-    - { resource: "@PlatformBundle/Resources/config/vendor/blast/menu.yml" }
-    - { resource: "@PlatformBundle/Resources/config/vendor/blast/resource.yml" }
-    - { resource: "@PlatformBundle/Resources/config/vendor/blast/search.yml" }
-    - { resource: "@PlatformBundle/Resources/config/vendor/blast/utils.yml" }
-
     - { resource: "@PlatformBundle/Resources/config/vendor/stof.yml" }
     - { resource: "@PlatformBundle/Resources/config/vendor/sil.yml" }
     - { resource: "@PlatformBundle/Resources/config/vendor/sonata.yml" }
@@ -50,7 +42,11 @@ imports:
     - { resource: "@SilManufacturingBundle/Resources/config/app/config.yml" }
     - { resource: "@SilManufacturingBundle/Resources/config/services.yml" }
 
-    # Vendors
+    # Blast
+
+    - { resource: "@PlatformBundle/Resources/config/vendor/blast/csv_import.yml" }
+    - { resource: "@PlatformBundle/Resources/config/vendor/blast/dashboard.yml" }
+    - { resource: "@PlatformBundle/Resources/config/vendor/blast/search.yml" }
     - { resource: "@PlatformBundle/Resources/config/vendor/blast/base_entities.yml" }
     - { resource: "@PlatformBundle/Resources/config/vendor/blast/menu.yml" }
     - { resource: "@PlatformBundle/Resources/config/vendor/blast/resource.yml" }
