@@ -76,43 +76,6 @@ class Organism extends OrganismAbstract implements CustomerInterface, ReviewerIn
         $this->siret = $siret;
     }
 
-    /**
-     * @param string $seedProducerCode
-     *
-     * @return Organism
-     */
-    // public function setSeedProducerCode($seedProducerCode)
-    // {
-    //     $this->seedProducerCode = $seedProducerCode;
-
-    //     return $this;
-    // }
-
-    /**
-     * @return string
-     */
-    // public function getSeedProducerCode()
-    // {
-    //     return $this->seedProducerCode;
-    // }
-
-    // public function producerToString()
-    // {
-    //     return (string) $this;
-    // }
-
-    // public function isSeedProducer()
-    // {
-    //     return (bool) $this->seedProducer;
-    // }
-
-    // public function setSeedProducer($seedProducer)
-    // {
-    //     $this->seedProducer = $seedProducer;
-
-    //     return $this;
-    // }
-
     /**********************************************
      *@warn FROM ECommerceBundle::OrganismExtension
      **********************************************/

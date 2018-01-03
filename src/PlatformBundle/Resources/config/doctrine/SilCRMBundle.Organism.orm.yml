@@ -1,31 +1,13 @@
 PlatformBundle\Entity\SilCRMBundle\Organism:
-    type: entity
+    type: mappedSuperclass
     table: sil_crm_organism
     fields:
-#        seedProducerCode:
-#            type:       string
-#            length:     255
-#            nullable:   true
-#        seedProducer:
-#            type:        boolean
-#            options:
-#                default: false
         emailCanonical:
             type:       string
             length:     255
             nullable:   true
 
     oneToMany:
-        # seedBatches:
-        #     targetEntity: Sil\Bundle\SeedBatchBundle\Entity\SeedBatchInterface
-        #     mappedBy: producer
-        #     cascade: [ persist, remove ]
-        #     orphanRemoval: true
-        # plots:
-        #     targetEntity: Sil\Bundle\SeedBatchBundle\Entity\Plot
-        #     mappedBy: producer
-        #     cascade: [ persist, remove ]
-        #     orphanRemoval: true
         orders:
             targetEntity: Sil\Bundle\EcommerceBundle\Entity\OrderInterface
             mappedBy: customer
