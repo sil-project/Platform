@@ -1,5 +1,5 @@
 PlatformBundle\Entity\SilEmailBundle\Email:
-    type: entity
+    type: mappedSuperclass
     table: sil_email
 
     manyToMany:
