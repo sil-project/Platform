@@ -1,3 +1,5 @@
+#include:
+#  - src/Blast/Bundle/CoreBundle
 paths:
     tests: src/Tests
     output: src/Tests/_output
@@ -7,6 +9,7 @@ paths:
 actor_suffix: Tester
 settings:
     bootstrap: _bootstrap.php
+    strict_xml: true
 extensions:
     enabled:
         - Codeception\Extension\RunFailed
