@@ -1,25 +1,17 @@
 timestamps {
     node () {
 	stage ('Platform - Test - Prepare') {
- 	    step {
-                sh "ln -fs ${WORKSPACE}/.env.travis ${WORKSPACE}/.env"
-                sh "${WORKSPACE}/bin/ci-scripts/do_run.sh docker_run_elk_test.sh"
-                sh "${WORKSPACE}/bin/ci-scripts/do_run.sh before_install_test.sh"
-                sh "${WORKSPACE}/bin/ci-scripts/do_run.sh create_database_test.sh"
-            }
+            sh "ln -fs ${WORKSPACE}/.env.travis ${WORKSPACE}/.env"
+            sh "${WORKSPACE}/bin/ci-scripts/do_run.sh docker_run_elk_test.sh"
+            sh "${WORKSPACE}/bin/ci-scripts/do_run.sh before_install_test.sh"
+            sh "${WORKSPACE}/bin/ci-scripts/do_run.sh create_database_test.sh"
         }
         stage ('Platform - Test - Build') {
-            step {
-                sh "${WORKSPACE}/bin/ci-scripts/do_run.sh install_test.sh"
-            }
+            sh "${WORKSPACE}/bin/ci-scripts/do_run.sh install_test.sh"
         }
         stage ('Platform - Test - Run') {
-            step {
-                sh "${WORKSPACE}/bin/ci-scripts/do_run.sh before_script_test.sh"
-                sh "${WORKSPACE}/bin/ci-scripts/do_run.sh run_test.sh"
-            }
-
+            sh "${WORKSPACE}/bin/ci-scripts/do_run.sh before_script_test.sh"
+            sh "${WORKSPACE}/bin/ci-scripts/do_run.sh run_test.sh"
 	}
-    }
-
+    }  
 }
