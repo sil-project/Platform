@@ -22,25 +22,4 @@ timestamps {
 	}
     }
 
-    node () {
-	stage ('Platform - Lint - Prepare') {
- 	    step {
-                sh "ln -fs ${WORKSPACE}/.env.travis ${WORKSPACE}/.env"                
-                sh "${WORKSPACE}/bin/ci-scripts/do_run.sh before_install_lint.sh"
-            }
-        }
-        stage ('Platform - Lint - Build') {
-            step {
-                sh "${WORKSPACE}/bin/ci-scripts/do_run.sh install_lint.sh"
-            }
-        }
-        stage ('Platform - Lint - Test') {
-            step {
-                sh "${WORKSPACE}/bin/ci-scripts/do_run.sh before_script_lint.sh"
-                sh "${WORKSPACE}/bin/ci-scripts/do_run.sh run_lint.sh"
-            }
-
-	}
-    }
-
 }
