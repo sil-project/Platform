@@ -1,10 +1,5 @@
 timestamps {
-    agent any
-    
     node ('Test') {
-        stage ('Platform - Git') {
-            git 'https://github.com/sil-project/Platform.git'      
-	}
 	stage ('Platform - Prepare') {
  	    step {
                 sh "ln -fs ${WORKSPACE}/.env.travis ${WORKSPACE}/.env"
