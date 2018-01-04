@@ -17,7 +17,7 @@ then
 fi
    
 composer self-update --stable
-composer clear-cache
+#composer clear-cache
 
 
 
