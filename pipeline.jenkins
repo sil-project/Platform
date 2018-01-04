@@ -2,7 +2,8 @@ timestamps {
     node () {
         stage ('Platform - Test - Clone') {
 	    git (
-	        url: 'https://github.com/sil-project/Platform.git'
+	        url: 'https://github.com/sil-project/Platform.git',
+	        branch: "${BRANCH_NAME}"
 	    )
 	}  
 	stage ('Platform - Test - Prepare') {
