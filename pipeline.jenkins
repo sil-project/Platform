@@ -1,19 +1,19 @@
 timestamps {
-    node ('Test') {
-	stage ('Platform - Prepare') {
+    node () {
+	stage ('Platform - Test - Prepare') {
  	    step {
                 sh "ln -fs ${WORKSPACE}/.env.travis ${WORKSPACE}/.env"
-                sh "${WORKSPACE}/bin/ci-scripts/do_run.sh docker_run_elk_test.sh"		                
-                sh "${WORKSPACE}/bin/ci-scripts/do_run.sh before_install_test.sh"       
+                sh "${WORKSPACE}/bin/ci-scripts/do_run.sh docker_run_elk_test.sh"
+                sh "${WORKSPACE}/bin/ci-scripts/do_run.sh before_install_test.sh"
                 sh "${WORKSPACE}/bin/ci-scripts/do_run.sh create_database_test.sh"
             }
         }
-        stage ('Platform - Build') {
+        stage ('Platform - Test - Build') {
             step {
                 sh "${WORKSPACE}/bin/ci-scripts/do_run.sh install_test.sh"
             }
         }
-        stage ('Platform - Test') {
+        stage ('Platform - Test - Run') {
             step {
                 sh "${WORKSPACE}/bin/ci-scripts/do_run.sh before_script_test.sh"
                 sh "${WORKSPACE}/bin/ci-scripts/do_run.sh run_test.sh"
@@ -21,4 +21,26 @@ timestamps {
 
 	}
     }
+
+    node () {
+	stage ('Platform - Lint - Prepare') {
+ 	    step {
+                sh "ln -fs ${WORKSPACE}/.env.travis ${WORKSPACE}/.env"                
+                sh "${WORKSPACE}/bin/ci-scripts/do_run.sh before_install_lint.sh"
+            }
+        }
+        stage ('Platform - Lint - Build') {
+            step {
+                sh "${WORKSPACE}/bin/ci-scripts/do_run.sh install_lint.sh"
+            }
+        }
+        stage ('Platform - Lint - Test') {
+            step {
+                sh "${WORKSPACE}/bin/ci-scripts/do_run.sh before_script_lint.sh"
+                sh "${WORKSPACE}/bin/ci-scripts/do_run.sh run_lint.sh"
+            }
+
+	}
+    }
+
 }
