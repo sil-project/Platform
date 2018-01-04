@@ -1,0 +1,13 @@
+services:
+
+    blast_profiler.profiler.base_collector:
+        parent: blast_profiler.profiler.abstract_collector
+        class: PlatformBundle\Profiler\BlastCollector
+        public: false
+        calls:
+            - [setHookRegistry, ['@blast_utils.hook.registry']]
+        tags:
+             -
+                name:     data_collector
+                template: BlastProfilerBundle:Collector:toolbar.html.twig
+                id:       blast.blast_collector

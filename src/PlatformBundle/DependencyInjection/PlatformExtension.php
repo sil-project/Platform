@@ -11,7 +11,9 @@
 namespace PlatformBundle\DependencyInjection;
 
 use Blast\Bundle\CoreBundle\DependencyInjection\BlastCoreExtension;
+use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Loader;
 
 class PlatformExtension extends BlastCoreExtension
 {
@@ -21,5 +23,13 @@ class PlatformExtension extends BlastCoreExtension
     public function load(array $configs, ContainerBuilder $container)
     {
         parent::load($configs, $container);
+
+        $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
+
+        $env = $container->getParameter('kernel.environment');
+
+        if ($env === 'dev' || $env === 'test') {
+            $loader->load('vendor/blast/profiler.yml');
+        }
     }
 }
