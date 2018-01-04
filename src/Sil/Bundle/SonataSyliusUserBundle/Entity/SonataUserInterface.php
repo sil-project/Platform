@@ -10,13 +10,14 @@
 
 namespace Sil\Bundle\SonataSyliusUserBundle\Entity;
 
-use Sylius\Component\User\Model\UserInterface as BaseUserInterface;
+use Blast\Component\Resource\Model\ResourceInterface;
+use Sylius\Component\User\Model\UserInterface as SyliusUserInterface;
 
 /**
  * @author Arkadiusz Krakowiak <arkadiusz.krakowiak@lakion.com>
  * @author Marcos Bezerra de Menezes <marcos.bezerra@libre-informatique.fr>
  */
-interface SonataUserInterface extends BaseUserInterface
+interface SonataUserInterface extends ResourceInterface, SyliusUserInterface
 {
     const ROLE_DEFAULT = 'ROLE_USER';
     const DEFAULT_ADMIN_ROLE = 'ROLE_SONATA_ADMIN';

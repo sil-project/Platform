@@ -4,7 +4,7 @@ sylius_user:
         sonata:
             user:
                 classes:
-                    model: PlatformBundle\Entity\SilSonataSyliusUserBundle\SonataUser
+                    model: "%sil.model.user.class%"
                     repository: Sylius\Bundle\UserBundle\Doctrine\ORM\UserRepository
                     # TODO:
                     form: Sylius\Bundle\CoreBundle\Form\Type\User\AdminUserType

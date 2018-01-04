@@ -1,18 +1,20 @@
 blast_resource:
   resources:
 
-    email:
+    sil.email:
       classes:
-        model:       Sil\Bundle\EmailBundle\Entity\Email
+        model:           Sil\Bundle\EmailBundle\Entity\Email
+        interfaces:
+          - Sil\Bundle\EmailBundle\Entity\EmailInterface
 
-    email_link:
+    sil.email_link:
       classes:
-        model:       Sil\Bundle\EmailBundle\Entity\EmailLink
+        model:           Sil\Bundle\EmailBundle\Entity\EmailLink
 
-    email_receipt:
+    sil.email_receipt:
       classes:
-        model:       Sil\Bundle\EmailBundle\Entity\EmailReceipt
+        model:           Sil\Bundle\EmailBundle\Entity\EmailReceipt
 
-    email_template:
+    sil.email_template:
       classes:
-        model:       Sil\Bundle\EmailBundle\Entity\EmailTemplate
+        model:           Sil\Bundle\EmailBundle\Entity\EmailTemplate

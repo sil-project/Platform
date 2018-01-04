@@ -2,7 +2,7 @@ services:
 
     sil_sonata_sylius_user.admin.sonata_user:
         class: Sil\Bundle\SonataSyliusUserBundle\Admin\SonataUserAdmin
-        arguments: [~, "%sil_sonata_sylius_user.entity.sonata_user.class%", BlastCoreBundle:CRUD]
+        arguments: [~, "%sil.model.user.class%", BlastCoreBundle:CRUD]
         tags:
             - name: sonata.admin
               manager_type: orm

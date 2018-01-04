@@ -1,45 +1,49 @@
 blast_resource:
   resources:
 
-    stock_location:
+    sil.stock_location:
       classes:
         model:                  Sil\Bundle\StockBundle\Domain\Entity\Location
         repository:             Sil\Bundle\StockBundle\Doctrine\ORM\LocationRepository
 
-    stock_movement:
+    sil.stock_movement:
       classes:
         model:                  Sil\Bundle\StockBundle\Domain\Entity\Movement
         repository:             Sil\Bundle\StockBundle\Doctrine\ORM\MovementRepository
 
-    stock_operation:
+    sil.stock_operation:
       classes:
         model:                  Sil\Bundle\StockBundle\Domain\Entity\Operation
         repository:             Sil\Bundle\StockBundle\Doctrine\ORM\OperationRepository
 
-    stock_output_strategy:
+    sil.stock_output_strategy:
       classes:
         model:                  Sil\Bundle\StockBundle\Domain\Entity\OutputStrategy
 
-    stock_item:
+    sil.stock_item:
       classes:
         model:                  Sil\Bundle\StockBundle\Domain\Entity\StockItem
         repository:             Sil\Bundle\StockBundle\Doctrine\ORM\StockItemRepository
+        interfaces:
+          - Sil\Bundle\StockBundle\Domain\Entity\StockItemInterface
 
-    stock_unit:
+    sil.stock_unit:
       classes:
         model:                  Sil\Bundle\StockBundle\Domain\Entity\StockUnit
         repository:             Sil\Bundle\StockBundle\Doctrine\ORM\StockUnitRepository
 
-    stock_warehouse:
+    sil.stock_warehouse:
       classes:
         model:                  Sil\Bundle\StockBundle\Domain\Entity\Warehouse
         repository:             Sil\Bundle\StockBundle\Doctrine\ORM\WarehouseRepository
 
-    stock_partner:
+    sil.stock_partner:
       classes:
         model:                  Sil\Bundle\StockBundle\Domain\Entity\Partner
         repository:             Sil\Bundle\StockBundle\Doctrine\ORM\PartnerRepository
+        interfaces:
+          - Sil\Bundle\StockBundle\Domain\Entity\PartnerInterface
 
-    stock_batch:
+    sil.stock_batch:
       classes:
         model:                  Sil\Bundle\StockBundle\Domain\Entity\Batch

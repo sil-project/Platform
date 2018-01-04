@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * Copyright (C) 2015-2017 Libre Informatique
  *
@@ -19,6 +21,7 @@ class ClassMap implements ClassMapInterface
 {
     private $model;
     private $repository;
+    private $interfaces;
 
     private function __construct()
     {
@@ -29,6 +32,10 @@ class ClassMap implements ClassMapInterface
         $classMap = new self();
         $classMap->model = $parameters['model'] ?? null;
         $classMap->repository = $parameters['repository'] ?? null;
+        $classMap->interfaces = $parameters['interfaces'] ?? [];
+
+        self::checkDuplicates($classMap);
+        self::checkInterfaces($classMap);
 
         return $classMap;
     }
@@ -51,5 +58,38 @@ class ClassMap implements ClassMapInterface
     public function getRepository()
     {
         return $this->repository;
+    }
+
+    public function hasInterfaces()
+    {
+        return 0 < count($this->interfaces);
+    }
+
+    public function getInterfaces()
+    {
+        return $this->interfaces;
+    }
+
+    private static function checkDuplicates(ClassMapInterface $classMap)
+    {
+        $interfaces = $classMap->interfaces;
+        if (count(array_unique($interfaces)) < count($interfaces)) {
+            $duplicates = array_keys(array_filter(array_count_values($interfaces), function ($v, $k) {
+                return $v > 1;
+            }, ARRAY_FILTER_USE_BOTH));
+
+            throw new \InvalidArgumentException(
+              sprintf("Duplicate declaration of interfaces for model %s : \n - %s", $classMap->model, implode("\n- ", $duplicates)));
+        }
+    }
+
+    private static function checkInterfaces(ClassMapInterface $classMap)
+    {
+        $implementedInterfaces = class_implements($classMap->model);
+        foreach ($classMap->interfaces as $interface) {
+            if (!in_array($interface, $implementedInterfaces)) {
+                throw new \InvalidArgumentException(sprintf('Invalid interface "%s" supplied, this interface have to be implemented by %s.', $interface, $classMap->model));
+            }
+        }
     }
 }

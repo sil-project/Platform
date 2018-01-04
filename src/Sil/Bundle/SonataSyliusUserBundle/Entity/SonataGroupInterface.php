@@ -10,12 +10,14 @@
 
 namespace Sil\Bundle\SonataSyliusUserBundle\Entity;
 
+use Blast\Component\Resource\Model\ResourceInterface;
+
 /**
  * @author Johannes M. Schmitt <schmittjoh@gmail.com>
  * @author Christophe Coevoet <stof@notk.org>
  * @author Marcos Bezerra de Meneze <marcos.bezerra@libre-informatique.fr>
  */
-interface SonataGroupInterface
+interface SonataGroupInterface extends ResourceInterface
 {
     /**
      * @param string $role

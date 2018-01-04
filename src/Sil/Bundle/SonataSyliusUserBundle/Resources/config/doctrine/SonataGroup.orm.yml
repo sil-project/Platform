@@ -1,12 +1,13 @@
 Sil\Bundle\SonataSyliusUserBundle\Entity\SonataGroup:
-    type:  entity
-    table: sil_sonata_group
+    type:  mappedSuperclass
+    table: sil_user_group
     fields:
         name:
             type: string
             nullable: false
         roles:
             type: array
+
     manyToMany:
         users:
             mappedBy: groups

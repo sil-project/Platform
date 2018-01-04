@@ -16,7 +16,7 @@ fos_elastica:
                         email: ~
                     persistence:
                         driver: orm
-                        model: "%sil_sonata_sylius_user.entity.sonata_user.class%"
+                        model: "%sil.model.user.class%"
                         listener:
                             defer: true
                         finder: ~
@@ -75,7 +75,7 @@ fos_elastica:
 blast_search:
     templates:
         -
-            class: "%sil_sonata_sylius_user.entity.sonata_user.class%"
+            class: "%sil.model.user.class%"
             template: PlatformBundle:Search/Results:SonataUser.html.twig
         -
             class: "%sil.model.crm_organism.class%"

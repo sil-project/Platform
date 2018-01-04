@@ -1,0 +1,14 @@
+blast_resource:
+  resources:
+
+    sil.user:
+      classes:
+        model:       Sil\Bundle\SonataSyliusUserBundle\Entity\SonataUser
+        interfaces:
+          - Sil\Bundle\SonataSyliusUserBundle\Entity\SonataUserInterface
+
+    sil.user_group:
+      classes:
+        model:       Sil\Bundle\SonataSyliusUserBundle\Entity\SonataGroup
+        interfaces:
+          - Sil\Bundle\SonataSyliusUserBundle\Entity\SonataGroupInterface

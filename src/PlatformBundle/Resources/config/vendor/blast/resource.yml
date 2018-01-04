@@ -1,17 +1,21 @@
 blast_resource:
     resources:
-        crm_organism:
+        sil.crm_organism:
             classes:
-                model: PlatformBundle\Entity\SilCRMBundle\Organism
+                model:    PlatformBundle\Entity\SilCRMBundle\Organism
 
-        crm_address:
+        sil.crm_address:
             classes:
-                model: PlatformBundle\Entity\SilCRMBundle\Address
+                model:    PlatformBundle\Entity\SilCRMBundle\Address
 
-        email:
+        sil.email:
             classes:
-                model: PlatformBundle\Entity\SilEmailBundle\Email
+                model:    PlatformBundle\Entity\SilEmailBundle\Email
 
-        media_file:
+        sil.media_file:
             classes:
-                model: PlatformBundle\Entity\SilMediaBundle\File
+                model:    PlatformBundle\Entity\SilMediaBundle\File
+
+        sil.user:
+            classes:
+                model:    PlatformBundle\Entity\SilSonataSyliusUserBundle\SonataUser

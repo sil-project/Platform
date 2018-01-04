@@ -1,4 +1,5 @@
 imports:
+    - { resource: '@SilSonataSyliusUserBundle/Resources/config/vendor/blast/resource.yml' }
     - { resource: '@SilSonataSyliusUserBundle/Resources/config/vendor/blast/menu.yml' }
 
 sylius_user:

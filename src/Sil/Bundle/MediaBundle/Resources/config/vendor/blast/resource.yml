@@ -1,6 +1,8 @@
 blast_resource:
   resources:
-    
-    media_file:
+
+    sil.media_file:
       classes:
         model: Sil\Bundle\MediaBundle\Entity\File
+        interfaces:
+          - Sil\Bundle\MediaBundle\Entity\FileInterface

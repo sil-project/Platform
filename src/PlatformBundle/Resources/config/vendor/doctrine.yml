@@ -4,36 +4,36 @@ doctrine:
 
             # SilSonataSyliusUserBundle
 
-            Sil\Bundle\SonataSyliusUserBundle\Entity\SonataUserInterface:   "%sil_sonata_sylius_user.entity.sonata_user.class%"
-            Sil\Bundle\SonataSyliusUserBundle\Entity\SonataGroupInterface:  "%sil_sonata_sylius_user.entity.sonata_group.class%"
+            #Sil\Bundle\SonataSyliusUserBundle\Entity\SonataUserInterface:  "%sil.model.user.class%"
+            #Sil\Bundle\SonataSyliusUserBundle\Entity\SonataGroupInterface: "%sil_sonata_sylius_user.entity.sonata_group.class%"
 
             # SilCRMBundle
 
-            Sil\Bundle\CRMBundle\Entity\OrganismInterface:                  "%sil.model.crm_organism.class%"
-            Sil\Bundle\CRMBundle\Entity\AddressInterface:                   "%sil_crm.entity.address.class%"
+            #Sil\Bundle\CRMBundle\Entity\OrganismInterface:                "%sil.model.crm_organism.class%"
+            #Sil\Bundle\CRMBundle\Entity\AddressInterface:                 "%sil_crm.entity.address.class%"
 
             # SilEmailBundle
 
-            Sil\Bundle\EmailBundle\Entity\EmailInterface:                   "%sil_email.entity.email.class%"
+            #Sil\Bundle\EmailBundle\Entity\EmailInterface:                 "%sil_email.entity.email.class%"
 
             # SilStockBundle
 
-            Sil\Bundle\StockBundle\Domain\Entity\PartnerInterface:          "%sil_stock.entity.partner.class%"
-            Sil\Bundle\StockBundle\Domain\Entity\StockItemInterface:        "%sil_stock.entity.stock_item.class%"
+            #Sil\Bundle\StockBundle\Domain\Entity\PartnerInterface:         "%sil_stock.entity.partner.class%"
+            #Sil\Bundle\StockBundle\Domain\Entity\StockItemInterface:       "%sil_stock.entity.stock_item.class%"
 
             #SilEcommerceBundle
 
-            Sil\Bundle\EcommerceBundle\Entity\ProductInterface:             "%sil_ecommerce.entity.product.class%"
-            Sil\Bundle\EcommerceBundle\Entity\OrderInterface:               "%sil_ecommerce.entity.order.class%"
-            Sil\Bundle\EcommerceBundle\Entity\ProductVariantInterface:      "%sil_ecommerce.entity.product_variant.class%"
-            Sil\Bundle\EcommerceBundle\Entity\ProductOptionValueInterface:  "%sil_ecommerce.entity.product_option_value.class%"
+            Sil\Bundle\EcommerceBundle\Entity\ProductInterface:            "%sil_ecommerce.entity.product.class%"
+            Sil\Bundle\EcommerceBundle\Entity\OrderInterface:              "%sil_ecommerce.entity.order.class%"
+            Sil\Bundle\EcommerceBundle\Entity\ProductVariantInterface:     "%sil_ecommerce.entity.product_variant.class%"
+            Sil\Bundle\EcommerceBundle\Entity\ProductOptionValueInterface: "%sil_ecommerce.entity.product_option_value.class%"
 
             #SilMediaBundle
 
-            Sil\Bundle\MediaBundle\Entity\FileInterface:                    "%sil_media.entity.file.class%"
+            #Sil\Bundle\MediaBundle\Entity\FileInterface:                   "%sil_media.entity.file.class%"
 
 
 doctrine_migrations:
-    dir_name:           '%kernel.project_dir%/src/PlatformBundle/Migrations'
-    table_name:         platform_migration_versions
-    custom_template:    '%kernel.project_dir%/src/PlatformBundle/Resources/views/skeleton/migration_template.skeleton'
+    dir_name:                                                              '%kernel.project_dir%/src/PlatformBundle/Migrations'
+    table_name:                                                            platform_migration_versions
+    custom_template:                                                       '%kernel.project_dir%/src/PlatformBundle/Resources/views/skeleton/migration_template.skeleton'

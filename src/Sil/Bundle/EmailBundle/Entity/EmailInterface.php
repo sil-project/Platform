@@ -10,7 +10,7 @@
 
 namespace Sil\Bundle\EmailBundle\Entity;
 
-use Blast\Component\Resource\Model\resourceInterface;
+use Blast\Component\Resource\Model\ResourceInterface;
 
 interface EmailInterface extends ResourceInterface
 {

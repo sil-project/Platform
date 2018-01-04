@@ -119,12 +119,12 @@ parameters:
                         form_group_history:
                             createdBy:
                                 type: entity
-                                class: "%sil_sonata_sylius_user.entity.sonata_user.class%"
+                                class: "%sil.model.user.class%"
                                 disabled: true
                                 required: false
                             updatedBy:
                                 type: entity
-                                class: "%sil_sonata_sylius_user.entity.sonata_user.class%"
+                                class: "%sil.model.user.class%"
                                 disabled: true
                                 required: false
 

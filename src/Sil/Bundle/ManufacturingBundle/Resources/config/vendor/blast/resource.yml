@@ -1,12 +1,12 @@
 blast_resource:
   resources:
 
-    manufacturing_bom:
+    sil.manufacturing_bom:
       classes:
         model:                  Sil\Bundle\ManufacturingBundle\Domain\Entity\Bom
         repository:             Sil\Bundle\ManufacturingBundle\Doctrine\ORM\BomRepository
 
-    manufacturing_bom_line:
+    sil.manufacturing_bom_line:
       classes:
         model:                  Sil\Bundle\ManufacturingBundle\Domain\Entity\BomLine
         repository:             Sil\Bundle\ManufacturingBundle\Doctrine\ORM\BomLineRepository

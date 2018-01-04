@@ -76,12 +76,12 @@ class MetadataRegistry implements MetadataRegistryInterface
      */
     public function add(MetadataInterface $metadata)
     {
-        $this->metadata[$metadata->getAlias()] = $metadata;
+        $this->metadata[$metadata->getFullyQualifiedName()] = $metadata;
     }
 
     public function addFromAliasAndParameters(string $alias, array $parameters)
     {
-        $metadata = new Metadata($alias, ClassMap::fromArray($parameters['classes']));
+        $metadata = Metadata::createFromAliasAndParameters($alias, $parameters);
         $this->add($metadata);
     }
 }

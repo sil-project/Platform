@@ -18,6 +18,8 @@ class Kernel extends BaseKernel
     public function registerBundles()
     {
         $bundles = [
+            new \Blast\Bundle\ResourceBundle\BlastResourceBundle(),
+
             // -------------------------------------------------------------------------------------
             // Sylius bundles
             // -------------------------------------------------------------------------------------
@@ -131,7 +133,6 @@ class Kernel extends BaseKernel
             // Blast bundles
             // -------------------------------------------------------------------------------------
 
-            new \Blast\Bundle\ResourceBundle\BlastResourceBundle(),
             new \Blast\Bundle\CoreBundle\BlastCoreBundle(),
             new \Blast\Bundle\MenuBundle\BlastMenuBundle(),
             new \Blast\Bundle\PatcherBundle\BlastPatcherBundle(),

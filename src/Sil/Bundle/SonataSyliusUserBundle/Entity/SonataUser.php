@@ -12,14 +12,13 @@ namespace Sil\Bundle\SonataSyliusUserBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use Sylius\Component\User\Model\User;
-use Sylius\Component\Resource\Model\ResourceInterface;
+use Sylius\Component\User\Model\User as SyliusUser;
 
 /**
  * @author Arkadiusz Krakowiak <arkadiusz.krakowiak@lakion.com>
  * @author Marcos Bezerra de Menezes <marcos.bezerra@libre-informatique.fr>
  */
-class SonataUser extends User implements SonataUserInterface, ResourceInterface
+class SonataUser extends SyliusUser implements SonataUserInterface
 {
     /**
      * @var string
