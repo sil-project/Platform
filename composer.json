@@ -1,6 +1,6 @@
 {
     "name": "sil-project/platform",
-    "license": "LGPL3",
+    "license": "LGPL-3.0-only",
     "type": "project",
     "description": "Platform Is The Sil Dev Platform.",
     "autoload": {
