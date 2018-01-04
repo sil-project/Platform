@@ -1,0 +1,34 @@
+timestamps {
+    agent any
+    
+    node ('Test') {
+        stage ('Platform - Git') {
+            git 'https://github.com/sil-project/Platform.git'      
+	}
+	stage ('Platform - Prepare') {
+ 	    step {
+                sh "
+if [ ! -f  ${WORKSPACE}/.env ]
+then
+        ln -s ${WORKSPACE}/.env.travis ${WORKSPACE}/.env
+fi 
+"
+                sh "${WORKSPACE}/bin/ci-scripts/do_run.sh docker_run_elk_test.sh"		                
+                sh "${WORKSPACE}/bin/ci-scripts/do_run.sh before_install_test.sh"       
+                sh "${WORKSPACE}/bin/ci-scripts/do_run.sh create_database_test.sh"
+            }
+        }
+        stage ('Platform - Build') {
+            step {
+                sh "${WORKSPACE}/bin/ci-scripts/do_run.sh install_test.sh"
+            }
+        }
+        stage ('Platform - Test') {
+            step {
+                sh "${WORKSPACE}/bin/ci-scripts/do_run.sh before_script_test.sh"
+                sh "${WORKSPACE}/bin/ci-scripts/do_run.sh run_test.sh"
+            }
+
+	}
+    }
+}
