@@ -11,7 +11,6 @@ services:
     blast_profiler.profiler.base_collector:
         parent: blast_profiler.profiler.abstract_collector
         class: Blast\Bundle\ProfilerBundle\Collector\BaseCollector
-        public: false
         tags:
              -
                 name:     data_collector
