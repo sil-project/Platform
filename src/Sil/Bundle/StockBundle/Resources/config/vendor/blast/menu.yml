@@ -22,7 +22,7 @@ blast_menu:
 
         sil.stock.menu_label.stock_management_settings:
             icon: archive
-            order: 15
+            order: 40
             children:
 
                 sil.stock.menu_label.warehouses:

@@ -16,7 +16,7 @@ blast_menu:
 
         sil.email.menu_label.email_settings:
             icon: envelope
-            order: 30
+            order: 20
             children:
 
                 sil.email.menu_label.email_settings_templates:
