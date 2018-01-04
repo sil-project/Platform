@@ -16,6 +16,7 @@ cache:
   directories:
     - $HOME/.composer/cache/files
     - $HOME/.nvm/.cache/
+    - node_modules
     
 env:
   global:
