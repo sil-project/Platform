@@ -53,7 +53,7 @@ chmod u+x "${HOME}/bin/coveralls"
 
 # install nvm
 rm -rf $HOME/.nvm
-rm -rf $HOME/.npm
+#rm -rf $HOME/.npm
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
 export NVM_DIR="$HOME/.nvm"
 

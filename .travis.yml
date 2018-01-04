@@ -15,8 +15,9 @@ cache:
   pip: true
   directories:
     - $HOME/.composer/cache/files
-    - $HOME/.nvm/.cache/
+    - $HOME/.npm/
     - node_modules
+    
     
 env:
   global:
