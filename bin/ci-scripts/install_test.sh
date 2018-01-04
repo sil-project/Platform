@@ -46,8 +46,11 @@ bin/console sylius:fixtures:load ecommerce_requirements --no-interaction --env=$
 
 bin/console sil:user:fixture --no-interaction --env=$SERVERENV
 
+bin/console fos:elastica:populate --no-interaction --env=$SERVERENV
+
 
 bin/console blast:patchs:apply --no-interaction --env=$SERVERENV
+
 bin/console assets:install --no-interaction --env=$SERVERENV
 bin/console sylius:theme:assets:install  --no-interaction --env=$SERVERENV # must be done after assets:install
 
