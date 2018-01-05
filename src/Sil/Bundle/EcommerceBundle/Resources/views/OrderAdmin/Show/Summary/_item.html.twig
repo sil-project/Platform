@@ -48,7 +48,7 @@
         {% if sm_can(object, 'confirm', 'sylius_order') and item.isBulk() %}
             <form action="{{ path('sil_ecommerce.order.updateBulk') }}" method="POST" name="bulkQuantityUpdate_{{ item.id }}">
                 <div class="input-group">
-                    <span class="input-group-addon">{{'sil.help.quantity_in_grams'|trans}} :</span>
+                    <span class="input-group-addon">{{'sil.ecommerce.order.form.help.quantity_in_grams'|trans}} :</span>
                     <input type="text" class="form-control" value="{{item.quantity / 1000}}" placeholder="{{ 'sylius.ui.quantity'|trans }} (g)" name="bulkQuantity">
                     <span class="input-group-btn">
                         <button type="submit" class="btn btn-primary">

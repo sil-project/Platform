@@ -564,6 +564,12 @@ sil:
                     product: Produit
                     shipping_address: Addresse de livraison
                     shipping_method: Méthode de livraison
+                help:
+                    confirm_cancel: Voulez-vous vraiment annuler cette commande ?
+                    confirm_validate: Voulez-vous vraiment valider cette commande ?
+                    confirm_confirmOrder: Voulez-vous vraiment confirmer cette commande ?
+                    quantity_in_grams: Quantité (g)
+                    order_is_fulfilled: Cette commande est validée, vous ne pouvez plus la modifier
             list:
                 label:
                     action: Action
