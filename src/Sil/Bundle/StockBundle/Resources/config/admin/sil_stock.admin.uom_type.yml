@@ -2,7 +2,7 @@
 services:
     sil_stock.admin.uom_type:
         class: Sil\Bundle\StockBundle\Admin\UomTypeAdmin
-        arguments: [~, "%sil.model.stock_uom_type.class%", BlastCoreBundle:CRUD]
+        arguments: [~, "%sil.model.uom_type.class%", BlastCoreBundle:CRUD]
         calls:
             - [setResourceRepository, ['@sil.repository.uom_type']]
             - [ setTemplates, [{show: SilStockBundle:CRUD:show.html.twig,edit: SilStockBundle:CRUD:edit.html.twig,list: SilStockBundle:CRUD:list.html.twig}]]

@@ -1,10 +1,1 @@
 parameters:
-    sil.model.stock_location.class:        Sil\Bundle\StockBundle\Domain\Entity\Location
-    sil.model.stock_movement.class:        Sil\Bundle\StockBundle\Domain\Entity\Movement
-    sil.model.stock_item.class:      Sil\Bundle\StockBundle\Domain\Entity\StockItem
-    sil.model.stock_uom_type.class:        Sil\Bundle\UomBundle\Entity\UomType
-    sil.model.stock_stock_unit.class:      Sil\Bundle\StockBundle\Domain\Entity\StockUnit
-    sil.model.stock_uom.class:             Sil\Bundle\UomBundle\Entity\Uom
-    sil.model.stock_warehouse.class:       Sil\Bundle\StockBundle\Domain\Entity\Warehouse
-    sil.model.stock_partner.class:         Sil\Bundle\StockBundle\Domain\Entity\Partner
-    sil.model.stock_operation.class:       Sil\Bundle\StockBundle\Domain\Entity\Operation

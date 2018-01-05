@@ -2,7 +2,7 @@
 services:
     sil_email.admin.email_receipt:
         class: Sil\Bundle\EmailBundle\Admin\EmailReceipt
-        arguments: [~, "%sil.model.email_email_receipt.class%", BlastCoreBundle:CRUD]
+        arguments: [~, "%sil.model.email_receipt.class%", BlastCoreBundle:CRUD]
         tags:
             -
                 name: sonata.admin

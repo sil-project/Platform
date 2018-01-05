@@ -1,5 +1,1 @@
 parameters:
-    sil.model.email.class:               Sil\Bundle\EmailBundle\Entity\Email
-    sil.model.email_email_link.class:          Sil\Bundle\EmailBundle\Entity\EmailLink
-    sil.model.email_email_receipt.class:       Sil\Bundle\EmailBundle\Entity\EmailReceipt
-    sil.model.email_email_template.class:      Sil\Bundle\EmailBundle\Entity\EmailTemplate

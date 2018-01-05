@@ -12,7 +12,7 @@ blast_base_entities:
                 - textContent
                 - sent
         -
-            class: '%sil.model.email_email_template.class%'
+            class: '%sil.model.email_template.class%'
             fields:
                 - name
                 - content

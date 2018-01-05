@@ -2,35 +2,12 @@ doctrine:
     orm:
         resolve_target_entities:
 
-            # SilSonataSyliusUserBundle
-
-            #Sil\Bundle\SonataSyliusUserBundle\Entity\SonataUserInterface:  "%sil.model.user.class%"
-            #Sil\Bundle\SonataSyliusUserBundle\Entity\SonataGroupInterface: "%sil.model.user_group.class%"
-
-            # SilCRMBundle
-
-            #Sil\Bundle\CRMBundle\Entity\OrganismInterface:                "%sil.model.crm_organism.class%"
-            #Sil\Bundle\CRMBundle\Entity\AddressInterface:                 "%sil.model.crm_address.class%"
-
-            # SilEmailBundle
-
-            #Sil\Bundle\EmailBundle\Entity\EmailInterface:                 "%sil.model.email.class%"
-
-            # SilStockBundle
-
-            #Sil\Bundle\StockBundle\Domain\Entity\PartnerInterface:         "%sil.model.stock_partner.class%"
-            #Sil\Bundle\StockBundle\Domain\Entity\StockItemInterface:       "%sil.model.stock_item.class%"
-
             #SilEcommerceBundle
 
             Sil\Bundle\EcommerceBundle\Entity\ProductInterface:            "%sil.model.ecommerce_product.class%"
             Sil\Bundle\EcommerceBundle\Entity\OrderInterface:              "%sil.model.ecommerce_order.class%"
             Sil\Bundle\EcommerceBundle\Entity\ProductVariantInterface:     "%sil.model.ecommerce_product_variant.class%"
             Sil\Bundle\EcommerceBundle\Entity\ProductOptionValueInterface: "%sil.model.ecommerce_product_option_value.class%"
-
-            #SilMediaBundle
-
-            #Sil\Bundle\MediaBundle\Entity\FileInterface:                   "%sil.model.media_file.class%"
 
 
 doctrine_migrations:

@@ -1,18 +1,7 @@
 parameters:
-    sil.model.crm_address.class:                        PlatformBundle\Entity\SilCRMBundle\Address
-    #sil.model.crm_organism.class:                      PlatformBundle\Entity\SilCRMBundle\Organism
-
-    #sil.model.stock_partner.class:                     "%sil.model.crm_organism.class%"
-    sil.model.stock_item.class:                  "%sil.model.ecommerce_product.class%"
+    sil.model.stock_item.class:                         "%sil.model.ecommerce_product.class%"
 
     sil.model.ecommerce_product.class:                  Sil\Bundle\EcommerceBundle\Entity\Product
     sil.model.ecommerce_order.class:                    Sil\Bundle\EcommerceBundle\Entity\Order
     sil.model.ecommerce_product_variant.class:          Sil\Bundle\EcommerceBundle\Entity\ProductVariant
     sil.model.ecommerce_product_option_value.class:     Sil\Bundle\EcommerceBundle\Entity\ProductOptionValue
-
-    sil.model.media_file.class:                         PlatformBundle\Entity\SilMediaBundle\File
-
-    sil.model.email.class:                        PlatformBundle\Entity\SilEmailBundle\Email
-
-    sil.model.user.class:                               PlatformBundle\Entity\SilSonataSyliusUserBundle\SonataUser
-    sil.model.user_group.class:                         Sil\Bundle\SonataSyliusUserBundle\Entity\SonataGroup

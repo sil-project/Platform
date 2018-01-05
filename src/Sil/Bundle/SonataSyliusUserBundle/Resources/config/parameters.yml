@@ -1,3 +1,1 @@
 parameters:
-    sil.model.user.class:         Sil\Bundle\SonataSyliusUserBundle\Entity\SonataUser
-    sil.model.user_group.class:   Sil\Bundle\SonataSyliusUserBundle\Entity\SonataGroup

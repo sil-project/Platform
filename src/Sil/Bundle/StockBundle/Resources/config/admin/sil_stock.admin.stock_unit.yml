@@ -2,7 +2,7 @@
 services:
     sil_stock.admin.stock_unit:
         class: Sil\Bundle\StockBundle\Admin\StockUnitAdmin
-        arguments: [~, "%sil.model.stock_stock_unit.class%", sil.controller.stock_unit]
+        arguments: [~, "%sil.model.stock_unit.class%", sil.controller.stock_unit]
         calls:
             - [setStockUnitCodeGenerator, ['@sil.code_generator.stock_unit']]
             - [setResourceRepository, ['@sil.repository.stock_unit']]

@@ -1,7 +1,6 @@
 parameters:
     sil.model.ecommerce_channel.class:                     Sil\Bundle\EcommerceBundle\Entity\Channel
     sil.model.ecommerce_customer_group.class:              Sil\Bundle\EcommerceBundle\Entity\CustomerGroup
-    sil.model.ecommerce_invoice.class:                     Sil\Bundle\EcommerceBundle\Entity\Invoice
     sil.model.ecommerce_order.class:                       Sil\Bundle\EcommerceBundle\Entity\Order
     sil.model.ecommerce_order_item.class:                  Sil\Bundle\EcommerceBundle\Entity\OrderItem
     sil.model.ecommerce_payment.class:                     Sil\Bundle\EcommerceBundle\Entity\Payment
@@ -12,7 +11,6 @@ parameters:
     sil.model.ecommerce_product_review.class:              Sil\Bundle\EcommerceBundle\Entity\ProductReview
     sil.model.ecommerce_product_variant.class:             Sil\Bundle\EcommerceBundle\Entity\ProductVariant
     sil.model.ecommerce_product.class:                     Sil\Bundle\EcommerceBundle\Entity\Product
-    sil.model.ecommerce_sales_journal_item.class:          Sil\Bundle\EcommerceBundle\Entity\SalesJournalItem
     sil.model.ecommerce_shipping_method.class:             Sil\Bundle\EcommerceBundle\Entity\ShippingMethod
     sil.model.ecommerce_tax_rate.class:                    Sil\Bundle\EcommerceBundle\Entity\TaxRate
     sil.model.ecommerce_taxon.class:                       Sil\Bundle\EcommerceBundle\Entity\Taxon
