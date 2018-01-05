@@ -46,6 +46,7 @@ class SonataUser extends SyliusUser implements SonataUserInterface
 
         $this->roles = [SonataUserInterface::DEFAULT_ADMIN_ROLE];
         $this->users = new ArrayCollection();
+        $this->groups = new ArrayCollection();
     }
 
     /**
