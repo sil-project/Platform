@@ -1014,9 +1014,9 @@ parameters:
                     operationDate: ~
                     # account: ~
                     order:
-                        label: sil.ecommerce.payment.show.order_number
+                        label: sil.ecommerce.payment.show.label.order_number
                     invoice:
-                        label: sil.ecommerce.payment.show.invoice_number
+                        label: sil.ecommerce.payment.show.label.invoice_number
                     payment: ~
                     label: ~
                     debit:
