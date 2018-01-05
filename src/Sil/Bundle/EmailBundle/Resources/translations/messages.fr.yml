@@ -105,12 +105,15 @@ sil:
                     updated_at: Mis à jour le
             list:
                 label:
+                    action: Action
+                    content: Contenu
                     emailtemplate: Modèle
+                    name: Nom
             show:
                 label:
-                    name: Nom
                     content: Contenu
                     created_at: Créé le
+                    name: Nom
                     updated_at: Mis à jour le
 
 'Email': 'Email'
