@@ -336,6 +336,7 @@ sil:
                     name: Nom
                     taxcategory: ~
                     updated_at: Mis à jour le
+                    taxcategory: Catégorie
             show:
                 label:
                     code: Code
@@ -480,6 +481,23 @@ sil:
 
 
         product_variant:
+            filter:
+                label:
+                    code: Code
+                    product.code: Code produit
+                    translations.name: Nom
+            list:
+                label:
+                    available: Disponible
+                    code: Code
+                    enabled: Actif
+                    on_hand: En stock
+                    on_hold: Réservé
+                    option_values: Options
+                    price: Prix
+                    product: Produit
+                    tracked: Suivi
+                    translations.name: Nom
             form:
                 label:
                     channel_pricings: Prix par canal de vente
