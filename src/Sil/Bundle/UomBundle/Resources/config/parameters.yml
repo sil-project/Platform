@@ -1,3 +1,3 @@
 parameters:
-    sil.entity.uom_type.class:        Sil\Bundle\UomBundle\Entity\UomType
-    sil.entity.uom.class:             Sil\Bundle\UomBundle\Entity\Uom
+    sil.model.uom_type.class:        Sil\Bundle\UomBundle\Entity\UomType
+    sil.model.uom.class:             Sil\Bundle\UomBundle\Entity\Uom

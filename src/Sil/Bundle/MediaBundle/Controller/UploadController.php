@@ -32,7 +32,7 @@ class UploadController extends Controller
         $manager = $this->getDoctrine()->getManager();
 
         $file = $request->files->get('file');
-        $fileClass = $this->container->getParameter('sil_media.entity.file.class');
+        $fileClass = $this->container->getParameter('sil.model.media_file.class');
 
         $new = (new \ReflectionClass($fileClass))->newInstance();
         $new->setFile($file);

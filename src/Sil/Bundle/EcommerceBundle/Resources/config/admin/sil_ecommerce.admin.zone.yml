@@ -2,7 +2,7 @@
 services:
     sil_ecommerce.admin.zone:
         class: Sil\Bundle\EcommerceBundle\Admin\ZoneAdmin
-        arguments: [~, "%sil_ecommerce.entity.zone.class%", BlastCoreBundle:CRUD]
+        arguments: [~, "%sil.model.ecommerce_zone.class%", BlastCoreBundle:CRUD]
         tags:
             -
                 name: sonata.admin

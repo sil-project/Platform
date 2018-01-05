@@ -1,13 +1,11 @@
 blast_resource:
   resources:
 
-    sil.ec_sales_journal_item:
+    sil.ecommerce_sales_journal_item:
       classes:
         model: Sil\Bundle\EcommerceBundle\Entity\SalesJournalItem
         repository: Sil\Bundle\EcommerceBundle\Repository\SalesJournalItemRepository
 
-    sil.ec_invoice:
+    sil.ecommerce_invoice:
       classes:
         model: Sil\Bundle\EcommerceBundle\Entity\Invoice
-
-  

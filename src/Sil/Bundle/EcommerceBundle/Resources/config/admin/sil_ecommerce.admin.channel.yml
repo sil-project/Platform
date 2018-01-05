@@ -2,7 +2,7 @@
 services:
     sil_ecommerce.admin.channel:
         class: Sil\Bundle\EcommerceBundle\Admin\ChannelAdmin
-        arguments: [~, "%sil_ecommerce.entity.channel.class%", BlastCoreBundle:CRUD]
+        arguments: [~, "%sil.model.ecommerce_channel.class%", BlastCoreBundle:CRUD]
         tags:
             -
                 name: sonata.admin

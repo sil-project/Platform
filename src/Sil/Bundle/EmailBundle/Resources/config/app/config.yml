@@ -5,14 +5,14 @@ imports:
 blast_base_entities:
     entity_searchable_indexes:
         -
-            class: '%sil_email.entity.email.class%'
+            class: '%sil.model.email.class%'
             fields:
                 - field_to
                 - field_subject
                 - textContent
                 - sent
         -
-            class: '%sil_email.entity.email_template.class%'
+            class: '%sil.model.email_email_template.class%'
             fields:
                 - name
                 - content

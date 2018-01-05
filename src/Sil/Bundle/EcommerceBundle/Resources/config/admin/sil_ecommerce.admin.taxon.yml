@@ -2,7 +2,7 @@
 services:
     sil_ecommerce.admin.taxon:
         class: Sil\Bundle\EcommerceBundle\Admin\TaxonAdmin
-        arguments: [~, "%sil_ecommerce.entity.taxon.class%", BlastCoreBundle:CRUD]
+        arguments: [~, "%sil.model.ecommerce_taxon.class%", BlastCoreBundle:CRUD]
         tags:
             -
                 name: sonata.admin

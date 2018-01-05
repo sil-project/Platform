@@ -2,7 +2,7 @@
 services:
     sil_email.admin.email:
         class: Sil\Bundle\EmailBundle\Admin\EmailAdmin
-        arguments: [~, "%sil_email.entity.email.class%", SilEmailBundle:CRUD]
+        arguments: [~, "%sil.model.email.class%", SilEmailBundle:CRUD]
         tags:
             -
                 name: sonata.admin

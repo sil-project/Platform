@@ -2,7 +2,7 @@
 services:
     sil_ecommerce_option.admin.product:
         class: Sil\Bundle\EcommerceBundle\Admin\ProductOptionAdmin
-        arguments: [~, "%sil_ecommerce.entity.product_option.class%", BlastCoreBundle:CRUD]
+        arguments: [~, "%sil.model.ecommerce_product_option.class%", BlastCoreBundle:CRUD]
         tags:
             -
                 name: sonata.admin

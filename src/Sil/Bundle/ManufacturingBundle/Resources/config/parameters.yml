@@ -1,3 +1,3 @@
 parameters:
-    sil_manufacturing.entity.bom_line.class:    Sil\Bundle\ManufacturingBundle\Domain\Entity\BomLine
-    sil_manufacturing.entity.bom.class:         Sil\Bundle\ManufacturingBundle\Domain\Entity\Bom
+    sil.model.manufacturing_bom_line.class:    Sil\Bundle\ManufacturingBundle\Domain\Entity\BomLine
+    sil.model.manufacturing_bom.class:         Sil\Bundle\ManufacturingBundle\Domain\Entity\Bom

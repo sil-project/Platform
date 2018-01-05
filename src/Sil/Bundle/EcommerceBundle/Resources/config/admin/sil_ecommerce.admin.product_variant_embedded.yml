@@ -2,7 +2,7 @@
 services:
     sil_ecommerce.admin.product_variant_embedded:
         class: Sil\Bundle\EcommerceBundle\Admin\ProductVariantEmbeddedAdmin
-        arguments: [~, "%sil_ecommerce.entity.product_variant.class%", SilEcommerceBundle:ProductVariantCRUD]
+        arguments: [~, "%sil.model.ecommerce_product_variant.class%", SilEcommerceBundle:ProductVariantCRUD]
         tags:
             -
                 name: sonata.admin

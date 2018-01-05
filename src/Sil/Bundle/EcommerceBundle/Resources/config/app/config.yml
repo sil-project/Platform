@@ -16,16 +16,16 @@ sylius_product:
     resources:
         product:
             classes:
-                model: "%sil_ecommerce.entity.product.class%"
+                model: "%sil.model.ecommerce_product.class%"
         product_variant:
             classes:
-                model: "%sil_ecommerce.entity.product_variant.class%"
+                model: "%sil.model.ecommerce_product_variant.class%"
         product_option:
             classes:
-                model: "%sil_ecommerce.entity.product_option.class%"
+                model: "%sil.model.ecommerce_product_option.class%"
         product_option_value:
             classes:
-                model: "%sil_ecommerce.entity.product_option_value.class%"
+                model: "%sil.model.ecommerce_product_option_value.class%"
 
 sylius_review:
     resources:
@@ -33,23 +33,23 @@ sylius_review:
             subject: "%sylius.model.product.class%"
             review:
                 classes:
-                    model: "%sil_ecommerce.entity.product_review.class%"
+                    model: "%sil.model.ecommerce_product_review.class%"
 
 sylius_order:
     resources:
         order:
             classes:
-                model: "%sil_ecommerce.entity.order.class%"
+                model: "%sil.model.ecommerce_order.class%"
         order_item:
             classes:
-                model: "%sil_ecommerce.entity.order_item.class%"
+                model: "%sil.model.ecommerce_order_item.class%"
                 controller: Sil\Bundle\EcommerceBundle\Controller\SyliusOrderItemController
 
 sylius_taxation:
     resources:
         tax_rate:
             classes:
-                model: "%sil_ecommerce.entity.tax_rate.class%"
+                model: "%sil.model.ecommerce_tax_rate.class%"
 
 
 sylius_channel:
@@ -57,55 +57,55 @@ sylius_channel:
     resources:
         channel:
             classes:
-                model: "%sil_ecommerce.entity.channel.class%"
+                model: "%sil.model.ecommerce_channel.class%"
                 repository: Sil\Bundle\EcommerceBundle\Repository\ChannelRepository
 
 sylius_attribute:
     resources:
         product:
-            subject: "%sil_ecommerce.entity.product.class%"
+            subject: "%sil.model.ecommerce_product.class%"
             attribute:
                 classes:
-                    model: "%sil_ecommerce.entity.product_attribute.class%"
+                    model: "%sil.model.ecommerce_product_attribute.class%"
 
 sylius_customer:
     driver: doctrine/orm
     resources:
         customer_group:
             classes:
-                model: "%sil_ecommerce.entity.customer_group.class%"
+                model: "%sil.model.ecommerce_customer_group.class%"
 
 sylius_addressing:
     resources:
         zone:
             classes:
-                model: "%sil_ecommerce.entity.zone.class%"
+                model: "%sil.model.ecommerce_zone.class%"
 
 sylius_core:
     resources:
         product_image:
             classes:
-                model: "%sil_ecommerce.entity.product_image.class%"
+                model: "%sil.model.ecommerce_product_image.class%"
 
 sylius_taxonomy:
     resources:
         taxon:
             classes:
-                model: "%sil_ecommerce.entity.taxon.class%"
+                model: "%sil.model.ecommerce_taxon.class%"
 
 sylius_shipping:
     driver: doctrine/orm
     resources:
         shipping_method:
             classes:
-                model: "%sil_ecommerce.entity.shipping_method.class%"
+                model: "%sil.model.ecommerce_shipping_method.class%"
 
 sylius_payment:
     driver: doctrine/orm
     resources:
         payment:
             classes:
-                model: "%sil_ecommerce.entity.payment.class%"
+                model: "%sil.model.ecommerce_payment.class%"
 
 sylius_shop:
     checkout_resolver:

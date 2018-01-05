@@ -2,7 +2,7 @@
 services:
     sil_ecommerce.admin.payment:
         class: Sil\Bundle\EcommerceBundle\Admin\PaymentAdmin
-        arguments: [~, "%sil_ecommerce.entity.payment.class%", SilEcommerceBundle:PaymentCRUD]
+        arguments: [~, "%sil.model.ecommerce_payment.class%", SilEcommerceBundle:PaymentCRUD]
         tags:
             -
                 name: sonata.admin

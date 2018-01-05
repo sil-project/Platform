@@ -2,7 +2,7 @@
 services:
     sil_email.admin.email_template:
         class: Sil\Bundle\EmailBundle\Admin\EmailTemplateAdmin
-        arguments: [~, "%sil_email.entity.email_template.class%", BlastCoreBundle:CRUD]
+        arguments: [~, "%sil.model.email_email_template.class%", BlastCoreBundle:CRUD]
         tags:
             -
                 name: sonata.admin

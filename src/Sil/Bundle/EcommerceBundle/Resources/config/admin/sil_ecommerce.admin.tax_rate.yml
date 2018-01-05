@@ -2,7 +2,7 @@
 services:
     sil_ecommerce.admin.tax_rate:
         class: Sil\Bundle\EcommerceBundle\Admin\TaxRateAdmin
-        arguments: [~, "%sil_ecommerce.entity.tax_rate.class%", BlastCoreBundle:CRUD]
+        arguments: [~, "%sil.model.ecommerce_tax_rate.class%", BlastCoreBundle:CRUD]
         tags:
             -
                 name: sonata.admin

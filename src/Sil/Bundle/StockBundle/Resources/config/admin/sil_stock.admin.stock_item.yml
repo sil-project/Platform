@@ -2,7 +2,7 @@
 services:
     sil_stock.admin.stock_item:
         class: Sil\Bundle\StockBundle\Admin\StockItemAdmin
-        arguments: [~, "%sil_stock.entity.stock_item.class%", sil.controller.stock_item]
+        arguments: [~, "%sil.model.stock_item.class%", sil.controller.stock_item]
         calls:
             - [setResourceRepository, ['@sil.repository.stock_item']]
             - [setStockItemQueries, ['@sil.domain_query.stock_item']]

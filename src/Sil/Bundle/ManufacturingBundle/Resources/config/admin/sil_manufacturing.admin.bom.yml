@@ -2,7 +2,7 @@
 services:
     sil_manufacturing.admin.bom:
         class: Sil\Bundle\ManufacturingBundle\Admin\BomAdmin
-        arguments: [~, "%sil_manufacturing.entity.bom.class%", BlastCoreBundle:CRUD]
+        arguments: [~, "%sil.model.manufacturing_bom.class%", BlastCoreBundle:CRUD]
         calls:
             - [ setBomCodeGenerator, ['@sil.code_generator.manufacturing_bom']]
             - [ setResourceRepository, ['@sil.repository.manufacturing_bom']]

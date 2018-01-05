@@ -15,21 +15,21 @@ services:
     sil_ecommerce.code_generator.product:
         class: Sil\Bundle\EcommerceBundle\CodeGenerator\ProductCodeGenerator
         factory:   ['@blast_core.code_generator_factory', create]
-        arguments: ['%sil_ecommerce.code_generator.product%', '@doctrine.orm.entity_manager', '%sil_ecommerce.entity.product.class%']
+        arguments: ['%sil_ecommerce.code_generator.product%', '@doctrine.orm.entity_manager', '%sil.model.ecommerce_product.class%']
         tags:
             - { name: blast.entity_code_generator }
 
     sil_ecommerce.code_generator.product_variant:
         class: Sil\Bundle\EcommerceBundle\CodeGenerator\ProductVariantCodeGenerator
         factory:   ['@blast_core.code_generator_factory', create]
-        arguments: ['%sil_ecommerce.code_generator.product_variant%', '@doctrine.orm.entity_manager', '%sil_ecommerce.entity.product_variant.class%']
+        arguments: ['%sil_ecommerce.code_generator.product_variant%', '@doctrine.orm.entity_manager', '%sil.model.ecommerce_product_variant.class%']
         tags:
             - { name: blast.entity_code_generator }
 
     sil_ecommerce.code_generator.invoice:
         class: Sil\Bundle\EcommerceBundle\CodeGenerator\InvoiceCodeGenerator
         factory:   ['@blast_core.code_generator_factory', create]
-        arguments: ['%sil_ecommerce.code_generator.invoice%', '@doctrine.orm.entity_manager', '%sil_ecommerce.entity.invoice.class%']
+        arguments: ['%sil_ecommerce.code_generator.invoice%', '@doctrine.orm.entity_manager', '%sil.model.ecommerce_invoice.class%']
         tags:
             - { name: blast.entity_code_generator }
 

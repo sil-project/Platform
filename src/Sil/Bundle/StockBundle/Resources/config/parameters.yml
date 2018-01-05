@@ -1,10 +1,10 @@
 parameters:
-    sil_stock.entity.location.class:        Sil\Bundle\StockBundle\Domain\Entity\Location
-    sil_stock.entity.movement.class:        Sil\Bundle\StockBundle\Domain\Entity\Movement
-    sil_stock.entity.stock_item.class:      Sil\Bundle\StockBundle\Domain\Entity\StockItem
-    sil_stock.entity.uom_type.class:        Sil\Bundle\UomBundle\Entity\UomType
-    sil_stock.entity.stock_unit.class:      Sil\Bundle\StockBundle\Domain\Entity\StockUnit
-    sil_stock.entity.uom.class:             Sil\Bundle\UomBundle\Entity\Uom
-    sil_stock.entity.warehouse.class:       Sil\Bundle\StockBundle\Domain\Entity\Warehouse
-    sil_stock.entity.partner.class:         Sil\Bundle\StockBundle\Domain\Entity\Partner
-    sil_stock.entity.operation.class:       Sil\Bundle\StockBundle\Domain\Entity\Operation
+    sil.model.stock_location.class:        Sil\Bundle\StockBundle\Domain\Entity\Location
+    sil.model.stock_movement.class:        Sil\Bundle\StockBundle\Domain\Entity\Movement
+    sil.model.stock_item.class:      Sil\Bundle\StockBundle\Domain\Entity\StockItem
+    sil.model.stock_uom_type.class:        Sil\Bundle\UomBundle\Entity\UomType
+    sil.model.stock_stock_unit.class:      Sil\Bundle\StockBundle\Domain\Entity\StockUnit
+    sil.model.stock_uom.class:             Sil\Bundle\UomBundle\Entity\Uom
+    sil.model.stock_warehouse.class:       Sil\Bundle\StockBundle\Domain\Entity\Warehouse
+    sil.model.stock_partner.class:         Sil\Bundle\StockBundle\Domain\Entity\Partner
+    sil.model.stock_operation.class:       Sil\Bundle\StockBundle\Domain\Entity\Operation

@@ -2,7 +2,7 @@
 services:
     sil_ecommerce.admin.invoice:
         class: Sil\Bundle\EcommerceBundle\Admin\InvoiceAdmin
-        arguments: [~, "%sil_ecommerce.entity.invoice.class%", SilEcommerceBundle:InvoiceCRUD]
+        arguments: [~, "%sil.model.ecommerce_invoice.class%", SilEcommerceBundle:InvoiceCRUD]
         tags:
             -
                 name: sonata.admin
