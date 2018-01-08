@@ -58,7 +58,7 @@ env:
                 - PhpBrowser:
                     url: 'http://127.0.0.1:8042/'
                     wait: 5
-
+                - \Helper\WebGuy
 
                             
 #        
