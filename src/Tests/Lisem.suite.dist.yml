@@ -49,6 +49,18 @@ env:
                             args: ["--disable-gpu", "--window-size=1680,1050"]
                             # "--headless", test with this option to avoid using xfvb
 
+
+    phpbrowser:
+        modules:
+            disabled :
+                - WebDriver
+            enabled:
+                - PhpBrowser:
+                    url: 'http://127.0.0.1:8042/'
+                    wait: 5
+
+
+                            
 #        
 #    phantom:
 #        modules:
