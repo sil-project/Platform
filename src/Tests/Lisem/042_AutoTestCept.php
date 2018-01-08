@@ -9,6 +9,7 @@
  */
 
 // @group route
+use Codeception\Util\HttpCode;
 
 $I = new WebGuy($scenario);
 $I->wantTo('Test All Route');
@@ -25,10 +26,11 @@ function doLogin($webGuy)
 
 function stdCheck($webGuy)
 {
-    $webGuy->waitForText('Libre', 10); // secs
     $webGuy->dontSee('Stack Trace'); /* :) :) we hope so */
-    // $webGuy->seeResponseCodeIs(HttpCode::OK); /* does not work with selenium */
     $webGuy->dontSeeInSource('<div class="exceptionContainer">'); /* :) :) we hope so too */
+
+    //    $webGuy->waitForText('Libre', 10); // secs
+    //$webGuy->seeResponseCodeIs(HttpCode::OK); /* does not work with selenium */
 }
 
 function checkPage($webGuy, $urlPage, &$linkList)
