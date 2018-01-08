@@ -7,6 +7,7 @@ fos_elastica:
         global:
             finder: ~
             index_name: "%blast_search.global_index_name%"
+            use_alias: true
             settings:
                 index.max_result_window: 100000
             types:
