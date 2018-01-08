@@ -26,8 +26,8 @@ function doLogin($webGuy)
 
 function stdCheck($webGuy)
 {
-    $webGuy->dontSee('Stack Trace'); /* :) :) we hope so */
-    $webGuy->dontSeeInSource('<div class="exceptionContainer">'); /* :) :) we hope so too */
+    $webGuy->cantSee('Stack Trace'); /* :) :) we hope so */
+    $webGuy->cantSeeInSource('<div class="exceptionContainer">'); /* :) :) we hope so too */
 
     //    $webGuy->waitForText('Libre', 10); // secs
     //$webGuy->seeResponseCodeIs(HttpCode::OK); /* does not work with selenium */
