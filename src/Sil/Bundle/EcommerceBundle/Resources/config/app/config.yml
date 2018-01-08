@@ -4,6 +4,7 @@ parameters:
 imports:
      - { resource: '@SilEcommerceBundle/Resources/config/vendor/blast/resource.yml' }
      - { resource: '@SilEcommerceBundle/Resources/config/vendor/blast/menu.yml' }
+     - { resource: '@SilEcommerceBundle/Resources/config/vendor/fos.yml' }
      - { resource: "@SilEcommerceBundle/Resources/config/app/state_machine.yml" }
 
 doctrine:
