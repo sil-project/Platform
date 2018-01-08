@@ -12,11 +12,18 @@
 use Codeception\Util\HttpCode;
 
 $I = new WebGuy($scenario);
-$I->wantTo('Test All Route');
+$I->amGoingTo('Test All Route');
+$allFailed;
+
+function dumpvar($var)
+{
+    fwrite(STDERR, print_r($var, true));
+    fwrite(STDERR, print_r("\n", true));
+}
 
 function doLogin($webGuy)
 {
-    $webGuy->wantTo('Login');
+    $webGuy->amGoingTo('Login');
     //## LOGIN ####
     $webGuy->amOnPage('/lisem/login');
     $webGuy->fillField("//input[@id='_username']", 'lisem@lisem.eu');
@@ -24,20 +31,31 @@ function doLogin($webGuy)
     $webGuy->click("//button[@type='submit']");
 }
 
-function stdCheck($webGuy)
+function stdCheck($webGuy, $url)
 {
+    global $allFailed;
+    $allFailed[$url] = 'KO';
+
+    //dumpvar($webGuy->getResponseContent());
+    //sleep(2);
+
     $webGuy->cantSee('Stack Trace'); /* :) :) we hope so */
     $webGuy->cantSeeInSource('<div class="exceptionContainer">'); /* :) :) we hope so too */
+    $webGuy->canseeResponseCodeIs(HttpCode::OK);
 
-    //    $webGuy->waitForText('Libre', 10); // secs
-    //$webGuy->seeResponseCodeIs(HttpCode::OK); /* does not work with selenium */
+    // {
+    //     $allFailed[$url] = 'OK';
+    // }
+
+    // $webGuy->waitForText('Libre', 10); // secs
+    // $webGuy->seeResponseCodeIs(HttpCode::OK); /* does not work with selenium */
 }
 
 function checkPage($webGuy, $urlPage, &$linkList)
 {
-    $webGuy->wantTo('Test Route: ' . $urlPage);
+    $webGuy->amGoingTo('Test Route: ' . $urlPage);
     $webGuy->amOnPage($urlPage);
-    stdCheck($webGuy);
+    stdCheck($webGuy, $urlPage);
 
     $allLink = $webGuy->grabMultiple('a', 'href');
     $allShow = preg_grep('/show$/', $allLink);
@@ -76,6 +94,8 @@ $curRouter = $I->grabServiceFromContainer('router');
 // }
 // $curMessage = $curCatalogue->all('messages');
 
+$rtlim = 10;
+
 foreach ($curRouter->getRouteCollection() as $curRoute) {
     $routePath = $curRoute->getPath();
     $routeDefault = $curRoute->getDefaults();
@@ -113,27 +133,34 @@ foreach ($curRouter->getRouteCollection() as $curRoute) {
                     checkPage($I, $routePath, $allLink);
                     //                    array_push($allLink, checkPage($I, $routePath));
 
-                // $libKeys = preg_grep('/^' . $curLabel . '/', array_keys($curMessage));
+                    // $libKeys = preg_grep('/^' . $curLabel . '/', array_keys($curMessage));
 
-                // foreach ($libKeys as $curKeys) {
-                //     $I->cantSeeInSource($curKeys); /* We should not see label key */
-                // }
+                    // foreach ($libKeys as $curKeys) {
+                    //     $I->cantSeeInSource($curKeys); /* We should not see label key */
+                    // }
+                    if ($rtlim-- == 0) {
+                        break;
+                    }
                 }
             }
         }
     }
 }
 
-$uniqLink = array_unique($allLink);
+// $uniqLink = array_unique($allLink);
 
-foreach ($uniqLink as $curLink) {
-    //dump($curLink);
-    $I->wantTo('Test Link: ' . $curLink);
-    $I->amOnUrl($curLink);
-    stdCheck($I);
+// foreach ($uniqLink as $curLink) {
+//     //dump($curLink);
+//     $I->amGoingTo('Test Link: ' . $curLink);
+//     $I->amOnUrl($curLink);
+//     stdCheck($I, $curLink);
 
-    $allLink = $I->grabMultiple('a', 'href');
-    //    $allAnchor =  preg_grep('/^#/', $allLink);
+//     $allLink = $I->grabMultiple('a', 'href');
+//     //    $allAnchor =  preg_grep('/^#/', $allLink);
 
-    //dump($allAnchor);
-}
+//     //dump($allAnchor);
+// }
+
+//fwrite(STDERR, print_r($allFailed, true));
+//fwrite(STDERR, print_r("\n", true));
+//die(var_export($allFailed, true));
