@@ -1006,6 +1006,7 @@ form_group_variants: Variantes
 form_tab_new_product_variant : Nouvelle déclinaison d'article
 form_tab_values: Valeurs possibles
 form_tab_variants: Déclinaisons
+form_tab_images: Images
 form_group_shipping_and_payment_methods: Paiements et Livraisons
 
 show_group_actions: Actions
