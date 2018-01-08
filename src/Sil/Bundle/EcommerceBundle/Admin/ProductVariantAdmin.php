@@ -17,7 +17,7 @@ use Sylius\Component\Product\Model\ProductInterface;
 use Sylius\Component\Product\Model\ProductVariantInterface;
 use Sylius\Component\Resource\Factory\Factory;
 use Sil\Bundle\EcommerceBundle\Repository\ChannelRepository;
-use Sil\Bundle\EcommerceBundle\Entity\ProductOptionValueInterface;
+use Sil\Bundle\EcommerceBundle\Entity\ProductOptionValue;
 
 /**
  * @author Marcos Bezerra de Menezes <marcos.bezerra@libre-informatique.fr>
@@ -71,7 +71,7 @@ class ProductVariantAdmin extends SyliusGenericAdmin
                 'entity',
                 [
                     'query_builder' => $this->optionValuesQueryBuilder(),
-                    'class'         => ProductOptionValueInterface::class,
+                    'class'         => ProductOptionValue::class,
                     'multiple'      => true,
                     'required'      => false,
                     'choice_label'  => 'fullName',
@@ -156,9 +156,10 @@ class ProductVariantAdmin extends SyliusGenericAdmin
     protected function optionValuesQueryBuilder()
     {
         $repository = $this->getConfigurationPool()->getContainer()->get('sylius.repository.product_option_value');
+        $productClass = $this->getConfigurationPool()->getContainer()->getParameter('sil.model.ecommerce_product.class');
         /* todo: check this request */
         $queryBuilder = $repository->createQueryBuilder('o')
-                      ->andWhere('o.option IN (SELECT o2 FROM SilEcommerceBundle:Product p LEFT JOIN p.options o2 WHERE p = :product)')
+                      ->andWhere('o.option IN (SELECT o2 FROM ' . $productClass . ' p LEFT JOIN p.options o2 WHERE p = :product)')
                       ->setParameter('product', $this->product);
 
         return $queryBuilder;
