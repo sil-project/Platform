@@ -52,8 +52,8 @@ class OrderCustomerManager
         $customer = null; /* We love null :) */
 
         if ($foundCustomer !== null) {
-            $customer = $foundCustomer;
             /* @todo: should not ask user to set a firstname and lastname if the email already exist */
+            $customer = $foundCustomer;
         } else {
             $customer = $givenCustomer;
             $customer->setIsIndividual(true);
