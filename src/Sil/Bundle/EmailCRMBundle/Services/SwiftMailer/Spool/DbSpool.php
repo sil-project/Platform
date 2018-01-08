@@ -12,6 +12,7 @@ namespace Sil\Bundle\EmailCRMBundle\Services\SwiftMailer\Spool;
 
 use Sil\Bundle\EmailBundle\Services\SwiftMailer\Spool\DbSpool as BaseDbSpool;
 use Sil\Bundle\EmailBundle\Services\SwiftMailer\Spool\SpoolStatus;
+use Sil\Bundle\EmailBundle\Services\Tracking;
 use Sil\Bundle\EmailBundle\Services\InlineAttachments;
 use Sil\Bundle\EmailBundle\Entity\EmailInterface;
 use Sil\Bundle\EmailCRMBundle\Services\SwiftMailer\DecoratorPlugin\Replacements;

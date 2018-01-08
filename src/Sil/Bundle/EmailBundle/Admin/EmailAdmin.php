@@ -67,16 +67,23 @@ class EmailAdmin extends CoreAdmin
     {
         parent::prePersist($email);
 
-        $email->setTemplate(null);
-
-        $this->setText($email);
+        $this->handlePrePersistOrPreUpdate($email);
     }
 
     public function preUpdate($email)
     {
         parent::preUpdate($email);
 
+        $this->handlePrePersistOrPreUpdate($email);
+    }
+
+    protected function handlePrePersistOrPreUpdate($email)
+    {
         $email->setTemplate(null);
+
+        $addressManager = $this->getConfigurationPool()->getContainer()->get('sil.email.address_manager');
+        $addresses = $addressManager->manageAddresses($email);
+        $email->setFieldTo(implode(';', array_unique(array_keys($addresses))));
 
         $this->setText($email);
     }

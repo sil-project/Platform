@@ -28,7 +28,7 @@ class SpoolSendCommand extends ContainerAwareCommand
         $this
                 ->setName('sil:spool:send')
                 ->setDescription('Sends emails from the spool')
-                ->addOption('pause-time', 'pause', InputOption::VALUE_OPTIONAL, 'The time waited between sends (in seconds).', 15)
+                ->addOption('pause-time', 'pause', InputOption::VALUE_OPTIONAL, 'The time waited between sends (in seconds).', 0)
                 ->addOption('message-limit', 0, InputOption::VALUE_OPTIONAL, 'The maximum number of messages to send.')
                 ->addOption('time-limit', 0, InputOption::VALUE_OPTIONAL, 'The time limit for sending messages (in seconds).')
                 ->addOption('recover-timeout', 0, InputOption::VALUE_OPTIONAL, 'The timeout for recovering messages that have taken too long to send (in seconds).')
