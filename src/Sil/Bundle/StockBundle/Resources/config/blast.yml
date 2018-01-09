@@ -465,7 +465,7 @@ parameters:
                                     class: inline-block
                                     width: 50
                             qty:
-                                type: Sil\Bundle\StockBundle\Form\Type\UomQtyFormType
+                                type: Sil\Bundle\UomBundle\Form\Type\UomQtyFormType
                                 attr:
                                     class: inline-block form-inline
                                     width: 50
