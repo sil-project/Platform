@@ -24,6 +24,11 @@ class BlastCollector extends AbstractCollector
      */
     private $hookRegistry;
 
+    /**
+     * @var array
+     */
+    private $blastParameter;
+
     public function collect(Request $request, Response $response, \Exception $exception = null)
     {
         $this->data = [
@@ -43,9 +48,22 @@ class BlastCollector extends AbstractCollector
     private function collectBlastAdminData($collectedData)
     {
         foreach ($collectedData as $k => $dataCollection) {
+            $k = preg_replace('/\#[0-9]*\W/', '', $k);
             $data = $dataCollection->getData();
 
-            if (preg_replace('/\#[0-9]*\W/', '', $k) === 'Managed classes') {
+            if ($k === 'Managed classes') {
+                $parameters = [];
+                foreach ($data as $class) {
+                    if (array_key_exists($class, $this->blastParameter)) {
+                        $parameters[$class] = $this->blastParameter[$class];
+                    }
+                }
+
+                $this->addToProfiler('Blast parameters', 'parameters', [
+                    'display'    => DataCollection::DESTINATION_PROFILER,
+                    'parameters' => $parameters,
+                ]);
+
                 $this->addToProfiler($k, 'Managed classes', [
                     'display' => DataCollection::DESTINATION_TOOLBAR,
                     'class'   => count($data),
@@ -134,5 +152,13 @@ class BlastCollector extends AbstractCollector
     public function setHookRegistry($hookRegistry): void
     {
         $this->hookRegistry = $hookRegistry;
+    }
+
+    /**
+     * @param array $blastParameter
+     */
+    public function setBlastParameter(array $blastParameter): void
+    {
+        $this->blastParameter = $blastParameter;
     }
 }

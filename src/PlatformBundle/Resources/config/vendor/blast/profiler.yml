@@ -6,6 +6,7 @@ services:
         public: false
         calls:
             - [setHookRegistry, ['@blast_utils.hook.registry']]
+            - [setBlastParameter, ['%blast%']]
         tags:
              -
                 name:     data_collector
