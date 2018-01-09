@@ -5,9 +5,9 @@ fos_elastica:
             port: "%blast_search.elastic_search.port%"
     indexes:
         global:
-            finder: ~
-            index_name: "%blast_search.global_index_name%"
             use_alias: true
+            index_name: "%blast_search.elastic_search.global_index_alias%_%kernel.environment%"
+            finder: ~
             settings:
                 index.max_result_window: 100000
             types:
