@@ -14,6 +14,7 @@ use Symfony\Component\Form\Extension\Core\Type\BaseType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Sil\Bundle\StockBundle\Domain\Repository\LocationRepositoryInterface;
+use Sil\Bundle\UomBundle\Form\Type\UomQtyFormType;
 
 /**
  * @author Glenn Cavarlé <glenn.cavarle@libre-informatique.fr>
