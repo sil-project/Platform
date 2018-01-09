@@ -12,7 +12,6 @@ services:
 sudo: required
 
 cache:
-  pip: true
   directories:
     - $HOME/bin/
     - $HOME/.composer/cache/files
@@ -26,7 +25,6 @@ env:
     - SCRIPTS_FOLDER=bin/ci-scripts
     - SYMFONY_DEPRECATIONS_HELPER=weak
     - TARGET=test
-    - XMLLINT_INDENT="    "
 
 notifications:
   email:
@@ -48,8 +46,6 @@ matrix:
 
 before_install:
     - ln -s .env.travis .env # Enable env
-    - if [[ -x ${SCRIPTS_FOLDER}/check_relevant_${TARGET}.sh && "$TRAVIS_PULL_REQUEST" != "false" ]]; then export RELEVANT=$(${SCRIPTS_FOLDER}/check_relevant_${TARGET}.sh); fi;
-    - if [[ ! -z ${RELEVANT} ]];then exit 0; fi;
     - if [ -x ${SCRIPTS_FOLDER}/before_install_${TARGET}.sh ]; then ${SCRIPTS_FOLDER}/before_install_${TARGET}.sh; fi;
     - if [ -x ${SCRIPTS_FOLDER}/create_database_${TARGET}.sh ]; then ${SCRIPTS_FOLDER}/create_database_${TARGET}.sh; fi;
 
