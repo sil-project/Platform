@@ -19,6 +19,7 @@ use Symfony\Component\Form\FormEvents;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\FormInterface;
 use Sil\Component\Uom\Repository\UomRepositoryInterface;
+use Sil\Bundle\UomBundle\Entity\Uom;
 use Sil\Component\Uom\Model\UomQty;
 
 /**
@@ -44,7 +45,7 @@ class UomQtyFormType extends BaseType
         parent::configureOptions($resolver);
         $resolver->setDefaults(array(
             'attr'       => ['class' => 'form-inline'],
-            'data_class' => 'Sil\Component\Uom\Model\UomQty',
+            'data_class' => UomQty::class,
             'empty_data' => function (FormInterface $form) {
                 return new UomQty(
                     $form->get('uom')->getData(),
@@ -69,6 +70,8 @@ class UomQtyFormType extends BaseType
 
     public function buildUomTypeChoices(FormEvent $event)
     {
+        $form = $event->getForm();
+
         $choices = [];
         $uoms = null;
 
@@ -81,10 +84,11 @@ class UomQtyFormType extends BaseType
         $form->add('uom', EntityType::class,
             [
                 'label'        => false,
-                'class'        => 'Sil\Bundle\UomBundle\Entity\Uom',
+                'class'        => Uom::class,
                 'choices'      => $uoms,
                 'choice_label' => 'name',
-        ]);
+            ]
+        );
     }
 
     public function getBlockPrefix()
