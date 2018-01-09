@@ -14,6 +14,9 @@ use Sylius\Component\Product\Model\ProductOptionValue as BaseProductOptionValue;
 
 class ProductOptionValue extends BaseProductOptionValue implements ProductOptionValueInterface
 {
+    // @todo: Very ugly hack but Sonata cannot handle defaut locale when used throught sonata_type_collection
+    protected $currentLocale = 'fr_FR';
+
     /**
      * @return string "Option name: OptionValue value"
      */

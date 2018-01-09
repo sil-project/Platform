@@ -441,7 +441,7 @@ parameters:
                                 type: text
                             values:
                                 type: sonata_type_collection
-#                                by_reference: false
+                                by_reference: false
                                 type_options:
                                     btn_add: false
                                     delete_options:
