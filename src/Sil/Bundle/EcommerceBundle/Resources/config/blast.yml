@@ -178,7 +178,7 @@ parameters:
                             code: ~
                             optionValues:
                                 template: SilEcommerceBundle:ProductVariantAdmin:show_field_optionvalues.html.twig
-                                admin_code: sil_ecommerce_option_value.admin.product
+                                admin_code: sil_ecommerce.admin.product_option_value
                         show_group_pricing:
                             taxCategory: ~
                             price:
@@ -231,7 +231,7 @@ parameters:
                         form_group_options:
                             optionValues:
                                 _options:
-                                    admin_code: sil_ecommerce_option_value.admin.product
+                                    admin_code: sil_ecommerce.admin.product_option_value
                         form_group_stock:
                             onHand:
                                 required: false
@@ -265,7 +265,7 @@ parameters:
                         template: SilEcommerceBundle:ProductVariantAdmin:list_field_price.html.twig
                     optionValues:
                         associated_property: fullCode
-                        admin_code: sil_ecommerce_option_value.admin.product
+                        admin_code: sil_ecommerce.admin.product_option_value
                     onHand: ~
                     onHold: ~
                     tracked:
@@ -349,7 +349,7 @@ parameters:
                         form_group_options:
                             optionValues:
                                 _options:
-                                    admin_code: sil_ecommerce_option_value.admin.product
+                                    admin_code: sil_ecommerce.admin.product_option_value
                         form_group_stock:
                             onHand:
                                 required: false
@@ -426,7 +426,7 @@ parameters:
                             code: ~
                             name: ~
                             values:
-                                admin_code: sil_ecommerce_option_value.admin.product
+                                admin_code: sil_ecommerce.admin.product_option_value
                     show_tab_history:
                         show_group_history:
                             createdAt: ~
@@ -453,7 +453,7 @@ parameters:
                                 _options:
                                     edit: inline
                                     inline: table
-                                    admin_code: sil_ecommerce_option_value.admin.product
+                                    admin_code: sil_ecommerce.admin.product_option_value
 
             # LIST
             Sonata\AdminBundle\Datagrid\ListMapper:

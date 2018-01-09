@@ -19,5 +19,5 @@ imports:
     - { resource: "@SilEcommerceBundle/Resources/config/admin/sil_ecommerce.admin.taxon.yml" }
     - { resource: "@SilEcommerceBundle/Resources/config/admin/sil_ecommerce.admin.tax_rate.yml" }
     - { resource: "@SilEcommerceBundle/Resources/config/admin/sil_ecommerce.admin.zone.yml" }
-    - { resource: "@SilEcommerceBundle/Resources/config/admin/sil_ecommerce_option.admin.product.yml" }
-    - { resource: "@SilEcommerceBundle/Resources/config/admin/sil_ecommerce_option_value.admin.product.yml" }
+    - { resource: "@SilEcommerceBundle/Resources/config/admin/sil_ecommerce.admin.product_option.yml" }
+    - { resource: "@SilEcommerceBundle/Resources/config/admin/sil_ecommerce.admin.product_option_value.yml" }
