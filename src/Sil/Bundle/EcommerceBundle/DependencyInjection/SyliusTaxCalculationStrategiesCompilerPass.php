@@ -17,10 +17,6 @@ class SyliusTaxCalculationStrategiesCompilerPass implements CompilerPassInterfac
 {
     public function process(ContainerBuilder $container)
     {
-        if (!$container->has('sylius.taxation.calculation_strategy')) {
-            return;
-        }
-
         $taggedServices = $container->findTaggedServiceIds('sylius.taxation.calculation_strategy');
 
         $listOfCalculationStrategy = [];
