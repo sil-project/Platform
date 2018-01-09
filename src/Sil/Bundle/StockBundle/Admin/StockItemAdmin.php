@@ -37,6 +37,22 @@ class StockItemAdmin extends ResourceAdmin
      */
     protected $locationRepository;
 
+    public function getNewInstance()
+    {
+        $object = parent::getNewInstance();
+        if (method_exists(get_class($object), 'setCurrentLocale')) {
+            $defaultLocale = $this->getConfigurationPool()->getContainer()->get('sylius.locale_provider')->getDefaultLocaleCode();
+            $object->setCurrentLocale($defaultLocale);
+            $object->setFallbackLocale($defaultLocale);
+        }
+
+        foreach ($this->getExtensions() as $extension) {
+            $extension->alterNewInstance($this, $object);
+        }
+
+        return $object;
+    }
+
     public function getQtyByItemAndLocation(StockItemInterface $item, Location $location)
     {
         return $this->getStockItemQueries()->getQtyByLocation($item, $location);
