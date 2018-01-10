@@ -1,21 +1,21 @@
 timestamps {
     node () {
-        stage ('Platform - Test - Clone') {
+        stage ('Test - Clone') {
 	    git (
 	        url: 'https://github.com/sil-project/Platform.git',
 	        branch: "${BRANCH_NAME}"
 	    )
 	}  
-	stage ('Platform - Test - Prepare') {
+	stage ('Test - Prepare') {
             sh "ln -fs ${WORKSPACE}/.env.travis ${WORKSPACE}/.env"
             sh "${WORKSPACE}/bin/ci-scripts/do_run.sh docker_run_elk_test.sh"
             sh "${WORKSPACE}/bin/ci-scripts/do_run.sh before_install_test.sh"
             sh "${WORKSPACE}/bin/ci-scripts/do_run.sh create_database_test.sh"
         }
-        stage ('Platform - Test - Build') {
+        stage ('Test - Build') {
             sh "${WORKSPACE}/bin/ci-scripts/do_run.sh install_test.sh"
         }
-        stage ('Platform - Test - Run') {
+        stage ('Test - Run') {
             sh "${WORKSPACE}/bin/ci-scripts/do_run.sh before_script_test.sh"
             sh "${WORKSPACE}/bin/ci-scripts/do_run.sh run_test.sh"
 	}
