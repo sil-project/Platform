@@ -1,10 +1,6 @@
 #!/usr/bin/env bash
 set -ev
 
-# build only
-exit 0
-
-
 # TODO share this between script (in an include)
 if [ -f .env ]
 then
