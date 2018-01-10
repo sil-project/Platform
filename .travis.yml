@@ -24,7 +24,8 @@ env:
     - SCRIPTS_FOLDER=bin/ci-scripts
     - SYMFONY_DEPRECATIONS_HELPER=weak
     - TARGET=test
-
+    - WHORUN=travis
+    
 matrix:
   fast_finish: true
   include:

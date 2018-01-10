@@ -13,7 +13,7 @@ else
 fi
 
 # TODO add a variable to enable or disable
-if [ $# -eq 0 ]
+if [ "${WHORUN}" = travis  ]
 then
     # start fake x
     /sbin/start-stop-daemon --start --quiet --pidfile /tmp/xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -ac -screen 0 1680x1050x16
