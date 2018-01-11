@@ -57,7 +57,8 @@
         "twig/twig": "^2.0",
         "willdurand/js-translation-bundle": "^2.6",
         "winzou/state-machine": "^0.3.2",
-        "knplabs/knp-paginator-bundle": "^2.7"
+        "knplabs/knp-paginator-bundle": "^2.7",
+        "ramsey/uuid": "^3.7"
     },
     "require-dev": {
         "codeception/codeception": "^2.3",
