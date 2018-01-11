@@ -17,7 +17,7 @@ class SeedBatch extends Lisem
         $plotName = $this->getRandName() . '-plot';
 
         $this->amGoingTo('Create Plot ' . $plotName);
-        $this->amOnPage($this->getSilUrl() . '/sil/seedbatch/plot/create');
+        $this->amOnPage($this->getSilUrl() . '/seedbatch/plot/create');
         $this->fillField("//input[contains(@id,'_name')]", $plotName);
         $this->selectSearchDrop('_producer_autocomplete_input', $producerName);
         $this->fillField("//input[contains(@id,'_city')]", $plotName . '-city');
@@ -34,6 +34,7 @@ class SeedBatch extends Lisem
         $producerName = $this->getRandName() . '-producer';
 
         $this->amGoingTo('Create a producer ' . $producerName);
+        // @todo: fix URL (removing /sil)
         $this->amOnPage($this->getSilUrl() . '/sil/seedbatch/seed-producer/create');
         //$this->click("//li[2]/div/label/div/ins"); //ugly work
         /* @todo: find a way to click without use li[2] ... */
@@ -52,7 +53,7 @@ class SeedBatch extends Lisem
         $seedBatchName = $this->getRandName() . '-seedbatch';
 
         $this->amGoingTo('Create Seed Batch' . $seedBatchName);
-        $this->amOnPage($this->getSilUrl() . '/lisem/silseedbatchbundle-seedbatch/create');
+        $this->amOnPage($this->getSilUrl() . '/seedbatch/seedbatch/create');
         $this->selectSearchDrop('_variety_autocomplete_input', $varietyName);
         $this->selectSearchDrop('_producer_autocomplete_input', $producerName);
         $this->fillField("//input[contains(@id,'_productionYear')]", '1913');
