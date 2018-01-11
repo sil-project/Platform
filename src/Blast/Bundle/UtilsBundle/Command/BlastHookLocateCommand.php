@@ -32,7 +32,7 @@ class BlastHookLocateCommand extends ContainerAwareCommand
 
         $projectDir = $this->getContainer()->get('kernel')->getProjectDir();
 
-        $grepCmd = 'grep -Rin \'{{ blast_hook(\' vendor src app/Resources';
+        $grepCmd = 'grep -Rn \'{{ blast_hook(\' vendor src app/Resources';
 
         ob_start();
         system($grepCmd);
