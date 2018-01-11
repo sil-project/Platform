@@ -20,8 +20,10 @@ class SeedBatch extends Lisem
         $this->amOnPage($this->getSilUrl() . '/seedbatch/plot/create');
         $this->fillField("//input[contains(@id,'_name')]", $plotName);
         $this->selectSearchDrop('_producer_autocomplete_input', $producerName);
-        $this->fillField("//input[contains(@id,'_city')]", $plotName . '-city');
-        $this->fillField("//input[contains(@id,'_zip')]", $this->getRandNbr());
+        // $this->fillField("//input[contains(@id,'_city')]", $plotName . '-city');
+        $this->selectSearchDrop('_city_autocomplete_input', $plotName . '-city');
+        // $this->fillField("//input[contains(@id,'_zip')]", $this->getRandNbr());
+        $this->selectSearchDrop('_zip_autocomplete_input', $this->getRandNbr());
         $this->generateCode();
         $this->clickCreate();
         $this->waitForText('succès', 30); // secs

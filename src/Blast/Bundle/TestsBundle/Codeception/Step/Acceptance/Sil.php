@@ -114,9 +114,9 @@ class Sil extends Common
         $this->waitForElementVisible('//div[@id="select2-drop"]/div/input[contains(@id,"_search")]', 30);
         $this->fillField('//div[@id="select2-drop"]/div/input[contains(@id,"_search")]', $value);
         $this->waitCube();
-        //$this->clickWithLeftButton('//div[@id="select2-drop"]/ul/li/div/div[contains(string(), "' . $value . '")]');
-        $this->waitForElementVisible('//div[@id="select2-drop"]/ul/li/div/div[contains(string(), "' . $value . '")]');
-        $this->click('//div[@id="select2-drop"]/ul/li/div/div[contains(string(), "' . $value . '")]');
+        //$this->clickWithLeftButton('//div[@id="select2-drop"]/ul/li/div[contains(string(), "' . $value . '")]');
+        $this->waitForElementVisible('//div[@id="select2-drop"]/ul/li/div[contains(string(), "' . $value . '")]');
+        $this->click('//div[@id="select2-drop"]/ul/li/div[contains(string(), "' . $value . '")]');
         $this->waitCube();
     }
 
