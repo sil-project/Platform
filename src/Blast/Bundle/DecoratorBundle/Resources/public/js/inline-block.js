@@ -28,8 +28,6 @@ LI.decorator.inline = function() {
 
         var formGroup = LI.decorator.getFormGroup($(this));
 
-        // console.info(formGroup);
-
         formGroup
             .css({ 'width': width + '%' })
             .addClass('field-as-inline');
