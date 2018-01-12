@@ -1,0 +1,21 @@
+{% block image %}
+<table class="table image-gallery">
+    <tbody>
+        <tr>
+            
+        {% block img %}
+            {% set name = value.name | slice(0, 25) %}
+            <th>
+                {{ value | generateImgTag(150, 150) }}
+                {% if object.name | length > 24 %}
+                    {% set name = name ~ '...' %}
+                {% endif %}
+                <p>{{ name }}</p>
+            </th>
+        {% endblock %}
+
+        </tr>
+    </tbody>
+</table>
+<link rel="stylesheet" href="{{ asset('bundles/silmedia/css/show_images.css') }}" />
+{% endblock %}
