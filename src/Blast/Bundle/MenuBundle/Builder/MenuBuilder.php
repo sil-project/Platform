@@ -72,15 +72,6 @@ class MenuBuilder
             $this->buildKnpMenu($menuItem, $settingsKnpNode);
         }
 
-        // Stock settings
-        /*
-        $submenu = $menu->addChild('sil.stock.menu_label.stock_management_settings');
-        $submenu->addChild('sil.stock.menu_label.warehouses', ['route' => 'admin_stock_warehouse_list']);
-        $submenu->addChild('sil.stock.menu_label.locations', ['route' => 'admin_stock_location_list']);
-        $submenu->addChild('sil.stock.menu_label.uom_types', ['route' => 'admin_stock_uomtype_list']);
-        $submenu->addChild('sil.stock.menu_label.uoms', ['route' => 'admin_stock_uom_list']);
-        */
-
         return $silRoot;
     }
 
