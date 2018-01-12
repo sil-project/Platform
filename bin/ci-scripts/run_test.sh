@@ -33,7 +33,7 @@ then
     CODECEPTGROUP=$@
     if [ $# -eq 0 ]
     then
-        CODECEPTGROUP="login menu" #login menu user crm variety seedbatch ecommerce" # all"
+        CODECEPTGROUP="login" # menu" #login menu user crm variety seedbatch ecommerce" # all"
     fi
 
 
