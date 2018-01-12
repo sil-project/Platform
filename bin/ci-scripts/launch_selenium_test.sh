@@ -1,16 +1,6 @@
 #!/usr/bin/env bash
 set -v
 
-# TODO share this between script (in an include)
-if [ -f .env ]
-then
-    source .env
-else
-    echo "Please run this script from project root, and check .env file as it is mandatory"    
-    echo "If it is missing a quick solution is :"
-    echo "ln -s .env.travis .env"
-    exit 42
-fi
 
 # stop already running selenium server
 for i in $(lsof -t -i :4444)
