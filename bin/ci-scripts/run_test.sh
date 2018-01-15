@@ -12,6 +12,8 @@ else
     exit 42
 fi
 
+export SILURL
+
 
 if [ -n "$PHPUNITCMD" ]
 then
