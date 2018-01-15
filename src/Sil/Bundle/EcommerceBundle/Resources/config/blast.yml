@@ -658,14 +658,16 @@ parameters:
                                     class: nested-form inline-block
                                     width: 50
                                 constraints:
-                                    - Symfony\Component\Validator\Constraints\Valid
+                                    -
+                                        class: Symfony\Component\Validator\Constraints\Valid
                             billingAddress:
                                 type: Sil\Bundle\EcommerceBundle\Form\Type\OrderAddressType
                                 attr:
                                     class: nested-form inline-block
                                     width: 50
                                 constraints:
-                                    - Symfony\Component\Validator\Constraints\Valid
+                                    -
+                                        class: Symfony\Component\Validator\Constraints\Valid
                             _options:
                                 class: col-md-12
             # LIST
