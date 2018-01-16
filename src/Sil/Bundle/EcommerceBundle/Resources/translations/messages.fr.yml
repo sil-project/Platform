@@ -454,6 +454,8 @@ sil:
                     slug: Slug
                     taxons: Catégories
                     variety: Variété
+                    taxCategory: Catégorie de tax
+                    prices: Prix
             list:
                 label:
                     action: Action
