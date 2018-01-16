@@ -436,6 +436,9 @@ sil:
                     translations.name: Nom
                     translations.short_description: Description courte
             form:
+                action:
+                    product_shop_link: Voir sur la boutique
+                    setImageAsCover: Définir comme image de couverture
                 label:
                     channels: Canaux de vente
                     code: Code
