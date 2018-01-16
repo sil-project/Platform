@@ -243,7 +243,7 @@
             </span>
 
             <script>
-                $(document).on('li-modal.success',function() {
+                $(document).one('li-modal.success',function() {
                     // reload the form element
                     $.ajax({
                         url: '{{ path('sonata_admin_retrieve_form_element', {
@@ -258,9 +258,6 @@
                         type: 'POST',
                         success: function(html) {
                             jQuery('#field_container_{{ id }}').replaceWith(html);
-
-                            Admin.shared_setup();
-
                             jQuery('#field_container_{{ id }}').trigger('sonata-admin-append-form-element');
                         }
                     });
