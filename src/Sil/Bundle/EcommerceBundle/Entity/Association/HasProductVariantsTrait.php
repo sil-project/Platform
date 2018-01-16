@@ -13,9 +13,12 @@ namespace Sil\Bundle\EcommerceBundle\Entity\Association;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Sil\Bundle\EcommerceBundle\Entity\ProductVariantInterface;
+use Blast\Bundle\CoreBundle\Doctrine\ORM\OwningSideRelationHandlerTrait;
 
 trait HasProductVariantsTrait
 {
+    use OwningSideRelationHandlerTrait;
+
     /**
      * @var Collection
      */
@@ -23,7 +26,9 @@ trait HasProductVariantsTrait
 
     public function initProductVariants()
     {
-        $this->productVariants = new ArrayCollection();
+        if ($this->productVariants === null) {
+            $this->productVariants = new ArrayCollection();
+        }
     }
 
     /**
@@ -33,9 +38,12 @@ trait HasProductVariantsTrait
      */
     public function addProductVariant(ProductVariantInterface $productVariant)
     {
-        $this->productVariants->add($productVariant);
+        $this->initProductVariants();
 
-        $this->setOwningSideRelation($productVariant);
+        if (!$this->productVariants->contains($productVariant)) {
+            $this->productVariants->add($productVariant);
+            $this->updateRelation($productVariant, 'add');
+        }
 
         return $this;
     }
@@ -47,7 +55,12 @@ trait HasProductVariantsTrait
      */
     public function removeProductVariant(ProductVariantInterface $productVariant)
     {
-        $this->productVariants->removeElement($productVariant);
+        $this->initProductVariants();
+
+        if ($this->productVariants->contains($productVariant)) {
+            $this->productVariants->removeElement($productVariant);
+            $this->updateRelation($productVariant, 'remove');
+        }
 
         return $this;
     }
@@ -57,6 +70,8 @@ trait HasProductVariantsTrait
      */
     public function getProductVariants()
     {
+        $this->initProductVariants();
+
         return $this->productVariants;
     }
 }
