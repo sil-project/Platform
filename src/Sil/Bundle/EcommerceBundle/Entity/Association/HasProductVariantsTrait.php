@@ -74,4 +74,11 @@ trait HasProductVariantsTrait
 
         return $this->productVariants;
     }
+
+    public function setProductVariants(Collection $productVariants)
+    {
+        $this->initProductVariants();
+
+        $this->productVariants = $productVariants;
+    }
 }

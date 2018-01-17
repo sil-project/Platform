@@ -464,7 +464,7 @@ sil:
                     name: Nom
                     otherproduct: Autres articles
                     product: Produit
-                    seedsproduct: Semance
+                    seedsproduct: Semence
                     variety: Variété
             show:
                 label:
