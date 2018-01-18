@@ -1,1 +1,5 @@
 '[0,1] %individualCount% individual|]1,Inf[ %individualCount% individuals': '[0,1] %individualCount% individu|]1,Inf[ %individualCount% individus'
+
+platform:
+    menu_label:
+        products: Produits

@@ -11,7 +11,7 @@ modules:
             app_path: 'app'
             var_path: 'var'
             part: SERVICES
-            environment: 'dev'
+            environment: 'test'
             debug: true
         - Doctrine2:
             depends: Symfony

@@ -261,7 +261,6 @@ services:
         arguments:
             - '@doctrine.orm.entity_manager'
             - '@sylius.context.channel'
-#            - '@sylius.money_formatter'
             - '@sylius.factory.order_item'
             - '@sylius.factory.order_item_unit'
             - '@sm.factory'

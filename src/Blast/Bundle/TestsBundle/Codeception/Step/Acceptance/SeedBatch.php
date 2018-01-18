@@ -17,11 +17,13 @@ class SeedBatch extends Lisem
         $plotName = $this->getRandName() . '-plot';
 
         $this->amGoingTo('Create Plot ' . $plotName);
-        $this->amOnPage($this->getSilUrl() . '/sil/seedbatch/plot/create');
+        $this->amOnPage($this->getSilUrl() . '/seed_batch/plot/create');
         $this->fillField("//input[contains(@id,'_name')]", $plotName);
         $this->selectSearchDrop('_producer_autocomplete_input', $producerName);
-        $this->fillField("//input[contains(@id,'_city')]", $plotName . '-city');
-        $this->fillField("//input[contains(@id,'_zip')]", $this->getRandNbr());
+        // $this->fillField("//input[contains(@id,'_city')]", $plotName . '-city');
+        $this->selectSearchDrop('_city_autocomplete_input', $plotName . '-city');
+        // $this->fillField("//input[contains(@id,'_zip')]", $this->getRandNbr());
+        $this->selectSearchDrop('_zip_autocomplete_input', $this->getRandNbr());
         $this->generateCode();
         $this->clickCreate();
         $this->waitForText('succès', 30); // secs
@@ -34,7 +36,8 @@ class SeedBatch extends Lisem
         $producerName = $this->getRandName() . '-producer';
 
         $this->amGoingTo('Create a producer ' . $producerName);
-        $this->amOnPage($this->getSilUrl() . '/sil/seedbatch/seed-producer/create');
+        // @todo: fix URL (removing /sil)
+        $this->amOnPage($this->getSilUrl() . '/seed_batch/seed_producer/create');
         //$this->click("//li[2]/div/label/div/ins"); //ugly work
         /* @todo: find a way to click without use li[2] ... */
         $this->click("//ul[contains(@id, '_isIndividual')]/li[2]/div/label/div/ins"); //ugly too
@@ -52,7 +55,7 @@ class SeedBatch extends Lisem
         $seedBatchName = $this->getRandName() . '-seedbatch';
 
         $this->amGoingTo('Create Seed Batch' . $seedBatchName);
-        $this->amOnPage($this->getSilUrl() . '/lisem/silseedbatchbundle-seedbatch/create');
+        $this->amOnPage($this->getSilUrl() . '/seed_batch/create');
         $this->selectSearchDrop('_variety_autocomplete_input', $varietyName);
         $this->selectSearchDrop('_producer_autocomplete_input', $producerName);
         $this->fillField("//input[contains(@id,'_productionYear')]", '1913');

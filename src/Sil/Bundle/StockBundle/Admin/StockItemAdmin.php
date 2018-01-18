@@ -37,23 +37,35 @@ class StockItemAdmin extends ResourceAdmin
      */
     protected $locationRepository;
 
-    public function getQtyByItemAndLocation(StockItemInterface $item,
-        Location $location)
+    public function getNewInstance()
+    {
+        $object = parent::getNewInstance();
+        if (method_exists(get_class($object), 'setCurrentLocale')) {
+            $defaultLocale = $this->getConfigurationPool()->getContainer()->get('sylius.locale_provider')->getDefaultLocaleCode();
+            $object->setCurrentLocale($defaultLocale);
+            $object->setFallbackLocale($defaultLocale);
+        }
+
+        foreach ($this->getExtensions() as $extension) {
+            $extension->alterNewInstance($this, $object);
+        }
+
+        return $object;
+    }
+
+    public function getQtyByItemAndLocation(StockItemInterface $item, Location $location)
     {
         return $this->getStockItemQueries()->getQtyByLocation($item, $location);
     }
 
-    public function getUnitsByLocation(StockItemInterface $item,
-        Location $location)
+    public function getUnitsByLocation(StockItemInterface $item, Location $location)
     {
-        return $this->getStockItemQueries()->getUnitsByLocationAndGroupedByBatch($item,
-                $location);
+        return $this->getStockItemQueries()->getUnitsByLocationAndGroupedByBatch($item, $location);
     }
 
     public function getLocationsByItem(StockItemInterface $item)
     {
-        return $this->getLocationRepository()->findByOwnedItem($item,
-                LocationType::INTERNAL);
+        return $this->getLocationRepository()->findByOwnedItem($item, LocationType::INTERNAL);
     }
 
     public function getInStockQty(StockItemInterface $item)
@@ -61,8 +73,7 @@ class StockItemAdmin extends ResourceAdmin
         return $this->getStockItemQueries()->getQty($item);
     }
 
-    public function getInStockQtyByLocation(StockItemInterface $item,
-        Location $location)
+    public function getInStockQtyByLocation(StockItemInterface $item, Location $location)
     {
         return $this->getStockItemQueries()->getQtyByLocation($item, $location);
     }

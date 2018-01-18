@@ -47,13 +47,11 @@ $(document).ready(function() {
                 modal.find('.modal-footer button').clone()
             );
 
-            Admin.shared_setup();
+            Admin.shared_setup(modalBody);
 
             modal.find('.modal-footer').hide();
             modal.modal('show');
-            LI.decorator.inline();
-            LI.decorator.newLine();
-            LI.decorator.multipleCheckbox();
+            LI.decorator.init();
         });
     });
 
@@ -80,7 +78,7 @@ $(document).ready(function() {
                     }
                 } else {
                     form.replaceWith(data);
-                    Admin.shared_setup();
+                    Admin.shared_setup(data);
                 }
             }
         });
@@ -122,5 +120,6 @@ $(document)
 jQuery(window).on('error', function(e) {
     if (ajaxCallNumber > 0) {
         $('.sk-folding-cube').hide();
+        ajaxCallNumber = 0;
     }
 });

@@ -100,7 +100,7 @@ trait SyliusAddressableTrait
     {
         $this->addresses->removeElement($address);
 
-        if ($address->getId() == $this->defaultAddress->getId()) {
+        if ($address !== null && $this->defaultAddress !== null && $address->getId() == $this->defaultAddress->getId()) {
             if ($this->addresses->count() > 0) {
                 $this->defaultAddress = $this->addresses[0];
             } else {

@@ -12,3 +12,18 @@ blast_menu:
                     icon: cloud-upload
                     route: admin_email_list
                     order: 20
+
+        # ##################################################################
+        # PRODUCTS
+        # ##################################################################
+
+        platform.menu_label.products:
+            icon: archive
+            route: admin_ecommerce_product_list
+            order: 16
+
+        sil.ecommerce.menu_label.ecommerce:
+            children:
+
+                sil.ecommerce.menu_label.products:
+                    display: false

@@ -68,4 +68,4 @@ parameters:
 
     blast_search.elastic_search.hostname:  127.0.0.1
     blast_search.elastic_search.port: 9200
-    blast_search.global_index_name: sil_platform
+    blast_search.global_index_alias: sil

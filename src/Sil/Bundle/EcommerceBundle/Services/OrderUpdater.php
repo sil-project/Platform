@@ -17,7 +17,6 @@ use Sylius\Component\Order\Factory\OrderItemUnitFactoryInterface;
 use Sylius\Component\Order\Processor\CompositeOrderProcessor;
 use SM\Factory\Factory;
 use Sil\Bundle\EcommerceBundle\Entity\Product;
-use Sil\Bundle\EcommerceBundle\Entity\ProductVariant;
 use Sil\Bundle\EcommerceBundle\Entity\OrderInterface;
 use Sil\Bundle\EcommerceBundle\Entity\ProductVariantInterface;
 
@@ -31,32 +30,32 @@ class OrderUpdater
     /**
      * @var EntityManager
      */
-    private $em;
+    protected $em;
 
     /**
      * @var Channel
      */
-    private $channel;
+    protected $channel;
 
     /**
      * @var FactoryInterface
      */
-    private $orderItemFactory;
+    protected $orderItemFactory;
 
     /**
      * @var OrderItemUnitFactoryInterface
      */
-    private $orderItemUnitFactory;
+    protected $orderItemUnitFactory;
 
     /**
      * @var Factory
      */
-    private $smFactory;
+    protected $smFactory;
 
     /**
      * @var CompositeOrderProcessor
      */
-    private $orderProcessor;
+    protected $orderProcessor;
 
     /**
      * @param EntityManager                 $em
@@ -99,7 +98,7 @@ class OrderUpdater
             $item = null;
         } else {
             //Retrieve product variant
-            /** @var ProductVariant $variant * */
+            /** @var ProductVariantInterface $variant * */
             $variant = $this->em
                 ->getRepository(ProductVariantInterface::class)
                 ->find($variantId);
@@ -107,17 +106,10 @@ class OrderUpdater
             $optionCode = $variant->getOptionValues()->first() ? $variant->getOptionValues()->first()->getOption()->getCode() : false;
             $optionValue = $variant->getOptionValues()->first() ? $variant->getOptionValues()->first()->getCode() : false;
 
-            $isBulk = ($optionCode === Product::$PACKAGING_OPTION_CODE && $optionValue === 'BULK');
-
             //Create new OrderItem
             $item = $this->orderItemFactory->createNew();
             $item->setVariant($variant);
             $item->setOrder($order);
-            $item->setBulk($isBulk);
-
-            if ($isBulk) {
-                $item->setquantity(999);
-            }
 
             $item->setUnitPrice(
                 $variant->getchannelPricingForChannel($this->channel)->getPrice()

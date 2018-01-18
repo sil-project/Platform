@@ -1,6 +1,6 @@
 
 services:
-    sil_ecommerce_option.admin.product:
+    sil_ecommerce.admin.product_option:
         class: Sil\Bundle\EcommerceBundle\Admin\ProductOptionAdmin
         arguments: [~, "%sil.model.ecommerce_product_option.class%", BlastCoreBundle:CRUD]
         tags:

@@ -342,6 +342,9 @@ parameters:
                                 _options:
                                     edit: inline
                                     inline: table
+                        _options:
+                            countChildItems:
+                                - phones
                     form_tab_address_book:
                         form_group_other_addresses:
                             addresses:
@@ -357,7 +360,6 @@ parameters:
                                             required: false
                                 required: true
                                 _options:
-                                    sortable: updatedAt
                                     edit: inline
                     _options:
                         tabsOrder:
@@ -702,19 +704,11 @@ parameters:
             Sonata\AdminBundle\Datagrid\DatagridMapper:
                 add:
                     individual.name:
-                        type: doctrine_orm_callback
-                        serviceCallback: [sil_crm.admin.position, individualsCallback, callback]
-                        admin_code: sil_crm.admin.organism
+                        type: doctrine_orm_string
                     organism.name:
                         type: doctrine_orm_string
                     email: ~
                     label: ~
-                 #   _options:
-                 #       fieldsOrder:
-                 #           - individual.name
-                 #           - organization.name
-                 #           - label
-                 #           - email
 
 ############
 # CIRCLABLE Trait
@@ -821,24 +815,21 @@ parameters:
                             address:
                                 type: textarea
                                 required: false
-                            # zip_city_country:
-                            #     type: Sil\Bundle\CRMBundle\Form\Type\ZipCityCountryType
-                            #     elastic_type: city
-                            #     label_city: sil.crm.address.form.label.city
-                            #     label_zip: sil.crm.address.form.label.zip
-                            #     label_country: sil.crm.address.form.label.country
-                            #     label: false
-                            # zip:
-                            #     type: Blast\Bundle\SearchBundle\Form\Type\AutocompleteType
-                            #     elastic_type: city
-                            #     required: true
-                            # city:
-                            #     type: Blast\Bundle\SearchBundle\Form\Type\AutocompleteType
-                            #     elastic_type: city
-                            #     required: true
-                            # country:
-                            #     type: country
-                            #     required: true
+                            zip:
+                                type: Sil\Bundle\CRMBundle\Form\Type\ZipOrCityType
+                                targetField: zip
+                                attr:
+                                    data-field-zip-city: zip
+                                    data-linked-field: city
+                            city:
+                                type: Sil\Bundle\CRMBundle\Form\Type\ZipOrCityType
+                                targetField: city
+                                attr:
+                                    data-field-zip-city: city
+                                    data-linked-field: zip
+                            country:
+                                type: country
+                                required: true
                             npai: ~
                     form_group_specifics:
                         form_group_communication:
@@ -873,6 +864,7 @@ parameters:
                     updatedAt: ~
                     createdBy: ~
                     updatedBy: ~
+                    country: ~
                 add:
                     main_tab:
                         main_group:
@@ -880,20 +872,28 @@ parameters:
                             lastName:
                                 type: text
                                 required: true
-                            street: ~
-                            # zip_city_country:
-                            #     type: Sil\Bundle\CRMBundle\Form\Type\ZipCityCountryType
-                            #     elastic_type: city
-                            #
-                            #     city_field: city
-                            #     zip_field: postCode
-                            #     country_field: countryCode
-                            #
-                            #     label_city: sil.crm.address.form.label.city
-                            #     label_zip: sil.crm.address.form.label.post_code
-                            #     label_country: sil.crm.address.form.label.country_code
-                            #
-                            #     label: false
+                            street:
+                                type: text
+                                required: true
+                            postCode:
+                                type: Blast\Bundle\SearchBundle\Form\Type\AutocompleteType
+                                elastic_type: city
+                                required: true
+                                allow_new_values: true
+                                attr:
+                                    data-field-zip-city: postCode
+                                    data-linked-field: city
+                            city:
+                                type: Blast\Bundle\SearchBundle\Form\Type\AutocompleteType
+                                elastic_type: city
+                                required: true
+                                allow_new_values: true
+                                attr:
+                                    data-field-zip-city: city
+                                    data-linked-field: postCode
+                            countryCode:
+                                type: country
+                                required: true
                             npai: ~
 
             # LIST

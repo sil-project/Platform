@@ -4,6 +4,7 @@ services:
         class: Blast\Bundle\MenuBundle\Configuration\Loader
         calls:
             - [setParameters, ['%blast_menu%']]
+            - [setProfiler, ['@?blast_profiler.profiler.collector']]
 
     blast.menu_builder:
         class: Blast\Bundle\MenuBundle\Builder\MenuBuilder

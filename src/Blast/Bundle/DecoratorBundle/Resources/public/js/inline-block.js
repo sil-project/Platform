@@ -3,12 +3,19 @@ if (LI === undefined)
 if (LI.decorator === undefined)
     LI.decorator = [];
 
-$(document).ready(function() {
-
+LI.decorator.init = function() {
     LI.decorator.inline();
     LI.decorator.newLine();
     LI.decorator.multipleCheckbox();
-});
+};
+
+$(document)
+    .ready(function() {
+        LI.decorator.init();
+    })
+    .on('sonata.add_element', function() {
+        LI.decorator.init();
+    });
 
 // display several sonata form fields on the same line
 LI.decorator.inline = function() {
@@ -19,11 +26,14 @@ LI.decorator.inline = function() {
         var width = widget.attr('width');
         var height = widget.attr('height');
 
-        LI.decorator.getFormGroup($(this))
+        var formGroup = LI.decorator.getFormGroup($(this));
+
+        formGroup
             .css({ 'width': width + '%' })
             .addClass('field-as-inline');
 
         $(this).css('height', height + 'px');
+
     });
 };
 

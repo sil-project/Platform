@@ -28,7 +28,6 @@ PlatformBundle\Entity\SilCRMBundle\Organism:
                 name: default_address_id
                 onDelete: SET NULL
             cascade: [persist, remove]
-            orphanRemoval: true
 
     manyToMany:
         circles:

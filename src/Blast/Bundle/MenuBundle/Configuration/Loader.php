@@ -21,6 +21,11 @@ class Loader
     private $parameters;
 
     /**
+     * @var mixed
+     */
+    private $profiler;
+
+    /**
      * Loads menu configuration based on container parameter.
      *
      * @return [type] [description]
@@ -32,6 +37,13 @@ class Loader
         foreach ($this->parameters as $menuItemName => $menuItem) {
             $item = Item::fromArray([$menuItemName => ['children' => $menuItem]]);
             $root->addChild($item);
+        }
+
+        // Debug profiler
+        if ($this->profiler !== null) {
+            $this->profiler->collectOnce('Menu', [
+                'data' => $root,
+            ]);
         }
 
         return $root;
@@ -48,5 +60,13 @@ class Loader
     public function setParameters(array $parameters): void
     {
         $this->parameters = $parameters;
+    }
+
+    /**
+     * @param mixed $profiler
+     */
+    public function setProfiler($profiler): void
+    {
+        $this->profiler = $profiler;
     }
 }

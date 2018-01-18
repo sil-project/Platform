@@ -53,5 +53,6 @@ class PaymentMethodAdmin extends SyliusGenericAdmin
     {
         parent::configureRoutes($collection);
         $collection->remove('delete');
+        $collection->remove('create');
     }
 }

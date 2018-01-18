@@ -22,9 +22,11 @@ var dzOptions = {
     dictMaxFilesExceeded: null
 };
 
-var setupDropzones = function() {
-
+var setupDropzones = function(element) {
     var dropzones = $('[data-sil-dropzone]');
+    if (typeof element !== 'undefined') {
+        dropzones = $(element).find('[data-sil-dropzone]');
+    }
 
     if (dropzones.length > 0) {
 
@@ -174,5 +176,9 @@ var generateImgUrl = function(file) {
     return 'data:' + file.mimeType + ';base64,' + file.file;
 };
 
-$(document).ready(setupDropzones);
-$(document).on('sonata-admin-setup-list-modal sonata-admin-append-form-element', setupDropzones);
+$(document).ready(function() {
+    setupDropzones();
+});
+$(document).on('sonata-admin-setup-list-modal sonata-admin-append-form-element', function(e) {
+    setupDropzones(e.target);
+});

@@ -77,7 +77,7 @@ class ProductVariantAdmin extends SyliusGenericAdmin
                     'choice_label'  => 'fullName',
                 ],
                 [
-                    'admin_code' => 'sil_ecommerce_option_value.admin.product',
+                    'admin_code' => 'sil_ecommerce.admin.product_option_value',
                 ]
             );
         }

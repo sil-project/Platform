@@ -13,15 +13,19 @@ namespace Blast\Bundle\SearchBundle\Controller;
 use Blast\Bundle\CoreBundle\Controller\BaseController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Elastica\Query\BoolQuery;
+use Elastica\Query\QueryString;
 
 class SearchController extends BaseController
 {
     protected function processSearchRequest(Request $request)
     {
-        $searchTerm = $request->get('q') . '*';
+        // $searchTerm = $request->get('q') . '*';
+        $searchTerm = $request->get('q');
         $page = $request->get('page', 1);
         $perPage = $this->container->getParameter('blast_search')['results_per_page'];
-        $index = $request->get('index', 'global');
+        $defaultIndex = $this->container->getParameter('blast_search')['global_index_alias'];
+        $index = $request->get('index', $defaultIndex);
         $type = $request->get('type', null);
 
         if ($index === '') {
@@ -36,11 +40,41 @@ class SearchController extends BaseController
 
         $finder = $this->container->get($finderName);
 
+        if ($filter = $request->get('filter', null)) {
+            $query = $this->processFilteredQuery($finder, $filter, $searchTerm);
+        } else {
+            // $query = $searchTerm;
+            $query = new BoolQuery();
+            $termQuery = new QueryString();
+            $termQuery->setParam('query', $searchTerm);
+            $query->addMust($termQuery);
+        }
+
         $paginator = $this->container->get('knp_paginator');
-        $results = $finder->createPaginatorAdapter($searchTerm);
+        $results = $finder->createPaginatorAdapter($query);
         $pagination = $paginator->paginate($results, $page, $perPage);
 
         return $pagination;
+    }
+
+    protected function processFilteredQuery($finder, $filter, $searchTerm)
+    {
+        $filter = explode('|', $filter);
+
+        $boolQuery = new BoolQuery();
+
+        $searchQuery = new QueryString();
+        $searchQuery->setParam('query', $filter[1]);
+        $searchQuery->setParam('fields', array(
+            $filter[0],
+        ));
+        $boolQuery->addMust($searchQuery);
+
+        $termQuery = new QueryString();
+        $termQuery->setParam('query', $searchTerm);
+        $boolQuery->addMust($termQuery);
+
+        return $boolQuery;
     }
 
     public function searchAction(Request $request)
