@@ -27,9 +27,19 @@ class Metadata implements MetadataInterface
     private $alias;
 
     /**
-     * @var ClassMap
+     * @var ClassMapInterface
      */
     private $classMap;
+
+    /**
+    * @var RoutingInterface
+     */
+    private $routing;
+
+    /**
+     * @var RoutingInterface
+     */
+    private $api;
 
     public static function createFromAliasAndParameters(string $alias, array $parameters)
     {
@@ -40,8 +50,10 @@ class Metadata implements MetadataInterface
         $aliasParts = explode('.', $alias);
         $alias = array_pop($aliasParts);
         $prefix = implode($aliasParts);
-
-        return new static($prefix, $alias,  ClassMap::fromArray($parameters['classes']));
+        $classMap =  ClassMap::fromArray($parameters['classes']);
+        $routing = Routing::fromArray($parameters['routing']);
+        $api = Routing::fromArray($parameters['api'])
+        return new static($prefix, $alias, $classMap);
     }
 
     /**
@@ -49,7 +61,7 @@ class Metadata implements MetadataInterface
      * @param string $applicationName
      * @param array  $parameters
      */
-    private function __construct(string $prefix, string $alias, ClassMapInterface $classMap)
+    private function __construct(string $prefix, string $alias, ClassMapInterface $classMap , RoutingInterface $routing, RoutingInterface $api)
     {
         $this->prefix = $prefix;
         $this->alias = $alias;
@@ -74,5 +86,13 @@ class Metadata implements MetadataInterface
     public function getClassMap(): ClassMapInterface
     {
         return $this->classMap;
+    }
+
+    public function hasRouting(){
+      return $this->routing->isEnabled();
+    }
+
+    public function hasApi(){
+      return $this->api->isEnabled();
     }
 }

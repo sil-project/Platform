@@ -1,0 +1,33 @@
+blast_resource:
+  resources:
+
+    app.contact:
+      classes:
+        model: App\Contact
+        controller: App\Controller #default : ResourceController
+        api_controller: App\RestController #default same as controller
+
+      routing:
+        enable: true
+        path: contacts
+        prefix: admin
+        redirect: list #default
+        view: {type: description, resource: "app.view.contact"} #use value as prefix for create,show,list,update,delete
+        actions: #default actions are : create,show,list,update,delete
+
+          show:
+            view: {type: description, resource: "app.view.contact.custom_show"}
+
+          do_something:
+            path: do-something/{arg}
+            action: do # default : App\Controller::do_something
+            requirements:
+              arg: \d+
+            view: {type: template, resource: "app.view.contact.do_something"}
+
+
+      api:
+        enable: true
+        path: contacts
+        prefix: api
+        only: ["show","list"]
