@@ -6,6 +6,7 @@
         "php": "^7.1",
         "symfony/symfony": "3.3.*",
         "symfony/event-dispatcher": ">=3.2",
+        "data-uri/twig-extension": "^1.0",
         "blast-project/core-bundle": "self.version"
     },
     "require-dev": {

@@ -50,6 +50,8 @@ twig:
     globals:
         sil:
             url_prefix: "%sil.url_prefix%"
+            project_dir: "%kernel.project_dir%"
+            web_dir: "%kernel.project_dir%/%symfony-web-dir%"
 
 # Doctrine Configuration
 doctrine:
