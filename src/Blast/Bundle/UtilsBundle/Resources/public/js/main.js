@@ -1,6 +1,5 @@
 
 $(document).ready(function(){
-
     addUniqueFieldsListener();
 });
 
@@ -30,16 +29,16 @@ var addUniqueFieldsListener = function(){
                         if( !response.available )
                         {
                             input.closest('.form-group').addClass('has-error');
-                            
-                            var message = 
+
+                            var message =
                                 '<i class="fa fa-exclamation-circle" aria-hidden="true"></i> ' +
-                                value + ' ' + 
+                                value + ' ' +
                                 response.error
                             ;
-                            
+
                             if(response.link != undefined)
                                 message += '<p><a href="' + response.link + '">' + response.message + '</a></p>';
-                            
+
                             $('<div class="help-block sonata-ba-field-error-messages"></div>')
                                 .html(message)
                                 .appendTo(input.closest('.sonata-ba-field'))
