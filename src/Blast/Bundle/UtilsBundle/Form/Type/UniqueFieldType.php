@@ -56,7 +56,9 @@ class UniqueFieldType extends BaseAbstractType
             $value = $event->getData();
             $result = $this->checker->check($className, $field, $value);
 
-            if (!$result['available']) {
+            $id = $form->getParent()->getData()->getId();
+
+            if ($result['object'] && $result['object']->getId() !== $id && !$result['available']) {
                 $form->addError(new FormError($this->checker->renderResult($result, $value)));
             }
         });
