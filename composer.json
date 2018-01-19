@@ -104,5 +104,6 @@
             "file": "app/config/parameters.yml"
         },
         "branch-alias": null
-    }
+    },
+    "version": "0.4.2"
 }
