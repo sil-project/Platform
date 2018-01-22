@@ -1,5 +1,10 @@
 timestamps {
-    node () {
+    agent {
+        dockerfile {
+            filename 'dockerfile.jenkins'
+        }
+    }
+    stages {        
         stage ('Test - Clone') {
 	    git (
 	        url: 'https://github.com/sil-project/Platform.git',
@@ -8,7 +13,6 @@ timestamps {
 	}  
 	stage ('Test - Prepare') {
             sh "ln -fs ${WORKSPACE}/.env.travis ${WORKSPACE}/.env"
-            sh "${WORKSPACE}/bin/ci-scripts/do_run.sh docker_run_elk_test.sh"
             sh "${WORKSPACE}/bin/ci-scripts/do_run.sh before_install_test.sh"
             sh "${WORKSPACE}/bin/ci-scripts/do_run.sh create_database_test.sh"
         }

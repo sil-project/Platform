@@ -1,0 +1,30 @@
+FROM php:7.1-apache as phpcli_for_platform
+
+RUN apt-get update
+
+RUN apt-get install -y apt-transport-https lsb-release ca-certificates apt-utils postgresql-client-9.4 git curl wget xvfb chromium chromium-l10n iceweasel build-essential g++ unzip
+RUN apt-get install -y libpq-dev libcurl4-openssl-dev libfreetype6-dev libjpeg62-turbo-dev libmcrypt-dev libpng12-dev zlib1g-dev libicu-dev unixodbc-dev libxml2-dev libaio-dev libmemcached-dev freetds-dev
+
+RUN docker-php-ext-configure pgsql
+
+RUN docker-php-ext-install pgsql gd intl mbstring zip exif pdo pdo_pgsql
+
+#RUN wget -q https://getcomposer.org/composer.phar -o /usr/local/bin/composer && chmod 755 /usr/local/bin/composer
+
+RUN curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer && chmod 755 /usr/local/bin/composer
+
+#ENV HOME=/var/www/sil
+#WORKDIR $HOME
+
+ENV HOME=/home/sil 
+ENV USER=sil
+ENV GROUP=www-data
+RUN useradd -d $HOME -g $GROUP --no-create-home $USER
+# we don't want skeleton file so we create home by hand (or by RUN :) )
+RUN mkdir -p $HOME && mkdir -p $HOME/bin && chown -R $USER:$GROUP $HOME
+
+#USER $USER:$GROUP
+#WORKDIR $HOME
+
+
+
