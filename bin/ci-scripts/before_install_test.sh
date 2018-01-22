@@ -82,7 +82,7 @@ nvm install 8.9
 
 composer -V
 
-chromium-browser --version
+#chromium-browser --version
 chromedriver --version
 geckodriver --version
 
