@@ -8,12 +8,8 @@ pipeline {
     stages {
 	stage ('Test - Prepare') {
             steps {
-                sh "ln -fs ${WORKSPACE}/.env.travis ${WORKSPACE}/.env"
-            }
-            steps {
+                sh "ln -fs ${WORKSPACE}/.env.travis ${WORKSPACE}/.env"          
                 sh "${WORKSPACE}/bin/ci-scripts/do_run.sh before_install_test.sh"
-            }
-            steps {
                 sh "${WORKSPACE}/bin/ci-scripts/do_run.sh create_database_test.sh"
             }
         }
@@ -25,8 +21,6 @@ pipeline {
         stage ('Test - Run') {
             steps {
                 sh "${WORKSPACE}/bin/ci-scripts/do_run.sh before_script_test.sh"
-            }
-            steps {    
                 sh "${WORKSPACE}/bin/ci-scripts/do_run.sh run_test.sh"
             }
 	}
