@@ -16,18 +16,15 @@ RUN docker-php-ext-install pgsql gd intl mbstring zip exif pdo pdo_pgsql
 
 RUN curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer && chmod 755 /usr/local/bin/composer
 
-#ENV HOME=/var/www/sil
-#WORKDIR $HOME
-
-#ENV HOME=/home/sil 
-#ENV USER=sil
-#ENV GROUP=www-data
-#RUN useradd -d $HOME -g $GROUP --no-create-home $USER
+ENV HOME=/home/sil 
+ENV USER=sil
+ENV GROUP=users
+RUN useradd -d $HOME -g $GROUP --no-create-home $USER
 # we don't want skeleton file so we create home by hand (or by RUN :) )
-#RUN mkdir -p $HOME && mkdir -p $HOME/bin && chown -R $USER:$GROUP $HOME
+RUN mkdir -p $HOME && mkdir -p $HOME/bin && chown -R $USER:$GROUP $HOME
 
-#USER $USER:$GROUP
-#WORKDIR $HOME
+USER $USER:$GROUP
+WORKDIR $HOME
 
 
 

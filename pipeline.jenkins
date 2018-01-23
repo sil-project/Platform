@@ -6,6 +6,13 @@ pipeline {
     }
     
     stages {
+    	stage ('Test - Where Am I') {
+            steps {
+                sh "uname -a"          
+                sh "php -v"
+                sh "composer -V"
+            }
+        }
 	stage ('Test - Prepare') {
             steps {
                 sh "ln -fs ${WORKSPACE}/.env.travis ${WORKSPACE}/.env"          
