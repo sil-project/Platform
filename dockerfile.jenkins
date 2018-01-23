@@ -1,4 +1,6 @@
-FROM php:7.1-apache as phpcli_for_platform
+FROM php:7.1-apache
+# https://issues.jenkins-ci.org/browse/JENKINS-31507
+#as phpcli_for_platform
 
 RUN apt-get update
 
