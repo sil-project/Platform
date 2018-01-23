@@ -1,4 +1,5 @@
 FROM php:7.1-apache
+# https://issues.jenkins-ci.org/browse/JENKINS-44609
 # https://issues.jenkins-ci.org/browse/JENKINS-31507
 #as phpcli_for_platform
 
