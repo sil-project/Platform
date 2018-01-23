@@ -19,15 +19,15 @@ fi
 composer self-update --no-progress --stable
 #composer clear-cache
 
-if [ ! -x ${HOME}/bin/chromedriver ]
-then
-    #wget -q http://chromedriver.storage.googleapis.com/2.12/chromedriver_linux64.zip
-    #wget -q http://chromedriver.storage.googleapis.com/2.29/chromedriver_linux64.zip
-    wget -q http://chromedriver.storage.googleapis.com/2.33/chromedriver_linux64.zip
-    unzip -o chromedriver_linux64.zip
-    mv chromedriver ${HOME}/bin/
-    #ln -s /usr/lib/chromium-browser/chromedriver ${HOME}/bin/chromedriver
-fi
+#if [ ! -x ${HOME}/bin/chromedriver ]
+#then
+#    #wget -q http://chromedriver.storage.googleapis.com/2.12/chromedriver_linux64.zip
+#    #wget -q http://chromedriver.storage.googleapis.com/2.29/chromedriver_linux64.zip
+#    wget -q http://chromedriver.storage.googleapis.com/2.33/chromedriver_linux64.zip
+#    unzip -o chromedriver_linux64.zip
+#    mv chromedriver ${HOME}/bin/
+#    #ln -s /usr/lib/chromium-browser/chromedriver ${HOME}/bin/chromedriver
+#fi
 
 if [ ! -x ${HOME}/bin/geckodriver ]
 then
@@ -82,7 +82,7 @@ nvm install 8.9
 composer -V
 
 #chromium-browser --version
-chromedriver --version
+#chromedriver --version
 geckodriver --version
 
 nvm --version
