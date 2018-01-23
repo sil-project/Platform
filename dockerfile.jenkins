@@ -23,7 +23,6 @@ ENV GROUP=users
 
 
 # -u $(id -u)
-
 # because jenkins docker pipeline force a -u option on run
 # https://github.com/jenkinsci/docker-workflow-plugin/pull/25/files
 # see whoAmI function here:
@@ -32,7 +31,9 @@ ENV GROUP=users
 
 # jenkins user on sandboxrd has the 1004 id and it is forced by pipeline plugin on docker log on 
 
-RUN useradd -d $HOME -g $GROUP -u 1004 --no-create-home $USER
+
+ARG UID=1002
+RUN useradd -d $HOME -g $GROUP -u ${UID} --no-create-home $USER
 # we don't want skeleton file so we create home by hand (or by RUN :) )
 RUN mkdir -p $HOME && mkdir -p $HOME/bin && chown -R $USER:$GROUP $HOME
 
