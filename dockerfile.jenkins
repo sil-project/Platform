@@ -19,12 +19,12 @@ RUN curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/lo
 #ENV HOME=/var/www/sil
 #WORKDIR $HOME
 
-ENV HOME=/home/sil 
-ENV USER=sil
-ENV GROUP=www-data
-RUN useradd -d $HOME -g $GROUP --no-create-home $USER
+#ENV HOME=/home/sil 
+#ENV USER=sil
+#ENV GROUP=www-data
+#RUN useradd -d $HOME -g $GROUP --no-create-home $USER
 # we don't want skeleton file so we create home by hand (or by RUN :) )
-RUN mkdir -p $HOME && mkdir -p $HOME/bin && chown -R $USER:$GROUP $HOME
+#RUN mkdir -p $HOME && mkdir -p $HOME/bin && chown -R $USER:$GROUP $HOME
 
 #USER $USER:$GROUP
 #WORKDIR $HOME
