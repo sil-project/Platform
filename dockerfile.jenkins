@@ -44,7 +44,8 @@ RUN useradd -d $HOME -g $GROUP -u ${UID} -m $USER
 
 RUN mkdir -p $HOME/bin && chown -R $USER:$GROUP $HOME
 
-
+#should not be good, where does the current $PATH came from ?
+ENV PATH=$PATH:$HOME/bin
 
 USER $USER:$GROUP
 WORKDIR $HOME
