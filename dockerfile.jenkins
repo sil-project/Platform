@@ -44,11 +44,20 @@ RUN useradd -d $HOME -g $GROUP -u ${UID} -m $USER
 
 RUN mkdir -p $HOME/bin && chown -R $USER:$GROUP $HOME
 
-#should not be good, where does the current $PATH came from ?
-ENV PATH=$PATH:$HOME/bin
-
 USER $USER:$GROUP
 WORKDIR $HOME
 
+#should not be good, where does the current $PATH came from ?
+ENV PATH=$PATH:$HOME/bin
 
+# Add some before install step to run test faster
+RUN composer self-update --no-progress --stable
+
+RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash && export NVM_DIR="$HOME/.nvm" && [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" && nvm install 8.9
+
+RUN wget -q https://github.com/mozilla/geckodriver/releases/download/v0.19.1/geckodriver-v0.19.1-linux64.tar.gz &&  gunzip -f geckodriver-v0.19.1-linux64.tar.gz && tar -xvf geckodriver-v0.19.1-linux64.tar &&  mv geckodriver ${HOME}/bin/
+
+RUN wget -q https://selenium-release.storage.googleapis.com/3.7/selenium-server-standalone-3.7.0.jar &&  mv selenium-server-standalone-3.7.0.jar ${HOME}/bin/selenium-server-standalone.jar
+
+RUN wget -q https://github.com/satooshi/php-coveralls/releases/download/v1.0.1/coveralls.phar --output-document="${HOME}/bin/coveralls" && chmod u+x "${HOME}/bin/coveralls"
 
