@@ -2,6 +2,7 @@ pipeline {
     agent {
         dockerfile {
             filename 'dockerfile.jenkins'
+            args '--network=ci.network'
         }
     }
     
