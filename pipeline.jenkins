@@ -26,9 +26,8 @@ pipeline {
         }
         stage ('Create Database') {
             steps {
+                sh "${WORKSPACE}/bin/ci-scripts/do_run.sh set_db_host_test.sh # needed before create as it set .pgpass"
                 sh "${WORKSPACE}/bin/ci-scripts/do_run.sh create_database_test.sh"
-                sh "${WORKSPACE}/bin/ci-scripts/do_run.sh set_db_host_test.sh"
-                
             }
         }
         stage ('Build Project') {
