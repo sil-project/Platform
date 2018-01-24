@@ -32,7 +32,7 @@ composer self-update --no-progress --stable
 if [ ! -x ${HOME}/bin/geckodriver ]
 then
     wget -q https://github.com/mozilla/geckodriver/releases/download/v0.19.1/geckodriver-v0.19.1-linux64.tar.gz
-    gunzip geckodriver-v0.19.1-linux64.tar.gz
+    gunzip -f geckodriver-v0.19.1-linux64.tar.gz
     tar -xvf geckodriver-v0.19.1-linux64.tar
     mv geckodriver ${HOME}/bin/
 fi
