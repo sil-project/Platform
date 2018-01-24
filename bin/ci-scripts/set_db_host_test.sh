@@ -31,5 +31,6 @@ sed -e s/'127.0.0.1'/'${DBHOST}'/g -i app/config/config_test.yml
 
 #TODO
 # should use env var from etcd (for password)
-echo  ${DBHOST}:5432:*:postgres:postgres24 >> ~/.pgpass
-chmod 600  ~/.pgpass
+echo  ${DBHOST}:5432:*:postgres:postgres24 >> $HOME/.pgpass
+chmod 600  $HOME/.pgpass
+cat  $HOME/.pgpass
