@@ -26,7 +26,7 @@ fi
 # sed -e s/'database_host: 127.0.0.1'/'database_host: ${DBHOST}'/g -i app/config/parameters.yml.dist
 
 
-sed -e s/'127.0.0.1'/'${DBHOST}'/g -i app/config/config_test.yml
+sed -e s/'127.0.0.1'/${DBHOST}/g -i app/config/config_test.yml
 
 
 #TODO
