@@ -10,10 +10,12 @@
 
 namespace Sil\Component\Contact\Repository;
 
+use Blast\Component\Resource\Repository\ResourceRepositoryInterface;
+
 /**
  * @author Romain Sanchez <romain.sanchez@libre-informatique.fr>
  */
-interface PhoneRepositoryInterface
+interface PhoneRepositoryInterface extends ResourceRepositoryInterface
 {
     //put your code here
 }
