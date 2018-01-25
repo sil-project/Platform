@@ -21,6 +21,7 @@
         "ext-exif": "*",
         "ext-fileinfo": "*",
         "ext-gd": "*",
+        "ext-pcntl" : "*",
         "ext-pgsql": "*",
         "ext-curl": "*",
         "ext-intl": "*",
