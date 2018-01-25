@@ -62,6 +62,6 @@ RUN wget -q https://selenium-release.storage.googleapis.com/3.7/selenium-server-
 RUN wget -q https://github.com/satooshi/php-coveralls/releases/download/v1.0.1/coveralls.phar --output-document="${HOME}/bin/coveralls" && chmod u+x "${HOME}/bin/coveralls"
 
 # try to cache some composer & npm package 
-RUN cd /tmp && git clone https://github.com/sil-project/Platform.git && cd Platform && composer install --no-interaction --no-scripts  --prefer-dist && npm install && cd /tmp && rm -rf /tmp/Platform
+RUN cd /tmp && git clone https://github.com/sil-project/Platform.git && cd Platform && composer install --no-interaction --no-scripts  --prefer-dist && export NVM_DIR="$HOME/.nvm" && . "$NVM_DIR/nvm.sh" && npm install && cd /tmp && rm -rf /tmp/Platform
 
 
