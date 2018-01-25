@@ -13,6 +13,7 @@ RUN apt install -t jessie-backports openjdk-8-jdk -y && update-alternatives --co
 RUN docker-php-ext-configure pgsql
 RUN docker-php-ext-install pgsql gd intl mbstring zip exif pdo pdo_pgsql
 
+RUN echo "memory_limit=-1" >> /usr/local/etc/php/conf.d/memory_limit.ini
 
 #RUN wget -q https://getcomposer.org/composer.phar -o /usr/local/bin/composer && chmod 755 /usr/local/bin/composer
 
