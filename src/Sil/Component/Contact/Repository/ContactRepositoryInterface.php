@@ -17,5 +17,4 @@ use Blast\Component\Resource\Repository\ResourceRepositoryInterface;
  */
 interface ContactRepositoryInterface extends ResourceRepositoryInterface
 {
-    //put your code here
 }
