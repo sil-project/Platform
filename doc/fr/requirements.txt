@@ -1,5 +1,4 @@
-Sphinx
-git+https://github.com/fabpot/sphinx-php.git
+sphinx>=1.6,<2.0,!=1.6.4
 sphinx_rtd_theme
 pyOpenSSL==16.2.0
 requests[security]
