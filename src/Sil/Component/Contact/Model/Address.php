@@ -67,6 +67,20 @@ class Address implements AddressInterface
     protected $contact;
 
     /**
+     * @param string $street
+     * @param string $city
+     * @param string $postcode
+     * @param string $country
+     */
+    public function __construct(string $street, string $city, string $postcode, string $country)
+    {
+        $this->street = $street;
+        $this->city = $city;
+        $this->postcode = $postcode;
+        $this->country = $country;
+    }
+
+    /**
      * Get the value of street.
      *
      * @return string

@@ -39,6 +39,14 @@ class Phone implements PhoneInterface
     protected $contact;
 
     /**
+     * @param string $number
+     */
+    public function __construct(string $number)
+    {
+        $this->number = $number;
+    }
+
+    /**
      * Get the value of number.
      *
      * @return string
