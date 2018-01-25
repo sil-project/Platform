@@ -60,6 +60,13 @@ class Address implements AddressInterface
     protected $other;
 
     /**
+     * label.
+     *
+     * @var string
+     */
+    protected $label;
+
+    /**
      * contact.
      *
      * @var Contact
@@ -226,5 +233,25 @@ class Address implements AddressInterface
     public function setType(string $type): void
     {
         $this->type = $type;
+    }
+
+    /**
+     * Get the value of label.
+     *
+     * @return string
+     */
+    public function getLabel(): string
+    {
+        return $this->label;
+    }
+
+    /**
+     * Set the value of label.
+     *
+     * @param string $label
+     */
+    public function setLabel(string $label): void
+    {
+        $this->label = $label;
     }
 }
