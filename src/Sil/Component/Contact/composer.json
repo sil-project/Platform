@@ -9,14 +9,13 @@
     },
     "require-dev": {
         "phpunit/phpunit": "^6.4",
-        "symfony/property-access": "^3.2"
     },
     "license": "LGPL-3.0",
     "keywords": [
         "Contact",
         "contact management"
     ],
-    "homepage": "https://github.com/sil-prject/Uom",
+    "homepage": "https://github.com/sil-prject/contact",
     "authors": [
         {
             "name": "Romain Sanchez",
@@ -33,7 +32,6 @@
             "Sil\\Component\\Contact\\": "."
         }
     },
-    "version": "dev-wip-contact",
     "config": {
         "bin-dir": "bin/"
     }
