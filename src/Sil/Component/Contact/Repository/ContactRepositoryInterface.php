@@ -8,13 +8,14 @@
  * file that was distributed with this source code.
  */
 
-namespace Sil\Component\Contact\Model;
+namespace Sil\Component\Contact\Repository;
 
-use Blast\Component\Resource\Model\ResourceInterface;
+use Blast\Component\Resource\Repository\ResourceRepositoryInterface;
 
 /**
  * @author Romain Sanchez <romain.sanchez@libre-informatique.fr>
  */
-interface ContactInterface extends ResourceInterface
+interface ContactRepositoryInterface extends ResourceRepositoryInterface
 {
+    //put your code here
 }
