@@ -11,7 +11,7 @@ RUN apt-get install -y libpq-dev libcurl4-openssl-dev libfreetype6-dev libjpeg62
 RUN apt install -t jessie-backports openjdk-8-jdk -y && update-alternatives --config java
 
 RUN docker-php-ext-install pgsql gd intl mbstring zip exif pdo pdo_pgsql pcntl
-RUN docker-php-ext-configure pgsql pcntl
+RUN docker-php-ext-configure pgsql
 
 RUN echo "memory_limit=-1" >> /usr/local/etc/php/conf.d/memory_limit.ini
 
