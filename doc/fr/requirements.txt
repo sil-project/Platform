@@ -1,0 +1,5 @@
+Sphinx
+git+https://github.com/fabpot/sphinx-php.git
+sphinx_rtd_theme
+pyOpenSSL==16.2.0
+requests[security]

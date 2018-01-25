@@ -36,6 +36,7 @@ composer.lock
 
 # Build data
 /build/
+/doc/**/_build/*
 
 # IDE
 /nbproject/
@@ -62,3 +63,12 @@ src/Tests/_support/_generated/*
 !src/Tests/_support/_generated/.gitkeep
 
 .env
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
