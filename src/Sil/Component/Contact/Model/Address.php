@@ -103,41 +103,22 @@ class Address implements AddressInterface
     /**
      * Get the value of city.
      *
-     * @return string
+     * @return City
      */
-    public function getCity(): string
+    public function getCity(): City
     {
-        return $this->city;
+        return new City($this->city, $this->postCode);
     }
 
     /**
-     * Set the value of city.
+     * Set the value of post code and city through a City instance.
      *
-     * @param string $city
+     * @param City $city
      */
-    public function setCity(string $city): void
+    public function setCity(City $city): void
     {
-        $this->city = $city;
-    }
-
-    /**
-     * Get the value of post code.
-     *
-     * @return string
-     */
-    public function getPostCode(): string
-    {
-        return $this->postCode;
-    }
-
-    /**
-     * Set the value of post code.
-     *
-     * @param string $postCode
-     */
-    public function setPostCode(string $postCode): void
-    {
-        $this->postCode = $postCode;
+        $this->city = $city->getName();
+        $this->postCode = $city->getPostCode();
     }
 
     /**
