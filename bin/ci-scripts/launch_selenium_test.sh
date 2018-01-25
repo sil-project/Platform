@@ -35,6 +35,14 @@ then
 
 fi
 
+netstat -an > /dev/null
+if [ $? -ne 0 ]
+then
+    echo netstat is not installed 
+    exit 42
+fi
+
+
 while [ $(netstat -an | grep LISTEN | grep 4444| wc -l) -eq 0 ]
 do
     echo $(date) " wait for selenium start... (since " $sel_start_date ")";
