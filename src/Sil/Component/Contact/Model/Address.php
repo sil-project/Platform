@@ -67,16 +67,23 @@ class Address implements AddressInterface
     protected $contact;
 
     /**
+     * type.
+     *
+     * @var string
+     */
+    protected $type;
+
+    /**
      * @param string $street
      * @param string $city
      * @param string $postcode
      * @param string $country
      */
-    public function __construct(string $street, string $city, string $postcode, string $country)
+    public function __construct(string $street, City $city, string $country)
     {
         $this->street = $street;
-        $this->city = $city;
-        $this->postcode = $postcode;
+        $this->city = $city->getName();
+        $this->postCode = $city->getPostCode();
         $this->country = $country;
     }
 
@@ -199,5 +206,25 @@ class Address implements AddressInterface
     public function setContact(Contact $contact): void
     {
         $this->contact = $contact;
+    }
+
+    /**
+     * Get the value of type.
+     *
+     * @return string
+     */
+    public function getType(): string
+    {
+        return $this->type;
+    }
+
+    /**
+     * Set the value of type.
+     *
+     * @param string $type
+     */
+    public function setType(string $type): void
+    {
+        $this->type = $type;
     }
 }
