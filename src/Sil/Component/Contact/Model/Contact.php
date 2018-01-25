@@ -56,13 +56,6 @@ class Contact implements ContactInterface
     protected $position;
 
     /**
-     * culture.
-     *
-     * @var string
-     */
-    protected $culture;
-
-    /**
      * default address.
      *
      * @var AddressInterface
@@ -194,26 +187,6 @@ class Contact implements ContactInterface
     public function setPosition(string $position): void
     {
         $this->position = $position;
-    }
-
-    /**
-     * Get the value of culture.
-     *
-     * @return string
-     */
-    public function getCulture(): ?string
-    {
-        return $this->culture;
-    }
-
-    /**
-     * Set the value of culture.
-     *
-     * @param string culture
-     */
-    public function setCulture(string $culture): void
-    {
-        $this->culture = $culture;
     }
 
     /**
