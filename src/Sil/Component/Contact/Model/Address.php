@@ -22,49 +22,49 @@ class Address implements AddressInterface
      *
      * @var string
      */
-    private $street;
+    protected $street;
 
     /**
      * city.
      *
      * @var string
      */
-    private $city;
+    protected $city;
 
     /**
      * post code.
      *
      * @var string
      */
-    private $postCode;
+    protected $postCode;
 
     /**
      * province.
      *
      * @var string
      */
-    private $province;
+    protected $province;
 
     /**
      * country.
      *
      * @var string
      */
-    private $country;
+    protected $country;
 
     /**
      * other information.
      *
      * @var string
      */
-    private $other;
+    protected $other;
 
     /**
      * contact.
      *
      * @var Contact
      */
-    private $contact;
+    protected $contact;
 
     /**
      * Get the value of street.

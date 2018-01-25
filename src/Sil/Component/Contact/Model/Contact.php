@@ -25,70 +25,70 @@ class Contact implements ContactInterface
      *
      * @var string
      */
-    private $firstName;
+    protected $firstName;
 
     /**
      * last name.
      *
      * @var string
      */
-    private $lastName;
+    protected $lastName;
 
     /**
      * title.
      *
      * @var string
      */
-    private $title;
+    protected $title;
 
     /**
      * email address.
      *
      * @var string
      */
-    private $email;
+    protected $email;
 
     /**
      * position.
      *
      * @var string
      */
-    private $position;
+    protected $position;
 
     /**
      * culture.
      *
      * @var string
      */
-    private $culture;
+    protected $culture;
 
     /**
      * default address.
      *
      * @var AddressInterface
      */
-    private $defaultAddress;
+    protected $defaultAddress;
 
     /**
      * addresses.
      *
      * @var Collection|AddressInterface[]
      */
-    private $addresses;
+    protected $addresses;
 
     /**
      * default phone.
      *
      * @var PhoneInterface
      */
-    private $defaultPhone;
+    protected $defaultPhone;
 
     /**
      * phones.
      *
      * @var Collection|PhoneInterface[]
      */
-    private $phones;
+    protected $phones;
 
     public function __construct()
     {

@@ -22,21 +22,21 @@ class Phone implements PhoneInterface
      *
      * @var string
      */
-    private $number;
+    protected $number;
 
     /**
      * phone type.
      *
      * @var string
      */
-    private $type;
+    protected $type;
 
     /**
      * contact.
      *
      * @var Contact
      */
-    private $contact;
+    protected $contact;
 
     /**
      * Get the value of number.
