@@ -59,8 +59,8 @@ WORKDIR $HOME
 RUN composer self-update --no-progress --stable
 
 ENV NVM_DIR="$HOME/.nvm"
-RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash && [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" && nvm install 8.9
-#RUN npm config set color false
+RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash && [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" && nvm install 8.9 &&  npm config set color false
+
 
 #should not be good, where does the current $PATH came from ?
 ENV PATH=$PATH:$HOME/bin
@@ -73,4 +73,4 @@ RUN wget -q https://github.com/satooshi/php-coveralls/releases/download/v1.0.1/c
 
 
 # try to cache some composer & npm package
-RUN cd /tmp && git clone https://github.com/sil-project/Platform.git && cd Platform && composer install --no-interaction --no-scripts  --prefer-dist && export NVM_DIR="$HOME/.nvm" && . "$NVM_DIR/nvm.sh" && npm install && cd /tmp && rm -rf /tmp/Platform
+RUN cd /tmp && git clone https://github.com/sil-project/Platform.git && cd Platform && composer install --no-ansi --no-interaction --no-scripts --prefer-dist && export NVM_DIR="$HOME/.nvm" && . "$NVM_DIR/nvm.sh" && npm install && cd /tmp && rm -rf /tmp/Platform
