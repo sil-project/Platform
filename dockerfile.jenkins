@@ -60,7 +60,7 @@ RUN composer self-update --no-progress --stable
 
 ENV NVM_DIR="$HOME/.nvm"
 RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash && [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" && nvm install 8.9
-RUN npm config set color false
+#RUN npm config set color false
 
 #should not be good, where does the current $PATH came from ?
 ENV PATH=$PATH:$HOME/bin
