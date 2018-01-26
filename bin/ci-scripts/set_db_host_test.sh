@@ -13,11 +13,6 @@ else
 fi
 
 
-if [ -z "${DBHOST}" ]
-then
-    echo "Please add DBHOST in .env file as it is mandatory"
-    exit 42
-fi
 
 
 ##################
@@ -26,20 +21,73 @@ fi
 
 # TODO
 # should remove db info from  app/config/config_test.yml
-# and use sed or etcd or confd or both to update parameters.yml.dist
+# and use sed or etcd or confd or both to update parameters.yml.dist or create parameters.yml
 # sed -e s/'database_host: 127.0.0.1'/'database_host: ${DBHOST}'/g -i app/config/parameters.yml.dist
+if [ -n "${DBHOST}" ]
+then
+    sed -e s/'127.0.0.1'/${DBHOST}/g -i app/config/config_test.yml
 
-
-sed -e s/'127.0.0.1'/${DBHOST}/g -i app/config/config_test.yml
-
-#TODO
-# should use env var from etcd (for password)
-echo  ${DBHOST}:5432:*:postgres:postgres24 >> $HOME/.pgpass
-chmod 600  $HOME/.pgpass
-cat  $HOME/.pgpass
+    #TODO
+    # should use env var from etcd (for password)
+    echo  ${DBHOST}:5432:*:${DBROOTUSER}:${DBROOTPASSWORD} >> $HOME/.pgpass
+    chmod 600  $HOME/.pgpass
+    cat  $HOME/.pgpass
+fi
 
 
 #################
 #### ELASTIC ####
+if [ -n "${ELHOST}" ]
+then
+    sed -e s/'elastic_search.hostname:  127.0.0.1'/"elastic_search.hostname:  ${ELHOST}"/g -i app/config/parameters.yml.dist
+fi
 
-sed -e s/'elastic_search.hostname:  127.0.0.1'/"elastic_search.hostname:  ${ELHOST}"/g -i app/config/parameters.yml.dist
+
+
+echo "
+imports:
+    - { resource: config_dev.yml }
+
+framework:
+    test: ~
+    profiler:
+        collect: false
+
+web_profiler:
+    toolbar: false
+    intercept_redirects: false
+
+swiftmailer:
+    disable_delivery: true
+
+# Doctrine Configuration
+doctrine:
+    dbal:
+        default_connection: default
+        connections:
+            default:
+                driver:   pdo_pgsql
+                host:     ${DBHOST}
+                port:     5432
+                dbname:   ${DBAPPNAME}
+                user:     ${DBAPPUSER}
+                password: ${DBAPPPASSWORD}
+                charset:  UTF8
+            session:
+                driver:   pdo_pgsql
+                host:     ${DBHOST}
+                port:     5432
+                dbname:   ${DBAPPNAME}
+                user:     ${DBAPPUSER}
+                password: ${DBAPPPASSWORD}
+                charset:  UTF8
+
+
+blast_search:
+    elastic_search:
+        hostname:  ${ELHOST}
+        port: 9200
+    global_index_alias: ${ELALIAS}
+
+
+" > app/config/config_test.yml

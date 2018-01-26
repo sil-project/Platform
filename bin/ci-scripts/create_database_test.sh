@@ -42,27 +42,17 @@ fi
 # or here :  sudo /etc/init.d/postgresql start
 
 
-psql -w -h ${DBHOST} -c "DROP DATABASE IF EXISTS test_sil_db;" -U postgres
-psql -w -h ${DBHOST} -c "DROP ROLE IF EXISTS test_sil_user;" -U postgres
+psql -w -h ${DBHOST} -c "DROP DATABASE IF EXISTS ${DBAPPNAME};" -U ${DBROOTUSER}
+psql -w -h ${DBHOST} -c "DROP ROLE IF EXISTS ${DBAPPUSER};" -U ${DBROOTUSER}
 
 
 # (we try to create a travis user)
-psql -w -h ${DBHOST} -c "CREATE USER test_sil_user WITH PASSWORD 'test_sil_password';" -U postgres
-psql -w -h ${DBHOST} -c 'ALTER ROLE test_sil_user WITH CREATEDB;' -U postgres
+psql -w -h ${DBHOST} -c "CREATE USER ${DBAPPUSER} WITH PASSWORD '${DBAPPPASSWORD}';" -U ${DBROOTUSER}
+psql -w -h ${DBHOST} -c "ALTER ROLE ${DBAPPUSER} WITH CREATEDB;" -U ${DBROOTUSER}
 
-psql -w -h ${DBHOST} -c 'CREATE DATABASE test_sil_db;' -U postgres
-psql -w -h ${DBHOST} -c 'ALTER DATABASE test_sil_db OWNER TO test_sil_user' -U postgres
+psql -w -h ${DBHOST} -c "CREATE DATABASE ${DBAPPNAME};" -U ${DBROOTUSER}
+psql -w -h ${DBHOST} -c "ALTER DATABASE ${DBAPPNAME} OWNER TO ${DBAPPUSER};" -U ${DBROOTUSER}
 
 
-psql -w -h ${DBHOST} -c 'CREATE EXTENSION "uuid-ossp";' -U postgres -d test_sil_db
+psql -w -h ${DBHOST} -c 'CREATE EXTENSION "uuid-ossp";' -U ${DBROOTUSER} -d ${DBAPPNAME}
 
-# create it for bundle phpunit test
-# travis user already exist on travis
-#psql -w -h ${DBHOST} -c 'CREATE DATABASE travis;' -U postgres
-#psql -w -h ${DBHOST} -c 'ALTER DATABASE travis OWNER TO travis' -U postgres
-
-#psql -w -h ${DBHOST} -c 'CREATE EXTENSION "uuid-ossp";' -U postgres -d travis
-
-###
-###
-###
