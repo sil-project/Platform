@@ -40,6 +40,7 @@ fi
 if [ -n "${ELHOST}" ]
 then
     sed -e s/'elastic_search.hostname:  127.0.0.1'/"elastic_search.hostname:  ${ELHOST}"/g -i app/config/parameters.yml.dist
+    sed -e s/'blast_search.global_index_alias: sil'/"blast_search.global_index_alias: ${ELALIAS}"/g -i app/config/parameters.yml.dist
 fi
 
 
