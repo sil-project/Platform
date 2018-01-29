@@ -1,0 +1,50 @@
+{% extends 'SilStockBundle:CRUD:show.html.twig' %}
+
+{% block showactions %}
+
+    <div class="sonata-ba-form-actions well well-small form-actions">
+
+        {% if  object.isDraft() %}
+            <a class="btn btn-default" href="{{ admin.generateObjectUrl('edit', object) }}">
+                <i class="fa fa-pencil" aria-hidden="true"></i> {{ 'sil.manufacturing.manufacturing_order.show.action.edit_draft'|trans }}
+            </a>
+            <a class="btn btn-primary" href="{{ admin.generateObjectUrl('confirm', object) }}">
+                <i class="fa fa-check-square-o" aria-hidden="true"></i> {{ 'sil.manufacturing.manufacturing_order.show.action.confirm'|trans}}
+            </a>
+            <a class="btn btn-danger" href="{{ admin.generateObjectUrl('delete', object) }}">
+                <i class="fa fa-minus-circle" aria-hidden="true"></i> {{ 'sil.manufacturing.manufacturing_order.show.action.delete'|trans}}
+            </a>
+        {% endif %}
+
+        {% if  object.isTodo() %}
+            <a class="btn btn-default" href="{{ admin.generateObjectUrl('edit', object) }}">
+                <i class="fa fa-pencil" aria-hidden="true"></i> {{ 'sil.manufacturing.manufacturing_order.show.action.return_to_draft'|trans }}
+            </a>
+            {% if object.hasReservedStockUnits() %}
+                <a class="btn btn-default" href="{{ admin.generateObjectUrl('unreserve', object) }}">
+                    <i class="fa fa-pencil" aria-hidden="true"></i> {{ 'sil.manufacturing.manufacturing_order.show.action.unreserve'|trans }}
+                </a>
+            {% endif %}
+            {% if object.isAvailable() %}
+                <a class="btn btn-primary" href="{{ admin.generateObjectUrl('apply', object) }}">
+                    <i class="fa fa-pencil" aria-hidden="true"></i> {{ 'sil.manufacturing.manufacturing_order.show.action.apply'|trans }}
+                </a>
+            {% else %}
+                <a class="btn btn-primary" href="{{ admin.generateObjectUrl('reserve', object) }}">
+                    <i class="fa fa-cubes" aria-hidden="true"></i> {{ 'sil.manufacturing.manufacturing_order.show.action.reserve'|trans }}
+                </a>
+                <a class="btn btn-danger" href="{{ admin.generateObjectUrl('delete', object) }}">
+                    <i class="fa fa-minus-circle" aria-hidden="true"></i> {{ 'sil.manufacturing.manufacturing_order.show.action.delete'|trans}}
+                </a>
+            {% endif %}
+
+
+        {% endif %}
+
+        {% if object.isInProgress() %}
+            <a class="btn btn-danger" href="{{ admin.generateObjectUrl('cancel', object) }}">
+                <i class="fa fa-minus-circle" aria-hidden="true"></i> {{ 'sil.stock.operation.show.action.cancel'|trans }}
+            </a>
+        {% endif %}
+    </div>
+{% endblock %}

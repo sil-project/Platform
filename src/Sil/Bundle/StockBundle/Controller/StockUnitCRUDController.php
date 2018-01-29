@@ -25,7 +25,7 @@ class StockUnitCRUDController extends CRUDController
         $templateKey = 'edit';
 
         $this->admin->checkAccess('create');
-        $stockItemRepository = $this->get('sil.repository.stock_item');
+        $stockItemRepository = $this->get('sil.repository.product');
         $item = $stockItemRepository->get($request->get('item_id'));
 
         $class = new \ReflectionClass($this->admin->hasActiveSubClass() ? $this->admin->getActiveSubClass() : $this->admin->getClass());

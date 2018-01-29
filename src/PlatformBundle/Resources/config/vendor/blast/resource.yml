@@ -3,6 +3,9 @@ blast_resource:
         sil.crm_organism:
             classes:
                 model:    PlatformBundle\Entity\SilCRMBundle\Organism
+                repository: PlatformBundle\Repository\OrganismRepository
+                interfaces:
+                  - Sil\Component\Stock\Model\PartnerInterface
 
         sil.crm_address:
             classes:
@@ -19,3 +22,11 @@ blast_resource:
         sil.user:
             classes:
                 model:    PlatformBundle\Entity\SilSonataSyliusUserBundle\SonataUser
+
+        sil.product:
+            classes:
+                model:    PlatformBundle\Entity\SilEcommerceBundle\Product
+                #model:    Sil\Bundle\EcommerceBundle\Entity\Product
+                repository:             Sil\Bundle\StockBundle\Doctrine\ORM\StockItemRepository
+                interfaces:
+                  - Sil\Component\Stock\Model\StockItemInterface

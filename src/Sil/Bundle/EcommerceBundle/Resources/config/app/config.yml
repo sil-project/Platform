@@ -17,7 +17,7 @@ sylius_product:
     resources:
         product:
             classes:
-                model: "%sil.model.ecommerce_product.class%"
+                model: "%sil.model.product.class%"
         product_variant:
             classes:
                 model: "%sil.model.ecommerce_product_variant.class%"
@@ -64,7 +64,7 @@ sylius_channel:
 sylius_attribute:
     resources:
         product:
-            subject: "%sil.model.ecommerce_product.class%"
+            subject: "%sil.model.product.class%"
             attribute:
                 classes:
                     model: "%sil.model.ecommerce_product_attribute.class%"

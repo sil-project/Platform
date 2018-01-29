@@ -1,4 +1,4 @@
-Sil\Bundle\StockBundle\Domain\Entity\StockItem:
+Sil\Component\Stock\Model\StockItem:
     type: mappedSuperclass
     table: sil_stock_item
     repositoryClass: Sil\Bundle\StockBundle\Doctrine\ORM\StockItemRepository
@@ -20,7 +20,7 @@ Sil\Bundle\StockBundle\Domain\Entity\StockItem:
                 referencedColumnName: id
                 nullable: false
         outputStrategy:
-            targetEntity: Sil\Bundle\StockBundle\Domain\Entity\OutputStrategy
+            targetEntity: Sil\Component\Stock\Model\OutputStrategy
             joinColumn:
                 name: strategy_output_id
                 referencedColumnName: id

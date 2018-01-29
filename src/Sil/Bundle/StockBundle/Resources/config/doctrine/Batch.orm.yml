@@ -1,4 +1,4 @@
-Sil\Bundle\StockBundle\Domain\Entity\Batch:
+Sil\Component\Stock\Model\Batch:
     type: mappedSuperclass
     table: sil_stock_batch
     fields:

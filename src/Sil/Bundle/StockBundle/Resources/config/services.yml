@@ -5,26 +5,26 @@ imports:
 services:
 
     sil.code_generator.stock_movement:
-        class: Sil\Bundle\StockBundle\Domain\Generator\MovementCodeGenerator
+        class: Sil\Component\Stock\Generator\MovementCodeGenerator
 
     sil.code_generator.stock_operation:
-        class: Sil\Bundle\StockBundle\Domain\Generator\OperationCodeGenerator
+        class: Sil\Component\Stock\Generator\OperationCodeGenerator
 
     sil.code_generator.stock_unit:
-        class: Sil\Bundle\StockBundle\Domain\Generator\StockUnitCodeGenerator
+        class: Sil\Component\Stock\Generator\StockUnitCodeGenerator
 
     sil.factory.stock_movement:
-        class: Sil\Bundle\StockBundle\Domain\Factory\MovementFactory
+        class: Sil\Component\Stock\Factory\MovementFactory
         arguments:
             - '@sil.code_generator.stock_movement'
 
     sil.factory.stock_operation:
-        class: Sil\Bundle\StockBundle\Domain\Factory\OperationFactory
+        class: Sil\Component\Stock\Factory\OperationFactory
         arguments:
             - '@sil.code_generator.stock_operation'
 
     sil.factory.stock_unit:
-        class: Sil\Bundle\StockBundle\Domain\Factory\StockUnitFactory
+        class: Sil\Component\Stock\Factory\StockUnitFactory
         arguments:
             - '@sil.code_generator.stock_unit'
 
@@ -41,7 +41,7 @@ services:
     ###################
 
     sil.domain_service.stock_movement:
-        class: Sil\Bundle\StockBundle\Domain\Service\MovementService
+        class: Sil\Component\Stock\Service\MovementService
         arguments:
             - '@sil.repository.stock_movement'
             - '@sil.repository.stock_unit'
@@ -49,7 +49,7 @@ services:
             - '@sil.factory.stock_unit'
 
     sil.domain_service.stock_operation:
-        class: Sil\Bundle\StockBundle\Domain\Service\OperationService
+        class: Sil\Component\Stock\Service\OperationService
         arguments:
             - '@sil.repository.stock_operation'
             - '@sil.domain_service.stock_movement'
@@ -60,7 +60,7 @@ services:
     ###################
 
     sil.domain_query.stock_item:
-        class: Sil\Bundle\StockBundle\Domain\Query\StockItemQueries
+        class: Sil\Component\Stock\Query\StockItemQueries
         arguments:
             - '@sil.repository.stock_unit'
 

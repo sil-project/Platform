@@ -36,7 +36,29 @@ imports:
     #
     # ##########################################################################
 
-    - { resource: "@SilEcommerceBundle/Resources/config/admin.yml" }
+    #- { resource: "@SilEcommerceBundle/Resources/config/admin.yml" }
+    - { resource: "@SilEcommerceBundle/Resources/config/admin/sil_ecommerce.admin.channel_pricing.yml" }
+    - { resource: "@SilEcommerceBundle/Resources/config/admin/sil_ecommerce.admin.channel.yml" }
+    - { resource: "@SilEcommerceBundle/Resources/config/admin/sil_ecommerce.admin.customer_group.yml" }
+    - { resource: "@SilEcommerceBundle/Resources/config/admin/sil_ecommerce.admin.customer.yml" }
+    - { resource: "@SilEcommerceBundle/Resources/config/admin/sil_ecommerce.admin.invoice.yml" }
+    - { resource: "@SilEcommerceBundle/Resources/config/admin/sil_ecommerce.admin.order.yml" }
+    - { resource: "@SilEcommerceBundle/Resources/config/admin/sil_ecommerce.admin.payment_method.yml" }
+    - { resource: "@SilEcommerceBundle/Resources/config/admin/sil_ecommerce.admin.payment.yml" }
+    - { resource: "@SilEcommerceBundle/Resources/config/admin/sil_ecommerce.admin.product_attribute.yml" }
+    - { resource: "@SilEcommerceBundle/Resources/config/admin/sil_ecommerce.admin.product_variant_embedded.yml" }
+    - { resource: "@SilEcommerceBundle/Resources/config/admin/sil_ecommerce.admin.product_variant.yml" }
+    #- { resource: "@SilEcommerceBundle/Resources/config/admin/sil_ecommerce.admin.product.yml" }
+    - { resource: "@SilEcommerceBundle/Resources/config/admin/sil_ecommerce.admin.sales_journal.yml" }
+    - { resource: "@SilEcommerceBundle/Resources/config/admin/sil_ecommerce.admin.shipping_method_translation.yml" }
+    - { resource: "@SilEcommerceBundle/Resources/config/admin/sil_ecommerce.admin.shipping_method.yml" }
+    - { resource: "@SilEcommerceBundle/Resources/config/admin/sil_ecommerce.admin.shop_user.yml" }
+    - { resource: "@SilEcommerceBundle/Resources/config/admin/sil_ecommerce.admin.tax_category.yml" }
+    - { resource: "@SilEcommerceBundle/Resources/config/admin/sil_ecommerce.admin.taxon.yml" }
+    - { resource: "@SilEcommerceBundle/Resources/config/admin/sil_ecommerce.admin.tax_rate.yml" }
+    - { resource: "@SilEcommerceBundle/Resources/config/admin/sil_ecommerce.admin.zone.yml" }
+    - { resource: "@SilEcommerceBundle/Resources/config/admin/sil_ecommerce.admin.product_option.yml" }
+    - { resource: "@SilEcommerceBundle/Resources/config/admin/sil_ecommerce.admin.product_option_value.yml" }
 
     # ##########################################################################
     #
@@ -76,4 +98,20 @@ imports:
     #
     # ##########################################################################
 
-    - { resource: "@SilStockBundle/Resources/config/admin.yml" }
+    #- { resource: "@SilStockBundle/Resources/config/admin.yml" }
+    #- { resource: "@SilStockBundle/Resources/config/admin/sil_stock.admin.stock_item.yml" }
+    - { resource: "@SilStockBundle/Resources/config/admin/sil_stock.admin.movement.yml" }
+    - { resource: "@SilStockBundle/Resources/config/admin/sil_stock.admin.operation.yml" }
+    - { resource: "@SilStockBundle/Resources/config/admin/sil_stock.admin.warehouse.yml" }
+    - { resource: "@SilStockBundle/Resources/config/admin/sil_stock.admin.location.yml" }
+    - { resource: "@SilStockBundle/Resources/config/admin/sil_stock.admin.uom.yml" }
+    - { resource: "@SilStockBundle/Resources/config/admin/sil_stock.admin.uom_type.yml" }
+    - { resource: "@SilStockBundle/Resources/config/admin/sil_stock.admin.stock_unit.yml" }
+
+    # ##########################################################################
+    #
+    # PlatformBundle
+    #
+    # ##########################################################################
+
+    - { resource: "@PlatformBundle/Resources/config/admin/product.yml" }

@@ -2,7 +2,7 @@
     "name": "sil-project/stock-bundle",
     "type": "symfony-bundle",
     "description": "",
-    "license": "LGPL-3.0",
+    "license": "LGPL-3.0-only",
     "keywords": [],
     "homepage": "https://github.com/sil-project/StockBundle",
     "authors": [

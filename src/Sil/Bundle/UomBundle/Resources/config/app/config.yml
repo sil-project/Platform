@@ -1,2 +1,11 @@
 imports:
     - { resource: "@SilUomBundle/Resources/config/vendor/blast/resource.yml" }
+
+
+doctrine:
+    orm:
+        mappings:
+            SilUomBundle:
+                type: yml
+                prefix: Sil\Bundle\UomBundle\Entity
+                dir: Resources/config/doctrine

@@ -3,47 +3,47 @@ blast_resource:
 
     sil.stock_location:
       classes:
-        model:                  Sil\Bundle\StockBundle\Domain\Entity\Location
+        model:                  Sil\Component\Stock\Model\Location
         repository:             Sil\Bundle\StockBundle\Doctrine\ORM\LocationRepository
 
     sil.stock_movement:
       classes:
-        model:                  Sil\Bundle\StockBundle\Domain\Entity\Movement
+        model:                  Sil\Component\Stock\Model\Movement
         repository:             Sil\Bundle\StockBundle\Doctrine\ORM\MovementRepository
 
     sil.stock_operation:
       classes:
-        model:                  Sil\Bundle\StockBundle\Domain\Entity\Operation
+        model:                  Sil\Component\Stock\Model\Operation
         repository:             Sil\Bundle\StockBundle\Doctrine\ORM\OperationRepository
 
     sil.stock_output_strategy:
       classes:
-        model:                  Sil\Bundle\StockBundle\Domain\Entity\OutputStrategy
+        model:                  Sil\Component\Stock\Model\OutputStrategy
 
-    sil.stock_item:
-      classes:
-        model:                  Sil\Bundle\StockBundle\Domain\Entity\StockItem
-        repository:             Sil\Bundle\StockBundle\Doctrine\ORM\StockItemRepository
-        interfaces:
-          - Sil\Bundle\StockBundle\Domain\Entity\StockItemInterface
+    # sil.stock_item:
+    #   classes:
+    #     model:                  Sil\Component\Stock\Model\StockItem
+    #     repository:             Sil\Bundle\StockBundle\Doctrine\ORM\StockItemRepository
+    #     interfaces:
+    #       - Sil\Component\Stock\Model\StockItemInterface
 
     sil.stock_unit:
       classes:
-        model:                  Sil\Bundle\StockBundle\Domain\Entity\StockUnit
+        model:                  Sil\Component\Stock\Model\StockUnit
         repository:             Sil\Bundle\StockBundle\Doctrine\ORM\StockUnitRepository
 
     sil.stock_warehouse:
       classes:
-        model:                  Sil\Bundle\StockBundle\Domain\Entity\Warehouse
+        model:                  Sil\Component\Stock\Model\Warehouse
         repository:             Sil\Bundle\StockBundle\Doctrine\ORM\WarehouseRepository
 
-    sil.stock_partner:
-      classes:
-        model:                  Sil\Bundle\StockBundle\Domain\Entity\Partner
-        repository:             Sil\Bundle\StockBundle\Doctrine\ORM\PartnerRepository
-        interfaces:
-          - Sil\Bundle\StockBundle\Domain\Entity\PartnerInterface
+    # sil.stock_partner:
+    #   classes:
+    #     model:                  Sil\Component\Stock\Model\Partner
+    #     repository:             Sil\Bundle\StockBundle\Doctrine\ORM\PartnerRepository
+    #     interfaces:
+    #       - Sil\Component\Stock\Model\PartnerInterface
 
     sil.stock_batch:
       classes:
-        model:                  Sil\Bundle\StockBundle\Domain\Entity\Batch
+        model:                  Sil\Component\Stock\Model\Batch

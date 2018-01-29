@@ -11,7 +11,7 @@
 namespace Sil\Bundle\StockBundle\Admin;
 
 use Blast\Bundle\ResourceBundle\Sonata\Admin\ResourceAdmin;
-use Sil\Bundle\StockBundle\Domain\Generator\StockUnitCodeGeneratorInterface;
+use Sil\Component\Stock\Generator\StockUnitCodeGeneratorInterface;
 use Sonata\AdminBundle\Route\RouteCollection;
 
 /**

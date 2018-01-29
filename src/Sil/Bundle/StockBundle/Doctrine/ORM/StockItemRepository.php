@@ -10,9 +10,9 @@
 
 namespace Sil\Bundle\StockBundle\Doctrine\ORM;
 
-use Sil\Bundle\StockBundle\Domain\Repository\StockItemRepositoryInterface;
+use Sil\Component\Stock\Repository\StockItemRepositoryInterface;
 use Blast\Bundle\ResourceBundle\Doctrine\ORM\Repository\ResourceRepository;
-use Sil\Bundle\StockBundle\Domain\Entity\Location;
+use Sil\Component\Stock\Model\Location;
 
 /**
  * @author Glenn Cavarlé <glenn.cavarle@libre-informatique.fr>
@@ -22,7 +22,7 @@ class StockItemRepository extends ResourceRepository implements StockItemReposit
     public function findByLocation(Location $location)
     {
         $qb = $this->createQueryBuilder('si')
-            ->leftJoin('Sil\Bundle\StockBundle\Domain\Entity\StockUnit', 'su',
+            ->leftJoin('Sil\Component\Stock\Model\StockUnit', 'su',
                 'WITH', 'su.stockItem = si.id')
             ->leftJoin('su.location', 'l')
             ->andWhere('l.treeLft >= :treeLeft')

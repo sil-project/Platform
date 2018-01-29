@@ -1,4 +1,4 @@
-Sil\Bundle\StockBundle\Domain\Entity\OutputStrategy:
+Sil\Component\Stock\Model\OutputStrategy:
     type: mappedSuperclass
     table: sil_stock_output_strategy
     fields:

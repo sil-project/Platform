@@ -25,8 +25,21 @@ Sil\Bundle\ManufacturingBundle\Domain\Entity\BomLine:
                 nullable: false
 
         stockItem:
-            targetEntity: Sil\Bundle\StockBundle\Domain\Entity\StockItemInterface
+            targetEntity: Sil\Component\Stock\Model\StockItemInterface
             joinColumn:
                 name: stockitem_id
                 referencedColumnName: id
                 nullable: false
+
+        srcLocation:
+            targetEntity: Sil\Component\Stock\Model\Location
+            joinColumn:
+                name: src_location_id
+                referencedColumnName: id
+                nullable: false
+        batch:
+            targetEntity: Sil\Component\Stock\Model\BatchInterface
+            joinColumn:
+                name: batch_id
+                referencedColumnName: id
+                nullable: true

@@ -21,7 +21,7 @@ Sil\Bundle\ManufacturingBundle\Domain\Entity\Bom:
                 referencedColumnName: id
                 nullable: false
         stockItem:
-            targetEntity: Sil\Bundle\StockBundle\Domain\Entity\StockItemInterface
+            targetEntity: Sil\Component\Stock\Model\StockItemInterface
             joinColumn:
                 name: stockitem_id
                 referencedColumnName: id

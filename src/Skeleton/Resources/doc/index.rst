@@ -1,5 +1,5 @@
 ===========================
-Blast DoctrineSessionBundle
+Blast Doc
 ===========================
 
 

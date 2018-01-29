@@ -10,34 +10,65 @@
 
 namespace Blast\Bundle\UtilsBundle\Form\Type;
 
-use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\FormView;
-use Symfony\Component\Form\FormInterface;
+use Symfony\Component\Form\FormEvent;
+use Symfony\Component\Form\FormError;
+use Symfony\Component\Form\FormEvents;
+use Symfony\Component\Form\FormBuilderInterface;
 use Blast\Bundle\CoreBundle\Form\AbstractType as BaseAbstractType;
+use Blast\Bundle\UtilsBundle\Services\UniqueFieldChecker;
 
+/**
+ * Form type that checks unique values.
+ */
 class UniqueFieldType extends BaseAbstractType
 {
+    /**
+     * @var UniqueFieldChecker
+     */
+    private $checker;
+
+    /**
+     * {@inheritdoc}
+     */
     public function getParent()
     {
         return 'text';
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getBlockPrefix()
     {
         return 'blast_unique_field';
     }
 
-    public function configureOptions(OptionsResolver $resolver)
+    /**
+     * {@inheritdoc}
+     */
+    public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $resolver->setDefaults([
-            'return_link' => 'false',
-        ]);
+        $builder->addEventListener(FormEvents::PRE_SUBMIT, function (FormEvent $event) {
+            $form = $event->getForm();
 
-        $resolver->setDefined('return');
+            $className = $form->getParent()->getConfig()->getDataClass();
+            $field = $form->getConfig()->getName();
+            $value = $event->getData();
+            $result = $this->checker->check($className, $field, $value);
+
+            $id = $form->getParent()->getData()->getId();
+
+            if ($result['object'] && $result['object']->getId() !== $id && !$result['available']) {
+                $form->addError(new FormError($this->checker->renderResult($result, $value)));
+            }
+        });
     }
 
-    public function buildView(FormView $view, FormInterface $form, array $options)
+    /**
+     * @param UniqueFieldChecker $checker
+     */
+    public function setUniqueFieldChecker(UniqueFieldChecker $checker)
     {
-        $view->vars['return_link'] = $options['return_link'];
+        $this->checker = $checker;
     }
 }

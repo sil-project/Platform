@@ -20,8 +20,8 @@ use Doctrine\Bundle\FixturesBundle\Fixture;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Sil\Bundle\StockBundle\Domain\Entity\Location;
-use Sil\Bundle\StockBundle\Domain\Entity\LocationType;
+use Sil\Component\Stock\Model\Location;
+use Sil\Component\Stock\Model\LocationType;
 
 /**
  * Description of WarehouseFixtures.

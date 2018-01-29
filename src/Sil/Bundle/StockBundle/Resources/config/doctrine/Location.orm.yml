@@ -1,4 +1,4 @@
-Sil\Bundle\StockBundle\Domain\Entity\Location:
+Sil\Component\Stock\Model\Location:
     type: mappedSuperclass
     table: sil_stock_location
     repositoryClass: Sil\Bundle\StockBundle\Doctrine\ORM\LocationRepository
@@ -20,7 +20,7 @@ Sil\Bundle\StockBundle\Domain\Entity\Location:
 
     manyToOne:
         warehouse:
-            targetEntity: Sil\Bundle\StockBundle\Domain\Entity\Warehouse
+            targetEntity: Sil\Component\Stock\Model\Warehouse
             inversedBy: locations
             joinColumn:
                 name: wharehouse_id
@@ -28,6 +28,6 @@ Sil\Bundle\StockBundle\Domain\Entity\Location:
 
     oneToMany:
         stockUnits:
-          targetEntity: Sil\Bundle\StockBundle\Domain\Entity\StockUnit
+          targetEntity: Sil\Component\Stock\Model\StockUnit
           mappedBy: location
           cascade: ["remove", "persist"]

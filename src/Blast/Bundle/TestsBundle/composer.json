@@ -8,7 +8,7 @@
         "symfony/symfony": "3.3.*",
 	"symfony/console": ">=3.2"
     },
-    "license": "LGPL-3.0",
+    "license": "LGPL-3.0-only",
     "keywords": [
         "symfony",
         "phpunit",

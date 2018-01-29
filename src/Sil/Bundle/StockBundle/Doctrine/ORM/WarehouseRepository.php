@@ -10,7 +10,7 @@
 
 namespace Sil\Bundle\StockBundle\Doctrine\ORM;
 
-use Sil\Bundle\StockBundle\Domain\Repository\WarehouseRepositoryInterface;
+use Sil\Component\Stock\Repository\WarehouseRepositoryInterface;
 use Blast\Bundle\ResourceBundle\Doctrine\ORM\Repository\ResourceRepository;
 
 /**

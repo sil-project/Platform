@@ -11,7 +11,7 @@
 namespace Sil\Bundle\StockBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
-use Sil\Bundle\StockBundle\Domain\Repository\LocationRepositoryInterface;
+use Sil\Component\Stock\Repository\LocationRepositoryInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 

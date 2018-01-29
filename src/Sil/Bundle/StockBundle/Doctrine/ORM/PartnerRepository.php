@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace Sil\Bundle\StockBundle\Doctrine\ORM;
 
-use Sil\Bundle\StockBundle\Domain\Repository\PartnerRepositoryInterface;
+use Sil\Component\Stock\Repository\PartnerRepositoryInterface;
 use Blast\Bundle\ResourceBundle\Doctrine\ORM\Repository\ResourceRepository;
 
 /**

@@ -1,0 +1,8 @@
+{% if unavailable %}
+    {{ value }} {{'already exists'| trans}}
+    {% if link %}
+        <p>
+            <a href="{{ link }}"> {{'Edit object'| trans}}</a>
+        </p>
+    {% endif %}
+{% endif %}

@@ -22,6 +22,7 @@ use Sylius\Component\Customer\Model\CustomerInterface;
 use Sylius\Component\Resource\Model\ToggleableTrait;
 use Sylius\Component\User\Model\UserInterface;
 use Sylius\Component\User\Model\UserOAuthInterface;
+use Sil\Component\Stock\Model\PartnerInterface;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
 use Sylius\Component\Review\Model\ReviewerInterface;
@@ -29,7 +30,7 @@ use Sylius\Component\Core\Model\CustomerInterface as SyliusCustomerInterface;
 use PlatformBundle\Entity\SyliusAddressableTrait;
 use DateTimeInterface;
 
-class Organism extends OrganismAbstract implements CustomerInterface, ReviewerInterface, SyliusCustomerInterface
+class Organism extends OrganismAbstract implements CustomerInterface, ReviewerInterface, SyliusCustomerInterface, PartnerInterface
 {
     use ToggleableTrait,
         HasOrdersTrait,

@@ -1,1 +1,4 @@
 services:
+
+    sil.repository.stock_partner : '@sil.repository.crm_organism'
+    sil.repository.stock_item : '@sil.repository.product'

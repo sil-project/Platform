@@ -4,9 +4,9 @@ fos_elastica:
             host: "%blast_search.elastic_search.hostname%"
             port: "%blast_search.elastic_search.port%"
     indexes:
-        global:
-            use_alias: true
-            index_name: "%blast_search.global_index_alias%_%kernel.environment%"
+        -
+            use_alias: false
+            name: "%blast_search.global_index_alias%_%kernel.environment%_user"
             finder: ~
             settings:
                 index.max_result_window: 100000
@@ -23,7 +23,13 @@ fos_elastica:
                         finder: ~
                         elastica_to_model_transformer:
                             ignore_missing: true
-
+        -
+            use_alias: false
+            name: "%blast_search.global_index_alias%_%kernel.environment%_individual"
+            finder: ~
+            settings:
+                index.max_result_window: 100000
+            types:
                 individual:
                     properties:
                         name: ~
@@ -41,7 +47,13 @@ fos_elastica:
                         finder: ~
                         elastica_to_model_transformer:
                             ignore_missing: true
-
+        -
+            use_alias: false
+            name: "%blast_search.global_index_alias%_%kernel.environment%_organization"
+            finder: ~
+            settings:
+                index.max_result_window: 100000
+            types:
                 organization:
                     properties:
                         name: ~
@@ -59,7 +71,13 @@ fos_elastica:
                         finder: ~
                         elastica_to_model_transformer:
                             ignore_missing: true
-
+        -
+            use_alias: false
+            name: "%blast_search.global_index_alias%_%kernel.environment%_city"
+            finder: ~
+            settings:
+                index.max_result_window: 100000
+            types:
                 city:
                     properties:
                         country_code: ~

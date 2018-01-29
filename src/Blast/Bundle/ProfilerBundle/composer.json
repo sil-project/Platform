@@ -12,7 +12,7 @@
         "blast-project/tests-bundle": "self.version",
         "phpunit/phpunit": "^6.4"
     },
-    "license": "LGPL-3.0",
+    "license": "LGPL-3.0-only",
     "keywords": [
         "e-venement",
         "libio",

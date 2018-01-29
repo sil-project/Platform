@@ -1,0 +1,16 @@
+
+services:
+    sil_manufacturing.admin.manufacturing_order:
+        class: Sil\Bundle\ManufacturingBundle\Admin\ManufacturingOrderAdmin
+        arguments: [~, "%sil.model.manufacturing_order.class%", sil.controller.manufacturing_order]
+        calls:
+            - [ setManufacturingOrderCodeGenerator, ['@sil.code_generator.manufacturing_order']]
+            - [ setResourceRepository, ['@sil.repository.manufacturing_order']]
+            - [ setTemplates, [{show: SilManufacturingBundle:ManufacturingOrderAdmin:show.html.twig,edit: SilStockBundle:CRUD:edit.html.twig,list: SilStockBundle:CRUD:list.html.twig}]]
+
+        tags:
+            -   name: sonata.admin
+                manager_type: orm
+                group: Manufacturing
+                label: sil.manufacturing.manufacturing_order
+                label_translator_strategy: blast.resource.sonata.label_strategy.prefix

@@ -13,8 +13,8 @@ declare(strict_types=1);
 namespace Sil\Bundle\StockBundle\Admin;
 
 use Blast\Bundle\ResourceBundle\Sonata\Admin\ResourceAdmin;
-use Sil\Bundle\StockBundle\Domain\Generator\MovementCodeGeneratorInterface;
-use Sil\Bundle\StockBundle\Domain\Query\StockItemQueriesInterface;
+use Sil\Component\Stock\Generator\MovementCodeGeneratorInterface;
+use Sil\Component\Stock\Query\StockItemQueriesInterface;
 
 /**
  * @author Glenn Cavarlé <glenn.cavarle@libre-informatique.fr>

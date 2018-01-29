@@ -1,9 +1,15 @@
 # Change Log
 
-## [Unreleased](https://github.com/sil-project/Platform/tree/HEAD)
+## [0.4.2](https://github.com/sil-project/Platform/tree/0.4.2) (2018-01-19)
+**Closed issues:**
+
+- .editorconfig [\#9](https://github.com/sil-project/Platform/issues/9)
 
 **Merged pull requests:**
 
+- Add compatibility with ELK5 and ELK6 [\#10](https://github.com/sil-project/Platform/pull/10) ([PapsOu](https://github.com/PapsOu))
+- Wip resource interfaces management [\#8](https://github.com/sil-project/Platform/pull/8) ([GlennCavarle](https://github.com/GlennCavarle))
+- Wip search [\#7](https://github.com/sil-project/Platform/pull/7) ([PapsOu](https://github.com/PapsOu))
 - new "resource" management heavily inspired by SyliusResource [\#6](https://github.com/sil-project/Platform/pull/6) ([GlennCavarle](https://github.com/GlennCavarle))
 - Blast Menu using bundle configuration [\#5](https://github.com/sil-project/Platform/pull/5) ([PapsOu](https://github.com/PapsOu))
 - Remove Lisem Bundle- refs \#5075 [\#4](https://github.com/sil-project/Platform/pull/4) ([FanchTheSystem](https://github.com/FanchTheSystem))

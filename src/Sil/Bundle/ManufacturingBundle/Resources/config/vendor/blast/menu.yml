@@ -10,3 +10,7 @@ blast_menu:
                     icon: list-ul
                     route: admin_manufacturing_bom_list
                     order: 10
+                sil.manufacturing.menu_label.manufacturing_order:
+                    icon: list-ul
+                    route: admin_manufacturing_order_list
+                    order: 20

@@ -1,4 +1,4 @@
-Sil\Bundle\StockBundle\Domain\Entity\Partner:
+Sil\Component\Stock\Model\Partner:
     type: mappedSuperclass
     table: sil_stock_partner
     repositoryClass: Sil\Bundle\StockBundle\Doctrine\ORM\PartnerRepository

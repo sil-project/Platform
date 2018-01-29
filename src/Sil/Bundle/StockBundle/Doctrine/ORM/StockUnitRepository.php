@@ -10,13 +10,13 @@
 
 namespace Sil\Bundle\StockBundle\Doctrine\ORM;
 
-use Sil\Bundle\StockBundle\Domain\Repository\StockUnitRepositoryInterface;
+use Sil\Component\Stock\Repository\StockUnitRepositoryInterface;
 use Blast\Bundle\ResourceBundle\Doctrine\ORM\Repository\ResourceRepository;
-use Sil\Bundle\StockBundle\Domain\Entity\Movement;
-use Sil\Bundle\StockBundle\Domain\Entity\StockItemInterface;
-use Sil\Bundle\StockBundle\Domain\Entity\Location;
-use Sil\Bundle\StockBundle\Domain\Entity\LocationType;
-use Sil\Bundle\StockBundle\Domain\Entity\BatchInterface;
+use Sil\Component\Stock\Model\Movement;
+use Sil\Component\Stock\Model\StockItemInterface;
+use Sil\Component\Stock\Model\Location;
+use Sil\Component\Stock\Model\LocationType;
+use Sil\Component\Stock\Model\BatchInterface;
 use Doctrine\ORM\QueryBuilder;
 
 /**
@@ -164,6 +164,7 @@ class StockUnitRepository extends ResourceRepository implements StockUnitReposit
         $qb = $this->createQueryBuilder('su');
         $this->filterByStockItem($qb, $item, $batch);
         $this->filterByLocation($qb, $location);
+        $qb->orderBy('su.batch');
 
         return $qb->getQuery()->getResult();
     }

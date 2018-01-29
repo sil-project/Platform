@@ -10,7 +10,7 @@
 
 namespace Sil\Bundle\StockBundle\Form\DataTransformer;
 
-use Sil\Bundle\StockBundle\Domain\Entity\OperationType;
+use Sil\Component\Stock\Model\OperationType;
 use Symfony\Component\Form\DataTransformerInterface;
 
 /**

@@ -1,28 +1,37 @@
 {% extends 'BlastCoreBundle:CRUD:base_edit.html.twig' %}
+{% block sonata_form_action_url %}
+    {% if admin.id(object)is null %}
+        {{ admin.generateUrl('create_by_type', {'type':object.type,'id': objectId|default(admin.id(object)), 'uniqid': admin.uniqid, 'subclass': app.request.get('subclass')}) }}
+    {% else %}
+       {{ admin.generateUrl('edit', {'id': objectId|default(admin.id(object)), 'uniqid': admin.uniqid, 'subclass': app.request.get('subclass')}) }}
+    {% endif %}
 
-{% block sonata_form_action_url %}{{ admin.generateUrl('create_by_type', {'type':object.type,'id': objectId|default(admin.id(object)), 'uniqid': admin.uniqid, 'subclass': app.request.get('subclass')}) }}{% endblock %}
-
+{% endblock %}
 {% block sonata_form_actions %}
-    {% if admin.id(object) is not null %}
+
+    {% if admin.id(object)is not null %}
         <button type="submit" class="btn btn-success" name="btn_update">
-            <i class="fa fa-save" aria-hidden="true"></i> {{ 'sil.stock.operation.form.action.save'|trans }}
+            <i class="fa fa-save" aria-hidden="true"></i>
+            {{ 'sil.stock.operation.form.action.save'|trans }}
         </button>
 
-        {% if admin.hasroute('delete') and admin.isGranted('DELETE', object) %}
+        {% if admin.hasroute('delete')and admin.isGranted('DELETE', object) %}
             {{ 'delete_or'|trans({}, 'SonataAdminBundle') }}
             <a class="btn btn-danger" href="{{ admin.generateObjectUrl('delete', object) }}">
-                <i class="fa fa-minus-circle" aria-hidden="true"></i> {{ 'sil.stock.operation.form.action.cancel'|trans }}
+                <i class="fa fa-minus-circle" aria-hidden="true"></i>
+                {{ 'sil.stock.operation.form.action.cancel'|trans }}
             </a>
         {% endif %}
 
     {% else %}
         <button type="submit" class="btn btn-success" name="btn_create">
-            <i class="fa fa-plus-circle" aria-hidden="true"></i> {{ 'sil.stock.operation.form.action.create'|trans }}
+            <i class="fa fa-plus-circle" aria-hidden="true"></i>
+            {{ 'sil.stock.operation.form.action.create'|trans }}
         </button>
         <a class="btn btn-danger" href="{{ admin.generateObjectUrl('list', object) }}">
-            <i class="fa fa-minus-circle" aria-hidden="true"></i> {{ 'sil.stock.operation.form.action.cancel_edit'|trans }}
+            <i class="fa fa-minus-circle" aria-hidden="true"></i>
+            {{ 'sil.stock.operation.form.action.cancel_edit'|trans }}
         </a>
     {% endif %}
-
 
 {% endblock %}

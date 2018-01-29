@@ -13,7 +13,7 @@ parameters:
                 add:
                     form_group_general:
                         '':
-                            name: ~
+                            translations.name: ~
                             slug:
                                 template: "SilEcommerceBundle:ProductAdmin:show_field_shop_link.html.twig"
                             code: ~
@@ -55,6 +55,7 @@ parameters:
                     variants: ~
                     images: ~
                     channels: ~
+                    name: ~
                 add:
                     form_tab_general:
                         form_group_general:
@@ -131,7 +132,7 @@ parameters:
 
             Sonata\AdminBundle\Datagrid\ListMapper:
                 add:
-                    name:
+                    translations.name:
                         identifier: true
                     code:
                         identifier: true
@@ -140,7 +141,7 @@ parameters:
                     _options:
                         fieldsOrder:
                             - code
-                            - name
+                            - translations.name
                             - enabled
                     _actions:
                         shop_link:

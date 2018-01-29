@@ -1,7 +1,7 @@
 parameters:
-    sil.model.stock_item.class:                         "%sil.model.ecommerce_product.class%"
+    #sil.model.stock_item.class:                         "%sil.model.ecommerce_product.class%"
 
-    sil.model.ecommerce_product.class:                  Sil\Bundle\EcommerceBundle\Entity\Product
+    #sil.model.ecommerce_product.class:                  Sil\Bundle\EcommerceBundle\Entity\Product
     sil.model.ecommerce_order.class:                    Sil\Bundle\EcommerceBundle\Entity\Order
     sil.model.ecommerce_product_variant.class:          Sil\Bundle\EcommerceBundle\Entity\ProductVariant
     sil.model.ecommerce_product_option_value.class:     Sil\Bundle\EcommerceBundle\Entity\ProductOptionValue

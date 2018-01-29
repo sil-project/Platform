@@ -13,12 +13,12 @@ sylius_product:
     resources:
         product:
             classes:
-                model: "%sil.model.ecommerce_product.class%"
+                model: "%sil.model.product.class%"
 
 sylius_review:
     resources:
         product:
-            subject: "%sil.model.ecommerce_product.class%"
+            subject: "%sil.model.product.class%"
             review:
                 classes:
                     model:  "%sil.model.ecommerce_product_review.class%"

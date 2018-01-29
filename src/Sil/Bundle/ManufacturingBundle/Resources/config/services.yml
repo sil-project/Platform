@@ -2,3 +2,30 @@ services:
 
     sil.code_generator.manufacturing_bom:
         class: Sil\Bundle\ManufacturingBundle\Domain\Generator\BomCodeGenerator
+
+    sil.code_generator.manufacturing_order:
+        class: Sil\Bundle\ManufacturingBundle\Domain\Generator\ManufacturingOrderCodeGenerator
+
+
+    ###################
+    # DOMAIN SERVICE
+    ###################
+
+    sil.domain_service.manufacturing_order:
+        class: Sil\Bundle\ManufacturingBundle\Domain\Service\ManufacturingOrderService
+        arguments:
+            - '@sil.domain_service.stock_operation'
+            - '@sil.domain_service.stock_movement'
+            - '@sil.repository.stock_location'
+
+
+
+    ###################
+    # CONTROLLERS
+    ###################
+
+    sil.controller.manufacturing_order:
+        class: Sil\Bundle\ManufacturingBundle\Controller\ManufacturingOrderCRUDController
+        calls:
+            - ['setContainer', ['@service_container']]
+            - ['setManufacturingOrderService', ['@sil.domain_service.manufacturing_order']]

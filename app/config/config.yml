@@ -50,6 +50,8 @@ twig:
     globals:
         sil:
             url_prefix: "%sil.url_prefix%"
+            project_dir: "%kernel.project_dir%"
+            web_dir: "%kernel.project_dir%/%symfony-web-dir%"
 
 # Doctrine Configuration
 doctrine:
@@ -103,14 +105,7 @@ doctrine:
                         type: yml
                     SilSonataSyliusUserBundle:
                         type: yml
-                    SilUomBundle:
-                        type: yml
-                    SilStockBundle:
-                        type: yml
-                        prefix: Sil\Bundle\StockBundle\Domain\Entity
-                    SilManufacturingBundle:
-                        type: yml
-                        prefix: Sil\Bundle\ManufacturingBundle\Domain\Entity
+                  
 
                     # Platform
 

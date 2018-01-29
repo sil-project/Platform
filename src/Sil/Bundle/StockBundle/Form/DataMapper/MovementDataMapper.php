@@ -11,8 +11,8 @@
 namespace Sil\Bundle\StockBundle\Form\DataMapper;
 
 use Symfony\Component\Form\Extension\Core\DataMapper\PropertyPathMapper;
-use Sil\Bundle\StockBundle\Domain\Factory\MovementFactory;
-use Sil\Bundle\StockBundle\Domain\Generator\MovementCodeGenerator;
+use Sil\Component\Stock\Factory\MovementFactory;
+use Sil\Component\Stock\Generator\MovementCodeGenerator;
 
 /**
  * Description of OperationDataMapper.

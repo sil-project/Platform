@@ -38,3 +38,8 @@ services:
         tags:
             - { name: kernel.event_listener, event: sil.events.media.load.preGetEntity, method: preGetEntity, priority: 0 }
             - { name: kernel.event_listener, event: sil.events.media.load.postGetEntity, method: postGetEntity, priority: 0 }
+
+    sil_media.twig.extension.data_uri:
+        class: DataURI\TwigExtension
+        tags:
+             - { name: 'twig.extension' }

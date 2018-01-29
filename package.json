@@ -1,10 +1,10 @@
 {
     "name": "SIL",
-    "version": "1.0.0",
+    "version": "0.4.2",
     "main": "index.js",
     "repository": "https://github.com/sil-project/Platform.git",
     "author": "Libre-Informatique <contact@libre-informatique.fr>",
-    "license": "GPL v3",
+    "license": "LGPL-3.0-only",
     "dependencies": {
         "jquery": "^3.2.0",
         "lightbox2": "^2.9.0",

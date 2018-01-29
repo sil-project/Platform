@@ -1,0 +1,62 @@
+Sil\Bundle\ManufacturingBundle\Domain\Entity\ManufacturingOrder:
+    type: mappedSuperclass
+    table: sil_manufacturing_order
+    fields:
+        code:
+            type: string(64)
+            unique: true
+            nullable: false
+        expectedAt:
+            type: datetime
+        completedAt:
+            type: datetime
+            nullable: true
+        qtyValue:
+            type: decimal
+            precision: 15
+            scale: 5
+        stateValue:
+            type: string(64)
+
+    manyToOne:
+        qtyUom:
+            targetEntity: Sil\Bundle\UomBundle\Entity\Uom
+
+            joinColumn:
+                name: qty_uom_id
+                referencedColumnName: id
+                nullable: false
+        bom:
+            targetEntity: Sil\Bundle\ManufacturingBundle\Domain\Entity\Bom
+            joinColumn:
+                name: bom_id
+                referencedColumnName: id
+                nullable: false
+
+        batch:
+            targetEntity: Sil\Component\Stock\Model\BatchInterface
+            joinColumn:
+                name: batch_id
+                referencedColumnName: id
+                nullable: true
+
+        destLocation:
+            targetEntity: Sil\Component\Stock\Model\Location
+            joinColumn:
+                name: dest_location_id
+                referencedColumnName: id
+                nullable: false
+
+        inputOperation:
+            targetEntity: Sil\Component\Stock\Model\Operation
+            joinColumn:
+                name: input_operation_id
+                referencedColumnName: id
+                nullable: true
+
+        outputOperation:
+            targetEntity: Sil\Component\Stock\Model\Operation
+            joinColumn:
+                name: output_operation_id
+                referencedColumnName: id
+                nullable: true
