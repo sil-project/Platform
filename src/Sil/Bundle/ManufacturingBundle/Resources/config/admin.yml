@@ -1,3 +1,4 @@
 imports:
     - {  resource: "@SilManufacturingBundle/Resources/config/admin/sil_manufacturing.admin.bom.yml" }
     - {  resource: "@SilManufacturingBundle/Resources/config/admin/sil_manufacturing.admin.bom_line.yml" }
+    - {  resource: "@SilManufacturingBundle/Resources/config/admin/sil_manufacturing.admin.manufacturing_order.yml" }

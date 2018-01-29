@@ -4,7 +4,7 @@ doctrine:
 
             #SilEcommerceBundle
 
-            Sil\Bundle\EcommerceBundle\Entity\ProductInterface:            "%sil.model.ecommerce_product.class%"
+            Sil\Bundle\EcommerceBundle\Entity\ProductInterface:            "%sil.model.product.class%"
             Sil\Bundle\EcommerceBundle\Entity\OrderInterface:              "%sil.model.ecommerce_order.class%"
             Sil\Bundle\EcommerceBundle\Entity\ProductVariantInterface:     "%sil.model.ecommerce_product_variant.class%"
             Sil\Bundle\EcommerceBundle\Entity\ProductOptionValueInterface: "%sil.model.ecommerce_product_option_value.class%"

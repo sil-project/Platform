@@ -15,7 +15,7 @@ services:
     sil_ecommerce.code_generator.product:
         class: Sil\Bundle\EcommerceBundle\CodeGenerator\ProductCodeGenerator
         factory:   ['@blast_core.code_generator_factory', create]
-        arguments: ['%sil_ecommerce.code_generator.product%', '@doctrine.orm.entity_manager', '%sil.model.ecommerce_product.class%']
+        arguments: ['%sil_ecommerce.code_generator.product%', '@doctrine.orm.entity_manager', '%sil.model.product.class%']
         tags:
             - { name: blast.entity_code_generator }
 

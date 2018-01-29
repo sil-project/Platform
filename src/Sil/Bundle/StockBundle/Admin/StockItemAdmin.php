@@ -13,11 +13,11 @@ declare(strict_types=1);
 namespace Sil\Bundle\StockBundle\Admin;
 
 use Blast\Bundle\ResourceBundle\Sonata\Admin\ResourceAdmin;
-use Sil\Bundle\StockBundle\Domain\Query\StockItemQueriesInterface;
-use Sil\Bundle\StockBundle\Domain\Repository\LocationRepositoryInterface;
-use Sil\Bundle\StockBundle\Domain\Entity\StockItemInterface;
-use Sil\Bundle\StockBundle\Domain\Entity\Location;
-use Sil\Bundle\StockBundle\Domain\Entity\LocationType;
+use Sil\Component\Stock\Query\StockItemQueriesInterface;
+use Sil\Component\Stock\Repository\LocationRepositoryInterface;
+use Sil\Component\Stock\Model\StockItemInterface;
+use Sil\Component\Stock\Model\Location;
+use Sil\Component\Stock\Model\LocationType;
 
 /**
  * @author Glenn Cavarlé <glenn.cavarle@libre-informatique.fr>
@@ -58,9 +58,9 @@ class StockItemAdmin extends ResourceAdmin
         return $this->getStockItemQueries()->getQtyByLocation($item, $location);
     }
 
-    public function getUnitsByLocation(StockItemInterface $item, Location $location)
+    public function getUnitsByItemAndLocation(StockItemInterface $item, Location $location)
     {
-        return $this->getStockItemQueries()->getUnitsByLocationAndGroupedByBatch($item, $location);
+        return $this->getStockUnitRepository()->findByStockItemAndLocation($item, $location);
     }
 
     public function getLocationsByItem(StockItemInterface $item)
@@ -93,9 +93,19 @@ class StockItemAdmin extends ResourceAdmin
         return $this->locationRepository;
     }
 
-    public function setLocationRepository(LocationRepositoryInterface $locationRepository)
+    public function setLocationRepository(LocationRepositoryInterface $stockUnitRepository)
     {
-        $this->locationRepository = $locationRepository;
+        $this->locationRepository = $stockUnitRepository;
+    }
+
+    public function getStockUnitRepository(): StockUnitRepositoryInterface
+    {
+        return $this->stockUnitRepository;
+    }
+
+    public function setStockUnitRepository(StockUnitRepositoryInterface $stockUnitRepository)
+    {
+        $this->stockUnitRepository = $stockUnitRepository;
     }
 
     public function getStockItemQueries(): StockItemQueriesInterface

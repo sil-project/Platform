@@ -13,11 +13,11 @@ declare(strict_types=1);
 namespace Sil\Bundle\StockBundle\Admin;
 
 use Blast\Bundle\ResourceBundle\Sonata\Admin\ResourceAdmin;
-use Sil\Bundle\StockBundle\Domain\Entity\Location;
-use Sil\Bundle\StockBundle\Domain\Entity\StockItem;
-use Sil\Bundle\StockBundle\Domain\Query\StockItemQueriesInterface;
-use Sil\Bundle\StockBundle\Domain\Repository\StockItemRepositoryInterface;
-use Sil\Bundle\StockBundle\Domain\Repository\StockUnitRepositoryInterface;
+use Sil\Component\Stock\Model\Location;
+use Sil\Component\Stock\Model\StockItem;
+use Sil\Component\Stock\Query\StockItemQueriesInterface;
+use Sil\Component\Stock\Repository\StockItemRepositoryInterface;
+use Sil\Component\Stock\Repository\StockUnitRepositoryInterface;
 
 /**
  * @author Glenn Cavarlé <glenn.cavarle@libre-informatique.fr>

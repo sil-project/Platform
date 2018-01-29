@@ -20,7 +20,7 @@ use Doctrine\Bundle\FixturesBundle\Fixture;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Sil\Bundle\StockBundle\Domain\Entity\OutputStrategy;
+use Sil\Component\Stock\Model\OutputStrategy;
 
 /**
  * Description of WarehouseFixtures.

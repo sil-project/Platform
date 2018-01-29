@@ -13,7 +13,7 @@ namespace Sil\Bundle\StockBundle\Form\Type;
 use Symfony\Component\Form\Extension\Core\Type\BaseType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Sil\Bundle\StockBundle\Domain\Repository\LocationRepositoryInterface;
+use Sil\Component\Stock\Repository\LocationRepositoryInterface;
 use Sil\Bundle\UomBundle\Form\Type\UomQtyFormType;
 
 /**
@@ -41,7 +41,7 @@ class StockUnitFormType extends BaseType
         $builder->add('location', EntityType::class,
             [
                 'label'        => false,
-                'class'        => 'Sil\Bundle\StockBundle\Domain\Entity\Location',
+                'class'        => 'Sil\Component\Stock\Model\Location',
                 'choices'      => $locations,
                 'choice_label' => 'name',
         ]);

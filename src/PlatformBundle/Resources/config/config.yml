@@ -1,5 +1,7 @@
 imports:
+    - { resource: "@PlatformBundle/Resources/config/services.yml" }
     - { resource: "@PlatformBundle/Resources/config/admin.yml" }
+
 
     # Vendors
 

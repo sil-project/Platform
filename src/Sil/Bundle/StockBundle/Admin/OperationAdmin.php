@@ -13,14 +13,14 @@ declare(strict_types=1);
 namespace Sil\Bundle\StockBundle\Admin;
 
 use Blast\Bundle\ResourceBundle\Sonata\Admin\ResourceAdmin;
-use Sil\Bundle\StockBundle\Domain\Generator\OperationCodeGeneratorInterface;
-use Sil\Bundle\StockBundle\Domain\Generator\MovementCodeGeneratorInterface;
+use Sil\Component\Stock\Generator\OperationCodeGeneratorInterface;
+use Sil\Component\Stock\Generator\MovementCodeGeneratorInterface;
 use Sonata\AdminBundle\Route\RouteCollection;
 use Sonata\AdminBundle\Form\FormMapper;
-use Sil\Bundle\StockBundle\Domain\Repository\OperationTypeRepositoryInterface;
-use Sil\Bundle\StockBundle\Domain\Repository\LocationRepositoryInterface;
-use Sil\Bundle\StockBundle\Domain\Repository\PartnerRepositoryInterface;
-use Sil\Bundle\StockBundle\Domain\Entity\OperationType;
+use Sil\Component\Stock\Repository\OperationTypeRepositoryInterface;
+use Sil\Component\Stock\Repository\LocationRepositoryInterface;
+use Sil\Component\Stock\Repository\PartnerRepositoryInterface;
+use Sil\Component\Stock\Model\OperationType;
 use Sil\Bundle\StockBundle\Form\DataTransformer\OperationTypeDataTransformer;
 
 /**
@@ -110,7 +110,7 @@ class OperationAdmin extends ResourceAdmin
                 'mapped'       => false,
                 'choices'      => OperationType::getTypes(),
                 'choice_label' => function ($label) {
-                    return 'sil.stock.operation_type.' . $label;
+                    return 'sil.stock.operation_type_enum.' . $label;
                 },
                 'choice_value' => 'value',
                 'data'         => $type,
@@ -136,6 +136,7 @@ class OperationAdmin extends ResourceAdmin
 
         $group->add('partner', 'choice',
             [
+                'required'     => false,
                 'choices'      => $parters,
                 'choice_label' => 'fulltextName',
         ]);
@@ -279,10 +280,8 @@ class OperationAdmin extends ResourceAdmin
     public function toString($operation)
     {
         $tr = $this->getConfigurationPool()->getContainer()->get('translator');
-        $type = $tr->trans('sil.stock.operation_type.' . $operation->getType());
+        $type = $tr->trans('sil.stock.operation_type_enum.' . $operation->getType());
 
-        //return sprintf('[%s] %s', $operation->getCode(), $type);
-
-        return 'plop';
+        return sprintf('[%s] %s', $operation->getCode(), $type);
     }
 }

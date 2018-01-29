@@ -11,5 +11,5 @@ services:
             -   name: sonata.admin
                 manager_type: orm
                 group: Manufacturing
-                label: sil.manufacturing.menu_label.bom_line
+                label: sil.manufacturing.bom_line
                 label_translator_strategy: blast.resource.sonata.label_strategy.prefix

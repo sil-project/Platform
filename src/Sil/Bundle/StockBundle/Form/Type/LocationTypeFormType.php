@@ -14,7 +14,7 @@ use Symfony\Component\Form\Extension\Core\Type\BaseType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormInterface;
-use Sil\Bundle\StockBundle\Domain\Entity\LocationType;
+use Sil\Component\Stock\Model\LocationType;
 
 /**
  * @author glenn

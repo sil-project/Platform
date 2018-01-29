@@ -11,12 +11,12 @@
 namespace Sil\Bundle\StockBundle\Controller;
 
 use Blast\Bundle\CoreBundle\Controller\CRUDController;
-use Sil\Bundle\StockBundle\Domain\Entity\Operation;
-use Sil\Bundle\StockBundle\Domain\Service\OperationServiceInterface;
+use Sil\Component\Stock\Model\Operation;
+use Sil\Component\Stock\Service\OperationServiceInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\Form;
-use Sil\Bundle\StockBundle\Domain\Entity\OperationType;
+use Sil\Component\Stock\Model\OperationType;
 
 /**
  * Description of MovementController.

@@ -11,8 +11,8 @@
 namespace Sil\Bundle\StockBundle\Form\DataMapper;
 
 use Symfony\Component\Form\Extension\Core\DataMapper\PropertyPathMapper;
-use Sil\Bundle\StockBundle\Domain\Factory\OperationFactory;
-use Sil\Bundle\StockBundle\Domain\Generator\OperationCodeGenerator;
+use Sil\Component\Stock\Factory\OperationFactory;
+use Sil\Component\Stock\Generator\OperationCodeGenerator;
 
 /**
  * Description of OperationDataMapper.

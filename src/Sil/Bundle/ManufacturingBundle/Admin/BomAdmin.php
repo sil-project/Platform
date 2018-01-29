@@ -14,6 +14,7 @@ namespace Sil\Bundle\ManufacturingBundle\Admin;
 
 use Blast\Bundle\ResourceBundle\Sonata\Admin\ResourceAdmin;
 use Sil\Bundle\ManufacturingBundle\Domain\Generator\BomCodeGeneratorInterface;
+use Sonata\AdminBundle\Route\RouteCollection;
 
 /**
  * @author Glenn Cavarlé <glenn.cavarle@libre-informatique.fr>
@@ -27,6 +28,13 @@ class BomAdmin extends ResourceAdmin
      * @var BomCodeGeneratorInterface
      */
     private $bomCodeGenerator;
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function configureRoutes(RouteCollection $collection)
+    {
+    }
 
     /**
      * {@inheritdoc}

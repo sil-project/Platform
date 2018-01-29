@@ -1,0 +1,15 @@
+{% extends 'SilStockBundle:CRUD:show.html.twig' %}
+
+{% block showactions %}
+
+    <div class="sonata-ba-form-actions well well-small form-actions">
+
+
+            <a class="btn btn-default" href="{{ admin.generateObjectUrl('edit', object) }}">
+                <i class="fa fa-pencil" aria-hidden="true"></i> {{ 'sil.manufacturing.bom.show.action.edit'|trans }}
+            </a>
+            <a class="btn btn-danger" href="{{ admin.generateObjectUrl('delete', object) }}">
+                <i class="fa fa-minus-circle" aria-hidden="true"></i> {{ 'sil.manufacturing.bom.show.action.delete'|trans}}
+            </a>
+          
+{% endblock %}

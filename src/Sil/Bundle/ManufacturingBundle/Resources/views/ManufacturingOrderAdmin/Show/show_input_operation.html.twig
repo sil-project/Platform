@@ -1,0 +1,42 @@
+{% extends 'SonataAdminBundle:CRUD:base_show_field.html.twig' %}
+
+{% block field %}
+    {% if value is not null %}
+        <div class="blast-show-collection" data-field-name="{{ field_description.name }}">
+
+            <div class="box box-primary">
+                <div class="box-header">
+                    <h4 class="box-title">{{ field_description.label|trans }}</h4>
+                </div>
+
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>{{ 'sil.stock.movement.show.label.code'|trans }}</th>
+                            <th>{{ 'sil.stock.movement.show.label.stock_item'|trans }}</th>
+                            <th>{{ 'sil.stock.movement.show.label.src_location'|trans }}</th>
+                            <th>{{ 'sil.stock.movement.show.label.dest_location'|trans }}</th>
+                            <th>{{ 'sil.stock.movement.show.label.qty'|trans }}</th>
+                            <th>{{ 'sil.stock.movement.show.label.state'|trans }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for mv in value.movements %}
+                            <tr class="sonata-ba-view-container">
+                                <td>{{ mv.code }}</td>
+                                <td>{{ mv.stockItem.name }}</td>
+                                <td>{{ mv.srcLocation.name }}</td>
+                                <td>{{ mv.destLocation.name }}</td>
+                                <td>{{ mv.qty }}</td>
+                                <td>{% include('SilStockBundle:Field:_progress_state_badge.html.twig')with {
+                                        'value' : mv.state
+                                    } %}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    {% endif %}
+{% endblock %}

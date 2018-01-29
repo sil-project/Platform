@@ -10,8 +10,8 @@
 
 namespace Sil\Bundle\StockBundle\Doctrine\ORM;
 
-use Sil\Bundle\StockBundle\Domain\Repository\LocationRepositoryInterface;
-use Sil\Bundle\StockBundle\Domain\Entity\LocationType;
+use Sil\Component\Stock\Repository\LocationRepositoryInterface;
+use Sil\Component\Stock\Model\LocationType;
 
 /**
  * @author Glenn Cavarlé <glenn.cavarle@libre-informatique.fr>

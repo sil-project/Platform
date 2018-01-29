@@ -76,8 +76,12 @@ parameters:
                         sil.manufacturing.bom_line.form.group.description:
                             stockItem:
                                 choice_label: name
+                            srcLocation:
+                                choice_label: name
                             qty:
                                 type: Sil\Bundle\UomBundle\Form\Type\UomQtyFormType
+                            batch:
+                                choice_label: code
 
                     _options:
                         tabsOrder:
@@ -91,6 +95,8 @@ parameters:
 
                         sil.manufacturing.bom_line.show.group.description:
                             stockItem:
+                                associated_property: name
+                            srcLocation:
                                 associated_property: name
                             qty: ~
 
@@ -106,7 +112,87 @@ parameters:
                 add:
                     stockItem:
                         associated_property: name
+                    srcLocation:
+                        associated_property: name
                     qty: ~
+
+            Sonata\AdminBundle\Datagrid\DatagridMapper:
+                add: ~
+
+
+#####################
+# MANUFACTURING ORDER
+#####################
+
+        Sil\Bundle\ManufacturingBundle\Domain\Entity\ManufacturingOrder:
+            Sonata\AdminBundle\Form\FormMapper:
+                add:
+                    sil.manufacturing.manufacturing_order.form.tab.general:
+
+                        sil.manufacturing.manufacturing_order.form.group.description:
+                            _options:
+                                class: col-md-6
+                            expectedAt:
+                                type: sonata_type_datetime_picker
+                            bom:
+                                choice_label: stockItem.name
+                            destLocation:
+                                choice_label: name
+                            qty:
+                                type: Sil\Bundle\UomBundle\Form\Type\UomQtyFormType
+
+                    _options:
+                        tabsOrder:
+                            - sil.manufacturing.manufacturing_order.form.tab.general
+                            - form_tab_history
+
+            Sonata\AdminBundle\Show\ShowMapper:
+                titleTemplate: SilManufacturingBundle:ManufacturingOrderAdmin/Show:show_title.html.twig
+                forceTabs: true
+                add:
+                    sil.manufacturing.manufacturing_order.show.tab.general:
+
+                        sil.manufacturing.manufacturing_order.show.group.description:
+                            code: ~
+                            state:
+                                template: SilStockBundle:Field:show_progress_state_field.html.twig
+                            expectedAt: ~
+                            completedAt: ~
+                            bom:
+                                associated_property: stockItem.name
+                            destLocation:
+                                associated_property: name
+                            qty: ~
+                        sil.manufacturing.manufacturing_order.show.group.input_operation:
+                            inputOperation:
+                                template: SilManufacturingBundle:ManufacturingOrderAdmin/Show:show_input_operation.html.twig
+
+                        sil.manufacturing.manufacturing_order.show.group.output_operation:
+                            outputOperation:
+                                template: SilManufacturingBundle:ManufacturingOrderAdmin/Show:show_input_operation.html.twig
+
+                    _options:
+                        tabsOrder:
+                            - sil.manufacturing.manufacturing_order.show.tab.general
+                            - show_tab_history
+
+            Sonata\AdminBundle\Datagrid\ListMapper:
+                remove:
+                    createdAt: ~
+                    updatedAt: ~
+                add:
+                    code:
+                        identifier: true
+                    expectedAt: ~
+                    completedAt: ~
+                    bom:
+                        associated_property: stockItem.name
+                    destLocation:
+                        associated_property: name
+                    qty: ~
+                    state:
+                        template: SilStockBundle:Field:list_progress_state_field.html.twig
+
 
             Sonata\AdminBundle\Datagrid\DatagridMapper:
                 add: ~

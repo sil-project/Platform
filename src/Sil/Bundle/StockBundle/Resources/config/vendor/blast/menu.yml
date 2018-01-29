@@ -9,13 +9,18 @@ blast_menu:
 
                 sil.stock.menu_label.items:
                     icon: cube
-                    route: admin_stock_item_list
+                    #route: admin_stock_item_list
                     order: 10
+
+                sil.stock.menu_label.operations:
+                    icon: random
+                    route: admin_stock_operation_list
+                    order: 20
 
                 sil.stock.menu_label.movements:
                     icon: random
                     route: admin_stock_movement_list
-                    order: 20
+                    order: 30
 
 
     settings:

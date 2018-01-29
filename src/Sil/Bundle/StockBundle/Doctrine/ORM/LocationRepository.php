@@ -10,11 +10,11 @@
 
 namespace Sil\Bundle\StockBundle\Doctrine\ORM;
 
-use Sil\Bundle\StockBundle\Domain\Repository\LocationRepositoryInterface;
+use Sil\Component\Stock\Repository\LocationRepositoryInterface;
 use Blast\Bundle\ResourceBundle\Doctrine\ORM\Repository\NestedTreeResourceRepository;
-use Sil\Bundle\StockBundle\Domain\Entity\Location;
-use Sil\Bundle\StockBundle\Domain\Entity\LocationType;
-use Sil\Bundle\StockBundle\Domain\Entity\StockItemInterface;
+use Sil\Component\Stock\Model\Location;
+use Sil\Component\Stock\Model\LocationType;
+use Sil\Component\Stock\Model\StockItemInterface;
 
 /**
  * @author glenn
@@ -44,6 +44,15 @@ class LocationRepository extends NestedTreeResourceRepository implements Locatio
         return $qb->getQuery()->getResult();
     }
 
+    public function findVirtualLocations(): array
+    {
+        $qb = $this->createQueryBuilder('l')
+          ->where('l.typeValue = :type')
+          ->setParameter('type', LocationType::VIRTUAL);
+
+        return $qb->getQuery()->getResult();
+    }
+
     public function findCustomerLocations(): array
     {
         $qb = $this->createQueryBuilder('l')
@@ -66,7 +75,7 @@ class LocationRepository extends NestedTreeResourceRepository implements Locatio
         ?string $locationType = null): array
     {
         $qb = $this->createQueryBuilder('l')
-            ->Join('Sil\Bundle\StockBundle\Domain\Entity\StockUnit', 'su',
+            ->Join('Sil\Component\Stock\Model\StockUnit', 'su',
                 'WITH', 'su.location = l.id')
             ->where('su.stockItem = :item')
             ->setParameter('item', $item);

@@ -7,18 +7,19 @@ services:
             - [setResourceRepository, ['@sil.repository.stock_item']]
             - [setStockItemQueries, ['@sil.domain_query.stock_item']]
             - [setLocationRepository, ['@sil.repository.stock_location']]
+            - [setStockUnitRepository, ['@sil.repository.stock_unit']]
             - [ setTemplates, [{show: SilStockBundle:StockItemAdmin:show.html.twig,edit: SilStockBundle:CRUD:edit.html.twig,list: SilStockBundle:CRUD:list.html.twig}]]
         tags:
             -
                 name: sonata.admin
                 manager_type: orm
                 group: Stock Management
-                label: sil.stock.menu_label.items
+                label: sil.stock.stock_item
                 label_translator_strategy: blast.resource.sonata.label_strategy.prefix
 
     # sil_stock.admin.operation:
     #     class: Sil\Bundle\StockBundle\Admin\OperationAdmin
-    #     arguments: [~, Sil\Bundle\StockBundle\Domain\Entity\Operation, sil.controller.stock_operation]
+    #     arguments: [~, Sil\Component\Stock\Model\Operation, sil.controller.stock_operation]
     #     calls:
     #         - [setOperationCodeGenerator, ['@sil.code_generator.stock_operation']]
     #         - [setMovementCodeGenerator, ['@sil.code_generator.stock_movement']]

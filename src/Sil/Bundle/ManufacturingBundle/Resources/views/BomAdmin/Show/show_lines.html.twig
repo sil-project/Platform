@@ -18,14 +18,16 @@
                 <thead>
                     <tr>
                         <th>{{ 'sil.manufacturing.bom_line.show.label.stock_item'|trans }}</th>
+                        <th>{{ 'sil.manufacturing.bom_line.show.label.srcLocation'|trans }}</th>
                         <th>{{ 'sil.manufacturing.bom_line.show.label.qty'|trans }}</th>
-                    </tr>   
+                    </tr>
                 </thead>
                 <tbody>
 
                     {% for line in value %}
                         <tr class="sonata-ba-view-container">
                             <td>{{ line.stockItem.name }}</td>
+                            <td>{{ line.srcLocation.name }}</td>
                             <td>{{ line.qty }}</td>
                         </tr>
                     {% endfor %}

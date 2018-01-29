@@ -75,6 +75,25 @@ sil:
                     location_from: De
                     location_to: À
                     batch: N° de Lot
+            filter:
+                label:
+                    action: Actions
+                    code: Référence
+                    operation: Liste des opérations sur les stocks
+                    movements: Mouvements de stock
+                    created_at: Date de création
+                    expected_at: Date prévue
+                    completed_at: Date effective
+                    stock_item: Article
+                    src_location: Emplacement d'origine
+                    dest_location: Emplacement de destination
+                    type_value: Type d'opération
+                    partner: Partenaire
+                    state_value: État
+                    qty: Qantité
+                    location_from: De
+                    location_to: À
+                    batch: N° de Lot
             show:
                 tab:
                     general: Général
@@ -231,7 +250,7 @@ sil:
                     available_qty: Quantité disponible
             form:
                 tab:
-                    general: Général
+                    general: Stocks
                 group:
                     general: ''
 
@@ -264,12 +283,20 @@ sil:
                     name: Libellé
                     action: Actions
             show:
+                tab:
+                    general: Général
+                group:
+                    general: ''
                 label:
                     warehouse: Entrepôt
                     code: Référence
                     name: Libellé
 
             form:
+                tab:
+                    general: Général
+                group:
+                    general: ''
                 label:
                     warehouse: Entrepôt
                     code: Référence

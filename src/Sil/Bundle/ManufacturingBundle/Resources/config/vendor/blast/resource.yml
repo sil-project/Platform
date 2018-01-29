@@ -10,3 +10,9 @@ blast_resource:
       classes:
         model:                  Sil\Bundle\ManufacturingBundle\Domain\Entity\BomLine
         repository:             Sil\Bundle\ManufacturingBundle\Doctrine\ORM\BomLineRepository
+
+
+    sil.manufacturing_order:
+      classes:
+        model:                  Sil\Bundle\ManufacturingBundle\Domain\Entity\ManufacturingOrder
+        repository:             Sil\Bundle\ManufacturingBundle\Doctrine\ORM\ManufacturingOrderRepository

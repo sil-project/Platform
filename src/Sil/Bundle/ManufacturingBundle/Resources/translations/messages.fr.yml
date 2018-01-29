@@ -5,6 +5,7 @@ sil:
             manufacturing: Fabrication
             bom: Nomenclatures
             bom_line: Entrées
+            manufacturing_order: Ordres de Fabrication
 
 
         ##############
@@ -21,7 +22,9 @@ sil:
                 group:
                     description: Description
                 action:
-
+                  edit: Modifier
+                  delete: Supprimer
+                  build: Nouvel Ordre de Fabrication
                 label:
                     bom: Nomenclatures
                     code: Référence
@@ -74,3 +77,75 @@ sil:
                     qty: Quantité
             list:
                 label:
+
+
+        #####################
+        # Manufacturing Order
+        #####################
+        manufacturing_order:
+            breadcrumb:
+                link:
+                    create: Nouvel Ordre de Fabrication
+                    list: Ordres de Fabrication
+            show:
+                tab:
+                    general: Général
+                group:
+                    description: ''
+                action:
+                  edit: Modifier
+                  delete: Supprimer
+                  build: Lancer la fabrication
+                  edit_draft: Modifier le brouillon
+                  return_to_draft: Retour au brouillon
+                  confirm: Planifier l'ordre de fabrication
+                  reserve: Réserver les stocks
+                  unreserve: Annuler la réservation des stocks
+                  apply: Valider l'ordre de fabrication
+                  cancel: Annuler l'ordre de fabrication
+                  cancel_edit: Annuler la modification
+                  delete: Supprimer l'opération
+
+                label:
+                    manufacturing_order: Ordre de Fabrication
+                    manufacturingorder: Ordre de Fabrication
+                    code: Référence
+                    qty: Quantité à produire
+                    created_at: Date de création
+                    updated_at: Date de mise à jour
+                    expected_at: Date prévue
+                    completed_at: Date effective
+                    bom: Nomenclature de référence
+                    dest_location: Emplacement de destination
+                    state: État
+                    input_operation: Réservation des Stocks
+                    output_operation: Fabrication
+            form:
+                tab:
+                    general: Général
+                group:
+                    description: ''
+
+                label:
+                    manufacturing_order: Ordre de Fabrication
+                    code: Référence
+                    qty: Quantité à produire
+                    created_at: Date de création
+                    updated_at: Date de mise à jour
+                    expected_at: Date prévue
+                    completed_at: Date effective
+                    bom: Nomenclature de référence
+                    dest_location: Emplacement de destination
+            list:
+                label:
+                    manufacturingorder: Ordres de Fabrication
+                    manufacturing_order: Ordre de Fabrication
+                    code: Référence
+                    qty: Quantité à produire
+                    created_at: Date de création
+                    updated_at: Date de mise à jour
+                    expected_at: Date prévue
+                    completed_at: Date effective
+                    bom: Nomenclature de référence
+                    action: Actions
+                    state: État
