@@ -2,6 +2,8 @@ services:
     sil_ecommerce.admin.product:
         class: PlatformBundle\Admin\ProductAdmin
         arguments: [~, "%sil.model.product.class%", "SilEcommerceBundle:ProductCRUD"]
+        calls:
+            - [ setTemplate, [ edit, SilEcommerceBundle:ProductAdmin:edit.html.twig ] ]
         tags:
             -
                 name: sonata.admin

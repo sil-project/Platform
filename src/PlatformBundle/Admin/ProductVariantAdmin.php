@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Copyright (C) 2015-2017 Libre Informatique
+ * Copyright (C) 2015-2018 Libre Informatique
  *
  * This file is licenced under the GNU LGPL v3.
  * For the full copyright and license information, please view the LICENSE.md
@@ -142,6 +142,8 @@ class ProductVariantAdmin extends ResourceAdmin
         foreach ($channelRepository->getAvailableAndActiveChannels() as $channel) {
             $channelPricing = $channelPricingFactory->createNew();
             $channelPricing->setChannelCode($channel->getCode());
+            $channelPricing->setPrice(0);
+            $channelPricing->setOriginalPrice(0);
             $object->addChannelPricing($channelPricing);
         }
 
@@ -226,8 +228,23 @@ class ProductVariantAdmin extends ResourceAdmin
             if (count($qb->getQuery()->getResult()) != 0) {
                 $errorElement
                     ->with('code')
-                    ->addViolation('sil.product_variant_code.not_unique')
+                        ->addViolation('sil.product_variant_code.not_unique')
                     ->end();
+            }
+
+            if ($object->isTracked()) {
+                if ($object->getUom() === null) {
+                    $errorElement
+                        ->with('uom')
+                            ->addViolation('sil.product_variant_uom.not_null')
+                        ->end();
+                }
+                if ($object->getOutputStrategy() === null) {
+                    $errorElement
+                        ->with('outputStrategy')
+                            ->addViolation('sil.product_variant_outputStrategy.not_null')
+                        ->end();
+                }
             }
         }
     }
