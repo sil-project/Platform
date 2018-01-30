@@ -58,7 +58,19 @@ pipeline {
                 sh "${WORKSPACE}/bin/ci-scripts/do_run.sh run_test.sh"
             }
 	}
+
+        stage ('Archive Gzip') {
+            steps {
+                sh 'tar -czf Platform_${BRANCH_NAME}.tgz ./*'
+                archiveArtifacts artifacts: "Platform_${BRANCH_NAME}.tgz", fingerprint: true
+            }
+        }
+
+
+
     }
+
+
 
     post {
         always {
