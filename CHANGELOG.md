@@ -1,5 +1,21 @@
 # Change Log
 
+## [Unreleased](https://github.com/sil-project/Platform/tree/HEAD)
+
+[Full Changelog](https://github.com/sil-project/Platform/compare/0.4.2...HEAD)
+
+**Merged pull requests:**
+
+- \[Account\] Add tests and documentation for Account model [\#24](https://github.com/sil-project/Platform/pull/24) ([RomainSanchez](https://github.com/RomainSanchez))
+- \(test\) - Add an option to specify host header in a request - refs \#5579 [\#23](https://github.com/sil-project/Platform/pull/23) ([Fabrice-li](https://github.com/Fabrice-li))
+- Wip Contact [\#21](https://github.com/sil-project/Platform/pull/21) ([RomainSanchez](https://github.com/RomainSanchez))
+- Wip contact [\#20](https://github.com/sil-project/Platform/pull/20) ([RomainSanchez](https://github.com/RomainSanchez))
+- Wip docker debian [\#19](https://github.com/sil-project/Platform/pull/19) ([FanchTheSystem](https://github.com/FanchTheSystem))
+- Wip account [\#18](https://github.com/sil-project/Platform/pull/18) ([RomainSanchez](https://github.com/RomainSanchez))
+- Wip stock integration [\#15](https://github.com/sil-project/Platform/pull/15) ([GlennCavarle](https://github.com/GlennCavarle))
+- Wip contact [\#12](https://github.com/sil-project/Platform/pull/12) ([RomainSanchez](https://github.com/RomainSanchez))
+- Wip contact [\#11](https://github.com/sil-project/Platform/pull/11) ([RomainSanchez](https://github.com/RomainSanchez))
+
 ## [0.4.2](https://github.com/sil-project/Platform/tree/0.4.2) (2018-01-19)
 **Closed issues:**
 
