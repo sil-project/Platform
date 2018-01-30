@@ -38,6 +38,7 @@ matrix:
   allow_failures:
     - php: nightly
     - env: SYMFONY_DEPRECATIONS_HELPER=0
+    - env: TARGET=ant
 
 before_install:
     - ln -s .env.travis .env # Enable env
