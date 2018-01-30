@@ -2,31 +2,35 @@ blast_resource:
     resources:
         sil.crm_organism:
             classes:
-                model:    PlatformBundle\Entity\SilCRMBundle\Organism
-                repository: PlatformBundle\Repository\OrganismRepository
+                model:          PlatformBundle\Entity\SilCRMBundle\Organism
+                repository:     PlatformBundle\Repository\OrganismRepository
                 interfaces:
-                  - Sil\Component\Stock\Model\PartnerInterface
+                    -           Sil\Component\Stock\Model\PartnerInterface
 
         sil.crm_address:
             classes:
-                model:    PlatformBundle\Entity\SilCRMBundle\Address
+                model:          PlatformBundle\Entity\SilCRMBundle\Address
 
         sil.email:
             classes:
-                model:    PlatformBundle\Entity\SilEmailBundle\Email
+                model:          PlatformBundle\Entity\SilEmailBundle\Email
 
         sil.media_file:
             classes:
-                model:    PlatformBundle\Entity\SilMediaBundle\File
+                model:          PlatformBundle\Entity\SilMediaBundle\File
 
         sil.user:
             classes:
-                model:    PlatformBundle\Entity\SilSonataSyliusUserBundle\SonataUser
+                model:          PlatformBundle\Entity\SilSonataSyliusUserBundle\SonataUser
 
         sil.product:
             classes:
-                model:    PlatformBundle\Entity\SilEcommerceBundle\Product
-                #model:    Sil\Bundle\EcommerceBundle\Entity\Product
-                repository:             Sil\Bundle\StockBundle\Doctrine\ORM\StockItemRepository
+                model:          PlatformBundle\Entity\SilEcommerceBundle\Product
+
+        sil.product_variant:
+            classes:
+                model:          PlatformBundle\Entity\SilEcommerceBundle\ProductVariant
+                repository:     Sil\Bundle\StockBundle\Doctrine\ORM\StockItemRepository
                 interfaces:
-                  - Sil\Component\Stock\Model\StockItemInterface
+                    -           Sil\Component\Stock\Model\StockItemInterface
+                    -           Sil\Bundle\EcommerceBundle\Entity\ProductVariantInterface

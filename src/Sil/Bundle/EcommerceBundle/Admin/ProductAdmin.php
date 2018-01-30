@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Copyright (C) 2015-2017 Libre Informatique
+ * Copyright (C) 2015-2018 Libre Informatique
  *
  * This file is licenced under the GNU LGPL v3.
  * For the full copyright and license information, please view the LICENSE.md
@@ -132,6 +132,10 @@ class ProductAdmin extends SyliusGenericAdmin
 
         $slugGenerator = $this->getConfigurationPool()->getContainer()->get('sylius.generator.slug');
         $product->setSlug($slugGenerator->generate($product->getName()));
+
+        if ($product->getOptions()->count() === 0) {
+            $this->generateDefaultVariant($product);
+        }
     }
 
     public function preUpdate($product)
@@ -190,5 +194,22 @@ class ProductAdmin extends SyliusGenericAdmin
 
             $product->addProductTaxon($pTaxon);
         }
+    }
+
+    private function generateDefaultVariant($product)
+    {
+        $productVariantClass = $this->getConfigurationPool()->getContainer()->getParameter('sil.model.product_variant.class');
+        $variant = new $productVariantClass();
+
+        $defaultLocale = $this->getConfigurationPool()->getContainer()->get('sylius.locale_provider')->getDefaultLocaleCode();
+        $variant->setCurrentLocale($defaultLocale);
+        $variant->setFallbackLocale($defaultLocale);
+
+        $variant->setProduct($product);
+        $product->addVariant($variant);
+        $variant->setCode($product->getCode());
+        $variant->setName($product->getName());
+
+        $this->getConfigurationPool()->getContainer()->get('sil_ecommerce.admin.product_variant')->buildDefaultPricings($variant);
     }
 }

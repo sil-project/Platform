@@ -3,5 +3,5 @@ parameters:
 
     #sil.model.ecommerce_product.class:                  Sil\Bundle\EcommerceBundle\Entity\Product
     sil.model.ecommerce_order.class:                    Sil\Bundle\EcommerceBundle\Entity\Order
-    sil.model.ecommerce_product_variant.class:          Sil\Bundle\EcommerceBundle\Entity\ProductVariant
+    sil.model.ecommerce_product_variant.class:          PlatformBundle\Entity\SilEcommerceBundle\ProductVariant
     sil.model.ecommerce_product_option_value.class:     Sil\Bundle\EcommerceBundle\Entity\ProductOptionValue
