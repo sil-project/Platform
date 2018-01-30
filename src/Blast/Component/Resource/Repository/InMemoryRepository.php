@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Copyright (C) 2015-2017 Libre Informatique
+ * Copyright (C) 2015-2018 Libre Informatique
  *
  * This file is licenced under the GNU LGPL v3.
  * For the full copyright and license information, please view the LICENSE.md
@@ -17,7 +17,7 @@ use Symfony\Component\PropertyAccess\PropertyAccessor;
 /**
  * @author Glenn Cavarlé <glenn.cavarle@libre-informatique.fr>
  */
-class InMemoryRepository
+class InMemoryRepository implements ResourceRepositoryInterface
 {
     const ORDER_ASCENDING = 'ASC';
     const ORDER_DESCENDING = 'DESC';
@@ -51,7 +51,7 @@ class InMemoryRepository
         }
     }
 
-    public function add($resource)
+    public function add($resource): void
     {
         if (!$resource instanceof $this->interface) {
             throw new \InvalidArgumentException(
@@ -64,7 +64,7 @@ class InMemoryRepository
         $this->arrayObject->append($resource);
     }
 
-    public function remove($resource)
+    public function remove($resource): void
     {
         $newResources = array_filter(
             $this->findAll(),

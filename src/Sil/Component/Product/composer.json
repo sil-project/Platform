@@ -1,0 +1,39 @@
+{
+    "name": "sil-project/product",
+    "type": "library",
+    "description": "Product Management",
+    "require": {
+        "php": "^7.1",
+        "doctrine/collections": "^1.3",
+        "blast-project/resource": "self.version",
+        "bentools/cartesian-product": "^1.2"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.4"
+    },
+    "license": "LGPL-3.0",
+    "keywords": [
+        "product",
+        "product management"
+    ],
+    "homepage": "https://github.com/sil-project/Product",
+    "authors": [
+        {
+            "name": "Vivien FRASCA",
+            "email": "vivien.frasca@libre-informatique.fr"
+        },
+        {
+            "name": "Libre Informatique",
+            "homepage": "http://www.libre-informatique.fr/"
+        }
+    ],
+
+    "autoload": {
+        "psr-4": {
+            "Sil\\Component\\Product\\": "."
+        }
+    },
+    "config": {
+        "bin-dir": "bin/"
+    }
+}
