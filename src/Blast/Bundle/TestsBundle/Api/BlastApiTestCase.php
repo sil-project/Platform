@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Blast\TestsBundle\Api;
+namespace Blast\Bundle\TestsBundle\Api;
 
 use PHPUnit\Framework\TestCase;
 
@@ -139,7 +139,7 @@ class BlastApiTestCase extends TestCase
         if ($this->vhost) {
             $headers[] = 'Host: ' . $this->vhost;
         }
-        
+
         if ($this->token) {
             $headers[] = 'Authorization: Bearer ' . $this->token;
         }
