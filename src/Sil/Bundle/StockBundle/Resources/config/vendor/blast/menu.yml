@@ -11,6 +11,7 @@ blast_menu:
                     icon: cube
                     #route: admin_stock_item_list
                     order: 10
+                    display: false
 
                 sil.stock.menu_label.operations:
                     icon: random

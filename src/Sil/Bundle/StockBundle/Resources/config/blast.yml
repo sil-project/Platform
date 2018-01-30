@@ -203,7 +203,7 @@ parameters:
             Sonata\AdminBundle\Datagrid\DatagridMapper:
                 add:
                     code: ~
-                    stockItem.translations.name: ~
+                    stockItem.name: ~
                     qtyValue: ~
                     qtyUom.name: ~
                     srcLocation.name: ~
