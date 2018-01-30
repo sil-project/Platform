@@ -14,7 +14,7 @@ else
 fi
 
 
-rm -rf composer.lock # vendor
+#rm -rf composer.lock # vendor
 
 # composer update --no-interaction --prefer-dist
 composer install --no-interaction --prefer-dist
