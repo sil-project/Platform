@@ -3,21 +3,7 @@ set -ev
 
 mkdir --parents "${HOME}/bin"
 
-if [ "${WHORUN}" = travis  ]
-then
-    # Ugly hack
-    echo "memory_limit=-1" >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
-
-    # for selenium
-    sudo apt-get install xvfb
-    sudo apt-get install chromium-browser
-    sudo apt-get install firefox
-    #sudo apt-get install chromium-chromedriver
-fi
-
-#composer self-update 1.5.6 --no-progress --stable
 composer self-update --no-progress --stable
-#composer clear-cache
 
 #if [ ! -x ${HOME}/bin/chromedriver ]
 #then
