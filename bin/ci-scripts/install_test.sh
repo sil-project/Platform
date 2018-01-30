@@ -28,13 +28,16 @@ set -e
 # composer update --no-interaction --prefer-dist
 composer ${CMPCMD} --no-interaction
 
-export NVM_DIR="$HOME/.nvm"
-set +v
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
-set -v
+if [ -n "${ENABLE_UI}" ]
+then
+    export NVM_DIR="$HOME/.nvm"
+    set +v
+    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
+    set -v
 
-npm install
-npm run gulp
+    npm install
+    npm run gulp
+fi
 
 # database creation
 bin/console doctrine:schema:drop --force --no-interaction  --full-database --env=$SERVERENV   # --full-database drops default + session connections
@@ -58,8 +61,11 @@ bin/console fos:elastica:populate --no-interaction --env=$SERVERENV
 bin/console sylius:fixtures:load ecommerce_requirements --no-interaction --env=$SERVERENV
 bin/console sil:user:fixture --no-interaction --env=$SERVERENV
 
-bin/console assets:install --no-interaction --env=$SERVERENV
-bin/console sylius:theme:assets:install  --no-interaction --env=$SERVERENV # must be done after assets:install
+if [ -n "${ENABLE_UI}" ]
+then
+    bin/console assets:install --no-interaction --env=$SERVERENV
+    bin/console sylius:theme:assets:install  --no-interaction --env=$SERVERENV # must be done after assets:install
+fi
 
 
 #bin/ci-scripts/do_it_for_bundle.sh install test
