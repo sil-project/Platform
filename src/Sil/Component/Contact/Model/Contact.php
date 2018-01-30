@@ -192,9 +192,9 @@ class Contact implements ContactInterface
     /**
      * Get the value of default address.
      *
-     * @return AddressInterface
+     * @return AddressInterface|null
      */
-    public function getDefaultAddress(): AddressInterface
+    public function getDefaultAddress(): ?AddressInterface
     {
         return $this->defaultAddress;
     }
@@ -212,19 +212,73 @@ class Contact implements ContactInterface
     /**
      * Get the value of addresses.
      *
-     * @return Collection|AddressInterface[]
+     * @return array|AddressInterface[]
      */
-    public function getAddresses(): Collection
+    public function getAddresses(): array
     {
-        return $this->addresses;
+        return $this->addresses->toArray();
+    }
+
+    /**
+     * Add an Address to the collection.
+     *
+     * @param AddressInterface $address
+     */
+    public function addAddress(AddressInterface $address)
+    {
+        if ($this->addresses->contains($address)) {
+            throw new \InvalidArgumentException('This contact already owns this address');
+        }
+
+        $this->addresses->add($address);
+
+        if (!$this->defaultAddress) {
+            $this->setDefaultAddress($address);
+        }
+    }
+
+    /**
+     *  Remove an Address from the collection.
+     *
+     * @param AddressInterface $address
+     */
+    public function removeAddress(AddressInterface $address)
+    {
+        if (!$this->hasAddress($address)) {
+            throw new \InvalidArgumentException('Trying to remove an address that does not belong to this contact');
+        }
+
+        $this->addresses->removeElement($address);
+
+        if ($address === $this->defaultAddress) {
+            if ($this->addresses->count() > 0) {
+                $this->defaultAddress = $this->addresses->first();
+
+                return;
+            }
+
+            $this->defaultAddress = null;
+        }
+    }
+
+    /**
+     * Check if an Address exists in the Collection.
+     *
+     * @param AddressInterface $address
+     *
+     * @return bool wether the Address exists
+     */
+    public function hasAddress(AddressInterface $address)
+    {
+        return $this->addresses->contains($address);
     }
 
     /**
      * Get the value of default phone.
      *
-     * @return PhoneInterface
+     * @return PhoneInterface|null
      */
-    public function getDefaultPhone(): PhoneInterface
+    public function getDefaultPhone(): ?PhoneInterface
     {
         return $this->defaultPhone;
     }
@@ -242,10 +296,64 @@ class Contact implements ContactInterface
     /**
      * Get the value of phones.
      *
-     * @return Collection|PhoneInterface[]
+     * @return array|PhoneInterface[]
      */
-    public function getPhones(): Collection
+    public function getPhones(): array
     {
-        return $this->phones;
+        return $this->phones->toArray();
+    }
+
+    /**
+     * Add a Phone to the collection.
+     *
+     * @param PhoneInterface $phone
+     */
+    public function addPhone(PhoneInterface $phone)
+    {
+        if ($this->phones->contains($phone)) {
+            throw new \InvalidArgumentException('This contact already owns this phone');
+        }
+
+        $this->phones->add($phone);
+
+        if (!$this->defaultPhone) {
+            $this->setDefaultPhone($phone);
+        }
+    }
+
+    /**
+     *  Remove a Phone from the collection.
+     *
+     * @param PhoneInterface $phone
+     */
+    public function removePhone(PhoneInterface $phone)
+    {
+        if (!$this->hasPhone($phone)) {
+            throw new \InvalidArgumentException('Trying to remove a phone that does not belong to this contact');
+        }
+
+        $this->phones->removeElement($phone);
+
+        if ($phone === $this->defaultPhone) {
+            if ($this->phones->count() > 0) {
+                $this->defaultPhone = $this->phones->first();
+
+                return;
+            }
+
+            $this->defaultPhone = null;
+        }
+    }
+
+    /**
+     * Check if a Phone exists in the Collection.
+     *
+     * @param PhoneInterface $phone
+     *
+     * @return bool wether the Phone exists
+     */
+    public function hasPhone(PhoneInterface $phone)
+    {
+        return $this->phones->contains($phone);
     }
 }
