@@ -132,7 +132,7 @@ parameters:
 
             Sonata\AdminBundle\Datagrid\ListMapper:
                 add:
-                    translations.name:
+                    name:
                         identifier: true
                     code:
                         identifier: true
@@ -141,7 +141,7 @@ parameters:
                     _options:
                         fieldsOrder:
                             - code
-                            - translations.name
+                            - name
                             - enabled
                     _actions:
                         shop_link:

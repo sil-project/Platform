@@ -114,4 +114,5 @@ imports:
     #
     # ##########################################################################
 
-    - { resource: "@PlatformBundle/Resources/config/admin/product.yml" }
+    - { resource: "@PlatformBundle/Resources/config/admin/sil_ecommerce.admin.product.yml" }
+    - { resource: "@PlatformBundle/Resources/config/admin/sil_ecommerce.admin.product_variant.yml" }

@@ -1,0 +1,31 @@
+<script type="text/javascript">
+    var stockTrackedField = $('#{{field}}');
+
+    stockTrackedField
+        .on('ifChecked', function() {
+            toggleStockFields(true);
+        })
+        .on('ifUnchecked', function() {
+            toggleStockFields(false);
+        });
+
+    function toggleStockFields(show) {
+        var fieldPrefix = '#sonata-ba-field-container-{{uniqid}}_';
+        if (show) {
+            $(fieldPrefix + 'uom').show();
+            $(fieldPrefix + 'outputStrategy').show();
+        } else {
+            $(fieldPrefix + 'uom').hide();
+            $(fieldPrefix + 'outputStrategy').hide();
+            $(fieldPrefix + 'onHand').hide();
+        }
+    }
+
+    $(document).ready(function() {
+        if (stockTrackedField.is(':checked')) {
+            toggleStockFields(true);
+        } else {
+            toggleStockFields(false);
+        }
+    });
+</script>

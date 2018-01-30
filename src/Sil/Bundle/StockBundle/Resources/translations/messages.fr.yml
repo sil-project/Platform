@@ -235,6 +235,7 @@ sil:
                     stocks: Stocks
                 group:
                     general: ''
+                    stocks: ''
                 action:
                     update_stock: Mettre à jour le stock disponible
 

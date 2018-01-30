@@ -477,13 +477,14 @@ sil:
                     main_taxon: Catégorie principale
                     meta_description: Méta description
                     meta_keywords: Méta mot-clés
-                    name: Nom
+                    options: Options
+                    translations.name: Nom
                     short_description: Méta mot-clés
                     slug: Slug
                     taxons: Catégories
                     updated_at: Mis à jour le
-                    variety: Variété
-
+                    variants: Déclinaisons
+                    no_product_variants: Aucune déclinaison
 
         product_variant:
             filter:
@@ -511,20 +512,41 @@ sil:
                     enabled: Activé
                     height: Hauteur
                     name: Nom
+                    on_hand: Stock disponible
+                    on_hold: Stock réservé
+                    output_strategy: Stratégie de sortie
                     packaging: Conditionnement
                     seed_batches: Lots
                     tax_category: Catégorie de taxe
                     tracked: Suivi
+                    uom: Unité de mesure
                     weight: Poid
                     width: Largeur
             show:
                 label:
-                    name: Nom
                     code: Code
-                    option_values: Options
-                    tax_category: Catégorie de taxe
-                    prices: Prix
+                    created_at: Créé le
+                    depth: Profondeur
+                    height: Hauteur
+                    name: Nom
                     no_product_variants: Pas de variante
+                    on_hand: Stock disponible
+                    on_hold: Stock réservé
+                    option_values: Options
+                    price: Prix
+                    prices: Prix
+                    product: Produit
+                    tax_category: Catégorie de taxe
+                    tracked: Suivi
+                    updated_at: Mis à jour le
+                    weight: Poid
+                    width: Largeur
+                    uom: Unité de mesure
+                    output_strategy: Stratégie de sortie
+                    in_stock_qty: Quantité en stock
+                    reserved_qty: Quantité réservée
+                    available_qty: Quantité disponible
+                    locations: Emplacements
         channel_pricing:
             form:
                 label:

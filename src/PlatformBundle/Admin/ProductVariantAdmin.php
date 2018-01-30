@@ -8,29 +8,37 @@
  * file that was distributed with this source code.
  */
 
-namespace Sil\Bundle\EcommerceBundle\Admin;
+namespace PlatformBundle\Admin;
 
-use Doctrine\ORM\QueryBuilder;
+use Blast\Bundle\CoreBundle\Admin\Traits\HandlesRelationsAdmin;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\CoreBundle\Validator\ErrorElement;
-use Sylius\Component\Product\Model\ProductInterface;
-use Sylius\Component\Product\Model\ProductVariantInterface;
-use Sylius\Component\Resource\Factory\Factory;
-use Sil\Bundle\EcommerceBundle\Repository\ChannelRepository;
+use Blast\Bundle\ResourceBundle\Sonata\Admin\ResourceAdmin;
+use Sil\Component\Stock\Query\StockItemQueriesInterface;
+use Sil\Component\Stock\Repository\LocationRepositoryInterface;
+use Sil\Component\Stock\Repository\StockUnitRepositoryInterface;
+use Sil\Component\Stock\Model\StockItemInterface;
+use Sil\Component\Stock\Model\Location;
+use Sil\Component\Stock\Model\LocationType;
 use Sil\Bundle\EcommerceBundle\Entity\ProductOptionValue;
 
 /**
  * @author Marcos Bezerra de Menezes <marcos.bezerra@libre-informatique.fr>
  */
-class ProductVariantAdmin extends SyliusGenericAdmin
+class ProductVariantAdmin extends ResourceAdmin
 {
+    use HandlesRelationsAdmin {
+        configureFormFields as configFormHandlesRelations;
+        configureShowFields as configShowHandlesRelations;
+    }
+
     /**
      * @var string
      */
-    protected $translationLabelPrefix = 'sil.ecommerce.product_variant';
+    protected $translationLabelPrefix = 'sil.product_variant';
 
     protected $baseRouteName = 'admin_ecommerce_product_variant';
-    protected $baseRoutePattern = 'ecommerce/product_variant';
+    protected $baseRoutePattern = 'product_variant';
 
     /**
      * @var ProductInterface
@@ -38,9 +46,47 @@ class ProductVariantAdmin extends SyliusGenericAdmin
     private $product;
 
     /**
-     * @var string
+     * @var StockItemQueriesInterface
      */
-    protected $productAdminCode = 'sil.admin.product';
+    protected $stockItemQueries;
+
+    /**
+     * @var LocationRepositoryInterface
+     */
+    protected $locationRepository;
+
+    public function getNewInstance()
+    {
+        $object = parent::getNewInstance();
+        if (method_exists(get_class($object), 'setCurrentLocale')) {
+            $defaultLocale = $this->getConfigurationPool()->getContainer()->get('sylius.locale_provider')->getDefaultLocaleCode();
+            $object->setCurrentLocale($defaultLocale);
+            $object->setFallbackLocale($defaultLocale);
+        }
+
+        foreach ($this->getExtensions() as $extension) {
+            $extension->alterNewInstance($this, $object);
+        }
+
+        if ($this->getProduct()) {
+            $object->setProduct($this->getProduct());
+        }
+
+        $this->buildDefaultPricings($object);
+
+        return $object;
+    }
+
+    public function getFactoryName()
+    {
+        throw new \Exception(sprintf(
+            '%s have to be impelmented in %s',
+            __FUNCTION__ /*__METHOD__*/,
+            get_class($this)  /* __CLASS__ */
+        ));
+
+        return null;
+    }
 
     /**
      * {@inheritdoc}
@@ -81,21 +127,8 @@ class ProductVariantAdmin extends SyliusGenericAdmin
                 ]
             );
         }
-    }
 
-    /**
-     * @return ProductVariantInterface
-     */
-    public function getNewInstance()
-    {
-        $object = parent::getNewInstance();
-        if ($this->getProduct()) {
-            $object->setProduct($this->getProduct());
-        }
-
-        $this->buildDefaultPricings($object);
-
-        return $object;
+        $this->removeTab('default', $mapper);
     }
 
     public function buildDefaultPricings($object)
@@ -197,5 +230,75 @@ class ProductVariantAdmin extends SyliusGenericAdmin
                     ->end();
             }
         }
+    }
+
+    public function getQtyByItemAndLocation(StockItemInterface $item, Location $location)
+    {
+        return $this->getStockItemQueries()->getQtyByLocation($item, $location);
+    }
+
+    public function getUnitsByItemAndLocation(StockItemInterface $item, Location $location)
+    {
+        return $this->getStockUnitRepository()->findByStockItemAndLocation($item, $location);
+    }
+
+    public function getLocationsByItem(StockItemInterface $item)
+    {
+        return $this->getLocationRepository()->findByOwnedItem($item, LocationType::INTERNAL);
+    }
+
+    public function getInStockQty(StockItemInterface $item)
+    {
+        return $this->getStockItemQueries()->getQty($item);
+    }
+
+    public function getInStockQtyByLocation(StockItemInterface $item, Location $location)
+    {
+        return $this->getStockItemQueries()->getQtyByLocation($item, $location);
+    }
+
+    public function getReservedQty(StockItemInterface $item)
+    {
+        return $this->getStockItemQueries()->getReservedQty($item);
+    }
+
+    public function getAvailableQty(StockItemInterface $item)
+    {
+        return $this->getStockItemQueries()->getAvailableQty($item);
+    }
+
+    public function getLocationRepository(): LocationRepositoryInterface
+    {
+        return $this->locationRepository;
+    }
+
+    public function setLocationRepository(LocationRepositoryInterface $stockUnitRepository)
+    {
+        $this->locationRepository = $stockUnitRepository;
+    }
+
+    public function getStockUnitRepository(): StockUnitRepositoryInterface
+    {
+        return $this->stockUnitRepository;
+    }
+
+    public function setStockUnitRepository(StockUnitRepositoryInterface $stockUnitRepository)
+    {
+        $this->stockUnitRepository = $stockUnitRepository;
+    }
+
+    public function getStockItemQueries(): StockItemQueriesInterface
+    {
+        return $this->stockItemQueries;
+    }
+
+    public function setStockItemQueries(StockItemQueriesInterface $stockItemQueries)
+    {
+        $this->stockItemQueries = $stockItemQueries;
+    }
+
+    public function toString($item)
+    {
+        return sprintf('[%s] %s', $item->getCode(), $item->getName());
     }
 }

@@ -4,13 +4,13 @@ parameters:
     sil.model.ecommerce_order.class:                       Sil\Bundle\EcommerceBundle\Entity\Order
     sil.model.ecommerce_order_item.class:                  Sil\Bundle\EcommerceBundle\Entity\OrderItem
     sil.model.ecommerce_payment.class:                     Sil\Bundle\EcommerceBundle\Entity\Payment
+    # sil.model.ecommerce_product.class:                     Sil\Bundle\EcommerceBundle\Entity\Product
     sil.model.ecommerce_product_attribute.class:           Sil\Bundle\EcommerceBundle\Entity\ProductAttribute
     sil.model.ecommerce_product_image.class:               Sil\Bundle\EcommerceBundle\Entity\ProductImage
     sil.model.ecommerce_product_option_value.class:        Sil\Bundle\EcommerceBundle\Entity\ProductOptionValue
     sil.model.ecommerce_product_option.class:              Sil\Bundle\EcommerceBundle\Entity\ProductOption
     sil.model.ecommerce_product_review.class:              Sil\Bundle\EcommerceBundle\Entity\ProductReview
-    sil.model.ecommerce_product_variant.class:             Sil\Bundle\EcommerceBundle\Entity\ProductVariant
-    #sil.model.ecommerce_product.class:                     Sil\Bundle\EcommerceBundle\Entity\Product
+    # sil.model.ecommerce_product_variant.class:             Sil\Bundle\EcommerceBundle\Entity\ProductVariant
     sil.model.ecommerce_shipping_method.class:             Sil\Bundle\EcommerceBundle\Entity\ShippingMethod
     sil.model.ecommerce_tax_rate.class:                    Sil\Bundle\EcommerceBundle\Entity\TaxRate
     sil.model.ecommerce_taxon.class:                       Sil\Bundle\EcommerceBundle\Entity\Taxon

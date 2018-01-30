@@ -59,11 +59,14 @@
             </td>
             <td>
                 <div class="btn-group pull-right">
-                    <a href="{{ path('admin_ecommerce_productvariant_edit', {'id': variant.id})}}" class="btn btn-sm btn-default edit_link openInModal" title="{{ 'action_edit'|trans({}, 'SonataAdminBundle') }}">
+                    <a href="{{ path('admin_ecommerce_product_variant_show', {'id': variant.id})}}" class="btn btn-sm btn-default show_link openInModal" title="{{ 'action_show'|trans({}, 'SonataAdminBundle') }}">
+                        <i class="fa fa-eye" aria-hidden="true"></i>
+                    </a>
+                    <a href="{{ path('admin_ecommerce_product_variant_edit', {'id': variant.id})}}" class="btn btn-sm btn-default edit_link openInModal" title="{{ 'action_edit'|trans({}, 'SonataAdminBundle') }}">
                         <i class="fa fa-pencil" aria-hidden="true"></i>
                     </a>
                     {#
-                    <a href="{{ path('admin_ecommerce_productvariant_delete', {'id': variant.id})}}" class="btn btn-sm btn-danger delete_link confirmable" title="{{ 'action_delete'|trans({}, 'SonataAdminBundle') }}">
+                    <a href="{{ path('admin_ecommerce_product_variant_delete', {'id': variant.id})}}" class="btn btn-sm btn-danger delete_link confirmable" title="{{ 'action_delete'|trans({}, 'SonataAdminBundle') }}">
                         <i class="fa fa-trash" aria-hidden="true"></i>
                     </a>
                     #}
