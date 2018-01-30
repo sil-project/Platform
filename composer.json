@@ -60,7 +60,8 @@
         "winzou/state-machine": "^0.3.2",
         "knplabs/knp-paginator-bundle": "^2.7",
         "ramsey/uuid": "^3.7",
-        "data-uri/twig-extension": "^1.0"
+        "data-uri/twig-extension": "^1.0",
+        "bentools/cartesian-product": "^1.2"
     },
     "require-dev": {
         "codeception/codeception": "^2.3",

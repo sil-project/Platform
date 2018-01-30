@@ -28,20 +28,20 @@ $finder = PhpCsFixer\Finder::create()
 ;
 
 $config = PhpCsFixer\Config::create()
-    ->setRules(array(
+    ->setRules([
         '@Symfony'               => true,
         'binary_operator_spaces' => ['align_double_arrow' => true],
         'concat_space'           => ['spacing'=>'one'],
         'yoda_style'             => null,
         'increment_style'        => ['style' => 'post'],
-    ))
+    ])
     ->setFinder($finder);
 
 // PHP-CS-Fixer 2.x
 if (method_exists($config, 'setRules')) {
-    $config->setRules(array_merge($config->getRules(), array(
-        'header_comment' => array('header' => $header),
-    )));
+    $config->setRules(array_merge($config->getRules(), [
+        'header_comment' => ['header' => $header],
+    ]));
 }
 
 return $config;
