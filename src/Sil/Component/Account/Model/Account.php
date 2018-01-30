@@ -103,9 +103,9 @@ class Account implements AccountInterface
     /**
      * Get the value of default contact.
      *
-     * @return ContactInterface
+     * @return ContactInterface|null
      */
-    public function getDefaultContact(): ContactInterface
+    public function getDefaultContact(): ?ContactInterface
     {
         return $this->defaultContact;
     }
@@ -123,10 +123,64 @@ class Account implements AccountInterface
     /**
      * Get the value of contacts.
      *
-     * @return Collection|ContactInterface[]
+     * @return array|ContactInterface[]
      */
-    public function getContacts(): Collection
+    public function getContacts(): array
     {
-        return $this->contacts;
+        return $this->contacts->toArray();
+    }
+
+    /**
+     * Add a Contact to the collection.
+     *
+     * @param ContactInterface $contact
+     */
+    public function addContact(ContactInterface $contact)
+    {
+        if ($this->contacts->contains($contact)) {
+            throw new \InvalidArgumentException('This contact is already associated to this account');
+        }
+
+        $this->contacts->add($contact);
+
+        if (!$this->defaultContact) {
+            $this->setDefaultContact($contact);
+        }
+    }
+
+    /**
+     *  Remove a Contact from the collection.
+     *
+     * @param ContactInterface $contact
+     */
+    public function removeContact(ContactInterface $contact)
+    {
+        if (!$this->hasContact($contact)) {
+            throw new \InvalidArgumentException('Trying to remove a contact that does not belong to this account');
+        }
+
+        $this->contacts->removeElement($contact);
+
+        if ($contact === $this->defaultContact) {
+            if ($this->contacts->count() > 0) {
+                $this->defaultContact = $this->contacts->first();
+
+                return;
+            }
+
+            $this->defaultContact = null;
+        }
+    }
+
+    /**
+     * Check if a Contact exists in the Collection.
+     *
+     * @param ContactInterface $contact
+     *
+     * @return bool wether the contact exists
+     */
+    public function hasContact(ContactInterface $contact)
+    {
+        return $this->contacts->contains($contact);
     }
 }
