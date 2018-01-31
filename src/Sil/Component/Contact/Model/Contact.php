@@ -14,11 +14,12 @@ namespace Sil\Component\Contact\Model;
 
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
+use Blast\Component\Resource\Model\ResourceInterface;
 
 /**
  * @author Romain Sanchez <romain.sanchez@libre-informatique.fr>
  */
-class Contact implements ContactInterface, GroupMemberInterface
+class Contact implements ResourceInterface, ContactInterface, GroupMemberInterface
 {
     /**
      * first name.
