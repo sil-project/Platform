@@ -54,16 +54,16 @@ RUN mkdir -p $HOME/bin && chown -R $USER:$GROUP $HOME
 USER $USER:$GROUP
 WORKDIR $HOME
 
+#should not be good, where does the current $PATH came from ?
+ENV PATH=$PATH:$HOME/bin
 
 # Add some before install step to run test faster
-RUN composer self-update --no-progress --stable
+RUN composer self-update --no-progress --stable && composer global config bin-dir ${HOME}/bin
+
+RUN for i in "sllh/composer-lint" "pdepend/pdepend" "squizlabs/php_codesniffer" "phploc/phploc" "phpmd/phpmd" "sebastian/phpcpd" "theseer/phpdox"; do composer global require $i:@stable --prefer-dist --no-interaction; done
 
 ENV NVM_DIR="$HOME/.nvm"
 RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash && [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" && nvm install 8.9 &&  npm config set color false
-
-
-#should not be good, where does the current $PATH came from ?
-ENV PATH=$PATH:$HOME/bin
 
 #Try to cache various tools
 RUN wget -q https://github.com/mozilla/geckodriver/releases/download/v0.19.1/geckodriver-v0.19.1-linux64.tar.gz &&  gunzip -f geckodriver-v0.19.1-linux64.tar.gz && tar -xvf geckodriver-v0.19.1-linux64.tar &&  mv geckodriver ${HOME}/bin/
@@ -71,6 +71,6 @@ RUN wget -q https://selenium-release.storage.googleapis.com/3.7/selenium-server-
 RUN wget -q https://github.com/satooshi/php-coveralls/releases/download/v1.0.1/coveralls.phar --output-document="${HOME}/bin/coveralls" && chmod u+x "${HOME}/bin/coveralls"
 
 
-
+# Maybe use a docker shared volume for .composer as cache in all build
 # try to cache some composer & npm package
-RUN cd /tmp && git clone https://github.com/sil-project/Platform.git && cd Platform && composer install --no-ansi --no-interaction --no-scripts --prefer-dist && export NVM_DIR="$HOME/.nvm" && . "$NVM_DIR/nvm.sh" && npm install && cd /tmp && rm -rf /tmp/Platform
+RUN cd /tmp && git clone https://github.com/sil-project/Platform.git && cd Platform && composer install --no-ansi --no-interaction --no-scripts --prefer-dist && export NVM_DIR="$HOME/.nvm" && . "$NVM_DIR/nvm.sh" && npm install && npm run gulp && cd /tmp && rm -rf /tmp/Platform
