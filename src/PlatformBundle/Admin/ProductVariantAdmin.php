@@ -12,6 +12,7 @@ namespace PlatformBundle\Admin;
 
 use Blast\Bundle\CoreBundle\Admin\Traits\HandlesRelationsAdmin;
 use Sonata\AdminBundle\Form\FormMapper;
+use Sonata\AdminBundle\Show\ShowMapper;
 use Sonata\CoreBundle\Validator\ErrorElement;
 use Blast\Bundle\ResourceBundle\Sonata\Admin\ResourceAdmin;
 use Sil\Component\Stock\Query\StockItemQueriesInterface;
@@ -100,6 +101,17 @@ class ProductVariantAdmin extends ResourceAdmin
         ];
 
         return $list;
+    }
+
+    public function configureShowFields(ShowMapper $mapper)
+    {
+        parent::configureShowFields($mapper);
+
+        $productVariant = $this->getSubject();
+
+        if ($productVariant && !$productVariant->isTracked()) {
+            $this->removeShowTab('sil.stock.stock_item.show.tab.stocks', $mapper);
+        }
     }
 
     public function configureFormFields(FormMapper $mapper)

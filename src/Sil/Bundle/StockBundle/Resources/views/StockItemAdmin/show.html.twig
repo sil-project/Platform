@@ -4,9 +4,11 @@
 
     {{ parent()}}
 
-    <a class="btn btn-default openInModal" href="{{ path('admin_stock_unit_update_stock',{item_id:object.id}) }}">
-        <i class="fa fa-plus-circle" aria-hidden="true"></i> {{ 'sil.stock.stock_item.show.action.update_stock'|trans }}
-    </a>
+    {% if object.tracked is defined and object.tracked == false %}
+    {% else %}
+        <a class="btn btn-default openInModal" href="{{ path('admin_stock_unit_update_stock',{item_id:object.id}) }}">
+            <i class="fa fa-plus-circle" aria-hidden="true"></i> {{ 'sil.stock.stock_item.show.action.update_stock'|trans }}
+        </a>
+    {% endif %}
 
 {% endblock %}
-

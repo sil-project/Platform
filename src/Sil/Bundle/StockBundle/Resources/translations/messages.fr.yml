@@ -43,10 +43,10 @@ sil:
             create_and_return_to_list: Créer
             update_and_return_to_list: Enregistrer
 
-
         ##############
         # OPERATIONS
         ##############
+
         operation:
             breadcrumb:
                 link:
@@ -439,6 +439,10 @@ sil:
                     batch: N° de lot
                     qty: Quantité
             form:
+                tab:
+                    general: Général
+                group:
+                    general: ''
                 label:
                     created_at: Date de création
                     code: Référence
