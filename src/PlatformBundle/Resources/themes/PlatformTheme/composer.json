@@ -1,0 +1,10 @@
+{
+    "name": "sil/platform-theme",
+    "title": "Platform base theme",
+    "authors": [
+        {
+            "name": "Libre Informatique",
+            "homepage": "http://www.libre-informatique.fr/"
+        }
+    ]
+}

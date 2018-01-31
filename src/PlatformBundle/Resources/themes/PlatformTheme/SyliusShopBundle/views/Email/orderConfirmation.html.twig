@@ -1,0 +1,12 @@
+{% extends 'SyliusShopBundle:Email:emailTheme.html.twig' %}
+
+{% block subject %}
+    {{ 'lisem.email.orderConfirmation.title'|trans({}, 'messages') }}
+{% endblock %}
+
+{% block body_content %}
+    {% set url = order.channel.hostname is not null ? 'http://' ~ order.channel.hostname ~ path('sylius_shop_order_show', {'tokenValue': order.tokenValue, '_locale': order.localeCode}) : url('sylius_shop_order_show', {'tokenValue': order.tokenValue, '_locale': order.localeCode}) %}
+    {% autoescape %}
+        {{ 'lisem.email.orderConfirmation.content'|trans({'%orderNumber%':order.number, '%url%':url}, 'messages')|raw }}
+    {% endautoescape %}
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends '@SyliusShop/layout.html.twig' %}
+
+{% block content %}
+
+    <style rel="stylesheet">
+        div.exceptionContainer {
+            margin:0 auto;
+            position: relative;
+            text-align: center;
+        }
+        div.exceptionContainer h1 {
+            font-size: 3em;
+            color: gray;
+        }
+        div.exceptionContainer p {
+            font-size: 1.2em;
+            color: gray;
+        }
+
+    </style>
+
+    {% block exception_content %}{% endblock %}
+{% endblock %}

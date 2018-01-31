@@ -6,7 +6,11 @@ imports:
 
 sylius_theme:
     sources:
-        filesystem: ~
+        filesystem:
+            enabled: true
+            filename: composer.json
+            directories:
+                - "%kernel.project_dir%/src/PlatformBundle/Resources/themes"
 
 sylius_product:
     driver: doctrine/orm

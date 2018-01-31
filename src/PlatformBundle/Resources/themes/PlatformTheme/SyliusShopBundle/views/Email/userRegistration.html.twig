@@ -1,0 +1,11 @@
+{% extends 'SyliusShopBundle:Email:emailTheme.html.twig' %}
+
+{% block subject %}
+    {{ 'lisem.email.userRegistration.title'|trans({}, 'messages') }}
+{% endblock %}
+
+{% block body_content %}
+    {% autoescape %}
+        {{ 'lisem.email.userRegistration.content'|trans({'%username%':user.username}, 'messages')|raw }}
+    {% endautoescape %}
+{% endblock %}

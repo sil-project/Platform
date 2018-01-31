@@ -1,0 +1,23 @@
+{% extends 'SyliusShopBundle:Email:emailTheme.html.twig' %}
+
+{% block subject %}
+    {{ 'lisem.email.contactRequest.title'|trans({}, 'messages') }}
+{% endblock %}
+
+{% block body_content %}
+    {% autoescape %}
+        <p>
+            <b>{{ 'lisem.email.contactRequest.message_from'|trans({}, 'messages') }}: </b>{{ data.email }}
+        </p>
+
+        <p>
+            <b>{{ 'lisem.email.contactRequest.message_content'|trans({}, 'messages') }}:</b>
+        </p>
+
+        <hr/>
+
+        <p>
+            {{ data.message|nl2br }}
+        </p>
+    {% endautoescape %}
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'BlastDecoratorBundle:Admin:layout.html.twig' %}
+
+{% block body_attributes %}class="sonata-bc skin-blue fixed librinfo sidebar-collapse"{% endblock %}
+
+{% block sonata_side_nav %}{% endblock %}
+
+{% block sonata_top_nav_menu %}{% endblock %}
+
+{% block sonata_admin_content %}
+
+    <style rel="stylesheet">
+        div.exceptionContainer {
+            margin: 0 auto;
+            transform: translate(-50%,-75%);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            text-align: center;
+        }
+        div.exceptionContainer h1 {
+            font-size: 3em;
+            color: gray;
+        }
+        div.exceptionContainer p {
+            font-size: 1.2em;
+            color: gray;
+        }
+        div.exceptionContainer .errorImage {
+            display:block;
+            margin: 0 auto;
+        }
+
+        .main-header .logo {
+            display: none;
+        }
+        .main-sidebar {
+            transform: translate(-230px, 0);
+        }
+
+    </style>
+
+    {% block exception_content %}{% endblock %}
+{% endblock %}

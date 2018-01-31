@@ -1,0 +1,49 @@
+body.pushable > .pusher {
+    background-color: #FFF;
+}
+
+#menu,
+#menu a.item {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#3c8dbc+0,3c8dbc+97,44687f+100 */
+    background: rgb(60,141,188);
+    /* Old browsers */
+    background: -moz-linear-gradient(top, rgba(60,141,188,1) 0%, rgba(60,141,188,1) 2.65rem, rgba(68,104,127,1) 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(60,141,188,1) 0%,rgba(60,141,188,1) 2.65rem,rgba(68,104,127,1) 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(60,141,188,1) 0%,rgba(60,141,188,1) 2.65rem,rgba(68,104,127,1) 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
+#footer {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#44687f+0,3c8dbc+3,3c8dbc+100 */
+    background: rgb(68,104,127);
+    /* Old browsers */
+    background: -moz-linear-gradient(top, rgba(68,104,127,1) 0%, rgba(60,141,188,1) 0.5rem, rgba(60,141,188,1) 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(68,104,127,1) 0%,rgba(60,141,188,1) 0.5rem,rgba(60,141,188,1) 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(68,104,127,1) 0%,rgba(60,141,188,1) 0.5rem,rgba(60,141,188,1) 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
+.ui.card > .image > img,
+.ui.cards > .card > .image > img {
+    /*max-width : 260px;*/
+    max-width : 100%;
+    max-height: 260px;
+    /*min-height: 260px;*/
+    margin    : 0 auto;
+    width     : auto;
+}
+
+.ui.fluid.card .blurring.dimmable.image .ui.fluid.image {
+    min-height: 261px;
+}
+
+#sylius-cart-items td.single.line div.image {
+    min-height: 80px;
+    max-height: 80px;
+    min-width : 80px;
+    max-width : 80px;
+}
