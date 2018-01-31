@@ -1,15 +1,15 @@
-
 {% block sil_dropzone_widget %}
 
     {% set dropzoneId = id|split('_')[0] ~ 'drop' %}
 
     {% if value is iterable %}
-        {% for file in value%}
+        {% for file in value %}
             <input type="hidden" name="load_files[]" value="{{ file.id }}" data-dropzone-id="{{ dropzoneId}}"/>
         {% endfor %}
     {% elseif value is not null %}
         <input type="hidden" name="load_files[]" value="{{ value.id }}" data-dropzone-id="{{ dropzoneId }}"/>
     {% endif %}
+
     {% spaceless %}
         <div id="{{ dropzoneId }}" class="dropzone add_files" data-sil-dropzone='{{ {
             id:  dropzoneId,
