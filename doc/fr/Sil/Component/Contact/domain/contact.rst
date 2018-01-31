@@ -29,3 +29,7 @@ Les Contacts sont représentés par le modèle Contact.
 +-----------------+-----------------------------------------------------------------------------+
 | phones          | Collection des téléphones du Contact                                        |
 +-----------------+-----------------------------------------------------------------------------+
+
+.. note::
+
+  Le modèle ``Contact`` implémente l'interface ``GroupMemberInterface``.
