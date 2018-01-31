@@ -10,6 +10,10 @@ pipeline {
         RND = "${BUILD_NUMBER}_${BRANCH_NAME}"
     }
 
+    options {
+        timeout(time: 1, unit: 'HOURS')
+        timestamps()
+    }
 
     stages {
     	stage ('Where Am I') {
