@@ -514,6 +514,7 @@ sil:
                     name: Nom
                     on_hand: Stock disponible
                     on_hold: Stock réservé
+                    option_values: Options
                     output_strategy: Stratégie de sortie
                     packaging: Conditionnement
                     seed_batches: Lots
