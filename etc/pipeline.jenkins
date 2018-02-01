@@ -60,13 +60,13 @@ pipeline {
         stage ('Run Test') {
             steps {
                 sh "${WORKSPACE}/bin/ci-scripts/do_run.sh run_test.sh"
-                step([
+            /*    step([
                     $class: 'XUnitBuilder',
                     thresholds: [[$class: 'FailedThreshold', unstableThreshold: '1']],
                     tools: [[$class: 'JUnitType', pattern: 'build/junit.xml']]
                 ])
-                publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'build/coverage/', reportFiles: 'index.html', reportName: 'Coverage', reportTitles: ''])
-            }
+                publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'build/coverage', reportFiles: 'index.html', reportName: 'Coverage Report', reportTitles: ''])
+            */}
 	}
 
         stage ('Archive Gzip') {
