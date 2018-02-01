@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Copyright (C) 2015-2017 Libre Informatique
+ * Copyright (C) 2015-2018 Libre Informatique
  *
  * This file is licenced under the GNU LGPL v3.
  * For the full copyright and license information, please view the LICENSE.md
@@ -48,15 +48,17 @@ class CreateUserCommandTest extends TestCase
      */
     public function testConfigure()
     {
+        /* @todo configure is protected, test should be re-write */
+
+        /*
         $this->markTestIncomplete('This test has not been implemented yet.');
 
         $this->myCommand->configure();
 
         $this->myConfig = $this->myCommand->getName();
-        /*
-         * @todo : check if we need to test more (or not)
-         */
+
         $this->assertContains('user', $this->myConfig);
+        */
     }
 
     public function testExecute()
