@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Copyright (C) 2015-2017 Libre Informatique
+ * Copyright (C) 2015-2018 Libre Informatique
  *
  * This file is licenced under the GNU LGPL v3.
  * For the full copyright and license information, please view the LICENSE.md
@@ -29,6 +29,10 @@ class BlastCsvImportCommandTest extends BlastTestCase
 
     public function testSimpleLoad()
     {
+        $this->markTestSkipped(
+            'Disable for performance'
+        );
+
         $this->launchCommand([
             'command'          => 'blast:import:csv',
             '--dir'            => $this->testResourcesPath . '/import',
@@ -40,6 +44,9 @@ class BlastCsvImportCommandTest extends BlastTestCase
 
     public function testSecondLoad()
     {
+        $this->markTestSkipped(
+            'Disable for performance'
+        );
         $this->launchCommand([
             'command'          => 'blast:import:csv',
             '--dir'            => $this->testResourcesPath . '/import',
@@ -51,6 +58,9 @@ class BlastCsvImportCommandTest extends BlastTestCase
 
     public function testParentLoad()
     {
+        $this->markTestSkipped(
+            'Disable for performance'
+        );
         $this->launchCommand([
             'command'          => 'blast:import:csv',
             '--dir'            => $this->testResourcesPath . '/import',
