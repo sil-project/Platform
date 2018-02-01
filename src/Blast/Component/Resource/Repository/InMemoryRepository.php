@@ -137,7 +137,9 @@ class InMemoryRepository implements ResourceRepositoryInterface
             foreach ($criteria as $criterion => $value) {
                 if ($value !== $this->accessor->getValue($object, $criterion)) {
                     $key = array_search($object, $resources);
-                    unset($resources[$key]);
+                    if ($key !== false) {
+                        unset($resources[$key]);
+                    }
                 }
             }
         }
