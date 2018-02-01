@@ -11,6 +11,8 @@
          syntaxCheck="true"
 	 verbose="true"
          beStrictAboutOutputDuringTests="false"
+         beStrictAboutTestsThatDoNotTestAnything="false"
+         beStrictAboutCoversAnnotation="false"
          logIncompleteSkipped="false"
          >
 
