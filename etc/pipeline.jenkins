@@ -60,6 +60,12 @@ pipeline {
         stage ('Run Test') {
             steps {
                 sh "${WORKSPACE}/bin/ci-scripts/do_run.sh run_test.sh"
+                step([
+                    $class: 'XUnitBuilder',
+                    thresholds: [[$class: 'FailedThreshold', unstableThreshold: '1']],
+                    tools: [[$class: 'JUnitType', pattern: 'build/junit.xml']]
+                ])
+                publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'build/coverage/', reportFiles: 'index.html', reportName: 'Coverage', reportTitles: ''])
             }
 	}
 
@@ -79,6 +85,7 @@ pipeline {
     post {
         always {
             cleanWs()
+
         }
     }
 
