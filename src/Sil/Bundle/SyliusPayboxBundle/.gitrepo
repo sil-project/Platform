@@ -6,7 +6,7 @@
 [subrepo]
 	remote = git@github.com:sil-project/SyliusPayboxBundle.git
 	branch = wip-platform
-	commit = 1e2b3224c70c82a8e0022570ac75469f6e96b6f5
+	commit = 58809e98eecb3cc8fcb6713faacffb4690581205
 	cmdver = 0.4.0
-	parent = 458ee449b75f5f91f8c052a1aaa0c4e597fe9a9e
+	parent = 22752ffcfa103439e6d7663b62489beec32f7770
 	method = merge
