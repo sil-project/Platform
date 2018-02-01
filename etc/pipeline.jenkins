@@ -79,14 +79,14 @@ pipeline {
         stage('Copy Paste Detection') {
             steps {
                 sh 'phpcpd --log-pmd build/pmd-cpd.xml ./src || exit 0'
-                dry canRunOnFailed: true, pattern: 'build/logs/pmd-cpd.xml'
+                dry canRunOnFailed: true, pattern: 'build/pmd-cpd.xml'
             }
         }
 
         stage('Mess Detection') {
             steps {
-                sh 'phpmd ./src xml phpmd.xml.dist --reportfile build/logs/pmd.xml || exit 0'
-                pmd canRunOnFailed: true, pattern: 'build/logs/pmd.xml'
+                sh 'phpmd ./src xml phpmd.xml.dist --reportfile build/pmd.xml || exit 0'
+                pmd canRunOnFailed: true, pattern: 'build/pmd.xml'
             }
         }
 
