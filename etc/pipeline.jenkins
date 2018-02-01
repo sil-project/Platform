@@ -60,14 +60,36 @@ pipeline {
         stage ('Run Test') {
             steps {
                 sh "${WORKSPACE}/bin/ci-scripts/do_run.sh run_test.sh"
-            /*    step([
+                step([
                     $class: 'XUnitBuilder',
                     thresholds: [[$class: 'FailedThreshold', unstableThreshold: '1']],
                     tools: [[$class: 'JUnitType', pattern: 'build/junit.xml']]
                 ])
                 publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'build/coverage', reportFiles: 'index.html', reportName: 'Coverage Report', reportTitles: ''])
-            */}
+            }
 	}
+
+        stage('Check Style') {
+            steps {
+                sh 'phpcs --report=checkstyle --report-file=build/checkstyle.xml --standard=PSR2 --extensions=php ./src || exit 0'
+                checkstyle pattern: 'build/checkstyle.xml'
+            }
+        }
+
+        stage('Copy Paste Detection') {
+            steps {
+                sh 'phpcpd --log-pmd build/pmd-cpd.xml ./src || exit 0'
+                dry canRunOnFailed: true, pattern: 'build/logs/pmd-cpd.xml'
+            }
+        }
+
+        stage('Mess Detection') {
+            steps {
+                sh 'phpmd ./src xml phpmd.xml.dist --reportfile build/logs/pmd.xml || exit 0'
+                pmd canRunOnFailed: true, pattern: 'build/logs/pmd.xml'
+            }
+        }
+
 
         stage ('Archive Gzip') {
             steps {
