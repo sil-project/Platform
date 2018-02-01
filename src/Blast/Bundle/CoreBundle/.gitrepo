@@ -6,7 +6,7 @@
 [subrepo]
 	remote = git@github.com:blast-project/CoreBundle.git
 	branch = wip-platform
-	commit = c03fc2872d35871bbf7349c59f9e991db19320ad
+	commit = 7c5e3932ef352e0a6f64f5bbe38940be808034d3
 	cmdver = 0.4.0
-	parent = e301aef63cedffbe18dffea9db11f27b3380e128
+	parent = 569aa6ba893de7a12efdc26254156dd1ca07f35c
 	method = merge
