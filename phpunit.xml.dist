@@ -36,12 +36,12 @@
         <directory>./Resources/</directory>
         <directory>./vendor/</directory>
         <directory>./coverage/</directory>
-        <directory>./src/*/Bundle/*/bin/</directory>
-        <directory>./src/*/Bundle/*/etc/</directory>
-        <directory>./src/*/Bundle/*/Tests/</directory>
-        <directory>./src/*/Bundle/*/DataFixtures/</directory>
-        <directory>./src/*/Bundle/*/vendor/</directory>
-        <directory>./src/*/Bundle/*/coverage/</directory>
+        <directory>./src/*/*/*/bin/</directory>
+        <directory>./src/*/*/*/etc/</directory>
+        <directory>./src/*/*/*/Tests/</directory>
+        <directory>./src/*/*/*/DataFixtures/</directory>
+        <directory>./src/*/*/*/vendor/</directory>
+        <directory>./src/*/*/*/coverage/</directory>
       </exclude>
     </whitelist>
   </filter>
