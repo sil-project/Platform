@@ -18,7 +18,7 @@ fi
 
 set +e
 composer validate
-CMPCMD=install --prefer-dist
+CMPCMD='install --prefer-dist'
 if [ $? -ne 0 ]
 then
     CMPCMD=update
