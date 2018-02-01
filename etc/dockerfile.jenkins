@@ -61,7 +61,7 @@ ENV PATH=$PATH:$HOME/bin
 # Add some before install step to run test faster
 RUN composer self-update --no-progress --stable && composer global config bin-dir ${HOME}/bin
 
-RUN for i in "sllh/composer-lint" "pdepend/pdepend" "squizlabs/php_codesniffer" "phploc/phploc" "phpmd/phpmd" "sebastian/phpcpd" "theseer/phpdox"; do composer global require $i:@stable --prefer-dist --no-interaction; done
+RUN for i in "sllh/composer-lint" "pdepend/pdepend" "squizlabs/php_codesniffer" "phploc/phploc" "phpmd/phpmd" "sebastian/phpcpd" "theseer/phpdox" "phpmetrics/phpmetrics"; do composer global require $i:@stable --prefer-dist --no-interaction; done
 
 ENV NVM_DIR="$HOME/.nvm"
 RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash && [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" && nvm install 8.9 &&  npm config set color false

@@ -90,6 +90,12 @@ pipeline {
             }
         }
 
+        stage('Collect Metrics') {
+            steps {
+                sh "phpmetrics --quiet --report-html=build/metrics.html ./src"
+                publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'build/', reportFiles: 'metrics.html', reportName: 'Metrics Report', reportTitles: ''])
+            }
+        }
 
         stage ('Archive Gzip') {
             steps {
