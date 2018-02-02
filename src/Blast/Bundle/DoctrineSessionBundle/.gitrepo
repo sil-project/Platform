@@ -6,7 +6,7 @@
 [subrepo]
 	remote = git@github.com:blast-project/DoctrineSessionBundle.git
 	branch = wip-platform
-	commit = a5b541d6f2a91feab2109511b5d7ee16e8e99a4c
+	commit = ab92118085d09fa881c4c358e18362d4f7c0a7f7
 	cmdver = 0.4.0
-	parent = 4466950ab021f4cb4c6e152a942fb345b60a0b79
+	parent = b0cec6cca78d547cb078e250c1980308b124316e
 	method = merge
