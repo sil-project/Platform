@@ -35,13 +35,11 @@
         <directory>./DataFixtures/</directory>
         <directory>./Resources/</directory>
         <directory>./vendor/</directory>
-        <directory>./coverage/</directory>
         <directory>./src/*/*/*/bin/</directory>
         <directory>./src/*/*/*/etc/</directory>
         <directory>./src/*/*/*/Tests/</directory>
         <directory>./src/*/*/*/DataFixtures/</directory>
         <directory>./src/*/*/*/vendor/</directory>
-        <directory>./src/*/*/*/coverage/</directory>
       </exclude>
     </whitelist>
   </filter>

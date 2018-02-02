@@ -7,8 +7,13 @@
          convertNoticesToExceptions="true"
          convertWarningsToExceptions="true"
          processIsolation="false"
-         stopOnFailure="false"
-         syntaxCheck="false"
+         stopOnFailure="true"
+         syntaxCheck="true"
+	 verbose="true"
+         beStrictAboutOutputDuringTests="false"
+         beStrictAboutTestsThatDoNotTestAnything="false"
+         beStrictAboutCoversAnnotation="false"
+         logIncompleteSkipped="false"
 	 >
 
 
@@ -25,7 +30,8 @@
       <exclude>
         <directory>./Tests/</directory>
         <directory>./Resources/</directory>
-        <directory>./bin/</directory>
+        <directory>./vendor/</directory>
+        <directory>./coverage/</directory>
       </exclude>
     </whitelist>
   </filter>
@@ -35,4 +41,10 @@
     <ini name="display_startup_errors" value="On" />
   </php>
 
+  <logging>
+    <log type="coverage-html" target="build/coverage"/>
+    <log type="coverage-clover" target="build/clover.xml"/>
+    <log type="coverage-crap4j" target="build/crap4j.xml"/>
+    <log type="junit" target="build/junit.xml" logIncompleteSkipped="false"/>
+  </logging>
 </phpunit>
