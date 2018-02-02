@@ -6,7 +6,7 @@
 [subrepo]
 	remote = git@github.com:blast-project/ResourceBundle.git
 	branch = wip-platform
-	commit = 95622a1e5cda8a89032e2f6b7f928896b83a8389
+	commit = 5ca48ad9dc8c44e316cf0839e57b0b0e601f828a
 	cmdver = 0.4.0
-	parent = 15a7b3a10fd6efdf72268d83680155170210db46
+	parent = 92cf39fd1ef2376a73b6bf3f39054b4e4d076c62
 	method = merge
