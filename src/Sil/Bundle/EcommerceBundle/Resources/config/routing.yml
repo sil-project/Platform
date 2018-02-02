@@ -1,0 +1,40 @@
+sil_ecommerce.order.inline_edit:
+    path: /%sil.url_prefix%/sil/ecommerce/order/inline_edit
+    defaults: { _controller: SilEcommerceBundle:Ajax:orderInlineEdit }
+
+sil_ecommerce.order.add_item:
+    path: /%sil.url_prefix%/sil/ecommerce/order/item/add
+    defaults: { _controller: SilEcommerceBundle:Ajax:addToOrder }
+
+sil_ecommerce.order.remove_item:
+    path: /%sil.url_prefix%/sil/ecommerce/order/item/remove
+    defaults: { _controller: SilEcommerceBundle:Ajax:removeFromOrder }
+
+sil_ecommerce.order.add_product:
+    path: /%sil.url_prefix%/sil/ecommerce/order/product/add
+    defaults: { _controller: SilEcommerceBundle:Ajax:addNewProduct }
+
+sylius_shop_checkout_address_override:
+    path: /checkout/address
+    methods: [GET, PUT]
+    defaults:
+        _controller: sylius.controller.order:updateAction
+        _sylius:
+            event: address
+            flash: false
+            template: SilEcommerceBundle:Checkout:address.html.twig
+            form:
+                type: Sylius\Bundle\CoreBundle\Form\Type\Checkout\AddressType
+                options:
+                    customer: expr:service('sylius.context.customer').getCustomer()
+            repository:
+                method: findCartForAddressing
+                arguments:
+                    - "expr:service('sylius.context.cart').getCart().getId()"
+            state_machine:
+                graph: sylius_order_checkout
+                transition: address
+
+sil_ecommerce.order.updateBulk:
+    path: /%sil.url_prefix%/sil/ecommerce/order/item/updateBulk
+    defaults: { _controller: SilEcommerceBundle:Ajax:updateOrderItemBulkQuatity }
