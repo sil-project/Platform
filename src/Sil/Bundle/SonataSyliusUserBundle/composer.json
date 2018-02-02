@@ -1,5 +1,5 @@
 {
-    "name": "libre-informatique/sonata-sylius-user-bundle",
+    "name": "sil-project/sonata-sylius-user-bundle",
     "type": "symfony-bundle",
     "description": "Symfony bundle providing a bridge between SonataAdmin and SyliusUser (an alternative to SonataUserBundle)",
     "require": {
@@ -20,7 +20,7 @@
         "sonata admin",
         "sylius"
     ],
-    "homepage": "https://github.com/libre-informatique/SonataSyliusUserBundle",
+    "homepage": "https://github.com/sil-project/SonataSyliusUserBundle",
     "authors": [
         {
             "name": "Marcos Bezerra de Menezes",
