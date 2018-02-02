@@ -6,7 +6,7 @@
 [subrepo]
 	remote = git@github.com:sil-project/UomBundle.git
 	branch = wip-platform
-	commit = b2184ff2e98dcf1e887d67d262e415c52dfd731d
+	commit = f12b596588901fa1e9505c50008a5a9f131ba269
 	method = merge
 	cmdver = 0.4.0
-	parent = d6fc205f387a05ac3c27c228b1f77aa3055dcd75
+	parent = 4d0bf1676123f28e93ff1ca564183ecf217ca7d9
