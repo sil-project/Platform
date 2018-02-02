@@ -29,11 +29,14 @@ pipeline {
                 sh "cat ${WORKSPACE}/.env"
             }
         }
-	stage ('Prepare Host') {
+
+
+        stage ('Prepare') {
             steps {
                 sh "${WORKSPACE}/bin/ci-scripts/do_run.sh before_install_test.sh"
             }
         }
+
         stage ('Create Database') {
             steps {
                 sh "${WORKSPACE}/bin/ci-scripts/do_run.sh set_db_host_test.sh # needed before create as it set .pgpass"
@@ -42,26 +45,40 @@ pipeline {
 
             }
         }
-        stage ('Build Project') {
-            steps {
-                sh "${WORKSPACE}/bin/ci-scripts/do_run.sh install_test.sh"
+
+        stage('Parallel Install') {
+            parallel {
+                stage ('Install Test') {
+                    steps {
+                        sh "${WORKSPACE}/bin/ci-scripts/do_run.sh install_test.sh"
+                    }
+                }
+
+                stage ('Install Doc') {
+                    steps {
+                        sh "${WORKSPACE}/bin/ci-scripts/do_run.sh install_doc.sh"
+                    }
+                }
             }
         }
-        stage ('Start Project') {
-            steps {
-                sh "${WORKSPACE}/bin/ci-scripts/do_run.sh before_script_test.sh"
-            }
-	}
+        stage('Parallel Start') {
+            parallel {
+                stage ('Start Project') {
+                    steps {
+                        sh "${WORKSPACE}/bin/ci-scripts/do_run.sh before_script_test.sh"
+                    }
+	        }
 
-        stage ('Start Selenium') {
-            steps {
-                sh "${WORKSPACE}/bin/ci-scripts/do_run.sh launch_selenium_test.sh"
+                stage ('Start Selenium') {
+                    steps {
+                        sh "${WORKSPACE}/bin/ci-scripts/do_run.sh launch_selenium_test.sh"
+                    }
+	        }
             }
-	}
+        }
 
         stage('Parallel Report') {
             parallel {
-
                 stage ('Run Test') {
                     steps {
                         sh "${WORKSPACE}/bin/ci-scripts/do_run.sh run_test.sh"
@@ -73,6 +90,13 @@ pipeline {
                         publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'build/coverage', reportFiles: 'index.html', reportName: 'Coverage Report', reportTitles: ''])
                     }
 	        }
+
+                stage ('Run Doc') {
+                    steps {
+                        sh "${WORKSPACE}/bin/ci-scripts/do_run.sh run_doc.sh"
+                    }
+                }
+
 
                 stage('Check Style') {
                     steps {
