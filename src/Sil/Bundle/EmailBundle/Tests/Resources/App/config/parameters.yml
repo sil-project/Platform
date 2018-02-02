@@ -1,12 +1,8 @@
-# This file is auto-generated during the composer install
 parameters:
+    database_driver: pdo_pgsql
     database_host: 127.0.0.1
     database_port: 5432
-    database_name: quotidianus_02
-    database_user: quotidie
-    database_password: libreinfo
-    mailer_transport: smtp
-    mailer_host: 127.0.0.1
-    mailer_user: null
-    mailer_password: null
-    secret: ThisTokenIsNotSoSecretChangeIt
+    database_name: blast_test
+    database_user: blast_test_user
+    database_password: blast_test
+    secret: 'I love secret'
