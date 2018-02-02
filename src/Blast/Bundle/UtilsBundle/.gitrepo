@@ -6,7 +6,7 @@
 [subrepo]
 	remote = git@github.com:blast-project/UtilsBundle.git
 	branch = wip-platform
-	commit = d1d776ceefb5fc7eef5ffa40acc74ae6bf308b31
+	commit = 1d7f469c6706119a588644470f4e03cb1faf8139
 	cmdver = 0.4.0
-	parent = a0ab4407e5e1b021d50be00ef614788f0f9f54bb
+	parent = 2736b9d6eca7fd4bdaefc32dfc55fdb5132b4727
 	method = merge
