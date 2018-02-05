@@ -5,8 +5,6 @@ imports:
 
 services:
 
-
-
     blast.resource_registry:
          class: Blast\Component\Resource\Metadata\MetadataRegistry
 

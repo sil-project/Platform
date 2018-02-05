@@ -9,7 +9,7 @@ blast_resource:
 
       routing:
         enable: true
-        path: contacts
+        path: my/contacts
         prefix: admin
         redirect: list #default
         view: {type: description, resource: "app.view.contact"} #use value as prefix for create,show,list,update,delete
@@ -20,11 +20,10 @@ blast_resource:
 
           do_something:
             path: do-something/{arg}
+            view: {type: template, resource: "app.view.contact.do_something"}
             action: do # default : App\Controller::do_something
             requirements:
               arg: \d+
-            view: {type: template, resource: "app.view.contact.do_something"}
-
 
       api:
         enable: true
