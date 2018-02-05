@@ -18,7 +18,6 @@
 
 # Composer PHAR
 /composer.phar
-composer.lock
 
 /vendor/
 
@@ -72,3 +71,4 @@ src/Tests/_support/_generated/*
 .Trashes
 ehthumbs.db
 Thumbs.db
+studio.json

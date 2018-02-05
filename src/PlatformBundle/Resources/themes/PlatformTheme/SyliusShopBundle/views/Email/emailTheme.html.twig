@@ -1,0 +1,103 @@
+{% block subject %}
+
+{% endblock %}
+
+{% block body %}
+
+{#
+########################################################
+    STYLES
+########################################################
+#}
+
+{% set light_bg_color = "#F9FAFB" %}
+{% set light_fg_color = "#262727" %}
+
+{% set main_bg_color = "#4F805D" %}
+{% set main_fg_color = "#F9FAFB" %}
+
+{% set secondary_bg_color = "#1B1C1D" %}
+{% set secondary_fg_color = "#F9FAFB" %}
+
+{% set border_color = "#FFF" %}
+
+{% set left_block_gradiant = "/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,444444+100&0+0,0.65+100 */
+background: -moz-linear-gradient(left, rgba(0,0,0,0) 0%, rgba(68,68,68,0.65) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(left, rgba(0,0,0,0) 0%,rgba(68,68,68,0.65) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to right, rgba(0,0,0,0) 0%,rgba(68,68,68,0.65) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6444444',GradientType=1 ); /* IE6-9 */" %}
+
+{% set right_block_gradiant = "/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#444444+0,000000+100&0.65+0,0+100 */
+background: -moz-linear-gradient(left, rgba(68,68,68,0.65) 0%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(left, rgba(68,68,68,0.65) 0%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to right, rgba(68,68,68,0.65) 0%,rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6444444', endColorstr='#00000000',GradientType=1 ); /* IE6-9 */" %}
+
+<style>
+    body {
+        margin:0;
+        padding:0;
+        background-color: {{secondary_bg_color}};
+        color: {{secondary_fg_color}};
+        font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+    }
+    .block {
+        position: relative;
+    }
+    .block:before,
+    .block:after {
+        content: ' ';
+        width: 10px;
+        display: block;
+        position: absolute;
+        height: 100%;
+        top: 0;
+    }
+    .block:before {
+        left: -20px;
+        float: left;
+        {{ left_block_gradiant }}
+    }
+    .block:after {
+        right: -20px;
+        float: right;
+        {{ right_block_gradiant }}
+    }
+</style>
+
+{#
+########################################################
+    CONTENT
+########################################################
+#}
+
+<div style="width:100%;background-color: {{light_bg_color}};color: {{light_fg_color}};">
+
+    <div style="width:100%;background-color: {{secondary_bg_color}};color: {{secondary_fg_color}};">
+        <div style="max-width:600px;margin:2em auto 0 auto;padding:2em 0;border:10px solid {{border_color}};border-bottom:0;" class="block">
+            <a href="{{ path('sylius_shop_homepage') }}" style="float:left;">
+                <img src="{{ (sil.web_dir ~ '/bundles/blastdecorator/logo-li.png')|dataUri(false)|raw }}" alt="Li logo" class="ui small image" style="max-width:100px;max-height:80px;margin-left:1em;" />
+            </a>
+            <h1 style="text-align:center;">{{ block('subject') }}</h1>
+        </div>
+    </div>
+    <div style="width:100%;background-color: {{main_bg_color}};color: {{main_fg_color}};">
+        <div style="max-width:600px;margin:0 auto;padding:0;border:10px solid {{border_color}};border-bottom:0;border-top:0;height:4px;" class="block">
+        </div>
+    </div>
+
+    <div style="width:100%;background-color: {{light_bg_color}};color: {{light_fg_color}};">
+        <div style="max-width:600px;margin:0 auto;padding:1em 0;border:10px solid {{border_color}};border-bottom:0;border-top:0;" class="block">
+            {% block body_content %}
+            {% endblock %}
+        </div>
+    </div>
+
+    <div style="width:100%;background-color: {{secondary_bg_color}};color: {{secondary_fg_color}};">
+        <div style="max-width:600px;margin:0 auto 2em auto;text-align:center;padding-top:2em;padding-bottom:2em;border:10px solid {{border_color}};border-top:0;" class="block">
+            &copy; {{ 'sylius.ui.your_store'|trans }}
+        </div>
+    </div>
+
+</div>
+{% endblock %}

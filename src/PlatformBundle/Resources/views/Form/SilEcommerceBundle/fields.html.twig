@@ -1,0 +1,8 @@
+{% extends 'SilEcommerceBundle:Form:fields.html.twig' %}
+
+{% block checkbox_widget -%}
+    {{ parent() }}
+    {% if name == 'tracked' %}
+        {% include 'PlatformBundle:Form/SilEcommerceBundle:stock_fields_script.js.twig' with {'field': id, 'uniqid':sonata_admin.admin.uniqid} %}
+    {% endif %}
+{%- endblock checkbox_widget %}

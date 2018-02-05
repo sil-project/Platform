@@ -11,16 +11,18 @@
          syntaxCheck="true"
 	 verbose="true"
          beStrictAboutOutputDuringTests="false"
-         logIncompleteSkipped="false"         
+         beStrictAboutTestsThatDoNotTestAnything="false"
+         beStrictAboutCoversAnnotation="false"
+         logIncompleteSkipped="false"
          >
 
 
   <testsuites>
     <testsuite name="Unit">
-      <directory>./src/*/Bundle/*/Tests/Unit</directory>
+      <directory>./src/*/*/*/Tests/Unit</directory>
     </testsuite>
     <testsuite name="Functional">
-      <directory>./src/*/Bundle/*/Tests/Functional</directory>
+      <directory>./src/*/*/*/Tests/Functional</directory>
     </testsuite>
   </testsuites>
 
@@ -33,13 +35,11 @@
         <directory>./DataFixtures/</directory>
         <directory>./Resources/</directory>
         <directory>./vendor/</directory>
-        <directory>./coverage/</directory>
-        <directory>./src/*/Bundle/*/bin/</directory>
-        <directory>./src/*/Bundle/*/etc/</directory>
-        <directory>./src/*/Bundle/*/Tests/</directory>
-        <directory>./src/*/Bundle/*/DataFixtures/</directory>
-        <directory>./src/*/Bundle/*/vendor/</directory>
-        <directory>./src/*/Bundle/*/coverage/</directory>
+        <directory>./src/*/*/*/bin/</directory>
+        <directory>./src/*/*/*/etc/</directory>
+        <directory>./src/*/*/*/Tests/</directory>
+        <directory>./src/*/*/*/DataFixtures/</directory>
+        <directory>./src/*/*/*/vendor/</directory>
       </exclude>
     </whitelist>
   </filter>
@@ -58,7 +58,7 @@
     <log type="coverage-crap4j" target="build/logs/crap4j.xml"/>
     <log type="junit" target="build/logs/junit.xml" logIncompleteSkipped="false"/>
   </logging>
-  
+
   <listeners>
     <listener class="Symfony\Bridge\PhpUnit\SymfonyTestsListener" />
   </listeners>

@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Copyright (C) 2015-2017 Libre Informatique
+ * Copyright (C) 2015-2018 Libre Informatique
  *
  * This file is licenced under the GNU LGPL v3.
  * For the full copyright and license information, please view the LICENSE.md
@@ -25,7 +25,7 @@ class StockUnitCRUDController extends CRUDController
         $templateKey = 'edit';
 
         $this->admin->checkAccess('create');
-        $stockItemRepository = $this->get('sil.repository.product');
+        $stockItemRepository = $this->get('sil.repository.stock_item');
         $item = $stockItemRepository->get($request->get('item_id'));
 
         $class = new \ReflectionClass($this->admin->hasActiveSubClass() ? $this->admin->getActiveSubClass() : $this->admin->getClass());

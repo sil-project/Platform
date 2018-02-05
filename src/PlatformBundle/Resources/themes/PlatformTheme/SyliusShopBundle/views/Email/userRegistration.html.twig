@@ -1,0 +1,11 @@
+{% extends 'SyliusShopBundle:Email:emailTheme.html.twig' %}
+
+{% block subject %}
+    {{ 'sil.ecommerce.email.userRegistration.title'|trans({}, 'messages') }}
+{% endblock %}
+
+{% block body_content %}
+    {% autoescape %}
+        {{ 'sil.ecommerce.email.userRegistration.content'|trans({'%username%':user.username}, 'messages')|raw }}
+    {% endautoescape %}
+{% endblock %}

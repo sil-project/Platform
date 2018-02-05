@@ -40,7 +40,7 @@ class ProductVariantAdmin extends SyliusGenericAdmin
     /**
      * @var string
      */
-    protected $productAdminCode = 'sil_ecommerce.admin.product';
+    protected $productAdminCode = 'sil.admin.product';
 
     /**
      * {@inheritdoc}
@@ -156,7 +156,7 @@ class ProductVariantAdmin extends SyliusGenericAdmin
     protected function optionValuesQueryBuilder()
     {
         $repository = $this->getConfigurationPool()->getContainer()->get('sylius.repository.product_option_value');
-        $productClass = $this->getConfigurationPool()->getContainer()->getParameter('sil.model.ecommerce_product.class');
+        $productClass = $this->getConfigurationPool()->getContainer()->getParameter('sil.model.product.class');
         /* todo: check this request */
         $queryBuilder = $repository->createQueryBuilder('o')
                       ->andWhere('o.option IN (SELECT o2 FROM ' . $productClass . ' p LEFT JOIN p.options o2 WHERE p = :product)')

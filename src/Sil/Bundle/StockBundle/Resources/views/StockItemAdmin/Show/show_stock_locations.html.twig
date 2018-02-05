@@ -15,7 +15,6 @@
                 <table class="table table-bordered sonata-ba-list">
                     <thead>
                         <tr>
-                          <th class="sonata-ba-list-field-header-text">{{ 'sil.stock.stock_unit.show.label.created_at'|trans }}</th>
                             <th class="sonata-ba-list-field-header-text">{{ 'sil.stock.stock_unit.show.label.created_at'|trans }}</th>
                             <th class="sonata-ba-list-field-header-text">{{ 'sil.stock.stock_unit.show.label.code'|trans }}</th>
                             <th class="sonata-ba-list-field-header-text">{{ 'sil.stock.stock_unit.show.label.batch'|trans }}</th>
@@ -27,7 +26,6 @@
                         {% for unit in admin.getUnitsByItemAndLocation(object, location) %}
 
                             <tr class="sonata-ba-view-container">
-                                <td><small>{{ unit.stockItem.id}}</small></td>
                                 <td><small>{{ unit.createdAt|date('d/m/Y H:i')}}</small></td>
                                 <td><small>{{ unit.code}}</small></td>
                                 <td><small>{{ unit.batch }}</small></td>

@@ -1,5 +1,5 @@
 {
-    "name": "libre-informatique/media-bundle",
+    "name": "sil-project/media-bundle",
     "type": "symfony-bundle",
     "description": "Media Bundle for Symfony",
     "require": {
@@ -21,7 +21,7 @@
         "symfony",
         "media"
     ],
-    "homepage": "https://github.com/libre-informatique/SymfonySilMediaBundle",
+    "homepage": "https://github.com/sil-project/SymfonySilMediaBundle",
     "authors": [
         {
             "name": "Romain SANCHEZ",

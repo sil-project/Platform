@@ -62,7 +62,7 @@ file that was distributed with this source code.
         <a class="logo" href="{{ url('sonata_admin_dashboard') }}">
             {% if 'single_image' == admin_pool.getOption('title_mode') or 'both' == admin_pool.getOption('title_mode') %}
                 {% if 'bundles/sonataadmin/logo_title.png' == admin_pool.titlelogo %}
-                    <img src="{{ asset('bundles/blastdecorator/logo-li.png') }}" alt="Libre Informatique">
+                    <img src="{{ asset('bundles/blastdecorator/logo-li-light.png') }}" alt="Libre Informatique">
                 {% else %}
                     <img src="{{ asset(admin_pool.titlelogo) }}" alt="{{ admin_pool.title }}">
                 {% endif %}

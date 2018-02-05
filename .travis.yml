@@ -25,7 +25,7 @@ env:
     - SYMFONY_DEPRECATIONS_HELPER=weak
     - TARGET=test
     - WHORUN=travis
-    
+
 matrix:
   fast_finish: true
   include:
@@ -38,14 +38,15 @@ matrix:
   allow_failures:
     - php: nightly
     - env: SYMFONY_DEPRECATIONS_HELPER=0
+    - env: TARGET=ant
 
 before_install:
-    - curl -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.1.2.deb && sudo dpkg -i --force-confnew  elasticsearch-6.1.2.deb && sudo service elasticsearch restart
-    - ln -s .env.travis .env # Enable env    
+    - ln -s .env.travis .env # Enable env
+    - ${SCRIPTS_FOLDER}/do_run.sh before_install_travis_${TARGET}.sh
     - ${SCRIPTS_FOLDER}/do_run.sh before_install_${TARGET}.sh
     - ${SCRIPTS_FOLDER}/do_run.sh create_database_${TARGET}.sh
     - ${SCRIPTS_FOLDER}/do_run.sh docker_run_elk_${TARGET}.sh
-    
+
 install:
     - ${SCRIPTS_FOLDER}/do_run.sh install_${TARGET}.sh
 

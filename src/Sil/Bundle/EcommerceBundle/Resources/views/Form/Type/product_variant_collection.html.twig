@@ -63,7 +63,7 @@
                                             <td>
                                                 <div class="btn-group">
 
-                                                    <a href="{{path('admin_ecommerce_productvariant_edit',{'id': nested_group_field.vars.value.id})}}" class="btn btn-success openInModal">
+                                                    <a href="{{path('admin_ecommerce_product_variant_edit',{'id': nested_group_field.vars.value.id})}}" class="btn btn-success openInModal">
                                                         <i class="fa fa-pencil" aria-hidden="true"></i>
                                                         <!-- {{'action_edit'|trans({},'SonataAdminBundle')}} -->
                                                     </a>
@@ -98,8 +98,11 @@
                     CUSTOM DISPLAY OF PRODUCT VARIANTS
                 #}
                 {% if sonata_admin.inline == 'table-list' %}
-                    {% if form.children | length > 0 %}
-                        {% if name == 'variants' and (sonata_admin.admin.classnameLabel == 'SeedsProduct' or sonata_admin.admin.classnameLabel == 'OtherProduct') %}
+
+
+
+                    {% if form.children|length > 0 %}
+                        {% if name == 'variants' %}
 
                             {% set showFields = attr['data-showFields']|split(',')|trimArray %}
 

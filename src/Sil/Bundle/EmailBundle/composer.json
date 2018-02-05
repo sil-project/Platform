@@ -1,5 +1,5 @@
 {
-    "name": "libre-informatique/email-bundle",
+    "name": "sil-project/email-bundle",
     "type": "symfony-bundle",
     "description": "Email Bundle for Symfony",
     "require": {
@@ -11,7 +11,7 @@
         "blast-project/base-entities-bundle": "self.version",
         "blast-project/outer-extension-bundle": "self.version",
         "blast-project/utils-bundle": "self.version",
-        "libre-informatique/media-bundle": "self.version",
+        "sil-project/media-bundle": "self.version",
         "stfalcon/tinymce-bundle": ">=2.1",
         "html2text/html2text": ">=4.0",
         "symfony/swiftmailer-bundle": "^3.0",
@@ -29,7 +29,7 @@
         "sonata",
         "symfony"
     ],
-    "homepage": "https://github.com/libre-informatique/SymfonySilEmailBundle",
+    "homepage": "https://github.com/sil-project/SymfonySilEmailBundle",
     "authors": [
         {
             "name": "Romain SANCHEZ",

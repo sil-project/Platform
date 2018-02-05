@@ -1,0 +1,12 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = git@github.com:sil-project/Contact.git
+	branch = wip-platform
+	commit = 6751bd3c3143e83116fdda5c54eafa9536616489
+	method = merge
+	cmdver = 0.4.0
+	parent = 1c319b2cc1e896b71235408819a8d930333ca723
