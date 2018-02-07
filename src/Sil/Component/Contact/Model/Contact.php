@@ -267,7 +267,7 @@ class Contact implements ResourceInterface, ContactInterface, GroupMemberInterfa
      *
      * @param AddressInterface $address
      *
-     * @return bool wether the Address exists
+     * @return bool whether the Address exists
      */
     public function hasAddress(AddressInterface $address)
     {
@@ -351,7 +351,7 @@ class Contact implements ResourceInterface, ContactInterface, GroupMemberInterfa
      *
      * @param PhoneInterface $phone
      *
-     * @return bool wether the Phone exists
+     * @return bool whether the Phone exists
      */
     public function hasPhone(PhoneInterface $phone)
     {
