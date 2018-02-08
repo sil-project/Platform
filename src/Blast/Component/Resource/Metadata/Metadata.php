@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Copyright (C) 2015-2017 Libre Informatique
+ * Copyright (C) 2015-2018 Libre Informatique
  *
  * This file is licenced under the GNU LGPL v3.
  * For the full copyright and license information, please view the LICENSE.md
@@ -32,7 +32,7 @@ class Metadata implements MetadataInterface
     private $classMap;
 
     /**
-    * @var RoutingInterface
+     * @var RoutingInterface
      */
     private $routing;
 
@@ -50,10 +50,15 @@ class Metadata implements MetadataInterface
         $aliasParts = explode('.', $alias);
         $alias = array_pop($aliasParts);
         $prefix = implode($aliasParts);
-        $classMap =  ClassMap::fromArray($parameters['classes']);
-        $routing = Routing::fromArray($parameters['routing']);
-        $api = Routing::fromArray($parameters['api'])
-        return new static($prefix, $alias, $classMap);
+        $classMap = ClassMap::createFrom($prefix, $alias, $parameters['classes']);
+
+        $routing = (isset($parameters['routing']) ?
+          Routing::createFrom($prefix, $alias, $parameters['routing']) : Routing::disabled());
+
+        $api = (isset($parameters['api']) ?
+          Routing::createFrom($prefix, $alias, $parameters['api']) : Routing::disabled());
+
+        return new static($prefix, $alias, $classMap, $routing, $api);
     }
 
     /**
@@ -61,11 +66,13 @@ class Metadata implements MetadataInterface
      * @param string $applicationName
      * @param array  $parameters
      */
-    private function __construct(string $prefix, string $alias, ClassMapInterface $classMap , RoutingInterface $routing, RoutingInterface $api)
+    private function __construct(string $prefix, string $alias, ClassMapInterface $classMap, RoutingInterface $routing, RoutingInterface $api)
     {
         $this->prefix = $prefix;
         $this->alias = $alias;
         $this->classMap = $classMap;
+        $this->routing = $routing;
+        $this->api = $api;
     }
 
     public function getPrefix(): string
@@ -88,11 +95,23 @@ class Metadata implements MetadataInterface
         return $this->classMap;
     }
 
-    public function hasRouting(){
-      return $this->routing->isEnabled();
+    public function hasRouting()
+    {
+        return $this->routing->isEnabled();
     }
 
-    public function hasApi(){
-      return $this->api->isEnabled();
+    public function getRouting()
+    {
+        return $this->routing;
+    }
+
+    public function hasApi()
+    {
+        return $this->api->isEnabled();
+    }
+
+    public function getApi()
+    {
+        return $this->api;
     }
 }

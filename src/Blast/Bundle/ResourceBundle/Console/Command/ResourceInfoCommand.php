@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Copyright (C) 2015-2017 Libre Informatique
+ * Copyright (C) 2015-2018 Libre Informatique
  *
  * This file is licenced under the GNU LGPL v3.
  * For the full copyright and license information, please view the LICENSE.md
@@ -82,14 +82,33 @@ class ResourceInfoCommand extends ContainerAwareCommand
     private function debugResource(MetadataInterface $metadata, OutputInterface $output)
     {
         $table = new Table($output);
-        $table->setHeaders(['Alias', $metadata->getAlias()]);
+        $table->setHeaders(['Classes', $metadata->getAlias()]);
         $information = [
             'prefix'         => $metadata->getPrefix(),
             'model'          => $metadata->getClassMap()->getModel(),
             'repository'     => $metadata->getClassMap()->getRepository(),
             'interfaces'     => implode("\n", $metadata->getClassMap()->getInterfaces()),
         ];
+        foreach ($information as $key => $value) {
+            $table->addRow([$key, $value]);
+        }
+        $table->render();
 
+        if ($metadata->hasRouting()) {
+            $this->debugRouting($metadata, $output);
+        }
+    }
+
+    protected function debugRouting(MetadataInterface $metadata, OutputInterface $output)
+    {
+        $routing = $metadata->getRouting();
+        $view = $routing->getView();
+        $table = new Table($output);
+        $table->setHeaders(['Routing', $metadata->getAlias()]);
+        $information = [
+          'path'      => $routing->getPath(),
+          'base view' => '{ type: "' . $view->getType() . '" , resource: "' . $view->getResource() . '" }',
+        ];
         foreach ($information as $key => $value) {
             $table->addRow([$key, $value]);
         }

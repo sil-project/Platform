@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Copyright (C) 2015-2017 Libre Informatique
+ * Copyright (C) 2015-2018 Libre Informatique
  *
  * This file is licenced under the GNU LGPL v3.
  * For the full copyright and license information, please view the LICENSE.md
@@ -34,13 +34,26 @@ class Configuration implements ConfigurationInterface
                       ->children()
                         ->scalarNode('model')->isRequired()->cannotBeEmpty()->end()
                         ->scalarNode('repository')->cannotBeEmpty()->end()
-                        ->arrayNode('interfaces')->scalarPrototype()->end()
+                        ->arrayNode('interfaces')->scalarPrototype()->end()->end()
                       ->end()
                    ->end()
-
+                   ->arrayNode('routing')
+                     ->children()
+                        ->booleanNode('enable')->defaultTrue()->end()
+                        ->scalarNode('path')->isRequired()->defaultValue('')->end()
+                        ->scalarNode('prefix')->cannotBeEmpty()->end()
+                        ->scalarNode('redirect')->cannotBeEmpty()->end()
+                        ->arrayNode('view')
+                          ->children()
+                              ->scalarNode('type')->end()
+                              ->scalarNode('resource')->end()
+                          ->end()
+                        ->end()
+                        ->arrayNode('actions')->scalarPrototype()->end()->end()
+                     ->end()
+                   ->end()
                 ->end()
-            ->end()
-         ->end();
+          ->end();
 
         return $treeBuilder;
     }
