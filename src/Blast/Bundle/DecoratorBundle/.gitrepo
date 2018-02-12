@@ -6,7 +6,7 @@
 [subrepo]
 	remote = git@github.com:blast-project/DecoratorBundle.git
 	branch = wip-platform
-	commit = a26ff047eaf572e39b27060419ae8c4527dc422f
+	commit = 22bbc809a9ebc86112f5d67ce6cac8c6ea1a4cde
 	cmdver = 0.4.0
-	parent = 3747df288b02e1d339265c128541b8eefb45d822
+	parent = 9840c5f068a3c2d62c5affa53c52e57a42502f1f
 	method = merge
