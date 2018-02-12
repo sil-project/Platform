@@ -1,5 +1,5 @@
 {
-    "name": "sil-project/sonata-sylius-user-bundle",
+    "name": "libre-informatique/sonata-sylius-user-bundle",
     "type": "symfony-bundle",
     "description": "Symfony bundle providing a bridge between SonataAdmin and SyliusUser (an alternative to SonataUserBundle)",
     "require": {

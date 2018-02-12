@@ -1,5 +1,5 @@
 {
-    "name": "sil-project/media-bundle",
+    "name": "libre-informatique/media-bundle",
     "type": "symfony-bundle",
     "description": "Media Bundle for Symfony",
     "require": {
