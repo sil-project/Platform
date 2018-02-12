@@ -9,9 +9,9 @@
         "blast-project/base-entities-bundle": "self.version",
         "blast-project/outer-extension-bundle": "self.version",
         "blast-project/utils-bundle": "self.version",
-        "sil-project/media-bundle": "self.version",
-        "sil-project/email-bundle": "self.version",
-        "sil-project/crm-bundle": "self.version"
+        "libre-informatique/media-bundle": "self.version",
+        "libre-informatique/email-bundle": "self.version",
+        "libre-informatique/crm-bundle": "self.version"
     },
     "require-dev": {
         "symfony/phpunit-bridge": "3.3.*",
