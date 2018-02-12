@@ -7,7 +7,9 @@
         "symfony/symfony": "3.3.*",
         "sylius/sylius": "^1.0",
         "blast-project/core-bundle": "self.version",
-        "blast-project/base-entities-bundle": "self.version"
+        "blast-project/base-entities-bundle": "self.version",
+        "blast-project/resource": "self.version",
+        "blast-project/resource-bundle": "self.version"
     },
     "require-dev": {
         "symfony/phpunit-bridge": "3.3.*",
