@@ -6,7 +6,7 @@
 [subrepo]
 	remote = git@github.com:blast-project/PatcherBundle.git
 	branch = wip-platform
-	commit = 4e7511f9c184c85ef983cb082d1ae6cb26a75c7f
+	commit = 770eb2e9aa462af939618fedfcca51c41eb73061
 	method = merge
 	cmdver = 0.4.0
-	parent = 2f0518556b8540efa6496f02d1d64c809a9c4b67
+	parent = e02588be685214940cd8e3f51a88e7a613094300
