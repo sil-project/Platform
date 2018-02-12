@@ -25,7 +25,7 @@ class GroupTest extends TestCase
      * An exception should be thrown when adding a member
      * that is already in the group.
      */
-    public function testAddAlreadyExistingMember()
+    public function test_add_already_existing_member()
     {
         $group = new Group('foo');
         $contact = new Contact();
@@ -40,7 +40,7 @@ class GroupTest extends TestCase
     /**
      * An exception should be thrown when trying to remove a member that is not in the group.
      */
-    public function testRemoveNonExistingMember()
+    public function test_remove_non_existing_member()
     {
         $group = new Group('foo');
         $contact1 = new Contact();
@@ -57,7 +57,7 @@ class GroupTest extends TestCase
      * An exception should be thrown when adding a group
      * to a group that is already its parent.
      */
-    public function testAddAlreadyExistingChildgroup()
+    public function test_add_already_existing_child()
     {
         $group = new Group('foo');
         $child = new Group('bar');
@@ -73,7 +73,7 @@ class GroupTest extends TestCase
      * An exception should be thrown when trying to remove a child group that
      * does not have the targeted group as parent.
      */
-    public function testRemoveNonExistingChild()
+    public function test_remove_non_existing_child()
     {
         $group = new Group('foo');
         $child = new Group('bar');

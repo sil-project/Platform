@@ -117,7 +117,7 @@ class Group implements ResourceInterface, GroupInterface
      *
      * @param GroupMemberInterface $member
      *
-     * @return bool wether the Member exists
+     * @return bool whether the Member exists
      */
     public function hasMember(GroupMemberInterface $member)
     {
@@ -187,7 +187,7 @@ class Group implements ResourceInterface, GroupInterface
      *
      * @param GroupChildInterface $child
      *
-     * @return bool wether the child exists
+     * @return bool whether the child exists
      */
     public function hasChild(GroupInterface $child)
     {
