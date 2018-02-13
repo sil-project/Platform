@@ -96,6 +96,7 @@ pipeline {
                 stage ('Run Doc') {
                     steps {
                         sh "./bin/ci-scripts/do_run.sh run_doc.sh"
+                        publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'doc/fr/_build/html/', reportFiles: 'index.html', reportName: 'Documentation', reportTitles: ''])
                     }
                 }
 
