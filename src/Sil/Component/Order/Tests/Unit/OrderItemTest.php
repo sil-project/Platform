@@ -32,7 +32,7 @@ class OrderItemTest extends TestCase
         $orderItemData = $this->fixtures->getRawData()['Orders']['FA00000001']['items'];
 
         foreach ($order->getOrderItems() as $item) {
-            $this->assertEquals($item->getTotal()->getValue(), $orderItemData[$item->getLabel()]['expectedTotal']);
+            $this->assertEquals($orderItemData[$item->getLabel()]['expectedTotal'], $item->getTotal()->getValue());
         }
     }
 }

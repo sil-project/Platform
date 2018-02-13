@@ -32,11 +32,11 @@ class AdjustmentTest extends TestCase
 
         foreach ($order->getOrderItems() as $orderItem) {
             foreach ($orderItem->getAdjustments() as $orderItemAdjustement) {
-                $this->assertEquals($orderItemAdjustement->getTotal()->getValue(), 0.0);
+                $this->assertEquals(0.0, $orderItemAdjustement->getTotal()->getValue());
                 $orderItemAdjustement->getStrategy()->adjust($orderItemAdjustement);
-                $this->assertEquals($orderItemAdjustement->getTotal()->getValue(), $orderItemAdjustement->expectedTotal);
+                $this->assertEquals($orderItemAdjustement->expectedTotal, $orderItemAdjustement->getTotal()->getValue());
             }
-            $this->assertEquals($orderItem->getAdjustedTotal()->getValue(), $orderItem->expectedTotalWithAdjustments);
+            $this->assertEquals($orderItem->expectedTotalWithAdjustments, $orderItem->getAdjustedTotal()->getValue());
         }
     }
 
@@ -51,11 +51,11 @@ class AdjustmentTest extends TestCase
 
         foreach ($order->getOrderItems() as $orderItem) {
             foreach ($orderItem->getAdjustments() as $orderItemAdjustement) {
-                $this->assertEquals($orderItemAdjustement->getTotal()->getValue(), 0.0);
+                $this->assertEquals(0.0, $orderItemAdjustement->getTotal()->getValue());
                 $orderItemAdjustement->getStrategy()->adjust($orderItemAdjustement);
-                $this->assertEquals($orderItemAdjustement->getTotal()->getValue(), $orderItemAdjustement->expectedTotal);
+                $this->assertEquals($orderItemAdjustement->expectedTotal, $orderItemAdjustement->getTotal()->getValue());
             }
-            $this->assertEquals($orderItem->getAdjustedTotal()->getValue(), $orderItem->expectedTotalWithAdjustments);
+            $this->assertEquals($orderItem->expectedTotalWithAdjustments, $orderItem->getAdjustedTotal()->getValue());
         }
     }
 }

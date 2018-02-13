@@ -36,7 +36,7 @@ class OrderTest extends TestCase
 
         $code = $codeGenerator->generate();
 
-        $this->assertEquals($code, 'FA00000001');
+        $this->assertEquals('FA00000001', $code);
     }
 
     public function test_not_first_order_create_process()
@@ -46,7 +46,7 @@ class OrderTest extends TestCase
 
         $code = $codeGenerator->generate();
 
-        $this->assertEquals($code, 'FA00000003');
+        $this->assertEquals('FA00000003', $code);
     }
 
     public function test_new_order_from_factory()
@@ -62,7 +62,7 @@ class OrderTest extends TestCase
 
         $order->setSource('change not allowed');
 
-        $this->assertEquals($order->getSource(), 'change not allowed');
+        $this->assertEquals('change not allowed', $order->getSource());
     }
 
     public function test_validated_order_is_not_editable()
