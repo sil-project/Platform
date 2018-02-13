@@ -37,7 +37,7 @@ class CodeGeneratorTest extends TestCase
 
         $code = $generator->generate($this->fixtures->getRawData()['code']['prefix'], $date);
 
-        $this->assertEquals($code->getValue(), $this->fixtures->getRawData()['code']['prefix'] . '-20200401');
+        $this->assertEquals($this->fixtures->getRawData()['code']['prefix'] . '-20200401', $code->getValue());
     }
 
     public function testValidCodeValidation()

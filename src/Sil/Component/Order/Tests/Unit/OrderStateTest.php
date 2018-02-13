@@ -32,25 +32,25 @@ class OrderStateTest extends TestCase
     {
         $order = OrderFactory::createOrder($this->fixtures->getOrderRepository(), $this->fixtures->getDummyAccount(), $this->fixtures->getCurrencyRepository()->getByCode('EUR'));
 
-        $this->assertEquals($order->getState()->getValue(), OrderState::DRAFT);
+        $this->assertEquals(OrderState::DRAFT, $order->getState()->getValue());
     }
 
     public function test_validate_transition()
     {
         $order = $this->fixtures->getOrderRepository()->findOneBy(['code.value' => 'FA00000001']);
 
-        $this->assertEquals($order->getState()->getValue(), OrderState::DRAFT);
+        $this->assertEquals(OrderState::DRAFT, $order->getState()->getValue());
 
         $order->beValidated();
 
-        $this->assertEquals($order->getState()->getValue(), OrderState::VALIDATED);
+        $this->assertEquals(OrderState::VALIDATED, $order->getState()->getValue());
     }
 
     public function test_forbidden_transition()
     {
         $order = $this->fixtures->getOrderRepository()->findOneBy(['code.value' => 'FA00000001']);
 
-        $this->assertEquals($order->getState()->getValue(), OrderState::DRAFT);
+        $this->assertEquals(OrderState::DRAFT, $order->getState()->getValue());
 
         $this->expectException(SMException::class);
 

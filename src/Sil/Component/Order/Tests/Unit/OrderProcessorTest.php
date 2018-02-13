@@ -32,12 +32,12 @@ class OrderProcessorTest extends TestCase
 
         $orderProcessor = new OrderProcessor();
 
-        $this->assertEquals($order->getTotal()->getValue(), 0.0);
-        $this->assertEquals($order->getAdjustedTotal()->getValue(), 0.0);
+        $this->assertEquals(0.0, $order->getTotal()->getValue());
+        $this->assertEquals(0.0, $order->getAdjustedTotal()->getValue());
 
         $orderProcessor->process($order);
 
-        $this->assertEquals($order->getAdjustedTotal()->getValue(), $order->expectedTotalWithAdjustments);
-        $this->assertEquals($order->getTotal()->getValue(), $order->expectedTotal);
+        $this->assertEquals($order->expectedTotalWithAdjustments, $order->getAdjustedTotal()->getValue());
+        $this->assertEquals($order->expectedTotal, $order->getTotal()->getValue());
     }
 }
