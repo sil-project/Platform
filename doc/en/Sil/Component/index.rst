@@ -1,11 +1,6 @@
 Sil Components Documentation
 ============================
 
-.. toctree::
-    :hidden:
-
-    Stock/index
-    Uom/index
-
+.. include:: /Sil/Component/toctree.rst.inc
 
 .. include:: /Sil/Component/map.rst.inc

@@ -1,10 +1,6 @@
 Sil Bundles Documentation
 =========================
 
-.. toctree::
-    :hidden:
-
-    StockBundle/index
-
+.. include:: /Sil/Bundle/toctree.rst.inc
 
 .. include:: /Sil/Bundle/map.rst.inc

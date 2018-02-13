@@ -1,10 +1,6 @@
 Blast Bundles Documentation
 ===========================
 
-.. toctree::
-    :hidden:
-
-    ResourceBundle/index
-
+.. include:: /Blast/Bundle/toctree.rst.inc
 
 .. include:: /Blast/Bundle/map.rst.inc

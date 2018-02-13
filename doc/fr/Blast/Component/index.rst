@@ -1,10 +1,6 @@
 Documentation des composants Blast
 ==================================
 
-.. toctree::
-    :hidden:
-
-    Resource/index
-
+.. include:: /Blast/Component/toctree.rst.inc
 
 .. include:: /Blast/Component/map.rst.inc
