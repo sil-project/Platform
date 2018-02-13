@@ -4,18 +4,20 @@ Produits
 Ce composant est un point de départ pour gérer des manipulations de produit avec des options basiques
 
 -------
-Modèles
+Domaine
 -------
 
 Produit
 -------
 
-Un **Produit** se définis par un **nom** et un champ unique **code**. Un **Produit** n'est pas un produit réel, c'est un produit virtuel.
+Un **Produit** se définit par un **nom** et un champ unique **code**. Un **Produit** n'est pas un produit réel, c'est un produit virtuel.
 
 +-----------------+---------------------------------------------------------------+
-| Proriété        | Description                                                   |
+| Propriété       | Description                                                   |
 +=================+===============================================================+
 | name            | Le nom du produit                                             |
++-----------------+---------------------------------------------------------------+
+| description     | Une description du produit                                    |
 +-----------------+---------------------------------------------------------------+
 | code            | Un code unique                                                |
 +-----------------+---------------------------------------------------------------+
@@ -35,7 +37,7 @@ Déclinaison
 Chaque **Produit** peut avoir une ou plusieurs variantes
 
 +-----------------+---------------------------------------------------------------------+
-| Proriété        | Description                                                         |
+| Propriété       | Description                                                         |
 +=================+=====================================================================+
 | name            | Le nom de la déclinaison du produit                                 |
 +-----------------+---------------------------------------------------------------------+
@@ -55,15 +57,15 @@ Un **Attribut** est un object permettant de décrire une propriété physique (o
 Un **Produit** possède ses propres collections d'attributs, mais dans certains cas, des attributs peuvent être partagés entre les produits (voir la propriété **reusable** de l'objet **AttributeType**)
 
 +-----------------+----------------------------------------------------------------------------------+
-| Proriété        | Description                                                                      |
+| Propriété       | Description                                                                      |
 +=================+==================================================================================+
 | name            | Le nom surchargé de l'attribut (si null, le nom du type d'attribut sera utilisé) |
 +-----------------+----------------------------------------------------------------------------------+
-| value           | La valeure courante de l'attribut                                                |
+| value           | La valeur courante de l'attribut                                                 |
 +-----------------+----------------------------------------------------------------------------------+
 | attributeType   | Le type d'attribut                                                               |
 +-----------------+----------------------------------------------------------------------------------+
-| products        | Une collection de produit qui utilisents l'attribut                              |
+| products        | Une collection de produit qui utilisent l'attribut                               |
 +-----------------+----------------------------------------------------------------------------------+
 
 
@@ -75,17 +77,19 @@ Un **Type d'attribut** est une famille d'attributs. Il possède un type de donn�
 Certains attributs peuvent être marqués comme étant **réutilisables** dans le but de partager les attributs entre produits.
 
 +-----------------+-----------------------------------------------------------+
-| Proriété        | Description                                               |
+| Propriété       | Description                                               |
 +=================+===========================================================+
 | name            | Le nom du type d'attribut                                 |
 +-----------------+-----------------------------------------------------------+
 | type            | Le type de donnée                                         |
 +-----------------+-----------------------------------------------------------+
-| resusable       | Définit si les attributs seront partagés                  |
+| resusable       | Définit si les attributs seront partagés [1]_             |
 +-----------------+-----------------------------------------------------------+
 | attributes      | Une collection d'attributs appartenant au type d'attribut |
 +-----------------+-----------------------------------------------------------+
 
+.. [1] Une type d'attribut **reusable** (à savoir réutilisable) partagera ses attributs entre tous les produits les utilisant.
+ Il faudra donc empêcher la modification des attributs depuis un produit.
 
 Option
 ------
@@ -93,7 +97,7 @@ Option
 Une **Option** est liée à une déclinaison de produit
 
 +-----------------+------------------------------------------------------+
-| Proriété        | Description                                          |
+| Propriété       | Description                                          |
 +=================+======================================================+
 | value           | La valeur de l'option                                |
 +-----------------+------------------------------------------------------+
@@ -102,14 +106,13 @@ Une **Option** est liée à une déclinaison de produit
 | variants        | Une collection de déclinaison utilisant cette option |
 +-----------------+------------------------------------------------------+
 
-
 Type d'option
 -------------
 
 Un **Type d'option** est lié à un produit et permet de définir quel type d'option sera à utiliser par les déclinaisons.
 
 +-----------------+--------------------------------------------------------+
-| Proriété        | Description                                            |
+| Propriété       | Description                                            |
 +=================+========================================================+
 | name            | Le nom du type d'option                                |
 +-----------------+--------------------------------------------------------+
@@ -117,3 +120,9 @@ Un **Type d'option** est lié à un produit et permet de définir quel type d'op
 +-----------------+--------------------------------------------------------+
 | products        | Une collection de produit ayant ce type d'option       |
 +-----------------+--------------------------------------------------------+
+
+-----------------
+Modèle du domaine
+-----------------
+
+.. image:: products.png
