@@ -39,3 +39,5 @@ Pour le calcul des éléments de la commande, celui-ci se fait également en 2 �
 
 - Calcul du total de l'élément (sans les ajustements liés à l'élément)
 - Calcul du total avec ajustements de l'élément
+
+Les calculs d'ajustements sont réalisés  par les stratégies d'ajustement. Le processeur appelle simplement leur méthode ``adjust``.
