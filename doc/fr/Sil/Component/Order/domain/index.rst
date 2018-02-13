@@ -28,27 +28,29 @@ Commande
 
 Une commande est définissable à l'aide de :
 
-+-----------------+---------------------------------------------------+
-| Propriété       | Description                                       |
-+=================+===================================================+
-| code            | Code unique de la commande                        |
-+-----------------+---------------------------------------------------+
-| state           | État reflétant le cycle de vie de la commande     |
-+-----------------+---------------------------------------------------+
-| items           | Collection des éléments d'une commande            |
-+-----------------+---------------------------------------------------+
-| total           | Prix total de la commande                         |
-+-----------------+---------------------------------------------------+
-| creationDate    | Date de création de la commande                   |
-+-----------------+---------------------------------------------------+
-| stateHistory    | Historique des changements d'états de la commande |
-+-----------------+---------------------------------------------------+
-| invoices        | Collection des factures associées [1]_            |
-+-----------------+---------------------------------------------------+
-| account         | Le compte client associé à la commande [2]_       |
-+-----------------+---------------------------------------------------+
-| source          | Indique la provenance de la commande              |
-+-----------------+---------------------------------------------------+
++-----------------+---------------------------------------------------+--------+
+| Propriété       | Description                                       | Oblig. |
++=================+===================================================+========+
+| code            | Code unique de la commande                        | x      |
++-----------------+---------------------------------------------------+--------+
+| currency        | La monnaie appliquée à la commande                | x      |
++-----------------+---------------------------------------------------+--------+
+| state           | État reflétant le cycle de vie de la commande     |        |
++-----------------+---------------------------------------------------+--------+
+| items           | Collection des éléments d'une commande            |        |
++-----------------+---------------------------------------------------+--------+
+| total           | Prix total de la commande                         |        |
++-----------------+---------------------------------------------------+--------+
+| creationDate    | Date de création de la commande                   |        |
++-----------------+---------------------------------------------------+--------+
+| stateHistory    | Historique des changements d'états de la commande |        |
++-----------------+---------------------------------------------------+--------+
+| invoices        | Collection des factures associées [1]_            |        |
++-----------------+---------------------------------------------------+--------+
+| account         | Le compte client associé à la commande [2]_       | x      |
++-----------------+---------------------------------------------------+--------+
+| source          | Indique la provenance de la commande              |        |
++-----------------+---------------------------------------------------+--------+
 
 .. [1] Les factures pouvant être générées sans forcément avoir une commande, il est donc normal d'avoir des commandes en état ``FULFILLED`` sans aucune facture.
 .. [2] Un compte est obligatoire pour pouvoir créer une commande.
@@ -59,17 +61,25 @@ Une commande est définissable à l'aide de :
 
 Un élément de commande est définissable par :
 
-+-----------------+----------------------------------------+
-| Propriété       | Description                            |
-+=================+========================================+
-| label           | Libellé de l'élément de commande       |
-+-----------------+----------------------------------------+
-| description     | Description courte décrivant l'élément |
-+-----------------+----------------------------------------+
-| quantity        | La quantité représenté par l'élément   |
-+-----------------+----------------------------------------+
-| unitPrice       | Le prix unitaire de l'élément          |
-+-----------------+----------------------------------------+
++-----------------+----------------------------------------------+--------+
+| Propriété       | Description                                  | Oblig. |
++=================+==============================================+========+
+| label           | Libellé de l'élément de commande             | x      |
++-----------------+----------------------------------------------+--------+
+| description     | Description courte décrivant l'élément       |        |
++-----------------+----------------------------------------------+--------+
+| quantity        | La quantité représenté par l'élément         | x      |
++-----------------+----------------------------------------------+--------+
+| unitPrice       | Le prix unitaire (PU) de l'élément           | x      |
++-----------------+----------------------------------------------+--------+
+| order           | La commande à laquelle il appartient         | x      |
++-----------------+----------------------------------------------+--------+
+| total           | Le total de l'élément (quantité * PU)        |        |
++-----------------+----------------------------------------------+--------+
+| adjustedTotal   | Le total de l'élément avec les ajustements   |        |
++-----------------+----------------------------------------------+--------+
+| adjustments     | La collection d'ajustements liés à l'élément |        |
++-----------------+----------------------------------------------+--------+
 
 -----------------
 Modèle du domaine
