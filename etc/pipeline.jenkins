@@ -56,9 +56,9 @@ pipeline {
                     }
                 }
 
-                stage ('Install Doc') {
+                stage ('Install Docs') {
                     steps {
-                        sh "./bin/ci-scripts/do_run.sh install_doc.sh"
+                        sh "./bin/ci-scripts/do_run.sh install_docs.sh"
                     }
                 }
             }
@@ -93,9 +93,9 @@ pipeline {
                     }
 	        }
 
-                stage ('Run Doc') {
+                stage ('Run Docs') {
                     steps {
-                        sh "./bin/ci-scripts/do_run.sh run_doc.sh"
+                        sh "./bin/ci-scripts/do_run.sh run_docs.sh"
                         publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'build/sphinx', reportFiles: 'index.html', reportName: 'Documentation', reportTitles: ''])
                     }
                 }
