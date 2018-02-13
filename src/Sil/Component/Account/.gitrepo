@@ -6,7 +6,7 @@
 [subrepo]
 	remote = git@github.com:sil-project/Account.git
 	branch = wip-platform
-	commit = cbc72e1f4461b33339f318b8dc487aec1263044c
+	commit = 255bdaf5b617cc2c74866fed4ca38e4ee21d1479
 	method = merge
 	cmdver = 0.4.0
-	parent = 681a401e8edd5375000d0c3f6c25bcacc9ae6383
+	parent = 00ec7450fb7add249e8a84f86fff2166ecac60d5
