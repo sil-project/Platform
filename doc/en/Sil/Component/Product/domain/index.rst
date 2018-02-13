@@ -1,7 +1,7 @@
 Products
 ========
 
-This component is a starting pont to be used for manipulating Product objects with basic options
+This component is a starting point to be used for manipulating Product objects with basic options
 
 
 ------
@@ -11,29 +11,29 @@ Models
 Product
 -------
 
-A **Product** is defined with a **name** and a unique field **code**. a **Product** is not a real product, It's a virtual product.
+A **Product** is defined with a **name** and a unique field **code**. A **Product** is not a real product, it's a virtual product.
 
-+-----------------+------------------------------------------------------------------+
-| Property        | Description                                                      |
-+=================+==================================================================+
-| name            | The product name                                                 |
-+-----------------+------------------------------------------------------------------+
-| code            | Unique code                                                      |
-+-----------------+------------------------------------------------------------------+
-| enabled         | The enabled state of the product                                 |
-+-----------------+------------------------------------------------------------------+
-| attributes      | A collection of attributes that describes the product            |
-+-----------------+------------------------------------------------------------------+
-| optionTypes     | A collection of family of option'sthat will by used for variants |
-+-----------------+------------------------------------------------------------------+
-| variants        | A collection of variants                                         |
-+-----------------+------------------------------------------------------------------+
++-----------------+-------------------------------------------------------------------+
+| Property        | Description                                                       |
++=================+===================================================================+
+| name            | The product name                                                  |
++-----------------+-------------------------------------------------------------------+
+| code            | Unique code                                                       |
++-----------------+-------------------------------------------------------------------+
+| enabled         | The enabled state of the product                                  |
++-----------------+-------------------------------------------------------------------+
+| attributes      | A collection of attributes that describes the product             |
++-----------------+-------------------------------------------------------------------+
+| optionTypes     | A collection of family of option's that will by used for variants |
++-----------------+-------------------------------------------------------------------+
+| variants        | A collection of variants                                          |
++-----------------+-------------------------------------------------------------------+
 
 
 ProductVariant
 --------------
 
-Each **Product** can have zero or many variants.
+Each **Product** can have one or many variants.
 
 +-----------------+-----------------------------------------------+
 | Property        | Description                                   |
@@ -53,7 +53,7 @@ Attribute
 
 An **Attribute** is an object used to describe a physical (or virtual) property of a product. It can be used to build filter based on product attribute values.
 
-A **Product** have its own collection of attribute, but in some cases, attributes can be shared across products (see **reusable** of **AttributeType**).
+A **Product** have its own collection of attribute, but in some cases, attributes can be shared across products (see **reusable** property of **AttributeType** object).
 
 +-----------------+-----------------------------------------------------------------------------------------+
 | Property        | Description                                                                             |

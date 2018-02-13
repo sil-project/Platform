@@ -12,7 +12,11 @@ declare(strict_types=1);
 
 namespace Sil\Component\Product\Model;
 
-class ProductVariantCode extends AbstractCode implements CodeInterface
+use Blast\Component\Resource\Model\ResourceInterface;
+use Blast\Component\Code\Model\CodeInterface;
+use Blast\Component\Code\Model\AbstractCode;
+
+class ProductVariantCode extends AbstractCode implements CodeInterface, ResourceInterface
 {
     public function __construct($value, $format = '/^[A-Z0-9]{1,8}\-[A-Z0-9\-]*$/')
     {

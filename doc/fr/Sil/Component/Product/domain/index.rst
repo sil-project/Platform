@@ -1,0 +1,119 @@
+Produits
+========
+
+Ce composant est un point de départ pour gérer des manipulations de produit avec des options basiques
+
+-------
+Modèles
+-------
+
+Produit
+-------
+
+Un **Produit** se définis par un **nom** et un champ unique **code**. Un **Produit** n'est pas un produit réel, c'est un produit virtuel.
+
++-----------------+---------------------------------------------------------------+
+| Proriété        | Description                                                   |
++=================+===============================================================+
+| name            | Le nom du produit                                             |
++-----------------+---------------------------------------------------------------+
+| code            | Un code unique                                                |
++-----------------+---------------------------------------------------------------+
+| enabled         | Le produit est actif ou non                                   |
++-----------------+---------------------------------------------------------------+
+| attributes      | Une collection d'attributs décrivant le produit               |
++-----------------+---------------------------------------------------------------+
+| optionTypes     | Une collection des types d'option disponibles pour le produit |
++-----------------+---------------------------------------------------------------+
+| variants        | Une collection de déclinaisons de produit                     |
++-----------------+---------------------------------------------------------------+
+
+
+Déclinaison
+-----------
+
+Chaque **Produit** peut avoir une ou plusieurs variantes
+
++-----------------+---------------------------------------------------------------------+
+| Proriété        | Description                                                         |
++=================+=====================================================================+
+| name            | Le nom de la déclinaison du produit                                 |
++-----------------+---------------------------------------------------------------------+
+| code            | Un code unique composé du code du produit + celui de la déclinaison |
++-----------------+---------------------------------------------------------------------+
+| enabled         | La déclinaison est active ou non                                    |
++-----------------+---------------------------------------------------------------------+
+| product         | Le produit associé                                                  |
++-----------------+---------------------------------------------------------------------+
+
+
+Attribut
+--------
+
+Un **Attribut** est un object permettant de décrire une propriété physique (ou virtuelle) d'un produit. Il peut être utilisé pour créer des filtres qui se basent sur ces attributes de produits
+
+Un **Produit** possède ses propres collections d'attributs, mais dans certains cas, des attributs peuvent être partagés entre les produits (voir la propriété **reusable** de l'objet **AttributeType**)
+
++-----------------+----------------------------------------------------------------------------------+
+| Proriété        | Description                                                                      |
++=================+==================================================================================+
+| name            | Le nom surchargé de l'attribut (si null, le nom du type d'attribut sera utilisé) |
++-----------------+----------------------------------------------------------------------------------+
+| value           | La valeure courante de l'attribut                                                |
++-----------------+----------------------------------------------------------------------------------+
+| attributeType   | Le type d'attribut                                                               |
++-----------------+----------------------------------------------------------------------------------+
+| products        | Une collection de produit qui utilisents l'attribut                              |
++-----------------+----------------------------------------------------------------------------------+
+
+
+Type d'attribut
+---------------
+
+Un **Type d'attribut** est une famille d'attributs. Il possède un type de donnée aidant à l'affichage et à la manipulation des données des attributs enfants.
+
+Certains attributs peuvent être marqués comme étant **réutilisables** dans le but de partager les attributs entre produits.
+
++-----------------+-----------------------------------------------------------+
+| Proriété        | Description                                               |
++=================+===========================================================+
+| name            | Le nom du type d'attribut                                 |
++-----------------+-----------------------------------------------------------+
+| type            | Le type de donnée                                         |
++-----------------+-----------------------------------------------------------+
+| resusable       | Définit si les attributs seront partagés                  |
++-----------------+-----------------------------------------------------------+
+| attributes      | Une collection d'attributs appartenant au type d'attribut |
++-----------------+-----------------------------------------------------------+
+
+
+Option
+------
+
+Une **Option** est liée à une déclinaison de produit
+
++-----------------+------------------------------------------------------+
+| Proriété        | Description                                          |
++=================+======================================================+
+| value           | La valeur de l'option                                |
++-----------------+------------------------------------------------------+
+| optionType      | Le type d'option                                     |
++-----------------+------------------------------------------------------+
+| variants        | Une collection de déclinaison utilisant cette option |
++-----------------+------------------------------------------------------+
+
+
+Type d'option
+-------------
+
+Un **Type d'option** est lié à un produit et permet de définir quel type d'option sera à utiliser par les déclinaisons.
+
++-----------------+--------------------------------------------------------+
+| Proriété        | Description                                            |
++=================+========================================================+
+| name            | Le nom du type d'option                                |
++-----------------+--------------------------------------------------------+
+| options         | Une collection d'option appartenant à ce type d'option |
++-----------------+--------------------------------------------------------+
+| products        | Une collection de produit ayant ce type d'option       |
++-----------------+--------------------------------------------------------+

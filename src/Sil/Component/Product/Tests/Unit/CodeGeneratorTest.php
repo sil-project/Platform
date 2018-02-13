@@ -34,7 +34,7 @@ class CodeGeneratorTest extends TestCase
         $codeGenerator = new ProductCodeGenerator();
         $code = $codeGenerator->generate('Product Test');
 
-        $this->assertTrue($codeGenerator->validate($code));
+        $this->assertTrue($codeGenerator->isValid($code));
         $this->assertEquals('PRODUCT', $code->getValue());
     }
 
@@ -44,24 +44,24 @@ class CodeGeneratorTest extends TestCase
 
         $codeGenerator = new ProductVariantCodeGenerator();
 
-        $options = [
+        $productOptions = [
             $this->fixtures->getOptionRepository()->findOneBy(['optionType.name' => 'Color', 'value' => 'Red']),
             $this->fixtures->getOptionRepository()->findOneBy(['optionType.name' => 'Shoe Size', 'value' => '42']),
         ];
 
-        $code = $codeGenerator->generate($product, $options);
+        $code = $codeGenerator->generate($product->getCode(), $productOptions);
 
-        $this->assertTrue($codeGenerator->validate($code));
+        $this->assertTrue($codeGenerator->isValid($code));
         $this->assertEquals('TSHT001-RED-42', $code->getValue());
 
-        $options = [
+        $productOptions = [
             $this->fixtures->getOptionRepository()->findOneBy(['optionType.name' => 'Shoe Size', 'value' => '42']),
             $this->fixtures->getOptionRepository()->findOneBy(['optionType.name' => 'Color', 'value' => 'Red']),
         ];
 
-        $code = $codeGenerator->generate($product, $options);
+        $code = $codeGenerator->generate($product->getCode(), $productOptions);
 
-        $this->assertTrue($codeGenerator->validate($code));
+        $this->assertTrue($codeGenerator->isValid($code));
         $this->assertEquals('TSHT001-42-RED', $code->getValue());
     }
 }

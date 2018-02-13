@@ -12,10 +12,12 @@ declare(strict_types=1);
 
 namespace Sil\Component\Product\Model;
 
+use InvalidArgumentException;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
+use Blast\Component\Resource\Model\ResourceInterface;
 
-class Attribute
+class Attribute implements ResourceInterface
 {
     /**
      * Specialized name for this attribute.
@@ -41,7 +43,7 @@ class Attribute
     /**
      * Collection of products that uses this attribute.
      *
-     * @var Collection|Product[]
+     * @var Collection|ProductInterface[]
      */
     protected $products;
 
@@ -73,7 +75,7 @@ class Attribute
     /**
      * @return mixed
      */
-    public function getValue(): mixed
+    public function getValue()
     {
         return $this->value;
     }
@@ -81,9 +83,20 @@ class Attribute
     /**
      * @param mixed $value
      */
-    public function setValue(mixed $value): void
+    public function setValue($value): void
     {
+        if ($this->getAttributeType()->isReusable()) {
+            throw new InvalidArgumentException('The value of a reusable attribute cannot be changed');
+        }
         $this->value = $value;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isReusable(): bool
+    {
+        return $this->getAttributeType()->isReusable();
     }
 
     /**
@@ -95,15 +108,7 @@ class Attribute
     }
 
     /**
-     * @param AttributeType $attributeType
-     */
-    public function setAttributeType(AttributeType $attributeType): void
-    {
-        $this->attributeType = $attributeType;
-    }
-
-    /**
-     * @return array|Product[]
+     * @return array|ProductInterface[]
      */
     public function getProducts(): array
     {

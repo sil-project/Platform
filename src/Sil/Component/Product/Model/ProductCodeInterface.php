@@ -12,6 +12,8 @@ declare(strict_types=1);
 
 namespace Sil\Component\Product\Model;
 
+use Blast\Component\Code\Model\CodeInterface;
+
 interface ProductCodeInterface extends CodeInterface
 {
 }

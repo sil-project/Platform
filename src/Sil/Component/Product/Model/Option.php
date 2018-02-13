@@ -12,7 +12,9 @@ declare(strict_types=1);
 
 namespace Sil\Component\Product\Model;
 
-class Option
+use Blast\Component\Resource\Model\ResourceInterface;
+
+class Option implements ResourceInterface
 {
     /**
      * Value for attribute.

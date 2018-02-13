@@ -12,10 +12,13 @@ declare(strict_types=1);
 
 namespace Sil\Component\Product\Model;
 
+use InvalidArgumentException;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
+use Blast\Component\Resource\Model\ResourceInterface;
+use Blast\Component\Code\Model\CodeInterface;
 
-class Product implements ProductInterface
+class Product implements ProductInterface, ResourceInterface
 {
     /**
      * Product name.
@@ -146,6 +149,13 @@ class Product implements ProductInterface
         return $this->attributes->getValues();
     }
 
+    /**
+     * adds Attribute to product.
+     *
+     * @param Attribute $attribute
+     *
+     * @throws InvalidArgumentException
+     */
     public function addAttribute(Attribute $attribute): void
     {
         if ($this->attributes->contains($attribute) || $attribute->hasProduct($this)) {
@@ -155,6 +165,13 @@ class Product implements ProductInterface
         $attribute->addProduct($this);
     }
 
+    /**
+     * removes Attribute from product.
+     *
+     * @param Attribute $attribute
+     *
+     * @throws InvalidArgumentException
+     */
     public function removeAttribute(Attribute $attribute): void
     {
         if (!$this->attributes->contains($attribute) || !$attribute->hasProduct($this)) {
@@ -165,6 +182,32 @@ class Product implements ProductInterface
     }
 
     /**
+     * gets Attribute with targeted name.
+     *
+     * @param string $attributeName
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return Attribute
+     */
+    public function getAttribute(AttributeType $attributeType): Attribute
+    {
+        $attribute = null;
+
+        $this->attributes->filter(function ($attr) use ($attributeType, &$attribute) {
+            if ($attr->getAttributeType() === $attributeType) {
+                $attribute = $attr;
+            }
+        });
+
+        if ($attribute === null) {
+            throw new InvalidArgumentException(sprintf('Attribute with name « %s » not found for product « %s »', $attributeName, $this->getName()));
+        }
+
+        return $attribute;
+    }
+
+    /**
      * @return array|OptionType[]
      */
     public function getOptionTypes(): array
@@ -172,6 +215,13 @@ class Product implements ProductInterface
         return $this->optionTypes->getValues();
     }
 
+    /**
+     * adds OptionType to product.
+     *
+     * @param OptionType $optionType
+     *
+     * @throws InvalidArgumentException
+     */
     public function addOptionType(OptionType $optionType): void
     {
         if ($this->optionTypes->contains($optionType)) {
@@ -181,6 +231,13 @@ class Product implements ProductInterface
         $optionType->addProduct($this);
     }
 
+    /**
+     * removes OptionType from product.
+     *
+     * @param OptionType $optionType
+     *
+     * @throws InvalidArgumentException
+     */
     public function removeOptionType(OptionType $optionType): void
     {
         if (!$this->optionTypes->contains($optionType)) {

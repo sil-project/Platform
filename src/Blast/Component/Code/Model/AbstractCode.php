@@ -10,7 +10,7 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Sil\Component\Product\Model;
+namespace Blast\Component\Code\Model;
 
 abstract class AbstractCode implements CodeInterface
 {
@@ -35,7 +35,7 @@ abstract class AbstractCode implements CodeInterface
     }
 
     /**
-     * @return string
+     * {@inheritdoc}
      */
     public function getValue(): string
     {
@@ -43,10 +43,18 @@ abstract class AbstractCode implements CodeInterface
     }
 
     /**
-     * @return string
+     * {@inheritdoc}
      */
     public function getFormat(): string
     {
         return $this->format;
+    }
+
+    /**
+     * @return string
+     */
+    public function __toString(): string
+    {
+        return $this->value;
     }
 }

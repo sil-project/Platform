@@ -12,7 +12,8 @@ declare(strict_types=1);
 
 namespace Sil\Component\Product\Generator;
 
-use Sil\Component\Product\Model\CodeInterface;
+use Blast\Component\Code\Model\CodeInterface;
+use Blast\Component\Code\Generator\CodeGeneratorInterface;
 
 interface ProductCodeGeneratorInterface extends CodeGeneratorInterface
 {

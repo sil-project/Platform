@@ -10,17 +10,8 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Sil\Component\Product\Model;
+namespace Sil\Component\Order\Model;
 
-interface CodeInterface
+class Price extends AbstractPrice
 {
-    /**
-     * @return string
-     */
-    public function getValue(): string;
-
-    /**
-     * @return string
-     */
-    public function getFormat(): string;
 }

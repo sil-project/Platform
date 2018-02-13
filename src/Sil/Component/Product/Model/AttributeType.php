@@ -12,19 +12,13 @@ declare(strict_types=1);
 
 namespace Sil\Component\Product\Model;
 
+use InvalidArgumentException;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
+use Blast\Component\Resource\Model\ResourceInterface;
 
-class AttributeType
+class AttributeType implements AttributeTypeInterface, ResourceInterface
 {
-    const TYPE_STRING = 0;
-    const TYPE_BOOLEAN = 1;
-    const TYPE_INTEGER = 2;
-    const TYPE_FLOAT = 3;
-    const TYPE_PERCENT = 4;
-    const TYPE_DATE = 5;
-    const TYPE_DATETIME = 6;
-
     /**
      * Name of attribute.
      *
@@ -44,7 +38,7 @@ class AttributeType
      *
      * @var bool
      */
-    protected $resusable = false;
+    protected $reusable = false;
 
     /**
      * Collection of attributes (values) for this type of attribute.
@@ -58,7 +52,7 @@ class AttributeType
         $this->attributes = new ArrayCollection();
 
         $this->name = $name;
-        $this->type = $type ?? self::TYPE_STRING;
+        $this->type = $type ?? AttributeTypeInterface::TYPE_STRING;
     }
 
     /**
@@ -101,21 +95,24 @@ class AttributeType
         $this->attributes->removeElement($attribute);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getSupportedTypes(): array
     {
         return [
-            self::TYPE_BOOLEAN,
-            self::TYPE_STRING,
-            self::TYPE_INTEGER,
-            self::TYPE_FLOAT,
-            self::TYPE_PERCENT,
-            self::TYPE_DATE,
-            self::TYPE_DATETIME,
+            'TYPE_BOOLEAN'  => AttributeTypeInterface::TYPE_BOOLEAN,
+            'TYPE_STRING'   => AttributeTypeInterface::TYPE_STRING,
+            'TYPE_INTEGER'  => AttributeTypeInterface::TYPE_INTEGER,
+            'TYPE_FLOAT'    => AttributeTypeInterface::TYPE_FLOAT,
+            'TYPE_PERCENT'  => AttributeTypeInterface::TYPE_PERCENT,
+            'TYPE_DATE'     => AttributeTypeInterface::TYPE_DATE,
+            'TYPE_DATETIME' => AttributeTypeInterface::TYPE_DATETIME,
         ];
     }
 
     /**
-     * @return int
+     * {@inheritdoc}
      */
     public function getType(): int
     {
@@ -123,7 +120,7 @@ class AttributeType
     }
 
     /**
-     * @param int $type
+     * {@inheritdoc}
      */
     public function setType(int $type): void
     {

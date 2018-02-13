@@ -1,5 +1,5 @@
-Uom Component
-=============
+Product Component
+=================
 
 .. toctree::
    :maxdepth: 2

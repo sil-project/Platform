@@ -12,7 +12,9 @@ declare(strict_types=1);
 
 namespace Sil\Component\Product\Generator;
 
-use Sil\Component\Product\Model\CodeInterface;
+use DomainException;
+use Blast\Component\Code\Generator\AbstractCodeGenerator;
+use Blast\Component\Code\Model\CodeInterface;
 use Sil\Component\Product\Model\ProductCode;
 
 class ProductCodeGenerator extends AbstractCodeGenerator implements ProductCodeGeneratorInterface
@@ -22,6 +24,16 @@ class ProductCodeGenerator extends AbstractCodeGenerator implements ProductCodeG
      */
     public function generate(string $productName): CodeInterface
     {
-        return new ProductCode(substr(strtoupper($productName), 0, 7));
+        $code = new ProductCode(substr(strtoupper($productName), 0, 7));
+
+        if (!$this->isValid($code)) {
+            throw new DomainException(sprintf('The generated code %s does not fit the regex format %s', $code, $code->getFormat()));
+        }
+
+        if (!$this->isUnique($code)) {
+            throw new DomainException(sprintf('The generated code for prefix %s and date %s is not unique', $prefix, $date->format('Ymd')));
+        }
+
+        return $code;
     }
 }

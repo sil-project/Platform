@@ -14,7 +14,7 @@ namespace Sil\Component\Product\Factory;
 
 use Sil\Component\Product\Generator\ProductCodeGenerator;
 use Sil\Component\Product\Generator\ProductVariantCodeGenerator;
-use Sil\Component\Product\Model\CodeInterface;
+use Blast\Component\Code\Model\CodeInterface;
 use Sil\Component\Product\Model\ProductInterface;
 use Sil\Component\Product\Model\Option;
 
@@ -37,15 +37,15 @@ class CodeFactory
     /**
      * Generate product variant code.
      *
-     * @param ProductInterface $product Current Product
-     * @param array|Option[]   $options array of Options
+     * @param ProductInterface $product        Current Product
+     * @param array|Option[]   $productOptions array of Options
      *
      * @return CodeInterface Generated Code
      */
-    public static function generateProductVariantCode(ProductInterface $product, array $options): CodeInterface
+    public static function generateProductVariantCode(ProductInterface $product, array $productOptions): CodeInterface
     {
         $productCodeGenerator = new ProductVariantCodeGenerator();
 
-        return $productCodeGenerator->generate($product, $options);
+        return $productCodeGenerator->generate($product->getCode(), $productOptions);
     }
 }

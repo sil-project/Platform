@@ -12,19 +12,20 @@ declare(strict_types=1);
 
 namespace Sil\Component\Product\Generator;
 
-use Sil\Component\Product\Model\CodeInterface;
+use Blast\Component\Code\Generator\CodeGeneratorInterface;
+use Blast\Component\Code\Model\CodeInterface;
 use Sil\Component\Product\Model\Option;
-use Sil\Component\Product\Model\ProductInterface;
+use Sil\Component\Product\Model\ProductCodeInterface;
 
 interface ProductVariantCodeGeneratorInterface extends CodeGeneratorInterface
 {
     /**
      * Generate product variant code.
      *
-     * @param ProductInterface $product Current Product
-     * @param array|Option[]   $options array of Options
+     * @param ProductCodeInterface $product Current Product
+     * @param array|Option[]       $options array of Options
      *
      * @return CodeInterface Generated Code
      */
-    public function generate(ProductInterface $product, array $options): CodeInterface;
+    public function generate(ProductCodeInterface $productCode, array $productOptions): CodeInterface;
 }

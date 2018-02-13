@@ -10,9 +10,9 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Sil\Component\Product\Generator;
+namespace Blast\Component\Code\Generator;
 
-use Sil\Component\Product\Model\CodeInterface;
+use Blast\Component\Code\Model\CodeInterface;
 
 interface CodeGeneratorInterface
 {
@@ -23,5 +23,14 @@ interface CodeGeneratorInterface
      *
      * @return bool True if valid, false if not valid
      */
-    public function validate(CodeInterface $code): bool;
+    public function isValid(CodeInterface $code): bool;
+
+    /**
+     * Check if generated code is unique.
+     *
+     * @param CodeInterface $code
+     *
+     * @return bool
+     */
+    public function isUnique(CodeInterface $code): bool;
 }

@@ -12,8 +12,9 @@ declare(strict_types=1);
 
 namespace Sil\Component\Product\Generator;
 
-use Sil\Component\Product\Model\ProductInterface;
-use Sil\Component\Product\Model\CodeInterface;
+use Blast\Component\Code\Generator\AbstractCodeGenerator;
+use Blast\Component\Code\Model\CodeInterface;
+use Sil\Component\Product\Model\ProductCodeInterface;
 use Sil\Component\Product\Model\ProductVariantCode;
 
 class ProductVariantCodeGenerator extends AbstractCodeGenerator implements ProductVariantCodeGeneratorInterface
@@ -21,13 +22,13 @@ class ProductVariantCodeGenerator extends AbstractCodeGenerator implements Produ
     /**
      * {@inheritdoc}
      */
-    public function generate(ProductInterface $product, array $options): CodeInterface
+    public function generate(ProductCodeInterface $productCode, array $productOptions): CodeInterface
     {
         $optionsCodePart = '';
 
         $firstIteration = true;
 
-        foreach ($options as $option) {
+        foreach ($productOptions as $option) {
             if (!$firstIteration) {
                 $optionsCodePart .= '-';
             } else {
@@ -37,10 +38,20 @@ class ProductVariantCodeGenerator extends AbstractCodeGenerator implements Produ
             $optionsCodePart .= strtoupper($option->getValue());
         }
 
-        return new ProductVariantCode(sprintf(
+        $code = new ProductVariantCode(sprintf(
             '%s-%s',
-            $product->getCode()->getValue(),
+            $productCode->getValue(),
             $optionsCodePart
         ));
+
+        if (!$this->isValid($code)) {
+            throw new DomainException(sprintf('The generated code %s does not fit the regex format %s', $code, $code->getFormat()));
+        }
+
+        if (!$this->isUnique($code)) {
+            throw new DomainException(sprintf('The generated code for prefix %s and date %s is not unique', $prefix, $date->format('Ymd')));
+        }
+
+        return $code;
     }
 }

@@ -74,10 +74,10 @@ class Fixtures
     {
         $this->rawData = [
             'Reusable attributes' => [
-                'Brands' => [
+                'Brand' => [
                     'BrandOne', 'BrandTwo', 'BrandThree',
                 ],
-                'Models' => [
+                'Model' => [
                     'ModelOne', 'ModelTwo', 'ModelThree',
                 ],
             ],
@@ -132,21 +132,23 @@ class Fixtures
          */
 
         $attributeType = new AttributeType('Brand');
+        $attributeType->setReusable(true);
 
-        foreach ($this->rawData['Reusable attributes']['Brands'] as $brand) {
+        $this->getAttributeTypeRepository()->add($attributeType);
+
+        foreach ($this->rawData['Reusable attributes']['Brand'] as $brand) {
             $attribute = new Attribute($attributeType, $brand);
             $this->getAttributeRepository()->add($attribute);
         }
-
-        $this->getAttributeTypeRepository()->add($attributeType);
 
         /*
          * MODEL
          */
 
         $attributeType = new AttributeType('Model');
+        $attributeType->setReusable(true);
 
-        foreach ($this->rawData['Reusable attributes']['Models'] as $model) {
+        foreach ($this->rawData['Reusable attributes']['Model'] as $model) {
             $attribute = new Attribute($attributeType, $model);
             $this->getAttributeRepository()->add($attribute);
         }
@@ -221,6 +223,11 @@ class Fixtures
         foreach ($optionTypes as $optionType) {
             $product->addOptionType($optionType);
         }
+        $brandOne = $this->getAttributeRepository()->findOneBy(['value' => 'BrandOne', 'attributeType.name' => 'Brand']);
+        $product->addAttribute($brandOne);
+
+        $modelTwo = $this->getAttributeRepository()->findOneBy(['value' => 'ModelTwo', 'attributeType.name' => 'Model']);
+        $product->addAttribute($modelTwo);
 
         foreach ([
             'Shoelace length' => 32.5,

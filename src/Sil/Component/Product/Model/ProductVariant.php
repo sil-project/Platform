@@ -12,10 +12,13 @@ declare(strict_types=1);
 
 namespace Sil\Component\Product\Model;
 
+use InvalidArgumentException;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
+use Blast\Component\Resource\Model\ResourceInterface;
+use Blast\Component\Code\Model\CodeInterface;
 
-class ProductVariant implements ProductVariantInterface
+class ProductVariant implements ProductVariantInterface, ResourceInterface
 {
     /**
      * Product unique identifyer code.
