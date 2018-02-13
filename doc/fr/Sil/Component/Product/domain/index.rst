@@ -125,4 +125,4 @@ Un **Type d'option** est lié à un produit et permet de définir quel type d'op
 Modèle du domaine
 -----------------
 
-.. image:: products.png
+.. image:: products-0.2.png
