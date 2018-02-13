@@ -10,7 +10,7 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Sil\Component\Product\Tests\Unit;
+namespace Sil\Component\Order\Tests\Unit;
 
 use DomainException;
 use PHPUnit\Framework\TestCase;
