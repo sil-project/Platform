@@ -20,13 +20,11 @@ do
     touch $i/Tests/Functional/.gitkeep
     git add $i/Tests/Functional/.gitkeep
 
-
-    cp -rp src/Skeleton/Tests/Resources/ $i/Tests/
-    if [ -f  $i/Tests/Resources/App/AppKernel.php ]
+    if [ ! -d $i/Tests/Resources ]
     then
-        rm -f $i/Tests/Resources/App/AppKernel.Example.php
+        cp -rp src/Skeleton/Tests/Resources/ $i/Tests/
+        git add $i/Tests/Resources/
     fi
-    git add $i/Tests/Resources/
 done
 
 # Bundle & Component
