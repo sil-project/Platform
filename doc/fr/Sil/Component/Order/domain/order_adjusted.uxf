@@ -64,9 +64,9 @@ OrderItemInterface
     <panel_attributes>template=Resource
 Order
 --
--editable: bool
-~createdAt: DateTime
-~source: string</panel_attributes>
+#editable: bool
+#createdAt: DateTime
+#source: string</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -91,8 +91,8 @@ Order
     <panel_attributes>template=Resource
 OrderItem
 --
-~label: string
-~description: string</panel_attributes>
+#label: string
+#description: string</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -144,7 +144,7 @@ fg=gray</panel_attributes>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;&gt;&gt;&gt;
 r2=1..1
-m2=~total</panel_attributes>
+m2=#total</panel_attributes>
     <additional_attributes>10.0;10.0;100.0;10.0;100.0;160.0;230.0;160.0</additional_attributes>
   </element>
   <element>
@@ -157,9 +157,9 @@ m2=~total</panel_attributes>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;&gt;&gt;&gt;
 r1=0..n
-m1=~items
+m1=#items
 r2=1..1
-m2=~order</panel_attributes>
+m2=#order</panel_attributes>
     <additional_attributes>930.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
@@ -172,7 +172,7 @@ m2=~order</panel_attributes>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;&gt;&gt;&gt;
 r2=1..1
-m2=~adjustedTotal</panel_attributes>
+m2=#adjustedTotal</panel_attributes>
     <additional_attributes>150.0;10.0;150.0;60.0;10.0;60.0</additional_attributes>
   </element>
   <element>
@@ -185,7 +185,7 @@ m2=~adjustedTotal</panel_attributes>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;&gt;&gt;&gt;
 r2=1..1
-m2=~total</panel_attributes>
+m2=#total</panel_attributes>
     <additional_attributes>450.0;10.0;150.0;10.0;150.0;160.0;10.0;160.0</additional_attributes>
   </element>
   <element>
@@ -198,7 +198,7 @@ m2=~total</panel_attributes>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
 r1=1..1
-m1=~quantity</panel_attributes>
+m1=#quantity</panel_attributes>
     <additional_attributes>10.0;240.0;140.0;240.0;140.0;10.0;90.0;10.0</additional_attributes>
   </element>
   <element>
@@ -328,7 +328,7 @@ AdjustmentStrategyInterface
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
 r1=1..1
-m1=~strategy</panel_attributes>
+m1=#strategy</panel_attributes>
     <additional_attributes>530.0;20.0;100.0;20.0;100.0;190.0;10.0;190.0</additional_attributes>
   </element>
   <element>
@@ -341,9 +341,9 @@ m1=~strategy</panel_attributes>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;&gt;&gt;&gt;
 r1=0..n
-m1=~adjustments
+m1=#adjustments
 r2=1..1
-m2=~target</panel_attributes>
+m2=#target</panel_attributes>
     <additional_attributes>220.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
@@ -369,9 +369,9 @@ OrderItemAdjustment
     </coordinates>
     <panel_attributes>/AbstractAdjustment/
 --
-~label: string
-~value: float
-/~total: PriceInterface/</panel_attributes>
+#label: string
+#value: float
+/#total: PriceInterface/</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -408,7 +408,7 @@ OrderItemAdjustment
 --
 TYPE_FIXED_VALUE
 TYPE_RATE
--value: string
+#value: string
 --
 +isFixedValue(): bool
 +isRate(): bool</panel_attributes>
@@ -424,7 +424,7 @@ TYPE_RATE
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
 r1=1..1
-m1=~type</panel_attributes>
+m1=#type</panel_attributes>
     <additional_attributes>200.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
@@ -472,9 +472,9 @@ m1=~type</panel_attributes>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
 r2=0..n
-m2=~adjustments
+m2=#adjustments
 r1=1..1
-m1=~target</panel_attributes>
+m1=#target</panel_attributes>
     <additional_attributes>280.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
@@ -528,7 +528,7 @@ fg=gray</panel_attributes>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;&gt;&gt;&gt;
 r2=1..1
-m2=~currency</panel_attributes>
+m2=#currency</panel_attributes>
     <additional_attributes>30.0;10.0;70.0;10.0;70.0;160.0;10.0;160.0</additional_attributes>
   </element>
   <element>
@@ -564,7 +564,7 @@ m2=~currency</panel_attributes>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;&gt;&gt;&gt;
 r2=1..1
-m2=~unitPrice</panel_attributes>
+m2=#unitPrice</panel_attributes>
     <additional_attributes>150.0;10.0;150.0;60.0;10.0;60.0</additional_attributes>
   </element>
   <element>
@@ -577,7 +577,7 @@ m2=~unitPrice</panel_attributes>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;&gt;&gt;&gt;
 r2=1..1
-m2=~adjustedTotal</panel_attributes>
+m2=#adjustedTotal</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;60.0;140.0;60.0</additional_attributes>
   </element>
   <element>

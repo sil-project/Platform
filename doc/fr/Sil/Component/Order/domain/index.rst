@@ -78,12 +78,12 @@ Modèle du domaine
 Version simplifiée
 ------------------
 
-.. image:: order_simple-0.1.png
+.. image:: order_simple-0.2.png
 
 Version avec ajustements
 ------------------------
 
-.. image:: order_adjusted-0.1.png
+.. image:: order_adjusted-0.2.png
 
 
 Cycle de vie
