@@ -8,7 +8,7 @@
         "blast-project/resource": "self.version",
         "blast-project/code": "self.version",
         "sil-project/account": "self.version",
-        "sil-project/invoice": "self.version",
+        "sil-project/contact": "self.version",
         "sil-project/uom": "self.version",
         "sylius/currency": "^1.1",
         "winzou/state-machine": "^0.3"
