@@ -49,6 +49,8 @@ before_install:
 
 install:
     - ${SCRIPTS_FOLDER}/do_run.sh install_${TARGET}.sh
+    - ${SCRIPTS_FOLDER}/do_run.sh install_db_${TARGET}.sh
+    - ${SCRIPTS_FOLDER}/do_run.sh install_ui_${TARGET}.sh
 
 before_script:
     - ${SCRIPTS_FOLDER}/do_run.sh before_script_${TARGET}.sh
