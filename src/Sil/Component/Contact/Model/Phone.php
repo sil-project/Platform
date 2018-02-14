@@ -53,7 +53,7 @@ class Phone implements ResourceInterface, PhoneInterface
      *
      * @return string
      */
-    public function getNumber(): ?string
+    public function getNumber(): string
     {
         return $this->number;
     }
