@@ -76,4 +76,4 @@ RUN wget -q https://github.com/satooshi/php-coveralls/releases/download/v1.0.1/c
 
 # Maybe use a docker shared volume for .composer as cache in all build
 # try to cache some composer & npm package
-RUN cd /tmp && git clone https://github.com/sil-project/Platform.git && cd Platform && composer install --no-ansi --no-interaction --no-scripts --prefer-dist && rm composer.lock &&  composer update --no-ansi --no-interaction --no-scripts --prefer-dist && pip install -r doc/fr/requirements.txt --user && export NVM_DIR="$HOME/.nvm" && . "$NVM_DIR/nvm.sh" && npm install && npm run gulp && cd /tmp && rm -rf /tmp/Platform
+RUN cd /tmp && git clone https://github.com/sil-project/Platform.git && cd Platform && composer install --no-ansi --no-interaction --no-scripts --prefer-dist && rm composer.lock &&  composer update --no-ansi --no-interaction --no-scripts --prefer-dist && pip install -r doc/requirements.txt --user && export NVM_DIR="$HOME/.nvm" && . "$NVM_DIR/nvm.sh" && npm install && npm run gulp && cd /tmp && rm -rf /tmp/Platform
