@@ -47,28 +47,6 @@ do
         fi
     done
 
-    mkdir -p $i/etc
-    for j in src/Skeleton/etc/*
-    do
-        b=$(basename $j)
-        if [ ! -f $i/etc/$b ]
-        then
-            cp $j $i/etc/$b
-            git add $i/etc/$b
-        fi
-    done
-
-    mkdir -p $i/.github
-    for j in src/Skeleton/.github/*
-    do
-        b=$(basename $j)
-        if [ ! -f $i/.github/$b ]
-        then
-            cp $j $i/.github/$b
-            git add $i/.github/$b
-        fi
-    done
-
     # not all as there is *bundle* and *component*
     for j in src/Skeleton/.* src/Skeleton/LICENCE.md src/Skeleton/phpmd.xml.dist
     do
@@ -83,6 +61,24 @@ do
         fi
 
     done
+
+    # for etc and .github we overide file without check
+    mkdir -p $i/etc
+    for j in src/Skeleton/etc/*
+    do
+        b=$(basename $j)
+        cp $j $i/etc/$b
+        git add $i/etc/$b
+    done
+
+    mkdir -p $i/.github
+    for j in src/Skeleton/.github/*
+    do
+        b=$(basename $j)
+        cp $j $i/.github/$b
+        git add $i/.github/$b
+    done
+
 
 
 done
