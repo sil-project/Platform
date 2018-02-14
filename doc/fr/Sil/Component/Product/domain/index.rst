@@ -56,8 +56,6 @@ Un **Attribut** est un object permettant de décrire une propriété physique (o
 
 Un **Produit** possède ses propres collections d'attributs, mais dans certains cas, des attributs peuvent être partagés entre les produits (voir la propriété **reusable** de l'objet **AttributeType**)
 
-AttributeType $attributeType, $value,
-
 +-----------------+----------------------------------------------------------------------------------+--------+
 | Propriété       | Description                                                                      | Oblig. |
 +=================+==================================================================================+========+
