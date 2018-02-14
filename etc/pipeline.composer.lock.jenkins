@@ -26,11 +26,12 @@ pipeline {
                 sh "composer -V"
             }
         }
-        stage ('Set Env') {
+
+         stage ('Checkout') {
             steps {
-                sh "ln -fs ./.env.jenkins ./.env"
-                sh "cat ./.env"
-                sh "mkdir -p build"
+                sh "git checkout master"
+                sh "git branch -a"
+                sh "git remote -v"
             }
         }
 
@@ -43,7 +44,7 @@ pipeline {
 
         stage ('Commit') {
             steps {
-                sh "git commit composer.lock -m '[CI] Automatic update composer.lock"
+                sh "git commit composer.lock -m '[CI] Automatic update composer.lock'"
             }
         }
 
