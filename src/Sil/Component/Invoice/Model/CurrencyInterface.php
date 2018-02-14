@@ -15,4 +15,24 @@ namespace Sil\Component\Invoice\Model;
  */
 interface CurrencyInterface
 {
+    /**
+     * Get the value of name.
+     *
+     * @return string
+     */
+    public function getName(): string;
+
+    /**
+     * Get the value of code.
+     *
+     * @return string
+     */
+    public function getCode(): string;
+
+    /**
+     * Get the value of symbol.
+     *
+     * @return string
+     */
+    public function getSymbol(): string;
 }
