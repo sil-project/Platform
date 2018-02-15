@@ -135,8 +135,8 @@ pipeline {
 
         stage ('Archive Gzip') {
             steps {
-                sh 'tar -czf Platform_${BRANCH_NAME}.tgz ./*'
-                archiveArtifacts artifacts: "Platform_${BRANCH_NAME}.tgz", fingerprint: true
+                sh 'tar -czf Platform.tgz ./*'
+                archiveArtifacts artifacts: "Platform.tgz", fingerprint: true
             }
         }
     }
