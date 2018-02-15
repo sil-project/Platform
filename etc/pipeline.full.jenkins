@@ -132,16 +132,13 @@ pipeline {
                 }
             }
         }
-        /*
-          stage ('Archive Gzip') {
-          steps {
-          sh 'tar -czf Platform_${BRANCH_NAME}.tgz ./*'
-          archiveArtifacts artifacts: "Platform_${BRANCH_NAME}.tgz", fingerprint: true
-          }
-          }
-        */
 
-
+        stage ('Archive Gzip') {
+            steps {
+                sh 'tar -czf Platform_${BRANCH_NAME}.tgz ./*'
+                archiveArtifacts artifacts: "Platform_${BRANCH_NAME}.tgz", fingerprint: true
+            }
+        }
     }
 
 
