@@ -7,7 +7,7 @@ pipeline {
     }
 
     environment {
-        RND = "${BUILD_NUMBER}_${BRANCH_NAME}"
+        RND = "${BUILD_NUMBER}"
     }
 
     options {
