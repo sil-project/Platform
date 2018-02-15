@@ -6,9 +6,9 @@ Les Contacts sont représentés par le modèle Contact.
 
 Lorsqu'une première adresse (modèle Address) est associé à un contact, celle-ci deviendra l'addresse par défaut du contact.
   
-Lorsque l'addresse par défaut est supprimée, la premier adresse disponible dans la liste des adresses associées au contact devient automatiquement l'adresse par défaut. Si aucune adresse n'est associée au Contact, aucune adresse par défaut ne peut être désignée.
+Lorsque l'addresse par défaut est supprimée, la première adresse disponible dans la liste des adresses associées au contact devient automatiquement l'adresse par défaut. Si aucune adresse n'est associée au contact, aucune adresse par défaut ne peut être désignée.
 
-Le même fonctionnement est appliqué aux téléphones (modèle Phone).
+Le même fonctionnement est appliqué aux numéros de téléphone (modèle Phone).
   
 +-----------------+-----------------------------------------------------------------------------+
 | Propriété       | Description                                                                 |
