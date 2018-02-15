@@ -2,7 +2,8 @@ pipeline {
     agent {
         dockerfile {
             filename "etc/dockerfile.jenkins"
-            args "--network=ci.network --volume /home/jenkins/cache/pip:/home/jenkins/.cache/pip --volume /home/jenkins/cache/composer:/home/jenkins/.cache/composer"
+            /* warning /home/jenkins/cache/* have to be created before first launch, if not it is created by root and is not usable, also $HOME does not work */
+            args "--network=ci.network --volume /home/jenkins/cache/pip:/home/jenkins/.cache/pip --volume /home/jenkins/cache/composer:/home/jenkins/.composer/cache --volume /home/jenkins/cache/npm:/hom/jenkins/.npm/_cacache"
         }
     }
 
