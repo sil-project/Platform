@@ -2,7 +2,7 @@ pipeline {
     agent {
         dockerfile {
             filename "etc/dockerfile.jenkins"
-            args '--network=ci.network'
+            args "--network=ci.network --volume /home/jenkins/cache/pip:/home/jenkins/.cache/pip --volume /home/jenkins/cache/composer:/home/jenkins/.cache/composer"
         }
     }
 
@@ -70,6 +70,7 @@ pipeline {
                 }
                 stage ('Run Docs') {
                     steps {
+                        sh "./bin/git-scripts/doc-update.sh"
                         sh "./bin/ci-scripts/do_run.sh run_docs.sh"
                         publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'build/sphinx', reportFiles: 'index.html', reportName: 'Documentation', reportTitles: ''])
                     }
