@@ -1,0 +1,38 @@
+{
+    "name": "sil-project/currency",
+    "type": "library",
+    "description": "Currency Management",
+    "require": {
+        "php": "^7.1",
+        "symfony/intl": "^3.3"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.4"
+    },
+    "license": "LGPL-3.0",
+    "keywords": [
+        "currency",
+        "currency management"
+    ],
+    "homepage": "https://github.com/sil-project/Currrency",
+    "authors": [
+        {
+            "name": "Vivien FRASCA",
+            "email": "vivien.frasca@libre-informatique.fr"
+        },
+        {
+            "name": "Libre Informatique",
+            "homepage": "http://www.libre-informatique.fr/"
+        }
+    ],
+
+    "autoload": {
+        "psr-4": {
+            "Sil\\Component\\Currency\\": "."
+        }
+    },
+    "config": {
+        "bin-dir": "bin/"
+    },
+    "version": "dev-wip-platform"
+}
