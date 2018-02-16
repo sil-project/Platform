@@ -7,3 +7,4 @@ Composants Commande
     installation
     domain/index
     processor
+    usage

@@ -17,14 +17,6 @@ class AdjustmentStrategyDecrease implements AdjustmentStrategyInterface
     /**
      * {@inheritdoc}
      */
-    public function affectTotal(): bool
-    {
-        return true;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
     public function adjust(AdjustmentInterface $adjustment): void
     {
         $absolutePrice = $adjustment->getAdjustmentAbsolutePriceValue();

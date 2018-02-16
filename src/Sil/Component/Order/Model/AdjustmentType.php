@@ -80,12 +80,4 @@ class AdjustmentType implements AdjustmentTypeInterface
             'TYPE_RATE'            => static::TYPE_RATE,
         ];
     }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function __toString(): string
-    {
-        return $this->value;
-    }
 }

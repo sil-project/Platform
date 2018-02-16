@@ -61,6 +61,4 @@ interface AdjustmentTypeInterface
      * @return array
      */
     public static function getTypes(): array;
-
-    public function __toString(): string;
 }
