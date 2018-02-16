@@ -54,7 +54,7 @@ pipeline {
                     steps {
                         sh "./bin/ci-scripts/do_run.sh install_test.sh"
                         sh "./bin/ci-scripts/do_run.sh install_db_test.sh"
-                        sh "./bin/ci-scripts/do_run.sh install_ui_test.sh"
+                        /* sh "./bin/ci-scripts/do_run.sh install_ui_test.sh" */
                     }
                 }
 
@@ -73,11 +73,11 @@ pipeline {
                     }
                 }
 
-                stage ('Start Selenium') {
+             /*   stage ('Start Selenium') {
                     steps {
                         sh "./bin/ci-scripts/do_run.sh launch_selenium_test.sh"
                     }
-                }
+                } */
             }
         }
 
@@ -133,12 +133,12 @@ pipeline {
             }
         }
 
-        stage ('Archive Gzip') {
+    /*    stage ('Archive Gzip') {
             steps {
                 sh 'tar -czf Platform.tgz ./*'
                 archiveArtifacts artifacts: "Platform.tgz", fingerprint: true
             }
-        }
+        } */
     }
 
 
