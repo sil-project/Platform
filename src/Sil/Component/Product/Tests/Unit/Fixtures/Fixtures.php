@@ -280,7 +280,6 @@ class Fixtures
         $options = cartesian_product($this->getProductOptionsAsArray($product))->asArray();
 
         foreach ($options as $option) {
-            $variantCode = $product->getCode();
             $variantName = $product->getName();
 
             $variantCode = CodeFactory::generateProductVariantCode($product, $option);
