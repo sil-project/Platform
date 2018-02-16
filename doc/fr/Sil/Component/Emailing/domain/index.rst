@@ -123,7 +123,7 @@ Une **liste de diffusion** se définit par un titre et une collection de **desti
 +-------------+--------------------------------+--------+
 | description | Une description optionnelle    |        |
 +-------------+--------------------------------+--------+
-| state       | L'état de la liste             |        |
+| enabled     | La list est utilisable ou non  |        |
 +-------------+--------------------------------+--------+
 | recipients  | Une collection de destinataire |        |
 +-------------+--------------------------------+--------+
