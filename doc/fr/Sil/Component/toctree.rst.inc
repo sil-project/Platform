@@ -2,6 +2,7 @@
     :hidden:
 
     Account/index
+    Address/index
     Contact/index
     Invoice/index
     Order/index

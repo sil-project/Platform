@@ -1,4 +1,5 @@
 * :doc:`/Sil/Component/Account/index`
+* :doc:`/Sil/Component/Address/index`
 * :doc:`/Sil/Component/Contact/index`
 * :doc:`/Sil/Component/Invoice/index`
 * :doc:`/Sil/Component/Order/index`
