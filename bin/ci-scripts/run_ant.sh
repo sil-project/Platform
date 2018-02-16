@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
-set -ev
+set -ex
 
 ant

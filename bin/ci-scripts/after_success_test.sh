@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -ev
+set -ex
 
 coveralls -v
 

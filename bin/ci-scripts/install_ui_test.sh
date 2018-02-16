@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -ev
+set -ex
 
 
 # TODO share this between script (in an include)
@@ -18,9 +18,9 @@ fi
 if [ -n "${ENABLE_UI}" ]
 then
     export NVM_DIR="$HOME/.nvm"
-    set +v
+    set +x
     [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
-    set -v
+    set -x
 
     npm install
     npm run gulp

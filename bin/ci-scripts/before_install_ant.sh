@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -ev
+set -ex
 
 composer global config bin-dir ${HOME}/bin
 

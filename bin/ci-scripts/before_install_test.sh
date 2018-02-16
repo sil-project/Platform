@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -ev
+set -ex
 
 mkdir --parents "${HOME}/bin"
 
@@ -57,9 +57,9 @@ then
     curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
     export NVM_DIR="$HOME/.nvm"
 
-    set +v
+    set +x
     [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
-    set -v
+    set -x
 
     # install node 4.2.6
     nvm install 8.9
