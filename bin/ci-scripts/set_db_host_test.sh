@@ -25,8 +25,12 @@ fi
 # sed -e s/'database_host: 127.0.0.1'/'database_host: ${DBHOST}'/g -i app/config/parameters.yml.dist
 if [ -n "${DBHOST}" ]
 then
-    sed -e s/'127.0.0.1'/${DBHOST}/g -i app/config/config_test.yml
-
+    # sed -e s/'127.0.0.1'/${DBHOST}/g -i app/config/config_test.yml
+    sed -e s/'database_host: 127.0.0.1'/"database_host: ${DBHOST}"/g -i app/config/parameters.yml.dist
+    #sed -e s/'database_port: 5432'/"database_port: 5432"/g -i app/config/parameters.yml.dist
+    sed -e s/'database_name: sil'/"database_name: ${DBAPPNAME}"/g -i app/config/parameters.yml.dist
+    sed -e s/'database_user: sil_user'/"database_user: ${DBAPPUSER}"/g -i app/config/parameters.yml.dist
+    sed -e s/'database_password: sil'/"database_password: ${DBAPPPASSWORD}"/g -i app/config/parameters.yml.dist
     #TODO
     # should use env var from etcd (for password)
     echo  ${DBHOST}:5432:*:${DBROOTUSER}:${DBROOTPASSWORD} >> $HOME/.pgpass
@@ -43,52 +47,5 @@ then
     sed -e s/'blast_search.global_index_alias: sil'/"blast_search.global_index_alias: ${ELALIAS}"/g -i app/config/parameters.yml.dist
 fi
 
-
-
-echo "
-imports:
-    - { resource: config_dev.yml }
-
-framework:
-    test: ~
-    profiler:
-        collect: false
-
-web_profiler:
-    toolbar: false
-    intercept_redirects: false
-
-swiftmailer:
-    disable_delivery: true
-
-# Doctrine Configuration
-doctrine:
-    dbal:
-        default_connection: default
-        connections:
-            default:
-                driver:   pdo_pgsql
-                host:     ${DBHOST}
-                port:     5432
-                dbname:   ${DBAPPNAME}
-                user:     ${DBAPPUSER}
-                password: ${DBAPPPASSWORD}
-                charset:  UTF8
-            session:
-                driver:   pdo_pgsql
-                host:     ${DBHOST}
-                port:     5432
-                dbname:   ${DBAPPNAME}
-                user:     ${DBAPPUSER}
-                password: ${DBAPPPASSWORD}
-                charset:  UTF8
-
-
-blast_search:
-    elastic_search:
-        hostname:  ${ELHOST}
-        port: 9200
-    global_index_alias: ${ELALIAS}
-
-
-" > app/config/config_test.yml
+# DEBUG
+cat app/config/parameters.yml.dist
