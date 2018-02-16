@@ -1,9 +1,11 @@
+
 ========
 Commande
 ========
 
+----------------------
 Description du domaine
-======================
+----------------------
 
 Une commande doit pouvoir refléter des passages de commandes de clients à destination de l'entreprise.
 
@@ -17,95 +19,94 @@ Il est également possible de saisir ces commandes de façon automatique (via AP
 
 Il n'y a pas de cadre légal définissant les notions de commandes, leur représentation est donc libre selon les cas d'utilisation.
 
+--------------------------
 Processus général de vente
-==========================
+--------------------------
 
 .. image:: sale_process-0.1.png
 
---------
 Commande
---------
+========
 
 Une commande est définissable à l'aide de :
 
-+-----------------+---------------------------------------------------+--------+
-| Propriété       | Description                                       | Oblig. |
-+=================+===================================================+========+
-| code            | Code unique de la commande                        | x      |
-+-----------------+---------------------------------------------------+--------+
-| currency        | La monnaie appliquée à la commande                | x      |
-+-----------------+---------------------------------------------------+--------+
-| state           | État reflétant le cycle de vie de la commande     |        |
-+-----------------+---------------------------------------------------+--------+
-| items           | Collection des éléments d'une commande            |        |
-+-----------------+---------------------------------------------------+--------+
-| total           | Prix total de la commande                         |        |
-+-----------------+---------------------------------------------------+--------+
-| creationDate    | Date de création de la commande                   |        |
-+-----------------+---------------------------------------------------+--------+
-| stateHistory    | Historique des changements d'états de la commande |        |
-+-----------------+---------------------------------------------------+--------+
-| invoices        | Collection des factures associées [1]_            |        |
-+-----------------+---------------------------------------------------+--------+
-| account         | Le compte client associé à la commande [2]_       | x      |
-+-----------------+---------------------------------------------------+--------+
-| source          | Indique la provenance de la commande              |        |
-+-----------------+---------------------------------------------------+--------+
++--------------+---------------------------------------------------+--------+
+| Propriété    | Description                                       | Oblig. |
++==============+===================================================+========+
+| code         | Code unique de la commande                        | x      |
++--------------+---------------------------------------------------+--------+
+| currency     | La monnaie appliquée à la commande                | x      |
++--------------+---------------------------------------------------+--------+
+| state        | État reflétant le cycle de vie de la commande     |        |
++--------------+---------------------------------------------------+--------+
+| items        | Collection des éléments d'une commande            |        |
++--------------+---------------------------------------------------+--------+
+| total        | Prix total de la commande                         |        |
++--------------+---------------------------------------------------+--------+
+| creationDate | Date de création de la commande                   |        |
++--------------+---------------------------------------------------+--------+
+| stateHistory | Historique des changements d'états de la commande |        |
++--------------+---------------------------------------------------+--------+
+| invoices     | Collection des factures associées [1]_            |        |
++--------------+---------------------------------------------------+--------+
+| account      | Le compte client associé à la commande [2]_       | x      |
++--------------+---------------------------------------------------+--------+
+| source       | Indique la provenance de la commande              |        |
++--------------+---------------------------------------------------+--------+
 
 .. [1] Les factures pouvant être générées sans forcément avoir une commande, il est donc normal d'avoir des commandes en état ``FULFILLED`` sans aucune facture.
 .. [2] Un compte est obligatoire pour pouvoir créer une commande.
 
--------------------
 Élément de commande
--------------------
+===================
 
 Un élément de commande est définissable par :
 
-+-----------------+----------------------------------------------+--------+
-| Propriété       | Description                                  | Oblig. |
-+=================+==============================================+========+
-| label           | Libellé de l'élément de commande             | x      |
-+-----------------+----------------------------------------------+--------+
-| description     | Description courte décrivant l'élément       |        |
-+-----------------+----------------------------------------------+--------+
-| quantity        | La quantité représenté par l'élément         | x      |
-+-----------------+----------------------------------------------+--------+
-| unitPrice       | Le prix unitaire (PU) de l'élément           | x      |
-+-----------------+----------------------------------------------+--------+
-| order           | La commande à laquelle il appartient         | x      |
-+-----------------+----------------------------------------------+--------+
-| total           | Le total de l'élément (quantité * PU)        |        |
-+-----------------+----------------------------------------------+--------+
-| adjustedTotal   | Le total de l'élément avec les ajustements   |        |
-+-----------------+----------------------------------------------+--------+
-| adjustments     | La collection d'ajustements liés à l'élément |        |
-+-----------------+----------------------------------------------+--------+
++---------------+----------------------------------------------+--------+
+| Propriété     | Description                                  | Oblig. |
++===============+==============================================+========+
+| label         | Libellé de l'élément de commande             | x      |
++---------------+----------------------------------------------+--------+
+| description   | Description courte décrivant l'élément       |        |
++---------------+----------------------------------------------+--------+
+| quantity      | La quantité représenté par l'élément         | x      |
++---------------+----------------------------------------------+--------+
+| unitPrice     | Le prix unitaire (PU) de l'élément           | x      |
++---------------+----------------------------------------------+--------+
+| order         | La commande à laquelle il appartient         | x      |
++---------------+----------------------------------------------+--------+
+| total         | Le total de l'élément (quantité * PU)        |        |
++---------------+----------------------------------------------+--------+
+| adjustedTotal | Le total de l'élément avec les ajustements   |        |
++---------------+----------------------------------------------+--------+
+| adjustments   | La collection d'ajustements liés à l'élément |        |
++---------------+----------------------------------------------+--------+
 
 -----------------
 Modèle du domaine
 -----------------
 
 Version simplifiée
-------------------
+==================
 
 .. image:: order_simple-0.2.png
 
 Version avec ajustements
-------------------------
+========================
 
 .. image:: order_adjusted-0.2.png
 
 
+------------
 Cycle de vie
-============
+------------
 
 Une commande peut passer par plusieurs états tout au long de son cycle de vie. Elle ne peut avoir qu'un seul état à la fois.
 
 Le cycle de vie est volontairement simpliste afin de proposer une gestion basique de commande. Chaque solution métier devra redéfinir plus en détails ce cycle de vie pour correspondre d'avantage aux spécificités du métier.
 
------
 États
------
+=====
 
 - ``DRAFT`` : Brouillon
 
@@ -127,38 +128,28 @@ Une commande traitée à atteint la fin de son cycle de vie. Aucune nouvelle act
 
 Une commande supprimée à atteint la fin de son cycle de vie. Aucune nouvelle action ne peut y être appliquée. Seule une commande brouillon peut être supprimée.
 
------------
 Transitions
------------
+===========
 
 .. image:: state_machine-0.1.png
 
---------------
 Machine à état
---------------
+==============
 
-La machine à état est embarquée dans l'état lui-même. Cela permet de maîtriser les changements d'état au sein même du modèle de donnée.
+La machine à état est embarquée dans l'état lui-même. Cela permet de maîtriser les changements d'état au sein même du modèle de donnée:
 
 Les transitions implémentées sont les suivantes :
 
-+-----------------+----------------------------------------+----------------------------------------+
-| Transition      | États                                  | Description                            |
-+=================+========================================+========================================+
-| delete          | de DRAFT                               | Marque la commande comme « supprimée » |
-|                 +----------------------------------------+                                        |
-|                 | à DELETED                              |                                        |
-+-----------------+----------------------------------------+----------------------------------------+
-| validate        | de DRAFT                               | Valide la commande brouillon pour être |
-|                 +----------------------------------------+ traitée                                |
-|                 | à VALIDATED                            |                                        |
-+-----------------+----------------------------------------+----------------------------------------+
-| fulfill         | de VALIDATED                           | La commande à été traitée et peut être |
-|                 +----------------------------------------+ considérée comme close                 |
-|                 | à FULFILLED                            |                                        |
-+-----------------+----------------------------------------+----------------------------------------+
-| cancel          | de VALIDATED                           | La commande est annulée mais ne peut   |
-|                 +----------------------------------------+ être supprimée                         |
-|                 | à CANCELLED                            |                                        |
-+-----------------+----------------------------------------+----------------------------------------+
++------------+--------------------------+---------------------------------------------------------------+
+| Transition | États                    | Description                                                   |
++============+==========================+===============================================================+
+| delete     | de DRAFT à DELETED       | Marque la commande comme « supprimée »                        |
++------------+--------------------------+---------------------------------------------------------------+
+| validate   | de DRAFT à VALIDATED     | Valide la commande brouillon pour être  traitée               |
++------------+--------------------------+---------------------------------------------------------------+
+| fulfill    | de VALIDATED à FULFILLED | La commande à été traitée et peut être considérée comme close |
++------------+--------------------------+---------------------------------------------------------------+
+| cancel     | de VALIDATED à CANCELLED | La commande est annulée mais ne peut être supprimée           |
++------------+--------------------------+---------------------------------------------------------------+
 
 La transition **create** n'est pas gérée par la machine à états car cette transition est implicitement faite lors de l'instanciation d'un objet **Order**.
