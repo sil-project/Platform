@@ -3,8 +3,8 @@ set -ev
 
 mkdir --parents "${HOME}/bin"
 
-composer self-update --no-progress --stable
-composer -V
+composer self-update --no-progress --stable --no-ansi --no-interaction
+composer -V --no-ansi
 
 if [ -n "${ENABLE_UI}" ]
 then
