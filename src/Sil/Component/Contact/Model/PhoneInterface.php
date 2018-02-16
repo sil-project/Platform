@@ -15,4 +15,10 @@ namespace Sil\Component\Contact\Model;
  */
 interface PhoneInterface
 {
+    /**
+     * Get the value of number.
+     *
+     * @return string
+     */
+    public function getNumber(): string;
 }

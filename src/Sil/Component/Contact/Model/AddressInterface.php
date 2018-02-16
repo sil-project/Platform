@@ -15,4 +15,24 @@ namespace Sil\Component\Contact\Model;
  */
 interface AddressInterface
 {
+    /**
+     * Get the value of street.
+     *
+     * @return string
+     */
+    public function getStreet(): string;
+
+    /**
+     * Get the value of city.
+     *
+     * @return City
+     */
+    public function getCity(): City;
+
+    /**
+     * Get the value of country.
+     *
+     * @return string
+     */
+    public function getCountry(): string;
 }
