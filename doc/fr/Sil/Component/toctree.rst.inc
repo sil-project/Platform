@@ -9,3 +9,4 @@
     Product/index
     Stock/index
     Uom/index
+    Currency/index

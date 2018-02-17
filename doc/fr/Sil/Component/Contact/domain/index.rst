@@ -15,3 +15,4 @@ Modèles
    country
    city
    province
+   group
