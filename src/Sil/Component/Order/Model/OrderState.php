@@ -25,11 +25,6 @@ class OrderState implements OrderStateInterface
     const DELETED = 'deleted';
 
     /**
-     * @var OrderInterface
-     */
-    private $order;
-
-    /**
      * @var string
      */
     protected $value;
@@ -43,10 +38,12 @@ class OrderState implements OrderStateInterface
      * @internal
      *
      * @param string $state
+     *
+     * @throws InvalidArgumentException
      */
     public function __construct(string $state)
     {
-        $this->value = $state;
+        $this->setValue($state);
         $this->stateMachine = new OrderStateMachine($this);
     }
 
@@ -130,7 +127,7 @@ class OrderState implements OrderStateInterface
      */
     public function isDraft(): bool
     {
-        return $this->value === self::DRAFT;
+        return $this->value === static::DRAFT;
     }
 
     /**
@@ -138,7 +135,7 @@ class OrderState implements OrderStateInterface
      */
     public function isValidated(): bool
     {
-        return $this->value === self::VALIDATED;
+        return $this->value === static::VALIDATED;
     }
 
     /**
@@ -146,7 +143,7 @@ class OrderState implements OrderStateInterface
      */
     public function isCancelled(): bool
     {
-        return $this->value === self::CANCELLED;
+        return $this->value === static::CANCELLED;
     }
 
     /**
@@ -154,7 +151,7 @@ class OrderState implements OrderStateInterface
      */
     public function isFulfilled(): bool
     {
-        return $this->value === self::FULFILLED;
+        return $this->value === static::FULFILLED;
     }
 
     /**
@@ -162,7 +159,7 @@ class OrderState implements OrderStateInterface
      */
     public function isDeleted(): bool
     {
-        return $this->value === self::DELETED;
+        return $this->value === static::DELETED;
     }
 
     /**
