@@ -4,9 +4,9 @@
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>261</x>
+      <x>153</x>
       <y>117</y>
-      <w>1053</w>
+      <w>1098</w>
       <h>621</h>
     </coordinates>
     <panel_attributes>EmailingComponent</panel_attributes>
@@ -15,7 +15,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>729</x>
+      <x>621</x>
       <y>234</y>
       <w>144</w>
       <h>54</h>
@@ -30,8 +30,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>621</x>
-      <y>369</y>
+      <x>513</x>
+      <y>405</y>
       <w>144</w>
       <h>45</h>
     </coordinates>
@@ -44,8 +44,8 @@ SimpleMessage
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>855</x>
-      <y>369</y>
+      <x>747</x>
+      <y>405</y>
       <w>144</w>
       <h>45</h>
     </coordinates>
@@ -57,8 +57,8 @@ GroupedMessage
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>279</x>
-      <y>369</y>
+      <x>171</x>
+      <y>405</y>
       <w>153</w>
       <h>72</h>
     </coordinates>
@@ -69,8 +69,8 @@ GroupedMessage
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>711</x>
-      <y>522</y>
+      <x>603</x>
+      <y>549</y>
       <w>180</w>
       <h>81</h>
     </coordinates>
@@ -85,7 +85,7 @@ DiffusionList
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>711</x>
+      <x>603</x>
       <y>666</y>
       <w>144</w>
       <h>54</h>
@@ -98,7 +98,7 @@ DiffusionList
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>729</x>
+      <x>621</x>
       <y>162</y>
       <w>144</w>
       <h>36</h>
@@ -112,22 +112,8 @@ MessageInterface
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>306</x>
+      <x>198</x>
       <y>234</y>
-      <w>162</w>
-      <h>54</h>
-    </coordinates>
-    <panel_attributes>Attachment
---
-#name: string
-#file: File</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>306</x>
-      <y>162</y>
       <w>162</w>
       <h>36</h>
     </coordinates>
@@ -140,7 +126,7 @@ AttachmentInterface
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>459</x>
+      <x>351</x>
       <y>225</y>
       <w>288</w>
       <h>45</h>
@@ -155,7 +141,7 @@ m2=#attachments</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>792</x>
+      <x>684</x>
       <y>189</y>
       <w>27</w>
       <h>63</h>
@@ -166,41 +152,30 @@ m2=#attachments</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>378</x>
-      <y>189</y>
-      <w>27</w>
-      <h>63</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>666</x>
+      <x>558</x>
       <y>279</y>
       <w>153</w>
-      <h>117</h>
+      <h>153</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>150.0;10.0;150.0;70.0;10.0;70.0;10.0;110.0</additional_attributes>
+    <additional_attributes>150.0;10.0;150.0;70.0;10.0;70.0;10.0;150.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>792</x>
+      <x>684</x>
       <y>333</y>
       <w>135</w>
-      <h>63</h>
+      <h>99</h>
     </coordinates>
     <panel_attributes>lt=-</panel_attributes>
-    <additional_attributes>10.0;10.0;130.0;10.0;130.0;50.0</additional_attributes>
+    <additional_attributes>10.0;10.0;130.0;10.0;130.0;90.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>423</x>
-      <y>369</y>
+      <x>315</x>
+      <y>405</y>
       <w>216</w>
       <h>45</h>
     </coordinates>
@@ -212,35 +187,35 @@ m1=#config</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>846</x>
-      <y>387</y>
+      <x>738</x>
+      <y>423</y>
       <w>180</w>
-      <h>198</h>
+      <h>189</h>
     </coordinates>
     <panel_attributes>lt=-
 r1=0..n
 m1=#lists</panel_attributes>
-    <additional_attributes>10.0;190.0;180.0;190.0;180.0;10.0;130.0;10.0</additional_attributes>
+    <additional_attributes>10.0;180.0;180.0;180.0;180.0;10.0;130.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>846</x>
-      <y>576</y>
+      <x>738</x>
+      <y>603</y>
       <w>180</w>
-      <h>135</h>
+      <h>108</h>
     </coordinates>
     <panel_attributes>lt=-
 r1=1..n
 m1=#lists
 r2=1..n
 m2=#recipients</panel_attributes>
-    <additional_attributes>10.0;20.0;180.0;20.0;180.0;120.0;10.0;120.0</additional_attributes>
+    <additional_attributes>10.0;20.0;180.0;20.0;180.0;90.0;10.0;90.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>279</x>
+      <x>171</x>
       <y>522</y>
       <w>135</w>
       <h>198</h>
@@ -253,7 +228,7 @@ m2=#recipients</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>405</x>
+      <x>297</x>
       <y>666</y>
       <w>324</w>
       <h>45</h>
@@ -266,20 +241,20 @@ r2=1..1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>405</x>
-      <y>414</y>
+      <x>297</x>
+      <y>450</y>
       <w>117</w>
-      <h>261</h>
+      <h>225</h>
     </coordinates>
     <panel_attributes>lt=-
 m2=#from
 r2=1..1</panel_attributes>
-    <additional_attributes>30.0;10.0;110.0;10.0;110.0;260.0;10.0;260.0</additional_attributes>
+    <additional_attributes>30.0;10.0;110.0;10.0;110.0;220.0;10.0;220.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>405</x>
+      <x>297</x>
       <y>594</y>
       <w>117</w>
       <h>45</h>
@@ -292,7 +267,7 @@ r2=1..n</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>405</x>
+      <x>297</x>
       <y>558</y>
       <w>117</w>
       <h>45</h>
@@ -305,7 +280,7 @@ r2=0..n</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>405</x>
+      <x>297</x>
       <y>522</y>
       <w>117</w>
       <h>45</h>
@@ -318,8 +293,8 @@ r2=0..n</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>693</x>
-      <y>441</y>
+      <x>585</x>
+      <y>477</y>
       <w>180</w>
       <h>45</h>
     </coordinates>
@@ -331,19 +306,19 @@ DiffusionListInterface
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>774</x>
-      <y>477</y>
+      <x>666</x>
+      <y>513</y>
       <w>27</w>
-      <h>72</h>
+      <h>63</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1080</x>
-      <y>225</y>
+      <x>972</x>
+      <y>144</y>
       <w>171</w>
       <h>63</h>
     </coordinates>
@@ -357,44 +332,121 @@ MessageTemplate
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1062</x>
-      <y>396</y>
+      <x>972</x>
+      <y>360</y>
       <w>171</w>
       <h>63</h>
     </coordinates>
-    <panel_attributes>ContentToken
+    <panel_attributes>template=Resource
+ContentToken
 --
-#name: string
-#value: ?string
+#value: mixed
 </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1206</x>
-      <y>243</y>
+      <x>1098</x>
+      <y>162</y>
       <w>108</w>
-      <h>198</h>
+      <h>126</h>
     </coordinates>
     <panel_attributes>lt=-
 r1=0..n
 m1=#tokens</panel_attributes>
-    <additional_attributes>30.0;190.0;100.0;190.0;100.0;10.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;110.0;100.0;110.0;100.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>864</x>
-      <y>234</y>
+      <x>756</x>
+      <y>153</y>
       <w>234</w>
-      <h>45</h>
+      <h>117</h>
     </coordinates>
     <panel_attributes>lt=-
 r2=0..n
 m2=#messages
 r1=0..1
 m1=#template</panel_attributes>
-    <additional_attributes>240.0;20.0;10.0;20.0</additional_attributes>
+    <additional_attributes>240.0;20.0;140.0;20.0;140.0;100.0;10.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>756</x>
+      <y>261</y>
+      <w>234</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>lt=-
+r2=1..1
+m2=#message
+r1=0..n
+m1=#tokens</panel_attributes>
+    <additional_attributes>240.0;130.0;140.0;130.0;140.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>972</x>
+      <y>225</y>
+      <w>171</w>
+      <h>99</h>
+    </coordinates>
+    <panel_attributes>template=Resource
+ContentTokenType
+--
+#name: string
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1098</x>
+      <y>297</y>
+      <w>108</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>lt=-
+r2=1..1
+m2=#type</panel_attributes>
+    <additional_attributes>10.0;100.0;100.0;100.0;100.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>999</x>
+      <y>477</y>
+      <w>90</w>
+      <h>126</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;enum&gt;&gt;
+DataType
+--
+BOOLEAN
+STRING
+INTEGER
+FLOAT
+PERCENT
+DATE
+DATETIME
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1080</x>
+      <y>279</y>
+      <w>171</w>
+      <h>243</h>
+    </coordinates>
+    <panel_attributes>lt=-
+r1=1..1
+m1=#dataType</panel_attributes>
+    <additional_attributes>10.0;240.0;170.0;240.0;170.0;10.0;30.0;10.0</additional_attributes>
   </element>
 </diagram>

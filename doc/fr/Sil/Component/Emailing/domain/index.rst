@@ -2,7 +2,6 @@
 Emailing
 ========
 
-
 ----------------------
 Description du domaine
 ----------------------
@@ -40,7 +39,7 @@ Le composant doit pouvoir proposer une gestion de liste de diffusion. une liste 
 Paramétrage des envois
 ======================
 
-Pour chaque message, il doit être possible de paramétrer des informations liées à l'envoi : expéditeur, répondre à, copie.
+Pour chaque message simple, il doit être possible de paramétrer des informations liées à l'envoi : expéditeur, répondre à, copie.
 
 Gestion d'envoi simple
 ======================
@@ -146,15 +145,46 @@ Un **destinataire** est une représentation d'une adresse email.
 Pièce jointe
 ============
 
-Une pièces jointe représentera un fichier à joindre au message.
+Une pièce jointe représentera un fichier à joindre au message.
 
-+-----------+-------------------------------------+--------+
-| Propriété | Description                         | Oblig. |
-+===========+=====================================+========+
-| name      | Le nom optionnel de la pièce jointe | x      |
-+-----------+-------------------------------------+--------+
-| file      | Le lien vers le fichier réel        | x      |
-+-----------+-------------------------------------+--------+
+Modèle de message
+=================
+
+Un **modèle de message** permet de définir une mise en page de base pour les messages ainsi que la définition de jetons de substitution pour faciliter la saisie des messages utilisant un modèle.
+
++-----------+-----------------------------------------------+--------+
+| Propriété | Description                                   | Oblig. |
++===========+===============================================+========+
+| content   | Contenu du modèle                             |        |
++-----------+-----------------------------------------------+--------+
+| tokens    | Collection de types de jetons de substitution |        |
++-----------+-----------------------------------------------+--------+
+
+Type de jeton de substitution
+=============================
+
+Un **type de jeton** permet de définir quelle donnée sera affichée dans un modèle de message.
+
++-----------+-----------------------+--------+
+| Propriété | Description           | Oblig. |
++===========+=======================+========+
+| name      | Nom du type de donnée |        |
++-----------+-----------------------+--------+
+| dataType  | Type de donnée cible  |        |
++-----------+-----------------------+--------+
+
+Jeton de substitution
+=====================
+
+Un **jeton de substitution** permet de remplacer des emplacements définis depuis un modèle par des valeurs de substitution.
+
++-----------+---------------------------------+--------+
+| Propriété | Description                     | Oblig. |
++===========+=================================+========+
+| value     | Valeur du jeton de substitution |        |
++-----------+---------------------------------+--------+
+| type      | Type de jeton                   | x      |
++-----------+---------------------------------+--------+
 
 -----------------
 Modèle du domaine

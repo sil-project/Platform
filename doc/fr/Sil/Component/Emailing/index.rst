@@ -1,4 +1,4 @@
-Composants Commande
+Composants Emailing
 ===================
 
 .. toctree::
@@ -6,4 +6,3 @@ Composants Commande
 
     installation
     domain/index
-    processor
