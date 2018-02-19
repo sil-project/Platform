@@ -24,7 +24,6 @@ class BlastApiTestCase extends TestCase
     protected $result;
     protected $show_results;
     protected $show_curl;
-    protected $vhost;
 
     /********** HTTPResult **********/
     protected $data;
@@ -39,7 +38,7 @@ class BlastApiTestCase extends TestCase
         $optidx = array_search('CONF', $argv);
 
         if (!$optidx || $argc < $optidx + 3) {
-            die("Usage: phpunit tests CONF 'http://my.url.srv' username password [vhost]\n");
+            die("Usage: phpunit tests CONF 'http://my.url.srv' username password\n");
         }
 
         /* @todo check if base is a valid url */
@@ -47,7 +46,6 @@ class BlastApiTestCase extends TestCase
         $this->base = $argv[$optidx + 1];
         $this->identifier = $argv[$optidx + 2];
         $this->secret = $argv[$optidx + 3];
-        $this->vhost = $argv[$optidx + 4];
 
         if (array_search('SHOW_RESULT', $argv)) {
             $this->show_results = true;
@@ -136,9 +134,6 @@ class BlastApiTestCase extends TestCase
         }
 
         $headers = $format == 'json' ? ['Content-Type: application/json'] : [];
-        if ($this->vhost) {
-            $headers[] = 'Host: ' . $this->vhost;
-        }
 
         if ($this->token) {
             $headers[] = 'Authorization: Bearer ' . $this->token;
