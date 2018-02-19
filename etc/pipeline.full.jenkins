@@ -8,6 +8,7 @@ pipeline {
 
     environment {
         RND = "${BUILD_NUMBER}"
+        Version = sh(returnStdout: true, script: 'git describe --tags #--abbrev=0')
     }
 
     options {
@@ -142,12 +143,12 @@ pipeline {
             }
         }
 
-    /*    stage ('Archive Gzip') {
+        stage ('Archive Gzip') {
             steps {
-                sh 'tar -czf Platform.tgz ./*'
-                archiveArtifacts artifacts: "Platform.tgz", fingerprint: true
+                sh 'tar -czf Platform_${Version}.tgz ./*'
+                archiveArtifacts artifacts: "Platform_${Version}.tgz", fingerprint: true
             }
-        } */
+        }
     }
 
 
