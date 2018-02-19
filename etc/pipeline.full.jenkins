@@ -8,8 +8,8 @@ pipeline {
 
     environment {
         RND = "${BUILD_NUMBER}"
-        Version = sh(returnStdout: true, script: 'git describe --tags')
-        Tag = sh(returnStdout: true, script: 'git describe --tags --abbrev=0')
+        Version = sh(returnStdout: true, script: 'git describe --tags').trim()
+        Tag = sh(returnStdout: true, script: 'git describe --tags --abbrev=0').trim()
     }
 
     options {
