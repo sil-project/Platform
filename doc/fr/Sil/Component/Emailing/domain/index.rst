@@ -196,7 +196,7 @@ Un **jeton de substitution** permet de remplacer des emplacements définis depui
 Modèle du domaine
 -----------------
 
-.. image:: emailing-0.1.png
+.. image:: emailing-0.2.png
 
 ------------
 Cycle de vie

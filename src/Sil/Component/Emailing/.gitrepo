@@ -1,0 +1,12 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = git@github.com:sil-project/Order.git
+	branch = wip-platform
+	commit = 4e6c89333ba3b70c866553de3777a438fd8401a0
+	method = merge
+	cmdver = 0.4.0
+	parent = 50e93e7427a5053c19cebb6beb86860b5e318920

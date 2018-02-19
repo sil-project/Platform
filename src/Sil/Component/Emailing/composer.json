@@ -1,0 +1,40 @@
+{
+    "name": "sil-project/emailing",
+    "type": "library",
+    "description": "Emailing Management",
+    "require": {
+        "php": "^7.1",
+        "doctrine/collections": "^1.3",
+        "blast-project/resource": "self.version",
+        "winzou/state-machine": "^0.3"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.4"
+    },
+    "license": "LGPL-3.0",
+    "keywords": [
+        "emailing",
+        "emailing management"
+    ],
+    "homepage": "https://github.com/sil-project/Emailing",
+    "authors": [
+        {
+            "name": "Vivien FRASCA",
+            "email": "vivien.frasca@libre-informatique.fr"
+        },
+        {
+            "name": "Libre Informatique",
+            "homepage": "http://www.libre-informatique.fr/"
+        }
+    ],
+
+    "autoload": {
+        "psr-4": {
+            "Sil\\Component\\Emailing\\": "."
+        }
+    },
+    "config": {
+        "bin-dir": "bin/"
+    },
+    "version": "dev-wip-platform"
+}
