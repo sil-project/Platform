@@ -27,4 +27,11 @@ interface ContentTokenTypeInterface
      * @return ContentTokenDataType
      */
     public function getDataType(): ContentTokenDataType;
+
+    /**
+     * Gets the associated template.
+     *
+     * @return MessageTemplateInterface
+     */
+    public function getTemplate(): MessageTemplateInterface;
 }

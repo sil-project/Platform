@@ -30,10 +30,18 @@ class ContentTokenType implements ContentTokenTypeInterface, ResourceInterface
      */
     protected $dataType;
 
-    public function __construct(string $name, ContentTokenDataType $dataType)
+    /**
+     * The temple wich token type belongs.
+     *
+     * @var MessageTemplateInterface
+     */
+    protected $template;
+
+    public function __construct(MessageTemplateInterface $template, string $name, ContentTokenDataType $dataType)
     {
         $this->name = $name;
         $this->dataType = $dataType;
+        $this->template = $template;
     }
 
     /**
@@ -50,5 +58,13 @@ class ContentTokenType implements ContentTokenTypeInterface, ResourceInterface
     public function getDataType(): ContentTokenDataType
     {
         return $this->dataType;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getTemplate(): MessageTemplateInterface
+    {
+        return $this->template;
     }
 }

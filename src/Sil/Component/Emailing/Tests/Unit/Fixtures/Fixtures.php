@@ -23,6 +23,13 @@ use Sil\Component\Emailing\Model\Recipient;
 use Sil\Component\Emailing\Model\RecipientInterface;
 use Sil\Component\Emailing\Model\SimpleMessage;
 use Sil\Component\Emailing\Model\SimpleMessageInterface;
+use Sil\Component\Emailing\Model\MessageTemplate;
+use Sil\Component\Emailing\Model\MessageTemplateInterface;
+// use Sil\Component\Emailing\Model\ContentToken;
+use Sil\Component\Emailing\Model\ContentTokenInterface;
+use Sil\Component\Emailing\Model\ContentTokenDataType;
+use Sil\Component\Emailing\Model\ContentTokenType;
+use Sil\Component\Emailing\Model\ContentTokenTypeInterface;
 use Sil\Component\Emailing\Repository\MailingListRepositoryInterface;
 use Sil\Component\Emailing\Repository\RecipientRepositoryInterface;
 use Sil\Component\Emailing\Repository\SimpleMessageRepositoryInterface;
@@ -49,11 +56,70 @@ class Fixtures
      */
     private $recipientRepository;
 
+    /**
+     * @var MessageTemplateRepositoryInterface
+     */
+    private $messageTemplateRepository;
+
+    /**
+     * @var ContentTokenTypeRepositoryInterface
+     */
+    private $contentTokenTypeRepository;
+
+    /**
+     * @var ContentTokenRepositoryInterface
+     */
+    private $contentTokenRepository;
+
     private $rawData = [];
 
     public function __construct()
     {
         $this->rawData = [
+            'Templates' => [
+                'basic' => [
+                    'name'    => 'basic',
+                    'content' => 'A template without token placeholder',
+                    'tokens'  => [],
+                ],
+                'rich' => [
+                    'name'    => 'rich',
+                    'content' => 'A template with token placeholders :
+                    - %%A_BOOLEAN_TOKEN%%
+                    - %%A_STRING_TOKEN%%
+                    - %%A_INTEGER_TOKEN%%
+                    - %%A_FLOAT_TOKEN%%
+                    - %%A_DATE_TOKEN%%
+                    - %%A_DATETIME_TOKEN%%
+                    ',
+                    'tokens'  => [
+                        [
+                            'name' => 'A_BOOLEAN_TOKEN',
+                            'type' => 'BOOLEAN',
+                        ],
+                        [
+                            'name' => 'A_STRING_TOKEN',
+                            'type' => 'STRING',
+                        ],
+                        [
+                            'name' => 'A_INTEGER_TOKEN',
+                            'type' => 'INTEGER',
+                        ],
+                        [
+                            'name' => 'A_FLOAT_TOKEN',
+                            'type' => 'FLOAT',
+                        ],
+                        [
+                            'name' => 'A_DATE_TOKEN',
+                            'type' => 'DATE',
+                        ],
+                        [
+                            'name' => 'A_DATETIME_TOKEN',
+                            'type' => 'DATETIME',
+                        ],
+                    ],
+                ],
+            ],
             'Mailing lists' => [
                 'ListOne' => [
                     'name'        => 'ListOne',
@@ -82,6 +148,7 @@ class Fixtures
                 [
                     'title'    => 'Simple message One',
                     'content'  => 'A <b>rich</b> content without <a href="#">lorem</a>.',
+                    'template' => 'rich',
                     'from'     => 'sender1@sil.eu',
                     'to'       => ['recipient1@sil.eu', 'recipient2@sil.eu'],
                     'cc'       => ['cc1@sil.eu', 'cc2@sil.eu', 'cc3@sil.eu', 'cc4@sil.eu'],
@@ -90,6 +157,7 @@ class Fixtures
                 [
                     'title'    => 'Simple message Two',
                     'content'  => 'A text content without lorem.',
+                    'template' => null,
                     'from'     => 'sender2@sil.eu',
                     'to'       => ['recipient3@sil.eu', 'recipient4@sil.eu'],
                     'cc'       => [],
@@ -98,16 +166,18 @@ class Fixtures
             ],
             'Grouped messages' => [
                 [
-                    'title'   => 'Grouped message One',
-                    'content' => 'A <b>rich</b> content without <a href="#">lorem</a>.',
-                    'lists'   => [
+                    'title'       => 'Grouped message One',
+                    'content'     => 'A <b>rich</b> content without <a href="#">lorem</a>.',
+                    'template'    => 'basic',
+                    'lists'       => [
                         'ListOne',
                     ],
                 ],
                 [
-                    'title'   => 'Grouped message Two',
-                    'content' => 'A text content without lorem.',
-                    'lists'   => [
+                    'title'       => 'Grouped message Two',
+                    'content'     => 'A text content without lorem.',
+                    'template'    => null,
+                    'lists'       => [
                         'ListOne',
                         'ListTwo',
                     ],
@@ -120,15 +190,33 @@ class Fixtures
         $this->mailingListRepository = new InMemoryRepository(MailingListInterface::class);
         $this->recipientRepository = new InMemoryRepository(RecipientInterface::class);
         $this->emailAddressRepository = new InMemoryRepository(EmailAddressInterface::class);
+        $this->messageTemplateRepository = new InMemoryRepository(MessageTemplateInterface::class);
+        $this->contentTokenTypeRepository = new InMemoryRepository(ContentTokenTypeInterface::class);
+        $this->contentTokenRepository = new InMemoryRepository(ContentTokenInterface::class);
 
         $this->generateFixtures();
     }
 
     private function generateFixtures(): void
     {
+        $this->loadTemplates();
         $this->loadMailingLists();
         $this->loadSimpleMessages();
         $this->loadGroupedMessages();
+    }
+
+    private function loadtemplates()
+    {
+        foreach ($this->rawData['Templates'] as $templateData) {
+            $template = new MessageTemplate($templateData['name'], $templateData['content']);
+
+            foreach ($templateData['tokens'] as $tokenData) {
+                $tokenType = new ContentTokenType($template, $tokenData['name'], new ContentTokenDataType(constant(ContentTokenDataType::class . '::TYPE_' . $tokenData['type'])));
+                $this->contentTokenTypeRepository->add($tokenType);
+            }
+
+            $this->messageTemplateRepository->add($template);
+        }
     }
 
     private function loadMailingLists()
@@ -156,6 +244,11 @@ class Fixtures
             $this->emailAddressRepository->add($to);
 
             $simpleMessage = new SimpleMessage($messageData['title'], $messageData['content'], null, $from, $to);
+
+            if ($messageData['template'] !== null) {
+                $template = $this->messageTemplateRepository->findOneBy(['name' => $messageData['template']]);
+                $simpleMessage->setTemplate($template);
+            }
 
             foreach ($messageData['to'] as $tos) {
                 $toAddress = new EmailAddress($tos);
@@ -189,6 +282,11 @@ class Fixtures
     {
         foreach ($this->rawData['Grouped messages'] as $messageData) {
             $message = new GroupedMessage($messageData['title'], $messageData['content']);
+
+            if ($messageData['template'] !== null) {
+                $template = $this->messageTemplateRepository->findOneBy(['name' => $messageData['template']]);
+                $message->setTemplate($template);
+            }
 
             foreach ($messageData['lists'] as $listName) {
                 $list = $this->mailingListRepository->findOneBy(['name' => $listName]);
