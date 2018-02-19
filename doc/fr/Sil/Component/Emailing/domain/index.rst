@@ -51,7 +51,9 @@ Gestion de modèles
 
 Une gestion de modèle de contenu doit permettre la création rapide de campagne d'emailing. Il faudra également prévoir un système de remplacement de jeton [1]_ pour permettre de pré-remplir certaines informations.
 
-.. [1] Un jeton est un emplacement dans un contenu texte qui sera substitué par une valeur lors de la construction du contenu
+.. note::
+
+    .. [1] Un jeton est un emplacement dans un contenu texte qui sera substitué par une valeur lors de la construction du contenu
 
 -------
 Domaine
@@ -108,7 +110,9 @@ Une **configuration de message** gère les paramètres suivants :
 | bcc       | Une adresse email en copie cachée [2]_        |
 +-----------+-----------------------------------------------+
 
-.. [2] Ce paramètre du message sera utilisé que lors d'envoi de message simple (hors listes de diffusion)
+.. note::
+
+    .. [2] Ce paramètre du message sera utilisé que lors d'envoi de message simple (hors listes de diffusion)
 
 Liste de diffusion
 ==================
@@ -140,7 +144,9 @@ Un **destinataire** est une représentation d'une adresse email.
 | valid     | Un indicateur d'état de validité de l'adresse [3]_ |        |
 +-----------+----------------------------------------------------+--------+
 
-.. [3] Cet indicateur sera à mettre à jour en fonction des retours après envoi. (voir https://en.wikipedia.org/wiki/Bounce_message)
+.. note::
+
+    .. [3] Cet indicateur sera à mettre à jour en fonction des retours après envoi. (voir https://en.wikipedia.org/wiki/Bounce_message)
 
 Pièce jointe
 ============
@@ -191,3 +197,18 @@ Modèle du domaine
 -----------------
 
 .. image:: emailing-0.1.png
+
+------------
+Cycle de vie
+------------
+
+Message
+=======
+
+Un message, qu'il soit simple ou groupé, suivra le même cycle de vie suivant :
+
+.. image:: emailing_message_states-0.1.png
+
+.. note::
+
+    Un message envoyé pourra être envoyé à nouveau, ceci sans limite. Il sera à la charge des implémentations de limiter ou non cette particularité.

@@ -20,7 +20,7 @@ source_suffix = ['.rst']
 master_doc = 'index'
 
 project = u'Sil & Blast Projects'
-copyright = u'2017, Libre-Informatique'
+copyright = u'2018, Libre-Informatique'
 
 version = ''
 release = ''
