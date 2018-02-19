@@ -146,8 +146,8 @@ pipeline {
 
         stage ('Archive Gzip') {
             steps {
-                /* --transform='s|\./|./${Tag}/|g' */
-                sh 'tar -czf Platform_${Version}.tgz --transform=\'s|\\./|./${Tag}/|g\' ./*'
+                /*  tar -czf Platform_${Version}.tgz --transform='s|\./|./'${Tag}'/|g' ./* */
+                sh 'tar -czf Platform_${Version}.tgz --transform=\'s|\\./|./\'${Tag}\'/|g\' ./*'
                 archiveArtifacts artifacts: "Platform_${Version}.tgz", fingerprint: true
             }
         }
