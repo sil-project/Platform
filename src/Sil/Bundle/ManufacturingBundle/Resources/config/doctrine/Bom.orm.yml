@@ -1,4 +1,4 @@
-Sil\Bundle\ManufacturingBundle\Domain\Entity\Bom:
+Sil\Component\Manufacturing\Model\Bom:
     type: mappedSuperclass
     table: sil_manufacturing_bom
     repositoryClass: Sil\Bundle\ManufacturingBundle\Doctrine\ORM\BomRepository
@@ -29,6 +29,6 @@ Sil\Bundle\ManufacturingBundle\Domain\Entity\Bom:
 
     oneToMany:
         lines:
-          targetEntity: Sil\Bundle\ManufacturingBundle\Domain\Entity\BomLine
+          targetEntity: Sil\Component\Manufacturing\Model\BomLine
           mappedBy: bom
           cascade: ["remove", "persist"]

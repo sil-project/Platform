@@ -1,4 +1,4 @@
-Sil\Bundle\ManufacturingBundle\Domain\Entity\ManufacturingOrder:
+Sil\Component\Manufacturing\Model\ManufacturingOrder:
     type: mappedSuperclass
     table: sil_manufacturing_order
     fields:
@@ -27,7 +27,7 @@ Sil\Bundle\ManufacturingBundle\Domain\Entity\ManufacturingOrder:
                 referencedColumnName: id
                 nullable: false
         bom:
-            targetEntity: Sil\Bundle\ManufacturingBundle\Domain\Entity\Bom
+            targetEntity: Sil\Component\Manufacturing\Model\Bom
             joinColumn:
                 name: bom_id
                 referencedColumnName: id

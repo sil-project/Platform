@@ -24,7 +24,8 @@
         "blast-project/resource": "self.version",
         "sil-project/stock-bundle": "self.version",
         "sil-project/uom-bundle": "self.version",
-        "sil-project/uom": "self.version"
+        "sil-project/uom": "self.version",
+        "sil-project/manufacturing": "self.version"
     },
     "require-dev": {
         "symfony/phpunit-bridge": "3.3.*",

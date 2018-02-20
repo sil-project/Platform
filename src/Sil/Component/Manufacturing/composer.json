@@ -5,7 +5,8 @@
     "require": {
         "php": "^7.1",
         "doctrine/collections": "^1.3",
-        "blast-project/resource": "self.version"
+        "blast-project/resource": "self.version",
+        "sil-project/uom": "self.version"
     },
     "require-dev": {
         "phpunit/phpunit": "^6.4",

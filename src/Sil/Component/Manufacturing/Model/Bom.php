@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Sil\Bundle\ManufacturingBundle\Domain\Entity;
+namespace Sil\Component\Manufacturing\Model;
 
 use Blast\Component\Resource\Model\ResourceInterface;
 use Doctrine\Common\Collections\Collection;

@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Copyright (C) 2015-2017 Libre Informatique
+ * Copyright (C) 2015-2018 Libre Informatique
  *
  * This file is licenced under the GNU LGPL v3.
  * For the full copyright and license information, please view the LICENSE.md
@@ -11,8 +11,8 @@
 namespace Sil\Bundle\ManufacturingBundle\Controller;
 
 use Blast\Bundle\CoreBundle\Controller\CRUDController;
-use Sil\Bundle\ManufacturingBundle\Domain\Entity\ManufacturingOrder;
-use Sil\Bundle\ManufacturingBundle\Domain\Service\ManufacturingOrderServiceInterface;
+use Sil\Component\Manufacturing\Model\ManufacturingOrder;
+use Sil\Component\Manufacturing\Service\ManufacturingOrderServiceInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 

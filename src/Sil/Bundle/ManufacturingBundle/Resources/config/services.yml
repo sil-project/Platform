@@ -1,10 +1,10 @@
 services:
 
     sil.code_generator.manufacturing_bom:
-        class: Sil\Bundle\ManufacturingBundle\Domain\Generator\BomCodeGenerator
+        class: Sil\Component\Manufacturing\Generator\BomCodeGenerator
 
     sil.code_generator.manufacturing_order:
-        class: Sil\Bundle\ManufacturingBundle\Domain\Generator\ManufacturingOrderCodeGenerator
+        class: Sil\Component\Manufacturing\Generator\ManufacturingOrderCodeGenerator
 
 
     ###################
@@ -12,7 +12,7 @@ services:
     ###################
 
     sil.domain_service.manufacturing_order:
-        class: Sil\Bundle\ManufacturingBundle\Domain\Service\ManufacturingOrderService
+        class: Sil\Component\Manufacturing\Service\ManufacturingOrderService
         arguments:
             - '@sil.domain_service.stock_operation'
             - '@sil.domain_service.stock_movement'

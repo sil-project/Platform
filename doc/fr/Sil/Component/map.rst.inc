@@ -1,7 +1,9 @@
 * :doc:`/Sil/Component/Account/index`
 * :doc:`/Sil/Component/Address/index`
 * :doc:`/Sil/Component/Contact/index`
+* :doc:`/Sil/Component/Currency/index`
 * :doc:`/Sil/Component/Invoice/index`
+* :doc:`/Sil/Component/Manufacturing/index`
 * :doc:`/Sil/Component/Order/index`
 * :doc:`/Sil/Component/Product/index`
 * :doc:`/Sil/Component/Stock/index`

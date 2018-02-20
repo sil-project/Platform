@@ -1,4 +1,4 @@
-Sil\Bundle\ManufacturingBundle\Domain\Entity\BomLine:
+Sil\Component\Manufacturing\Model\BomLine:
     type: mappedSuperclass
     table: sil_manufacturing_bom_line
     repositoryClass: Sil\Bundle\ManufacturingBundle\Doctrine\ORM\BomLineRepository
@@ -17,7 +17,7 @@ Sil\Bundle\ManufacturingBundle\Domain\Entity\BomLine:
                 nullable: false
 
         bom:
-            targetEntity: Sil\Bundle\ManufacturingBundle\Domain\Entity\Bom
+            targetEntity: Sil\Component\Manufacturing\Model\Bom
             inversedBy: lines
             joinColumn:
                 name: bom_id
