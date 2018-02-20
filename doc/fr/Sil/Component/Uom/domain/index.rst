@@ -1,9 +1,6 @@
 Les Unités de mesure
 ====================
 
-Dans certains cas, il est nécessaire de gérer différentes unités de mesure.
-
-
 -------
 Modèles
 -------
