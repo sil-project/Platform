@@ -44,6 +44,7 @@ before_install:
     - ln -s .env.travis .env # Enable env
     - ${SCRIPTS_FOLDER}/do_run.sh before_install_travis_${TARGET}.sh
     - ${SCRIPTS_FOLDER}/do_run.sh before_install_${TARGET}.sh
+    - ${SCRIPTS_FOLDER}/do_run.sh before_install_ui_${TARGET}.sh
     - ${SCRIPTS_FOLDER}/do_run.sh set_db_host_${TARGET}.sh
     - ${SCRIPTS_FOLDER}/do_run.sh create_database_${TARGET}.sh
 
@@ -54,7 +55,7 @@ install:
     - ${SCRIPTS_FOLDER}/do_run.sh install_ui_${TARGET}.sh
 
 before_script:
-    - ${SCRIPTS_FOLDER}/do_run.sh before_script_${TARGET}.sh
+    - ${SCRIPTS_FOLDER}/do_run.sh before_script_start_${TARGET}.sh
     - ${SCRIPTS_FOLDER}/do_run.sh launch_selenium_${TARGET}.sh
 
 script:

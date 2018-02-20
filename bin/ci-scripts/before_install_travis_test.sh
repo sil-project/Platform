@@ -18,3 +18,11 @@ then
     sudo dpkg -i --force-confnew  elasticsearch-6.1.2.deb
     sudo service elasticsearch restart
 fi
+
+
+if [ ! -x ${HOME}/bin/coveralls ]
+then
+    # Coveralls client install
+    wget -q https://github.com/satooshi/php-coveralls/releases/download/v1.0.1/coveralls.phar --output-document="${HOME}/bin/coveralls"
+    chmod u+x "${HOME}/bin/coveralls"
+fi
