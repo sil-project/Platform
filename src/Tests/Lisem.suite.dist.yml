@@ -16,10 +16,12 @@ modules:
         - Doctrine2:
             depends: Symfony
         - WebDriver:
+                host: 127.0.0.1
+                port: 4444
                 url: 'http://127.0.0.1:8042/'
                 wait: 5
                 browser: 'firefox'
-# There is too much javascript (on submit and generate code, and select ... ) So phpbrowser is useless            
+# There is too much javascript (on submit and generate code, and select ... ) So phpbrowser is useless
 # - PhpBrowser:
     #url: 'http://127.0.0.1:8042/'
     #wait: 5
@@ -33,7 +35,7 @@ env:
                 - WebDriver:
                     url: 'http://127.0.0.1:8042/'
                     wait: 5
-                    browser: 'firefox'           
+                    browser: 'firefox'
 
     chrome:
         modules:
@@ -60,12 +62,12 @@ env:
                     wait: 5
                 - \Helper\WebGuy
 
-                            
-#        
+
+#
 #    phantom:
 #        modules:
 #            enabled:
 #                - WebDriver:
 #                    url: 'http://127.0.0.1:8042/'
 #                    browser: 'phantomjs'
-#                    
+#
