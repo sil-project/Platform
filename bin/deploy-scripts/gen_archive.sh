@@ -10,11 +10,11 @@ Pkgdir=package
 rm -f ${Filename}
 
 # gen archive --transform='s|\./|./'${Tag}'/|g'
-tar -czf ${Pkgdir}/${Filename} ./*
-
+tar -czf ${Filename} ./*
+mkdir -p ${Pkgdir}
+mv ${Filename} ${Pkgdir}
 
 # gen deploy meta
-mkdir -p ${Pkgdir}
 rm -f ${Pkgdir}/env.to.deploy
 touch ${Pkgdir}/env.to.deploy
 
@@ -23,5 +23,5 @@ echo "Tag=${Tag}" >> ${Pkgdir}/env.to.deploy
 echo "Version=${Version}" >>  ${Pkgdir}/env.to.deploy
 echo "Filename=${Filename}" >> ${Pkgdir}/env.to.deploy
 
-sha256sum ${Filename} > ${Pkgdir}/sha256.to.deploy
-cp -rp bin/deploy-scripts/deploy_archive.sh ${Pkgdir}/
+sha256sum ${Pkgdir}/${Filename} > ${Pkgdir}/sha256.to.deploy
+cp -rp bin/deploy-scripts/deploy_archive.sh ${Pkgdir}
