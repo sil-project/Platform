@@ -76,11 +76,11 @@ pipeline {
                     }
                 }
 
-             /*   stage ('Start Selenium') {
+                stage ('Start Selenium') {
                     steps {
                         sh "./bin/ci-scripts/do_run.sh launch_selenium_test.sh"
                     }
-                } */
+                }
             }
         }
 

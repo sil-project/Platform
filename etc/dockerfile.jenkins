@@ -4,6 +4,7 @@ FROM debian:stable
 #as phpcli_for_platform
 
 RUN apt-get update && apt-get install --no-install-recommends -y apt-transport-https lsb-release ca-certificates git curl wget build-essential unzip net-tools lsof postgresql-client python-pip python-setuptools \
+    && apt-get install --no-install-recommends -y default-jre-headless xvfb firefox-esr dnsutils \
     && apt-get autoremove -y && apt-get clean
 # for full only && default-jre-headless xvfb firefox-esr dnsutils vim
 # chromium chromium-l10n
