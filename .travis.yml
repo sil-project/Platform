@@ -57,6 +57,7 @@ before_script:
 
 script:
     - travis_wait 42 ${SCRIPTS_FOLDER}/do_run.sh run_${TARGET}.sh
+    - travis_wait 42 ${SCRIPTS_FOLDER}/do_run.sh run_ui_${TARGET}.sh
 
 after_success:
     -  ${SCRIPTS_FOLDER}/do_run.sh after_success_${TARGET}.sh
