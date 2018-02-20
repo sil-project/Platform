@@ -60,6 +60,7 @@ Comparaison de quantité
 -----------------------
 
 Les quantités peuvent être comparées entre elles.
+
 +----------+-----------------------------------------+
 | Operator | UomQty Equivalent Method                |
 +==========+=========================================+
@@ -84,11 +85,11 @@ Opérations sur les quantités
 +----------+-----------------------------------------+
 | Operator | UomQty Equivalent Method                |
 +==========+=========================================+
-|    ==    | increasedBy(UomQty $qty): UomQty        |
+|    +     | increasedBy(UomQty $qty): UomQty        |
 +----------+-----------------------------------------+
-|    <     | decreasedBy(UomQty $qty): UomQty        |
+|    -     | decreasedBy(UomQty $qty): UomQty        |
 +----------+-----------------------------------------+
-|    <=    | multipliedBy($value): UomQty            |
+|    *     | multipliedBy($value): UomQty            |
 +----------+-----------------------------------------+
-|    >     | dividedBy($value): UomQty               |
+|    /     | dividedBy($value): UomQty               |
 +----------+-----------------------------------------+
