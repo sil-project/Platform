@@ -24,11 +24,25 @@ interface MessageInterface
     public function getTitle(): string;
 
     /**
+     * Sets the message title.
+     *
+     * @param string $title
+     */
+    public function setTitle(string $title): void;
+
+    /**
      * Gets the content of the message.
      *
      * @return string
      */
     public function getContent(): string;
+
+    /**
+     * Sets the message content.
+     *
+     * @param string $content
+     */
+    public function setContent(string $content): void;
 
     /**
      * Retreives the message template.
@@ -68,6 +82,11 @@ interface MessageInterface
      * @throws InvalidArgumentException
      */
     public function removeToken(ContentTokenInterface $token): void;
+
+    /**
+     * Removes all tokens for current message.
+     */
+    public function clearTokens(): void;
 
     /**
      * Gets a list of attachments.

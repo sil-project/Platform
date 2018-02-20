@@ -49,9 +49,9 @@ interface ContentTokenInterface
     /**
      * Gets the token type.
      *
-     * @return TokenTypeInterface
+     * @return ContentTokenTypeInterface
      */
-    public function getTokenType(): TokenTypeInterface;
+    public function getTokenType(): ContentTokenTypeInterface;
 
     /**
      * Gets the value as a string.

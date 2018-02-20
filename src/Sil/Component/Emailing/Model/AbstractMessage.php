@@ -62,11 +62,10 @@ abstract class AbstractMessage implements MessageInterface, MessageStateAwareInt
      */
     protected $tokens;
 
-    public function __construct(string $title, string $content, MessageTemplateInterface $template = null)
+    public function __construct(string $title, string $content)
     {
         $this->title = $title;
-        $this->content = $content;
-        $this->template = $template;
+        $this->content = trim($content);
 
         $this->state = MessageState::draft();
 
@@ -75,7 +74,7 @@ abstract class AbstractMessage implements MessageInterface, MessageStateAwareInt
     }
 
     /**
-     * @return string
+     * {@inheritdoc}
      */
     public function getTitle(): string
     {
@@ -83,11 +82,27 @@ abstract class AbstractMessage implements MessageInterface, MessageStateAwareInt
     }
 
     /**
-     * @return string
+     * {@inheritdoc}
+     */
+    public function setTitle(string $title): void
+    {
+        $this->title = $title;
+    }
+
+    /**
+     * {@inheritdoc}
      */
     public function getContent(): string
     {
         return $this->content;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setContent(string $content): void
+    {
+        $this->content = trim($content);
     }
 
     /**
@@ -164,5 +179,13 @@ abstract class AbstractMessage implements MessageInterface, MessageStateAwareInt
             throw new InvalidArgumentException(sprintf('Token « %s : %s » is not assigned to the message « %s »', $token->getName(), $token->getValue(), $this->getTitle()));
         }
         $this->tokens->removeElement($token);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function clearTokens(): void
+    {
+        $this->tokens->clear();
     }
 }

@@ -26,9 +26,9 @@ class GroupedMessage extends AbstractMessage implements GroupedMessageInterface,
      */
     protected $lists;
 
-    public function __construct(string $title, string $content, MessageTemplateInterface $template = null)
+    public function __construct(string $title, string $content)
     {
-        parent::__construct($title, $content, $template);
+        parent::__construct($title, $content);
 
         $this->lists = new ArrayCollection();
     }

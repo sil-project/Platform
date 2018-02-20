@@ -31,7 +31,7 @@ class MessageTest extends TestCase
     {
         $from = new EmailAddress('from@sil.eu');
         $to = new EmailAddress('to@sil.eu');
-        $message = new SimpleMessage('Simple message', 'a simple message test', null, $from, $to);
+        $message = new SimpleMessage('Simple message', 'a simple message test', $from, $to);
 
         $this->assertEquals('Simple message', $message->getTitle());
         $this->assertEquals('a simple message test', $message->getContent());

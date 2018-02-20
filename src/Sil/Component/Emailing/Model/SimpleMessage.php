@@ -46,9 +46,9 @@ class SimpleMessage extends AbstractMessage implements SimpleMessageInterface, R
      */
     protected $bcc;
 
-    public function __construct(string $title, string $content, MessageTemplateInterface $template = null, EmailAddressInterface $from, EmailAddressInterface $to)
+    public function __construct(string $title, string $content, EmailAddressInterface $from, EmailAddressInterface $to)
     {
-        parent::__construct($title, $content, $template);
+        parent::__construct($title, $content);
 
         $this->to = new ArrayCollection();
         $this->cc = new ArrayCollection();

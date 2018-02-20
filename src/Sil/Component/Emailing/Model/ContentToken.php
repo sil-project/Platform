@@ -26,7 +26,7 @@ class ContentToken implements ContentTokenInterface
     /**
      * Type of token.
      *
-     * @var TokenTypeInterface
+     * @var ContentTokenTypeInterface
      */
     protected $tokenType;
 
@@ -37,10 +37,10 @@ class ContentToken implements ContentTokenInterface
      */
     protected $message;
 
-    public function __construct(MessageInterface $message, TokenTypeInterface $tokenType)
+    public function __construct(MessageInterface $message, ContentTokenTypeInterface $tokenType)
     {
         $this->tokenType = $tokenType;
-        $this->$message = $message;
+        $this->message = $message;
     }
 
     /**
@@ -74,25 +74,25 @@ class ContentToken implements ContentTokenInterface
     {
         $typeIsValid = false;
 
-        switch ($this->getTokenType()->getDataType()) {
-            case ContentTokenDataType::BOOLEAN:
+        switch ($this->getTokenType()->getDataType()->getValue()) {
+            case ContentTokenDataType::TYPE_BOOLEAN:
                 $typeIsValid = is_bool($value);
                 break;
 
-            case ContentTokenDataType::DATE:
-            case ContentTokenDataType::DATETIME:
+            case ContentTokenDataType::TYPE_DATE:
+            case ContentTokenDataType::TYPE_DATETIME:
                 $typeIsValid = get_class($value) === 'DateTime';
                 break;
 
-            case ContentTokenDataType::STRING:
+            case ContentTokenDataType::TYPE_STRING:
                 $typeIsValid = is_string($value);
                 break;
 
-            case ContentTokenDataType::INTEGER:
+            case ContentTokenDataType::TYPE_INTEGER:
                 $typeIsValid = is_int($value);
                 break;
 
-            case ContentTokenDataType::FLOAT:
+            case ContentTokenDataType::TYPE_FLOAT:
                 $typeIsValid = is_float($value);
                 break;
 
@@ -110,7 +110,7 @@ class ContentToken implements ContentTokenInterface
     /**
      * {@inheritdoc}
      */
-    public function getTokenType(): TokentTypeInterface
+    public function getTokenType(): ContentTokenTypeInterface
     {
         return $this->tokenType;
     }
@@ -122,22 +122,22 @@ class ContentToken implements ContentTokenInterface
     {
         $stringValue = '';
 
-        switch ($this->getTokenType()->getDataType()) {
-            case ContentTokenDataType::BOOLEAN:
+        switch ($this->getTokenType()->getDataType()->getValue()) {
+            case ContentTokenDataType::TYPE_BOOLEAN:
                 $stringValue = $this->value === true ? 'Yes' : 'No';
                 break;
 
-            case ContentTokenDataType::DATE:
+            case ContentTokenDataType::TYPE_DATE:
                 $stringValue = $this->value->format('Y-m-d');
                 break;
 
-            case ContentTokenDataType::DATETIME:
+            case ContentTokenDataType::TYPE_DATETIME:
                 $stringValue = $this->value->format('Y-m-d H:i:s');
                 break;
 
-            case ContentTokenDataType::STRING:
-            case ContentTokenDataType::INTEGER:
-            case ContentTokenDataType::FLOAT:
+            case ContentTokenDataType::TYPE_STRING:
+            case ContentTokenDataType::TYPE_INTEGER:
+            case ContentTokenDataType::TYPE_FLOAT:
             default:
                 $stringValue = (string) $this->value;
         }

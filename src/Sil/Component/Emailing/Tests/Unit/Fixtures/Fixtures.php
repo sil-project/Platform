@@ -30,44 +30,42 @@ use Sil\Component\Emailing\Model\ContentTokenInterface;
 use Sil\Component\Emailing\Model\ContentTokenDataType;
 use Sil\Component\Emailing\Model\ContentTokenType;
 use Sil\Component\Emailing\Model\ContentTokenTypeInterface;
-use Sil\Component\Emailing\Repository\MailingListRepositoryInterface;
-use Sil\Component\Emailing\Repository\RecipientRepositoryInterface;
-use Sil\Component\Emailing\Repository\SimpleMessageRepositoryInterface;
+use Sil\Component\Emailing\Service\TemplateHandler;
 
 class Fixtures
 {
     /**
-     * @var SimpleMessageRepositoryInterface
+     * @var InMemoryRepository
      */
     private $simpleMessageRepository;
 
     /**
-     * @var GroupedMessageRepositoryInterface
+     * @var InMemoryRepository
      */
     private $groupedMessageRepository;
 
     /**
-     * @var MailingListRepositoryInterface
+     * @var InMemoryRepository
      */
     private $mailingListRepository;
 
     /**
-     * @var RecipientRepositoryInterface
+     * @var InMemoryRepository
      */
     private $recipientRepository;
 
     /**
-     * @var MessageTemplateRepositoryInterface
+     * @var InMemoryRepository
      */
     private $messageTemplateRepository;
 
     /**
-     * @var ContentTokenTypeRepositoryInterface
+     * @var InMemoryRepository
      */
     private $contentTokenTypeRepository;
 
     /**
-     * @var ContentTokenRepositoryInterface
+     * @var InMemoryRepository
      */
     private $contentTokenRepository;
 
@@ -212,6 +210,7 @@ class Fixtures
 
             foreach ($templateData['tokens'] as $tokenData) {
                 $tokenType = new ContentTokenType($template, $tokenData['name'], new ContentTokenDataType(constant(ContentTokenDataType::class . '::TYPE_' . $tokenData['type'])));
+                $template->addTokenType($tokenType);
                 $this->contentTokenTypeRepository->add($tokenType);
             }
 
@@ -243,11 +242,13 @@ class Fixtures
             $this->emailAddressRepository->add($from);
             $this->emailAddressRepository->add($to);
 
-            $simpleMessage = new SimpleMessage($messageData['title'], $messageData['content'], null, $from, $to);
+            $simpleMessage = new SimpleMessage($messageData['title'], $messageData['content'], $from, $to);
 
             if ($messageData['template'] !== null) {
                 $template = $this->messageTemplateRepository->findOneBy(['name' => $messageData['template']]);
-                $simpleMessage->setTemplate($template);
+
+                $templateHandler = new TemplateHandler();
+                $templateHandler->applyTemplateToMessage($template, $simpleMessage);
             }
 
             foreach ($messageData['to'] as $tos) {
@@ -281,52 +282,78 @@ class Fixtures
     private function loadGroupedMessages()
     {
         foreach ($this->rawData['Grouped messages'] as $messageData) {
-            $message = new GroupedMessage($messageData['title'], $messageData['content']);
+            $groupedMessage = new GroupedMessage($messageData['title'], $messageData['content']);
 
             if ($messageData['template'] !== null) {
                 $template = $this->messageTemplateRepository->findOneBy(['name' => $messageData['template']]);
-                $message->setTemplate($template);
+
+                $templateHandler = new TemplateHandler();
+                $templateHandler->applyTemplateToMessage($template, $groupedMessage);
             }
 
             foreach ($messageData['lists'] as $listName) {
                 $list = $this->mailingListRepository->findOneBy(['name' => $listName]);
-                $message->addList($list);
+                $groupedMessage->addList($list);
             }
 
-            $this->groupedMessageRepository->add($message);
+            $this->groupedMessageRepository->add($groupedMessage);
         }
     }
 
     /**
-     * @return SimpleMessageRepositoryInterface
+     * @return InMemoryRepository
      */
-    public function getSimpleMessageRepository(): SimpleMessageRepositoryInterface
+    public function getSimpleMessageRepository(): InMemoryRepository
     {
         return $this->simpleMessageRepository;
     }
 
     /**
-     * @return GroupedMessageRepositoryInterface
+     * @return InMemoryRepository
      */
-    public function getGroupedMessageRepository(): GroupedMessageRepositoryInterface
+    public function getGroupedMessageRepository(): InMemoryRepository
     {
         return $this->groupedMessageRepository;
     }
 
     /**
-     * @return MailingListRepositoryInterface
+     * @return InMemoryRepository
      */
-    public function getMailingListRepository(): MailingListRepositoryInterface
+    public function getMailingListRepository(): InMemoryRepository
     {
         return $this->mailingListRepository;
     }
 
     /**
-     * @return RecipientRepositoryInterface
+     * @return InMemoryRepository
      */
-    public function getRecipientRepository(): RecipientRepositoryInterface
+    public function getRecipientRepository(): InMemoryRepository
     {
         return $this->recipientRepository;
+    }
+
+    /**
+     * @return InMemoryRepository
+     */
+    public function getMessageTemplateRepository(): InMemoryRepository
+    {
+        return $this->messageTemplateRepository;
+    }
+
+    /**
+     * @return InMemoryRepository
+     */
+    public function getContentTokenTypeRepository(): InMemoryRepository
+    {
+        return $this->contentTokenTypeRepository;
+    }
+
+    /**
+     * @return InMemoryRepository
+     */
+    public function getContentTokenRepository(): InMemoryRepository
+    {
+        return $this->contentTokenRepository;
     }
 
     /**
