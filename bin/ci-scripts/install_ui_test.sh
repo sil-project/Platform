@@ -24,4 +24,3 @@ npm run gulp
 
 bin/console assets:install --no-interaction --env=$SERVERENV
 bin/console sylius:theme:assets:install  --no-interaction --env=$SERVERENV # must be done after assets:install
-fi
