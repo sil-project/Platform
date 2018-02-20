@@ -38,6 +38,7 @@ pipeline {
         stage ('Prepare') {
             steps {
                 sh "./bin/ci-scripts/do_run.sh before_install_test.sh"
+                sh "./bin/ci-scripts/do_run.sh before_install_ui_test.sh"
             }
         }
 
@@ -56,7 +57,7 @@ pipeline {
                     steps {
                         sh "./bin/ci-scripts/do_run.sh install_test.sh"
                         sh "./bin/ci-scripts/do_run.sh install_db_test.sh"
-                        /* sh "./bin/ci-scripts/do_run.sh install_ui_test.sh" */
+                        sh "./bin/ci-scripts/do_run.sh install_ui_test.sh"
                     }
                 }
 
@@ -71,7 +72,7 @@ pipeline {
             parallel {
                 stage ('Start Project') {
                     steps {
-                        sh "./bin/ci-scripts/do_run.sh before_script_test.sh"
+                        sh "./bin/ci-scripts/do_run.sh before_script_start_test.sh"
                     }
                 }
 
