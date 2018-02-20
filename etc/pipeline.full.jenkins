@@ -148,7 +148,7 @@ pipeline {
             steps {
 
                 sh './bin/deploy-scripts/gen_archive.sh'
-                archiveArtifacts artifacts: "package/Platform_${Version}.tgz", fingerprint: true
+                archiveArtifacts artifacts: "package/*", fingerprint: true
             }
         }
     }
