@@ -19,6 +19,7 @@ then
     mv geckodriver ${HOME}/bin/
 fi
 
+# TODO check if java is installed
 if [ ! -e ${HOME}/bin/selenium-server-standalone.jar ]
 then
     # selenium not need as we use a composer package for this
@@ -56,6 +57,3 @@ geckodriver --version
 
 nvm --version
 npm -v
-
-# check java version
-java -version
