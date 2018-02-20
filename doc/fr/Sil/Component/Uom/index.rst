@@ -30,8 +30,8 @@ L'objectif est d'encapsuler des quantités physiques afin de maintenir la cohér
 .. note::
   Les opérations sur les qantités ``UomQty`` ne sont possible que entre les unités d'une même famille d'unité ``UomType``.
 
-  .. note::
-    Une quantité est un objet immuable, ainsi le résultat des opérations sur les quantités est toujours une nouvelle instance de ``UomQty``.
+.. note::
+  Une quantité est un objet immuable, ainsi le résultat des opérations sur les quantités est toujours une nouvelle instance de ``UomQty``.
 
 ------------------
 Convertion d'unité
@@ -87,9 +87,9 @@ Opérations sur les quantités
 +==========+=========================================+
 |    +     | increasedBy(UomQty $qty): UomQty        |
 +----------+-----------------------------------------+
-|    -     | decreasedBy(UomQty $qty): UomQty        |
+|    -    | decreasedBy(UomQty $qty): UomQty        |
 +----------+-----------------------------------------+
-|    *     | multipliedBy($value): UomQty            |
+|    *    | multipliedBy($value): UomQty            |
 +----------+-----------------------------------------+
 |    /     | dividedBy($value): UomQty               |
 +----------+-----------------------------------------+
