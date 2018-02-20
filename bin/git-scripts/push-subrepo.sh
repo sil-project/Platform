@@ -5,6 +5,18 @@ git checkout master
 git pull
 git config branch.master.rebase false
 
+# Check if .gitrepo file reference the good remote
+for i in $(find src -name .gitrepo)
+do
+    grep $(basename $(dirname $i)) $i > /dev/null
+    if [ $? -ne 0 ]
+    then
+        echo "Bad: $i "
+        exit 42
+    fi
+done
+
+
 save_ref=$(git rev-parse HEAD)
 
 git subrepo push --all -p '[CI]'
