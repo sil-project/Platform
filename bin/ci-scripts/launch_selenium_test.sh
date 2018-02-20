@@ -15,6 +15,8 @@ else
 fi
 
 
+# or docker run -d -p 4444:4444  -v /dev/shm:/dev/shm -e SE_OPTS="-debug -enablePassThrough false" selenium/standalone-firefox:3.9.1-actinium
+
 # start fake x
 /sbin/start-stop-daemon --start --pidfile /tmp/xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -ac -screen 0 1680x1050x16
 export DISPLAY
