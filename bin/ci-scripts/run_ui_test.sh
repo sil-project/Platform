@@ -13,6 +13,7 @@ else
 fi
 
 export SILURL
+export SYMFONY_DEPRECATIONS_HELPER=weak
 
 if [ -n "$CODECEPTCMD" ]
 then
@@ -26,7 +27,7 @@ then
     CODECEPTGROUP=$@
     if [ $# -eq 0 ]
     then
-        CODECEPTGROUP="login" # menu" #login menu user crm variety seedbatch ecommerce" # all"
+        CODECEPTGROUP="login" # all"
     fi
 
 
