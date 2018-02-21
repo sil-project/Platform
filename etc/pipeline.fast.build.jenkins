@@ -1,7 +1,7 @@
 pipeline {
     agent {
         dockerfile {
-            filename "etc/dockerfile.jenkins"
+            filename "etc/dockerfile.build.jenkins"
             /* warning /home/jenkins/cache/* have to be created before first launch, if not it is created by root and is not usable, also $HOME does not work and XDG var are not set*/
             args "--network=ci.network --volume /home/jenkins/cache/pip:/home/jenkins/.cache/pip --volume /home/jenkins/cache/composer:/home/jenkins/.composer/cache --volume /home/jenkins/cache/npm:/home/jenkins/.npm/_cacache"
         }
