@@ -11,12 +11,18 @@ set -ex
 #    #ln -s /usr/lib/chromium-browser/chromedriver ${HOME}/bin/chromedriver
 #fi
 
+if [ -z $GECKOVERSION ]
+then
+    GECKOVERSION=v0.19.1
+fi
+
 if [ ! -x ${HOME}/bin/geckodriver ]
 then
-    wget -q https://github.com/mozilla/geckodriver/releases/download/v0.19.1/geckodriver-v0.19.1-linux64.tar.gz
-    gunzip -f geckodriver-v0.19.1-linux64.tar.gz
-    tar -xvf geckodriver-v0.19.1-linux64.tar
+    wget -q https://github.com/mozilla/geckodriver/releases/download/${GECKOVERSION}/geckodriver-${GECKOVERSION}-linux64.tar.gz
+    gunzip -f geckodriver-${GECKOVERSION}-linux64.tar.gz
+    tar -xvf geckodriver-${GECKOVERSION}-linux64.tar
     mv geckodriver ${HOME}/bin/
+    geckodriver --version
 fi
 
 # TODO check if java is installed
@@ -28,13 +34,6 @@ then
     wget -q https://selenium-release.storage.googleapis.com/3.7/selenium-server-standalone-3.7.0.jar
     mv selenium-server-standalone-3.7.0.jar  ${HOME}/bin/selenium-server-standalone.jar
 fi
-
-#if [ ! -x ${HOME}/bin/codecept ]
-#then
-# codeception not need as we use a composer package for this
-#wget -q "http://codeception.com/codecept.phar"  --output-document="${HOME}/bin/codecept"
-#chmod u+x "${HOME}/bin/codecept"
-#fi
 
 # install nvm
 #rm -rf $HOME/.nvm
@@ -48,12 +47,6 @@ set -x
 
 # install node 4.2.6
 nvm install 8.9
-
-# check version
-
-#chromium-browser --version
-#chromedriver --version
-geckodriver --version
 
 nvm --version
 npm -v
