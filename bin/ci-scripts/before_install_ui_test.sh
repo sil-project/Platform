@@ -33,7 +33,7 @@ fi
 # TODO check if java is installed
 if [ ! -e ${HOME}/bin/selenium-server-standalone.jar ]
 then
-    wget -q https://selenium-release.storage.googleapis.com/${SELENIUMVERSION}/selenium-server-standalone-${SELENIUMVERSION}.0.jar --output-document= ${HOME}/bin/selenium-server-standalone.jar
+    wget -q https://selenium-release.storage.googleapis.com/${SELENIUMVERSION}/selenium-server-standalone-${SELENIUMVERSION}.0.jar --output-document=${HOME}/bin/selenium-server-standalone.jar
 fi
 
 # install nvm
