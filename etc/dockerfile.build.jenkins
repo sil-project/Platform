@@ -8,7 +8,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y apt-transport-h
     && apt-get install --no-install-recommends -y default-jre-headless xvfb dnsutils vim-nox\
     && apt-get autoremove -y && apt-get clean
 
-RUN echo "deb http://http.debian.net/debian unstable main" > /etc/apt/sources.list.d/firefox.list && apt-get update && apt-get install firefox\
+RUN echo "deb http://http.debian.net/debian unstable main" > /etc/apt/sources.list.d/firefox.list && apt-get update && apt-get install --no-install-recommends -y firefox\
     && apt-get autoremove -y && apt-get clean
 
 # for full only && default-jre-headless xvfb firefox-esr dnsutils vim
