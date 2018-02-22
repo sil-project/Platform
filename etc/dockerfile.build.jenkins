@@ -5,8 +5,12 @@ FROM debian:stable
 
 RUN apt-get update && apt-get install --no-install-recommends -y apt-transport-https lsb-release ca-certificates net-tools lsof postgresql-client wget \
     && apt-get install --no-install-recommends -y git curl build-essential unzip python-pip python-setuptools \
-    && apt-get install --no-install-recommends -y default-jre-headless xvfb firefox-esr dnsutils vim-nox\
+    && apt-get install --no-install-recommends -y default-jre-headless xvfb dnsutils vim-nox\
     && apt-get autoremove -y && apt-get clean
+
+RUN echo "deb http://http.debian.net/debian unstable main" > /etc/apt/sources.list.d/firefox.list && apt-get update && apt-get install firefox\
+    && apt-get autoremove -y && apt-get clean
+
 # for full only && default-jre-headless xvfb firefox-esr dnsutils vim
 
 
