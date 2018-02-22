@@ -25,20 +25,21 @@ then
     geckodriver --version
 fi
 
+if [ -z ${SELENIUMVERSION} ]
+then
+    SELENIUMVERSION=3.7
+fi
+
 # TODO check if java is installed
 if [ ! -e ${HOME}/bin/selenium-server-standalone.jar ]
 then
-    # selenium not need as we use a composer package for this
-    #wget -q https://selenium-release.storage.googleapis.com/3.4/selenium-server-standalone-3.4.0.jar
-    #java -jar selenium-server-standalone-3.4.0.jar &
-    wget -q https://selenium-release.storage.googleapis.com/3.7/selenium-server-standalone-3.7.0.jar
-    mv selenium-server-standalone-3.7.0.jar  ${HOME}/bin/selenium-server-standalone.jar
+    wget -q https://selenium-release.storage.googleapis.com/${SELENIUMVERSION}/selenium-server-standalone-${SELENIUMVERSION}.0.jar --output-document= ${HOME}/bin/selenium-server-standalone.jar
 fi
 
 # install nvm
 #rm -rf $HOME/.nvm
 #rm -rf $HOME/.npm
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
 export NVM_DIR="$HOME/.nvm"
 
 set +x
