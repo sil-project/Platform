@@ -24,4 +24,3 @@ echo "Version=${Version}" >>  ${Pkgdir}/env.to.deploy
 echo "Filename=${Filename}" >> ${Pkgdir}/env.to.deploy
 
 sha256sum ${Pkgdir}/${Filename} > ${Pkgdir}/sha256.to.deploy
-cp -rp bin/deploy-scripts/deploy_archive.sh ${Pkgdir}
