@@ -25,7 +25,8 @@ RUN echo "deb http://ftp.debian.org/debian $(lsb_release -sc)-backports main" >>
     && apt-get autoremove -y && apt-get clean
 
 RUN echo "phar.readonly = Off" >> /etc/php/${PHPVER}/cli/conf.d/42-phar-readonly.ini \
-    && echo "memory_limit=-1" >> /etc/php/${PHPVER}/cli/conf.d/42-memory-limit.ini
+    && echo "memory_limit=-1" >> /etc/php/${PHPVER}/cli/conf.d/42-memory-limit.ini \
+    && echo "date.timezone=Europe/Paris" >>  /etc/php/${PHPVER}/cli/conf.d/68-date-timezone.ini
 
 RUN curl -sS https://getcomposer.org/installer | php \
     && mv composer.phar /usr/local/bin/composer \
