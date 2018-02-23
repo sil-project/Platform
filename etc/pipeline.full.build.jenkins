@@ -9,6 +9,7 @@ pipeline {
 
     environment {
         RND = "${BUILD_NUMBER}"
+        COMPOSERARG="--no-ansi"
         Version = sh(returnStdout: true, script: 'git describe --tags').trim()
         Tag = sh(returnStdout: true, script: 'git describe --tags --abbrev=0').trim()
     }
