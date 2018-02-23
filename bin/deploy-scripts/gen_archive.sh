@@ -41,3 +41,5 @@ fi
 # Maybe nslookup ip
 
 psql -w -h ${DBHOST} -c  "update sil_ecommerce_channel set hostname='sandboxrd.libre-informatique.fr';" -U ${DBROOTUSER} -d ${DBAPPNAME}
+
+bin/console cache:clear --env=prod
