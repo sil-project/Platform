@@ -79,12 +79,6 @@ pipeline {
             }
         }
 
-        stage ('Archive Gzip') {
-            steps {
-                sh './bin/deploy-scripts/gen_archive.sh'
-                archiveArtifacts artifacts: "package/*", fingerprint: true
-            }
-        }
     }
 
 
