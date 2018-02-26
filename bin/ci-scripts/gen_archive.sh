@@ -12,4 +12,6 @@ rm -f ${Filename}
 tar -czf ${Filename} ./*
 
 
+ln -s  ${Filename} Latest.tar.gz
+
 sha256sum ${Filename} > ${Filename}.sha256
