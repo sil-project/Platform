@@ -14,7 +14,4 @@ rm -f ${Filename}
 # gen archive --transform='s|\./|./'${Tag}'/|g'
 tar -czf ${Filename} ./*
 
-
-ln -s  ${Filename} Latest.tar.gz
-
 sha256sum ${Filename} > ${Filename}.sha256
