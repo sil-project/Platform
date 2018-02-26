@@ -6,7 +6,7 @@ Name=Platform
 Version=$(git describe --tags)
 Tag=$(git describe --tags --abbrev=0)
 Filename=${Name}_${Version}.tar.gz
-Pkgdir=package
+Pkgdir=./
 rm -f ${Filename}
 
 # gen archive --transform='s|\./|./'${Tag}'/|g'

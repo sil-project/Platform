@@ -157,8 +157,8 @@ pipeline {
         stage ('Archive Gzip') {
             steps {
 
-                sh './bin/deploy-scripts/gen_archive.sh'
-                archiveArtifacts artifacts: "package/*", fingerprint: true
+                sh './bin/ci-scripts/do_run.sh gen_archive.sh'
+                archiveArtifacts artifacts: "*.tar.gz*", fingerprint: true
             }
         }
     }
