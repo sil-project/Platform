@@ -158,7 +158,7 @@ pipeline {
             steps {
 
                 sh './bin/ci-scripts/do_run.sh gen_archive.sh'
-                archiveArtifacts artifacts: "*.tar.gz*", fingerprint: true
+                archiveArtifacts artifacts: "*.tar.gz*, *Latest*", fingerprint: true
             }
         }
     }
