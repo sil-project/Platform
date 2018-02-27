@@ -10,8 +10,10 @@ pipeline {
     environment {
         RND = "${BUILD_NUMBER}"
         COMPOSERARG="--no-ansi"
+        /* Not working in multi branch pipeline
         Version = sh(returnStdout: true, script: 'git describe --tags').trim()
         Tag = sh(returnStdout: true, script: 'git describe --tags --abbrev=0').trim()
+        */
     }
 
     options {
@@ -118,6 +120,7 @@ pipeline {
 
                 stage ('Run Docs') {
                     steps {
+                        sh "./bin/git-scripts/doc-update.sh"
                         sh "./bin/ci-scripts/do_run.sh run_docs.sh"
                         publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'build/sphinx', reportFiles: 'index.html', reportName: 'Documentation', reportTitles: ''])
                     }
