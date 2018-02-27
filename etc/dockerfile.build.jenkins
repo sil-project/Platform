@@ -12,6 +12,13 @@ RUN echo "deb http://http.debian.net/debian unstable main" > /etc/apt/sources.li
     && apt-get autoremove -y && apt-get clean
 
 # for full only && default-jre-headless xvfb firefox-esr dnsutils vim
+ENV GOLANG_VERSION=1.10
+
+# https://github.com/docker-library/golang/blob/master/1.10/stretch/Dockerfile
+RUN url="https://golang.org/dl/go${GOLANG_VERSION}.linux-amd64.tar.gz"; \
+    wget -O go.tgz "$url"; \
+    tar -C /usr/local -xzf go.tgz; \
+    rm go.tgz;
 
 
 ARG PHPVER=7.1
@@ -55,8 +62,12 @@ RUN useradd -d $HOME -g $GROUP -u ${UID} -m $USER \
 
 USER $USER:$GROUP
 WORKDIR $HOME
+
+ENV GOROOT=/usr/local/go
+ENV GOPATH=$HOME/go
 #should not be good, where does the current $PATH came from ?
-ENV PATH=$PATH:$HOME/bin:$HOME/.local/bin/
+ENV PATH=$PATH:/usr/local/go/bin:$HOME/go/bin:$HOME/bin:$HOME/.local/bin/
+
 
 RUN pip install --upgrade pip
 
@@ -72,5 +83,10 @@ RUN curl -so- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.s
     && . "$NVM_DIR/nvm.sh" \
     && nvm install 8.9 \
     && npm config set color false \
+    && npm install gulp@3.9.1 -g \
+    && npm install node-sass@4.7.2 -g \
+    && npm install jquery@3.3.1 -g \
+    && npm install semantic-ui-css@2.3.0 -g \
+    && npm install yargs@6.6.0 \
     && nvm clear-cache \
     && npm cache clean --force
