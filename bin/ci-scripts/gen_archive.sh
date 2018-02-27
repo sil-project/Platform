@@ -2,12 +2,19 @@
 set -ex
 
 Name=Platform
-
+# git symbolic-ref -q --short HEAD || git describe --tags --exact-match
 Version=$(git describe --tags)
 Tag=$(git describe --tags --abbrev=0)
+Branch=$(git name-rev  --name-only $(git rev-parse HEAD))
+
+# Clean current git dir
+git clean -df
+git checkout -- .
+
 Filename=${Name}_${Version}.tar.gz
 echo ${Version} > Version.txt
 echo ${Tag} > Tag.txt
+echo ${Branch} > Branch.txt
 
 rm -f ${Filename}
 
