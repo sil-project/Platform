@@ -2,8 +2,8 @@ pipeline {
     agent {
         dockerfile {
             filename "etc/dockerfile.build.jenkins"
-            args '--network=ci.network  --volume /home/jenkins/cache/pip:/home/jenkins/.cache/pip --volume /home/jenkins/cache/composer:/home/jenkins/.composer/cache'
-           /* '--volume /home/jenkins/cache/npm:/home/jenkins/.npm/_cacache' */
+            args '--network=ci.network  --volume /home/jenkins/cache/pip:/home/jenkins/.cache/pip --volume /home/jenkins/cache/composer:/home/jenkins/.composer/cache --volume /home/jenkins/cache/npm:/home/jenkins/.npm/_cacache'
+           /*  */
         }
     }
 
@@ -171,8 +171,12 @@ pipeline {
     post {
         always {
             cleanWs()
-
         }
+        success {
+            build job: 'Copy Artifact', parameters: [string(name: 'Job', value: "${JOB_NAME}"), string(name: 'Project', value: "${JOB_BASE_NAME}"), string(name: 'Branch', value: "${BRANCH_NAME}"), string(name: 'Repo', value: '/home/jenkins/public_html/repo')], wait: false
+        }
+
     }
+
 
 }
