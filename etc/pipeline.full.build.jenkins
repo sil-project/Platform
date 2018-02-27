@@ -1,9 +1,10 @@
+
 pipeline {
     agent {
         dockerfile {
             filename "etc/dockerfile.build.jenkins"
-            args '--network=ci.network  --volume /home/jenkins/cache/pip:/home/jenkins/.cache/pip --volume /home/jenkins/cache/composer:/home/jenkins/.composer/cache --volume /home/jenkins/cache/npm:/home/jenkins/.npm/_cacache'
-           /*  */
+            args '--network=ci.network  --volume /home/jenkins/cache/pip:/home/jenkins/.cache/pip --volume /home/jenkins/cache/composer:/home/jenkins/.composer/cache'
+           /* '--volume /home/jenkins/cache/npm:/home/jenkins/.npm/_cacache' */
         }
     }
 
