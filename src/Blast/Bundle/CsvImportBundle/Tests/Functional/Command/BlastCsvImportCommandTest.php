@@ -32,7 +32,7 @@ class BlastCsvImportCommandTest extends BlastTestCase
         $this->markTestSkipped(
             'Disable for performance'
         );
-
+        /*
         $this->launchCommand([
             'command'          => 'blast:import:csv',
             '--dir'            => $this->testResourcesPath . '/import',
@@ -40,6 +40,7 @@ class BlastCsvImportCommandTest extends BlastTestCase
             '--no-interaction' => true,
             '--env'            => 'test',
         ]);
+        */
     }
 
     public function testSecondLoad()
@@ -47,6 +48,7 @@ class BlastCsvImportCommandTest extends BlastTestCase
         $this->markTestSkipped(
             'Disable for performance'
         );
+        /*
         $this->launchCommand([
             'command'          => 'blast:import:csv',
             '--dir'            => $this->testResourcesPath . '/import',
@@ -54,6 +56,7 @@ class BlastCsvImportCommandTest extends BlastTestCase
             '--no-interaction' => true,
             '--env'            => 'test',
         ]);
+        */
     }
 
     public function testParentLoad()
@@ -61,6 +64,7 @@ class BlastCsvImportCommandTest extends BlastTestCase
         $this->markTestSkipped(
             'Disable for performance'
         );
+        /*
         $this->launchCommand([
             'command'          => 'blast:import:csv',
             '--dir'            => $this->testResourcesPath . '/import',
@@ -68,6 +72,7 @@ class BlastCsvImportCommandTest extends BlastTestCase
             '--no-interaction' => true,
             '--env'            => 'test',
         ]);
+        */
     }
 
     public function testFinalLoad()
