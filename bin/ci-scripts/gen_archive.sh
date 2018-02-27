@@ -22,6 +22,4 @@ rm -f ${Filename}
 # gen archive --transform='s|\./|./'${Tag}'/|g'
 tar -czf ${Filename} ./*
 
-sha256sum ${Filename} > ${Name}_Latest.sha256
-
-echo ${Filename} > ${Name}_Latest.txt
+sha256sum ${Filename} > ${Filename}.sha256.txt
