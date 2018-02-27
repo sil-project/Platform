@@ -4,10 +4,12 @@ Les Contacts sont représentés par le modèle Contact.
 
 .. note::
 
-  Lorsqu'une Address ou un Phone est associé au contact, celui-ci deviendra l'addresse ou le téléphone par défaut du Contact.
-  Lorsque l'objet par défaut est retiré de la collection du Contact, celui par défaut sera réinitilisé en même temps.
-  Si il reste un autre objet dans la collection, ce dernier deviendra l'objet par défaut du Contact.
+Lorsqu'une première adresse (modèle Address) est associé à un contact, celle-ci deviendra l'addresse par défaut du contact.
+  
+Lorsque l'addresse par défaut est supprimée, la premier adresse disponible dans la liste des adresses associées au contact devient automatiquement l'adresse par défaut. Si aucune adresse n'est associée au Contact, aucune adresse par défaut ne peut être désignée.
 
+Le même fonctionnement est appliqué aux téléphones (modèle Phone).
+  
 +-----------------+-----------------------------------------------------------------------------+
 | Propriété       | Description                                                                 |
 +=================+=============================================================================+

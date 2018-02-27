@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Copyright (C) 2015-2017 Libre Informatique
+ * Copyright (C) 2015-2018 Libre Informatique
  *
  * This file is licenced under the GNU LGPL v3.
  * For the full copyright and license information, please view the LICENSE.md
@@ -24,7 +24,7 @@ class AccountTest extends TestCase
     /**
      * The first contact added to the account should be set as the default contact.
      */
-    public function testSetDefaultContactWhenAddingFirstContact()
+    public function test_set_default_contact_when_adding_first_contact()
     {
         $account = new Account('foo', 'bar');
         $contact = new Contact();
@@ -39,7 +39,7 @@ class AccountTest extends TestCase
      * An exception should be thrown when adding a contact
      * that is already associated to this account.
      */
-    public function testAddAlreadyExistingContact()
+    public function test_add_already_existing_contact()
     {
         $account = new Account('foo', 'bar');
         $contact = new Contact();
@@ -54,7 +54,7 @@ class AccountTest extends TestCase
     /**
      * The default contact should be unset when removing the only contact of an account.
      */
-    public function testUnsetDefaultContactWhenRemovingOnlyContact()
+    public function test_unset_default_contact_when_removing_only_contact()
     {
         $account = new Account('foo', 'bar');
         $contact = new Contact();
@@ -69,7 +69,7 @@ class AccountTest extends TestCase
     /**
      * An exception should be thrown when trying to remove a contact that is not associated to the account.
      */
-    public function testRemoveNonExistingContact()
+    public function test_remove_non_existing_contact()
     {
         $account = new Account('foo', 'bar');
         $contact1 = new Contact();
@@ -86,7 +86,7 @@ class AccountTest extends TestCase
      * When an account has several contacts,
      * a new default contact should be set when removing the current one.
      */
-    public function testSetNewDefaultContactAfterRemoval()
+    public function test_set_new_default_contact_after_removal()
     {
         $account = new Account('foo', 'bar');
 
