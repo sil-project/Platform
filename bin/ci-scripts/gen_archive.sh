@@ -20,6 +20,6 @@ echo ${Branch} > Branch.txt
 rm -f ${Filename}
 
 # gen archive --transform='s|\./|./'${Tag}'/|g'
-tar -czf ${Filename} ./*
+tar -chzf ${Filename} ./*
 
 sha256sum ${Filename} > ${Filename}.sha256.txt
