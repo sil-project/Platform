@@ -77,15 +77,3 @@ RUN curl -so- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.s
     && npm config set color false -g \
     && nvm clear-cache \
     && npm cache clean --force
-
-# preinstall some node module used by platform
-RUN [ -s "$NVM_DIR/nvm.sh" ] \
-    && . "$NVM_DIR/nvm.sh" \
-    && npm install gulp@3.9.1 -g \
-    && npm install node-sass@4.7.2 -g \
-    && npm install jquery@3.3.1 -g \
-    && npm install semantic-ui-css@2.3.0 -g \
-    && npm install yargs@6.6.0 -g \
-    && npm install node-gyp@3.6.2 -g \
-    && npm install gulp-sass@2.3.2 -g \
-    && npm cache clean --force
