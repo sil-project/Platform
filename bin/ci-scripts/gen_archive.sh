@@ -11,6 +11,8 @@ Branch=$(git name-rev  --name-only $(git rev-parse HEAD) | sed -e s/\\^.*//g | a
 git clean -df
 git checkout -- .
 
+rm -rf var/logs/* var/cache/* web/media/*
+
 #Filename=${Name}_${Version}.tar.gz
 Filename=${Name}_${Branch}.tar.gz
 #echo ${Version} > Version.txt
@@ -18,6 +20,7 @@ Filename=${Name}_${Branch}.tar.gz
 echo ${Branch} > Branch.txt
 
 rm -f ${Filename}
+
 
 # gen archive --transform='s|\./|./'${Tag}'/|g'
 tar -chzf ${Filename} ./*
