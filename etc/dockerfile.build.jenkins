@@ -12,14 +12,6 @@ RUN echo "deb http://http.debian.net/debian unstable main" > /etc/apt/sources.li
     && apt-get autoremove -y && apt-get clean
 
 # for full only && default-jre-headless xvfb firefox-esr dnsutils vim
-ENV GOLANG_VERSION=1.10
-
-# https://github.com/docker-library/golang/blob/master/1.10/stretch/Dockerfile
-RUN url="https://golang.org/dl/go${GOLANG_VERSION}.linux-amd64.tar.gz"; \
-    wget -O go.tgz "$url"; \
-    tar -C /usr/local -xzf go.tgz; \
-    rm go.tgz;
-
 
 ARG PHPVER=7.1
 RUN echo "deb http://ftp.debian.org/debian $(lsb_release -sc)-backports main" >> /etc/apt/sources.list \
