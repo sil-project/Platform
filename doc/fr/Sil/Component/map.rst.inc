@@ -8,3 +8,4 @@
 * :doc:`/Sil/Component/Product/index`
 * :doc:`/Sil/Component/Stock/index`
 * :doc:`/Sil/Component/Uom/index`
+* :doc:`/Sil/Component/User/index`

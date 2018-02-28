@@ -11,3 +11,4 @@
     Product/index
     Stock/index
     Uom/index
+    User/index
