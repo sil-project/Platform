@@ -170,7 +170,7 @@ pipeline {
             cleanWs()
         }
         success {
-            build job: 'Copy Artifact', parameters: [string(name: 'Job', value: "${JOB_NAME}"), string(name: 'Project', value: "Platform"), string(name: 'Branch', value: "${BRANCH_NAME}"), string(name: 'Repo', value: '/home/jenkins/public_html/repo')], wait: false
+            build job: 'Copy Artifact', parameters: [string(name: 'Job', value: "${JOB_NAME}"), string(name: 'Project', value: "Platform"), string(name: 'Branch', value: "${BRANCH_NAME}")], wait: false
         }
 
     }
