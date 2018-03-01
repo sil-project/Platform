@@ -1,4 +1,3 @@
-
 pipeline {
     agent {
         dockerfile {
@@ -75,7 +74,7 @@ pipeline {
             }
         }
 
-        /*
+
         stage('Parallel Start') {
             parallel {
                 stage ('Start Project') {
@@ -152,7 +151,7 @@ pipeline {
                 }
             }
         }
-        */
+
 
         stage ('Archive Gzip') {
             steps {
