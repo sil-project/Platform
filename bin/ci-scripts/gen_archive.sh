@@ -19,7 +19,7 @@ Filename=${Name}_${Branch}.tar.gz
 
 rm -f ${Filename}
 
-rm -f \
+rm -rf \
    var/logs/* \
    var/cache/* \
    web/media/* \
