@@ -35,7 +35,7 @@ tar --exclude=var/logs/* \
     --exclude=*.lock \
     --exclude=*.json \
     --exclude=*.dist \
-    -chf ${Filename} ./*
+    -czhf ${Filename} ./*
 
 
 sha256sum ${Filename} > ${Filename}.sha256.txt
