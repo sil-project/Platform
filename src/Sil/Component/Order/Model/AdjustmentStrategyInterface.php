@@ -18,9 +18,4 @@ interface AdjustmentStrategyInterface
      * Apply an adjustment on its target element.
      */
     public function adjust(AdjustmentInterface $adjustment): void;
-
-    /**
-     * Specify if adjustement should affect the total of order / orderItem.
-     */
-    public function affectTotal(): bool;
 }

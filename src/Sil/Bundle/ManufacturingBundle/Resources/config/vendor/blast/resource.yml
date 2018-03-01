@@ -3,16 +3,16 @@ blast_resource:
 
     sil.manufacturing_bom:
       classes:
-        model:                  Sil\Bundle\ManufacturingBundle\Domain\Entity\Bom
+        model:                  Sil\Component\Manufacturing\Model\Bom
         repository:             Sil\Bundle\ManufacturingBundle\Doctrine\ORM\BomRepository
 
     sil.manufacturing_bom_line:
       classes:
-        model:                  Sil\Bundle\ManufacturingBundle\Domain\Entity\BomLine
+        model:                  Sil\Component\Manufacturing\Model\BomLine
         repository:             Sil\Bundle\ManufacturingBundle\Doctrine\ORM\BomLineRepository
 
 
     sil.manufacturing_order:
       classes:
-        model:                  Sil\Bundle\ManufacturingBundle\Domain\Entity\ManufacturingOrder
+        model:                  Sil\Component\Manufacturing\Model\ManufacturingOrder
         repository:             Sil\Bundle\ManufacturingBundle\Doctrine\ORM\ManufacturingOrderRepository

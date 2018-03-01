@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -ev
+set -ex
 
 #composer update --prefer-dist --no-interaction
 composer global require sllh/composer-lint:@stable --prefer-dist --no-interaction

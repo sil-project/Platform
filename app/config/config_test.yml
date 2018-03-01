@@ -1,3 +1,4 @@
+
 imports:
     - { resource: config_dev.yml }
 
@@ -12,32 +13,3 @@ web_profiler:
 
 swiftmailer:
     disable_delivery: true
-
-# Doctrine Configuration
-doctrine:
-    dbal:
-        default_connection: default
-        connections:
-            default:
-                #driver:  pdo_sqlite
-                #user:    test_sil_user
-                #path:    %kernel.root_dir%/sqlite.test.db.cache
-                #memory: true
-                driver:   pdo_pgsql
-                host:     127.0.0.1
-                port:     5432
-                dbname:   test_sil_db
-                user:     test_sil_user
-                password: test_sil_password
-                charset:  UTF8
-            session:
-                #driver:  pdo_sqlite
-                #user:    test_sil_user
-                #path:    %kernel.root_dir%/sqlite.test.db.cache
-                driver:   pdo_pgsql
-                host:     127.0.0.1
-                port:     5432 
-                dbname:   test_sil_db
-                user:     test_sil_user
-                password: test_sil_password
-                charset:  UTF8

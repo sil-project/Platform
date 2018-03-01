@@ -131,9 +131,7 @@ class Order implements OrderInterface, AdjustableInterface, OrderStateAwareInter
     }
 
     /**
-     * Gets Order created date.
-     *
-     * @return DateTime
+     * {@inheritdoc}
      */
     public function getCreatedAt(): DateTime
     {
@@ -165,9 +163,7 @@ class Order implements OrderInterface, AdjustableInterface, OrderStateAwareInter
     }
 
     /**
-     * Retreive Order code.
-     *
-     * @return OrderCode
+     * {@inheritdoc}
      */
     public function getCode(): OrderCode
     {
@@ -175,7 +171,7 @@ class Order implements OrderInterface, AdjustableInterface, OrderStateAwareInter
     }
 
     /**
-     * @return array|OrderItemInterface[]
+     * {@inheritdoc}
      */
     public function getOrderItems(): array
     {
@@ -183,11 +179,7 @@ class Order implements OrderInterface, AdjustableInterface, OrderStateAwareInter
     }
 
     /**
-     * Add order item to current order.
-     *
-     * @param OrderItemInterface $orderItem
-     *
-     * @throws InvalidArgumentException|DomainException
+     * {@inheritdoc}
      */
     public function addOrderItem(OrderItemInterface $orderItem): void
     {
@@ -204,11 +196,7 @@ class Order implements OrderInterface, AdjustableInterface, OrderStateAwareInter
     }
 
     /**
-     * Remove order item.
-     *
-     * @param OrderItemInterface $orderItem
-     *
-     * @throws InvalidArgumentException|DomainException
+     * {@inheritdoc}
      */
     public function removeOrderItem(OrderItemInterface $orderItem): void
     {
@@ -222,68 +210,6 @@ class Order implements OrderInterface, AdjustableInterface, OrderStateAwareInter
             throw new InvalidArgumentException(sprintf('OrderItem « %s » does not belong to order « %s »', $orderItem->getLabel(), $this->getCode()));
         }
         $this->items->removeElement($orderItem);
-    }
-
-    /**
-     * Check if Item already exists for this order.
-     *
-     * @param OrderItemInterface $orderItem
-     *
-     * @return bool
-     */
-    public function hasOrderItem(OrderItemInterface $orderItem): bool
-    {
-        return $this->items->contains($orderItem);
-    }
-
-    /**
-     * @return array|InvoiceInterface[]
-     */
-    public function getInvoices(): array
-    {
-        return $this->invoices->getValues();
-    }
-
-    /**
-     * Add invoice to current order.
-     *
-     * @param InvoiceInterface $invoice
-     *
-     * @throws InvalidArgumentException
-     */
-    public function addInvoice(InvoiceInterface $invoice): void
-    {
-        if ($this->invoices->contains($invoice)) {
-            throw new InvalidArgumentException(sprintf('Invoice %s is already attached to the order « %s »', $invoice->getCode(), $this->getCode()));
-        }
-        $this->invoices->add($invoice);
-    }
-
-    /**
-     * Remove invoice.
-     *
-     * @param InvoiceInterface $invoice
-     *
-     * @throws InvalidArgumentException
-     */
-    public function removeInvoice(InvoiceInterface $invoice): void
-    {
-        if (!$this->invoices->contains($invoice)) {
-            throw new InvalidArgumentException(sprintf('Invoice « %s » is not attached to order « %s »', $invoice->getCode(), $this->getCode()));
-        }
-        $this->invoices->removeElement($invoice);
-    }
-
-    /**
-     * Check if invoice already exists for this order.
-     *
-     * @param InvoiceInterface $invoice
-     *
-     * @return bool
-     */
-    public function hasInvoice(InvoiceInterface $invoice): bool
-    {
-        return $this->invoices->contains($invoice);
     }
 
     /**
@@ -345,18 +271,6 @@ class Order implements OrderInterface, AdjustableInterface, OrderStateAwareInter
     }
 
     /**
-     * Check if adjustment already exists for this order.
-     *
-     * @param AdjustmentInterface $adjustment
-     *
-     * @return bool
-     */
-    public function hasAdjustment(AdjustmentInterface $adjustment): bool
-    {
-        return $this->adjustments->contains($adjustment);
-    }
-
-    /**
      * Gets the state of current order.
      */
     public function getState(): OrderStateInterface
@@ -375,7 +289,7 @@ class Order implements OrderInterface, AdjustableInterface, OrderStateAwareInter
     }
 
     /**
-     * @return PriceInterface
+     * {@inheritdoc}
      */
     public function getTotal(): PriceInterface
     {
@@ -383,7 +297,7 @@ class Order implements OrderInterface, AdjustableInterface, OrderStateAwareInter
     }
 
     /**
-     * @param PriceInterface $total
+     * {@inheritdoc}
      */
     public function setTotal(PriceInterface $total): void
     {
@@ -393,7 +307,7 @@ class Order implements OrderInterface, AdjustableInterface, OrderStateAwareInter
     }
 
     /**
-     * @return PriceInterface
+     * {@inheritdoc}
      */
     public function getAdjustedTotal(): PriceInterface
     {
@@ -401,7 +315,7 @@ class Order implements OrderInterface, AdjustableInterface, OrderStateAwareInter
     }
 
     /**
-     * @param PriceInterface $adjustedTotal
+     * {@inheritdoc}
      */
     public function setAdjustedTotal(PriceInterface $adjustedTotal): void
     {

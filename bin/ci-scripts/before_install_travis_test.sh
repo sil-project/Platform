@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -ev
+set -ex
 
 mkdir --parents "${HOME}/bin"
 
@@ -17,4 +17,12 @@ then
     curl -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.1.2.deb
     sudo dpkg -i --force-confnew  elasticsearch-6.1.2.deb
     sudo service elasticsearch restart
+fi
+
+
+if [ ! -x ${HOME}/bin/coveralls ]
+then
+    # Coveralls client install
+    wget -q https://github.com/satooshi/php-coveralls/releases/download/v1.0.1/coveralls.phar --output-document="${HOME}/bin/coveralls"
+    chmod u+x "${HOME}/bin/coveralls"
 fi

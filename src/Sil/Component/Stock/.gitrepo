@@ -6,7 +6,7 @@
 [subrepo]
 	remote = git@github.com:sil-project/Stock.git
 	branch = wip-platform
-	commit = 4bc51603374d4584e842be792c2df2cdb0e1c6a9
+	commit = 39fd0c1240534e8c93ce70add4a8bf3c3e6a699c
 	method = merge
 	cmdver = 0.4.0
-	parent = 4af5c70aad38e440bf200c86a88dca530caa6ee3
+	parent = 199032d497a091bb1b9fa5ee34303131029fe010

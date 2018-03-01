@@ -1,0 +1,40 @@
+{
+    "name": "sil-project/user",
+    "type": "library",
+    "description": "User Management, oAuth, RBAC",
+    "require": {
+        "php": "^7.1",
+        "blast-project/resource": "self.version",
+        "sylius/user": "^1.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.4",
+    },
+    "license": "LGPL-3.0-only",
+    "keywords": [
+        "user",
+        "oauth",
+        "rbac",
+        "authorization",
+        "security"
+    ],
+    "homepage": "https://github.com/sil-project/user",
+    "authors": [
+        {
+            "name": "Romain Sanchez",
+            "email": "romain.sanchez@libre-informatique.fr"
+        },
+        {
+            "name": "Libre Informatique",
+            "homepage": "http://www.libre-informatique.fr/"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Sil\\Component\\User\\": "."
+        }
+    },
+    "config": {
+        "bin-dir": "bin/"
+    }
+}

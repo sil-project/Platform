@@ -222,16 +222,4 @@ class OrderItem implements OrderItemInterface, AdjustableInterface, ResourceInte
         }
         $this->adjustments->removeElement($adjustment);
     }
-
-    /**
-     * Check if adjustment already exists for this order.
-     *
-     * @param AdjustmentInterface $adjustment
-     *
-     * @return bool
-     */
-    public function hasAdjustment(AdjustmentInterface $adjustment): bool
-    {
-        return $this->adjustments->contains($adjustment);
-    }
 }

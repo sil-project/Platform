@@ -15,4 +15,17 @@ namespace Sil\Component\Contact\Model;
  */
 interface GroupInterface
 {
+    /**
+     * Get the value of name.
+     *
+     * @return string
+     */
+    public function getName(): string;
+
+    /**
+     * Get the value of members as an array.
+     *
+     * @return array|GroupMemberInterface[]
+     */
+    public function getMembers(): array;
 }

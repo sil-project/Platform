@@ -30,8 +30,8 @@
 /bin/*
 !/bin/console
 !/bin/ci-scripts
-!/bin/git-script
-
+!/bin/git-scripts
+!/bin/deploy-scripts
 
 # Build data
 /build/

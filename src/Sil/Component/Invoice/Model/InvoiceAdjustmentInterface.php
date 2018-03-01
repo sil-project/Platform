@@ -15,4 +15,24 @@ namespace Sil\Component\Invoice\Model;
  */
 interface InvoiceAdjustmentInterface
 {
+    /**
+     * Get the value of label.
+     *
+     * @return string
+     */
+    public function getLabel(): string;
+
+    /**
+     * Get the value of type.
+     *
+     * @return int
+     */
+    public function getType(): InvoiceAdjustmentType;
+
+    /**
+     * Get the value of value.
+     *
+     * @return float
+     */
+    public function getValue(): float;
 }

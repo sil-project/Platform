@@ -6,3 +6,4 @@ Composant Produit
 
    installation
    domain/index
+   usage

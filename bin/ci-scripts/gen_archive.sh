@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+set -ex
+
+Name=Platform
+# git symbolic-ref -q --short HEAD || git describe --tags --exact-match
+#Version=$(git describe --tags)
+#Tag=$(git describe --tags --abbrev=0)
+Branch=$(git name-rev  --name-only $(git rev-parse HEAD) | sed -e s/\\^.*//g | awk -F'/' '{print $(NF)}')
+
+# Clean current git dir
+git clean -df
+git checkout -- .
+
+rm -rf var/logs/* var/cache/* web/media/*
+
+#Filename=${Name}_${Version}.tar.gz
+Filename=${Name}_${Branch}.tar.gz
+#echo ${Version} > Version.txt
+#echo ${Tag} > Tag.txt
+echo ${Branch} > Branch.txt
+
+rm -f ${Filename}
+
+
+# gen archive --transform='s|\./|./'${Tag}'/|g'
+tar -chzf ${Filename} ./*
+
+sha256sum ${Filename} > ${Filename}.sha256.txt

@@ -6,7 +6,7 @@
 [subrepo]
 	remote = git@github.com:blast-project/DoctrinePgsqlBundle.git
 	branch = wip-platform
-	commit = 9b7f7e58d164934b96b86147e7f56c494c9a509a
+	commit = 5db89588bebfc6439af62d580666c7ffe3f56ac3
 	cmdver = 0.4.0
-	parent = bd87c3e802194f917cc1a249340de438192ec0c7
+	parent = 199032d497a091bb1b9fa5ee34303131029fe010
 	method = merge

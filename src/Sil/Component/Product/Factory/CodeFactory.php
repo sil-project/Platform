@@ -44,8 +44,8 @@ class CodeFactory
      */
     public static function generateProductVariantCode(ProductInterface $product, array $productOptions): CodeInterface
     {
-        $productCodeGenerator = new ProductVariantCodeGenerator();
+        $productVariantCodeGenerator = new ProductVariantCodeGenerator();
 
-        return $productCodeGenerator->generate($product->getCode(), $productOptions);
+        return $productVariantCodeGenerator->generate($product->getCode(), $productOptions);
     }
 }

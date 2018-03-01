@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Copyright (C) 2015-2017 Libre Informatique
+ * Copyright (C) 2015-2018 Libre Informatique
  *
  * This file is licenced under the GNU LGPL v3.
  * For the full copyright and license information, please view the LICENSE.md
@@ -105,10 +105,11 @@ class ApplyCommand extends ContainerAwareCommand
 
     private function getCommand($targetFile, $patchFile)
     {
+        /* @ugly: add quote to handle space in directory path */
         return sprintf(
             $this->command,
-            $targetFile,
-            $patchFile,
+            "'" . $targetFile . "'",
+            "'" . $patchFile . "'",
             $this->dryRun ? '--dry-run' : ''
         );
     }

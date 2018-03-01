@@ -15,4 +15,10 @@ namespace Sil\Component\Invoice\Model;
  */
 interface CustomerInfoInterface
 {
+    /**
+     * Get the value of name.
+     *
+     * @return string
+     */
+    public function getName(): string;
 }

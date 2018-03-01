@@ -38,15 +38,6 @@ interface AdjustableInterface
     public function removeAdjustment(AdjustmentInterface $adjustment): void;
 
     /**
-     * Check if adjustment already exists for this object.
-     *
-     * @param AdjustmentInterface $adjustment
-     *
-     * @return bool
-     */
-    public function hasAdjustment(AdjustmentInterface $adjustment): bool;
-
-    /**
      * Sets the adjusted total price of target element.
      *
      * @param PriceInterface $adjustedTotal

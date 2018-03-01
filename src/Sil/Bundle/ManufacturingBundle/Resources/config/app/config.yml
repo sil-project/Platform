@@ -7,7 +7,7 @@ doctrine:
         mappings:
             SilManufacturingBundle:
                 type: yml
-                prefix: Sil\Bundle\ManufacturingBundle\Domain\Entity
+                prefix: Sil\Component\Manufacturing\Model
                 dir: Resources/config/doctrine
 
         resolve_target_entities:

@@ -31,7 +31,6 @@ trait OrderStateAwareTrait
      */
     public function setState(OrderStateInterface $state): void
     {
-        $state->setOrder($this);
         $this->state = $state;
     }
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -ev
+set -ex
 
 
 # TODO share this between script (in an include)
@@ -14,20 +14,13 @@ else
 fi
 
 
+export NVM_DIR="$HOME/.nvm"
+set +x
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
+set -x
 
-if [ -n "${ENABLE_UI}" ]
-then
-    export NVM_DIR="$HOME/.nvm"
-    set +v
-    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
-    set -v
+npm install
+npm run gulp
 
-    npm install
-    npm run gulp
-
-    bin/console assets:install --no-interaction --env=$SERVERENV
-    bin/console sylius:theme:assets:install  --no-interaction --env=$SERVERENV # must be done after assets:install
-fi
-
-
-#bin/ci-scripts/do_it_for_bundle.sh install test
+bin/console assets:install --no-interaction --env=$SERVERENV
+bin/console sylius:theme:assets:install  --no-interaction --env=$SERVERENV # must be done after assets:install

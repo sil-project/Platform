@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -v
+set -x
 
 
 max_map_count=$(sysctl -n vm.max_map_count)

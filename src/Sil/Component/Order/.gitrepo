@@ -6,7 +6,7 @@
 [subrepo]
 	remote = git@github.com:sil-project/Order.git
 	branch = wip-platform
-	commit = 4e6c89333ba3b70c866553de3777a438fd8401a0
+	commit = aaedf9ce34fe79a38f4b2ffb54b08f9abe5c90ee
 	method = merge
 	cmdver = 0.4.0
-	parent = 50e93e7427a5053c19cebb6beb86860b5e318920
+	parent = 199032d497a091bb1b9fa5ee34303131029fe010

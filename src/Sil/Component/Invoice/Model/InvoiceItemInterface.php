@@ -15,4 +15,31 @@ namespace Sil\Component\Invoice\Model;
  */
 interface InvoiceItemInterface
 {
+    /**
+     * Get the value of label.
+     *
+     * @return string
+     */
+    public function getLabel(): string;
+
+    /**
+     * Get the value of unit price.
+     *
+     * @return float
+     */
+    public function getUnitPrice(): float;
+
+    /**
+     * Get the value of quantity.
+     *
+     * @return float
+     */
+    public function getQuantity(): float;
+
+    /**
+     * Get the value of tax rate.
+     *
+     * @return float
+     */
+    public function getTaxRate(): float;
 }

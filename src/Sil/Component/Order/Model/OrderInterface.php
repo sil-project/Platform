@@ -12,6 +12,70 @@ declare(strict_types=1);
 
 namespace Sil\Component\Order\Model;
 
+use DateTime;
+use Sylius\Component\Currency\Model\CurrencyInterface;
+
 interface OrderInterface
 {
+    /**
+     * Retreive Order code.
+     *
+     * @return OrderCode
+     */
+    public function getCode(): OrderCode;
+
+    /**
+     * @return CurrencyInterface
+     */
+    public function getCurrency(): CurrencyInterface;
+
+    /**
+     * @return array|OrderItemInterface[]
+     */
+    public function getOrderItems(): array;
+
+    /**
+     * Add order item to current order.
+     *
+     * @param OrderItemInterface $orderItem
+     *
+     * @throws InvalidArgumentException|DomainException
+     */
+    public function addOrderItem(OrderItemInterface $orderItem): void;
+
+    /**
+     * Remove order item.
+     *
+     * @param OrderItemInterface $orderItem
+     *
+     * @throws InvalidArgumentException|DomainException
+     */
+    public function removeOrderItem(OrderItemInterface $orderItem): void;
+
+    /**
+     * Gets Order created date.
+     *
+     * @return DateTime
+     */
+    public function getCreatedAt(): DateTime;
+
+    /**
+     * @return PriceInterface
+     */
+    public function getTotal(): PriceInterface;
+
+    /**
+     * @param PriceInterface $total
+     */
+    public function setTotal(PriceInterface $total): void;
+
+    /**
+     * @return PriceInterface
+     */
+    public function getAdjustedTotal(): PriceInterface;
+
+    /**
+     * @param PriceInterface $adjustedTotal
+     */
+    public function setAdjustedTotal(PriceInterface $adjustedTotal): void;
 }
