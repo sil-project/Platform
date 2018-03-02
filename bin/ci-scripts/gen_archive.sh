@@ -19,23 +19,27 @@ Filename=${Name}_${Branch}.tar.gz
 
 rm -f ${Filename}
 
+# warning composer.json is needed by symfony for getProjectDir() https://symfony.com/blog/new-in-symfony-3-3-a-simpler-way-to-get-the-project-root-directory
+#   *.json \
+
+rm -rf \
+   var/logs/* \
+   var/cache/* \
+   web/media/* \
+   *.log \
+   *.nbr \
+   *.yml \
+   *.xml \
+   *.js \
+   *.lock \
+   *.dist
+
+# warning ! can't use  --exclude=*.dist with tar as it does not take care of path (all file in the tree are not included like for example app/config/parameters.yml.dist
 # gen archive --transform='s|\./|./'${Tag}'/|g'
-tar --exclude=var/logs/* \
-    --exclude=var/cache/* \
-    --exclude=web/media/* \
-    --exclude=build \
+tar --exclude=build \
+    --exclude=bin/git-scripts \
     --exclude=doc \
     --exclude=etc \
-    --exclude=bin/git-scripts \
-    --exclude=*.log \
-    --exclude=*.nbr \
-    --exclude=*.yml \
-    --exclude=*.xml \
-    --exclude=*.js \
-    --exclude=*.lock \
-    --exclude=*.json \
-    --exclude=*.dist \
     -czhf ${Filename} ./*
-
 
 sha256sum ${Filename} > ${Filename}.sha256.txt
