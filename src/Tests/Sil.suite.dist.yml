@@ -13,12 +13,13 @@ modules:
             part: SERVICES
             environment: 'test'
             debug: true
+            cache_router: true
         - Doctrine2:
             depends: Symfony
         - WebDriver:
                 host: 127.0.0.1
                 port: 4444
-                url: 'http://127.0.0.1:8042/'
+                url: 'http://127.0.0.1:8042/app_test.php'
                 wait: 5
                 browser: 'firefox'
 # There is too much javascript (on submit and generate code, and select ... ) So phpbrowser is useless
@@ -33,7 +34,7 @@ env:
                 - PhpBrowser
             enabled:
                 - WebDriver:
-                    url: 'http://127.0.0.1:8042/'
+                    url: 'http://127.0.0.1:8042/app_test.php'
                     wait: 5
                     browser: 'firefox'
 
@@ -43,7 +44,7 @@ env:
                 - PhpBrowser
             enabled:
                 - WebDriver:
-                    url: 'http://127.0.0.1:8042/'
+                    url: 'http://127.0.0.1:8042/app_test.php'
                     wait: 5
                     browser: 'chrome'
                     capabilities:
@@ -58,7 +59,7 @@ env:
                 - WebDriver
             enabled:
                 - PhpBrowser:
-                    url: 'http://127.0.0.1:8042/'
+                    url: 'http://127.0.0.1:8042/app_test.php'
                     wait: 5
                 - \Helper\WebGuy
 
