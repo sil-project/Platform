@@ -1,0 +1,7 @@
+services:
+    blast_ui.twig.extensions.parameters:
+        class: Blast\Bundle\UIBundle\Twig\Extensions\ParametersExtension
+        calls:
+            - ['setBlastUiParameter', ['%blast_ui%']]
+        tags:
+            - { name: twig.extension }

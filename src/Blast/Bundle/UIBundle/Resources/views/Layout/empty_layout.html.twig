@@ -34,6 +34,7 @@
             {# ######################################################################### #}
 
             {% block stylesheets %}
+                {% set theme = 'default' %}
                 {% include '@BlastUI/Layout/Styles/' ~ theme ~ '.html.twig' %}
             {% endblock stylesheets %}
 

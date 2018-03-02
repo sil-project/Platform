@@ -1,0 +1,4 @@
+
+blast_ui_test:
+    path:     /blast/ui/test
+    defaults: { _controller: BlastUIBundle:Test:test }

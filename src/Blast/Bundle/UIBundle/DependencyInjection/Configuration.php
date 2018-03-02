@@ -23,6 +23,25 @@ class Configuration implements ConfigurationInterface
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('blast_ui');
 
+        $rootNode
+            ->children()
+                ->scalarNode('theme')
+                    ->defaultValue('default')
+                ->end()
+                ->arrayNode('sidebar')
+                    ->addDefaultsIfNotSet()
+                    ->children()
+                        ->scalarNode('logo')
+                            ->defaultValue('/bundles/blastui/img/li-logo.png')
+                        ->end()
+                        ->scalarNode('title')
+                            ->defaultValue('BlastUI')
+                        ->end()
+                    ->end()
+                ->end()
+            ->end()
+        ;
+
         return $treeBuilder;
     }
 }
