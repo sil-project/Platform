@@ -54,7 +54,7 @@
         "symfony/event-dispatcher": "^3.2",
         "symfony/monolog-bundle": "^3.1.0",
         "symfony/polyfill-apcu": "^1.0",
-        "symfony/symfony": "3.3.*",
+        "symfony/symfony": "3.4.*",
         "twig/twig": "^2.0",
         "willdurand/js-translation-bundle": "^2.6",
         "winzou/state-machine": "^0.3.2",
@@ -68,7 +68,7 @@
         "mikey179/vfsStream": "^1.6",
         "nelmio/alice": "^2.2",
         "phpunit/phpunit": "^6.4",
-        "symfony/phpunit-bridge": "^3.3"
+        "symfony/phpunit-bridge": "^3.4"
     },
     "scripts": {
         "git-hook": [
