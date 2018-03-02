@@ -22,7 +22,7 @@
 
     {# Include the widget view #}
 
-    {% include '@BlastUI/Views/Widget/DataCard/card.html.twig' with {
+    {% include '@BlastUI/Widget/DataCard/card.html.twig' with {
         title : _title,
         data: _data,
         fields: _fields,
@@ -50,7 +50,7 @@
 
     {# Include the widget view #}
 
-    {% include '@BlastUI/Views/Widget/Step/step_header.html.twig' with {
+    {% include '@BlastUI/Widget/Step/step_header.html.twig' with {
         name : _name,
         title: _title,
         description: _description,
@@ -78,7 +78,7 @@
 
     {# Include the widget view #}
 
-    {% include '@BlastUI/Views/Widget/Step/nav.html.twig' with {
+    {% include '@BlastUI/Widget/Step/nav.html.twig' with {
         withCancelButton : _withCancelButton
     } %}
 
@@ -231,7 +231,7 @@
         allowSelection: true
     }|merge(_parameters) %}
 
-    {% include '@BlastUI/Views/Widget/Table/table.html.twig' with {
+    {% include '@BlastUI/Widget/Table/table.html.twig' with {
         table : parameters
     } %}
 
