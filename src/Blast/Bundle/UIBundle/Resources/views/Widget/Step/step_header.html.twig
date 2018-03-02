@@ -1,0 +1,20 @@
+{% set widgetClass = 'step' %}
+
+{% if active == true %}
+    {% set widgetClass = 'active ' ~ widgetClass %}
+{% endif %}
+
+<div class="{{ widgetClass }}" data-name="{{ name }}">
+
+    {% if icon is not null %}
+        <i class="{{ icon }} icon"></i>
+    {% endif %}
+
+    <div class="content">
+
+        <div class="title">{{ title }}</div>
+
+        <div class="description">{{ description }}</div>
+        
+    </div>
+</div>

@@ -1,0 +1,19 @@
+<div class="item">
+    <div class="ui primary floating compact multiple dropdown right labeled icon button filter list">
+        <i class="filter icon"></i>
+        <input name="filters" type="hidden">
+        <span class="text">Filtres</span>
+
+        <div class="menu">
+            <div class="scrolling menu">
+                {% for filter in list.filters %}
+                    <div class="item" data-value="{{ filter.name }}">
+                        {{ filter.label }}
+                    </div>
+                {% endfor %}
+            </div>
+
+        </div>
+
+    </div>
+</div>

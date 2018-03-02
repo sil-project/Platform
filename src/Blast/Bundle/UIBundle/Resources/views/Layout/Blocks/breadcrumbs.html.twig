@@ -1,0 +1,9 @@
+{% block breadcrumbs %}
+    <div class="ui breadcrumb tablet or lower hidden">
+
+        {% for link in breadcrumbs %}
+            <a href="{{link.href}}" class="section {{loop.last ? 'active' }}">{{link.label}}</a>
+        {% endfor %}
+
+    </div>
+{% endblock %}

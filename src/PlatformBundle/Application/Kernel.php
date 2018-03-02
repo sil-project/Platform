@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Copyright (C) 2015-2017 Libre Informatique
+ * Copyright (C) 2015-2018 Libre Informatique
  *
  * This file is licenced under the GNU LGPL v3.
  * For the full copyright and license information, please view the LICENSE.md
@@ -134,6 +134,7 @@ class Kernel extends BaseKernel
             // -------------------------------------------------------------------------------------
 
             new \Blast\Bundle\CoreBundle\BlastCoreBundle(),
+            new \Blast\Bundle\UIBundle\BlastUIBundle(),
             new \Blast\Bundle\MenuBundle\BlastMenuBundle(),
             new \Blast\Bundle\PatcherBundle\BlastPatcherBundle(),
             new \Blast\Bundle\SearchBundle\BlastSearchBundle(),

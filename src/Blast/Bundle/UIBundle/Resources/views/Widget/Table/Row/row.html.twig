@@ -1,0 +1,26 @@
+<tr>
+
+    {% if allowSelection == true %}
+        <td class="collapsing">
+
+            <div class="ui fitted checkbox">
+                <input type="checkbox">
+                <label></label>
+            </div>
+
+        </td>
+    {% endif %}
+
+    {% for header in table.headers %}
+        <td>
+            {{ attribute(item, header.name)|raw }}
+        </td>
+    {% endfor %}
+
+    {% if table.actions | length > 0 %}
+        <td class="right aligned collapsing">
+            {% include '@BlastUI/Views/Widget/Table/Row/actions.html.twig' %}
+        </td>
+    {% endif %}
+
+</tr>

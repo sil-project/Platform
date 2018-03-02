@@ -1,0 +1,238 @@
+{# ##################################################################################### #}
+{#                                                                                       #}
+{#     MACRO card                                                                        #}
+{#                                                                                       #}
+{#     Displays a card with show field group (and form group if editable)                #}
+{#                                                                                       #}
+{# ##################################################################################### #}
+
+{% macro card(_title, _data, _fields, _editable, _withSubmit) %}
+
+    {% import _self as widget %}
+
+    {# Set default options #}
+
+    {% if _editable is not defined %}
+        {% set _editable = false %}
+    {% endif %}
+
+    {% if _withSubmit is not defined %}
+        {% set _withSubmit = true %}
+    {% endif %}
+
+    {# Include the widget view #}
+
+    {% include '@BlastUI/Views/Widget/DataCard/card.html.twig' with {
+        title : _title,
+        data: _data,
+        fields: _fields,
+        editable: _editable,
+        withSubmit: _withSubmit
+    } %}
+
+{% endmacro %}
+
+{# ##################################################################################### #}
+{#                                                                                       #}
+{#     MACRO step_header                                                                 #}
+{#                                                                                       #}
+{#     Displays a step header (block with icon titla and description)                    #}
+{#                                                                                       #}
+{# ##################################################################################### #}
+
+{% macro step_header(_name, _title, _description, _icon, _active) %}
+
+    {# Set default options #}
+
+    {% if _active is not defined %}
+        {% set _active = false %}
+    {% endif %}
+
+    {# Include the widget view #}
+
+    {% include '@BlastUI/Views/Widget/Step/step_header.html.twig' with {
+        name : _name,
+        title: _title,
+        description: _description,
+        icon: _icon,
+        active: _active
+    } %}
+
+{% endmacro %}
+
+{# ##################################################################################### #}
+{#                                                                                       #}
+{#     MACRO step_nav                                                                    #}
+{#                                                                                       #}
+{#     Displays buttons used to navigate througth step flow                              #}
+{#                                                                                       #}
+{# ##################################################################################### #}
+
+{% macro step_nav(_withCancelButton) %}
+
+    {# Set default options #}
+
+    {% if _withCancelButton is not defined %}
+        {% set _withCancelButton = true %}
+    {% endif %}
+
+    {# Include the widget view #}
+
+    {% include '@BlastUI/Views/Widget/Step/nav.html.twig' with {
+        withCancelButton : _withCancelButton
+    } %}
+
+{% endmacro %}
+
+{# ##################################################################################### #}
+{#                                                                                       #}
+{#     MACRO field_group                                                                 #}
+{#                                                                                       #}
+{#     Displays a field group (and its form group if editable) in a html stripped table  #}
+{#                                                                                       #}
+{# ##################################################################################### #}
+
+{% macro field_group(view, fields, editable, withSubmit) %}
+
+    {% import _self as widget %}
+
+    {% if withSubmit is not defined %}
+        {% set withSubmit = true %}
+    {% endif %}
+
+    {% spaceless %}
+
+        {{ widget.show_group(view, fields) }}
+
+        {% if editable == true %}
+            {{ widget.form_group(view, fields, withSubmit) }}
+        {% endif %}
+
+    {% endspaceless %}
+
+{% endmacro %}
+
+{# ##################################################################################### #}
+{#                                                                                       #}
+{#     MACRO show_group                                                                  #}
+{#                                                                                       #}
+{#     Displays a show group in a html stripped table                                    #}
+{#                                                                                       #}
+{# ##################################################################################### #}
+
+{% macro show_group(view, fields) %}
+
+    {% spaceless %}
+
+        <table class="ui very basic striped celled table show data">
+            <tbody>
+
+                {% for fieldname in fields %}
+                    <tr>
+
+                        {% set field = attribute(view, fieldname) %}
+
+                        <td class="right aligned four wide">
+                            <strong>{{ field.label }}</strong>
+                        </td>
+
+                        <td>
+                            {{ field.value }}
+                        </td>
+
+                    </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+
+    {% endspaceless %}
+
+{% endmacro %}
+
+{# ##################################################################################### #}
+{#                                                                                       #}
+{#     MACRO form_group                                                                  #}
+{#                                                                                       #}
+{#     Displays a form group in a standard form                                          #}
+{#                                                                                       #}
+{# ##################################################################################### #}
+
+{% macro form_group(view, fields, withSubmit) %}
+
+    {% import _self as widget %}
+
+    {% spaceless %}
+
+        <form class="ui form data" method="POST" action="">
+
+            {% for fieldname in fields %}
+
+                {% set field = attribute(view, fieldname) %}
+
+                {{ widget.field(field.type, field)  }}
+
+            {% endfor %}
+
+            {% if withSubmit == true %}
+
+                <div class="ui divider"></div>
+
+                {{ widget.field('submit', {
+                    label: 'Enregistrer',
+                    class: 'right floated',
+                    icon: 'save'
+                }) }}
+
+                {{ widget.field('link', {
+                    label: 'Annuler',
+                    class: 'button left floated close',
+                    icon: 'undo'
+                }) }}
+
+            {% endif %}
+
+        </form>
+
+    {% endspaceless %}
+
+{% endmacro %}
+
+{# ##################################################################################### #}
+{#                                                                                       #}
+{#     MACRO field                                                                       #}
+{#                                                                                       #}
+{#     Displays a form field                                                             #}
+{#                                                                                       #}
+{# ##################################################################################### #}
+
+{% macro field(type, _field) %}
+
+    {% include '@BlastUI/Views/Form/Type/' ~ type ~ '.html.twig' with {
+        field : _field
+    } %}
+
+{% endmacro %}
+
+
+{# ##################################################################################### #}
+{#                                                                                       #}
+{#     MACRO table                                                                       #}
+{#                                                                                       #}
+{#     Displays a table                                                                  #}
+{#                                                                                       #}
+{# ##################################################################################### #}
+
+{% macro table(_parameters) %}
+
+    {% set parameters = {
+        headers: [],
+        data: [],
+        allowSelection: true
+    }|merge(_parameters) %}
+
+    {% include '@BlastUI/Views/Widget/Table/table.html.twig' with {
+        table : parameters
+    } %}
+
+{% endmacro %}

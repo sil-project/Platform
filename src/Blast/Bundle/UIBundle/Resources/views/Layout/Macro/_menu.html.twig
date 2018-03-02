@@ -1,0 +1,85 @@
+{# ##################################################################################### #}
+{#                                                                                       #}
+{#     MACRO menu                                                                        #}
+{#                                                                                       #}
+{#     Displays a full menu with its toggleable children                                 #}
+{#                                                                                       #}
+{# ##################################################################################### #}
+
+{% macro menu(root) %}
+
+    {% import _self as _menu %}
+
+    {% for node in root.children %}
+        {{ _menu.item(node, loop.first, loop.last) }}
+    {% endfor %}
+
+{% endmacro %}
+
+{# ##################################################################################### #}
+{#                                                                                       #}
+{#     MACRO item                                                                        #}
+{#                                                                                       #}
+{#     Displays a menu item                                                              #}
+{#                                                                                       #}
+{# ##################################################################################### #}
+
+{% macro item(node, isFirst, isLast) %}
+
+    {% import _self as _menu %}
+
+    {% if node.children %}
+        {{ _menu.item_nested(node, isFirst, isLast) }}
+    {% else %}
+        {{ _menu.item_simple(node, isFirst, isLast) }}
+    {% endif %}
+
+{% endmacro %}
+
+{# ##################################################################################### #}
+{#                                                                                       #}
+{#     MACRO item_simple                                                                 #}
+{#                                                                                       #}
+{#     Displays a simple menu item (without children)                                    #}
+{#                                                                                       #}
+{# ##################################################################################### #}
+
+{% macro item_simple(node, isFirst, isLast) %}
+
+    <a class="item {{isFirst ? 'first'}} {{isLast ? 'last'}}" href="{{ node.href }}">
+        <i class="icon {{ node.icon }}"></i>
+        {{ node.label }}
+    </a>
+
+{% endmacro %}
+
+{# ##################################################################################### #}
+{#                                                                                       #}
+{#     MACRO item_nested                                                                 #}
+{#                                                                                       #}
+{#     Displays a nested menu item (with children)                                       #}
+{#                                                                                       #}
+{# ##################################################################################### #}
+
+{% macro item_nested(node, isFirst, isLast) %}
+
+    {% import _self as _menu %}
+
+    <div class="item {{isFirst ? 'first'}}">
+
+        <a class="title">
+            <i class="dropdown icon"></i>
+            <div class="header">
+                <i class="icon {{ node.icon }}"></i>
+                <strong>{{ node.label }}</strong>
+            </div>
+
+            <div class="content menu">
+                {% for item in node.children %}
+                    {{  _menu.item(item, loop.first, loop.last) }}
+                {% endfor %}
+            </div>
+        </a>
+
+    </div>
+{% endmacro %}

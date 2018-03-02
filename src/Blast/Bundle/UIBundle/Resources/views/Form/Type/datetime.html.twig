@@ -1,0 +1,49 @@
+{# ##################################################################################### #}
+{#    INPUT CLASS                                                                        #}
+{# ##################################################################################### #}
+
+{% set fieldClass = 'ui calendar field' %}
+
+{% if field.class is defined %}
+    {% set fieldClass = 'ui calendar field ' ~ field.class %}
+{% endif %}
+
+{% if field.inline == true %}
+    {% set fieldClass = fieldClass ~ ' inline' %}
+{% endif %}
+
+{% if field.readonly %}
+    {% set fieldClass = fieldClass ~ ' readonly' %}
+{% endif %}
+
+{# ##################################################################################### #}
+{#    INPUT TABINDEX                                                                     #}
+{# ##################################################################################### #}
+
+{% set tabindex = 1 %}
+
+{% if field.readonly %}
+    {% set tabindex = -1 %}
+{% endif %}
+
+{# ##################################################################################### #}
+{#    INPUT                                                                              #}
+{# ##################################################################################### #}
+
+<div class="{{ fieldClass }}" data-type="datetime">
+
+    {% if field.label is defined and field.label is not null %}
+        <label>{{ field.label }}</label>
+    {% endif %}
+
+    <div class="ui input left icon">
+        <i class="calendar icon"></i>
+        <input
+            type="text"
+            name="{{ field.name }}"
+            placeholder="{{ field.label }}"
+            tabindex="{{ tabindex }}"
+            {% if field.disabled %}disabled="disabled"{% endif %}
+        />
+    </div>
+</div>

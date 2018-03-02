@@ -1,0 +1,45 @@
+{# ##################################################################################### #}
+{#    TABLE CLASS                                                                        #}
+{# ##################################################################################### #}
+
+{% set tableClass = 'ui very compact small celled striped stackable selectable table' %}
+
+{% if table.class is defined %}
+    {% set tableClass = tableClass ~ ' ' ~ field.class %}
+{% endif %}
+
+{# ##################################################################################### #}
+{#    TABLE OPTIONS                                                                      #}
+{# ##################################################################################### #}
+
+{% set allowSelection = false %}
+
+{% if table.allowSelection is defined %}
+    {% set allowSelection = table.allowSelection %}
+{% endif %}
+
+{# ##################################################################################### #}
+{#    TABLE                                                                              #}
+{# ##################################################################################### #}
+
+<table class="{{ tableClass }}">
+    <thead>
+        {% include '@BlastUI/Views/Widget/Table/header.html.twig' %}
+    </thead>
+
+    <tbody>
+        {% for item in table.data %}
+
+            {% include '@BlastUI/Views/Widget/Table/Row/row.html.twig' %}
+
+        {% else %}
+
+            {% include '@BlastUI/Views/Widget/Table/Row/empty.html.twig' %}
+
+        {% endfor %}
+    </tbody>
+
+    <tfoot>
+        {% include '@BlastUI/Views/Widget/Table/footer.html.twig' %}
+    </tfoot>
+</table>
