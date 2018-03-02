@@ -1,0 +1,92 @@
+{% extends '@BlastUI/Layout/empty_layout.html.twig' %}
+
+{# #################################################################################### #}
+{#     STYLESHEETS                                                                      #}
+{# #################################################################################### #}
+
+{% block stylesheets %}
+    {{  parent() }}
+
+    {# ################################################################################ #}
+    {#     DEPENDENCIES                                                                 #}
+    {# ################################################################################ #}
+
+    <link rel="stylesheet" href="/dep/semantic-ui-calendar/dist/calendar.min.css"/>
+{% endblock %}
+
+{% block body_class %}pushable{% endblock body_class %}
+
+{% block body %}
+
+    {# ################################################################################ #}
+    {#     SIDE BAR                                                                     #}
+    {# ################################################################################ #}
+
+    {% use '@BlastUI/Layout/Blocks/side-bar.html.twig' %}
+
+    {{ block('side_bar') }}
+
+    {# ################################################################################ #}
+    {#     TOP BAR                                                                      #}
+    {# ################################################################################ #}
+
+    {% use '@BlastUI/Layout/Blocks/top-bar.html.twig' %}
+
+    {{ block('top_bar') }}
+
+    {# ################################################################################ #}
+    {#     PAGE PUSHER                                                                  #}
+    {# ################################################################################ #}
+
+    <div class="pusher">
+        <div id="content" class="full height">
+            <div class="ui stackable very basic segment">
+
+                {# #################################################################### #}
+                {#     PAGE CONTENT                                                     #}
+                {# #################################################################### #}
+
+                {% block content %}{% endblock %}
+
+            </div>
+        </div>
+    </div>
+
+    {# ################################################################################ #}
+    {#     MODALS                                                                       #}
+    {# ################################################################################ #}
+
+    {% block modals %}
+        {% include '@BlastUI/Views/Widget/Modal/_confirmation.html.twig' %}
+    {% endblock %}
+
+{% endblock body %}
+
+{# #################################################################################### #}
+{#     JAVASCRIPTS                                                                      #}
+{# #################################################################################### #}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    {# ################################################################################ #}
+    {#     DEPENDENCIES                                                                 #}
+    {# ################################################################################ #}
+
+    <script src="/dep/jquery-address/src/jquery.address.js"></script>
+    <script src="/dep/semantic-ui-calendar/dist/calendar.min.js"></script>
+
+    {# ################################################################################ #}
+    {#     CUSTOM FEATURES                                                              #}
+    {# ################################################################################ #}
+
+    <script src="/bundles/blastui/js/features/accordions.js"></script>
+    <script src="/bundles/blastui/js/features/forms.js"></script>
+    <script src="/bundles/blastui/js/features/modal-confirmation.js"></script>
+    <script src="/bundles/blastui/js/features/modals.js"></script>
+    <script src="/bundles/blastui/js/features/sidebar.js"></script>
+    <script src="/bundles/blastui/js/features/tables.js"></script>
+    <script src="/bundles/blastui/js/features/tabs.js"></script>
+    <script src="/bundles/blastui/js/features/toggleable_forms.js"></script>
+    <script src="/bundles/blastui/js/features/topBarSearchField.js"></script>
+{% endblock %}

@@ -1,0 +1,30 @@
+<form class="ui form filters segments">
+
+    {% for filter in list.filters %}
+
+        <div class="ui segment filter" data-name="{{ filter.name }}">
+            {% include '@BlastUI/Views/Form/Type/' ~ filter.type ~ '.html.twig' with {
+                'field' : filter
+            } %}
+        </div>
+
+    {% endfor %}
+
+    <div class="ui segment">
+
+        <div class="ui divider"></div>
+
+        {{ widget.field('submit', {
+            label: 'Filter',
+            icon: 'filter'
+        }) }}
+
+        {{ widget.field('link', {
+            label: 'Annuler',
+            icon: 'undo',
+            class: 'button right floated cancel'
+        }) }}
+
+    </div>
+
+</form>

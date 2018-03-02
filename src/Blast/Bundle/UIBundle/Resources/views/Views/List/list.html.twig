@@ -1,0 +1,56 @@
+{% extends "@BlastUI/Layout/layout.html.twig" %}
+
+{% block content %}
+
+    {% block page_header %}
+
+        <div class="ui grid">
+            <div class="twelve wide column">
+                <h1 class="ui header">
+                    <i class="rounded sticky {{page.header.icon}} outline icon"></i>
+                    <div class="content">
+                        {{ page.header.title}}
+                        <div class="sub header">{{ page.header.description}}</div>
+                    </div>
+                </h1>
+            </div>
+
+            {% block page_actions %}
+
+                <div class="four wide column">
+                    {% block page_actions_content %}{% endblock %}
+                </div>
+
+            {% endblock %}
+
+        </div>
+
+    {% endblock %}
+
+    <div class="toolbar">
+        {% block page_toolbar %}
+
+            {% include "@BlastUI/Views/List/Filter/filter_bar.html.twig" %}
+
+        {% endblock page_toolbar %}
+    </div>
+
+    <div class="ui divider"></div>
+
+    {% block page_content %}
+
+        {{ widget.table({
+            headers: list.headers,
+            data: list.elements,
+            actions: list.actions,
+            allowSelection: true
+        }) }}
+
+    {% endblock %}
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="/bundles/blastui/js/features/list.js"></script>
+{% endblock %}

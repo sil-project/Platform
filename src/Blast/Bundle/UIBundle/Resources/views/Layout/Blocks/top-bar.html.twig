@@ -1,0 +1,81 @@
+{% block top_bar %}
+    <div class="ui fixed inverted menu top bar">
+
+        {# ################################################################################ #}
+        {#     SIDE BAR TOGGLE                                                              #}
+        {# ################################################################################ #}
+
+        {% block sidebar_toggle %}
+            <a id="sidebar-toggle" class="icon item" title="Afficher/Masquer la barre latérale">
+                <i class="sidebar icon"></i>
+            </a>
+        {% endblock sidebar_toggle %}
+
+        {# ################################################################################ #}
+        {#     BREADCRUMB                                                                   #}
+        {# ################################################################################ #}
+
+        {% block breadcrumb %}
+            {% include '@BlastUI/Layout/Blocks/breadcrumbs.html.twig' %}
+        {% endblock breadcrumb %}
+
+        {# ################################################################################ #}
+        {#     RIGHT MENU                                                                   #}
+        {# ################################################################################ #}
+
+        {% block right_menu %}
+
+            <div class="right menu">
+
+                {# ######################################################################## #}
+                {#     SEARCH BAR                                                           #}
+                {# ######################################################################## #}
+
+                {% block search_bar %}
+
+                    <div class="item secondary inverted borderless search field">
+                        <div class="ui transparent inverted icon input">
+                            <input placeholder="Recherche..." type="text">
+                            <i class="search link icon"></i>
+                        </div>
+                    </div>
+
+                {% endblock search_bar %}
+
+                {# ######################################################################## #}
+                {#     USER MENU                                                            #}
+                {# ######################################################################## #}
+
+                {% block user_menu %}
+
+                    <div class="ui floated simple dropdown item secondary inverted ">
+
+                        <i class="user circle icon"></i>
+
+                        {% block user_menu_username %}
+                            John Doe
+                        {% endblock user_menu_username %}
+
+                        <i class="dropdown icon"></i>
+
+                        <div class="menu">
+
+                            {% include '@BlastUI/Layout/Blocks/theme_switcher.html.twig' %}
+
+                            <a href="#" class="item">
+                                <i class="id card outline icon"></i>
+                                Mon compte
+                            </a>
+                            <a href="/" class="item">
+                                <i class="sign out alternate icon"></i>
+                                Déconnexion
+                            </a>
+                        </div>
+                    </div>
+
+                {% endblock user_menu %}
+            </div>
+
+        {% endblock right_menu %}
+    </div>
+{% endblock top_bar %}

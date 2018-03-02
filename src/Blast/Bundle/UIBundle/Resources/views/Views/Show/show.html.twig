@@ -1,0 +1,32 @@
+{% extends "@BlastUI/Layout/layout.html.twig" %}
+
+{% block content %}
+
+    {% block page_header %}
+        <div class="ui grid">
+            <div class="twelve wide column">
+                <h1 class="ui header">
+                    <i class="rounded sticky {{page.header.icon}} outline icon"></i>
+                    <div class="content">
+                        {{ page.header.title}}
+                        <div class="sub header">{{ page.header.description}}</div>
+                    </div>
+                </h1>
+            </div>
+
+            {% block page_actions %}
+
+                <div class="four wide column">
+                    {% block page_actions_content %}{% endblock %}
+                </div>
+
+            {% endblock %}
+
+        </div>
+    {% endblock %}
+
+    <div class="ui divider"></div>
+
+    {% block page_content %}{% endblock %}
+
+{% endblock %}
