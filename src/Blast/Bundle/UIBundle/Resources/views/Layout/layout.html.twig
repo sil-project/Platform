@@ -22,17 +22,17 @@
     {#     SIDE BAR                                                                     #}
     {# ################################################################################ #}
 
-    {% use '@BlastUI/Layout/Blocks/side-bar.html.twig' %}
+    {% include '@BlastUI/Layout/Blocks/side-bar.html.twig' %}
 
-    {{ block('side_bar') }}
+    {# {{ block('side_bar') }} #}
 
     {# ################################################################################ #}
     {#     TOP BAR                                                                      #}
     {# ################################################################################ #}
 
-    {% use '@BlastUI/Layout/Blocks/top-bar.html.twig' %}
+    {% include '@BlastUI/Layout/Blocks/top-bar.html.twig' %}
 
-    {{ block('top_bar') }}
+    {# {{ block('top_bar') }} #}
 
     {# ################################################################################ #}
     {#     PAGE PUSHER                                                                  #}
@@ -57,7 +57,7 @@
     {# ################################################################################ #}
 
     {% block modals %}
-        {% include '@BlastUI/Views/Widget/Modal/_confirmation.html.twig' %}
+        {% include '@BlastUI/Widget/Modal/_confirmation.html.twig' %}
     {% endblock %}
 
 {% endblock body %}

@@ -24,22 +24,22 @@
 
 <table class="{{ tableClass }}">
     <thead>
-        {% include '@BlastUI/Views/Widget/Table/header.html.twig' %}
+        {% include '@BlastUI/Widget/Table/header.html.twig' %}
     </thead>
 
     <tbody>
         {% for item in table.data %}
 
-            {% include '@BlastUI/Views/Widget/Table/Row/row.html.twig' %}
+            {% include '@BlastUI/Widget/Table/Row/row.html.twig' %}
 
         {% else %}
 
-            {% include '@BlastUI/Views/Widget/Table/Row/empty.html.twig' %}
+            {% include '@BlastUI/Widget/Table/Row/empty.html.twig' %}
 
         {% endfor %}
     </tbody>
 
     <tfoot>
-        {% include '@BlastUI/Views/Widget/Table/footer.html.twig' %}
+        {% include '@BlastUI/Widget/Table/footer.html.twig' %}
     </tfoot>
 </table>
