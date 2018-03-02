@@ -34,7 +34,8 @@
             {# ######################################################################### #}
 
             {% block stylesheets %}
-                {% set theme = 'default' %}
+                {# {{ app.session.set('theme','dark') }} #}
+                {% set theme = app.session.get('theme') ? app.session.get('theme') : 'default' %}
                 {% include '@BlastUI/Layout/Styles/' ~ theme ~ '.html.twig' %}
             {% endblock stylesheets %}
 
