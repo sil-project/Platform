@@ -3,7 +3,8 @@ pipeline {
         dockerfile {
             filename "etc/dockerfile.build.jenkins"
             /* warning /home/jenkins/cache/* have to be created before first launch, if not it is created by root and is not usable, also $HOME does not work and XDG var are not set*/
-            args "--network=ci.network --volume /home/jenkins/cache/pip:/home/jenkins/.cache/pip --volume /home/jenkins/cache/composer:/home/jenkins/.composer/cache"
+            /* warning use simple quote to avoid jenkins try to find $HOME (and don't find it...)
+            args '--network=ci.network --volume $HOME/cache/pip:/home/jenkins/.cache/pip --volume $HOME/cache/composer:/home/jenkins/.composer/cache'
         }
     }
 
