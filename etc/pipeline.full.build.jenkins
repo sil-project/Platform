@@ -121,6 +121,11 @@ pipeline {
                     }
                 }
 
+                stage ('Run Lint') {
+                    steps {
+                        sh "./bin/ci-scripts/do_run.sh run_lint.sh"
+                    }
+                }
 
                 stage('Check Style') {
                     steps {
