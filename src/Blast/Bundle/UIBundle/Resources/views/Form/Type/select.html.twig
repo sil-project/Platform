@@ -1,0 +1,55 @@
+{# ##################################################################################### #}
+{#    INPUT CLASS                                                                        #}
+{# ##################################################################################### #}
+
+{% set fieldClass = 'field' %}
+
+{% if field.class is defined %}
+    {% set fieldClass = 'field ' ~ field.class %}
+{% endif %}
+
+{% if field.inline == true %}
+    {% set fieldClass = fieldClass ~ ' inline' %}
+{% endif %}
+
+{% if field.readonly %}
+    {% set fieldClass = fieldClass ~ ' readonly' %}
+{% endif %}
+
+{# ##################################################################################### #}
+{#    INPUT TABINDEX                                                                     #}
+{# ##################################################################################### #}
+
+{% set tabindex = 1 %}
+
+{% if field.readonly %}
+    {% set tabindex = -1 %}
+{% endif %}
+
+{# ##################################################################################### #}
+{#    INPUT                                                                              #}
+{# ##################################################################################### #}
+
+<div class="{{ fieldClass }}">
+
+    {% if field.label is defined and field.label is not null %}
+        <label>{{ field.label }}</label>
+    {% endif %}
+
+    <div class="ui selection dropdown{% if field.disabled %} disabled{% endif %}" tabindex="{{ tabindex}}">
+        <input name="{{ field.name }}" type="hidden">
+        <i class="dropdown icon"></i>
+
+        <div class="default text">{{ field.value }}</div>
+
+        <div class="menu">
+            {% for value in field.values %}
+
+                <div class="item" data-value="{{ value }}">
+                    {{ value }}
+                </div>
+
+            {% endfor %}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+<tr>
+    {% if allowSelection == true %}
+        <th>
+
+            <div class="ui fitted checkbox select all">
+                <input type="checkbox">
+                <label></label>
+            </div>
+
+        </th>
+    {% endif %}
+
+    {% for header in table.headers %}
+        <th>
+            {{ header.label }}
+        </th>
+    {% endfor %}
+
+    {% if table.actions | length > 0 %}
+        <th>
+            &nbsp;
+        </th>
+    {% endif %}
+</tr>

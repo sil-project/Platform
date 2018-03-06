@@ -1,0 +1,58 @@
+{# ##################################################################################### #}
+{#    INPUT CLASS                                                                        #}
+{# ##################################################################################### #}
+
+{% set fieldClass = 'field' %}
+
+{% if field.class is defined %}
+    {% set fieldClass = 'field ' ~ field.class %}
+{% endif %}
+
+{% if field.inline == true %}
+    {% set fieldClass = fieldClass ~ ' inline' %}
+{% endif %}
+
+{% if field.readonly %}
+    {% set fieldClass = fieldClass ~ ' readonly' %}
+{% endif %}
+
+{# ##################################################################################### #}
+{#    INPUT TABINDEX                                                                     #}
+{# ##################################################################################### #}
+
+{% set tabindex = 1 %}
+
+{% if field.readonly %}
+    {% set tabindex = -1 %}
+{% endif %}
+
+
+{# ##################################################################################### #}
+{#    INPUT                                                                              #}
+{# ##################################################################################### #}
+
+<div class="grouped fields">
+
+    {% if field.label is defined and field.label is not null %}
+        <label>{{ field.label }}</label>
+    {% endif %}
+
+    {% for value in field.values %}
+
+        <div class="{{ fieldClass }}">
+            <div class="ui toggle checkbox">
+                <input
+                    type="checkbox"
+                    name="{{ field.name }}[]"
+                    class="hidden"
+                    value="{{ value }}"
+                    tabindex="{{ tabindex }}"
+                    {% if field.value|split(',') == value %} checked="checked" {% endif %}
+                    {% if field.disabled %}disabled="disabled"{% endif %}
+                />
+                <label>{{ value }}</label>
+            </div>
+        </div>
+
+    {% endfor %}
+</div>

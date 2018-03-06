@@ -53,3 +53,4 @@ imports:
     - { resource: "@PlatformBundle/Resources/config/vendor/blast/menu.yml" }
     - { resource: "@PlatformBundle/Resources/config/vendor/blast/resource.yml" }
     - { resource: "@PlatformBundle/Resources/config/vendor/blast/utils.yml" }
+    - { resource: "@PlatformBundle/Resources/config/vendor/blast/ui.yml" }

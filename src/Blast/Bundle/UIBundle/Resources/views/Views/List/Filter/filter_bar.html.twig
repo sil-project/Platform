@@ -1,0 +1,13 @@
+<div class="ui menu">
+    {% if list.filters|length > 0 %}
+        {% include '@BlastUI/Views/List/Filter/filter_list.html.twig' %}
+    {% endif %}
+
+    <div class="right menu">
+        {% include '@BlastUI/Views/List/Export/export.html.twig' %}
+    </div>
+
+</div>
+
+
+{% include '@BlastUI/Views/List/Filter/form.html.twig' %}

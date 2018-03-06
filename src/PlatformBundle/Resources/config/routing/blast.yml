@@ -42,6 +42,10 @@ sil_ecommerce:
     resource: "@SilEcommerceBundle/Resources/config/routing.yml"
     prefix:   / #Must not be set because of sylius route override
 
+sil_contact:
+    resource: "@SilContactBundle/Resources/config/routing.yml"
+    prefix:   '%sil.url_prefix%'
+
 admin:
     resource: '@SonataAdminBundle/Resources/config/routing/sonata_admin.xml'
     prefix: '%sil.url_prefix%'

@@ -54,3 +54,8 @@ sil:
                 title: Vérification de votre adresse email
                 content: >
                     Pour confirmer votre adresse email, rendez-vous sur <a href="%url%">%url%</a>
+
+# Warnings: https://github.com/Sylius/Sylius/issues/9213 temporary fix:
+sylius.form.user.email: Courriel
+sil.title.sonata_admin_login: Login
+sylius.form.user.password.label: Mot de passe
