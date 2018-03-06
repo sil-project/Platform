@@ -19,6 +19,8 @@ done
 
 save_ref=$(git rev-parse HEAD)
 
+git subrepo clean --all
+
 git subrepo push --all -p '[CI]'
 
 git reset --soft $save_ref
