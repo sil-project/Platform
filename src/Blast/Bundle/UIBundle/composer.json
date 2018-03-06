@@ -1,0 +1,39 @@
+{
+    "name": "blast-project/ui-bundle",
+    "type": "symfony-bundle",
+    "description": "The UI bundle for Blast and SIL elements",
+    "require": {
+        "php": "^7.1",
+        "symfony/symfony": "3.3.*"
+    },
+    "require-dev": {
+        "symfony/phpunit-bridge": "3.3.*",
+        "phpunit/phpunit": "^6.4"
+    },
+    "license": "LGPL-3.0-only",
+    "keywords": [
+        "ui",
+        "blast",
+        "symfony"
+    ],
+    "homepage": "https://github.com/blast-project/UIBundle",
+    "authors": [
+        {
+            "name": "Vivien FRASCA",
+            "email": "vivien.frasca@libre-informatique.fr"
+        },
+        {
+            "name": "Libre Informatique",
+            "homepage": "http://www.libre-informatique.fr/"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Blast\\Bundle\\UIBundle\\": "."
+        }
+    },
+    "version": "dev-wip-platform",
+    "config": {
+        "bin-dir": "bin/"
+    }
+}
