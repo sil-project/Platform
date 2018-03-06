@@ -6,7 +6,7 @@
 [subrepo]
 	remote = git@github.com:sil-project/CRMBundle.git
 	branch = wip-platform
-	commit = 469433465b63c873eee2022768aa8647dec3a5fe
+	commit = e4acbf658ab26d589861556742dff92bff348452
 	cmdver = 0.4.0
-	parent = 199032d497a091bb1b9fa5ee34303131029fe010
+	parent = 745962983c6b86418b7f674823a39d5b9606a304
 	method = merge

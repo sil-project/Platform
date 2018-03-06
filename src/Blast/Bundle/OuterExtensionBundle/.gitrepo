@@ -6,7 +6,7 @@
 [subrepo]
 	remote = git@github.com:blast-project/OuterExtensionBundle.git
 	branch = wip-platform
-	commit = ff6019c31da587fa5a9436e7df841af09401a095
+	commit = 0f7e82d41bbfec2832246c5ca1fc02851e933a51
 	cmdver = 0.4.0
-	parent = 199032d497a091bb1b9fa5ee34303131029fe010
+	parent = c33d0ca78f11eefee8301f2cf2eae6190b3fcf18
 	method = merge
