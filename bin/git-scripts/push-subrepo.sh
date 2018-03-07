@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 set -ex
 
+git clean -df
 git checkout master
 git pull
 git config branch.master.rebase false
