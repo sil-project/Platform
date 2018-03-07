@@ -12,15 +12,16 @@ declare(strict_types=1);
 
 namespace Blast\Component\Code\Tests\Unit\Fixtures;
 
+use DateTime;
 use Blast\Component\Code\Repository\CodeAwareRepositoryInterface;
-use Blast\Component\Code\Tests\Unit\Repository\TestCodeRepository;
+use Blast\Component\Code\Tests\Unit\Repository\TestEntityRepository;
 
 class Fixtures
 {
     /**
      * @var CodeAwareRepositoryInterface
      */
-    private $codeRepository;
+    private $testEntityRepository;
 
     private $rawData = [];
 
@@ -32,7 +33,7 @@ class Fixtures
             ],
         ];
 
-        $this->codeRepository = new TestCodeRepository(TestCode::class);
+        $this->testEntityRepository = new TestEntityRepository(TestEntity::class);
 
         $this->generateFixtures();
     }
@@ -44,6 +45,7 @@ class Fixtures
 
     private function generateCodes()
     {
+        $codeGenerator = new TestCodeGenerator();
         foreach ([
             '2020-03-27',
             '2020-03-28',
@@ -51,8 +53,9 @@ class Fixtures
             '2020-03-30',
             '2020-03-31',
         ] as $date) {
-            $this->getCodeRepository()->add(
-                new TestCode($this->rawData['code']['prefix'] . '-' . str_replace('-', '', $date))
+            $code =
+            $this->getTestEntityRepository()->add(
+                new TestEntity($codeGenerator->generate($this->rawData['code']['prefix'], new DateTime($date)))
             );
         }
     }
@@ -60,9 +63,9 @@ class Fixtures
     /**
      * @return CodeAwareRepositoryInterface
      */
-    public function getCodeRepository(): CodeAwareRepositoryInterface
+    public function getTestEntityRepository(): CodeAwareRepositoryInterface
     {
-        return $this->codeRepository;
+        return $this->testEntityRepository;
     }
 
     /**

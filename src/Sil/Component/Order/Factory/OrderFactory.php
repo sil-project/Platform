@@ -17,7 +17,7 @@ use Sil\Component\Order\Generator\OrderCodeGenerator;
 use Sil\Component\Order\Model\Order;
 use Sil\Component\Order\Model\OrderInterface;
 use Sil\Component\Account\Model\AccountInterface;
-use Sylius\Component\Currency\Model\CurrencyInterface;
+use Sil\Component\Currency\Model\CurrencyInterface;
 
 class OrderFactory
 {

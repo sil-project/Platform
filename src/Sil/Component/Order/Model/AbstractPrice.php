@@ -13,7 +13,7 @@ declare(strict_types=1);
 namespace Sil\Component\Order\Model;
 
 use Blast\Component\Resource\Model\ResourceInterface;
-use Sylius\Component\Currency\Model\CurrencyInterface;
+use Sil\Component\Currency\Model\CurrencyInterface;
 
 // @TODO: Move into PriceComponent
 
