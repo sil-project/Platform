@@ -12,14 +12,26 @@ declare(strict_types=1);
 
 namespace Blast\Component\Code\Tests\Unit\Fixtures;
 
-use Blast\Component\Code\Model\AbstractCode;
 use Blast\Component\Code\Model\CodeInterface;
+use Blast\Component\Resource\Model\ResourceInterface;
 
-class TestCode extends AbstractCode implements CodeInterface
+class TestEntity implements ResourceInterface
 {
-    public function __construct($value, $format = '/^[A-Z]{3}\-[\d]{8}$/')
+    /**
+     * @var CodeInterface
+     */
+    protected $code;
+
+    public function __construct(CodeInterface $code)
     {
-        $this->format = $format;
-        $this->value = $value;
+        $this->code = $code;
+    }
+
+    /**
+     * @return CodeInterface
+     */
+    public function getCode(): CodeInterface
+    {
+        return $this->code;
     }
 }

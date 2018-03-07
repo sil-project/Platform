@@ -54,7 +54,7 @@ class CodeGeneratorTest extends TestCase
     public function testSuccessValidatingWithRepositoryForNewCode()
     {
         $generator = new TestCodeGenerator();
-        $generator->setCodeAwareRepository($this->fixtures->getCodeRepository());
+        $generator->setCodeAwareRepository($this->fixtures->getTestEntityRepository());
 
         $code = $generator->generate($this->fixtures->getRawData()['code']['prefix'], new DateTime('2020-04-01'));
 
@@ -65,7 +65,7 @@ class CodeGeneratorTest extends TestCase
     public function testFailValidatingWithRepositoryForNewCode()
     {
         $generator = new TestCodeGenerator();
-        $generator->setCodeAwareRepository($this->fixtures->getCodeRepository());
+        $generator->setCodeAwareRepository($this->fixtures->getTestEntityRepository());
 
         $this->expectException(\DomainException::class);
 

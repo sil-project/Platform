@@ -46,7 +46,7 @@ class AbstractCodeGenerator implements CodeGeneratorInterface
         $unique = true;
 
         if ($this->codeAwareRepository !== null) {
-            $unique = $this->codeAwareRepository->findCodeByValue($code->getValue()) === null;
+            $unique = $this->codeAwareRepository->findByCodeValue($code->getValue()) === null;
         }
 
         return $unique;

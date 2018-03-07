@@ -13,15 +13,25 @@ declare(strict_types=1);
 namespace Blast\Component\Code\Repository;
 
 use Blast\Component\Code\Model\CodeInterface;
+use Blast\Component\Resource\Model\ResourceInterface;
 
 interface CodeAwareRepositoryInterface
 {
     /**
-     * Find a Code by a code value.
+     * Find a resource by its Code.
      *
      * @param string $codeValue
      *
-     * @return CodeInterface
+     * @return ResourceInterface
      */
-    public function findCodeByValue(string $codeValue): ?CodeInterface;
+    public function findByCode(CodeInterface $codeValue): ?ResourceInterface;
+
+    /**
+     * Find a resource by its Code value.
+     *
+     * @param string $codeValue
+     *
+     * @return ResourceInterface
+     */
+    public function findByCodeValue(string $codeValue): ?ResourceInterface;
 }
