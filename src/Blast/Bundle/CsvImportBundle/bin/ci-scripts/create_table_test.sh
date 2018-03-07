@@ -34,6 +34,18 @@ WITH (
 );
 ALTER TABLE public.test_final_table
   OWNER TO ${DBAPPUSER};
+
+DROP SEQUENCE IF EXISTS public.test_final_table_id_seq;
+
+CREATE SEQUENCE public.test_final_table_id_seq
+  INCREMENT 1
+  MINVALUE 1
+  MAXVALUE 9223372036854775807
+  START 6
+  CACHE 1;
+ALTER TABLE public.test_final_table_id_seq
+  OWNER TO ${DBAPPUSER};
+
 EOF
 
 
@@ -56,6 +68,18 @@ WITH (
 ALTER TABLE public.test_parent_table
   OWNER TO ${DBAPPUSER};
 
+DROP SEQUENCE IF EXISTS public.test_parent_table_id_seq;
+
+CREATE SEQUENCE public.test_parent_table_id_seq
+  INCREMENT 1
+  MINVALUE 1
+  MAXVALUE 9223372036854775807
+  START 6
+  CACHE 1;
+ALTER TABLE public.test_parent_table_id_seq
+  OWNER TO ${DBAPPUSER};
+
+
 EOF
 
 
@@ -76,6 +100,17 @@ WITH (
 ALTER TABLE public.test_second_table
   OWNER TO ${DBAPPUSER};
 
+DROP SEQUENCE IF EXISTS public.test_second_table_id_seq;
+
+CREATE SEQUENCE public.test_second_table_id_seq
+  INCREMENT 1
+  MINVALUE 1
+  MAXVALUE 9223372036854775807
+  START 6
+  CACHE 1;
+ALTER TABLE public.test_second_table_id_seq
+  OWNER TO ${DBAPPUSER};
+
 EOF
 
 psql -w -h ${DBHOST}  -U ${DBROOTUSER} -d ${DBAPPNAME} <<EOF
@@ -93,5 +128,17 @@ WITH (
 );
 ALTER TABLE public.test_simple_table
   OWNER TO ${DBAPPUSER};
+
+DROP SEQUENCE IF EXISTS public.test_simple_table_id_seq;
+
+CREATE SEQUENCE public.test_simple_table_id_seq
+  INCREMENT 1
+  MINVALUE 1
+  MAXVALUE 9223372036854775807
+  START 6
+  CACHE 1;
+ALTER TABLE public.test_simple_table_id_seq
+  OWNER TO ${DBAPPUSER};
+
 
 EOF
