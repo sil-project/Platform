@@ -20,7 +20,7 @@ fi
 psql -w -h ${DBHOST}  -U ${DBROOTUSER} -d ${DBAPPNAME} <<EOF
 -- Table: public.blast_session
 
-DROP TABLE public.blast_session;
+DROP TABLE IF EXISTS public.blast_session;
 
 CREATE TABLE public.blast_session
 (
@@ -48,7 +48,7 @@ CREATE INDEX blast_session_session_id_index
 EOF
 
 psql -w -h ${DBHOST}  -U ${DBROOTUSER} -d ${DBAPPNAME} <<EOF
-DROP SEQUENCE public.blast_session_id_seq;
+DROP SEQUENCE IF EXISTS public.blast_session_id_seq;
 
 CREATE SEQUENCE public.blast_session_id_seq
   INCREMENT 1
