@@ -44,9 +44,6 @@
             "Blast\\Bundle\\UtilsBundle\\": "."
         }
     },
-    "suggest": {
-        "blast-project/outer-extension-bundle": "Extend your doctrine entities from the outside"
-    },
     "version": "dev-wip-platform",
     "config": {
         "bin-dir": "bin"
