@@ -4,15 +4,15 @@
     "description": "This is the core of Libre Informatique Symfony2 projects",
     "require": {
         "php": "^7.1",
-        "symfony/symfony": "3.3.*",
+        "symfony/symfony": "^3.4",
         "sensio/generator-bundle": ">=3.1"
     },
     "require-dev": {
-        "symfony/phpunit-bridge": "3.3.*",
+        "symfony/phpunit-bridge": "^3.4",
         "blast-project/tests-bundle": "self.version",
         "phpunit/phpunit": "^6.4"
     },
-    "license": "LGPL-3.0-only",
+    "license": ["LGPL-3.0-only"],
     "keywords": [
         "e-venement",
         "libio",
@@ -51,6 +51,6 @@
     },
     "version": "dev-wip-platform",
     "config": {
-        "bin-dir": "bin/"
+        "bin-dir": "bin"
     }
 }

@@ -4,16 +4,16 @@
     "description": "This is the basis of a GUI for Libre Informatique Symfony2 projects",
     "require": {
         "php": "^7.1",
-        "symfony/symfony": "3.3.*",
+        "symfony/symfony": "^3.4",
         "sonata-project/doctrine-orm-admin-bundle": ">=3.1",
         "blast-project/core-bundle": "self.version",
         "friendsofsymfony/jsrouting-bundle": "^2.1"
     },
     "require-dev": {
-        "symfony/phpunit-bridge": "3.3.*",
+        "symfony/phpunit-bridge": "^3.4",
         "phpunit/phpunit": "^6.4"
     },
-    "license": "GPL-3.0",
+    "license": ["LGPL-3.0-only"],
     "keywords": [
         "e-venement",
         "libio",
@@ -41,6 +41,6 @@
     },
     "version": "dev-wip-platform",
     "config": {
-        "bin-dir": "bin/"
+        "bin-dir": "bin"
     }
 }

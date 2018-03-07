@@ -4,7 +4,7 @@
     "description": "CRM Bundle for Symfony with Email management",
     "require": {
         "php": "^7.1",
-        "symfony/symfony": "3.3.*",
+        "symfony/symfony": "^3.4",
         "blast-project/core-bundle": "self.version",
         "blast-project/base-entities-bundle": "self.version",
         "blast-project/outer-extension-bundle": "self.version",
@@ -17,10 +17,10 @@
         "libre-informatique/crm-bundle": "self.version"
     },
     "require-dev": {
-        "symfony/phpunit-bridge": "3.3.*",
+        "symfony/phpunit-bridge": "^3.4",
         "phpunit/phpunit": "^6.4"
     },
-    "license": "LGPL-3.0-only",
+    "license": ["LGPL-3.0-only"],
     "keywords": [
         "e-venement",
         "libio",
@@ -47,6 +47,6 @@
     },
     "version": "dev-wip-platform",
     "config": {
-        "bin-dir": "bin/"
+        "bin-dir": "bin"
     }
 }

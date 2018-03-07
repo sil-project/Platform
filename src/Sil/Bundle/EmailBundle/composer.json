@@ -4,7 +4,7 @@
     "description": "Email Bundle for Symfony",
     "require": {
         "php": "^7.1",
-        "symfony/symfony": "3.3.*",
+        "symfony/symfony": "^3.4",
         "blast-project/resource-bundle": "self.version",
         "blast-project/resource": "self.version",
         "blast-project/core-bundle": "self.version",
@@ -18,10 +18,10 @@
         "friendsofsymfony/jsrouting-bundle": "^2.1"
     },
     "require-dev": {
-        "symfony/phpunit-bridge": "3.3.*",
+        "symfony/phpunit-bridge": "^3.4",
         "phpunit/phpunit": "^6.4"
     },
-    "license": "LGPL-3.0-only",
+    "license": ["LGPL-3.0-only"],
     "keywords": [
         "email",
         "spool",
@@ -47,6 +47,6 @@
     },
     "version": "dev-wip-platform",
     "config": {
-        "bin-dir": "bin/"
+        "bin-dir": "bin"
     }
 }

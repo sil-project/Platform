@@ -4,16 +4,16 @@
     "description": "All kinds of goodies for the BlastCoreBundle",
     "require": {
         "php": "^7.1",
-        "symfony/symfony": "3.3.*",
+        "symfony/symfony": "^3.4",
         "sonata-project/doctrine-orm-admin-bundle": ">=3.1",
         "blast-project/core-bundle": "self.version",
         "stfalcon/tinymce-bundle": ">=2.1"
     },
     "require-dev": {
-        "symfony/phpunit-bridge": "3.3.*",
+        "symfony/phpunit-bridge": "^3.4",
         "phpunit/phpunit": "^6.4"
     },
-    "license": "LGPL-3.0-only",
+    "license": ["LGPL-3.0-only"],
     "keywords": [
         "utils",
         "blast",
@@ -49,6 +49,6 @@
     },
     "version": "dev-wip-platform",
     "config": {
-        "bin-dir": "bin/"
+        "bin-dir": "bin"
     }
 }

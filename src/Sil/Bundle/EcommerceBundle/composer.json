@@ -4,7 +4,7 @@
     "description": "Bridge bundle between sil bundles and sylius",
     "require": {
         "php": "^7.1",
-        "symfony/symfony": "3.3.*",
+        "symfony/symfony": "^3.4",
         "blast-project/core-bundle": "self.version",
         "blast-project/base-entities-bundle": "self.version",
         "blast-project/search-bundle": "self.version",
@@ -20,10 +20,10 @@
         "h4cc/wkhtmltoimage-amd64": "^0.12.3"
     },
     "require-dev": {
-        "symfony/phpunit-bridge": "3.3.*",
+        "symfony/phpunit-bridge": "^3.4",
         "phpunit/phpunit": "^6.4"
     },
-    "license": "LGPL-3.0-only",
+    "license": ["LGPL-3.0-only"],
     "keywords": [
         "e-commerce",
         "libio",
@@ -48,6 +48,6 @@
     },
     "version": "dev-wip-platform",
     "config": {
-        "bin-dir": "bin/"
+        "bin-dir": "bin"
     }
 }
