@@ -4,4 +4,10 @@
 
 composer validate --no-check-lock
 
-bin/ci-scripts/do_it_for_bundle.sh run lint
+for i in src/*/Bundle/* src/*/Component/*
+do
+    cd $i
+    pwd
+    composer validate
+    cd -
+done
