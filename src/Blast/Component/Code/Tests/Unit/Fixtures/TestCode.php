@@ -14,8 +14,9 @@ namespace Blast\Component\Code\Tests\Unit\Fixtures;
 
 use Blast\Component\Code\Model\AbstractCode;
 use Blast\Component\Code\Model\CodeInterface;
+use Blast\Component\Resource\Model\ResourceInterface;
 
-class TestCode extends AbstractCode implements CodeInterface
+class TestCode extends AbstractCode implements CodeInterface, ResourceInterface
 {
     public function __construct($value, $format = '/^[A-Z]{3}\-[\d]{8}$/')
     {
