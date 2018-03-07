@@ -1,3 +1,5 @@
+### Summary
+
 When reporting issues, please try to be as descriptive as possible, and include
 as much relevant information as you can.
 
