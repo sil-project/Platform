@@ -23,12 +23,12 @@ use Sil\Component\Order\Model\OrderItem;
 use Sil\Component\Order\Model\OrderItemAdjustment;
 use Sil\Component\Order\Model\Price;
 use Sil\Component\Order\Repository\OrderRepositoryInterface;
-use Sil\Component\Order\Repository\CurrencyRepositoryInterface;
 use Sil\Component\Order\Tests\Unit\Repository\OrderRepository;
 use Sil\Component\Order\Tests\Unit\Repository\CurrencyRepository;
 use Sil\Component\Uom\Model\UomQty;
-use Sylius\Component\Currency\Model\Currency;
-use Sylius\Component\Currency\Model\CurrencyInterface;
+use Sil\Component\Currency\Model\Currency;
+use Sil\Component\Currency\Model\CurrencyInterface;
+use Sil\Component\Currency\Repository\CurrencyRepositoryInterface;
 use Sil\Component\Uom\Repository\UomRepositoryInterface;
 use Sil\Component\Uom\Repository\UomTypeRepositoryInterface;
 use Sil\Component\Uom\Tests\Unit\Fixture\UomFixturesTrait;
@@ -236,9 +236,8 @@ class Fixtures
 
     private function loadCurrencies(): void
     {
-        foreach ($this->getRawData()['Currencies'] as $currencyData) {
-            $currency = new Currency();
-            $currency->setCode($currencyData);
+        foreach ($this->getRawData()['Currencies'] as $currencyCode) {
+            $currency = new Currency($currencyCode);
             $this->getCurrencyRepository()->add($currency);
         }
     }

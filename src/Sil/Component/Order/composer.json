@@ -10,7 +10,7 @@
         "sil-project/account": "self.version",
         "sil-project/contact": "self.version",
         "sil-project/uom": "self.version",
-        "sylius/currency": "^1.1",
+        "sil-project/currency": "self.version",
         "winzou/state-machine": "^0.3"
     },
     "require-dev": {

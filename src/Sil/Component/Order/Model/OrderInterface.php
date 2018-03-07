@@ -13,7 +13,7 @@ declare(strict_types=1);
 namespace Sil\Component\Order\Model;
 
 use DateTime;
-use Sylius\Component\Currency\Model\CurrencyInterface;
+use Sil\Component\Currency\Model\CurrencyInterface;
 
 interface OrderInterface
 {
