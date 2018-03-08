@@ -1,0 +1,36 @@
+blast_view_builder:
+
+  view.contact:
+    class: My\Contact
+    tabs:
+      tab.info:
+        import: view.contact.info
+
+      tab.organizations:
+        template: "@MyBundle:Contact/Organizations.html.twig"
+        data:
+          path: .organizations
+
+      tab.emails:
+        label: "Emails"
+
+        groups:
+          group.emails:
+            type: grid
+
+            data:
+              class: My\Email
+              repository:
+                method: findEmailsByContact
+                arguments:
+                  - & #parent reference (the contact object)
+
+            fields:
+              exp:
+                type: string
+              dests:
+                type: simple_list
+              object:
+                type: string
+              sent:
+                type: boolean
