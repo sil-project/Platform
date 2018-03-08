@@ -10,8 +10,13 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Blast\Component\View;
+namespace Blast\Component\View\Builder;
 
+use Blast\Component\View\Type\ViewTypeInterface;
+use Blast\Component\View\Config\ViewConfigInterface;
+use Blast\Component\View\Factory\ViewFactoryInterface;
+use Blast\Component\View\DataMapper\DataMapperInterface;
+use Blast\Component\View\DataTransformer\DataTransformerInterface;
 use Symfony\Component\PropertyAccess\PropertyPath;
 use Symfony\Component\PropertyAccess\PropertyPathInterface;
 use Exception\UnexpectedTypeException;

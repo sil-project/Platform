@@ -10,11 +10,11 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Blast\Component\View;
+namespace Blast\Component\View\DataTransformer;
 
-/**
- * @author Glenn Cavarlé <glenn.cavarle@libre-informatique.fr>
- */
-interface ViewConfigInterface
+interface DataTransformerInterface
 {
+    public function transform($value);
+
+    public function reverseTransform($value);
 }

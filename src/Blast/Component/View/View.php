@@ -12,7 +12,8 @@ declare(strict_types=1);
 
 namespace Blast\Component\View;
 
-use Exception\LogicException;
+use use Blast\Component\View\Exception\LogicException;
+use use Blast\Component\View\Config\ViewConfigInterface;
 use RuntimeException;
 use Symfony\Component\Form\Util\OrderedHashMap;
 use Symfony\Component\Form\Util\InheritDataAwareIterator;

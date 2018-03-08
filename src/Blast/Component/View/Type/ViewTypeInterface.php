@@ -10,14 +10,11 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Blast\Component\View;
+namespace Blast\Component\View\Type;
 
 /**
-  * @author Glenn Cavarlé <glenn.cavarle@libre-informatique.fr>
-  */
- interface DataMapperInterface
- {
-     public function mapDataToViews($data, $views);
-
-     public function mapViewsToData($views, &$data);
- }
+ * @author Glenn Cavarlé <glenn.cavarle@libre-informatique.fr>
+ */
+interface ViewTypeInterface
+{
+}

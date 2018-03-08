@@ -10,9 +10,14 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Blast\Component\View;
+namespace Blast\Component\View\ResolvedType;
 
+use Blast\Component\View\Factory\ViewFactoryInterface;
+use Blast\Component\View\Builder\ViewBuilder;
+use Blast\Component\View\Builder\ViewBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Blast\Component\View\Type\ViewTypeInterface;
+
 
 /**
  * @author Glenn Cavarlé <glenn.cavarle@libre-informatique.fr>

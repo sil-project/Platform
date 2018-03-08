@@ -12,7 +12,6 @@ declare(strict_types=1);
 
 namespace Blast\Component\View\DataMapper;
 
-use Blast\Component\View\DataMapperInterface;
 use Blast\Component\View\Exception\UnexpectedTypeException;
 use Symfony\Component\PropertyAccess\PropertyAccess;
 use Symfony\Component\PropertyAccess\PropertyAccessorInterface;

@@ -10,12 +10,11 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Blast\Component\View;
+namespace Blast\Component\View\Factory;
 
 /**
  * @author Glenn Cavarlé <glenn.cavarle@libre-informatique.fr>
  */
-interface ViewTypeRegistryInterface
+interface ViewFactoryInterface
 {
-    public function getType($name): ViewTypeInterface;
 }

@@ -12,8 +12,7 @@ declare(strict_types=1);
 
 namespace Blast\Component\View\Type;
 
-use Blast\Component\View\AbstractType;
-use Blast\Component\View\ViewBuilderInterface;
+use Blast\Component\View\Builder\ViewBuilderInterface;
 use Blast\Component\View\ViewInterface;
 use Blast\Component\View\RenderingView;
 use Symfony\Component\OptionsResolver\OptionsResolver;

@@ -10,10 +10,10 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Blast\Component\View;
+namespace Blast\Component\View\Factory;
 
 use Blast\Component\View\Exception\UnexpectedTypeException;
-
+use Blast\Component\View\Registry\ViewTypeRegistryInterface;
 /**
  * @author Glenn Cavarlé <glenn.cavarle@libre-informatique.fr>
  */

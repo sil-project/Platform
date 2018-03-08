@@ -13,8 +13,8 @@ declare(strict_types=1);
 namespace Blast\Component\View\Type;
 
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Blast\Component\View\DataTransformerInterface;
-use Blast\Component\View\ViewBuilderInterface;
+use Blast\Component\View\DataTransformer\DataTransformerInterface;
+use Blast\Component\View\Builder\ViewBuilderInterface;
 
 /**
   * @author Glenn Cavarlé <glenn.cavarle@libre-informatique.fr>
