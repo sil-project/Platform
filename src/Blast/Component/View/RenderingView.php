@@ -19,5 +19,4 @@ use Symfony\Component\Form\FormView;
   */
  class RenderingView extends FormView
  {
-     
  }
