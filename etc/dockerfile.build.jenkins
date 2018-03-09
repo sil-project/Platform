@@ -53,6 +53,13 @@ RUN useradd -d $HOME -g ${GID} -u ${UID} -m $USER \
     && mkdir -p $HOME/bin \
     && chown -R $USER:$GROUP $HOME
 
+ARG ETCDVER=3.3.1
+RUN wget -q https://github.com/coreos/etcd/releases/download/v${ETCDVER}/etcd-v${ETCDVER}-linux-amd64.tar.gz -O /tmp/etcd.tar.gz \
+    && tar -xvzf /tmp/etcd.tar.gz -C /tmp \
+    && mv /tmp/etcd-v${ETCDVER}-linux-amd64/etcd* /usr/local/bin/ \
+    && chmod 755 /usr/local/bin/etcd* \
+    && rm -rf /tmp/etcd*
+
 USER $USER:$GROUP
 WORKDIR $HOME
 
