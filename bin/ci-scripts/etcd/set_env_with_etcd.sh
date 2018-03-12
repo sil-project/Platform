@@ -25,7 +25,7 @@ then
 fi
 
 # check
-$ETCDCTLCMD get  --prefix '/default'
+$ETCDCTLCMD get  --prefix '/default' $ETCDENDPOINT
 
 # get postgres default
 postgreshost=$($ETCDCTLCMD get /default/postgres/hostname --print-value-only $ETCDENDPOINT)
