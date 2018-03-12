@@ -10,7 +10,8 @@ then
 fi
 
 #RND may contain branch with '-' or upper case char which may not work as database name for postgre
-prefix="/platform/build/"$(echo $RND|sed -e s/-/_/g|tr '[:upper:]' '[:lower:]')$(echo -n $(cat shuf.nbr ))
+suffix=$(echo $RND|sed -e s/-/_/g|tr '[:upper:]' '[:lower:]')$(echo -n $(cat shuf.nbr ))
+prefix="/platform/build/$suffix"
 
 if [ -z "$ETCDHOST" ]
 then
@@ -42,13 +43,13 @@ $ETCDCTLCMD put $prefix/postgres/hostname $postgreshost $ETCDENDPOINT
 $ETCDCTLCMD put $prefix/postgres/root/username $postgresuser $ETCDENDPOINT
 $ETCDCTLCMD put $prefix/postgres/root/password $postgrespass $ETCDENDPOINT
 
-$ETCDCTLCMD put $prefix/postgres/user/dbname sil_db_$prefix $ETCDENDPOINT
-$ETCDCTLCMD put $prefix/postgres/user/username sil_user_$prefix $ETCDENDPOINT
-$ETCDCTLCMD put $prefix/postgres/user/password sil_password_$prefix $ETCDENDPOINT
+$ETCDCTLCMD put $prefix/postgres/user/dbname sil_db_$suffix $ETCDENDPOINT
+$ETCDCTLCMD put $prefix/postgres/user/username sil_user_$suffix $ETCDENDPOINT
+$ETCDCTLCMD put $prefix/postgres/user/password sil_password_$suffix $ETCDENDPOINT
 
 # set elastic env
 $ETCDCTLCMD put $prefix/elastic/hostname $elastichost $ETCDENDPOINT
-$ETCDCTLCMD put $prefix/elastic/indexalias sil_$prefix $ETCDENDPOINT
+$ETCDCTLCMD put $prefix/elastic/indexalias sil_$suffix $ETCDENDPOINT
 
 # set symfony env
 $ETCDCTLCMD put $prefix/symfony/env test $ETCDENDPOINT # maybe put this in env variable (or not)
