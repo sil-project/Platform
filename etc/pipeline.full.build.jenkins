@@ -33,15 +33,18 @@ pipeline {
         }
         stage ('Set Env') {
             steps {
-                sh './bin/ci-scripts/etcd/set_env_with_etcd.sh'
+                sh './bin/ci-scripts/set_env_with_etcd.sh'
+                sh './bin/ci-scripts/set_pgpass_test.sh'
                 sh 'cat ./.env'
-                sh 'mkdir -p build'
+                sh 'cat $HOME/.pgpass'
+
             }
         }
 
 
         stage ('Prepare') {
             steps {
+                sh 'mkdir -p build'
                 sh "ln -sf /home/jenkins/node_modules"
                 sh "./bin/ci-scripts/do_run.sh before_install_test.sh"
                 sh "./bin/ci-scripts/do_run.sh before_install_ui_test.sh"
@@ -50,10 +53,8 @@ pipeline {
 
         stage ('Create Database') {
             steps {
-                sh "./bin/ci-scripts/do_run.sh set_db_host_test.sh # needed before create as it set .pgpass"
                 sh "./bin/ci-scripts/do_run.sh create_database_test.sh"
                 sh "./bin/ci-scripts/do_run.sh create_table_test.sh"
-
             }
         }
 

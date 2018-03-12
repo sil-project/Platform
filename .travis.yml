@@ -42,7 +42,8 @@ before_install:
     - ${SCRIPTS_FOLDER}/do_run.sh before_install_travis_${TARGET}.sh
     - ${SCRIPTS_FOLDER}/do_run.sh before_install_${TARGET}.sh
     - ${SCRIPTS_FOLDER}/do_run.sh before_install_ui_${TARGET}.sh
-    - ${SCRIPTS_FOLDER}/do_run.sh set_db_host_${TARGET}.sh
+    - ${SCRIPTS_FOLDER}/do_run.sh bin/ci-scripts/set_pgpass_${TARGET}.sh
+    - ${SCRIPTS_FOLDER}/do_run.sh sed_parameter_dist_${TARGET}.sh
     - ${SCRIPTS_FOLDER}/do_run.sh create_database_${TARGET}.sh
 
 
