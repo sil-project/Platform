@@ -33,9 +33,12 @@ pipeline {
         }
         stage ('Set Env') {
             steps {
-                sh "ln -fs ./.env.jenkins ./.env"
-                sh "cat ./.env"
-                sh "mkdir -p build"
+                /*
+                  sh "ln -fs ./.env.jenkins ./.env"
+                */
+                sh './bin/ci-scripts/etcd/set_env_with_etcd.sh'
+                sh 'cat ./.env'
+                sh 'mkdir -p build'
             }
         }
 
