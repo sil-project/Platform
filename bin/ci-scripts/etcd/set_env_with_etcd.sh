@@ -54,6 +54,8 @@ $ETCDCTLCMD put /build/$prefix/elastic/indexalias sil_$prefix $ETCDENDPOINT
 $ETCDCTLCMD put /build/$prefix/symfony/env test $ETCDENDPOINT # maybe put this in env variable (or not)
 $ETCDCTLCMD put /build/$prefix/symfony/addr '127.0.0.1:8042' $ETCDENDPOINT
 
+$ETCDCTLCMD put /build/$prefix/sylius/channelurl '127.0.0.1' $ETCDENDPOINT
+
 $ETCDCTLCMD get  --prefix /build/$prefix $ETCDENDPOINT
 
 confd -onetime -backend etcdv3 -node http://${ETCDHOST}:2379 -confdir ./etc/confd -log-level debug -prefix '/build/'$prefix

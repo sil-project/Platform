@@ -1,12 +1,10 @@
 [template]
-src = "env.tmpl"
-dest = ".env"
+src = "parameters.yml.tmpl"
+dest = "app/config/parameters.yml"
 keys = [
        "/symfony/addr",
        "/symfony/env",
        "/postgres/hostname",
-       "/postgres/root/username",
-       "/postgres/root/password",
        "/postgres/user/dbname",
        "/postgres/user/username",
        "/postgres/user/password",
