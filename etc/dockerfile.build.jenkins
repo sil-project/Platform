@@ -73,7 +73,7 @@ WORKDIR $HOME
 #ENV GOPATH=$HOME/go
 #should not be good, where does the current $PATH came from ?
 #ENV PATH=$PATH:/usr/local/go/bin:$HOME/go/bin:$HOME/bin:$HOME/.local/bin/
-ENV PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:$HOME/bin:$HOME/.local/bin/
+ENV PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/bin/:$HOME/bin:$HOME/.local/bin/
 
 
 RUN pip install --upgrade pip
