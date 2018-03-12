@@ -16,7 +16,7 @@ if [ -z "$ETCDHOST" ]
 then
     ETCDHOST="etcd.host"
 fi
-ETCDENDPOINT="--endpoints='http://${ETCDHOST}:2379'"
+ETCDENDPOINT="--endpoints=http://${ETCDHOST}:2379"
 
 if [ -z "$ETCDCTLCMD" ]
 then
