@@ -29,7 +29,7 @@ pipeline {
         }
         stage ('Test') {
             steps {
-                sh "./bin/ci-scripts/do_run.sh set_env_with_etcd.sh"
+                sh "./bin/ci-scripts/etcd/set_env_with_etcd.sh"
             }
         }
 
