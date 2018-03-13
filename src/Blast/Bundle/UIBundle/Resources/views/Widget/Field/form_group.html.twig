@@ -1,0 +1,27 @@
+{% spaceless %}
+
+    {{ form_start(form, {'class':'ui form data'}) }}
+
+    {% for fieldname, field in form.children %}
+        {{ form_row(attribute(form, fieldname)) }}
+    {% endfor %}
+
+    <div class="ui divider"></div>
+
+    {{ blast_widget_field('submit', {
+        label: 'Enregistrer',
+        class: 'right floated',
+        icon: 'save'
+    }) }}
+
+    {{ blast_widget_field('link', {
+        label: 'Annuler',
+        class: 'button left floated close',
+        icon: 'undo'
+    }) }}
+
+    {{ form_rest(form) }}
+
+    {{ form_end(form) }}
+
+{% endspaceless %}

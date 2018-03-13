@@ -1,0 +1,29 @@
+
+class_name: WebGuy
+modules:
+    enabled:
+        - Symfony:
+            app_path: 'app'
+            var_path: 'var'
+            part: SERVICES
+            environment: {{getv "/symfony/env"}}
+            debug: true
+            cache_router: true
+        - Doctrine2:
+            depends: Symfony
+        - WebDriver:
+                host: {{getv "/selenium/hostname"}}
+                port: 4444
+                url: 'http://{{getv "/symfony/addr"}}/app_test.php'
+                wait: 5
+                browser: 'firefox'
+
+env:
+    firefox:
+        modules:
+            enabled:
+                - WebDriver:
+                    host: {{getv "/selenium/hostname"}}
+                    url: 'http://{{getv "/symfony/addr"}}/app_test.php'
+                    wait: 5
+                    browser: 'firefox'

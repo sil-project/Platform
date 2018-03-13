@@ -1,2 +1,4 @@
 <link rel="stylesheet" href="/bundles/blastui/css/semantic-librinfo.min.css">
-<link rel="stylesheet" href="/bundles/blastui/css/app.css">
+{% stylesheets '@BlastUIBundle/Resources/scss/app.scss' filter='scssphp' %}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+{% endstylesheets %}

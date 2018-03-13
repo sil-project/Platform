@@ -46,6 +46,10 @@ sil_contact:
     resource: "@SilContactBundle/Resources/config/routing.yml"
     prefix:   '%sil.url_prefix%'
 
+sil_product:
+    resource: "@SilProductBundle/Resources/config/routing.yml"
+    prefix:   '%sil.url_prefix%'
+
 admin:
     resource: '@SonataAdminBundle/Resources/config/routing/sonata_admin.xml'
     prefix: '%sil.url_prefix%'

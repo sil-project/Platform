@@ -1,3 +1,9 @@
 blast_ui:
     sidebar:
         title: 'SIL Platform'
+
+assetic:
+    debug:          '%kernel.debug%'
+    use_controller: '%kernel.debug%'
+    filters:
+        scssphp: ~

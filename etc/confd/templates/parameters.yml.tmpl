@@ -1,0 +1,71 @@
+# This file is a "template" of what your parameters.yml file should look like
+# Set parameters here that may be different on each deployment target of the app, e.g. development, staging, production.
+# https://symfony.com/doc/current/best_practices/configuration.html#infrastructure-related-configuration
+parameters:
+    database_host: {{getv "/postgres/hostname"}}
+    database_port: 5432
+    database_name: {{getv "/postgres/user/dbname"}}
+    database_user: {{getv "/postgres/user/username"}}
+    database_password: {{getv "/postgres/user/password"}}
+    # You should uncomment this if you want to use pdo_sqlite
+    #database_path: '%kernel.project_dir%/var/data/data.sqlite'
+
+    mailer_transport: smtp
+    mailer_host: 127.0.0.1
+    mailer_port: 25
+    mailer_user: ~
+    mailer_password: ~
+    mailer_disable_delivery: false
+    mailer_delivery_addresses:
+        - sil@sil.eu
+
+    # A secret key that's used to generate certain security-related tokens
+    secret: ThisTokenIsNotSoSecretChangeIt
+
+    # Blast parameters
+    sil.url_prefix: /sil
+
+    # please check http://symfony.com/doc/current/configuration/override_dir_structure.html#override-the-web-directory
+    symfony-web-dir: web
+    sylius_fallback_channel_code: default
+    currency: EUR
+
+    sil.user.fixtures:
+        admin:
+            username: sil
+            password: sil
+            email: sil@sil.eu
+            super: true
+        user:
+            username: lis
+            password: lis
+            email: lis@sil.eu
+            super: false
+
+    sil.fakeEmail:
+        domain: sil.eu
+        prefix: FAKE
+        suffix: ''
+
+    # ##########################################################################
+    # ECOMMERCE
+    # ##########################################################################
+
+    sylius_fallback_channel_code: FR_WEB
+    sylius_fr_web_channel_hostname: {{getv "/sylius/channelurl"}}
+    sylius_fr_web_channel_code: FR_WEB
+    sylius_default_channel_hostname: localhost
+    sylius_default_channel_code: default
+    paybox.site: test
+    paybox.rang: 1234
+    paybox.identifiant: test
+    paybox.hmac: ABCDEF
+    paybox.sandbox: true
+
+    # ##########################################################################
+    # BLAST SEARCH
+    # ##########################################################################
+
+    blast_search.elastic_search.hostname: {{getv "/elastic/hostname"}}
+    blast_search.elastic_search.port: 9200
+    blast_search.global_index_alias: {{getv "/elastic/indexalias"}}

@@ -61,7 +61,9 @@
         "knplabs/knp-paginator-bundle": "^2.7",
         "ramsey/uuid": "^3.7",
         "data-uri/twig-extension": "^1.0",
-        "bentools/cartesian-product": "^1.2"
+        "bentools/cartesian-product": "^1.2",
+        "leafo/scssphp": "^0.7.5",
+        "symfony/assetic-bundle": "^2.8"
     },
     "require-dev": {
         "codeception/codeception": "^2.3",

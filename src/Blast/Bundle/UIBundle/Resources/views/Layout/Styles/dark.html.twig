@@ -1,2 +1,4 @@
 <link rel="stylesheet" href="/bundles/blastui/css/semantic-superhero.min.css">
-<link rel="stylesheet" href="/bundles/blastui/css/app-dark.css">
+{% stylesheets '@BlastUIBundle/Resources/scss/app_dark.scss' filter='scssphp' %}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+{% endstylesheets %}

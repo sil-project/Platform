@@ -8,11 +8,21 @@
     {% set fieldClass = 'field ' ~ field.class %}
 {% endif %}
 
-{% if field.inline == true %}
+{% if field.inline is defined and field.inline == true %}
     {% set fieldClass = fieldClass ~ ' inline' %}
 {% endif %}
 
-{% if field.readonly %}
+{# ##################################################################################### #}
+{#    INPUT READONLY                                                                     #}
+{# ##################################################################################### #}
+
+{% set readonly = false %}
+
+{% if field.readonly is defined %}
+    {% set readonly = field.readonly %}
+{% endif %}
+
+{% if readonly %}
     {% set fieldClass = fieldClass ~ ' readonly' %}
 {% endif %}
 
@@ -27,21 +37,33 @@
 {% endif %}
 
 {# ##################################################################################### #}
+{#    INPUT ATTR                                                                         #}
+{# ##################################################################################### #}
+
+{% set attrs = [] %}
+
+{% if field.attr is defined %}
+    {% set attrs = field.attr %}
+{% endif %}
+
+{# ##################################################################################### #}
 {#    INPUT                                                                              #}
 {# ##################################################################################### #}
 
 <div class="{{ fieldClass }}">
+    {% spaceless %}
+        {% if field.label is defined and field.label is not null %}
+            <label>{{ field.label }}</label>
+        {% endif %}
 
-    {% if field.label is defined and field.label is not null %}
-        <label>{{ field.label }}</label>
-    {% endif %}
-
-    <input
-        type="text"
-        name="{{ field.name }}"
-        placeholder="{{ field.label }}"
-        value="{{ field.value }}"
-        tabindex="{{ tabindex }}"
-        {% if field.disabled %}disabled="disabled"{% endif %}
-    />
+        <input
+            type="text"
+            name="{{ field.name }}"
+            tabindex="{{ tabindex }}"
+            {% if field.value is defined %}value="{{ field.value }}"{% endif %}
+            {% if field.label is defined %}placeholder="{{ field.label }}"{% endif %}
+            {% if readonly %}disabled="disabled"{% endif %}
+            {% for attr, value in attrs %}{{attr}}="{{value}}" {% endfor %}
+        />
+    {% endspaceless %}
 </div>

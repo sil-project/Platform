@@ -48,17 +48,32 @@ ENV GROUP=users
 # RUN mkdir -p $HOME \ && mkdir -p $HOME/bin \ && chown -R $USER:$GROUP $HOME
 
 ARG UID=1004
-RUN useradd -d $HOME -g $GROUP -u ${UID} -m $USER \
+ARG GID=100
+RUN useradd -d $HOME -g ${GID} -u ${UID} -m $USER \
     && mkdir -p $HOME/bin \
     && chown -R $USER:$GROUP $HOME
+
+ARG ETCDVER=3.3.1
+RUN wget -q https://github.com/coreos/etcd/releases/download/v${ETCDVER}/etcd-v${ETCDVER}-linux-amd64.tar.gz -O /tmp/etcd.tar.gz \
+    && tar -xvzf /tmp/etcd.tar.gz -C /tmp \
+    && mv /tmp/etcd-v${ETCDVER}-linux-amd64/etcd* /usr/local/bin/ \
+    && chmod 755 /usr/local/bin/etcd* \
+    && rm -rf /tmp/etcd*
+
+ARG CONFDVER=0.15.0
+RUN wget -q https://github.com/kelseyhightower/confd/releases/download/v${CONFDVER}/confd-${CONFDVER}-linux-amd64 -O /usr/local/bin/confd \
+    && chmod 755 /usr/local/bin/confd \
+    && mkdir -p /etc/confd/conf.d \
+    && mkdir -p /etc/confd/templates
 
 USER $USER:$GROUP
 WORKDIR $HOME
 
-ENV GOROOT=/usr/local/go
-ENV GOPATH=$HOME/go
+#ENV GOROOT=/usr/local/go
+#ENV GOPATH=$HOME/go
 #should not be good, where does the current $PATH came from ?
-ENV PATH=$PATH:/usr/local/go/bin:$HOME/go/bin:$HOME/bin:$HOME/.local/bin/
+#ENV PATH=$PATH:/usr/local/go/bin:$HOME/go/bin:$HOME/bin:$HOME/.local/bin/
+ENV PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/bin/:$HOME/bin:$HOME/.local/bin/
 
 
 RUN pip install --upgrade pip

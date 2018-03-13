@@ -6,7 +6,7 @@
 [subrepo]
 	remote = git@github.com:blast-project/CsvImportBundle.git
 	branch = wip-platform
-	commit = 7f65866eea90a65a9fa1d9249ff6676d6a7b63cb
+	commit = c257e19cbc7e85e1f14a4a09f4e09b7de7ac4aca
 	method = merge
 	cmdver = 0.4.0
-	parent = 951cbcae09515d50410f27cfa496a98df4d51483
+	parent = 703b94108516332b7865639ed1da7097d37b045f

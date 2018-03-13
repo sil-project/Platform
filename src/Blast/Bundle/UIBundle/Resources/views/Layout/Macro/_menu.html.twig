@@ -10,9 +10,19 @@
 
     {% import _self as _menu %}
 
-    {% for node in root.children %}
-        {{ _menu.item(node, loop.first, loop.last) }}
-    {% endfor %}
+    {% if root is iterable %}
+
+        {% for label, node in root %}
+            {{ _menu.item(node, label, loop.first, loop.last) }}
+        {% endfor %}
+
+    {% else %}
+
+        {% for label, node in root.children %}
+            {{ _menu.item(node, label, loop.first, loop.last) }}
+        {% endfor %}
+
+    {% endif %}
 
 {% endmacro %}
 
@@ -24,14 +34,14 @@
 {#                                                                                       #}
 {# ##################################################################################### #}
 
-{% macro item(node, isFirst, isLast) %}
+{% macro item(node, label, isFirst, isLast) %}
 
     {% import _self as _menu %}
 
     {% if node.children %}
-        {{ _menu.item_nested(node, isFirst, isLast) }}
+        {{ _menu.item_nested(node, label, isFirst, isLast) }}
     {% else %}
-        {{ _menu.item_simple(node, isFirst, isLast) }}
+        {{ _menu.item_simple(node, label, isFirst, isLast) }}
     {% endif %}
 
 {% endmacro %}
@@ -44,11 +54,11 @@
 {#                                                                                       #}
 {# ##################################################################################### #}
 
-{% macro item_simple(node, isFirst, isLast) %}
+{% macro item_simple(node, label, isFirst, isLast) %}
 
-    <a class="item {{isFirst ? 'first'}} {{isLast ? 'last'}}" href="{{ node.href }}">
+    <a class="simple item {{isFirst ? 'first'}} {{isLast ? 'last'}}" {% if node.route is defined and node.route is not null %} href="{{ path(node.route) }}" {% endif %}>
         <i class="icon {{ node.icon }}"></i>
-        {{ node.label }}
+        {{ label|trans }}
     </a>
 
 {% endmacro %}
@@ -61,7 +71,7 @@
 {#                                                                                       #}
 {# ##################################################################################### #}
 
-{% macro item_nested(node, isFirst, isLast) %}
+{% macro item_nested(node, label, isFirst, isLast) %}
 
     {% import _self as _menu %}
 
@@ -71,15 +81,13 @@
             <i class="dropdown icon"></i>
             <div class="header">
                 <i class="icon {{ node.icon }}"></i>
-                <strong>{{ node.label }}</strong>
-            </div>
-
-            <div class="content menu">
-                {% for item in node.children %}
-                    {{  _menu.item(item, loop.first, loop.last) }}
-                {% endfor %}
+                <strong>{{ label|trans }}</strong>
             </div>
         </a>
-
+        <div class="content menu">
+            {% for label, item in node.children %}
+                {{  _menu.item(item, label, loop.first, loop.last) }}
+            {% endfor %}
+        </div>
     </div>
 {% endmacro %}

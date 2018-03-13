@@ -8,11 +8,21 @@
     {% set fieldClass = 'field ' ~ field.class %}
 {% endif %}
 
-{% if field.inline == true %}
+{% if field.inline is defined and field.inline == true %}
     {% set fieldClass = fieldClass ~ ' inline' %}
 {% endif %}
 
-{% if field.readonly %}
+{# ##################################################################################### #}
+{#    INPUT READONLY                                                                     #}
+{# ##################################################################################### #}
+
+{% set readonly = false %}
+
+{% if field.readonly is defined %}
+    {% set readonly = field.readonly %}
+{% endif %}
+
+{% if readonly == true %}
     {% set fieldClass = fieldClass ~ ' readonly' %}
 {% endif %}
 
@@ -22,8 +32,18 @@
 
 {% set tabindex = 1 %}
 
-{% if field.readonly %}
+{% if readonly %}
     {% set tabindex = -1 %}
+{% endif %}
+
+{# ##################################################################################### #}
+{#    INPUT ATTR                                                                         #}
+{# ##################################################################################### #}
+
+{% set attrs = [] %}
+
+{% if field.attr is defined %}
+    {% set attrs = field.attr %}
 {% endif %}
 
 {# ##################################################################################### #}
@@ -31,25 +51,30 @@
 {# ##################################################################################### #}
 
 <div class="{{ fieldClass }}">
+    {% spaceless %}
+        {% if field.label is defined and field.label is not null %}
+            <label>{{ field.label }}</label>
+        {% endif %}
 
-    {% if field.label is defined and field.label is not null %}
-        <label>{{ field.label }}</label>
-    {% endif %}
+        <div
+            class="ui selection dropdown {% if readonly %}disabled{% endif %}"
+            tabindex="{{ tabindex }}"
+            {% for attr, value in attrs %}{{attr}}="{{value}}" {% endfor %}
+        >
+            <input name="{{ field.name }}" type="hidden">
+            <i class="dropdown icon"></i>
 
-    <div class="ui selection dropdown{% if field.disabled %} disabled{% endif %}" tabindex="{{ tabindex}}">
-        <input name="{{ field.name }}" type="hidden">
-        <i class="dropdown icon"></i>
+            <div class="default text">{% if field.value is defined %}{{ field.value }}{% endif %}</div>
 
-        <div class="default text">{{ field.value }}</div>
+            <div class="menu">
+                {% for value in field.values %}
 
-        <div class="menu">
-            {% for value in field.values %}
+                    <div class="item" data-value="{{ value }}">
+                        {{ value }}
+                    </div>
 
-                <div class="item" data-value="{{ value }}">
-                    {{ value }}
-                </div>
-
-            {% endfor %}
+                {% endfor %}
+            </div>
         </div>
-    </div>
+    {% endspaceless %}
 </div>

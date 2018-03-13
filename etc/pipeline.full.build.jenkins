@@ -2,7 +2,8 @@ pipeline {
     agent {
         dockerfile {
             filename "etc/dockerfile.build.jenkins"
-            args '--network=ci.network  --volume $HOME/cache/pip:/home/jenkins/.cache/pip --volume $HOME/cache/composer:/home/jenkins/.composer/cache --volume $HOME/cache/node_modules:/home/jenkins/node_modules'
+            additionalBuildArgs '--build-arg UID=$(id -u) --build-arg GID=$(id -g)'
+            args '--network=ci.network --volume $HOME/cache/pip:/home/jenkins/.cache/pip --volume $HOME/cache/composer:/home/jenkins/.composer/cache --volume $HOME/cache/node_modules:/home/jenkins/node_modules'
            /* '--volume $HOME/cache/npm:/home/jenkins/.npm/_cacache' */
         }
     }
@@ -32,27 +33,30 @@ pipeline {
         }
         stage ('Set Env') {
             steps {
-                sh "ln -fs ./.env.jenkins ./.env"
-                sh "cat ./.env"
-                sh "mkdir -p build"
+                sh './bin/ci-scripts/set_env_with_etcd.sh'
+                sh './bin/ci-scripts/set_pgpass_test.sh'
+                sh 'cat ./.env'
+                sh 'cat $HOME/.pgpass'
+
             }
         }
 
 
         stage ('Prepare') {
             steps {
+                sh 'mkdir -p build'
                 sh "ln -sf /home/jenkins/node_modules"
                 sh "./bin/ci-scripts/do_run.sh before_install_test.sh"
+                /*
                 sh "./bin/ci-scripts/do_run.sh before_install_ui_test.sh"
+                */
             }
         }
 
         stage ('Create Database') {
             steps {
-                sh "./bin/ci-scripts/do_run.sh set_db_host_test.sh # needed before create as it set .pgpass"
                 sh "./bin/ci-scripts/do_run.sh create_database_test.sh"
                 sh "./bin/ci-scripts/do_run.sh create_table_test.sh"
-
             }
         }
 
@@ -82,12 +86,13 @@ pipeline {
                         sh "./bin/ci-scripts/do_run.sh before_script_start_test.sh"
                     }
                 }
-
+                /*
                 stage ('Start Selenium') {
                     steps {
                         sh "./bin/ci-scripts/do_run.sh launch_selenium_test.sh"
                     }
                 }
+                */
             }
         }
 

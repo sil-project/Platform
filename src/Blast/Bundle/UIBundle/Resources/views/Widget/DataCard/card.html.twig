@@ -1,7 +1,7 @@
-<div class="ui clearing segment with form">
+<div class="ui clearing segment {{ class }} {% if form is not null %}with form{% endif %}">
     <h4 class="ui header">
         {{ title }}
     </h4>
     <div class="ui divider"></div>
-    {{ widget.field_group(data, fields, editable, withSubmit) }}
+    {{ blast_widget_field_group(data, fields, form, showTemplate, formTemplate) }}
 </div>

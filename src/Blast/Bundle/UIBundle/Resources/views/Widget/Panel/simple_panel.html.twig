@@ -1,0 +1,7 @@
+{% extends '@BlastUI/Widget/Panel/panel.html.twig' %}
+
+{% block panel_header %}
+    {% if title is not empty %}
+        {{ parent() }}
+    {% endif %}
+{% endblock panel_header %}

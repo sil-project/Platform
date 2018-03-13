@@ -47,6 +47,7 @@ twig:
         - 'BlastBaseEntitiesBundle:Form:fields.html.twig'
         - 'SilMediaBundle:Form:fields.html.twig'
         - 'BlastSearchBundle:Form:fields.html.twig'
+        - 'BlastUIBundle:Form:theme.html.twig'
     globals:
         sil:
             url_prefix: "%sil.url_prefix%"
@@ -105,7 +106,7 @@ doctrine:
                         type: yml
                     SilSonataSyliusUserBundle:
                         type: yml
-                  
+
 
                     # Platform
 

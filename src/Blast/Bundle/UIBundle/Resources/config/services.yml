@@ -1,7 +1,36 @@
 services:
+
     blast_ui.twig.extensions.parameters:
         class: Blast\Bundle\UIBundle\Twig\Extensions\ParametersExtension
-        calls:
-            - ['setBlastUiParameter', ['%blast_ui%']]
+        arguments:
+            - '%blast_ui%'
+        tags:
+            - { name: twig.extension }
+
+    blast_ui.twig.extensions.breadcrumb:
+        class: Blast\Bundle\UIBundle\Twig\Extensions\BreadcrumbExtension
+        arguments:
+            - '@blast_ui.service.breadcrumb_builder'
+        tags:
+            - { name: twig.extension }
+
+    blast_ui.twig.extensions.theme_handler:
+        class: Blast\Bundle\UIBundle\Twig\Extensions\ThemeHandlerExtension
+        arguments:
+            - '@session'
+            - '@request_stack'
+            - '%blast_ui%'
+        tags:
+            - { name: twig.extension }
+
+    blast_ui.service.breadcrumb_builder:
+        class: Blast\Component\UI\Service\BreadcrumbBuilder
+
+    # WIDGETS
+
+    blast_ui.twig.extensions.widgets:
+        class: Blast\Bundle\UIBundle\Twig\Extensions\Widgets
+        arguments:
+            - '%blast_ui%'
         tags:
             - { name: twig.extension }

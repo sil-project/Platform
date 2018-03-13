@@ -13,5 +13,6 @@ _errors:
 _main:
     resource: routing.yml
 
-blast_ui:
-    resource: '@BlastUIBundle/Resources/config/routing.yml'
+blast_ui_test:
+    path: /blast/ui/test
+    defaults: { _controller: 'PlatformBundle:Test:test' }

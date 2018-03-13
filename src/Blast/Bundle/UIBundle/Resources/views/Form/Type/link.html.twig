@@ -20,7 +20,7 @@
 {% endif %}
 
 {# ##################################################################################### #}
-{#    LINK SRC                                                                           #}
+{#    INPUT SRC                                                                          #}
 {# ##################################################################################### #}
 
 {% set linkSrc = '#' %}
@@ -30,15 +30,30 @@
 {% endif %}
 
 {# ##################################################################################### #}
+{#    INPUT ATTR                                                                         #}
+{# ##################################################################################### #}
+
+{% set attrs = [] %}
+
+{% if field.attr is defined %}
+    {% set attrs = field.attr %}
+{% endif %}
+
+{# ##################################################################################### #}
 {#    INPUT                                                                              #}
 {# ##################################################################################### #}
 
-<a href="{{ linkSrc }}" class="{{ fieldClass }}" tabindex="1">
+<a
+    href="{{ linkSrc }}"
+    class="{{ fieldClass }}"
+    tabindex="1"
+    {% for attr, value in attrs %}{{attr}}="{{value}}" {% endfor %}
+>
+    {% spaceless %}
+        {% if fieldIcon is not null %}
+            <i class="{{ fieldIcon }} icon"></i>
+        {% endif %}
 
-    {% if fieldIcon is not null %}
-        <i class="{{ fieldIcon }} icon"></i>
-    {% endif %}
-
-    {{ field.label }}
-
+        {{ field.label }}
+    {% endspaceless %}
 </a>
