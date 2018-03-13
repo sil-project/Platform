@@ -61,7 +61,6 @@ $ETCDCTLCMD put $prefix/selenium/hostname $seleniumhost $ETCDENDPOINT
 
 # set symfony env
 $ETCDCTLCMD put $prefix/symfony/env test $ETCDENDPOINT # maybe put this in env variable (or not)
-
 $ETCDCTLCMD put $prefix/symfony/addr $currentip':8042' $ETCDENDPOINT
 
 $ETCDCTLCMD put $prefix/sylius/channelurl $currentip $ETCDENDPOINT
