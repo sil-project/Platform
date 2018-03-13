@@ -1,0 +1,30 @@
+{% block modal %}
+    <div data-modal="{{ identifier }}" class="ui modal {{ classes }}">
+        <div class="ui icon header">
+            <i class="answer icon"></i>
+            {{ title }}
+        </div>
+        <div class="content">
+            {{ content }}
+        </div>
+        <div class="actions">
+            {% spaceless %}
+                {% for action in actions %}
+
+                    {% set actionParameters = {
+                        'label': '',
+                        'class': '',
+                        'icon': ''
+                    } | merge(action) %}
+
+                    {{ blast_widget_field(action.type, actionParameters) }}
+                {% else %}
+                    {{ blast_widget_field('link', {
+                        'label': 'Fermer',
+                        'class': 'button primary cancel'
+                    }) }}
+                {% endfor %}
+            {% endspaceless %}
+        </div>
+    </div>
+{% endblock modal %}

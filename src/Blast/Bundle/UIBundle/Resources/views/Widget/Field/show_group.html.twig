@@ -1,0 +1,21 @@
+<table class="ui very basic striped celled table show data">
+    <tbody>
+        {% spaceless %}
+            {% for field in fields %}
+                <tr>
+
+                    <td class="right aligned four wide">
+                        <strong>
+                            {{ field.label }}
+                        </strong>
+                    </td>
+
+                    <td>
+                        {{ attribute(data, field.name) }}
+                    </td>
+
+                </tr>
+            {% endfor %}
+        {% endspaceless %}
+    </tbody>
+</table>

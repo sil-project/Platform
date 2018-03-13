@@ -8,18 +8,18 @@
                     <i class="angle left icon"></i>
                 </div>
             </div>
+            {% spaceless %}
+                {% if withCancelButton %}
 
-            {% if withCancelButton %}
+                    <div class="column center aligned">
+                        <a class="ui left labeled icon button" href="javascript:history.back();">
+                            Annuler
+                            <i class="undo icon"></i>
+                        </a>
+                    </div>
 
-                <div class="column center aligned">
-                    <a class="ui left labeled icon button" href="javascript:history.back();">
-                        Annuler
-                        <i class="undo icon"></i>
-                    </a>
-                </div>
-
-            {% endif %}
-
+                {% endif %}
+            {% endspaceless %}
             <div class="right floated column center aligned">
                 <div class="ui green right labeled icon button next step">
                     Étape suivante

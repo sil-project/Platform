@@ -1,0 +1,63 @@
+{% extends "@Platform/Layout/layout.html.twig" %}
+
+{% block content %}
+
+    {% block page_header %}
+
+        <div class="ui grid">
+            <div class="twelve wide column">
+                <h1 class="ui header">
+                    <i class="rounded sticky {% block page_header_icon %}list{% endblock page_header_icon %} outline icon"></i>
+                    <div class="content">
+                        {% block page_header_title %}List{% endblock page_header_title %}
+                        <div class="sub header">
+                            {% block page_header_description %}
+                                Default list page, please override blocks
+                                <b>« page_header_title »</b>,
+                                <b>« page_header_icon »</b>,
+                                <b>« page_header_description »</b>
+                            {% endblock page_header_description %}
+                        </div>
+                    </div>
+                </h1>
+            </div>
+
+            {% block page_actions %}
+
+                <div class="four wide column">
+                    {% block page_actions_content %}{% endblock %}
+                </div>
+
+            {% endblock %}
+
+        </div>
+
+    {% endblock %}
+
+    <div class="toolbar">
+        {% block page_toolbar %}
+
+            {% include "@BlastUI/Views/List/Filter/filter_bar.html.twig" %}
+
+        {% endblock page_toolbar %}
+    </div>
+
+    <div class="ui divider"></div>
+
+    {% block page_content %}
+
+        {{ blast_widget_table({
+            headers: list.headers,
+            data: list.elements,
+            actions: list.actions,
+            allowSelection: true
+        }) }}
+
+    {% endblock %}
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="/bundles/blastui/js/features/list.js"></script>
+{% endblock %}

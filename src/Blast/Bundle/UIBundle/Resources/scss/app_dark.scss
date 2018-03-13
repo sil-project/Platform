@@ -1,0 +1,117 @@
+@import 'app';
+@import 'colors_dark';
+
+body {
+    font-family: 'Raleway','Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+
+    .ui.fixed.inverted.menu {
+        background-color: $pageBackgroundDarken;
+
+        .item.secondary.inverted {
+            background-color: $gray-light;
+        }
+
+        .ui.breadcrumb {
+            margin-left: 0.5em;
+            background : transparent;
+            padding    : 0;
+
+            a.section {
+                line-height: 2.85rem;
+                color      : $white;
+
+                &:not(:last-child) {
+                    margin-right: 1.5em;
+
+                    &::after {
+                        content    : ' ';
+                        background : transparent url("/bundles/blastui/img/bc-separator.png") 50% 50% scroll;
+                        width      : 8px;
+                        height     : 43px;
+                        display    : inline;
+                        position   : absolute;
+                        margin-left: 0.5em;
+                        opacity    : 0.3;
+                    }
+                }
+            }
+        }
+    }
+
+    &.login {
+        background-color: $pageBackgroundDarken;
+    }
+}
+
+.toolbar .ui.menu {
+    box-shadow: 0 1px 2px 0 #222;
+}
+
+.ui.menu:not(.vertical) > .item > .ui.compact.dropdown.primary > .ui.label {
+    color     : $white;
+    background: $pageBackground;
+    border    : none;
+    box-shadow: none;
+}
+
+.ui.vertical.menu > .item:first-child,
+body.pushable,
+body.pushable .pusher {
+    background-color: $pageBackground;
+}
+
+body {
+    .ui {
+        &.sidebar.vertical.menu {
+            background: $pageBackground;
+
+            .item:not(.header) {
+
+                background: $pageBackgroundDarken;
+                font-size : 0.8rem;
+                color     : $white;
+                box-sizing: border-box;
+                padding   : 0;
+
+                & > .content,
+                & > .title,
+                &.simple {
+                    padding: 0.7em;
+                }
+
+                & > i.icon {
+                    color: $white;
+                }
+
+                &.simple:hover {
+                    background-color: $primaryColor;
+                }
+
+                &:not(.simple):not(:first-of-type) {
+                    border-top: 1px solid rgba(0,0,0,0.1);
+                }
+
+                & > .menu {
+                    margin: 0 -0.7em 0;
+                }
+            }
+        }
+
+        &.styled.accordion .content,
+        &.styled.accordion .title.active {
+            background-color: $pageBackground;
+            border-color    : $pageBackground;
+            color           : $primaryColor !important;
+        }
+    }
+}
+
+i.rounded.icon {
+    border-radius   : 0.285rem !important;
+    line-height     : 1 !important;
+    padding         : 0.1em 0.1em !important;
+    border          : 1px solid $pageBackground;
+    width           : 2em !important;
+    height          : 2em !important;
+    background-color: $gray-light;
+}

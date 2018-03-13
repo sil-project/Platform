@@ -60,6 +60,7 @@ class Kernel extends BaseKernel
             new \Symfony\Bundle\SecurityBundle\SecurityBundle(),
             new \Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
             new \Symfony\Bundle\TwigBundle\TwigBundle(),
+            new \Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new \Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
 
             // -------------------------------------------------------------------------------------

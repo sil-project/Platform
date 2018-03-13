@@ -8,11 +8,21 @@
     {% set fieldClass = 'field ' ~ field.class %}
 {% endif %}
 
-{% if field.inline == true %}
+{% if field.inline is defined and field.inline == true %}
     {% set fieldClass = fieldClass ~ ' inline' %}
 {% endif %}
 
-{% if field.readonly %}
+{# ##################################################################################### #}
+{#    INPUT READONLY                                                                     #}
+{# ##################################################################################### #}
+
+{% set readonly = false %}
+
+{% if field.readonly is defined %}
+    {% set readonly = field.readonly %}
+{% endif %}
+
+{% if readonly %}
     {% set fieldClass = fieldClass ~ ' readonly' %}
 {% endif %}
 
@@ -27,11 +37,21 @@
 {% endif %}
 
 {# ##################################################################################### #}
+{#    INPUT ATTR                                                                         #}
+{# ##################################################################################### #}
+
+{% set attrs = [] %}
+
+{% if field.attr is defined %}
+    {% set attrs = field.attr %}
+{% endif %}
+
+{# ##################################################################################### #}
 {#    INPUT                                                                              #}
 {# ##################################################################################### #}
 
-{% spaceless %}
-    <div class="{{ fieldClass }}">
+<div class="{{ fieldClass }}">
+    {% spaceless %}
 
         {% if field.label is defined and field.label is not null %}
             <label>{{ field.label }}</label>
@@ -40,7 +60,8 @@
         <textarea
             name="{{ field.name }}"
             tabindex="{{ tabindex }}"
-            {% if field.disabled %} disabled="disabled"{% endif %}
-        >{{ field.value }}</textarea>
-    </div>
-{% endspaceless %}
+            {% if readonly %} disabled="disabled"{% endif %}
+            {% for attr, value in attrs %}{{attr}}="{{value}}" {% endfor %}
+        >{% if field.value is defined %}{{ field.value }}{% endif %}</textarea>
+    {% endspaceless %}
+</div>

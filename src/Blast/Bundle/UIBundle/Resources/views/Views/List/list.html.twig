@@ -7,10 +7,12 @@
         <div class="ui grid">
             <div class="twelve wide column">
                 <h1 class="ui header">
-                    <i class="rounded sticky {{page.header.icon}} outline icon"></i>
+                    <i class="rounded sticky {% block page_header_icon %}list{% endblock page_header_icon %} outline icon"></i>
                     <div class="content">
-                        {{ page.header.title}}
-                        <div class="sub header">{{ page.header.description}}</div>
+                        {% block page_header_title %}List{% endblock page_header_title %}
+                        <div class="sub header">
+                            {% block page_header_description %}Default list page, please override blocks <b>« page_header_title »</b>, <b>« page_header_icon »</b>, <b>« page_header_description »</b>{% endblock page_header_description %}
+                        </div>
                     </div>
                 </h1>
             </div>
@@ -39,7 +41,7 @@
 
     {% block page_content %}
 
-        {{ widget.table({
+        {{ blast_widget_table({
             headers: list.headers,
             data: list.elements,
             actions: list.actions,

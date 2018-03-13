@@ -1,5 +1,29 @@
+{# TEST LAYOUT
+
 {% extends '@BlastUI/Layout/layout.html.twig' %}
 
 {% block content %}
-test
+    A page using Layout
 {% endblock %}
+
+#}
+
+{# TEST SHOW VIEW #}
+
+{% extends '@BlastUI/Views/Show/show.html.twig' %}
+
+{% block page_content %}
+    A page using Show view
+{% endblock %}
+
+{#  #}
+
+{# TEST LIST VIEW
+
+{% extends '@BlastUI/Views/List/list.html.twig' %}
+
+{% block page_content %}
+    A page using Show view
+{% endblock %}
+
+#}

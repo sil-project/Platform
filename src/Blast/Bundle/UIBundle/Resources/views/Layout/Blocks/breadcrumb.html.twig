@@ -1,0 +1,9 @@
+<div class="ui breadcrumb tablet or lower hidden">
+
+    {% for item in breadcrumb.items %}
+        <a href="{{item.url}}" class="section {{loop.last ? 'active' }}">
+            {{ item.label|raw }}
+        </a>
+    {% endfor %}
+
+</div>

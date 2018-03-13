@@ -1,0 +1,210 @@
+{# TEST LAYOUT
+
+{% extends '@Platform/Layout/layout.html.twig' %}
+
+{% block content %}
+    A page using Layout
+{% endblock %}
+
+#}
+
+{# {% include '@BlastUI/Views/Common/panel.html.twig' with {'title': 'Exemple de formulaire', 'content': form(form)} %} #}
+
+{# {{ blast_widget_panel('Exemple de formulaire', form(form)) }} #}
+
+{# {{ blast_widget_field_group(entity, ['name', 'description'], form, '@Platform/View/test.html.twig') }} #}
+
+{# {{ blast_widget_panel('Exemple de formulaire éditable',
+    blast_widget_field_group(entity, [{'name':'name','label':'Nom'}, {'name':'description','label':'Description'}], form)
+, 'with form') }}
+#}
+
+{# TEST SHOW VIEW #}
+
+{% extends '@Platform/Views/Show/show.html.twig' %}
+
+{% block page_content %}
+    A page using Show view
+
+    {{ blast_widget_field('select', {
+        label: 'Une liste de choix',
+        name: 'une_liste',
+        value: 'Choix #3',
+        values: [
+            'Choix #1',
+            'Choix #2',
+            'Choix #3',
+            'Choix #4',
+            'Choix #5'
+        ]
+    }) }}
+
+    {{ blast_widget_card('Exemple de card éditable', entity,[
+        {'name':'name','label':'Nom'},
+        {'name':'description','label':'Description'},
+        {'name':'isReal','label':'Est réel ?'}
+    ], form )}}
+
+    <p></p>
+    <div class="ui padded grid">
+
+        {{ blast_widget_panel('Titre', 'Lorem ipsum...', 'four wide column') }}
+
+    </div>
+    <p></p>
+
+    <div class="ui padded grid">
+        <div class="four wide column">
+
+            {{ blast_widget_show_group({'name':'Ma donnée','description':'Un exemple de show group'}, [
+                {
+                    name: 'name',
+                    label: 'Nom'
+                },{
+                    name: 'description',
+                    label: 'Description'
+                }
+            ]) }}
+
+        </div>
+    </div>
+
+    <p></p>
+
+    <div class="ui padded grid">
+        <div class="four wide column">
+
+            {{ blast_widget_table(properties) }}
+
+        </div>
+    </div>
+
+    <p></p>
+    <div class="ui padded grid">
+        <div class="six wide column">
+
+            <div class="ui stackable two steps">
+                {{ blast_widget_step_header('first', 'Étape 1', 'Première étape', 'thumbs up outline', true) }}
+                {{ blast_widget_step_header('last', 'Étape 2', 'Dernière étape', 'handshake outline') }}
+            </div>
+
+        </div>
+    </div>
+
+    <p></p>
+
+    <div class="ui padded grid">
+        <div class="eight wide column">
+
+            {{ blast_widget_step_nav() }}
+
+        </div>
+    </div>
+
+    <div class="ui padded grid">
+        <div class="eight wide column">
+
+            {{ blast_widget_step_nav(false) }}
+
+        </div>
+    </div>
+
+    <p></p>
+
+    {{ blast_widget_field('datetime', {
+        label: 'Une date',
+        name: 'datetime',
+        class: 'fluid'
+    }) }}
+
+    <p></p>
+
+    {{ blast_widget_field('link', {
+        class: 'button primary',
+        attr: {
+            'data-modal': 'my_modal'
+        },
+        label: 'Ouvrir la modale'
+    }) }}
+    {{ blast_widget_field('link', {
+        class: 'button primary',
+        attr: {
+            'data-modal': 'my_modal_2'
+        },
+        label: 'Ouvrir la modale 2'
+    }) }}
+
+    {{ blast_widget_modal('my_modal', 'Ma modale', 'Contenu de la modale', [{
+        type: 'button',
+        label: 'Fermer',
+        class: 'ok cancel',
+        icon: 'times',
+        attr: {
+            onclick: 'alert(\'ok\')'
+        }
+    }]) }}
+    {{ blast_widget_modal('my_modal_2', 'Ma modale 2', 'Contenu de la modale 2', [{
+        type: 'button',
+        label: 'Fermer',
+        class: 'ok cancel',
+        icon: 'times'
+    }]) }}
+
+    <p></p>
+    <div class="ui padded grid">
+
+        {{ blast_widget_panel(null, 'Panneau sans titre...', 'four wide column') }}
+
+    </div>
+
+    <p></p>
+
+    <div class="ui padded grid">
+        <div class="six wide column">
+            {{ blast_widget_card('Titre de la card', entity, [
+                {'name':'name','label':'Nom'},
+                {'name':'description','label':'Description'}
+            ], form, 'fuild' )}}
+        </div>
+    </div>
+    <div class="ui padded grid">
+        <div class="six wide column">
+            {{ blast_widget_card('Titre de la card', entity, [
+                {'name':'name','label':'Nom'},
+                {'name':'description','label':'Description'}
+            ], smallForm, 'fuild' )}}
+        </div>
+    </div>
+    <div class="ui padded grid">
+        <div class="six wide column">
+            {{ blast_widget_card('Titre de la card', entity, [
+                {'name':'name','label':'Nom'},
+                {'name':'description','label':'Description'}
+            ], null, 'fuild' )}}
+        </div>
+    </div>
+{% endblock %}
+
+{# #}
+
+{# TEST LIST VIEW
+
+{% extends '@Platform/Views/List/list.html.twig' %}
+
+{% block page_header_title %}
+    Liste d'une resource
+{% endblock page_header_title %}
+
+{% block page_header_icon %}
+    list
+{% endblock page_header_icon %}
+
+{% block page_header_description %}
+    Resources disponibles
+{% endblock page_header_description %}
+
+{% block page_content %}
+    {{ parent() }}
+{% endblock %}
+
+#}

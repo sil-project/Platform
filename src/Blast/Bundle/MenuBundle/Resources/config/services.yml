@@ -14,9 +14,25 @@ services:
             - [setAuthorizationChecker, ['@security.authorization_checker']]
             - [setLoader, ['@blast.menu_loader']]
 
+    blast.simple_menu_builder:
+        class: Blast\Bundle\MenuBundle\Builder\SimpleMenuBuilder
+        arguments: ["@knp_menu.factory"]
+        calls:
+            - [setTokenStorage, ['@security.token_storage']]
+            - [setAuthorizationChecker, ['@security.authorization_checker']]
+            - [setLoader, ['@blast.menu_loader']]
+
     blast.sidebar_menu.global:
         class: Knp\Menu\MenuItem
         factory: ["@blast.menu_builder", createGlobalSidebarMenu]
         arguments: ["@request_stack"]
         tags:
             - { name: knp_menu.menu, alias: global_sidebar_menu }
+
+    blast.menu.twig.extension.menu_renderer:
+        class: Blast\Bundle\MenuBundle\Twig\Extensions\MenuRenderer
+        calls:
+            - [setMenuParameter, ['%blast_menu%']]
+            - [setBuilder, ['@blast.simple_menu_builder']]
+        tags:
+            - { name: twig.extension }

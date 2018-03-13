@@ -1,0 +1,25 @@
+{% block panel %}
+
+    <div class="ui clearing segment {% block panel_class %}{% if classes is defined %}{{ classes }}{% endif %}{% endblock panel_class %}">
+
+        {% block panel_header %}
+
+            <h4 class="ui header">
+                {%- block panel_header_title -%}
+                    {{ title|raw }}
+                {%- endblock panel_header_title -%}
+            </h4>
+
+            <div class="ui divider"></div>
+
+        {% endblock panel_header %}
+
+        {%- block panel_content -%}
+
+            {{ content|raw }}
+
+        {%- endblock panel_content -%}
+
+    </div>
+
+{% endblock panel %}
