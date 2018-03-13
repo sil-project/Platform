@@ -15,6 +15,7 @@ namespace Blast\Component\View\Config;
 use Blast\Component\View\DataMapper\DataMapperInterface;
 use Blast\Component\View\DataTransformer\DataTransformerInterface;
 use Blast\Component\View\Type\ViewTypeInterface;
+
 /**
  * @author Glenn Cavarlé <glenn.cavarle@libre-informatique.fr>
  */

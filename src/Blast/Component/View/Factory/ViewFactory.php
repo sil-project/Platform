@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /*
- * Copyright (C) 2015-2017 Libre Informatique
+ * Copyright (C) 2015-2018 Libre Informatique
  *
  * This file is licenced under the GNU LGPL v3.
  * For the full copyright and license information, please view the LICENSE.md
@@ -14,6 +14,7 @@ namespace Blast\Component\View\Factory;
 
 use Blast\Component\View\Exception\UnexpectedTypeException;
 use Blast\Component\View\Registry\ViewTypeRegistryInterface;
+
 /**
  * @author Glenn Cavarlé <glenn.cavarle@libre-informatique.fr>
  */
