@@ -53,9 +53,10 @@ $ETCDCTLCMD put $prefix/elastic/indexalias sil_$suffix $ETCDENDPOINT
 
 # set symfony env
 $ETCDCTLCMD put $prefix/symfony/env test $ETCDENDPOINT # maybe put this in env variable (or not)
-$ETCDCTLCMD put $prefix/symfony/addr '127.0.0.1:8042' $ETCDENDPOINT
+currentip=$(hostname -i) # works only if the host name can be resolved
+$ETCDCTLCMD put $prefix/symfony/addr $currentip':8042' $ETCDENDPOINT
 
-$ETCDCTLCMD put $prefix/sylius/channelurl '127.0.0.1' $ETCDENDPOINT
+$ETCDCTLCMD put $prefix/sylius/channelurl $currentip $ETCDENDPOINT
 
 $ETCDCTLCMD get  --prefix $prefix $ETCDENDPOINT
 
