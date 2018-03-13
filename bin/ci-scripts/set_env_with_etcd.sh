@@ -37,6 +37,11 @@ postgrespass=$($ETCDCTLCMD get /default/postgres/root/password --print-value-onl
 # get elastic default
 elastichost=$($ETCDCTLCMD get /default/elastic/hostname --print-value-only $ETCDENDPOINT)
 
+# get selenium default
+seleniumhost=$($ETCDCTLCMD get /default/selenium/hostname --print-value-only $ETCDENDPOINT)
+
+# get ip
+currentip=$(hostname -i) # works only if the host name can be resolved
 
 # set postgres env
 $ETCDCTLCMD put $prefix/postgres/hostname $postgreshost $ETCDENDPOINT
@@ -51,9 +56,12 @@ $ETCDCTLCMD put $prefix/postgres/user/password sil_password_$suffix $ETCDENDPOIN
 $ETCDCTLCMD put $prefix/elastic/hostname $elastichost $ETCDENDPOINT
 $ETCDCTLCMD put $prefix/elastic/indexalias sil_$suffix $ETCDENDPOINT
 
+# set selenium env
+$ETCDCTLCMD put $prefix/selenium/hostname $seleniumhost $ETCDENDPOINT
+
 # set symfony env
 $ETCDCTLCMD put $prefix/symfony/env test $ETCDENDPOINT # maybe put this in env variable (or not)
-currentip=$(hostname -i) # works only if the host name can be resolved
+
 $ETCDCTLCMD put $prefix/symfony/addr $currentip':8042' $ETCDENDPOINT
 
 $ETCDCTLCMD put $prefix/sylius/channelurl $currentip $ETCDENDPOINT
