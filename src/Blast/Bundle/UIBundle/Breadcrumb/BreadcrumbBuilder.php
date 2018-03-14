@@ -10,7 +10,7 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Blast\Component\UI\Service;
+namespace Blast\Bundle\UIBundle\Breadcrumb;
 
 use Blast\Component\UI\Model\BreadcrumbItem;
 use Blast\Component\UI\Service\BreadcrumbBuilder as BaseBreadcrumbBuilder;
