@@ -24,7 +24,7 @@ services:
             - { name: twig.extension }
 
     blast_ui.service.breadcrumb_builder:
-        class: Blast\Component\UI\Service\BreadcrumbBuilder
+        class: Blast\Bundle\UIBundle\Breadcrumb\BreadcrumbBuilder
 
     # WIDGETS
 
