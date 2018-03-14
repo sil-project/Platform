@@ -1,20 +1,20 @@
 <tr>
     {% if allowSelection == true %}
         <th>
-
             <div class="ui fitted checkbox select all">
                 <input type="checkbox">
                 <label></label>
             </div>
-
         </th>
     {% endif %}
 
-    {% for header in table.headers %}
-        <th>
-            {{ header.label }}
-        </th>
-    {% endfor %}
+    {% spaceless %}
+        {% for header in table.headers %}
+            <th>
+                {{ header.label }}
+            </th>
+        {% endfor %}
+    {% endspaceless %}
 
     {% if table.actions | length > 0 %}
         <th>

@@ -1,36 +1,38 @@
 <div class="mini ui buttons">
-    {% for action in table.actions %}
+    {% spaceless %}
+        {% for action in table.actions %}
 
-        {% if loop.index0 == 0 %}
+            {% if loop.index0 == 0 %}
 
-            <div class="primary mini ui button">
-                <i class="eye icon"></i>
-                Voir
-            </div>
-
-        {% else %}
-
-            {% if loop.index0 == 1 %}
-
-                <div class="secondary mini ui floating dropdown icon button">
-                    <i class="dropdown icon"></i>
-                    <div class="menu">
-
-            {% endif %}
-
-                    <div class="item">
-                        <i class="{{ action.icon }} icon"></i>
-                        {{ action.label }}
-                    </div>
-
-            {% if loop.index0 == loop.last %}
-
-                    </div>
+                <div class="primary mini ui button">
+                    <i class="eye icon"></i>
+                    Voir
                 </div>
 
+            {% else %}
+
+                {% if loop.index0 == 1 %}
+
+                    <div class="secondary mini ui floating dropdown icon button">
+                        <i class="dropdown icon"></i>
+                        <div class="menu">
+
+                {% endif %}
+
+                            <div class="item">
+                                <i class="{{ action.icon }} icon"></i>
+                                {{ action.label }}
+                            </div>
+
+                {% if loop.index0 == loop.last %}
+
+                        </div>
+                    </div>
+
+                {% endif %}
+
             {% endif %}
 
-        {% endif %}
-
-    {% endfor %}
+        {% endfor %}
+    {% endspaceless %}
 </div>

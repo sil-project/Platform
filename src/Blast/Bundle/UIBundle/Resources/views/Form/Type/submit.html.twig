@@ -20,15 +20,54 @@
 {% endif %}
 
 {# ##################################################################################### #}
+{#    INPUT READONLY                                                                     #}
+{# ##################################################################################### #}
+
+{% set readonly = false %}
+
+{% if field.readonly is defined %}
+    {% set readonly = field.readonly %}
+{% endif %}
+
+{% if readonly == true %}
+    {% set fieldClass = fieldClass ~ ' readonly' %}
+{% endif %}
+
+{# ##################################################################################### #}
+{#    INPUT TABINDEX                                                                     #}
+{# ##################################################################################### #}
+
+{% set tabindex = 1 %}
+
+{% if readonly %}
+    {% set tabindex = -1 %}
+{% endif %}
+
+{# ##################################################################################### #}
+{#    INPUT ATTR                                                                         #}
+{# ##################################################################################### #}
+
+{% set attrs = [] %}
+
+{% if field.attr is defined %}
+    {% set attrs = field.attr %}
+{% endif %}
+
+{# ##################################################################################### #}
 {#    INPUT                                                                              #}
 {# ##################################################################################### #}
 
-<button class="{{ fieldClass }}" type="submit" tabindex="1">
+<button
+    class="{{ fieldClass }}"
+    type="submit"
+    tabindex="{{ tabindex }}"
+    {% for attr, value in attrs %}{{attr}}="{{value}}" {% endfor %}
+>
+    {% spaceless %}
+        {% if fieldIcon is not null %}
+            <i class="{{ fieldIcon }} icon"></i>
+        {% endif %}
 
-    {% if fieldIcon is not null %}
-        <i class="{{ fieldIcon }} icon"></i>
-    {% endif %}
-
-    {{ field.label }}
-
+        {% if field.label is defined %}{{ field.label }}{% endif %}
+    {% endspaceless %}
 </button>

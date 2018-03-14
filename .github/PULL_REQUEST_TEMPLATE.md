@@ -1,15 +1,11 @@
-| Q             | A
-| ------------- | ---
-| Branch?       | master
-| Bug fix?      | yes/no
-| New feature?  | yes/no
-| BC breaks?    | yes/no
-| Tests pass?   | yes/no
-| Fixed tickets | fixes #X, partially #Y, mentioned in #Z
-| License       | LGPL
+### Summary
 
+Provide a general description of the code changes in your pull
+request... were there any bugs you had fixed? If so, mention them. If
+these bugs have open GitHub issues, be sure to tag them here as well,
+to keep the conversation linked together.
 
-<!--
-- Please fill in this template according to the PR you're about to submit.
-- Replace this comment by a description of what your PR is solving.
--->
+### Other Information
+
+If there's anything else that's important and relevant to your pull
+request, mention that information here.

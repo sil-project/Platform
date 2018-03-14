@@ -6,13 +6,13 @@
         "php": "^7.1",
         "blast-project/core-bundle": "self.version",
         "doctrine/doctrine-bundle": ">=1.6",
-        "symfony/symfony": "3.3.*"
+        "symfony/symfony": "^3.4"
     },
     "require-dev": {
         "blast-project/tests-bundle": "self.version",
         "phpunit/phpunit": "^6.4",
         "symfony/console": ">=3.2",
-        "symfony/phpunit-bridge": "3.3.*"
+        "symfony/phpunit-bridge": "^3.4"
     },
     "scripts": {
         "test": [
@@ -37,7 +37,7 @@
     	    "@test"
         ]
     },
-    "license": "LGPL-3.0-only",
+    "license": ["LGPL-3.0-only"],
     "keywords": [
         "symfony",
         "doctrine",
@@ -64,6 +64,6 @@
     },
     "version": "dev-wip-platform",
     "config": {
-        "bin-dir": "bin/"
+        "bin-dir": "bin"
     }
 }

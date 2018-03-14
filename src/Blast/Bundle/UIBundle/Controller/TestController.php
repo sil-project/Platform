@@ -23,6 +23,13 @@ class TestController extends Controller
      */
     public function testAction(Request $request)
     {
+        $breadcrumb = $this->container->get('blast_ui.service.breadcrumb_handler');
+
+        $breadcrumb
+            ->addItem('item1', '/')
+            ->addItem('item2', $this->generateUrl('blast_ui_test'))
+        ;
+
         return $this->render('@BlastUI/_test.html.twig');
     }
 }

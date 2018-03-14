@@ -4,6 +4,7 @@ pipeline {
             filename "etc/dockerfile.build.jenkins"
             /* warning /home/jenkins/cache/* have to be created before first launch, if not it is created by root and is not usable, also $HOME does not work and XDG var are not set*/
             /* warning use simple quote to avoid jenkins try to find $HOME (and don't find it...) */
+            additionalBuildArgs '--build-arg UID=$(id -u) --build-arg GID=$(id -g)'
             args '--network=ci.network --volume $HOME/cache/pip:/home/jenkins/.cache/pip --volume $HOME/cache/composer:/home/jenkins/.composer/cache'
         }
     }
@@ -30,7 +31,7 @@ pipeline {
         }
         stage ('Set Env') {
             steps {
-                sh "ln -fs ./.env.jenkins ./.env"
+                sh './bin/ci-scripts/set_env_with_etcd.sh'
                 sh "cat ./.env"
                 sh "mkdir -p build"
             }
@@ -70,11 +71,18 @@ pipeline {
                         publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'build/coverage', reportFiles: 'index.html', reportName: 'Coverage Report', reportTitles: ''])
                     }
                 }
+
                 stage ('Run Docs') {
                     steps {
                         sh "./bin/git-scripts/doc-update.sh"
                         sh "./bin/ci-scripts/do_run.sh run_docs.sh"
                         publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'build/sphinx', reportFiles: 'index.html', reportName: 'Documentation', reportTitles: ''])
+                    }
+                }
+
+                stage ('Run Lint') {
+                    steps {
+                        sh "./bin/ci-scripts/do_run.sh run_lint.sh"
                     }
                 }
             }

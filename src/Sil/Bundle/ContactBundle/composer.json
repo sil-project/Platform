@@ -4,12 +4,14 @@
     "description": "Contact Management",
     "require": {
         "php": "^7.1",
-        "sil-project/contact": "self.version"
+        "sil-project/contact": "self.version",
+        "symfony/symfony": "^3.4"
     },
     "require-dev": {
-        "phpunit/phpunit": "^6.4"
+        "phpunit/phpunit": "^6.4",
+        "symfony/phpunit-bridge": "^3.4"
     },
-    "license": "LGPL-3.0-only",
+    "license": ["LGPL-3.0-only"],
     "keywords": [
         "Contact",
         "contact management"
@@ -31,7 +33,7 @@
         }
     },
     "config": {
-        "bin-dir": "bin/"
+        "bin-dir": "bin"
     },
     "version": "dev-wip-platform"
 }

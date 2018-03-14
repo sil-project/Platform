@@ -5,13 +5,12 @@
 {# #################################################################################### #}
 
 {% block stylesheets %}
-    {{  parent() }}
+    {{ parent() }}
 
     {# ################################################################################ #}
     {#     DEPENDENCIES                                                                 #}
     {# ################################################################################ #}
 
-    {# <link rel="stylesheet" href="/dep/semantic-ui-calendar/dist/calendar.min.css"/> #}
 {% endblock %}
 
 {% block body_class %}pushable{% endblock body_class %}
@@ -22,17 +21,17 @@
     {#     SIDE BAR                                                                     #}
     {# ################################################################################ #}
 
-    {% include '@BlastUI/Layout/Blocks/side-bar.html.twig' %}
+    {% use '@BlastUI/Layout/Blocks/side-bar.html.twig' %}
 
-    {# {{ block('side_bar') }} #}
+    {{ block('side_bar') }}
 
     {# ################################################################################ #}
     {#     TOP BAR                                                                      #}
     {# ################################################################################ #}
 
-    {% include '@BlastUI/Layout/Blocks/top-bar.html.twig' %}
+    {% use '@BlastUI/Layout/Blocks/top-bar.html.twig' %}
 
-    {# {{ block('top_bar') }} #}
+    {{ block('top_bar') }}
 
     {# ################################################################################ #}
     {#     PAGE PUSHER                                                                  #}
@@ -57,7 +56,7 @@
     {# ################################################################################ #}
 
     {% block modals %}
-        {% include '@BlastUI/Widget/Modal/_confirmation.html.twig' %}
+        {% include '@BlastUI/Widget/Modal/confirmation.html.twig' %}
     {% endblock %}
 
 {% endblock body %}
@@ -75,8 +74,10 @@
 
     {#
     <script src="/dep/jquery-address/src/jquery.address.js"></script>
-    <script src="/dep/semantic-ui-calendar/dist/calendar.min.js"></script>
     #}
+
+    {# https://momentjs.com/ #}
+    <script src="/bundles/blastui/js/libs/moment-with-locales.min.js"></script>
 
     {# ################################################################################ #}
     {#     CUSTOM FEATURES                                                              #}
@@ -84,8 +85,10 @@
 
     <script src="/bundles/blastui/js/features/accordions.js"></script>
     <script src="/bundles/blastui/js/features/forms.js"></script>
+    <script src="/bundles/blastui/js/features/messages.js"></script>
     <script src="/bundles/blastui/js/features/modal-confirmation.js"></script>
     <script src="/bundles/blastui/js/features/modals.js"></script>
+    <script src="/bundles/blastui/js/features/range.js"></script>
     <script src="/bundles/blastui/js/features/sidebar.js"></script>
     <script src="/bundles/blastui/js/features/tables.js"></script>
     <script src="/bundles/blastui/js/features/tabs.js"></script>

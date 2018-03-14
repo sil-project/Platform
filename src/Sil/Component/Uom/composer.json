@@ -9,9 +9,9 @@
     },
     "require-dev": {
         "phpunit/phpunit": "^6.4",
-        "symfony/property-access": "^3.2"
+        "symfony/property-access": "^3.4"
     },
-    "license": "LGPL-3.0-only",
+    "license": ["LGPL-3.0-only"],
     "keywords": [
         "uom",
         "unit of measure"
@@ -35,6 +35,6 @@
     },
     "version": "dev-wip-platform",
     "config": {
-        "bin-dir": "bin/"
+        "bin-dir": "bin"
     }
 }

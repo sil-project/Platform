@@ -39,7 +39,6 @@ rm -rf \
 tar --exclude=build \
     --exclude=bin/git-scripts \
     --exclude=doc \
-    --exclude=etc \
     -czhf ${Filename} ./*
 
 sha256sum ${Filename} > ${Filename}.sha256.txt

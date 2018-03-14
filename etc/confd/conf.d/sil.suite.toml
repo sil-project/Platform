@@ -1,0 +1,8 @@
+[template]
+src = "Sil.suite.yml.tmpl"
+dest = "src/Tests/Sil.suite.yml"
+keys = [
+       "/symfony/addr",
+       "/symfony/env",
+       "/selenium/hostname",
+]

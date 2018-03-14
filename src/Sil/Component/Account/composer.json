@@ -11,7 +11,7 @@
     "require-dev": {
         "phpunit/phpunit": "^6.4"
     },
-    "license": "LGPL-3.0-only",
+    "license": ["LGPL-3.0-only"],
     "keywords": [
         "Account",
         "account management",
@@ -34,7 +34,7 @@
         }
     },
     "config": {
-        "bin-dir": "bin/"
+        "bin-dir": "bin"
     },
     "version": "dev-wip-platform"
 }

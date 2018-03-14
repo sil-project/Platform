@@ -9,6 +9,20 @@
 {% endif %}
 
 {# ##################################################################################### #}
+{#    INPUT READONLY                                                                     #}
+{# ##################################################################################### #}
+
+{% set readonly = false %}
+
+{% if field.readonly is defined %}
+    {% set readonly = field.readonly  %}
+{% endif %}
+
+{% if readonly %}
+    {% set fieldClass = fieldClass ~ ' readonly' %}
+{% endif %}
+
+{# ##################################################################################### #}
 {#    INPUT ICON                                                                         #}
 {# ##################################################################################### #}
 
@@ -20,15 +34,40 @@
 {% endif %}
 
 {# ##################################################################################### #}
+{#    INPUT TABINDEX                                                                     #}
+{# ##################################################################################### #}
+
+{% set tabindex = 1 %}
+
+{% if readonly == true %}
+    {% set tabindex = -1 %}
+{% endif %}
+
+{# ##################################################################################### #}
+{#    INPUT ATTR                                                                         #}
+{# ##################################################################################### #}
+
+{% set attrs = [] %}
+
+{% if field.attr is defined %}
+    {% set attrs = field.attr %}
+{% endif %}
+
+{# ##################################################################################### #}
 {#    INPUT                                                                              #}
 {# ##################################################################################### #}
 
-<button class="{{ fieldClass }}" tabindex="1">
+<button
+    class="{{ fieldClass }}"
+    tabindex="{{ tabindex }}"
+    {% if readonly %}disabled="disabled"{% endif %}
+    {% for attr, value in attrs %}{{attr}}="{{value}}" {% endfor %}
+>
+    {% spaceless %}
+        {% if fieldIcon is not null %}
+            <i class="{{ fieldIcon }} icon"></i>
+        {% endif %}
 
-    {% if fieldIcon is not null %}
-        <i class="{{ fieldIcon }} icon"></i>
-    {% endif %}
-
-    {{ field.label }}
-
+        {{ field.label }}
+    {% endspaceless %}
 </button>

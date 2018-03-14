@@ -1,0 +1,10 @@
+{% import '@BlastUI/Layout/Macro/_menu.html.twig' as _menu %}
+
+{{ _menu.menu(menu.getChild('root')) }}
+
+{{ _menu.menu({
+    'blast.menu_label.application_settings': {
+        icon: 'cog',
+        children: menu.getChild('settings').children
+    }
+}) }}

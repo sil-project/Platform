@@ -4,12 +4,12 @@
     "description": "Patch Vendor",
     "require": {
         "php": "^7.1",
-        "symfony/symfony": "3.3.*",
+        "symfony/symfony": "^3.4",
         "sensio/distribution-bundle": "^5.0",
         "sonata-project/doctrine-orm-admin-bundle": ">=3.1"
     },
     "require-dev": {
-        "symfony/phpunit-bridge": "3.3.*",
+        "symfony/phpunit-bridge": "^3.4",
         "blast-project/tests-bundle": "self.version",
         "symfony/console": ">=3.2",
         "phpunit/phpunit": "^6.4"
@@ -22,7 +22,7 @@
     	    "@composer install"
     	]
     },
-    "license": "LGPL-3.0-only",
+    "license": ["LGPL-3.0-only"],
     "keywords": [
         "symfony",
         "sonata",
@@ -49,6 +49,6 @@
     },
     "version": "dev-wip-platform",
     "config": {
-        "bin-dir": "bin/"
+        "bin-dir": "bin"
     }
 }

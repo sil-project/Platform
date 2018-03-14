@@ -2,20 +2,20 @@
 
     {% if allowSelection == true %}
         <td class="collapsing">
-
             <div class="ui fitted checkbox">
                 <input type="checkbox">
                 <label></label>
             </div>
-
         </td>
     {% endif %}
 
-    {% for header in table.headers %}
-        <td>
-            {{ attribute(item, header.name)|raw }}
-        </td>
-    {% endfor %}
+    {% spaceless %}
+        {% for header in table.headers %}
+            <td>
+                {{ attribute(item, header.name)|raw }}
+            </td>
+        {% endfor %}
+    {% endspaceless %}
 
     {% if table.actions | length > 0 %}
         <td class="right aligned collapsing">

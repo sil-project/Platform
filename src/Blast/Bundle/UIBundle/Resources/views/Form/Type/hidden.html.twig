@@ -8,6 +8,17 @@
     {% set fieldClass = field.class %}
 {% endif %}
 
+
+{# ##################################################################################### #}
+{#    INPUT ATTR                                                                         #}
+{# ##################################################################################### #}
+
+{% set attrs = [] %}
+
+{% if field.attr is defined %}
+    {% set attrs = field.attr %}
+{% endif %}
+
 {# ##################################################################################### #}
 {#    INPUT                                                                              #}
 {# ##################################################################################### #}
@@ -15,7 +26,8 @@
 <input
     type="hidden"
     name="{{ field.name }}"
-    value="{{ field.value }}"
     tabindex="-1"
+    {% if field.value is defined %}value="{{ field.value }}"{% endif %}
+    {% for attr, value in attrs %}{{attr}}="{{value}}" {% endfor %}
     {% if fieldClass is not null %} class="{{ fieldClass }}" {% endif %}
 />

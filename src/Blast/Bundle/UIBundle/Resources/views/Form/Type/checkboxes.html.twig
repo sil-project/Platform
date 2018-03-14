@@ -8,11 +8,21 @@
     {% set fieldClass = 'field ' ~ field.class %}
 {% endif %}
 
-{% if field.inline == true %}
+{% if field.inline is defined and field.inline == true %}
     {% set fieldClass = fieldClass ~ ' inline' %}
 {% endif %}
 
-{% if field.readonly %}
+{# ##################################################################################### #}
+{#    INPUT READONLY                                                                     #}
+{# ##################################################################################### #}
+
+{% set readonly = false %}
+
+{% if field.readonly is defined %}
+    {% set readonly = field.readonly  %}
+{% endif %}
+
+{% if readonly %}
     {% set fieldClass = fieldClass ~ ' readonly' %}
 {% endif %}
 
@@ -22,37 +32,47 @@
 
 {% set tabindex = 1 %}
 
-{% if field.readonly %}
+{% if readonly %}
     {% set tabindex = -1 %}
 {% endif %}
 
+{# ##################################################################################### #}
+{#    INPUT ATTR                                                                         #}
+{# ##################################################################################### #}
+
+{% set attrs = [] %}
+
+{% if field.attr is defined %}
+    {% set attrs = field.attr %}
+{% endif %}
 
 {# ##################################################################################### #}
 {#    INPUT                                                                              #}
 {# ##################################################################################### #}
 
 <div class="grouped fields">
+    {% spaceless %}
+        {% if field.label is defined and field.label is not null %}
+            <label>{{ field.label }}</label>
+        {% endif %}
 
-    {% if field.label is defined and field.label is not null %}
-        <label>{{ field.label }}</label>
-    {% endif %}
+        {% for value in field.values %}
 
-    {% for value in field.values %}
-
-        <div class="{{ fieldClass }}">
-            <div class="ui toggle checkbox">
-                <input
-                    type="checkbox"
-                    name="{{ field.name }}[]"
-                    class="hidden"
-                    value="{{ value }}"
-                    tabindex="{{ tabindex }}"
-                    {% if field.value|split(',') == value %} checked="checked" {% endif %}
-                    {% if field.disabled %}disabled="disabled"{% endif %}
-                />
-                <label>{{ value }}</label>
+            <div class="{{ fieldClass }}">
+                <div class="ui toggle checkbox" {% for attr, value in attrs %}{{attr}}="{{value}}" {% endfor %}>
+                    <input
+                        type="checkbox"
+                        name="{{ field.name }}[]"
+                        class="hidden"
+                        value="{{ value }}"
+                        tabindex="{{ tabindex }}"
+                        {% if field.value is defined and value in field.value|split(',') %}checked="checked"{% endif %}
+                        {% if readonly %}disabled="disabled"{% endif %}
+                    />
+                    <label>{{ value }}</label>
+                </div>
             </div>
-        </div>
 
-    {% endfor %}
+        {% endfor %}
+    {% endspaceless %}
 </div>

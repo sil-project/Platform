@@ -6,10 +6,16 @@
         <div class="ui grid">
             <div class="twelve wide column">
                 <h1 class="ui header">
-                    <i class="rounded sticky {{page.header.icon}} outline icon"></i>
+                    <i class="rounded sticky {% block page_header_icon %}eye{% endblock page_header_icon %} icon"></i>
                     <div class="content">
-                        {{ page.header.title}}
-                        <div class="sub header">{{ page.header.description}}</div>
+                        {% block page_header_title %}
+                            Show
+                        {% endblock page_header_title %}
+                        <div class="sub header">
+                            {% block page_header_description %}
+                                Default show page, please override blocks <b>« page_header_title »</b>, <b>« page_header_icon »</b>, <b>« page_header_description »</b>
+                            {% endblock page_header_description %}
+                        </div>
                     </div>
                 </h1>
             </div>

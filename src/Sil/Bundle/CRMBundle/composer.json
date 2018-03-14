@@ -4,14 +4,13 @@
     "description": "CRM Bundle for Symfony",
     "require": {
         "php": "^7.1",
-        "symfony/symfony": "3.3.*",
+        "symfony/symfony": "^3.4",
         "stof/doctrine-extensions-bundle": ">=1.2",
         "jeroendesloovere/vcard-bundle": ">=1.2",
         "sparkling/vat-bundle": "^0.2",
         "blast-project/resource-bundle": "self.version",
         "blast-project/resource": "self.version",
         "blast-project/core-bundle": "self.version",
-        "blast-project/outer-extension-bundle": "self.version",
         "blast-project/base-entities-bundle": "self.version",
         "blast-project/utils-bundle": "self.version",
         "blast-project/search-bundle": "self.version",
@@ -19,11 +18,11 @@
         "ramsey/uuid": "^3.7"
     },
     "require-dev": {
-        "symfony/phpunit-bridge": "3.3.*",
+        "symfony/phpunit-bridge": "^3.4",
         "phpunit/phpunit": "^6.4",
         "blast-project/csv-import-bundle": "self.version"
     },
-    "license": "LGPL-3.0-only",
+    "license": ["LGPL-3.0-only"],
     "keywords": [
         "e-venement",
         "libio",
@@ -48,6 +47,6 @@
     },
     "version": "dev-wip-platform",
     "config": {
-        "bin-dir": "bin/"
+        "bin-dir": "bin"
     }
 }

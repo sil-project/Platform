@@ -4,13 +4,13 @@
         <a class="icon item">
             <i class="left chevron icon"></i>
         </a>
-
-        {% for i in 1..10 %}
-            <a class="item {% if loop.first %}active{% endif %}">
-                {{ i }}
-            </a>
-        {% endfor %}
-
+        {% spaceless %}
+            {% for i in 1..10 %}
+                <a class="item {% if loop.first %}active{% endif %}">
+                    {{ i }}
+                </a>
+            {% endfor %}
+        {% endspaceless %}
         <a class="icon item">
             <i class="right chevron icon"></i>
         </a>

@@ -10,13 +10,13 @@
         "sil-project/account": "self.version",
         "sil-project/contact": "self.version",
         "sil-project/uom": "self.version",
-        "sylius/currency": "^1.1",
+        "sil-project/currency": "self.version",
         "winzou/state-machine": "^0.3"
     },
     "require-dev": {
         "phpunit/phpunit": "^6.4"
     },
-    "license": "LGPL-3.0",
+    "license": ["LGPL-3.0-only"],
     "keywords": [
         "order",
         "order management"
@@ -39,7 +39,7 @@
         }
     },
     "config": {
-        "bin-dir": "bin/"
+        "bin-dir": "bin"
     },
     "version": "dev-wip-platform"
 }

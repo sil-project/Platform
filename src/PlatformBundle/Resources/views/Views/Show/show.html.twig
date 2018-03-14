@@ -1,0 +1,34 @@
+{% extends "@Platform/Layout/layout.html.twig" %}
+
+{% block content %}
+
+    {% block page_header %}
+        <div class="ui grid">
+            <div class="twelve wide column">
+                <h1 class="ui header">
+                    <i class="rounded sticky {% block page_header_icon %}eye{% endblock page_header_icon %} outline icon"></i>
+                    <div class="content">
+                        {% block page_header_title %}Show{% endblock page_header_title %}
+                        <div class="sub header">
+                            {% block page_header_description %}Default show page, please override blocks <b>« page_header_title »</b>, <b>« page_header_icon »</b>, <b>« page_header_description »</b>{% endblock page_header_description %}
+                        </div>
+                    </div>
+                </h1>
+            </div>
+
+            {% block page_actions %}
+
+                <div class="four wide column">
+                    {% block page_actions_content %}{% endblock %}
+                </div>
+
+            {% endblock %}
+
+        </div>
+    {% endblock %}
+
+    <div class="ui divider"></div>
+
+    {% block page_content %}{% endblock %}
+
+{% endblock %}

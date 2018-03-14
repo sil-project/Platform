@@ -14,8 +14,8 @@ namespace Sil\Component\Order\Tests\Unit\Repository;
 
 use InvalidArgumentException;
 use Blast\Component\Resource\Repository\InMemoryRepository;
-use Sil\Component\Order\Repository\CurrencyRepositoryInterface;
-use Sylius\Component\Currency\Model\CurrencyInterface;
+use Sil\Component\Currency\Model\CurrencyInterface;
+use Sil\Component\Currency\Repository\CurrencyRepositoryInterface;
 
 class CurrencyRepository extends InMemoryRepository implements CurrencyRepositoryInterface
 {

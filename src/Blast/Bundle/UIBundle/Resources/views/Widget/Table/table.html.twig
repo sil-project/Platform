@@ -2,7 +2,7 @@
 {#    TABLE CLASS                                                                        #}
 {# ##################################################################################### #}
 
-{% set tableClass = 'ui very compact small celled striped stackable selectable table' %}
+{% set tableClass = 'ui very compact small celled striped stackable table' %}
 
 {% if table.class is defined %}
     {% set tableClass = tableClass ~ ' ' ~ field.class %}
@@ -16,6 +16,7 @@
 
 {% if table.allowSelection is defined %}
     {% set allowSelection = table.allowSelection %}
+    {% set tableClass = tableClass ~ ' selectable' %}
 {% endif %}
 
 {# ##################################################################################### #}
@@ -28,15 +29,13 @@
     </thead>
 
     <tbody>
-        {% for item in table.data %}
-
-            {% include '@BlastUI/Widget/Table/Row/row.html.twig' %}
-
-        {% else %}
-
-            {% include '@BlastUI/Widget/Table/Row/empty.html.twig' %}
-
-        {% endfor %}
+        {% spaceless %}
+            {% for item in table.data %}
+                {% include '@BlastUI/Widget/Table/Row/row.html.twig' %}
+            {% else %}
+                {% include '@BlastUI/Widget/Table/Row/empty.html.twig' %}
+            {% endfor %}
+        {% endspaceless %}
     </tbody>
 
     <tfoot>

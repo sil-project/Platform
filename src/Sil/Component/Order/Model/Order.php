@@ -20,7 +20,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Sil\Component\Invoice\Model\InvoiceInterface;
 use Sil\Component\Account\Model\AccountInterface;
-use Sylius\Component\Currency\Model\CurrencyInterface;
+use Sil\Component\Currency\Model\CurrencyInterface;
 
 class Order implements OrderInterface, AdjustableInterface, OrderStateAwareInterface, ResourceInterface
 {

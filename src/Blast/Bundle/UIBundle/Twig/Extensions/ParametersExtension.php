@@ -19,11 +19,20 @@ class ParametersExtension extends \Twig_Extension
      */
     private $blastUiParameter;
 
+    /**
+     * @param array $blastUiParameter
+     */
+    public function __construct(array $blastUiParameter)
+    {
+        //convert array to stdClass using json_decode(json_encode(...))
+        $this->blastUiParameter = json_decode(json_encode($blastUiParameter));
+    }
+
     public function getFunctions()
     {
         return [
             new \Twig_SimpleFunction(
-                'parameter',
+                'blastui_parameter',
                 [$this, 'getParameter'],
                 [
                     'is_safe' => ['html'],
@@ -37,13 +46,5 @@ class ParametersExtension extends \Twig_Extension
         $propertyAccessor = new PropertyAccessor(PropertyAccessor::ACCESS_TYPE_PROPERTY);
 
         return $propertyAccessor->getValue($this->blastUiParameter, $parameterName);
-    }
-
-    /**
-     * @param array $blastUiParameter
-     */
-    public function setBlastUiParameter(array $blastUiParameter): void
-    {
-        $this->blastUiParameter = json_decode(json_encode($blastUiParameter));
     }
 }

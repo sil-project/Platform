@@ -14,7 +14,7 @@ namespace Sil\Component\Order\Processor;
 
 use Sil\Component\Order\Model\Price;
 use Sil\Component\Order\Model\OrderInterface;
-use Sylius\Component\Currency\Model\CurrencyInterface;
+use Sil\Component\Currency\Model\CurrencyInterface;
 
 class OrderProcessor implements ProcessorInterface
 {

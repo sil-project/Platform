@@ -4,12 +4,12 @@
     "description": "Currency Management",
     "require": {
         "php": "^7.1",
-        "symfony/intl": "^3.3"
+        "symfony/intl": "^3.4"
     },
     "require-dev": {
         "phpunit/phpunit": "^6.4"
     },
-    "license": "LGPL-3.0",
+    "license": ["LGPL-3.0-only"],
     "keywords": [
         "currency",
         "currency management"
@@ -32,7 +32,7 @@
         }
     },
     "config": {
-        "bin-dir": "bin/"
+        "bin-dir": "bin"
     },
     "version": "dev-wip-platform"
 }
