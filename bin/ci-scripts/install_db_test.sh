@@ -21,7 +21,10 @@ for i in default session
 do
     # bin/console doctrine:schema:create --no-interaction --em=$i --env=$SERVERENV
     bin/console doctrine:schema:update --no-interaction --em=$i --env=$SERVERENV --force
-    bin/console doctrine:schema:validate --no-interaction --em=$i --env=$SERVERENV
+    if [ "${WHORUN}" != travis  ]
+    then
+        bin/console doctrine:schema:validate --no-interaction --em=$i --env=$SERVERENV
+    fi
 done
 
 bin/console fos:elastica:reset --no-interaction --env=$SERVERENV
