@@ -14,12 +14,15 @@ else
 fi
 
 # database creation
-bin/console doctrine:schema:drop --force --no-interaction  --full-database --env=$SERVERENV   # --full-database drops default + session connections
+#bin/console doctrine:schema:drop --force --no-interaction  --full-database --env=$SERVERENV   # --full-database drops default + session connections
 bin/console doctrine:database:create --if-not-exists --no-interaction --env=$SERVERENV
-bin/console doctrine:schema:create --no-interaction --em=default --env=$SERVERENV
-bin/console doctrine:schema:create --no-interaction --em=session --env=$SERVERENV
-#bin/console doctrine:schema:update --force --no-interaction --env=$SERVERENV
-#bin/console doctrine:schema:validate --no-interaction --env=$SERVERENV
+
+for i in default session
+do
+    # bin/console doctrine:schema:create --no-interaction --em=$i --env=$SERVERENV
+    bin/console doctrine:schema:update --no-interaction --em=$i --env=$SERVERENV --force
+    bin/console doctrine:schema:validate --no-interaction --em=$i --env=$SERVERENV
+done
 
 bin/console fos:elastica:reset --no-interaction --env=$SERVERENV
 bin/console fos:elastica:populate --no-interaction --env=$SERVERENV
