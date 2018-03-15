@@ -16,7 +16,11 @@ fi
 # sed -e s/'database_host: 127.0.0.1'/'database_host: ${DBHOST}'/g -i app/config/parameters.yml.dist
 if [ -n "${DBHOST}" ]
 then
-    echo  ${DBHOST}:5432:*:${DBROOTUSER}:${DBROOTPASSWORD} >> $HOME/.pgpass
-    chmod 600  $HOME/.pgpass
+    touch $HOME/.pgpass $HOME/pgpass.tmp
+    cp $HOME/.pgpass $HOME/pgpass.tmp
+    echo ${DBHOST}:5432:*:${DBROOTUSER}:${DBROOTPASSWORD} >> $HOME/pgpass.tmp
+    echo ${DBHOST}:5432:*:${DBAPPUSER}:${DBAPPPASSWORD} >> $HOME/pgpass.tmp
+    sort -u $HOME/pgpass.tmp > $HOME/.pgpass
+    chmod 600 $HOME/.pgpass
     cat  $HOME/.pgpass
 fi
