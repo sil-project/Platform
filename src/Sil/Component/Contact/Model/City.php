@@ -95,9 +95,9 @@ class City implements ResourceInterface
     /**
      * Get the value of Post Code.
      *
-     * @return string
+     * @return string| null
      */
-    public function getPostCode(): string
+    public function getPostCode(): ?string
     {
         return $this->postCode;
     }
