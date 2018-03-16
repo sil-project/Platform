@@ -5,6 +5,7 @@
     "require": {
         "php": "^7.1",
         "sil-project/contact": "self.version",
+        "blast-project/resource": "self.version",
         "symfony/symfony": "^3.4"
     },
     "require-dev": {
