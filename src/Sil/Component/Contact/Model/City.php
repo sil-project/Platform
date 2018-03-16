@@ -75,9 +75,9 @@ class City implements ResourceInterface
     /**
      * Get the value of Code.
      *
-     * @return string
+     * @return string|null
      */
-    public function getCode(): string
+    public function getCode(): ?string
     {
         return $this->code;
     }
@@ -95,9 +95,9 @@ class City implements ResourceInterface
     /**
      * Get the value of Post Code.
      *
-     * @return string| null
+     * @return string
      */
-    public function getPostCode(): ?string
+    public function getPostCode(): string
     {
         return $this->postCode;
     }
@@ -115,7 +115,7 @@ class City implements ResourceInterface
     /**
      * Get the value of Country.
      *
-     * @return Country
+     * @return Country|null
      */
     public function getCountry(): ?Country
     {
@@ -135,7 +135,7 @@ class City implements ResourceInterface
     /**
      * Get the value of Province.
      *
-     * @return Province
+     * @return Province|null
      */
     public function getProvince(): ?Province
     {
