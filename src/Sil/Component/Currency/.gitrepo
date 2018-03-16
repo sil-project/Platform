@@ -6,7 +6,7 @@
 [subrepo]
 	remote = git@github.com:sil-project/Currency.git
 	branch = wip-platform
-	commit = 97a45e87c35e3e49681ef81e4323e153a91f2d6a
+	commit = 8b5c6cf066773cc658a8f2aa038d2c8dd99b7592
 	method = merge
 	cmdver = 0.4.0
-	parent = e3eb61d0fc829f7c1363431b260120cfbfce434b
+	parent = 972c2354efcacd9665573008ad1b20f54d2583a1

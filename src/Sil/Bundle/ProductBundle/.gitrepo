@@ -6,7 +6,7 @@
 [subrepo]
 	remote = git@github.com:sil-project/ProductBundle.git
 	branch = wip-platform
-	commit = 3968d6c8a6bb60041246599949075f0b3a8a0471
+	commit = 55d0260c926f59b30681b529d1823af34f6c5a32
 	method = merge
 	cmdver = 0.4.0
-	parent = 6e37965947aeb218be3aff2a041662012afd816b
+	parent = 972c2354efcacd9665573008ad1b20f54d2583a1

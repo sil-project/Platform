@@ -6,7 +6,7 @@
 [subrepo]
 	remote = git@github.com:blast-project/DashboardBundle.git
 	branch = wip-platform
-	commit = dbf265d1d86a48306d364785bcd8909fa0b04d35
+	commit = 172f47778a687c2b9102e2d7a7ef675a310cc6fb
 	method = merge
 	cmdver = 0.4.0
-	parent = 703b94108516332b7865639ed1da7097d37b045f
+	parent = 972c2354efcacd9665573008ad1b20f54d2583a1
