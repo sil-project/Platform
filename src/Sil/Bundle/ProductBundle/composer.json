@@ -5,8 +5,8 @@
     "require": {
         "php": "^7.1",
         "symfony/symfony": "^3.4",
-        "sil-project/product": "self-version",
-        "blast-project/resource-bundle": "self-version",
+        "sil-project/product": "self.version",
+        "blast-project/resource-bundle": "self.version",
         "knplabs/knp-paginator-bundle": "^2.7"
     },
     "require-dev": {
