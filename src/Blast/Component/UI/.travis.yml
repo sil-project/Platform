@@ -1,0 +1,60 @@
+language: php
+
+php:
+  - '7.1'
+  - nightly
+
+
+services:
+  - postgresql
+  - elasticsearch
+
+sudo: required
+
+cache:
+  directories:
+    - $HOME/bin/
+    - $HOME/.composer/cache/files
+    - $HOME/.npm/
+    - node_modules
+
+env:
+  global:
+    - PATH="$HOME/.local/bin:$PATH"
+    - SCRIPTS_FOLDER=bin/ci-scripts
+    - SYMFONY_DEPRECATIONS_HELPER=weak
+    - TARGET=test
+    - WHORUN=travis
+
+matrix:
+  fast_finish: true
+  include:
+    - php: '7.1'
+      env: TARGET=docs
+    - php: '7.1'
+      env: TARGET=lint
+  allow_failures:
+    - php: nightly
+    - env: SYMFONY_DEPRECATIONS_HELPER=0
+
+before_install:
+    - ln -s .env.travis .env # Enable env
+    - ${SCRIPTS_FOLDER}/do_run.sh before_install_travis_${TARGET}.sh
+    - ${SCRIPTS_FOLDER}/do_run.sh before_install_${TARGET}.sh
+    - ${SCRIPTS_FOLDER}/do_run.sh create_database_${TARGET}.sh
+    - ${SCRIPTS_FOLDER}/do_run.sh create_table_${TARGET}.sh
+
+install:
+    - ${SCRIPTS_FOLDER}/do_run.sh install_${TARGET}.sh
+
+before_script:
+    - ${SCRIPTS_FOLDER}/do_run.sh before_script_${TARGET}.sh
+
+script:
+    - travis_wait 42 ${SCRIPTS_FOLDER}/do_run.sh run_${TARGET}.sh
+
+after_success:
+    -  ${SCRIPTS_FOLDER}/do_run.sh after_success_${TARGET}.sh
+
+after_failure:
+    -  ${SCRIPTS_FOLDER}/do_run.sh after_failure_${TARGET}.sh
