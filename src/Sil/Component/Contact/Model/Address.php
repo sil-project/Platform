@@ -200,9 +200,9 @@ class Address implements ResourceInterface, AddressInterface
     /**
      * Get the value of contact.
      *
-     * @return Contact
+     * @return Contact|null
      */
-    public function getContact(): Contact
+    public function getContact(): ?Contact
     {
         return $this->contact;
     }
