@@ -6,6 +6,8 @@
         "php": "^7.1",
         "symfony/symfony": "^3.4",
         "sil-project/product": "self.version",
+        "blast-project/code": "self.version",
+        "blast-project/resource": "self.version",
         "blast-project/resource-bundle": "self.version",
         "knplabs/knp-paginator-bundle": "^2.7"
     },
