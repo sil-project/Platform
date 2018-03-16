@@ -6,7 +6,7 @@
 [subrepo]
 	remote = git@github.com:blast-project/UIBundle.git
 	branch = wip-platform
-	commit = 413007d280b1a00ec019f5e2944d0ba39c27a94d
+	commit = 25f821b6cf51b60babf0369ef567739ec4d242b0
 	method = merge
 	cmdver = 0.4.0
-	parent = 972c2354efcacd9665573008ad1b20f54d2583a1
+	parent = fce91148387b8caa5f281c6436e3a338a2f2c7b2

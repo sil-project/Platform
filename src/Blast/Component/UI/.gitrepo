@@ -6,7 +6,7 @@
 [subrepo]
 	remote = git@github.com:blast-project/UI.git
 	branch = wip-platform
-	commit = d53f785b3b95ae380548f93aeb484a2978b6b6c2
+	commit = 0aedf733c0226138d266782b94311ca681dedb92
 	method = merge
 	cmdver = 0.4.0
-	parent = 972c2354efcacd9665573008ad1b20f54d2583a1
+	parent = fce91148387b8caa5f281c6436e3a338a2f2c7b2
