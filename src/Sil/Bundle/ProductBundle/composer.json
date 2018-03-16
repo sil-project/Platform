@@ -1,0 +1,41 @@
+{
+    "name": "sil-project/product-bundle",
+    "type": "symfony-bundle",
+    "description": "Manage sellable products",
+    "require": {
+        "php": "^7.1",
+        "symfony/symfony": "^3.4",
+        "sil-project/product": "self-version",
+        "blast-project/resource-bundle": "self-version",
+        "knplabs/knp-paginator-bundle": "^2.7"
+    },
+    "require-dev": {
+        "symfony/phpunit-bridge": "^3.4",
+        "phpunit/phpunit": "^6.4"
+    },
+    "license": ["LGPL-3.0-only"],
+    "keywords": [
+        "sil",
+        "product"
+    ],
+    "homepage": "https://github.com/sil-project/ProductBundle",
+    "authors": [
+        {
+            "name": "Vivien FRASCA",
+            "email": "vivien.frasca@libre-informatique.fr"
+        },
+        {
+            "name": "Libre Informatique",
+            "homepage": "http://www.libre-informatique.fr/"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Sil\\Bundle\\ProductBundle\\": "."
+        }
+    },
+    "version": "dev-wip-platform",
+    "config": {
+        "bin-dir": "bin"
+    }
+}
