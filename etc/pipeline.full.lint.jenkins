@@ -1,0 +1,122 @@
+pipeline {
+    parameters {
+        string(defaultValue: '7.1', description: 'Version of Php', name: 'phpVersion')
+    }
+
+    agent {
+        dockerfile {
+            filename "etc/dockerfile.build.jenkins"
+            additionalBuildArgs "--build-arg UID=`id -u` --build-arg GID=`id -g` --build-arg PHPVER=${params.phpVersion}"
+            args '--network=ci.network --volume $HOME/cache/pip:/home/jenkins/.cache/pip --volume $HOME/cache/composer:/home/jenkins/.composer/cache --volume $HOME/cache/node_modules:/home/jenkins/node_modules'
+           /* '--volume $HOME/cache/npm:/home/jenkins/.npm/_cacache' */
+        }
+    }
+
+
+
+    environment {
+        RND = "${BUILD_NUMBER}"
+        COMPOSERARG="--no-ansi"
+        /* Not working in multi branch pipeline
+        Version = sh(returnStdout: true, script: 'git describe --tags').trim()
+        Tag = sh(returnStdout: true, script: 'git describe --tags --abbrev=0').trim()
+        */
+    }
+
+    options {
+        timeout(time: 1, unit: 'HOURS')
+        timestamps()
+        disableConcurrentBuilds()
+    }
+
+    stages {
+        stage ('Where Am I') {
+            steps {
+                sh "uname -a"
+                sh "php -v"
+                sh "composer -V"
+            }
+        }
+        stage ('Set Env') {
+            steps {
+                sh './bin/ci-scripts/set_env_with_etcd.sh'
+                sh './bin/ci-scripts/set_pgpass_test.sh'
+                sh 'cat ./.env'
+                sh 'cat $HOME/.pgpass'
+
+            }
+        }
+
+
+        stage ('Prepare') {
+            steps {
+                sh 'mkdir -p build'
+                sh "ln -sf /home/jenkins/node_modules"
+                sh "./bin/ci-scripts/do_run.sh before_install_test.sh"
+            }
+        }
+
+        stage('Parallel Lint') {
+            parallel {
+                stage ('Main Lint') {
+                    steps {
+                        sh "./bin/ci-scripts/do_run.sh run_lint.sh"
+                    }
+                }
+
+                stage ('Bundle Lint') {
+                    steps {
+                        sh "./bin/ci-scripts/do_it_for_bundle.sh run lint"
+                    }
+                }
+
+                stage ('Component Lint') {
+                    steps {
+                        sh "Type=Component ./bin/ci-scripts/do_it_for_bundle.sh run lint"
+                    }
+                }
+            }
+        }
+
+
+        stage('Parallel Check') {
+            parallel {
+                stage('Check Style') {
+                    steps {
+                        sh 'phpcs -q --report=checkstyle --report-file=build/checkstyle.xml --standard=PSR2 --extensions=php ./src || exit 0'
+                        checkstyle pattern: 'build/checkstyle.xml'
+                    }
+                }
+
+                stage('Copy Paste Detection') {
+                    steps {
+                        sh 'phpcpd -q --log-pmd build/pmd-cpd.xml ./src || exit 0'
+                        dry canRunOnFailed: true, pattern: 'build/pmd-cpd.xml'
+                    }
+                }
+
+                stage('Mess Detection') {
+                    steps {
+                        sh 'phpmd ./src xml phpmd.xml.dist --reportfile build/pmd.xml || exit 0'
+                        pmd canRunOnFailed: true, pattern: 'build/pmd.xml'
+                    }
+                }
+
+                stage('Collect Metrics') {
+                    steps {
+                        sh "phpmetrics --quiet --report-html=build/metrics.html ./src"
+                        publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'build/', reportFiles: 'metrics.html', reportName: 'Metrics Report', reportTitles: ''])
+                    }
+                }
+            }
+        }
+    }
+
+    post {
+        always {
+            cleanWs()
+        }
+    }
+
+
+}

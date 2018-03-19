@@ -37,6 +37,7 @@ pipeline {
                 sh "composer -V"
             }
         }
+
         stage ('Set Env') {
             steps {
                 sh './bin/ci-scripts/set_env_with_etcd.sh'
@@ -47,15 +48,11 @@ pipeline {
             }
         }
 
-
         stage ('Prepare') {
             steps {
                 sh 'mkdir -p build'
                 sh "ln -sf /home/jenkins/node_modules"
                 sh "./bin/ci-scripts/do_run.sh before_install_test.sh"
-                /*
-                sh "./bin/ci-scripts/do_run.sh before_install_ui_test.sh"
-                */
             }
         }
 
@@ -67,6 +64,7 @@ pipeline {
         }
 
         stage('Parallel Install') {
+
             parallel {
                 stage ('Install Test') {
                     steps {
@@ -92,17 +90,10 @@ pipeline {
                         sh "./bin/ci-scripts/do_run.sh before_script_start_test.sh"
                     }
                 }
-                /*
-                stage ('Start Selenium') {
-                    steps {
-                        sh "./bin/ci-scripts/do_run.sh launch_selenium_test.sh"
-                    }
-                }
-                */
             }
         }
 
-        stage('Parallel Report') {
+        stage('Parallel Run') {
             parallel {
                 stage ('Run Test') {
                     steps {
@@ -113,7 +104,6 @@ pipeline {
                             tools: [[$class: 'JUnitType', pattern: 'build/junit.xml']]
                         ])
                         publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'build/coverage', reportFiles: 'index.html', reportName: 'Coverage Report', reportTitles: ''])
-
                     }
                 }
 
@@ -131,43 +121,8 @@ pipeline {
                         publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'build/sphinx', reportFiles: 'index.html', reportName: 'Documentation', reportTitles: ''])
                     }
                 }
-
-                stage ('Run Lint') {
-                    steps {
-                        sh "./bin/ci-scripts/do_run.sh run_lint.sh"
-                    }
-                }
-
-                stage('Check Style') {
-                    steps {
-                        sh 'phpcs -q --report=checkstyle --report-file=build/checkstyle.xml --standard=PSR2 --extensions=php ./src || exit 0'
-                        checkstyle pattern: 'build/checkstyle.xml'
-                    }
-                }
-
-                stage('Copy Paste Detection') {
-                    steps {
-                        sh 'phpcpd -q --log-pmd build/pmd-cpd.xml ./src || exit 0'
-                        dry canRunOnFailed: true, pattern: 'build/pmd-cpd.xml'
-                    }
-                }
-
-                stage('Mess Detection') {
-                    steps {
-                        sh 'phpmd ./src xml phpmd.xml.dist --reportfile build/pmd.xml || exit 0'
-                        pmd canRunOnFailed: true, pattern: 'build/pmd.xml'
-                    }
-                }
-
-                stage('Collect Metrics') {
-                    steps {
-                        sh "phpmetrics --quiet --report-html=build/metrics.html ./src"
-                        publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'build/', reportFiles: 'metrics.html', reportName: 'Metrics Report', reportTitles: ''])
-                    }
-                }
             }
         }
-
 
         stage ('Archive Gzip') {
             steps {

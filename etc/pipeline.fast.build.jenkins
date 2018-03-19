@@ -29,6 +29,7 @@ pipeline {
                 sh "composer -V"
             }
         }
+
         stage ('Set Env') {
             steps {
                 sh './bin/ci-scripts/set_env_with_etcd.sh'
@@ -58,6 +59,7 @@ pipeline {
                 }
             }
         }
+
         stage('Parallel Report') {
             parallel {
                 stage ('Run Test') {
@@ -83,8 +85,6 @@ pipeline {
                 stage ('Run Lint') {
                     steps {
                         sh "./bin/ci-scripts/do_run.sh run_lint.sh"
-                        sh "./bin/ci-scripts/do_it_for_bundle.sh run lint"
-                        sh "Type=Component ./bin/ci-scripts/do_it_for_bundle.sh run lint"
                     }
                 }
             }
