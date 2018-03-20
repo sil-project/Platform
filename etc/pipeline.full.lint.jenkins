@@ -83,7 +83,7 @@ pipeline {
             parallel {
                 stage('Check Style') {
                     steps {
-                        sh 'phpcs -q --report=checkstyle --report-file=build/checkstyle.xml --standard=PSR2 --ignore=./src/*/*/*/Tests/Resources,./src/*/*/*/Tests/_support,./src/Skeleton --extensions=php ./src || exit 0'
+                        sh 'phpcs -q --report=checkstyle --report-file=build/checkstyle.xml --standard=PSR2 --ignore=./src/*/*/*/Tests/,./src/Skeleton,./src/Tests --extensions=php ./src || exit 0'
                         checkstyle pattern: 'build/checkstyle.xml'
                     }
                 }
