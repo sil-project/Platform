@@ -90,14 +90,14 @@ pipeline {
 
                 stage('Copy Paste Detection') {
                     steps {
-                        sh 'phpcpd -q --log-pmd build/pmd-cpd.xml ./src || exit 0'
+                        sh 'phpcpd -q --log-pmd build/pmd-cpd.xml --ignore=./src/*/*/*/Tests/,./src/Skeleton,./src/Tests --regexps-exclude ./src/*/*/*/Tests/,./src/Skeleton,./src/Tests ./src || exit 0'
                         dry canRunOnFailed: true, pattern: 'build/pmd-cpd.xml'
                     }
                 }
 
                 stage('Mess Detection') {
                     steps {
-                        sh 'phpmd ./src xml phpmd.xml.dist --reportfile build/pmd.xml || exit 0'
+                        sh 'phpmd ./src xml phpmd.xml.dist --reportfile build/pmd.xml --exclude ./src/*/*/*/Tests/,./src/Skeleton,./src/Tests || exit 0'
                         pmd canRunOnFailed: true, pattern: 'build/pmd.xml'
                     }
                 }
