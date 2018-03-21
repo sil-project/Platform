@@ -11,6 +11,10 @@ Branch=$(git name-rev  --name-only $(git rev-parse HEAD) | sed -e s/\\^.*//g | a
 git clean -df
 git checkout -- .
 
+# optimize loader and remove dev package from vendor
+composer install --no-dev --no-scripts --no-interaction
+# --optimize-autoloader
+
 #Filename=${Name}_${Version}.tar.gz
 Filename=${Name}_${Branch}.tar.gz
 #echo ${Version} > Version.txt
