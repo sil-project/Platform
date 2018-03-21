@@ -8,9 +8,7 @@
             "PlatformBundle\\": "src/PlatformBundle",
             "Blast\\": "src/Blast",
             "Sil\\": "src/Sil"
-        }
-    },
-    "autoload-dev": {
+        },
         "classmap": [
             "app/AppKernel.php",
             "app/AppCache.php"
