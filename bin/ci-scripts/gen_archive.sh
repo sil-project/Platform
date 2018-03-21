@@ -13,6 +13,7 @@ git checkout -- .
 
 # optimize loader and remove dev package from vendor
 composer install --no-dev --no-scripts --no-interaction
+composer dump-autoload --optimize --no-interaction
 # --optimize-autoloader
 
 #Filename=${Name}_${Version}.tar.gz
