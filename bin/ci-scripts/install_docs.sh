@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 set -ex
 
-pip install --upgrade pip
+# need root access
+#pip install --upgrade pip
 
 #pip install --install-option="--install-scripts=$HOME/bin" -r doc/fr/requirements.txt --user
 
