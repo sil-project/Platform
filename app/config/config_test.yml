@@ -13,3 +13,7 @@ web_profiler:
 
 swiftmailer:
     disable_delivery: true
+
+doctrine:
+    orm:
+        auto_generate_proxy_classes: true

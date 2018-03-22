@@ -78,9 +78,7 @@ doctrine:
 
     orm:
         default_entity_manager: default
-        # TODO: set to true for test on env prod but it should be false (find why)
-        # auto_generate_proxy_classes: "%kernel.debug%"
-        auto_generate_proxy_classes: true
+        auto_generate_proxy_classes: "%kernel.debug%"
         entity_managers:
             default:
                 connection: default
