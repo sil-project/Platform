@@ -12,13 +12,14 @@ pipeline {
     environment {
         RND = "${BUILD_NUMBER}_${BRANCH_NAME}"
         PHPUNITARG="--testsuite Unit"
-        COMPOSERARG="--no-ansi --no-scripts"
+        COMPOSERARG="--no-scripts"
     }
 
     options {
         timeout(time: 1, unit: 'HOURS')
         timestamps()
         disableConcurrentBuilds()
+        ansiColor('xterm')
     }
 
     stages {

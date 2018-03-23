@@ -26,4 +26,4 @@ fi
 
 set -e
 # composer update --no-interaction --prefer-dist
-composer ${CMPCMD} ${COMPOSERARG} --no-ansi --no-interaction
+composer ${CMPCMD} ${COMPOSERARG} --no-interaction
