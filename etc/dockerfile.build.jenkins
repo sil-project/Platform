@@ -80,15 +80,16 @@ ENV PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/bin/:$HOME/bin:$HOME
 RUN pip install --upgrade pip
 
 # Add some before install step to run test faster
-RUN composer self-update --no-progress --stable \
+RUN composer self-update --no-ansi --no-progress --stable \
     && composer global config bin-dir ${HOME}/bin  --no-ansi\
-    && for i in "hirak/prestissimo" "sllh/composer-lint" "pdepend/pdepend" "squizlabs/php_codesniffer" "phploc/phploc" "phpmd/phpmd" "sebastian/phpcpd" "theseer/phpdox" "phpmetrics/phpmetrics"; do composer global require $i:@stable --prefer-dist --no-interaction; done \
-    && composer clear-cache
+    && for i in "hirak/prestissimo" "sllh/composer-lint" "pdepend/pdepend" "squizlabs/php_codesniffer" "phploc/phploc" "phpmd/phpmd" "sebastian/phpcpd" "theseer/phpdox" "phpmetrics/phpmetrics"; do composer global require $i:@stable --prefer-dist --no-interaction --no-ansi; done \
+    && composer clear-cache --no-ansi
 
 ENV NVM_DIR="$HOME/.nvm"
 RUN curl -so- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash \
     && [ -s "$NVM_DIR/nvm.sh" ] \
     && . "$NVM_DIR/nvm.sh" \
     && nvm install 8.9 \
+    && npm config set color false -g \
     && nvm clear-cache \
     && npm cache clean --force
