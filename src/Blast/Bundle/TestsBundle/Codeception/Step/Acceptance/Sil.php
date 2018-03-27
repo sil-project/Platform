@@ -27,18 +27,27 @@ class Sil extends Common
         return  $this->baseurl;
     }
 
+    public function stdCheck()
+    {
+        $this->cantSee('Stack Trace'); /* :) :) we hope so */
+        $this->cantSeeInSource('<div class="exceptionContainer">'); /* :) :) we hope so too */
+    }
+
     /** @todo and find a clean way to auto login as admin for any app */
     public function loginSil($username, $password)
     {
         $this->amGoingTo('Test Login');
         $this->amOnPage($this->getSilUrl() . '/login');
+        $this->stdCheck();
+
         $this->waitForText('Courriel', 30);
         $this->waitForText('Mot de passe', 30);
         $this->fillField("//input[@id='_username']", $username);
         $this->fillField("//input[@id='_password']", $password);
         $this->click("//button[@type='submit']");
+        $this->stdCheck();
 
-        // $this->amOnPage($this->getSilUrl() . '/dashboard'); // all steps should call amOnPage before doing any actions
+        //$this->amOnPage($this->getSilUrl() . '/dashboard'); // all steps should call amOnPage before doing any actions
         //$this->hideSymfonyToolBar(); //useless for test and may hide important element
     }
 
@@ -56,6 +65,7 @@ class Sil extends Common
         $linkRes = (isset($linkRes)) ? $linkRes : $linkName;
         $this->waitForText($linkName, 30); // secs
         $this->click($linkName);
+        $this->stdCheck();
         $this->waitForText($linkRes, 30); // secs
     }
 
@@ -66,6 +76,7 @@ class Sil extends Common
         // $this->scrollTo("//button[@name='" . $name . "']"); //, 10, 10);
         $this->click("//button[@name='" . $name . "']");
         //$this->waitForText('succès', 30); // secs
+        $this->stdCheck();
     }
 
     public function waitCube($class = 'sk-folding-cube')
