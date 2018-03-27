@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Copyright (C) 2015-2017 Libre Informatique
+ * Copyright (C) 2015-2018 Libre Informatique
  *
  * This file is licenced under the GNU LGPL v3.
  * For the full copyright and license information, please view the LICENSE.md
@@ -16,7 +16,7 @@ use Doctrine\Common\Persistence\ManagerRegistry;
 /**
  * Class DoctrineORMHandler.
  */
-class DoctrineORMHandler implements \SessionHandlerInterface
+class DoctrineORMHandler implements \SessionHandlerInterface, \SessionUpdateTimestampHandlerInterface
 {
     /**
      * @var EntityManagerInterface
@@ -52,13 +52,14 @@ class DoctrineORMHandler implements \SessionHandlerInterface
     {
         $qb = $this->repository->createQueryBuilder('s');
 
-        return $qb
-            ->delete()
+        $qb->delete()
             ->where($qb->expr()->eq('s.sessionId', ':sessionId'))
             ->setParameter('sessionId', $sessionId)
             ->getQuery()
-            ->execute()
-            ;
+            ->execute();
+
+        /* destroy has most of the handler/storage method have to return bool */
+        return true;
     }
 
     /**
@@ -72,8 +73,7 @@ class DoctrineORMHandler implements \SessionHandlerInterface
             ->where($qb->expr()->lt('s.expiresAt', ':now'))
             ->setParameter('now', new \DateTime())
             ->getQuery()
-            ->execute()
-            ;
+            ->execute();
 
         return true;
     }
@@ -153,5 +153,32 @@ class DoctrineORMHandler implements \SessionHandlerInterface
         }
 
         return $session;
+    }
+
+    /* https://symfony.com/blog/new-in-symfony-3-4-session-improvements */
+    /* @todo: add test for this ! */
+    // Checks if a session identifier already exists or not.
+    public function validateId($sessionId)
+    {
+        /* @todo: factorize with getSession */
+        $session = $this->repository->findOneBy([
+            'sessionId' => $sessionId,
+        ]);
+
+        /* @todo: Do we need to check expireAt ? */
+        /* ->where($qb->expr()->lt('s.expiresAt', ':now'))
+           ->setParameter('now', new \DateTime()) */
+
+        if (!$session) {
+            return false;
+        }
+
+        return true;
+    }
+
+    // Updates the timestamp of a session when its data didn't change.
+    public function updateTimestamp($sessionId, $data)
+    {
+        return $this->write($sessionId, $data);
     }
 }
