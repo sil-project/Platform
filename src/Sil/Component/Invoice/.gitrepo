@@ -6,7 +6,7 @@
 [subrepo]
 	remote = git@github.com:sil-project/Invoice.git
 	branch = wip-platform
-	commit = 6de0a3faedd3b07bcdc0f0b0b73822faacc7f8de
+	commit = 3c4ae786b40548dba6aa8dc799bd0c4aff0f168d
 	method = merge
 	cmdver = 0.4.0
-	parent = fce91148387b8caa5f281c6436e3a338a2f2c7b2
+	parent = 9c718b2161e37b18e546c2927958a820c3f4232e

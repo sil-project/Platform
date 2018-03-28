@@ -6,7 +6,7 @@
 [subrepo]
 	remote = git@github.com:sil-project/ContactBundle.git
 	branch = wip-platform
-	commit = 79fc74187c4f74131e8cf9b07fc0db2baabc02d1
+	commit = d9cf0d7be3b8603c6d745176b9e82dea01e22a4e
 	method = merge
 	cmdver = 0.4.0
-	parent = fce91148387b8caa5f281c6436e3a338a2f2c7b2
+	parent = 9c718b2161e37b18e546c2927958a820c3f4232e
