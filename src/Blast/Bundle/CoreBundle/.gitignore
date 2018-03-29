@@ -4,5 +4,9 @@
 /composer.lock
 /vendor/
 /Resources/doc/_build
-/bin/phpunit
 *~
+/bin/*
+!/bin/console
+!/bin/ci-scripts
+!/bin/git-script
+/build
