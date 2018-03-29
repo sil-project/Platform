@@ -20,7 +20,6 @@ class AppKernel extends PlatformKernel
             // -------------------------------------------------------------------------------------
 
             new PlatformBundle\PlatformBundle(),
-            new Sil\Bundle\ContactBundle\SilContactBundle(),
         ];
 
         return array_merge(parent::registerBundles(), $bundles);
