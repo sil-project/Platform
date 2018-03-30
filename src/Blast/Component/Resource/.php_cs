@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Copyright (C) 2015-2017 Libre Informatique
+ * Copyright (C) 2015-2018 Libre Informatique
  *
  * This file is licenced under the GNU LGPL v3.
  * For the full copyright and license information, please view the LICENSE.md
@@ -9,13 +9,14 @@
  */
 
 $header = <<<EOF
-
-Copyright (C) 2015-2017 Libre Informatique
+Copyright (C) 2015-%end_copy_right_year% Libre Informatique
 
 This file is licenced under the GNU LGPL v3.
 For the full copyright and license information, please view the LICENSE.md
 file that was distributed with this source code.
 EOF;
+
+$header = preg_replace('/%end_copy_right_year%/', date('Y'), $header);
 
 // PHP-CS-Fixer 1.x
 if (class_exists('Symfony\CS\Fixer\Contrib\HeaderCommentFixer')) {
@@ -32,6 +33,7 @@ $config = PhpCsFixer\Config::create()
         'binary_operator_spaces' => ['align_double_arrow' => true],
         'concat_space'           => ['spacing'=>'one'],
         'yoda_style'             => null,
+        'increment_style'        => ['style' => 'post'],
     ))
     ->setFinder($finder);
 
