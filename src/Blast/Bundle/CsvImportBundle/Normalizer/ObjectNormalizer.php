@@ -69,21 +69,20 @@ class ObjectNormalizer extends BaseObjectNormalizer
     {
         $this->cleanUp($value, $attribute);
         $class = get_class($object);
+        $mapping = $this->mappingConf[$class];
 
         /* warning bug if there is only one line in the csv file ($attribute is set to 0)*/
         //var_dump($object, $attribute, $value, $format, $context);
-        if (array_key_exists('associations', $this->mappingConf[$class])) {
-            if (array_key_exists($attribute, $this->mappingConf[$class]['associations'])) {
-                $associationClass = $this->mappingConf[$class]['associations'][$attribute]['entity'];
-                $field = $this->mappingConf[$class]['associations'][$attribute]['target'];
-                $value = $this->fetchAssociation($associationClass, $field, $value);
-            }
+        if (array_key_exists('associations', $mapping) && array_key_exists($attribute, $mapping['associations'])) {
+            $associationClass = $mapping['associations'][$attribute]['entity'];
+            $field = $mapping['associations'][$attribute]['target'];
+            $value = $this->fetchAssociation($associationClass, $field, $value);
         }
 
         if ($value === '') {
             $value = null;
         }
-        if ($attribute !== '' && $attribute !== null) {
+        if ($attribute !== null && $attribute !== '') {
             parent::setAttributeValue($object, $attribute, $value, $format, $context);
         }
     }
