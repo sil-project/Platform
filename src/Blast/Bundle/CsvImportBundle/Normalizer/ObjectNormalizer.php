@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Copyright (C) 2015-2017 Libre Informatique
+ * Copyright (C) 2015-2018 Libre Informatique
  *
  * This file is licenced under the GNU LGPL v3.
  * For the full copyright and license information, please view the LICENSE.md
@@ -67,7 +67,7 @@ class ObjectNormalizer extends BaseObjectNormalizer
      */
     protected function setAttributeValue($object, $attribute, $value, $format = null, array $context = array())
     {
-        $this->cleanUpValue($value);
+        $this->cleanUp($value, $attribute);
         $class = get_class($object);
 
         /* warning bug if there is only one line in the csv file ($attribute is set to 0)*/
@@ -100,8 +100,9 @@ class ObjectNormalizer extends BaseObjectNormalizer
         return $this->em->getRepository($entityClass)->findOneBy([$field => $value]);
     }
 
-    protected function cleanUpValue(&$value): void
+    protected function cleanUpValue(&$value, &$attribute): void
     {
         $value = trim($value);
+        $attribute = trim($attribute);
     }
 }
