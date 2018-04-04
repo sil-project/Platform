@@ -20,7 +20,7 @@ source_suffix = ['.rst']
 master_doc = 'index'
 
 project = u'Sil & Blast Projects'
-copyright = u'2017, Libre-Informatique'
+copyright = u'2018, Libre-Informatique'
 
 version = ''
 release = ''
@@ -44,3 +44,6 @@ lexers['php'] = PhpLexer(startinline=True)
 lexers['php-annotations'] = PhpLexer(startinline=True)
 rst_epilog = """
 """
+
+def setup(app):
+    app.add_stylesheet('css/custom.css')

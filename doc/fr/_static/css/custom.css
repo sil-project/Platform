@@ -1,0 +1,17 @@
+.wy-nav-content {
+    max-width: 100%;
+}
+
+.wy-side-nav-search {
+    padding-top: 8em;
+    background: #3C8DBC url('../img/li-logo.png') no-repeat scroll center 0.5em;
+}
+
+.wy-nav-content-wrap {
+    background: #FFF;
+}
+
+.wy-side-nav-search > .icon.icon-home::before {
+    content: '';
+    display:none;
+}
