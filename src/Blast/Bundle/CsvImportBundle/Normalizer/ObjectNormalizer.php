@@ -99,7 +99,7 @@ class ObjectNormalizer extends BaseObjectNormalizer
         return $this->em->getRepository($entityClass)->findOneBy([$field => $value]);
     }
 
-    protected function cleanUpValue(&$value, &$attribute): void
+    protected function cleanUp(&$value, &$attribute): void
     {
         $value = trim($value);
         $attribute = trim($attribute);
