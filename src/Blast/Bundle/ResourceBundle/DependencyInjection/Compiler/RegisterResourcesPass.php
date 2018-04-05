@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Copyright (C) 2015-2017 Libre Informatique
+ * Copyright (C) 2015-2018 Libre Informatique
  *
  * This file is licenced under the GNU LGPL v3.
  * For the full copyright and license information, please view the LICENSE.md
@@ -15,6 +15,7 @@ use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Blast\Component\Resource\Metadata\Metadata;
 use Blast\Component\Resource\Metadata\MetadataInterface;
+use Blast\Component\Resource\Repository\ResourceRepositoryInterface;
 use Symfony\Component\DependencyInjection\Definition;
 use Symfony\Component\DependencyInjection\Reference;
 use Blast\Bundle\ResourceBundle\Doctrine\ORM\Repository\ResourceRepository;
@@ -65,9 +66,17 @@ class RegisterResourcesPass implements CompilerPassInterface
 
         $definition = new Definition($repositoryClass);
         $definition->setArguments([
-          new Reference('doctrine.orm.entity_manager'),
-          $this->getClassMetadataDefinition($metadata),
+           new Reference('doctrine.orm.entity_manager'),
+           $this->getClassMetadataDefinition($metadata),
         ]);
+
+        $reflexionClass = new \ReflectionClass($repositoryClass);
+        // Check if repository class implements ResourceRepositoryInterface and has method setPaginator
+        if ($reflexionClass->implementsInterface(ResourceRepositoryInterface::class) && $reflexionClass->hasMethod('setPaginator')) {
+            // Inject paginator only in repository that implements ResourceRepositoryInterface
+            $definition->addMethodCall('setPaginator', [new Reference('knp_paginator')]);
+        }
+
         $container->setDefinition($repositoryAlias, $definition);
     }
 

@@ -13,6 +13,7 @@ namespace Blast\Bundle\ResourceBundle\Doctrine\ORM\Repository;
 use Blast\Component\Resource\Repository\ResourceRepositoryInterface;
 use Gedmo\Tree\Entity\Repository\NestedTreeRepository;
 use InvalidArgumentException;
+use Knp\Component\Pager\PaginatorInterface;
 
 /**
  * Description of ResourceRepository.
@@ -21,6 +22,11 @@ use InvalidArgumentException;
  */
 class NestedTreeResourceRepository extends NestedTreeRepository implements ResourceRepositoryInterface
 {
+    /**
+     * @var PaginatorInterface
+     */
+    protected $paginator;
+
     public function get($id)
     {
         $resource = $this->find($id);
@@ -57,5 +63,13 @@ class NestedTreeResourceRepository extends NestedTreeRepository implements Resou
             $this->_em->remove($resource);
             $this->_em->flush($resource);
         }
+    }
+
+    /**
+     * @param PaginatorInterface $paginator
+     */
+    public function setPaginator(PaginatorInterface $paginator): void
+    {
+        $this->paginator = $paginator;
     }
 }

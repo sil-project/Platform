@@ -10,9 +10,10 @@
 
 namespace Blast\Bundle\ResourceBundle\Doctrine\ORM\Repository;
 
-use Doctrine\ORM\EntityRepository;
 use Blast\Component\Resource\Repository\ResourceRepositoryInterface;
+use Doctrine\ORM\EntityRepository;
 use InvalidArgumentException;
+use Knp\Component\Pager\PaginatorInterface;
 
 /**
  * Description of ResourceRepository.
@@ -21,6 +22,11 @@ use InvalidArgumentException;
  */
 class ResourceRepository extends EntityRepository implements ResourceRepositoryInterface
 {
+    /**
+     * @var PaginatorInterface
+     */
+    protected $paginator;
+
     public function get($id)
     {
         $resource = $this->find($id);
@@ -57,5 +63,13 @@ class ResourceRepository extends EntityRepository implements ResourceRepositoryI
             $this->_em->remove($resource);
             $this->_em->flush($resource);
         }
+    }
+
+    /**
+     * @param PaginatorInterface $paginator
+     */
+    public function setPaginator(PaginatorInterface $paginator): void
+    {
+        $this->paginator = $paginator;
     }
 }
