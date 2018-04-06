@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Copyright (C) 2015-2017 Libre Informatique
+ * Copyright (C) 2015-2018 Libre Informatique
  *
  * This file is licenced under the GNU LGPL v3.
  * For the full copyright and license information, please view the LICENSE.md
@@ -13,6 +13,7 @@
 namespace Blast\Bundle\TestsBundle\Codeception\Step\Acceptance;
 
 // @TODO: sould use Sil (Not Lisem)
+/* @todo: should be renamed to fit UserBundle */
 class SonataSyliusUser extends Lisem
 {
     public function createUser($username = 'sel-user', $email = 'sel-user@lisem.eu', $password = 'sel-user')

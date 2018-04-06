@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Copyright (C) 2015-2017 Libre Informatique
+ * Copyright (C) 2015-2018 Libre Informatique
  *
  * This file is licenced under the GNU LGPL v3.
  * For the full copyright and license information, please view the LICENSE.md
@@ -11,7 +11,9 @@
 namespace Blast\Bundle\UtilsBundle\Entity;
 
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\BaseEntity;
-use Sil\Bundle\SonataSyliusUserBundle\Entity\SonataUserInterface as UserInterface;
+/* @todo : Add sil user bundle as dependency, or remove it from CustomFilter */
+
+use Sil\Bundle\UserBundle\Entity\UserInterface as UserInterface;
 
 /**
  * CustomFilter.

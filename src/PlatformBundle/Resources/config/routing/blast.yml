@@ -1,6 +1,6 @@
-# sonata_sylius_user_security:
-#     resource: "@SilSonataSyliusUserBundle/Resources/config/routing/security.yml"
-#     prefix: '%sil.url_prefix%'
+user_security:
+    resource: "@SilUserBundle/Resources/config/routing/security.yml"
+    prefix: '%sil.url_prefix%'
 
 blast_core:
     resource: "@BlastCoreBundle/Resources/config/routing.yml"
@@ -20,7 +20,7 @@ blast_decorator:
 
 blast_search:
     resource: "@BlastSearchBundle/Resources/config/routing.yml"
-    prefix:   %sil.url_prefix%
+    prefix:   '%sil.url_prefix%'
 
 sil_crm:
     resource: "@SilCRMBundle/Resources/config/routing.yml"
@@ -38,12 +38,12 @@ sil_media:
     resource: "@SilMediaBundle/Resources/config/routing.yml"
     prefix:   '%sil.url_prefix%'
 
-# sil_ecommerce:
-#     resource: "@SilEcommerceBundle/Resources/config/routing.yml"
-#     prefix:   / #Must not be set because of sylius route override
-
 sil_product:
     resource: "@SilProductBundle/Resources/config/routing.yml"
+    prefix:   '%sil.url_prefix%'
+
+sil_user:
+    resource: "@SilUserBundle/Resources/config/routing.yml"
     prefix:   '%sil.url_prefix%'
 
 admin:

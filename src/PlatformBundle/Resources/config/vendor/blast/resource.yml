@@ -19,10 +19,6 @@ blast_resource:
             classes:
                 model:          PlatformBundle\Entity\SilMediaBundle\File
 
-        sil.user:
-            classes:
-                model:          PlatformBundle\Entity\SilSonataSyliusUserBundle\SonataUser
-
         sil.stock_item:
             classes:
                 model:          PlatformBundle\Entity\SilStockBundle\StockItem

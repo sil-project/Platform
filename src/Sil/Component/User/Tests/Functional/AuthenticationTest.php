@@ -21,7 +21,7 @@ use Symfony\Component\Security\Core\Encoder\MessageDigestPasswordEncoder;
 use Symfony\Component\Security\Core\User\UserChecker;
 use Symfony\Component\Security\Core\Exception\BadCredentialsException;
 use Sil\Component\User\Tests\Functional\Provider\InMemoryUserProvider;
-use Sylius\Component\User\Model\User;
+use Sil\Component\User\Model\User;
 
 /**
  * @author Romain Sanchez <romain.sanchez@libre-informatique.fr>
@@ -64,6 +64,7 @@ class AuthenticationTest extends TestCase
 
     private function getAuthManager()
     {
+        /* @todo: factorize this, with the same method in AuthorizationTest.php (Maybe in Tests Bundle with also the in memory user provider )*/
         $encoder = new MessageDigestPasswordEncoder('sha512', true, 5000);
         $encoderFactory = new EncoderFactory([User::class => $encoder]);
 

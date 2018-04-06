@@ -19,7 +19,7 @@ use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 use Symfony\Component\Security\Core\Encoder\EncoderFactory;
 use Symfony\Component\Security\Core\Encoder\MessageDigestPasswordEncoder;
 use Symfony\Component\Security\Core\User\UserChecker;
-use Sylius\Component\User\Model\User;
+use Sil\Component\User\Model\User;
 use Sil\Component\User\Tests\Functional\Provider\InMemoryUserProvider;
 use Sil\Component\User\Role\RoleHierarchy;
 use Sil\Component\User\Tests\Functional\Repository\RoleRepository;
@@ -65,6 +65,7 @@ class AuthorizationTest extends TestCase
 
     private function getAuthenticatedToken(array $roles)
     {
+        /* @todo: factorize this, with the same method in AuthenticationTest.php (Maybe in Tests Bundle with also the in memory user provider )*/
         $encoder = new MessageDigestPasswordEncoder('sha512', true, 5000);
 
         $user = new User();
@@ -75,7 +76,6 @@ class AuthorizationTest extends TestCase
         foreach ($roles as $role) {
             $user->addRole($role);
         }
-
         $user->enable();
 
         $encoderFactory = new EncoderFactory([User::class => $encoder]);

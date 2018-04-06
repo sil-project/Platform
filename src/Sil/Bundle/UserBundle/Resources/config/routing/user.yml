@@ -1,0 +1,23 @@
+sil_user_homepage:
+    path:     /
+    defaults: { _controller: sil_user.controller.user:indexAction }
+
+sil_user_list:
+    path:     /list
+    defaults: { _controller: sil_user.controller.user:listAction }
+
+sil_user_create:
+    path:     /create
+    defaults: { _controller: sil_user.controller.user:createAction }
+
+sil_user_show:
+    path:     /{userId}/show
+    defaults: { _controller: sil_user.controller.user:showAction }
+    requirements:
+        userId: '^\{?[a-f\d]{8}-(?:[a-f\d]{4}-){3}[a-f\d]{12}\}?$'
+
+sil_user_edit:
+    path:     /{userId}/edit
+    defaults: { _controller: sil_user.controller.user:editAction }
+    requirements:
+        userId: '^\{?[a-f\d]{8}-(?:[a-f\d]{4}-){3}[a-f\d]{12}\}?$'

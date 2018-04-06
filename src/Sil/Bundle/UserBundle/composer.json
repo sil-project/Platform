@@ -1,0 +1,39 @@
+{
+    "name": "sil-project/user-bundle",
+    "type": "symfony-bundle",
+    "description": "Symfony bundle providing Sil User Management",
+    "require": {
+        "php": "^7.1",
+        "symfony/symfony": "^3.4",
+        "blast-project/core-bundle": "self.version",
+        "blast-project/base-entities-bundle": "self.version",
+        "blast-project/resource": "self.version",
+        "blast-project/resource-bundle": "self.version",
+        "knplabs/knp-paginator-bundle": "^2.7"
+    },
+    "require-dev": {
+        "symfony/phpunit-bridge": "^3.4",
+        "blast-project/tests-bundle": "self.version",
+        "phpunit/phpunit": "^6.4"
+    },
+    "license": ["LGPL-3.0-only"],
+    "keywords": [
+        "symfony", "doctrine", "user"
+    ],
+    "homepage": "https://github.com/sil-project/UserBundle",
+    "authors": [
+        {
+            "name": "Libre Informatique",
+            "homepage": "http://www.libre-informatique.fr/"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Sil\\Bundle\\UserBundle\\": "."
+        }
+    },
+    "version": "dev-wip-platform",
+    "config": {
+        "bin-dir": "bin"
+    }
+}

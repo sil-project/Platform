@@ -1,0 +1,14 @@
+<!-- @todo Should be moved in another directory, but now it is need by DecoractorBundle with admin_pool.getTemplate('user_block') -->
+<div class="thumbnail">
+    {% if app.user %}
+        <h4>{{ app.user.username }}</h4>
+    {% endif %}
+
+    {% if routeExists('sil_user_logout') %}
+        <div class="panel-body">
+            <a href="{{ path('sil_user_logout') }}" class="btn btn-danger">
+                <i class="fa fa-sign-out"></i> {{ 'button.logout'|trans }}
+            </a>
+        </div>
+    {% endif %}
+</div>

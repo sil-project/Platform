@@ -104,7 +104,7 @@ doctrine:
 
                     SilMediaBundle:
                         type: yml
-                    SilSonataSyliusUserBundle:
+                    SilUserBundle:
                         type: yml
 
                     SilProductBundle:

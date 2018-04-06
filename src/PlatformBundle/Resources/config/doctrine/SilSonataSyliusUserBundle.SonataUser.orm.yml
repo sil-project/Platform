@@ -1,3 +1,0 @@
-PlatformBundle\Entity\SilSonataSyliusUserBundle\SonataUser:
-    type: mappedSuperclass
-    table: sil_user

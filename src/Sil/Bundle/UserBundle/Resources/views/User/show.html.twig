@@ -1,0 +1,47 @@
+{% extends '@Platform/Views/Show/show.html.twig' %}
+
+{% block page_actions_content %}
+    <div class="ui right floated">
+        <div class="ui labeled icon top left dropdown button primary">
+            <i class="cogs icon"></i>
+            <span class="text">{{ 'sil.user.user.actions.actions'|trans }}</span>
+            <div class="menu">
+                <a class="item" href="{{ path('sil_user_create') }}">
+                    <i class="plus circle icon"></i>
+                    {{ 'sil.user.user.actions.create_new_user'|trans }}
+                </a>
+                <a class="item" href="{{ path('sil_user_homepage') }}">
+                    <i class="list icon"></i>
+                    {{ 'sil.user.user.actions.list'|trans }}
+                </a>
+            </div>
+        </div>
+    </div>
+{% endblock page_actions_content %}
+
+{% block page_header_icon %}archive{% endblock page_header_icon %}
+
+{% block page_header_title %}
+    {{ 'sil.user.user.show.page_header.title'|trans }}
+{% endblock page_header_title %}
+
+{% block page_header_description %}
+    {{ user.username|raw }}
+{% endblock page_header_description %}
+
+{% block page_content %}
+
+    <div class="ui grid">
+
+        {# FORM GENERAL #}
+
+        <div class="ui eight wide column">
+
+            {{ render(controller('sil_user.controller.user:editAction', {'userId': user.id})) }}
+
+        </div>
+
+    </div>
+
+
+{% endblock page_content %}

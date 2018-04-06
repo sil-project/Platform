@@ -1,6 +1,5 @@
 parameters:
     sonata.security.regex:          "^%sil.url_prefix%(?:/.*)?$"
-    sylius.security.shop_regex:     ""
 
 security:
 
@@ -14,19 +13,16 @@ security:
             - ROLE_USER
 
         ROLE_SUPER_ADMIN:
-            - ROLE_SONATA_ADMIN
-            - ROLE_ALLOWED_TO_SWITCH
+            - ROLE_ADMIN
 
+    # todo use with bcrypt
     encoders:
-        Sylius\Component\User\Model\UserInterface: sha512
+        Sil\Bundle\UserBundle\Entity\User: plaintext
 
     providers:
-        # sonata_user_provider:
-        #     id: sylius.sonata_user_provider.email_or_name_based
-        sylius_admin_user_provider:
-            id: sylius.admin_user_provider.email_or_name_based
-        sylius_shop_user_provider:
-            id: sylius.shop_user_provider.email_or_name_based
+        sil_user.doctrine_provider:
+            entity:
+                class: SilUserBundle:User
 
     # ##########################################################################
     # FIREWALLS
@@ -37,70 +33,19 @@ security:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
 
-        # ######################################################################
-        # SONATA
-        # ######################################################################
-
-        # sonata:
-        #     switch_user: { role: ROLE_ALLOWED_TO_SWITCH }
-        #     context: sonata
-        #     pattern: "%sonata.security.regex%"
-        #     form_login:
-        #         provider: sonata_user_provider
-        #         login_path: sonata_sylius_user_login
-        #         check_path: sonata_sylius_user_login_check
-        #         failure_path: sonata_sylius_user_login
-        #         default_target_path: sonata_admin_dashboard
-        #         use_forward: false
-        #         use_referer: true
-        #     logout:
-        #         path: sonata_sylius_user_logout
-        #         target: sonata_sylius_user_login
-        #     anonymous: true
-
-        # ######################################################################
-        # SYLIUS
-        # ######################################################################
-
-        # sylius:
-        #     switch_user: true
-        #     context: admin
-        #     pattern: "^/sylius-admin"
-        #     form_login:
-        #         provider: sylius_admin_user_provider
-        #         login_path: sylius_admin_login
-        #         check_path: sylius_admin_login_check
-        #         failure_path: sylius_admin_login
-        #         default_target_path: sylius_admin_dashboard
-        #         use_forward: false
-        #         use_referer: true
-        #     logout:
-        #         path: sylius_admin_logout
-        #         target: sylius_admin_login
-        #     anonymous: true
-        # shop:
-        #     switch_user: { role: ROLE_ALLOWED_TO_SWITCH }
-        #     context: shop
-        #     pattern: "%sylius.security.shop_regex%"
-        #     form_login:
-        #         success_handler: sylius.authentication.success_handler
-        #         failure_handler: sylius.authentication.failure_handler
-        #         provider: sylius_shop_user_provider
-        #         login_path: sylius_shop_login
-        #         check_path: sylius_shop_login_check
-        #         failure_path: sylius_shop_login
-        #         default_target_path: sylius_shop_homepage
-        #         use_forward: false
-        #         use_referer: true
-        #     remember_me:
-        #         secret: "%secret%"
-        #         name: APP_REMEMBER_ME
-        #         lifetime: 31536000
-        #         remember_me_parameter: _remember_me
-        #     logout:
-        #         path: sylius_shop_logout
-        #         target: sylius_shop_login
-        #     anonymous: true
+        sil:
+            anonymous: ~
+            provider: sil_user.doctrine_provider
+            form_login:
+                login_path: sil_user_login
+                check_path: sil_user_login_check
+                failure_path: sil_user_login
+                default_target_path: sil_user_homepage
+                use_forward: false
+                use_referer: true
+            logout:
+                path: sil_user_logout
+                target: sil_user_login
 
     # ##########################################################################
     # ACCESS CONTROL
@@ -114,25 +59,4 @@ security:
         - { path: "^%sil.url_prefix%/resetting", role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: "^%sil.url_prefix%/login$", role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: "^%sil.url_prefix%/login-check$", role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: "^%sil.url_prefix%.*", role: ROLE_SONATA_ADMIN }
-
-        # # EmailBundle tracking
-        # - { path: ^/tracking, role: IS_AUTHENTICATED_ANONYMOUSLY }
-
-        # Sylius access control
-        # - { path: "%sylius.security.admin_regex%/_partial", role: IS_AUTHENTICATED_ANONYMOUSLY, ips: [127.0.0.1, ::1] }
-        # - { path: "%sylius.security.admin_regex%/_partial", role: ROLE_NO_ACCESS }
-        - { path: "%sylius.security.shop_regex%/_partial", role: IS_AUTHENTICATED_ANONYMOUSLY, ips: [127.0.0.1, ::1] }
-        - { path: "%sylius.security.shop_regex%/_partial", role: ROLE_NO_ACCESS }
-        #
-        # - { path: "%sylius.security.admin_regex%/login", role: IS_AUTHENTICATED_ANONYMOUSLY }
-        # - { path: "%sylius.security.api_regex%/login", role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: "%sylius.security.shop_regex%/login", role: IS_AUTHENTICATED_ANONYMOUSLY }
-        #
-        - { path: "%sylius.security.shop_regex%/register", role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: "%sylius.security.shop_regex%/verify", role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: "%sylius.security.shop_regex%/order.*", role: IS_AUTHENTICATED_ANONYMOUSLY }
-        #
-        - { path: "%sylius.security.shop_regex%/account", role: ROLE_USER }
-        # - { path: "%sylius.security.admin_regex%", role: ROLE_ADMINISTRATION_ACCESS }
-        # - { path: "%sylius.security.api_regex%", role: ROLE_API_ACCESS }
+        - { path: "^%sil.url_prefix%.*", role: ROLE_USER }

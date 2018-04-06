@@ -1,0 +1,44 @@
+sil:
+    user:
+        ui:
+            error: Echec !
+            info: Information !
+            success: Réussie !
+
+        login:
+            email: Courriel
+            password: Mot de passe
+            title: Connexion
+        menu_label:
+            application_access: Connexion
+            application_access_users: Utilisateurs
+        user:
+            username: Nom
+            email: Courriel
+            password: Mot de passe
+            enabled: Actif
+            flashes:
+                update:
+                    success: Mise à jour Réussie !
+                    error: Echec de mise à jour !
+                create:
+                    success: Création Réussie !
+            list:
+                page_header:
+                    title: Liste des utilisateurs
+                    description:  "{0} Il n'y a aucun utilisateur dans l'application |{1} Il y a %count% utilisateur dans l'application |]1,Inf[ Il y a %count% utilisateurs dans l'application"
+            actions:
+                actions: Actions
+                create_new_user: Ajouter
+                list: Liste des utilisateurs
+            create:
+                page_header:
+                    title: Ajouter un nouvel utilisateur
+                    description: ''
+            show:
+                page_header:
+                    title: Ajouter un nouvel utilisateur
+                    description: ''
+                group:
+                    general:
+                        title: Information utilisateur

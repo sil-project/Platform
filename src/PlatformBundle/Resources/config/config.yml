@@ -2,11 +2,9 @@ imports:
     - { resource: "@PlatformBundle/Resources/config/services.yml" }
     - { resource: "@PlatformBundle/Resources/config/admin.yml" }
 
-
     # Vendors
 
     - { resource: "@PlatformBundle/Resources/config/vendor/stof.yml" }
-    # - { resource: "@PlatformBundle/Resources/config/vendor/sil.yml" }
     - { resource: "@PlatformBundle/Resources/config/vendor/sonata.yml" }
     # - { resource: "@PlatformBundle/Resources/config/vendor/sylius.yml" }
     - { resource: "@PlatformBundle/Resources/config/vendor/lexik.yml" }
@@ -17,8 +15,8 @@ imports:
 
     # SIL Bundles
 
-    - { resource: "@SilSonataSyliusUserBundle/Resources/config/parameters.yml" }
-    - { resource: "@SilSonataSyliusUserBundle/Resources/config/app/config.yml" }
+    - { resource: "@SilUserBundle/Resources/config/parameters.yml" }
+    - { resource: "@SilUserBundle/Resources/config/app/config.yml" }
 
     - { resource: "@SilEmailBundle/Resources/config/parameters.yml" }
     - { resource: "@SilEmailBundle/Resources/config/app/config.yml" }

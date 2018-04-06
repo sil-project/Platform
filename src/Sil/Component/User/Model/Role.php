@@ -14,11 +14,9 @@ namespace Sil\Component\User\Model;
 
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
+use Blast\Component\Resource\Model\ResourceInterface;
 
-/**
- * @author Romain Sanchez <romain.sanchez@libre-informatique.fr>
- */
-class Role implements RoleInterface
+class Role implements RoleInterface, ResourceInterface
 {
     /**
      * name.

@@ -52,6 +52,8 @@ trait BlastWebTestCaseTrait
 
     protected function runForRoute(string $routeName, array $routeParams, string $pageTitle)
     {
+        /* @todo: manage route if user is not logged */
+
         $optionTypeListTitle = $this->container->get('translator')->trans($pageTitle);
 
         $crawler = $this->goToRoute($routeName, $routeParams);

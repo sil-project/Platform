@@ -1,0 +1,30 @@
+{% extends '@Platform/Views/Show/show.html.twig' %}
+
+{% block page_actions_content %}
+    <div class="ui right floated">
+        <div class="ui labeled icon top left dropdown button primary">
+            <i class="cogs icon"></i>
+            <span class="text">{{ 'sil.user.user.actions.actions'|trans }}</span>
+            <div class="menu">
+                <a class="item" href="{{ path('sil_user_homepage') }}">
+                    <i class="list icon"></i>
+                    {{ 'sil.user.user.actions.list'|trans }}
+                </a>
+            </div>
+        </div>
+    </div>
+{% endblock page_actions_content %}
+
+{% block page_header_icon %}archive{% endblock page_header_icon %}
+
+{% block page_header_title %}
+    {{ 'sil.user.user.create.page_header.title'|trans }}
+{% endblock page_header_title %}
+
+{% block page_header_description %}
+    {{ 'sil.user.user.create.page_header.description'|trans }}
+{% endblock page_header_description %}
+
+{% block page_content %}
+    {{ blast_widget_panel(null, blast_widget_form_group(form)) }}
+{% endblock page_content %}

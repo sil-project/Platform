@@ -1,7 +1,0 @@
-button:
-    logout: Déconnexion
-roles:
-    ROLE_ADMINISTRATION_ACCESS: Administrateur Sylius
-    ROLE_SONATA_ADMIN: Administrateur Sonata
-    ROLE_SUPER_ADMIN: Super Administrateur
-    ROLE_USER: Utilisateur

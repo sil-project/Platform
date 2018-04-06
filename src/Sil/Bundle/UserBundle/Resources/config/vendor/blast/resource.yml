@@ -1,0 +1,8 @@
+blast_resource:
+  resources:
+    sil.user:
+      classes:
+        model: Sil\Bundle\UserBundle\Entity\User
+        repository: Sil\Bundle\UserBundle\Repository\UserRepository
+        interfaces:
+          - Sil\Bundle\UserBundle\Entity\UserInterface

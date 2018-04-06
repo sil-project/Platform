@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Copyright (C) 2015-2017 Libre Informatique
+ * Copyright (C) 2015-2018 Libre Informatique
  *
  * This file is licenced under the GNU LGPL v3.
  * For the full copyright and license information, please view the LICENSE.md
@@ -10,7 +10,6 @@
 
 namespace Sil\Bundle\EcommerceBundle\Command;
 
-use Sil\Bundle\SonataSyliusUserBundle\Entity\SonataUserInterface;
 use Sylius\Bundle\CoreBundle\Command\AbstractInstallCommand;
 use Sylius\Component\Locale\Model\LocaleInterface;
 use Symfony\Component\Console\Helper\QuestionHelper;
@@ -64,7 +63,8 @@ EOT
         $currency = $this->get('sil_ecommerce.sylius.setup.currency')->setup($input, $output, $this->getHelper('question'));
         $locale = $this->get('sylius.setup.locale')->setup($input, $output);
         $this->get('sylius.setup.channel')->setup($locale, $currency);
-        $this->setupAdministratorUser($input, $output, $locale->getCode());
+        /* @todo: enable with future user bundle */
+        // $this->setupAdministratorUser($input, $output, $locale->getCode());
     }
 
     /**

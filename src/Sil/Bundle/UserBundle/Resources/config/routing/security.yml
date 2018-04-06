@@ -1,0 +1,21 @@
+# Copyright (C) 2015-2017 Libre Informatique
+#
+# This file is licenced under the GNU GPL v3.
+# For the full copyright and license information, please view the LICENSE
+# file that was distributed with this source code.
+
+sil_user_login:
+    path: /login
+    defaults:
+        _controller: sil_user.controller.security:loginAction
+        _sil:
+            template: SilUserBundle:Security:login.html.twig
+            permission: true
+
+sil_user_login_check:
+    path: /login-check
+    defaults:
+        _controller: sil_user.controller.security:checkAction
+
+sil_user_logout:
+    path: /logout

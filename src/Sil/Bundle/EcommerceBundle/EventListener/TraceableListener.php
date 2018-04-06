@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Copyright (C) 2015-2017 Libre Informatique
+ * Copyright (C) 2015-2018 Libre Informatique
  *
  * This file is licenced under the GNU LGPL v3.
  * For the full copyright and license information, please view the LICENSE.md
@@ -12,10 +12,9 @@ namespace Sil\Bundle\EcommerceBundle\EventListener;
 
 use DateTime;
 use Doctrine\ORM\Event\LifecycleEventArgs;
-use Sylius\Component\Core\Model\ShopUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
-use Sil\Bundle\SonataSyliusUserBundle\EventListener\TraceableListener as BaseTraceableListener;
-use Sil\Bundle\SonataSyliusUserBundle\Entity\Traits\Traceable;
+use Sil\Bundle\SilUserBundle\EventListener\TraceableListener as BaseTraceableListener;
+use Sil\Bundle\SilUserBundle\Entity\Traits\Traceable;
 
 class TraceableListener extends BaseTraceableListener
 {
@@ -36,7 +35,7 @@ class TraceableListener extends BaseTraceableListener
         $user = $this->tokenStorage->getToken() ? $this->tokenStorage->getToken()->getUser() : null;
         $now = new DateTime('NOW');
 
-        if ($user instanceof UserInterface && !$user instanceof ShopUserInterface) {
+        if ($user instanceof UserInterface) {
             $entity->setCreatedBy($user);
             $entity->setUpdatedBy($user);
         }
@@ -62,7 +61,7 @@ class TraceableListener extends BaseTraceableListener
         $user = $this->tokenStorage->getToken() ? $this->tokenStorage->getToken()->getUser() : null;
         $now = new DateTime('NOW');
 
-        if ($user instanceof UserInterface && !$user instanceof ShopUserInterface) {
+        if ($user instanceof UserInterface) {
             $entity->setUpdatedBy($user);
         }
 

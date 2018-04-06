@@ -20,6 +20,16 @@ use Sil\Component\User\Model\Role;
  */
 class RoleRepository implements RoleRepositoryInterface
 {
+    /* @todo: maybe add an array (or not) */
+
+    public function add($resource): void
+    {
+    }
+
+    public function remove($resource): void
+    {
+    }
+
     public function getRoleHierarchy(): array
     {
         $admin = new Role('ROLE_ADMIN');

@@ -31,8 +31,5 @@ bin/console fos:elastica:populate --no-interaction --env=$SERVERENV
 # Not needed as it is launch in composer install
 #bin/console blast:patchs:apply --no-interaction --env=$SERVERENV
 
-# asset and data
-#bin/console lisem:install:setup --with-samples --yes --env=$SERVERENV
-#bin/console sylius:install:setup --no-interaction --env=$SERVERENV
-#bin/console sylius:fixtures:load ecommerce_requirements --no-interaction --env=$SERVERENV
-#bin/console sil:user:fixture --no-interaction --env=$SERVERENV
+# TODO remove this when sil:user:fixture is re-usable
+psql -w -h ${DBHOST} -c "INSERT INTO sil_user(id, username, password, email, enabled) VALUES ((SELECT uuid_generate_v1()), 'sil@sil.eu', 'sil', 'sil@sil.eu', true);" -U ${DBAPPUSER} -d ${DBAPPNAME}

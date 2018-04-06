@@ -1,0 +1,14 @@
+blast_menu:
+    settings:
+        sil.user.menu_label.application_access:
+            icon: lock
+            order: 5
+            roles:
+                 - ROLE_USER
+            children:
+                sil.user.menu_label.application_access_users:
+                    icon: users
+                    route: sil_user_list
+                    order: 10
+                    roles:
+                         - ROLE_USER

@@ -1,0 +1,19 @@
+Sil\Bundle\UserBundle\Entity\User:
+    type: entity
+    table: sil_user
+    fields:
+        username:
+            type: string
+            length: 255
+            nullable: false
+        password:
+            type: string
+            length: 255
+            nullable: false
+        email:
+            type: string
+            length: 255
+            nullable: false
+        enabled:
+            type: boolean
+            nullable: false

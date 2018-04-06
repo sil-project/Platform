@@ -1,0 +1,26 @@
+{% extends '@Platform/Views/List/list.html.twig' %}
+
+{% block page_actions_content %}
+    <div class="ui right floated">
+        <div class="ui labeled icon top left dropdown button primary">
+            <i class="cogs icon"></i>
+            <span class="text">{{ 'sil.user.user.actions.actions'|trans }}</span>
+            <div class="menu">
+                <a class="item" href="{{ path('sil_user_create') }}">
+                    <i class="plus circle icon"></i>
+                    {{ 'sil.user.user.actions.create_new_user'|trans }}
+                </a>
+            </div>
+        </div>
+    </div>
+{% endblock page_actions_content %}
+
+{% block page_header_icon %}list{% endblock page_header_icon %}
+
+{% block page_header_title %}
+    {{ 'sil.user.user.list.page_header.title'|trans }}
+{% endblock page_header_title %}
+
+{% block page_header_description %}
+    {{ 'sil.user.user.list.page_header.description'|transchoice( list.elements|length, {'%count%': list.elements|length}) }}
+{% endblock page_header_description %}

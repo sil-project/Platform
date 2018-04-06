@@ -10,10 +10,10 @@
 
 namespace Sil\Component\User\Repository;
 
-/**
- * @author Romain Sanchez <romain.sanchez@libre-informatique.fr>
- */
-interface RoleRepositoryInterface
+use Blast\Component\Resource\Repository\ResourceRepositoryInterface;
+use Sil\Component\User\Model\RoleInterface;
+
+interface RoleRepositoryInterface extends ResourceRepositoryInterface
 {
     /**
      * Retrieve exhaustive role hierarchy

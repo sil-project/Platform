@@ -1,0 +1,35 @@
+services:
+
+    ### CONTROLLER ###
+
+    sil_user.controller.security:
+        class:  Sil\Bundle\UserBundle\Controller\SecurityController
+
+    sil_user.controller.user:
+        class: Sil\Bundle\UserBundle\Controller\UserController
+        calls:
+            - [setUserRepository, ['@sil.repository.user']]
+            - [setBreadcrumbBuilder, ['@blast_ui.service.breadcrumb_builder']]
+            - [setFormFactory, ['@form.factory']]
+
+    ### FORMS
+    sil_user.form.user.create_type:
+        class: Sil\Bundle\UserBundle\Form\Type\CreateUserType
+        arguments:
+            - '@sil_user.form.transformer.array_to_user_transformer'
+        tags:
+            - { name: form.type }
+
+    sil_user.form.user.edit_type:
+        class: Sil\Bundle\UserBundle\Form\Type\EditUserType
+        arguments:
+            - '@sil_user.form.transformer.array_to_user_transformer'
+        tags:
+            - { name: form.type }
+
+    ### DATA TRANSFORMERS
+
+    sil_user.form.transformer.array_to_user_transformer:
+        class: Sil\Bundle\UserBundle\Form\Transformer\ArrayToUserTransformer
+        calls:
+            - [setUserClass, ['%sil.model.user.class%']]

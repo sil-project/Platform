@@ -86,11 +86,11 @@ imports:
 
     # ##########################################################################
     #
-    # SilSonataSyliusUserBundle
+    # SilUserBundle
     #
     # ##########################################################################
 
-    - { resource: "@SilSonataSyliusUserBundle/Resources/config/admin.yml" }
+    - { resource: "@SilUserBundle/Resources/config/admin.yml" }
 
     # ##########################################################################
     #

@@ -8,7 +8,7 @@ framework:
         collect: false
 
 web_profiler:
-    toolbar: false
+    toolbar: true
     intercept_redirects: false
 
 swiftmailer:

@@ -14,7 +14,6 @@ use Symfony\Component\Security\Core\User\InMemoryUserProvider as BaseUserProvide
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
-use Sylius\Component\User\Model\User;
 
 /**
  * @author Romain Sanchez <romain.sanchez@libre-informatique.fr>

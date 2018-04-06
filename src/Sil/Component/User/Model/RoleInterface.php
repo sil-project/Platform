@@ -12,9 +12,6 @@ namespace Sil\Component\User\Model;
 
 use Symfony\Component\Security\Core\Role\RoleInterface as BaseRoleInterface;
 
-/**
- * @author Romain Sanchez <romain.sanchez@libre-informatique.fr>
- */
 interface RoleInterface extends BaseRoleInterface
 {
     /**
