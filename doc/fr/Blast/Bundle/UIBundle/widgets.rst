@@ -122,6 +122,13 @@ Rendu
 
 .. image:: img/card-02.png
 
+Variante AJAX
+=============
+
+Un Widget utilisant l'ajax pour envoyer le formulaire de la card est disponible : ``blast_widget_ajax_card``.
+
+La définition est exactement la même que la card, la seule chose qui diffère est la valeur par défaut du paramètre ``class`` qui ajoute unz classe `` ajax`` si elle n'est pas définie.
+
 -----
 Field
 -----
@@ -187,7 +194,7 @@ Liste des configuration pour chaque type de champ.
 |            |                        | - attr: array          |
 +------------+------------------------+------------------------+
 | link       | - label: string        | - label: string        |
-|            |                        | - src: string          |
+|            |                        | - href: string         |
 |            |                        | - class: string        |
 |            |                        | - icon: string         |
 |            |                        | - attr: array          |
@@ -453,6 +460,7 @@ Structure du tableau de donnée **data** servant au widget :
             ],
         ],
         'allowSelection' => false,
+        'pagination'     => null,
     ];
 
     // [...]
@@ -499,7 +507,8 @@ Exemple
                 'icon'  => 'trash',
             ]
         ],
-        'allowSelection' => true
+        'allowSelection' => true,
+        'pagination'     => null,
     ];
 
     // [...]
@@ -514,6 +523,62 @@ Rendu
 =====
 
 .. image:: img/table-01.png
+
+Exemple avec pagination
+=======================
+
+.. code-block:: php
+
+    <?php
+
+    // [...]
+
+    $qb
+        ->select('e')
+        ->from('AppBundle:MyEntity', 'e');
+
+    $paginator = $this->get('knp_paginator');
+
+    $pagination = $paginator->paginate(
+        $qb->getQuery(),
+        $request->query->getInt('page', 1),
+        $request->query->getInt('perPage', 10)
+    );
+
+    $properties = [
+        'headers'        => [
+            [
+                'name'  => 'field_1',
+                'label' => 'Field 1',
+            ], [
+                'name'  => 'field_2',
+                'label' => 'Field 2',
+            ], [
+                'name'  => 'field_3',
+                'label' => 'Field 3',
+            ]
+        ],
+        'data'           => $pagination->getItems(),
+        'actions'        => [
+            [
+                'label' => 'Voir',
+                'icon'  => 'eye',
+            ], [
+                'label' => 'Supprimer',
+                'icon'  => 'trash',
+            ]
+        ],
+        'allowSelection' => true,
+        'pagination'     => $pagination,
+    ];
+
+    // [...]
+
+    return $this->render(..., ['properties' => $properties]);
+
+.. code-block:: twig
+
+    {{ blast_widget_table(properties) }}
 
 ----------
 StepHeader

@@ -1,0 +1,23 @@
+{% spaceless %}
+    <span class="data-type array">
+        {% for key, item in data %}
+
+            {% if loop.first %}
+                [<br />
+            {% endif %}
+
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            {{ key|raw }}:&nbsp;
+            {{ blast_display_data(item) }}
+
+            {% if not loop.last %},<br />{% endif %}
+
+            {% if loop.last %}
+                <br />]
+            {% endif %}
+
+        {% else %}
+            []
+        {% endfor %}
+    </span>
+{% endspaceless %}

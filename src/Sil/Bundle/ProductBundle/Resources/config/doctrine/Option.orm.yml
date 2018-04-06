@@ -1,0 +1,20 @@
+Sil\Bundle\ProductBundle\Entity\Option:
+    type: mappedSuperclass
+    table: sil_product_option
+    fields:
+        value:
+            type: text
+            nullable: false
+
+    manyToOne:
+        optionType:
+            targetEntity: Sil\Component\Product\Model\OptionTypeInterface
+            inversedBy: options
+            joinColumn:
+                name: option_type_id
+                referencedColumnName: id
+
+    manyToMany:
+        productVariants:
+            targetEntity: Sil\Component\Product\Model\ProductVariantInterface
+            mappedBy: options

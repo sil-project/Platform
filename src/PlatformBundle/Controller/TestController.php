@@ -36,13 +36,13 @@ class TestController extends Controller
         $properties = [
             'headers'        => [
                 [
-                    'name'  => 'field_1',
+                    'name'  => '[field_1]',
                     'label' => 'Field 1',
                 ], [
-                    'name'  => 'field_2',
+                    'name'  => '[field_2]',
                     'label' => 'Field 2',
                 ], [
-                    'name'  => 'field_3',
+                    'name'  => '[field_3]',
                     'label' => 'Field 3',
                 ],
             ],
@@ -71,6 +71,17 @@ class TestController extends Controller
             'allowSelection' => true,
         ];
 
+        $dataTypes = [
+            'booleans' => [true, false],
+            'integer'  => 42,
+            'double'   => 0.512,
+            'string'   => 'string',
+            'array'    => ['prop' => 'value'],
+            'object'   => json_decode(json_encode(['prop' => 'value'])),
+            'null'     => null,
+            'unknown'  => fopen(__FILE__, 'r'),
+        ];
+
         return $this->render('@Platform/_test.html.twig', [
             'form'       => $this->getExampleFormType()->createView(),
             'smallForm'  => $this->getExampleSmallFormType()->createView(),
@@ -82,6 +93,7 @@ class TestController extends Controller
                 'headers'  => $properties['headers'],
                 'actions'  => $properties['actions'],
             ],
+            'dataTypes'  => $dataTypes,
         ]);
     }
 

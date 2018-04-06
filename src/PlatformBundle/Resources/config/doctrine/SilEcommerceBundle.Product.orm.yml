@@ -1,3 +1,0 @@
-PlatformBundle\Entity\SilEcommerceBundle\Product:
-    type: mappedSuperclass
-    table: sil_ecommerce_product

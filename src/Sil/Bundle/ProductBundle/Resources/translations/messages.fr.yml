@@ -1,0 +1,234 @@
+
+sil:
+    product:
+
+        menu_label:
+            product: Produits
+            products: Produits
+            product_settings: Produits
+            product_settings_attributes: Attributs
+            product_settings_attribute_types: "Types d'attribut"
+            product_settings_option_types: "Types d'option"
+
+        flashes:
+            update:
+                success: Mise à jour effectuée avec succès
+                fail: La mise à jour à échouée
+                "The value of a reusable attribute cannot be changed": "La valeur d'un attribut réutilisable ne peut être changée"
+            create:
+                success: Création effectuée avec succès
+                fail: La création à échouée
+            add_attribute:
+                success: "Assignation d'attribut effectuée avec succès"
+                fail: "Impossible d'assigner l'attribut au produit"
+            remove_attribute_type:
+                fail: "Impossible de supprimer le type d'attribut"
+                success: "Type d'attribut supprimé avec succès"
+            add_option:
+                success: "Assignation d'option effectuée avec succès"
+                fail: "Impossible d'assigner l'option à la déclinaison"
+            remove_option_type:
+                fail: "Impossible de supprimer le type d'option"
+                success: "Type d'option supprimé avec succès"
+
+        product:
+            actions:
+                actions: Actions
+                create: Créer
+                create_new_product: Créer un nouveau produit
+                list: Voir la liste des produits
+            create:
+                page_header:
+                    title: Nouveau produit
+                    description: Créez un nouveau produit
+            list:
+                page_header:
+                    title: Liste des produits
+                    description: "{0} Il n'y a aucun produit dans l'application |{1} Il y a %count% produit dans l'application |]1,Inf[ Il y a %count% produits dans l'application"
+            show:
+                page_header:
+                    title: "Produit #%ref%"
+                group:
+                    general:
+                        title: Général
+                        fields:
+                            name: Nom
+                            code: Référence
+                            description: Description
+                            enabled: Actif
+                    attribute:
+                        title: Attributs
+                        fields:
+                            name: Nom
+                            attributeType: Type
+                            value: Valeur
+                        actions:
+                            delete_attribute: "Retirer l'attribut"
+                            add_attribute: Ajouter un attribut
+                        empty: "Aucun attribut pour ce type d'attribut"
+                    optionTypes:
+                        title: "Types d'options"
+                    variants:
+                        title: Déclinaisons
+            modal:
+                add_attribute_to_product:
+                    title: Ajouter un nouvel attribut
+                    actions:
+                        cancel: Annuler
+                        create: Créer
+
+        attribute:
+            actions:
+                actions: Actions
+                create: Créer
+                create_new_attribute: Créer un nouvel attribut
+                list: Voir la liste des attributs
+                show_attribute_type: "Voir le type d'attribut"
+            create:
+                page_header:
+                    title: Nouvel attribut
+                    description: Créez un nouvel attribut
+                steps:
+                    type:
+                        title: "Type d'attribut"
+                        description: "Choisir le type d'attribut"
+                    value:
+                        title: "Valeur d'attribut"
+                        description: "Définir la valeur de l'attribut"
+            list:
+                page_header:
+                    title: Liste des attributs
+                    description: "{0} Il n'y a aucun attribut dans l'application |{1} Il y a %count% attribut dans l'application |]1,Inf[ Il y a %count% attributs dans l'application"
+            show:
+                page_header:
+                    title: "Attribut"
+                group:
+                    general:
+                        title: Général
+                        fields:
+                            name: Nom
+                            type: Type
+                            value: Valeur
+                            specificName: Nom spécifique
+
+        attribute_type:
+            actions:
+                actions: Actions
+                create: Créer
+                create_new_attribute_type: "Créer un nouveau type d'attribut"
+                create_new_attribute_for_this_type: "Créer un nouvel attribut pour ce type"
+                list: "Voir la liste des types d'attributs"
+                remove: Supprimer cet attribut
+            create:
+                page_header:
+                    title: "Nouveau type d'attribut"
+                    description: "Créez un nouveau type d'attribut"
+                steps:
+                    type:
+                        title: "Type d'attribut"
+                        description: "Choisir le type d'attribut"
+                    value:
+                        title: "Valeur d'attribut"
+                        description: "Définir la valeur de l'attribut"
+            list:
+                page_header:
+                    title: "Types d'attributs"
+                    description: "{0} Il n'y a aucun type d'attribut dans l'application |{1} Il y a %count% type d'attribut dans l'application |]1,Inf[ Il y a %count% types d'attribut dans l'application"
+            show:
+                page_header:
+                    title: "Types d'attributs"
+                group:
+                    general:
+                        title: Général
+                        fields:
+                            name: Nom
+                            type: Type de donnée
+                            reusable: Réutilisable
+                    attributes:
+                        title: Attributs
+                        badge_total: Total
+                        fields:
+                            value: Valeur
+                            usedCount: "Nb d'utilisations"
+                        empty: Aucun attribut
+            values:
+                TYPE_BOOLEAN: Booléen
+                TYPE_STRING: Chaine
+                TYPE_INTEGER: Nombre entier
+                TYPE_FLOAT: Nombre décimal
+                TYPE_PERCENT: Taux
+                TYPE_DATE: Date
+                TYPE_DATETIME: Date et heure
+
+        option:
+            actions:
+                actions: Actions
+                create: Créer
+                create_new_option: Créer une nouvelle option
+                list: Voir la liste des options
+                show_option_type: "Voir le type d'option"
+            create:
+                page_header:
+                    title: Nouvelle option
+                    description: Créez une nouvelle option
+                steps:
+                    type:
+                        title: "Type d'option"
+                        description: "Choisir le type d'option"
+                    value:
+                        title: "Valeur d'option"
+                        description: "Définir la valeur de l'option"
+            list:
+                page_header:
+                    title: Liste des options
+                    description: "{0} Il n'y a aucune option dans l'application |{1} Il y a %count% option dans l'application |]1,Inf[ Il y a %count% options dans l'application"
+            show:
+                page_header:
+                    title: "Option"
+                group:
+                    general:
+                        title: Général
+                        fields:
+                            type: Type
+                            value: Valeur
+
+        option_type:
+            actions:
+                actions: Actions
+                create: Créer
+                create_new_option_type: "Créer un nouveau type d'option"
+                create_new_option_for_this_type: "Créer une nouvelle option pour ce type"
+                list: "Voir la liste des types d'option"
+                remove: "Supprimer ce type d'option"
+            create:
+                page_header:
+                    title: "Nouveau type d'option"
+                    description: "Créez un nouveau type d'option"
+                steps:
+                    type:
+                        title: "Type d'option"
+                        description: "Choisir le type d'option"
+                    value:
+                        title: "Valeur d'option"
+                        description: "Définir la valeur de l'option"
+            list:
+                page_header:
+                    title: "Types d'option"
+                    description: "{0} Il n'y a aucun type d'option dans l'application |{1} Il y a %count% type d'option dans l'application |]1,Inf[ Il y a %count% types d'option dans l'application"
+            show:
+                page_header:
+                    title: "Types d'option"
+                group:
+                    general:
+                        title: Général
+                        fields:
+                            name: Nom
+                            type: Type de donnée
+                            reusable: Réutilisable
+                    options:
+                        title: Options
+                        badge_total: Total
+                        fields:
+                            value: Valeur
+                            usedCount: "Nb d'utilisations"
+                        empty: Aucune option

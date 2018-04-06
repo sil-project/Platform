@@ -2,6 +2,14 @@
 
     {{ form_start(form, {'class':'ui form data'}) }}
 
+    {% block flashes %}
+        <div class="ui flash-container">
+            {% for error in form.vars.errors %}
+                {% include '@BlastUI/Layout/Blocks/flash_message.html.twig' with {label: 'error', message: error.message} %}
+            {% endfor %}
+        </div>
+    {% endblock flashes %}
+
     {% for fieldname, field in form.children %}
         {{ form_row(attribute(form, fieldname)) }}
     {% endfor %}

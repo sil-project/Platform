@@ -1,0 +1,45 @@
+blast_resource:
+
+    resources:
+
+        sil.product_attribute:
+            classes:
+                model:                  Sil\Bundle\ProductBundle\Entity\Attribute
+                repository:             Sil\Bundle\ProductBundle\Repository\AttributeRepository
+                interfaces:
+                    -                   Sil\Component\Product\Model\AttributeInterface
+
+        sil.product_attribute_type:
+            classes:
+                model:                  Sil\Bundle\ProductBundle\Entity\AttributeType
+                repository:             Sil\Bundle\ProductBundle\Repository\AttributeTypeRepository
+                interfaces:
+                    -                   Sil\Component\Product\Model\AttributeTypeInterface
+
+        sil.product_option:
+            classes:
+                model:                  Sil\Bundle\ProductBundle\Entity\Option
+                repository:             Sil\Bundle\ProductBundle\Repository\OptionRepository
+                interfaces:
+                    -                   Sil\Component\Product\Model\OptionInterface
+
+        sil.product_option_type:
+            classes:
+                model:                  Sil\Bundle\ProductBundle\Entity\OptionType
+                repository:             Sil\Bundle\ProductBundle\Repository\OptionTypeRepository
+                interfaces:
+                    -                   Sil\Component\Product\Model\OptionTypeInterface
+
+        sil.product:
+            classes:
+                model:                  Sil\Bundle\ProductBundle\Entity\Product
+                repository:             Sil\Bundle\ProductBundle\Repository\ProductRepository
+                interfaces:
+                    -                   Sil\Component\Product\Model\ProductInterface
+
+        sil.product_variant:
+            classes:
+                model:                  Sil\Bundle\ProductBundle\Entity\ProductVariant
+                repository:             Sil\Bundle\ProductBundle\Repository\ProductVariantRepository
+                interfaces:
+                    -                   Sil\Component\Product\Model\ProductVariantInterface

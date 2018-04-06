@@ -2,6 +2,8 @@
 
 {% block content %}
 
+    {% set list = list | merge({'filters': []}) %}
+
     {% block page_header %}
 
         <div class="ui grid">
@@ -11,7 +13,11 @@
                     <div class="content">
                         {% block page_header_title %}List{% endblock page_header_title %}
                         <div class="sub header">
-                            {% block page_header_description %}Default list page, please override blocks <b>« page_header_title »</b>, <b>« page_header_icon »</b>, <b>« page_header_description »</b>{% endblock page_header_description %}
+                            {% block page_header_description %}Default list page, please override blocks
+                                <b>« page_header_title »</b>,
+                                <b>« page_header_icon »</b>,
+                                <b>« page_header_description »</b>
+                            {% endblock page_header_description %}
                         </div>
                     </div>
                 </h1>
@@ -45,7 +51,8 @@
             headers: list.headers,
             data: list.elements,
             actions: list.actions,
-            allowSelection: true
+            allowSelection: true,
+            pagination: list.pagination
         }) }}
 
     {% endblock %}

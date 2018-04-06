@@ -17,13 +17,13 @@ blast_menu:
         # PRODUCTS
         # ##################################################################
 
-        platform.menu_label.products:
-            icon: archive
-            route: admin_ecommerce_product_list
-            order: 16
+        # platform.menu_label.products:
+        #     icon: archive
+        #     route: admin_ecommerce_product_list
+        #     order: 16
 
-        sil.ecommerce.menu_label.ecommerce:
-            children:
-
-                sil.ecommerce.menu_label.products:
-                    display: false
+        # sil.ecommerce.menu_label.ecommerce:
+        #     children:
+        #
+        #         sil.ecommerce.menu_label.products:
+        #             display: false

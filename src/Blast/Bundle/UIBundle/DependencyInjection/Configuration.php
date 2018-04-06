@@ -46,6 +46,9 @@ class Configuration implements ConfigurationInterface
                 ->arrayNode('templates')
                     ->addDefaultsIfNotSet()
                     ->children()
+
+                        // FORM TYPES
+
                         ->scalarNode('form_type_button')
                             ->defaultValue('@BlastUI/Form/Type/button.html.twig')
                         ->end()
@@ -79,6 +82,9 @@ class Configuration implements ConfigurationInterface
                         ->scalarNode('form_type_textarea')
                             ->defaultValue('@BlastUI/Form/Type/textarea.html.twig')
                         ->end()
+
+                        // WIDGETS
+
                         ->scalarNode('widget_datacard_card')
                             ->defaultValue('@BlastUI/Widget/DataCard/card.html.twig')
                         ->end()
@@ -105,6 +111,39 @@ class Configuration implements ConfigurationInterface
                         ->end()
                         ->scalarNode('widget_modal')
                             ->defaultValue('@BlastUI/Widget/Modal/modal.html.twig')
+                        ->end()
+
+                        // DATA TYPES
+
+                        ->scalarNode('data_type_boolean')
+                            ->defaultValue('@BlastUI/DataType/boolean.html.twig')
+                        ->end()
+                        ->scalarNode('data_type_integer')
+                            ->defaultValue('@BlastUI/DataType/integer.html.twig')
+                        ->end()
+                        ->scalarNode('data_type_double')
+                            ->defaultValue('@BlastUI/DataType/double.html.twig')
+                        ->end()
+                        ->scalarNode('data_type_string')
+                            ->defaultValue('@BlastUI/DataType/string.html.twig')
+                        ->end()
+                        ->scalarNode('data_type_array')
+                            ->defaultValue('@BlastUI/DataType/array.html.twig')
+                        ->end()
+                        ->scalarNode('data_type_object')
+                            ->defaultValue('@BlastUI/DataType/object.html.twig')
+                        ->end()
+                        ->scalarNode('data_type_null')
+                            ->defaultValue('@BlastUI/DataType/null.html.twig')
+                        ->end()
+                        ->scalarNode('data_type_unknown')
+                            ->defaultValue('@BlastUI/DataType/unknown.html.twig')
+                        ->end()
+
+                        // OTHERS
+
+                        ->scalarNode('breadcrumb')
+                            ->defaultValue('@BlastUI/Layout/Blocks/breadcrumb.html.twig')
                         ->end()
                     ->end()
             ->end()

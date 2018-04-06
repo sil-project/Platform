@@ -29,7 +29,7 @@ class AttributeType implements AttributeTypeInterface, ResourceInterface
     /**
      * The data type of attribute type.
      *
-     * @var int
+     * @var string
      */
     protected $type;
 
@@ -43,11 +43,15 @@ class AttributeType implements AttributeTypeInterface, ResourceInterface
     /**
      * Collection of attributes (values) for this type of attribute.
      *
-     * @var Collection|Attribute[]
+     * @var Collection|AttributeInterface[]
      */
     protected $attributes;
 
-    public function __construct($name, $type = null)
+    /**
+     * @param string $name
+     * @param string $type
+     */
+    public function __construct(string $name, ?string $type = null)
     {
         $this->attributes = new ArrayCollection();
 
@@ -72,14 +76,14 @@ class AttributeType implements AttributeTypeInterface, ResourceInterface
     }
 
     /**
-     * @return array|Attribute[]
+     * @return array|AttributeInterface[]
      */
     public function getAttributes(): array
     {
         return $this->attributes->getValues();
     }
 
-    public function addAttribute(Attribute $attribute): void
+    public function addAttribute(AttributeInterface $attribute): void
     {
         if ($this->attributes->contains($attribute)) {
             throw new InvalidArgumentException(sprintf('Attribute « %s » for attribute type « %s » already exists', $attribute->getName(), $this->getName()));
@@ -87,7 +91,7 @@ class AttributeType implements AttributeTypeInterface, ResourceInterface
         $this->attributes->add($attribute);
     }
 
-    public function removeAttribute(Attribute $attribute): void
+    public function removeAttribute(AttributeInterface $attribute): void
     {
         if (!$this->attributes->contains($attribute)) {
             throw new InvalidArgumentException(sprintf('Attribute « %s » for attribute type « %s » does not exists', $attribute->getName(), $this->getName()));
@@ -101,20 +105,20 @@ class AttributeType implements AttributeTypeInterface, ResourceInterface
     public function getSupportedTypes(): array
     {
         return [
-            'TYPE_BOOLEAN'  => AttributeTypeInterface::TYPE_BOOLEAN,
-            'TYPE_STRING'   => AttributeTypeInterface::TYPE_STRING,
-            'TYPE_INTEGER'  => AttributeTypeInterface::TYPE_INTEGER,
-            'TYPE_FLOAT'    => AttributeTypeInterface::TYPE_FLOAT,
-            'TYPE_PERCENT'  => AttributeTypeInterface::TYPE_PERCENT,
-            'TYPE_DATE'     => AttributeTypeInterface::TYPE_DATE,
-            'TYPE_DATETIME' => AttributeTypeInterface::TYPE_DATETIME,
+            AttributeTypeInterface::TYPE_BOOLEAN,
+            AttributeTypeInterface::TYPE_STRING,
+            AttributeTypeInterface::TYPE_INTEGER,
+            AttributeTypeInterface::TYPE_FLOAT,
+            AttributeTypeInterface::TYPE_PERCENT,
+            AttributeTypeInterface::TYPE_DATE,
+            AttributeTypeInterface::TYPE_DATETIME,
         ];
     }
 
     /**
      * {@inheritdoc}
      */
-    public function getType(): int
+    public function getType(): string
     {
         return $this->type;
     }
@@ -122,7 +126,7 @@ class AttributeType implements AttributeTypeInterface, ResourceInterface
     /**
      * {@inheritdoc}
      */
-    public function setType(int $type): void
+    public function setType(string $type): void
     {
         if (!in_array($type, $this->getSupportedTypes())) {
             throw new \InvalidArgumentException(sprintf('Unsupported attribute data type : "%s". Supported are : %s', $type, $this->getSupportedTypes()));

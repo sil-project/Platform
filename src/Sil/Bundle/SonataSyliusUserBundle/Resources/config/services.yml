@@ -5,8 +5,8 @@ services:
     # Canonicalization of emails and usernames
     sonata_sylius_user.listener.canonicalizer:
         class: Sil\Bundle\SonataSyliusUserBundle\EventListener\CanonicalizerListener
-        arguments:
-            - "@sylius.canonicalizer"
+        # arguments:
+        #     - "@sylius.canonicalizer"
         tags:
             - { name: doctrine.event_listener, event: prePersist }
             - { name: doctrine.event_listener, event: preUpdate }

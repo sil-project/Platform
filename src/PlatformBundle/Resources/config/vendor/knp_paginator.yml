@@ -1,0 +1,6 @@
+knp_paginator:
+    page_range: 10
+    default_options:
+        distinct: true
+    template:
+        pagination: '@KnpPaginator/Pagination/semantic_ui_pagination.html.twig'

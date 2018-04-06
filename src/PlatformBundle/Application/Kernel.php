@@ -24,32 +24,32 @@ class Kernel extends BaseKernel
             // Sylius bundles
             // -------------------------------------------------------------------------------------
 
-            new \Sylius\Bundle\OrderBundle\SyliusOrderBundle(),
-            new \Sylius\Bundle\MoneyBundle\SyliusMoneyBundle(),
-            new \Sylius\Bundle\CurrencyBundle\SyliusCurrencyBundle(),
-            new \Sylius\Bundle\LocaleBundle\SyliusLocaleBundle(),
-            new \Sylius\Bundle\ProductBundle\SyliusProductBundle(),
-            new \Sylius\Bundle\ChannelBundle\SyliusChannelBundle(),
-            new \Sylius\Bundle\AttributeBundle\SyliusAttributeBundle(),
-            new \Sylius\Bundle\TaxationBundle\SyliusTaxationBundle(),
-            new \Sylius\Bundle\ShippingBundle\SyliusShippingBundle(),
-            new \Sylius\Bundle\PaymentBundle\SyliusPaymentBundle(),
-            new \Sylius\Bundle\MailerBundle\SyliusMailerBundle(),
-            new \Sylius\Bundle\PromotionBundle\SyliusPromotionBundle(),
-            new \Sylius\Bundle\AddressingBundle\SyliusAddressingBundle(),
-            new \Sylius\Bundle\InventoryBundle\SyliusInventoryBundle(),
-            new \Sylius\Bundle\TaxonomyBundle\SyliusTaxonomyBundle(),
-            new \Sylius\Bundle\UserBundle\SyliusUserBundle(),
-            new \Sylius\Bundle\CustomerBundle\SyliusCustomerBundle(),
-            new \Sylius\Bundle\UiBundle\SyliusUiBundle(),
-            new \Sylius\Bundle\ReviewBundle\SyliusReviewBundle(),
-            new \Sylius\Bundle\CoreBundle\SyliusCoreBundle(),
-            new \Sylius\Bundle\ResourceBundle\SyliusResourceBundle(),
-            new \Sylius\Bundle\GridBundle\SyliusGridBundle(),
-            new \Sylius\Bundle\FixturesBundle\SyliusFixturesBundle(),
-            new \Sylius\Bundle\AdminBundle\SyliusAdminBundle(),
-            new \Sylius\Bundle\ShopBundle\SyliusShopBundle(),
-            new \Sylius\Bundle\AdminApiBundle\SyliusAdminApiBundle(),
+            // new \Sylius\Bundle\OrderBundle\SyliusOrderBundle(),
+            // new \Sylius\Bundle\MoneyBundle\SyliusMoneyBundle(),
+            // new \Sylius\Bundle\CurrencyBundle\SyliusCurrencyBundle(),
+            // new \Sylius\Bundle\LocaleBundle\SyliusLocaleBundle(),
+            // new \Sylius\Bundle\ProductBundle\SyliusProductBundle(),
+            // new \Sylius\Bundle\ChannelBundle\SyliusChannelBundle(),
+            // new \Sylius\Bundle\AttributeBundle\SyliusAttributeBundle(),
+            // new \Sylius\Bundle\TaxationBundle\SyliusTaxationBundle(),
+            // new \Sylius\Bundle\ShippingBundle\SyliusShippingBundle(),
+            // new \Sylius\Bundle\PaymentBundle\SyliusPaymentBundle(),
+            // new \Sylius\Bundle\MailerBundle\SyliusMailerBundle(),
+            // new \Sylius\Bundle\PromotionBundle\SyliusPromotionBundle(),
+            // new \Sylius\Bundle\AddressingBundle\SyliusAddressingBundle(),
+            // new \Sylius\Bundle\InventoryBundle\SyliusInventoryBundle(),
+            // new \Sylius\Bundle\TaxonomyBundle\SyliusTaxonomyBundle(),
+            // new \Sylius\Bundle\UserBundle\SyliusUserBundle(),
+            // new \Sylius\Bundle\CustomerBundle\SyliusCustomerBundle(),
+            // new \Sylius\Bundle\UiBundle\SyliusUiBundle(),
+            // new \Sylius\Bundle\ReviewBundle\SyliusReviewBundle(),
+            // new \Sylius\Bundle\CoreBundle\SyliusCoreBundle(),
+            // new \Sylius\Bundle\ResourceBundle\SyliusResourceBundle(),
+            // new \Sylius\Bundle\GridBundle\SyliusGridBundle(),
+            // new \Sylius\Bundle\FixturesBundle\SyliusFixturesBundle(),
+            // new \Sylius\Bundle\AdminBundle\SyliusAdminBundle(),
+            // new \Sylius\Bundle\ShopBundle\SyliusShopBundle(),
+            // new \Sylius\Bundle\AdminApiBundle\SyliusAdminApiBundle(),
 
             // -------------------------------------------------------------------------------------
             // Symfony bundles
@@ -88,7 +88,7 @@ class Kernel extends BaseKernel
             // -------------------------------------------------------------------------------------
 
             new \FOS\JsRoutingBundle\FOSJsRoutingBundle(),
-            new \FOS\OAuthServerBundle\FOSOAuthServerBundle(),
+            // new \FOS\OAuthServerBundle\FOSOAuthServerBundle(),
             new \FOS\RestBundle\FOSRestBundle(),
             new \FOS\ElasticaBundle\FOSElasticaBundle(),
 
@@ -115,7 +115,7 @@ class Kernel extends BaseKernel
             new \Bazinga\Bundle\JsTranslationBundle\BazingaJsTranslationBundle(),
             new \JeroenDesloovere\Bundle\VCardBundle\JeroenDesloovereVCardBundle(),
             new \Liip\ImagineBundle\LiipImagineBundle(),
-            new \Payum\Bundle\PayumBundle\PayumBundle(),
+            // new \Payum\Bundle\PayumBundle\PayumBundle(),
             new \Sparkling\VATBundle\SparklingVATBundle(),
             new \Stfalcon\Bundle\TinymceBundle\StfalconTinymceBundle(),
             new \Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
@@ -127,8 +127,8 @@ class Kernel extends BaseKernel
             // Sylius main bundles
             // -------------------------------------------------------------------------------------
 
-            new \Sylius\Bundle\PayumBundle\SyliusPayumBundle(), // must be added after PayumBundle.
-            new \Sylius\Bundle\ThemeBundle\SyliusThemeBundle(), // must be added after FrameworkBundle
+            // new \Sylius\Bundle\PayumBundle\SyliusPayumBundle(), // must be added after PayumBundle.
+            // new \Sylius\Bundle\ThemeBundle\SyliusThemeBundle(), // must be added after FrameworkBundle
 
             // -------------------------------------------------------------------------------------
             // Blast bundles
@@ -156,8 +156,8 @@ class Kernel extends BaseKernel
             new \Sil\Bundle\EmailBundle\SilEmailBundle(),
             new \Sil\Bundle\EmailCRMBundle\SilEmailCRMBundle(),
             new \Sil\Bundle\MediaBundle\SilMediaBundle(),
-            new \Sil\Bundle\EcommerceBundle\SilEcommerceBundle(),
-            new \Sil\Bundle\SyliusPayboxBundle\SilSyliusPayboxBundle(),
+            // new \Sil\Bundle\EcommerceBundle\SilEcommerceBundle(),
+            // new \Sil\Bundle\SyliusPayboxBundle\SilSyliusPayboxBundle(),
             new \Sil\Bundle\UomBundle\SilUomBundle(),
             new \Sil\Bundle\StockBundle\SilStockBundle(),
             new \Sil\Bundle\ManufacturingBundle\SilManufacturingBundle(),

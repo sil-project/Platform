@@ -2,12 +2,25 @@
     {% spaceless %}
         {% for action in table.actions %}
 
+            {% set actionPath = '#' %}
+
+            {% if action.routeName is defined %}
+
+                {% set routeParams = [] %}
+
+                {% if action.routeParams is defined %}
+                    {% set routeParams = action.routeParams %}
+                {% endif %}
+
+                {% set actionPath = blastui_build_path(action.routeName, routeParams, item, '%item%') %}
+            {% endif %}
+
             {% if loop.index0 == 0 %}
 
-                <div class="primary mini ui button">
-                    <i class="eye icon"></i>
-                    Voir
-                </div>
+                <a class="primary mini ui button" href="{{ actionPath }}">
+                    <i class="{{ action.icon }} icon"></i>
+                    {{ action.label }}
+                </a>
 
             {% else %}
 
@@ -17,14 +30,14 @@
                         <i class="dropdown icon"></i>
                         <div class="menu">
 
-                {% endif %}
+                        {% endif %}
 
-                            <div class="item">
-                                <i class="{{ action.icon }} icon"></i>
-                                {{ action.label }}
-                            </div>
+                        <a class="item" href="{{ actionPath }}">
+                            <i class="{{ action.icon }} icon"></i>
+                            {{ action.label }}
+                        </a>
 
-                {% if loop.index0 == loop.last %}
+                        {% if loop.index0 == loop.last %}
 
                         </div>
                     </div>

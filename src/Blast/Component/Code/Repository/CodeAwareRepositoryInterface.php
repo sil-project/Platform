@@ -20,11 +20,11 @@ interface CodeAwareRepositoryInterface
     /**
      * Find a resource by its Code.
      *
-     * @param string $codeValue
+     * @param string $code
      *
      * @return ResourceInterface
      */
-    public function findByCode(CodeInterface $codeValue): ?ResourceInterface;
+    public function findOneByCode(CodeInterface $code): ?ResourceInterface;
 
     /**
      * Find a resource by its Code value.
@@ -33,5 +33,5 @@ interface CodeAwareRepositoryInterface
      *
      * @return ResourceInterface
      */
-    public function findByCodeValue(string $codeValue): ?ResourceInterface;
+    public function findOneByCodeValue(string $codeValue): ?ResourceInterface;
 }

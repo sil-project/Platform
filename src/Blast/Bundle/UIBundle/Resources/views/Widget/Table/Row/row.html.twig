@@ -12,7 +12,27 @@
     {% spaceless %}
         {% for header in table.headers %}
             <td>
-                {{ attribute(item, header.name)|raw }}
+
+                {% set trans_prefix = '' %}
+
+                {% if header.trans_prefix is defined %}
+                    {% set trans_prefix = header.trans_prefix %}
+                {% endif %}
+
+                {% set trans_domain = 'messages' %}
+
+                {% if header.trans_domain is defined %}
+                    {% set trans_domain = header.trans_domain %}
+                {% endif %}
+
+                {% set value = blast_access_property(item, header.name) %}
+
+                {% if blast_guess_data_type(value) == constant('Blast\\Bundle\\UIBundle\\Twig\\Extensions\\DisplayDataExtension::DATA_TYPE_STRING') %}
+                    {{ blast_display_data((trans_prefix ~ value)|trans({}, trans_domain)) }}
+                {% else %}
+                    {{ blast_display_data(value) }}
+                {% endif %}
+
             </td>
         {% endfor %}
     {% endspaceless %}

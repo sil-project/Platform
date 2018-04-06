@@ -1,0 +1,92 @@
+
+
+<div class="ui clearing segment with form">
+    <h4 class="ui header">
+        {{ 'sil.product.product.show.group.attribute.title'|trans }}
+    </h4>
+    <div class="ui divider"></div>
+
+    {% set attributeList = [] %}
+
+    {% for attr in product.attributes %}
+        {% set attributeList = attributeList | merge([
+            {
+                'label': attr.name,
+                'name': '[' ~ loop.index0 ~ '].value'
+            }
+        ]) %}
+    {% endfor %}
+
+    {{ blast_widget_show_group(product.attributes, attributeList) }}
+
+    <form class="ui form" method="POST" action="{{ path('sil_product_update_attributes', {'productId':product.id}) }}">
+
+        <table class="ui very basic wide table">
+            <tbody>
+                {% for attribute in product.attributes %}
+                    <tr>
+                        <td class="right aligned">
+                            <b>
+                                {{ attribute.attributeType.name }}&nbsp;:
+                            </b>
+                        </td>
+                        <td>
+                            {% if (attribute.attributeType.isReusable) %}
+                                {{ render(controller('sil_product.controller.product:selectAttributeForProductAction', {
+                                    'attributeId': attribute.id,
+                                    'productId': product.id,
+                                    'formIndex': loop.index0
+                                })) }}
+                            {% else %}
+                                {{ render(controller('sil_product.controller.product:updateAttributeForProductAction', {
+                                    'attributeId': attribute.id,
+                                    'productId': product.id,
+                                    'formIndex': loop.index0
+                                })) }}
+                            {% endif %}
+                        </td>
+                        <td>
+                            <a class="ui icon red button" href="{{ path('sil_product_remove_attribute', {
+                                    productId: product.id,
+                                    attributeId: attribute.id
+                                }) }}" title="{{ 'sil.product.product.show.group.attribute.actions.delete_attribute'|trans }}" data-requires-confirm="data-requires-confirm">
+                                <i class="trash alternate outline icon"></i>
+                            </a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="100%" class="center aligned">
+                            {{ 'sil.product.product.show.group.attribute.empty'|trans }}
+                        </td>
+                    </tr>
+                {% endfor %}
+                <tr>
+                    <td colspan="100%" class="center aligned">
+                        <div class="ui divider"></div>
+                        <a class="ui icon positive button" href="#" data-modal="add_attribute_to_product" data-modal-not-dissmissible="true">
+                            {{ 'sil.product.product.show.group.attribute.actions.add_attribute'|trans }}
+                            <i class="plus circle icon"></i>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="ui divider"></div>
+
+        {{ blast_widget_field('submit', {
+            label: 'Enregistrer',
+            class: 'right floated',
+            icon: 'save'
+        }) }}
+
+        {{ blast_widget_field('link', {
+            label: 'Annuler',
+            class: 'button left floated close',
+            icon: 'undo'
+        }) }}
+
+    </form>
+
+</div>

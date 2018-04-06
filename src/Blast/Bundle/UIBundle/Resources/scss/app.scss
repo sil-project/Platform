@@ -169,11 +169,66 @@ body {
                 }
 
                 & > .menu {
-                    margin: 0 -0.7em;
+                    margin: 0 -0.7em 0 0.25em;
                 }
 
                 & > i.icon {
                     color: $black;
+                }
+            }
+        }
+
+        &.flash-container {
+            height  : 0;
+            overflow: visible;
+        }
+
+        &.flash-container,
+        &.global-flash-container {
+            .ui.message {
+                visibility: hidden;
+                opacity   : 0;
+            }
+        }
+
+        &.global-flash-container {
+            position      : fixed;
+            bottom        : 1em;
+            right         : 1em;
+            width         : 50%;
+            z-index       : 9999;
+            top           : 1em;
+            display       : flex;
+            pointer-events: none;
+            flex-direction: column-reverse;
+            align-items   : flex-end;
+
+            .ui.message {
+                flex-direction: column-reverse;
+                pointer-events: all;
+                padding-right : 2em;
+
+                &:first-child {
+                    margin-top: 1em;
+                }
+
+                &:last-child {
+                    margin-bottom: 1em;
+                }
+
+                .content {
+                    position    : relative;
+                    padding-left: 1.5em;
+
+                    & > .icon:first-of-type {
+                        font-size: 2em;
+                        position : absolute;
+                        left     : -0.5em;
+                    }
+
+                    & > p {
+                        margin: 0;
+                    }
                 }
             }
         }
@@ -250,7 +305,7 @@ body.pushable .pusher {
     color           : $primaryColor !important;
 }
 
-.ui.with.form form.ui.form {
+.ui.with.form .ui.form {
     display: none;
 }
 

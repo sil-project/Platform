@@ -1,0 +1,3 @@
+imports:
+    - { resource: '@SilProductBundle/Resources/config/vendor/blast/resource.yml' }
+    - { resource: '@SilProductBundle/Resources/config/vendor/blast/menu.yml' }

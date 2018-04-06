@@ -1,0 +1,23 @@
+PlatformBundle\Entity\SilStockBundle\StockItem:
+    type: mappedSuperclass
+    table: sil_stock_item
+    embedded:
+        code:
+            class: Sil\Bundle\ProductBundle\Entity\ProductCode
+    fields:
+        name:
+            type: string
+            nullable: false
+    manyToOne:
+        uom:
+            targetEntity: Sil\Bundle\UomBundle\Entity\Uom
+            joinColumn:
+                name: uom_id
+                referencedColumnName: id
+                nullable: false
+        outputStrategy:
+            targetEntity: Sil\Component\Stock\Model\OutputStrategy
+            joinColumn:
+                name: strategy_output_id
+                referencedColumnName: id
+                nullable: false

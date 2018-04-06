@@ -1,0 +1,23 @@
+<div class="ui clearing very basic segment">
+    {{ form_start(form) }}
+
+    {{ form_row(form.attributeType) }}
+    {{ form_row(form.specificName) }}
+    {{ form_row(form.value) }}
+
+    <div class="actions">
+        {{ blast_widget_field('link', {
+            label: 'Annuler',
+            class: 'button right floated cancel',
+            icon: 'undo'
+        }) }}
+
+        {{ blast_widget_field('submit', {
+            label: 'Enregistrer',
+            class: 'left floated',
+            icon: 'save'
+        }) }}
+    </div>
+
+    {{ form_end(form) }}
+</div>

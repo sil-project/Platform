@@ -22,7 +22,7 @@ class TestEntityRepository extends InMemoryRepository implements CodeAwareReposi
     /**
      * {@inheritdoc}
      */
-    public function findByCodeValue(string $codeValue): ?ResourceInterface
+    public function findOneByCodeValue(string $codeValue): ?ResourceInterface
     {
         return $this->findOneBy(['code.value' => $codeValue]);
     }
@@ -30,7 +30,7 @@ class TestEntityRepository extends InMemoryRepository implements CodeAwareReposi
     /**
      * {@inheritdoc}
      */
-    public function findByCode(CodeInterface $code): ?ResourceInterface
+    public function findOneByCode(CodeInterface $code): ?ResourceInterface
     {
         return $this->findOneBy(['code' => $code]);
     }

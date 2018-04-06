@@ -17,7 +17,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
 use Blast\Component\Resource\Model\ResourceInterface;
 
-class OptionType implements ResourceInterface
+class OptionType implements OptionTypeInterface, ResourceInterface
 {
     /**
      * Name of attribute.
@@ -29,14 +29,14 @@ class OptionType implements ResourceInterface
     /**
      * Collection of options (values) for this kind of option.
      *
-     * @var Collection|Option[]
+     * @var Collection|OptionInterface[]
      */
     protected $options;
 
     /**
      * Collection of Products that uses this OptionType.
      *
-     * @var Collection|Product[]
+     * @var Collection|ProductInterface[]
      */
     protected $products;
 
@@ -48,7 +48,7 @@ class OptionType implements ResourceInterface
     }
 
     /**
-     * @return string
+     * {@inheritdoc}
      */
     public function getName(): string
     {
@@ -56,7 +56,7 @@ class OptionType implements ResourceInterface
     }
 
     /**
-     * @param string $name
+     * {@inheritdoc}
      */
     public function setName(string $name): void
     {
@@ -64,14 +64,17 @@ class OptionType implements ResourceInterface
     }
 
     /**
-     * @return array|Option[]
+     * {@inheritdoc}
      */
     public function getOptions(): array
     {
         return $this->options->getValues();
     }
 
-    public function addOption(Option $option): void
+    /**
+     * {@inheritdoc}
+     */
+    public function addOption(OptionInterface $option): void
     {
         if ($this->options->contains($option)) {
             throw new InvalidArgumentException(sprintf('Option « %s » for option label « %s » already exists', $option->getName(), $this->getName()));
@@ -79,7 +82,10 @@ class OptionType implements ResourceInterface
         $this->options->add($option);
     }
 
-    public function removeOption(Option $option): void
+    /**
+     * {@inheritdoc}
+     */
+    public function removeOption(OptionInterface $option): void
     {
         if (!$this->options->contains($option)) {
             throw new InvalidArgumentException(sprintf('Option « %s » for option label « %s » does not exists', $option->getName(), $this->getName()));
@@ -88,13 +94,16 @@ class OptionType implements ResourceInterface
     }
 
     /**
-     * @return array|Products[]
+     * {@inheritdoc}
      */
     public function getProducts(): array
     {
         return $this->products->getValues();
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function addProduct(ProductInterface $product): void
     {
         if ($this->products->contains($product)) {
@@ -103,6 +112,9 @@ class OptionType implements ResourceInterface
         $this->products->add($product);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function removeProduct(ProductInterface $product): void
     {
         if (!$this->products->contains($product)) {

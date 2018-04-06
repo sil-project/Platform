@@ -1,3 +1,19 @@
-sil_product_homepage:
-    path:     /
-    defaults: { _controller: SilProductBundle:Default:index }
+sil_product:
+    resource: "@SilProductBundle/Resources/config/routing/product.yml"
+    prefix: /product
+
+sil_attribute:
+    resource: "@SilProductBundle/Resources/config/routing/attribute.yml"
+    prefix: /product/attribute
+
+sil_attribute_type:
+    resource: "@SilProductBundle/Resources/config/routing/attribute_type.yml"
+    prefix: /product/attribute_type
+
+sil_option:
+    resource: "@SilProductBundle/Resources/config/routing/option.yml"
+    prefix: /product/option
+
+sil_option_type:
+    resource: "@SilProductBundle/Resources/config/routing/option_type.yml"
+    prefix: /product/option_type

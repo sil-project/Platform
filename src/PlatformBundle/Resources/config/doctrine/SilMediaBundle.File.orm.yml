@@ -10,7 +10,7 @@ PlatformBundle\Entity\SilMediaBundle\File:
             type: string
             nullable: true
             unique: false
-    manyToOne:
-        owner:
-            targetEntity: Sil\Bundle\EcommerceBundle\Entity\ProductInterface
-            inversedBy: images
+    # manyToOne:
+    #     owner:
+    #         targetEntity: Sil\Bundle\EcommerceBundle\Entity\ProductInterface
+    #         inversedBy: images

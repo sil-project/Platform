@@ -1,0 +1,31 @@
+Sil\Bundle\ProductBundle\Entity\Attribute:
+    type: mappedSuperclass
+    table: sil_product_attribute
+    fields:
+        name:
+            type: string
+            nullable: true
+        value:
+            type: text
+            nullable: false
+
+    manyToOne:
+        attributeType:
+            targetEntity: Sil\Component\Product\Model\AttributeTypeInterface
+            inversedBy: attributes
+            joinColumn:
+                name: attribute_type_id
+                referencedColumnName: id
+
+    manyToMany:
+        products:
+            targetEntity: Sil\Component\Product\Model\ProductInterface
+            mappedBy: attributes
+            joinTable:
+                name: sil_product_products__attributes
+                joinColumns:
+                    product_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    attribute_id:
+                        referencedColumnName: id

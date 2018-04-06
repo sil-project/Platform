@@ -1,0 +1,29 @@
+sil_product_attribute_type_homepage:
+    path:     /
+    defaults: { _controller: sil_product.controller.attribute_type:indexAction }
+
+sil_product_attribute_type_list:
+    path:     /list
+    defaults: { _controller: sil_product.controller.attribute_type:listAction }
+
+sil_product_attribute_type_create:
+    path:     /create
+    defaults: { _controller: sil_product.controller.attribute_type:createAction }
+
+sil_product_attribute_type_show:
+    path:     /{attributeTypeId}/show
+    defaults: { _controller: sil_product.controller.attribute_type:showAction }
+    requirements:
+        attributeTypeId: '^\{?[a-f\d]{8}-(?:[a-f\d]{4}-){3}[a-f\d]{12}\}?$'
+
+sil_product_attribute_type_edit:
+    path:     /{attributeTypeId}/edit
+    defaults: { _controller: sil_product.controller.attribute_type:editAction }
+    requirements:
+        attributeTypeId: '^\{?[a-f\d]{8}-(?:[a-f\d]{4}-){3}[a-f\d]{12}\}?$'
+
+sil_product_attribute_type_remove:
+    path:     /{attributeTypeId}/remove
+    defaults: { _controller: sil_product.controller.attribute_type:removeAction }
+    requirements:
+        attributeTypeId: '^\{?[a-f\d]{8}-(?:[a-f\d]{4}-){3}[a-f\d]{12}\}?$'

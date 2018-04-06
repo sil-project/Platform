@@ -44,14 +44,14 @@ class ProductVariant implements ProductVariantInterface, ResourceInterface
     /**
      * The Product associated with this variant.
      *
-     * @var Product
+     * @var ProductInterface
      */
     protected $product;
 
     /**
      * Collection of Options.
      *
-     * @var Collection|Option[]
+     * @var Collection|OptionInterface[]
      */
     protected $options;
 
@@ -107,34 +107,36 @@ class ProductVariant implements ProductVariantInterface, ResourceInterface
     }
 
     /**
-     * @return Product
+     * @return ProductInterface
      */
-    public function getProduct(): Product
+    public function getProduct(): ProductInterface
     {
         return $this->product;
     }
 
     /**
-     * @return array|Option[]
+     * @return array|OptionInterface[]
      */
     public function getOptions(): array
     {
         return $this->options->getValues();
     }
 
-    public function addOption(Option $option): void
+    public function addOption(OptionInterface $option): void
     {
         if ($this->options->contains($option)) {
             throw new InvalidArgumentException(sprintf('Option « %s - %s » for product variant « %s » already exists', $option->getName(), $option->getValue(), $this->getName()));
         }
         $this->options->add($option);
+        $option->addProductVariant($this);
     }
 
-    public function removeOption(Option $option): void
+    public function removeOption(OptionInterface $option): void
     {
         if (!$this->options->contains($option)) {
             throw new InvalidArgumentException(sprintf('Option « %s - %s » for product variant « %s » does not exists', $option->getName(), $option->getValue(), $this->getName()));
         }
         $this->options->removeElement($option);
+        $option->removeProductVariant($this);
     }
 }

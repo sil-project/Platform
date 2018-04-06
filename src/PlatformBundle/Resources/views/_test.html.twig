@@ -40,9 +40,9 @@
     }) }}
 
     {{ blast_widget_card('Exemple de card éditable', entity,[
-        {'name':'name','label':'Nom'},
-        {'name':'description','label':'Description'},
-        {'name':'isReal','label':'Est réel ?'}
+        {'name':'[name]','label':'Nom'},
+        {'name':'[description]','label':'Description'},
+        {'name':'[isReal]','label':'Est réel ?'}
     ], form )}}
 
     <p></p>
@@ -58,10 +58,10 @@
 
             {{ blast_widget_show_group({'name':'Ma donnée','description':'Un exemple de show group'}, [
                 {
-                    name: 'name',
+                    name: '[name]',
                     label: 'Nom'
                 },{
-                    name: 'description',
+                    name: '[description]',
                     label: 'Description'
                 }
             ]) }}
@@ -162,27 +162,57 @@
     <div class="ui padded grid">
         <div class="six wide column">
             {{ blast_widget_card('Titre de la card', entity, [
-                {'name':'name','label':'Nom'},
-                {'name':'description','label':'Description'}
+                {'name':'[name]','label':'Nom'},
+                {'name':'[description]','label':'Description'}
             ], form, 'fuild' )}}
         </div>
     </div>
     <div class="ui padded grid">
         <div class="six wide column">
             {{ blast_widget_card('Titre de la card', entity, [
-                {'name':'name','label':'Nom'},
-                {'name':'description','label':'Description'}
+                {'name':'[name]','label':'Nom'},
+                {'name':'[description]','label':'Description'}
             ], smallForm, 'fuild' )}}
         </div>
     </div>
     <div class="ui padded grid">
         <div class="six wide column">
             {{ blast_widget_card('Titre de la card', entity, [
-                {'name':'name','label':'Nom'},
-                {'name':'description','label':'Description'}
+                {'name':'[name]','label':'Nom'},
+                {'name':'[description]','label':'Description'}
             ], null, 'fuild' )}}
         </div>
     </div>
+
+    <div class="ui padded grid">
+        <div class="six wide column">
+            booleans :
+            {{ blast_display_data(dataTypes.booleans[1]) }}&nbsp;
+            {{ blast_display_data(dataTypes.booleans[0]) }}
+            <div class="ui divider"></div>
+            integer :
+            {{ blast_display_data(dataTypes.integer) }}
+            <div class="ui divider"></div>
+            double :
+            {{ blast_display_data(dataTypes.double) }}
+            <div class="ui divider"></div>
+            string :
+            {{ blast_display_data(dataTypes.string) }}
+            <div class="ui divider"></div>
+            array :
+            {{ blast_display_data(dataTypes.array) }}
+            <div class="ui divider"></div>
+            object :
+            {{ blast_display_data(dataTypes.object) }}
+            <div class="ui divider"></div>
+            null :
+            {{ blast_display_data(dataTypes.null) }}
+            <div class="ui divider"></div>
+            unknown :
+            {{ blast_display_data(dataTypes.unknown) }}
+        </div>
+    </div>
+
 {% endblock %}
 
 {# #}

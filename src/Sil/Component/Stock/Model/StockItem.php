@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /*
- * Copyright (C) 2015-2017 Libre Informatique
+ * Copyright (C) 2015-2018 Libre Informatique
  *
  * This file is licenced under the GNU LGPL v3.
  * For the full copyright and license information, please view the LICENSE.md
@@ -14,6 +14,7 @@ namespace Sil\Component\Stock\Model;
 
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Guidable;
 use Sil\Component\Uom\Model\Uom;
+use Blast\Component\Code\Model\CodeInterface;
 
 /**
  * @author Glenn Cavarlé <glenn.cavarle@libre-informatique.fr>
@@ -28,7 +29,7 @@ class StockItem implements StockItemInterface
     protected $name;
 
     /**
-     * @var string
+     * @var CodeInterface
      */
     protected $code;
 
@@ -43,11 +44,12 @@ class StockItem implements StockItemInterface
     protected $outputStrategy;
 
     /**
-     * @param string $name
-     * @param Uom    $uom
+     * @param CodeInterface  $code
+     * @param string         $name
+     * @param Uom            $uom
+     * @param OutputStrategy $strategy
      */
-    public static function creatDefault(string $code, string $name, Uom $uom,
-            OutputStrategy $strategy)
+    public static function creatDefault(CodeInterface $code, string $name, Uom $uom, OutputStrategy $strategy)
     {
         $o = new self();
         $o->code = $code;
@@ -65,15 +67,15 @@ class StockItem implements StockItemInterface
     /**
      * @return string
      */
-    public function getName(): ?string
+    public function getName(): string
     {
         return $this->name;
     }
 
     /**
-     * @return string
+     * @return CodeInterface
      */
-    public function getCode(): ?string
+    public function getCode(): CodeInterface
     {
         return $this->code;
     }
@@ -103,9 +105,9 @@ class StockItem implements StockItemInterface
     }
 
     /**
-     * @param string $code
+     * @param CodeInterface $code
      */
-    public function setCode(string $code): void
+    public function setCode(CodeInterface $code): void
     {
         $this->code = $code;
     }

@@ -1,0 +1,52 @@
+{% extends '@Platform/Views/Show/show.html.twig' %}
+
+{% block page_actions_content %}
+    <div class="ui right floated">
+        <div class="ui labeled icon top left dropdown button primary">
+            <i class="cogs icon"></i>
+            <span class="text">{{ 'sil.product.option.actions.actions'|trans }}</span>
+            <div class="menu">
+                <a class="item" href="{{ path('sil_product_option_create') }}">
+                    <i class="plus circle icon"></i>
+                    {{ 'sil.product.option.actions.create_new_option'|trans }}
+                </a>
+                <a class="item" href="{{ path('sil_product_option_type_homepage') }}">
+                    <i class="list icon"></i>
+                    {{ 'sil.product.option_type.actions.list'|trans }}
+                </a>
+                <div class="ui divider"></div>
+                <a class="item" href="{{ path('sil_product_option_type_show', {'optionTypeId': option.optionType.id}) }}">
+                    <i class="eye icon"></i>
+                    {{ 'sil.product.option.actions.show_option_type'|trans }}
+                </a>
+            </div>
+        </div>
+    </div>
+{% endblock page_actions_content %}
+
+{% block page_header_icon %}archive{% endblock page_header_icon %}
+
+{% block page_header_title %}
+    {{ 'sil.product.option.show.page_header.title'|trans }}
+{% endblock page_header_title %}
+
+{% block page_header_description %}
+    <b>{{ option.optionType.name|raw }}:</b>
+    <i>{{ option.value|raw }}</i>
+{% endblock page_header_description %}
+
+{% block page_content %}
+
+    {% set fields = [
+        {
+            'name': 'optionType.name',
+            'label': 'sil.product.option.show.group.general.fields.type'|trans
+        }, {
+            'name': 'value',
+            'label': 'sil.product.option.show.group.general.fields.value'|trans
+        }
+    ] %}
+
+    {{ blast_widget_card('sil.product.option.show.group.general.title'|trans,option, fields, form.general) }}
+
+{% endblock page_content %}

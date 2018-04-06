@@ -79,12 +79,14 @@ body {
                     padding: 0.7em;
                 }
 
-                & > i.icon {
+                & > i.icon,
+                &.simple:hover > i.icon {
                     color: $white;
                 }
 
                 &.simple:hover {
                     background-color: $primaryColor;
+                    color           : $white;
                 }
 
                 &:not(.simple):not(:first-of-type) {
@@ -92,7 +94,7 @@ body {
                 }
 
                 & > .menu {
-                    margin: 0 -0.7em 0;
+                    margin: 0 -0.7em 0 0.25em;
                 }
             }
         }
@@ -102,6 +104,21 @@ body {
             background-color: $pageBackground;
             border-color    : $pageBackground;
             color           : $primaryColor !important;
+        }
+
+        &.flash-container,
+        &.global-flash-container {
+            .ui.message {
+                box-shadow: 0 1px 2px 0 #222;
+
+                &.info,
+                &.warning {
+                    color: $black;
+                    & .content .icon {
+                        color: $white;
+                    }
+                }
+            }
         }
     }
 }

@@ -8,9 +8,9 @@ PlatformBundle\Entity\SilCRMBundle\Organism:
             nullable:   true
 
     oneToMany:
-        orders:
-            targetEntity: Sil\Bundle\EcommerceBundle\Entity\OrderInterface
-            mappedBy: customer
+        # orders:
+        #     targetEntity: Sil\Bundle\EcommerceBundle\Entity\OrderInterface
+        #     mappedBy: customer
         addresses:
             targetEntity: Sil\Bundle\CRMBundle\Entity\AddressInterface
             mappedBy: customer
@@ -18,10 +18,10 @@ PlatformBundle\Entity\SilCRMBundle\Organism:
             orphanRemoval: true
 
     oneToOne:
-        user:
-            targetEntity: Sylius\Component\Core\Model\ShopUser
-            mappedBy: customer
-            cascade: [persist, remove]
+        # user:
+        #     targetEntity: Sylius\Component\Core\Model\ShopUser
+        #     mappedBy: customer
+        #     cascade: [persist, remove]
         defaultAddress:
             targetEntity: Sil\Bundle\CRMBundle\Entity\AddressInterface
             joinColumn:

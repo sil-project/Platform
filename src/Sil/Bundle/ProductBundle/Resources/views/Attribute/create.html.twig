@@ -1,0 +1,85 @@
+{% extends '@Platform/Views/Show/show.html.twig' %}
+
+{% block page_actions_content %}
+    <div class="ui right floated">
+        <div class="ui labeled icon top left dropdown button primary">
+            <i class="cogs icon"></i>
+            <span class="text">{{ 'sil.product.attribute.actions.actions'|trans }}</span>
+            <div class="menu">
+                <a class="item" href="{{ path('sil_product_attribute_type_homepage') }}">
+                    <i class="list icon"></i>
+                    {{ 'sil.product.attribute_type.actions.list'|trans }}
+                </a>
+            </div>
+        </div>
+    </div>
+{% endblock page_actions_content %}
+
+{% block page_header_icon %}align left{% endblock page_header_icon %}
+
+{% block page_header_title %}
+    {{ 'sil.product.attribute.create.page_header.title'|trans }}
+{% endblock page_header_title %}
+
+{% block page_header_description %}
+    {{ 'sil.product.attribute.create.page_header.description'|trans }}
+{% endblock page_header_description %}
+
+{% block page_content %}
+
+    <h1 class="ui center aligned header">
+        <div class="ui stackable two steps">
+
+            {{ blast_widget_step_header(
+            'type',
+            'sil.product.attribute.create.steps.type.title'|trans,
+            'sil.product.attribute.create.steps.type.description'|trans,
+            'braille',
+            true
+        ) }}
+
+            {{ blast_widget_step_header(
+            'value',
+            'sil.product.attribute.create.steps.value.title'|trans,
+            'sil.product.attribute.create.steps.value.description'|trans,
+            'arrow alternate circle right',
+            false
+        ) }}
+
+        </div>
+    </h1>
+
+    <div class="ui divider"></div>
+
+    {{ form_start(form) }}
+
+    <div class="ui segment">
+        <div class="step content">
+            <div class="step active" data-step="type">
+
+                {{ form_row(form.attributeType) }}
+
+                {% if 'specificName' in form.children | keys %}
+                    {{ form_row(form.specificName) }}
+                {% endif %}
+
+            </div>
+            <div class="step" data-step="value">
+                {{ form_row(form.value) }}
+
+                <div class="ui center aligned basic segment">
+                    {{ blast_widget_field('submit', {
+                        label: 'Créer',
+                        icon: 'save',
+                        class: 'center aligned'
+                    }) }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{ form_end(form) }}
+
+    {{ blast_widget_step_nav() }}
+
+{% endblock page_content %}

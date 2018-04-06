@@ -34,5 +34,5 @@ bin/console fos:elastica:populate --no-interaction --env=$SERVERENV
 # asset and data
 #bin/console lisem:install:setup --with-samples --yes --env=$SERVERENV
 #bin/console sylius:install:setup --no-interaction --env=$SERVERENV
-bin/console sylius:fixtures:load ecommerce_requirements --no-interaction --env=$SERVERENV
-bin/console sil:user:fixture --no-interaction --env=$SERVERENV
+#bin/console sylius:fixtures:load ecommerce_requirements --no-interaction --env=$SERVERENV
+#bin/console sil:user:fixture --no-interaction --env=$SERVERENV

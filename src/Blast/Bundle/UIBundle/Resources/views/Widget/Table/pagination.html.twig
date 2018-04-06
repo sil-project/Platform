@@ -1,19 +1,5 @@
 <div class="ui center aligned">
-    <div class="ui pagination mini menu">
-
-        <a class="icon item">
-            <i class="left chevron icon"></i>
-        </a>
-        {% spaceless %}
-            {% for i in 1..10 %}
-                <a class="item {% if loop.first %}active{% endif %}">
-                    {{ i }}
-                </a>
-            {% endfor %}
-        {% endspaceless %}
-        <a class="icon item">
-            <i class="right chevron icon"></i>
-        </a>
-
-    </div>
+    {% if table.pagination.getTotalItemCount() > table.pagination.getItemNumberPerPage() %}
+        {{ knp_pagination_render(table.pagination) }}
+    {% endif %}
 </div>

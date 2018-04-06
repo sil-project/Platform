@@ -1,0 +1,31 @@
+<div class="ui clearing segment">
+    <h4 class="ui header">
+        {{ 'sil.product.product.show.group.optionTypes.title'|trans }}
+    </h4>
+    <div class="ui divider"></div>
+
+    <table class="ui very basic striped celled table show data">
+        <tbody>
+            {% spaceless %}
+                {% for optionType in product.optionTypes %}
+
+                    <tr>
+
+                        <td class="right aligned four wide">
+                            <strong>
+                                {{ optionType.name }}
+                            </strong>
+                        </td>
+
+                        <td>
+                            {% for option in optionType.options %}
+                                <div class="ui small label">{{ option.value }}</div>
+                            {% endfor %}
+                        </td>
+
+                    </tr>
+                {% endfor %}
+            {% endspaceless %}
+        </tbody>
+    </table>
+</div>

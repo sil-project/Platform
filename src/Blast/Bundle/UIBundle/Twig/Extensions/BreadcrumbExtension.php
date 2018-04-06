@@ -15,6 +15,9 @@ use Blast\Component\UI\Service\BreadcrumbBuilder;
 
 class BreadcrumbExtension extends \Twig_Extension
 {
+    use BlastUIExtensionTrait {
+        BlastUIExtensionTrait::__construct as initExtension;
+    }
     /**
      * @var BreadcrumbBuilder
      */
@@ -23,8 +26,9 @@ class BreadcrumbExtension extends \Twig_Extension
     /**
      * @param BreadcrumbBuilder $breadcrumbBuilder
      */
-    public function __construct(BreadcrumbBuilder $breadcrumbBuilder)
+    public function __construct(array $blastUiParameter, BreadcrumbBuilder $breadcrumbBuilder)
     {
+        $this->initExtension($blastUiParameter);
         $this->breadcrumbBuilder = $breadcrumbBuilder;
     }
 
@@ -44,6 +48,6 @@ class BreadcrumbExtension extends \Twig_Extension
 
     public function renderBreadcrumb(\Twig_Environment $env)
     {
-        return $env->render('@BlastUI/Layout/Blocks/breadcrumb.html.twig', ['breadcrumb' => $this->breadcrumbBuilder->getBreadcrumb()]);
+        return $env->render($this->getTemplate('breadcrumb'), ['breadcrumb' => $this->breadcrumbBuilder->getBreadcrumb()]);
     }
 }

@@ -14,20 +14,16 @@ namespace Sil\Component\Product\Model;
 
 interface AttributeTypeInterface
 {
-    const TYPE_STRING = 0;
-    const TYPE_BOOLEAN = 1;
-    const TYPE_INTEGER = 2;
-    const TYPE_FLOAT = 3;
-    const TYPE_PERCENT = 4;
-    const TYPE_DATE = 5;
-    const TYPE_DATETIME = 6;
+    const TYPE_STRING = 'TYPE_BOOLEAN';
+    const TYPE_BOOLEAN = 'TYPE_STRING';
+    const TYPE_INTEGER = 'TYPE_INTEGER';
+    const TYPE_FLOAT = 'TYPE_FLOAT';
+    const TYPE_PERCENT = 'TYPE_PERCENT';
+    const TYPE_DATE = 'TYPE_DATE';
+    const TYPE_DATETIME = 'TYPE_DATETIME';
 
     /**
      * List all AttributeType data types.
-     * Array format must be as
-     * [
-     *     'TYPE_STRING' => AttributeTypeInterface::TYPE_STRING,
-     * ].
      *
      * @return array
      */
@@ -36,14 +32,14 @@ interface AttributeTypeInterface
     /**
      * Gets AttributeType current data type.
      *
-     * @return int
+     * @return string
      */
-    public function getType(): int;
+    public function getType(): string;
 
     /**
      * Sets the data type of AttributeType.
      *
-     * @param int $type
+     * @param string $type
      */
-    public function setType(int $type): void;
+    public function setType(string $type): void;
 }

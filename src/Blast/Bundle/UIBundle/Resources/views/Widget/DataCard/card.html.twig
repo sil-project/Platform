@@ -1,6 +1,6 @@
 <div class="ui clearing segment {{ class }} {% if form is not null %}with form{% endif %}">
     <h4 class="ui header">
-        {{ title }}
+        {{ title|raw }}
     </h4>
     <div class="ui divider"></div>
     {{ blast_widget_field_group(data, fields, form, showTemplate, formTemplate) }}

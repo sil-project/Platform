@@ -39,7 +39,7 @@ class Product implements ProductInterface, ResourceInterface
      *
      * @var bool
      */
-    protected $enabled = true;
+    protected $enabled = false;
 
     /**
      * The product variants.
@@ -158,7 +158,9 @@ class Product implements ProductInterface, ResourceInterface
      */
     public function addAttribute(Attribute $attribute): void
     {
-        if ($this->attributes->contains($attribute) || $attribute->hasProduct($this)) {
+        if ($this->attributes->contains($attribute) || $attribute->hasProduct($this) || $this->attributes->filter(function ($element) use ($attribute) {
+            return $element->getAttributeType() === $attribute->getAttributeType();
+        })->count() > 0) {
             throw new InvalidArgumentException(sprintf('Attribute « %s » for product « %s » already exists', $attribute->getName(), $this->getName()));
         }
         $this->attributes->add($attribute);

@@ -23,14 +23,9 @@ blast_resource:
             classes:
                 model:          PlatformBundle\Entity\SilSonataSyliusUserBundle\SonataUser
 
-        sil.product:
+        sil.stock_item:
             classes:
-                model:          PlatformBundle\Entity\SilEcommerceBundle\Product
-
-        sil.product_variant:
-            classes:
-                model:          PlatformBundle\Entity\SilEcommerceBundle\ProductVariant
-                repository:     Sil\Bundle\StockBundle\Doctrine\ORM\StockItemRepository
+                model:          PlatformBundle\Entity\SilStockBundle\StockItem
+                repository:     PlatformBundle\Repository\StockItemRepository
                 interfaces:
                     -           Sil\Component\Stock\Model\StockItemInterface
-                    -           Sil\Bundle\EcommerceBundle\Entity\ProductVariantInterface

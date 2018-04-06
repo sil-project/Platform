@@ -34,6 +34,17 @@
     {{ block('top_bar') }}
 
     {# ################################################################################ #}
+    {#     FLASHES                                                                      #}
+    {# ################################################################################ #}
+
+    {% use '@BlastUI/Layout/Blocks/flashes.html.twig' %}
+    {% use '@BlastUI/Layout/Blocks/flash_message.html.twig' with flash_message as flash_message_template %}
+
+    {{ block('flashes') }}
+
+    <div class="ui global-flash-container" data-template="{{ block('flash_message_template')|e('html_attr') }}"></div>
+
+    {# ################################################################################ #}
     {#     PAGE PUSHER                                                                  #}
     {# ################################################################################ #}
 
@@ -76,22 +87,16 @@
     <script src="/dep/jquery-address/src/jquery.address.js"></script>
     #}
 
-    {# https://momentjs.com/ #}
-    <script src="/bundles/blastui/js/libs/moment-with-locales.min.js"></script>
+    {% javascripts '@BlastUIBundle/Resources/public/js/libs/*' %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
 
     {# ################################################################################ #}
     {#     CUSTOM FEATURES                                                              #}
     {# ################################################################################ #}
 
-    <script src="/bundles/blastui/js/features/accordions.js"></script>
-    <script src="/bundles/blastui/js/features/forms.js"></script>
-    <script src="/bundles/blastui/js/features/messages.js"></script>
-    <script src="/bundles/blastui/js/features/modal-confirmation.js"></script>
-    <script src="/bundles/blastui/js/features/modals.js"></script>
-    <script src="/bundles/blastui/js/features/range.js"></script>
-    <script src="/bundles/blastui/js/features/sidebar.js"></script>
-    <script src="/bundles/blastui/js/features/tables.js"></script>
-    <script src="/bundles/blastui/js/features/tabs.js"></script>
-    <script src="/bundles/blastui/js/features/toggleable_forms.js"></script>
-    <script src="/bundles/blastui/js/features/topBarSearchField.js"></script>
+    {% javascripts '@BlastUIBundle/Resources/public/js/features/*' %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+
 {% endblock %}

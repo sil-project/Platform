@@ -1,0 +1,49 @@
+Sil\Bundle\ProductBundle\Entity\Product:
+    type: entity
+    table: sil_product
+    embedded:
+        code:
+            class: Sil\Bundle\ProductBundle\Entity\ProductCode
+    fields:
+        name:
+            type: text
+            nullable: false
+        enabled:
+            type: boolean
+            nullable: false
+
+    oneToMany:
+        variants:
+            targetEntity: Sil\Component\Product\Model\ProductVariantInterface
+            mappedBy: product
+            cascade:
+                - persist
+            joinColumn:
+                name: product_variant_id
+                referencedColumnName: id
+
+    manyToMany:
+        optionTypes:
+            targetEntity: Sil\Component\Product\Model\OptionTypeInterface
+            inversedBy: products
+            orderBy:
+                name: ASC
+            joinTable:
+                name: sil_product_products__option_types
+                joinColumns:
+                    product_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    option_type_id:
+                        referencedColumnName: id
+        attributes:
+            targetEntity: Sil\Component\Product\Model\AttributeInterface
+            inversedBy: products
+            joinTable:
+                name: sil_product_products__attributes
+                joinColumns:
+                    product_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    attribute_id:
+                        referencedColumnName: id

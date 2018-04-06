@@ -1,5 +1,7 @@
 <tr>
     <th colspan="100%">
-        {% include '@BlastUI/Widget/Table/pagination.html.twig' %}
+        {% if table.pagination is defined and table.pagination is not null %}
+            {% include '@BlastUI/Widget/Table/pagination.html.twig' %}
+        {% endif %}
     </th>
 </tr>

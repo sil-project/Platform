@@ -1,0 +1,147 @@
+{% extends '@Platform/Views/Show/show.html.twig' %}
+
+{% block page_actions_content %}
+    <div class="ui right floated">
+        <div class="ui labeled icon top left dropdown button primary">
+            <i class="cogs icon"></i>
+            <span class="text">{{ 'sil.product.attribute_type.actions.actions'|trans }}</span>
+            <div class="menu">
+
+                <a class="item" href="{{ path('sil_product_attribute_type_create') }}">
+                    <i class="plus circle icon"></i>
+                    {{ 'sil.product.attribute_type.actions.create_new_attribute_type'|trans }}
+                </a>
+                <a class="item" href="{{ path('sil_product_attribute_type_homepage') }}">
+                    <i class="list icon"></i>
+                    {{ 'sil.product.attribute_type.actions.list'|trans }}
+                </a>
+
+                <div class="ui divider"></div>
+
+                <a class="item" href="{{ path('sil_product_attribute_type_remove', {'attributeTypeId': attributeType.id}) }}" data-requires-confirm="data-requires-confirm">
+                    <i class="trash icon"></i>
+                    {{ 'sil.product.attribute_type.actions.remove'|trans }}
+                </a>
+
+            </div>
+        </div>
+    </div>
+{% endblock page_actions_content %}
+
+{% block page_header_icon %}archive{% endblock page_header_icon %}
+
+{% block page_header_title %}
+    {{ 'sil.product.attribute_type.show.page_header.title'|trans }}
+{% endblock page_header_title %}
+
+{% block page_header_description %}
+    {{ attributeType.name|raw }}
+    ({{ ('sil.product.attribute_type.values.' ~ attributeType.type)|trans }})
+{% endblock page_header_description %}
+
+{% block page_content %}
+
+    {% set reusable = attributeType.isReusable %}
+
+    <div class="ui grid">
+        <div class="ui {{ reusable ? 'eight' : 'sixteen' }} wide column">
+
+            {{ blast_widget_ajax_card('sil.product.attribute_type.show.group.general.title'|trans, attributeType, [
+                {
+                    'name': 'name',
+                    'label': 'sil.product.attribute_type.show.group.general.fields.name'|trans
+                },{
+                    'name': 'type',
+                    'label': 'sil.product.attribute_type.show.group.general.fields.type'|trans,
+                    'trans_prefix': 'sil.product.attribute_type.values.'
+                },{
+                    'name': 'reusable',
+                    'label': 'sil.product.attribute_type.show.group.general.fields.reusable'|trans
+                },
+            ], form.general) }}
+
+        </div>
+
+        {% if reusable %}
+
+            <div class="ui {{ reusable ? 'eight' : 'sixteen' }} wide column">
+
+                <div class="ui clearing segment">
+                    <h4 class="ui header">
+                        {{ 'sil.product.attribute_type.show.group.attributes.title'|trans }}
+                        <a class="ui green image label right floated">
+                            {{ 'sil.product.attribute_type.show.group.attributes.badge_total'|trans }}
+                            <div class="detail">{{ attributeType.attributes|length }}</div>
+                        </a>
+                    </h4>
+                    <div class="ui divider"></div>
+
+                    <table class="ui single line striped small table">
+
+                        <thead>
+                            <tr>
+                                <th class="center aligned">
+                                    {{ 'sil.product.attribute_type.show.group.attributes.fields.value'|trans }}
+                                </th>
+                                <th class="center aligned" width="10%">
+                                    {{ 'sil.product.attribute_type.show.group.attributes.fields.usedCount'|trans }}
+                                </th>
+                                <th class="center aligned" width="5%">
+                                    &nbsp;
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            {% for attribute in attributeType.attributes %}
+                                <tr>
+                                    <td>
+                                        {{ attribute.value }}
+                                    </td>
+                                    <td>
+                                        {% set usage = attribute.products | length %}
+                                        <a class="ui circular {{ usage == 0 ? 'grey' : 'green' }} label">
+                                            {{ usage }}
+                                        </a>
+                                    </td>
+                                    <td>
+                                        {{ blast_widget_field('link', {
+                                            label: 'Voir',
+                                            class: 'button mini primary',
+                                            icon: 'eye',
+                                            href: path('sil_product_attribute_show', {'attributeId': attribute.id})
+                                        }) }}
+                                    </td>
+                                </tr>
+                            {% else %}
+                                <tr>
+                                    <td colspan="100%" class="center aligned">
+                                        {{ 'sil.product.attribute_type.show.group.attributes.empty'|trans }}
+                                    </td>
+                                </tr>
+                            {% endfor %}
+
+                            {% if attributeType.isReusable %}
+                                <tfoot>
+                                    <tr>
+                                        <th colspan="100%" class="center aligned">
+                                            <a class="ui button green" href="{{ path('sil_product_attribute_create', {'attributeTypeId': attributeType.id}) }}">
+                                                <i class="plus icon"></i>
+                                                {{ 'sil.product.attribute_type.actions.create_new_attribute_for_this_type'|trans }}
+                                            </a>
+                                        </th>
+                                    </tr>
+                                </tfoot>
+                            {% endif %}
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+            </div>
+
+        {% endif %}
+    </div>
+
+{% endblock page_content %}

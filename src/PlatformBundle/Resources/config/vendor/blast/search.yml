@@ -102,8 +102,3 @@ blast_search:
         -
             class: "%sil.model.crm_city.class%"
             template: SilCRMBundle:Search/Results:City.html.twig
-
-knp_paginator:
-    page_range: 10
-    template:
-        pagination: '@KnpPaginator/Pagination/twitter_bootstrap_v3_pagination.html.twig'

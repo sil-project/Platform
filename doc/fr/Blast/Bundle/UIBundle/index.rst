@@ -13,3 +13,4 @@ Gestion basique des resources pour les applications basées sur Blast.
    themes
    widgets
    views
+   flashMessages

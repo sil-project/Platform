@@ -1,0 +1,64 @@
+sil_product_homepage:
+    path:     /
+    defaults: { _controller: sil_product.controller.product:indexAction }
+
+sil_product_list:
+    path:     /list
+    defaults: { _controller: sil_product.controller.product:listAction }
+
+sil_product_create:
+    path:     /create
+    defaults: { _controller: sil_product.controller.product:createAction }
+
+sil_product_show:
+    path:     /{productId}/show
+    defaults: { _controller: sil_product.controller.product:showAction }
+    requirements:
+        productId: '^\{?[a-f\d]{8}-(?:[a-f\d]{4}-){3}[a-f\d]{12}\}?$'
+
+sil_product_edit:
+    path:     /{productId}/edit
+    defaults: { _controller: sil_product.controller.product:editAction }
+    requirements:
+        productId: '^\{?[a-f\d]{8}-(?:[a-f\d]{4}-){3}[a-f\d]{12}\}?$'
+
+sil_product_add_attribute:
+    path:     /{productId}/addAttribute
+    defaults: { _controller: sil_product.controller.product:addAttributeAction }
+    requirements:
+        productId: '^\{?[a-f\d]{8}-(?:[a-f\d]{4}-){3}[a-f\d]{12}\}?$'
+
+sil_product_remove_attribute:
+    path:     /{productId}/removeAttribute/{attributeId}
+    defaults: { _controller: sil_product.controller.product:removeAttributeAction }
+    requirements:
+        productId:   '^\{?[a-f\d]{8}-(?:[a-f\d]{4}-){3}[a-f\d]{12}\}?$'
+        attributeId: '^\{?[a-f\d]{8}-(?:[a-f\d]{4}-){3}[a-f\d]{12}\}?$'
+
+sil_product_update_attributes:
+    path:     /{productId}/updateAttributes
+    defaults: { _controller: sil_product.controller.product:updateAttributesAction }
+    methods:
+        - POST
+    requirements:
+        productId: '^\{?[a-f\d]{8}-(?:[a-f\d]{4}-){3}[a-f\d]{12}\}?$'
+
+sil_product_select_attribute_for_product:
+    path:     /{attributeId}/associateAttributeToProduct/{productId}
+    defaults: { _controller: sil_product.controller.product:selectAttributeForProductAction }
+    requirements:
+        attributeId: '^\{?[a-f\d]{8}-(?:[a-f\d]{4}-){3}[a-f\d]{12}\}?$'
+        productId:   '^\{?[a-f\d]{8}-(?:[a-f\d]{4}-){3}[a-f\d]{12}\}?$'
+
+sil_product_select_option_type_for_product:
+    path:     /{optionTypeId}/associateOptionTypeToProduct/{productId}
+    defaults: { _controller: sil_product.controller.product:selectOptionTypeForProductAction }
+    requirements:
+        optionTypeId: '^\{?[a-f\d]{8}-(?:[a-f\d]{4}-){3}[a-f\d]{12}\}?$'
+        productId:    '^\{?[a-f\d]{8}-(?:[a-f\d]{4}-){3}[a-f\d]{12}\}?$'
+
+sil_product_variant_edit:
+    path:     /{productId}/updateVariant
+    defaults: { _controller: sil_product.controller.product_variant:editVariantsForProductAction }
+    requirements:
+        productId:        '^\{?[a-f\d]{8}-(?:[a-f\d]{4}-){3}[a-f\d]{12}\}?$'

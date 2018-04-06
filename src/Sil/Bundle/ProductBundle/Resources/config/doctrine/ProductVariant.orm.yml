@@ -1,0 +1,35 @@
+Sil\Bundle\ProductBundle\Entity\ProductVariant:
+    # type: mappedSuperclass
+    type: entity
+    table: sil_product_variant
+    embedded:
+        code:
+            class: Sil\Bundle\ProductBundle\Entity\ProductVariantCode
+    fields:
+        name:
+            type: text
+            nullable: false
+        enabled:
+            type: boolean
+            nullable: false
+
+    manyToOne:
+        product:
+            targetEntity: Sil\Component\Product\Model\ProductInterface
+            inversedBy: variants
+            joinColumn:
+                name: product_id
+                referencedColumnName: id
+
+    manyToMany:
+        options:
+            targetEntity: Sil\Component\Product\Model\OptionInterface
+            inversedBy: productVariants
+            joinTable:
+                name: sil_product_product_variants__options
+                joinColumns:
+                    product_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    option_id:
+                        referencedColumnName: id

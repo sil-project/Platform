@@ -12,9 +12,12 @@ declare(strict_types=1);
 
 namespace Sil\Component\Product\Model;
 
+use InvalidArgumentException;
 use Blast\Component\Resource\Model\ResourceInterface;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 
-class Option implements ResourceInterface
+class Option implements OptionInterface, ResourceInterface
 {
     /**
      * Value for attribute.
@@ -26,19 +29,28 @@ class Option implements ResourceInterface
     /**
      * The attribute for current value.
      *
-     * @var OptionType
+     * @var OptionTypeInterface
      */
     protected $optionType;
 
-    public function __construct(OptionType $optionType, $value)
+    /**
+     * The collection of product variants that use this option.
+     *
+     * @var Collection|ProductVariantInterface[]
+     */
+    protected $productVariants;
+
+    public function __construct(OptionTypeInterface $optionType, $value)
     {
+        $this->productVariants = new ArrayCollection();
+
         $this->optionType = $optionType;
         $optionType->addOption($this); // Update bi-directionnal relationship
         $this->value = $value;
     }
 
     /**
-     * @return string
+     * {@inheritdoc}
      */
     public function getValue(): string
     {
@@ -46,7 +58,7 @@ class Option implements ResourceInterface
     }
 
     /**
-     * @param string $value
+     * {@inheritdoc}
      */
     public function setValue(string $value): void
     {
@@ -54,18 +66,52 @@ class Option implements ResourceInterface
     }
 
     /**
-     * @return OptionType
+     * {@inheritdoc}
      */
-    public function getOptionType(): OptionType
+    public function getOptionType(): OptionTypeInterface
     {
         return $this->optionType;
     }
 
     /**
-     * @param OptionType $optionType
+     * {@inheritdoc}
      */
-    public function setOptionType(OptionType $optionType): void
+    public function setOptionType(OptionTypeInterface $optionType): void
     {
         $this->optionType = $optionType;
+    }
+
+    /**
+     * @return array|ProductVariantInterface[]
+     */
+    public function getProductVariants(): array
+    {
+        return $this->productVariants->getValues();
+    }
+
+    /**
+     * @param ProductVariantInterface $productVariant
+     *
+     * @throws InvalidArgumentException
+     */
+    public function addProductVariant(ProductVariantInterface $productVariant): void
+    {
+        if ($this->productVariants->contains($productVariant)) {
+            throw new InvalidArgumentException(sprintf('ProductVariant « %s » is already in Option inverse relation', $productVariant));
+        }
+        $this->productVariants->add($productVariant);
+    }
+
+    /**
+     * @param ProductVariantInterface $productVariant
+     *
+     * @throws InvalidArgumentException
+     */
+    public function removeProductVariant(ProductVariantInterface $productVariant): void
+    {
+        if (!$this->productVariants->contains($productVariant)) {
+            throw new InvalidArgumentException(sprintf('ProductVariant « %s » is not in Option inverse relation', $productVariant));
+        }
+        $this->productVariants->removeElement($productVariant);
     }
 }

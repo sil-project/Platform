@@ -1,0 +1,80 @@
+{% extends '@Platform/Views/Show/show.html.twig' %}
+
+{% block page_actions_content %}
+    <div class="ui right floated">
+        <div class="ui labeled icon top left dropdown button primary">
+            <i class="cogs icon"></i>
+            <span class="text">{{ 'sil.product.product.actions.actions'|trans }}</span>
+            <div class="menu">
+                <a class="item" href="{{ path('sil_product_create') }}">
+                    <i class="plus circle icon"></i>
+                    {{ 'sil.product.product.actions.create_new_product'|trans }}
+                </a>
+                <a class="item" href="{{ path('sil_product_homepage') }}">
+                    <i class="list icon"></i>
+                    {{ 'sil.product.product.actions.list'|trans }}
+                </a>
+            </div>
+        </div>
+    </div>
+{% endblock page_actions_content %}
+
+{% block page_header_icon %}archive{% endblock page_header_icon %}
+
+{% block page_header_title %}
+    {{ 'sil.product.product.show.page_header.title'|trans({'%ref%': product.code.value}) }}
+{% endblock page_header_title %}
+
+{% block page_header_description %}
+    {{ product.name|raw }}<br/>
+    {{ product.description|raw }}
+{% endblock page_header_description %}
+
+{% block page_content %}
+
+    <div class="ui grid">
+
+        {# FORM GENERAL #}
+
+        <div class="ui eight wide column">
+
+            {{ render(controller('sil_product.controller.product:editAction', {'productId': product.id})) }}
+
+        </div>
+
+        {# FORM ATTRIBUTE #}
+
+        <div class="ui eight wide column">
+
+            {{ render(controller('sil_product.controller.product:updateOptionsAction', {'productId': product.id})) }}
+
+            {{ render(controller('sil_product.controller.product:updateAttributesAction', {'productId': product.id})) }}
+
+        </div>
+
+        {# FORM OPTIONS #}
+
+        <div class="ui sixteen wide column">
+
+            {{ render(controller('sil_product.controller.product_variant:editVariantsForProductAction', {'productId': product.id})) }}
+
+        </div>
+
+    </div>
+
+    {{ blast_widget_modal(
+        'add_attribute_to_product',
+        'sil.product.product.modal.add_attribute_to_product.title'|trans,
+        render(controller('sil_product.controller.product:addAttributeAction', {'productId': product.id})),
+        null,
+        ''
+    ) }}
+
+{% endblock page_content %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {% javascripts '@SilProductBundle/Resources/public/js/*' %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock javascripts %}

@@ -1,0 +1,29 @@
+sil_product_option_type_homepage:
+    path:     /
+    defaults: { _controller: sil_product.controller.option_type:indexAction }
+
+sil_product_option_type_list:
+    path:     /list
+    defaults: { _controller: sil_product.controller.option_type:listAction }
+
+sil_product_option_type_create:
+    path:     /create
+    defaults: { _controller: sil_product.controller.option_type:createAction }
+
+sil_product_option_type_show:
+    path:     /{optionTypeId}/show
+    defaults: { _controller: sil_product.controller.option_type:showAction }
+    requirements:
+        optionTypeId: '^\{?[a-f\d]{8}-(?:[a-f\d]{4}-){3}[a-f\d]{12}\}?$'
+
+sil_product_option_type_edit:
+    path:     /{optionTypeId}/edit
+    defaults: { _controller: sil_product.controller.option_type:editAction }
+    requirements:
+        optionTypeId: '^\{?[a-f\d]{8}-(?:[a-f\d]{4}-){3}[a-f\d]{12}\}?$'
+
+sil_product_option_type_remove:
+    path:     /{optionTypeId}/remove
+    defaults: { _controller: sil_product.controller.option_type:removeAction }
+    requirements:
+        optionTypeId: '^\{?[a-f\d]{8}-(?:[a-f\d]{4}-){3}[a-f\d]{12}\}?$'

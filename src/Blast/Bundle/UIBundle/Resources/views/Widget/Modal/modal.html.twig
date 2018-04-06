@@ -5,26 +5,23 @@
             {{ title }}
         </div>
         <div class="content">
-            {{ content }}
+            {{ content|raw }}
         </div>
-        <div class="actions">
-            {% spaceless %}
-                {% for action in actions %}
+        {% if actions|length > 0 %}
+            <div class="actions">
+                {% spaceless %}
+                    {% for action in actions %}
 
-                    {% set actionParameters = {
-                        'label': '',
-                        'class': '',
-                        'icon': ''
-                    } | merge(action) %}
+                        {% set actionParameters = {
+                            'label': '',
+                            'class': '',
+                            'icon': ''
+                        } | merge(action) %}
 
-                    {{ blast_widget_field(action.type, actionParameters) }}
-                {% else %}
-                    {{ blast_widget_field('link', {
-                        'label': 'Fermer',
-                        'class': 'button primary cancel'
-                    }) }}
-                {% endfor %}
-            {% endspaceless %}
-        </div>
+                        {{ blast_widget_field(action.type, actionParameters) }}
+                    {% endfor %}
+                {% endspaceless %}
+            </div>
+        {% endif %}
     </div>
 {% endblock modal %}

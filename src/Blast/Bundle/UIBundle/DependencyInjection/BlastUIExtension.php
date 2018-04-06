@@ -27,6 +27,10 @@ class BlastUIExtension extends Extension
 
         $container->setParameter('blast_ui', $config);
 
+        foreach ($config['templates'] as $templateName => $templatePath) {
+            $container->setParameter('blast_ui.template.' . $templateName, $templatePath);
+        }
+
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
         $loader->load('services.yml');
     }

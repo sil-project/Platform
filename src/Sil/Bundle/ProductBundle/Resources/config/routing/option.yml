@@ -1,0 +1,15 @@
+sil_product_option_create:
+    path:     /create
+    defaults: { _controller: sil_product.controller.option:createAction }
+
+sil_product_option_show:
+    path:     /{optionId}/show
+    defaults: { _controller: sil_product.controller.option:showAction }
+    requirements:
+        optionId: '^\{?[a-f\d]{8}-(?:[a-f\d]{4}-){3}[a-f\d]{12}\}?$'
+
+sil_product_option_edit:
+    path:     /{optionId}/edit
+    defaults: { _controller: sil_product.controller.option:editAction }
+    requirements:
+        optionId: '^\{?[a-f\d]{8}-(?:[a-f\d]{4}-){3}[a-f\d]{12}\}?$'

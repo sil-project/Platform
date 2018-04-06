@@ -27,8 +27,12 @@ class AttributeTest extends TestCase
         $this->fixtures = new Fixtures();
     }
 
-    public function testValueOfReusableAttributeCannotBeChanged()
+    public function test_value_of_reusable_attribute_cannot_be_changed()
     {
+        $this->markTestSkipped(
+            'The rule that avoid change of reusable attribute value has been changed.'
+        );
+
         $product = $this->fixtures->getProductRepository()->findOneBy(['code.value' => 'SHOE001']);
 
         $brands = $this->fixtures->getAttributeTypeRepository()->findOneBy(['name' => 'Brand']);
@@ -42,7 +46,7 @@ class AttributeTest extends TestCase
         $attribute->setValue('a new value');
     }
 
-    public function testValueOfNonReusableAttributeCanBeChanged()
+    public function test_value_of_non_reusable_attribute_can_be_changed()
     {
         $product = $this->fixtures->getProductRepository()->findOneBy(['code.value' => 'SHOE001']);
         $brands = $this->fixtures->getAttributeTypeRepository()->findOneBy(['name' => 'Shoelace length']);
@@ -59,5 +63,17 @@ class AttributeTest extends TestCase
         $attribute = $product->getAttribute($brands);
 
         $this->assertEquals('a new value', $attribute->getValue());
+    }
+
+    public function test_adding_attribute_of_attribute_type_twice_throws_exception()
+    {
+        $product = $this->fixtures->getProductRepository()->findOneBy(['code.value' => 'SHOE001']);
+
+        $brandAttributeType = $this->fixtures->getAttributeTypeRepository()->findOneBy(['name' => 'Brand']);
+        $brands = $this->fixtures->getAttributeRepository()->findBy(['attributeType' => $brandAttributeType]);
+
+        $this->expectException(\InvalidArgumentException::class);
+
+        $product->addAttribute($brands[1]);
     }
 }

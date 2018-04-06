@@ -1,4 +1,272 @@
 services:
-#    sil_product.example:
-#        class: Sil\Bundle\ProductBundle\Example
-#        arguments: ["@service_id", "plain_value", "%parameter%"]
+
+
+    # REPOSITORY
+
+    sil.repository.product:
+        class: '%sil.repository.product.class%'
+        factory: ['@doctrine',getRepository]
+        arguments:
+            - '%sil.repository.product.class%'
+        calls:
+            - [setPaginator, ['@knp_paginator']]
+
+    # CONTROLLERS
+
+    sil_product.controller.abstract:
+        class: Sil\Bundle\ProductBundle\Controller\AbstractController
+        calls:
+            - [setProductClass, ['%sil.model.product.class%']]
+            - [setProductVariantClass, ['%sil.model.product_variant.class%']]
+            - [setAttributeClass, ['%sil.model.product_attribute.class%']]
+            - [setAttributeTypeClass, ['%sil.model.product_attribute_type.class%']]
+            - [setOptionClass, ['%sil.model.product_option.class%']]
+            - [setOptionTypeClass, ['%sil.model.product_option_type.class%']]
+
+            - [setProductRepository, ['@sil.repository.product']]
+            - [setProductVariantRepository, ['@sil.repository.product_variant']]
+            - [setAttributeRepository, ['@sil.repository.product_attribute']]
+            - [setAttributeTypeRepository, ['@sil.repository.product_attribute_type']]
+            - [setOptionRepository, ['@sil.repository.product_option']]
+            - [setOptionTypeRepository, ['@sil.repository.product_option_type']]
+
+            - [setBreadcrumbBuilder, ['@blast_ui.service.breadcrumb_builder']]
+
+            - [setFormFactory, ['@form.factory']]
+
+    sil_product.controller.product:
+        parent: sil_product.controller.abstract
+        class: Sil\Bundle\ProductBundle\Controller\ProductController
+        calls:
+            - [setProductVariantGenerator, ['@sil_product.generator.product_variant_generator']]
+
+    sil_product.controller.attribute:
+        parent: sil_product.controller.abstract
+        class: Sil\Bundle\ProductBundle\Controller\AttributeController
+
+    sil_product.controller.attribute_type:
+        parent: sil_product.controller.abstract
+        class: Sil\Bundle\ProductBundle\Controller\AttributeTypeController
+
+    sil_product.controller.option:
+        parent: sil_product.controller.abstract
+        class: Sil\Bundle\ProductBundle\Controller\OptionController
+
+    sil_product.controller.option_type:
+        parent: sil_product.controller.abstract
+        class: Sil\Bundle\ProductBundle\Controller\OptionTypeController
+
+    sil_product.controller.product_variant:
+        parent: sil_product.controller.abstract
+        class: Sil\Bundle\ProductBundle\Controller\ProductVariantController
+
+    # FORMS
+
+    #### PRODUCT FORMS
+
+    sil_product.form.product.create_type:
+        class: Sil\Bundle\ProductBundle\Form\Product\CreateType
+        arguments:
+            - '@sil_product.form.transformer.array_to_product_transformer'
+            - '@sil.repository.product_option_type'
+        tags:
+            - { name: form.type }
+
+    sil_product.form.product.general_type:
+        class: Sil\Bundle\ProductBundle\Form\Product\GeneralType
+        arguments:
+            - '@sil_product.form.transformer.array_to_product_transformer'
+        tags:
+            - { name: form.type }
+
+    #### ATTRIBUTE FORMS
+
+    sil_product.form.attribute.create_type:
+        class: Sil\Bundle\ProductBundle\Form\Attribute\CreateType
+        arguments:
+            - '%sil.model.product_attribute_type.class%'
+            - '@sil.repository.product_attribute_type'
+            - '@sil_product.form.transformer.array_to_attribute_transformer'
+        tags:
+            - { name: form.type }
+
+    sil_product.form.attribute.create_reusable_type:
+        class: Sil\Bundle\ProductBundle\Form\Attribute\CreateReusableType
+        arguments:
+            - '%sil.model.product_attribute_type.class%'
+            - '@sil.repository.product_attribute_type'
+            - '@sil_product.form.transformer.array_to_attribute_transformer'
+            - '@sil_product.form.transformer.attribute_type_to_id_transformer'
+        tags:
+            - { name: form.type }
+
+    sil_product.form.attribute.general_type:
+        class: Sil\Bundle\ProductBundle\Form\Attribute\GeneralType
+        arguments:
+            - '%sil.model.product_attribute_type.class%'
+            - '@sil.repository.product_attribute_type'
+            - '@sil_product.form.transformer.array_to_attribute_transformer'
+            - '@sil_product.form.transformer.attribute_type_to_id_transformer'
+        tags:
+            - { name: form.type }
+
+    sil_product.form.attribute.choose_type:
+        class: Sil\Bundle\ProductBundle\Form\Attribute\ChooseType
+        arguments:
+            - '%sil.model.product_attribute.class%'
+            - '%sil.model.product_attribute_type.class%'
+            - '@sil.repository.product_attribute_type'
+            - '@sil_product.form.transformer.array_to_attribute_transformer'
+            - '@sil_product.form.transformer.attribute_type_to_id_transformer'
+        tags:
+            - { name: form.type }
+
+    sil_product.form.attribute.attribute_selector_type:
+        class: Sil\Bundle\ProductBundle\Form\Attribute\AttributeSelectorType
+        arguments:
+            - '%sil.model.product_attribute.class%'
+            - '@sil_product.form.transformer.attribute_type_to_id_transformer'
+        tags:
+            - { name: form.type }
+
+    #### ATTRIBUTE TYPE FORMS
+
+    sil_product.form.attribute_type.create_type:
+        class: Sil\Bundle\ProductBundle\Form\AttributeType\CreateType
+        arguments:
+            - '%sil.model.product_attribute_type.class%'
+            - '@sil.repository.product_attribute_type'
+            - '@sil_product.form.transformer.array_to_attribute_type_transformer'
+        tags:
+            - { name: form.type }
+
+    sil_product.form.attribute_type.general_type:
+        class: Sil\Bundle\ProductBundle\Form\AttributeType\GeneralType
+        arguments:
+            - '%sil.model.product_attribute_type.class%'
+            - '@sil.repository.product_attribute_type'
+            - '@sil_product.form.transformer.array_to_attribute_type_transformer'
+        tags:
+            - { name: form.type }
+
+    #### OPTION FORMS
+
+    sil_product.form.option.create_type:
+        class: Sil\Bundle\ProductBundle\Form\Option\CreateType
+        arguments:
+            - '%sil.model.product_option_type.class%'
+            - '@sil.repository.product_option_type'
+            - '@sil_product.form.transformer.array_to_option_transformer'
+        tags:
+            - { name: form.type }
+
+    sil_product.form.option.general_type:
+        class: Sil\Bundle\ProductBundle\Form\Option\GeneralType
+        arguments:
+            - '@sil_product.form.transformer.option_type_to_id_transformer'
+        tags:
+            - { name: form.type }
+
+    #### OPTION TYPE FORMS
+
+    sil_product.form.option_type.create_type:
+        class: Sil\Bundle\ProductBundle\Form\OptionType\CreateType
+        arguments:
+            - '%sil.model.product_option_type.class%'
+            - '@sil.repository.product_option_type'
+            - '@sil_product.form.transformer.array_to_option_type_transformer'
+        tags:
+            - { name: form.type }
+
+    sil_product.form.option_type.general_type:
+        class: Sil\Bundle\ProductBundle\Form\OptionType\GeneralType
+        tags:
+            - { name: form.type }
+
+    sil_product.form.option_type.option_type_selector_type:
+        class: Sil\Bundle\ProductBundle\Form\OptionType\OptionTypeSelectorType
+        arguments:
+            - '@sil.repository.product_option_type'
+        tags:
+            - { name: form.type }
+
+    #### PRODUCT VARIANT FORMS
+
+    sil_product.form.product_variant.product_variant_type:
+        class: Sil\Bundle\ProductBundle\Form\ProductVariant\ProductVariantType
+        calls:
+            - [setProductToIdTransformer, ['@sil_product.form.transformer.product_to_id_transformer']]
+        tags:
+            - { name: form.type }
+
+    sil_product.form.product.product_variants_type:
+        class: Sil\Bundle\ProductBundle\Form\Product\ProductVariantsType
+        calls:
+            - [setProductVariantClass, ['%sil.model.product_variant.class%']]
+        tags:
+            - { name: form.type }
+
+    # DATA TRANSFORMERS
+
+    sil_product.form.transformer.array_to_product_transformer:
+        class: Sil\Bundle\ProductBundle\Form\Transformer\ArrayToProductTransformer
+        calls:
+            - [setProductClass, ['%sil.model.product.class%']]
+            - [setProductCodeGenerator, ['@sil_product.code.product_code_generator']]
+
+    sil_product.form.transformer.array_to_attribute_transformer:
+        class: Sil\Bundle\ProductBundle\Form\Transformer\ArrayToAttributeTransformer
+        calls:
+            - [setAttributeClass, ['%sil.model.product_attribute.class%']]
+            - [setAttributeRepository, ['@sil.repository.product_attribute']]
+
+    sil_product.form.transformer.array_to_attribute_type_transformer:
+        class: Sil\Bundle\ProductBundle\Form\Transformer\ArrayToAttributeTypeTransformer
+        calls:
+            - [setAttributeTypeClass, ['%sil.model.product_attribute_type.class%']]
+
+    sil_product.form.transformer.attribute_type_to_id_transformer:
+        class: Sil\Bundle\ProductBundle\Form\Transformer\AttributeTypeToIdTransformer
+        calls:
+            - [setAttributeTypeRepository, ['@sil.repository.product_attribute_type']]
+
+    sil_product.form.transformer.array_to_option_transformer:
+        class: Sil\Bundle\ProductBundle\Form\Transformer\ArrayToOptionTransformer
+        calls:
+            - [setOptionClass, ['%sil.model.product_option.class%']]
+            - [setOptionRepository, ['@sil.repository.product_option']]
+
+    sil_product.form.transformer.option_type_to_id_transformer:
+        class: Sil\Bundle\ProductBundle\Form\Transformer\OptionTypeToIdTransformer
+        calls:
+            - [setOptionTypeRepository, ['@sil.repository.product_option_type']]
+
+    sil_product.form.transformer.array_to_option_type_transformer:
+        class: Sil\Bundle\ProductBundle\Form\Transformer\ArrayToOptionTypeTransformer
+        calls:
+            - [setOptionTypeClass, ['%sil.model.product_option_type.class%']]
+
+    sil_product.form.transformer.product_to_id_transformer:
+        class: Sil\Bundle\ProductBundle\Form\Transformer\ProductToIdTransformer
+        calls:
+            - [setProductRepository, ['@sil.repository.product']]
+
+    # CODE GENERATORS
+
+    sil_product.code.product_code_generator:
+        class: Sil\Bundle\ProductBundle\Generator\ProductCodeGenerator
+        calls:
+            - [setCodeAwareRepository, ['@sil.repository.product']]
+
+    sil_product.code.product_variant_code_generator:
+        class: Sil\Bundle\ProductBundle\Generator\ProductVariantCodeGenerator
+        calls:
+            - [setCodeAwareRepository, ['@sil.repository.product_variant']]
+
+    # PRODUCT VARIANT GENERATOR
+
+    sil_product.generator.product_variant_generator:
+        class: Sil\Bundle\ProductBundle\Generator\ProductVariantGenerator
+        calls:
+            - [setProductVariantClass, ['%sil.model.product_variant.class%']]
+            - [setProductVariantCodeGenerator, ['@sil_product.code.product_variant_code_generator']]

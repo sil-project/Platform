@@ -1,0 +1,6 @@
+blast:
+    ui:
+        data_type:
+            boolean:
+                'true': Oui
+                'false': Non

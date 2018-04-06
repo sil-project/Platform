@@ -24,6 +24,8 @@
 /web/bundles/
 /web/media/
 /web/assets/
+/web/js/
+/web/css/
 /web/config.php
 
 # vandor/bin

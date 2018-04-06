@@ -10,31 +10,12 @@
 
 namespace Blast\Bundle\UIBundle\Twig\Extensions;
 
-use InvalidArgumentException;
 use Twig_Environment;
 use Symfony\Component\Form\FormView;
-use Symfony\Component\PropertyAccess\PropertyAccessor;
 
 class Widgets extends \Twig_Extension
 {
-    /**
-     * @var string
-     */
-    private $extensionPrefix = 'blast_widget_';
-
-    /**
-     * @var array
-     */
-    private $blastUiParameter;
-
-    /**
-     * @param array $blastUiParameter
-     */
-    public function __construct(array $blastUiParameter)
-    {
-        //convert array to stdClass using json_decode(json_encode(...))
-        $this->blastUiParameter = json_decode(json_encode($blastUiParameter));
-    }
+    use BlastUIExtensionTrait;
 
     /**
      * {@inheritdoc}
@@ -42,17 +23,62 @@ class Widgets extends \Twig_Extension
     public function getFunctions()
     {
         return [
-            $this->registerFunction('card', 'renderCard', true),
-            $this->registerFunction('field', 'renderField', true),
-            $this->registerFunction('field_group', 'renderFieldGroup', true),
-            $this->registerFunction('form_group', 'renderFormGroup', true),
-            $this->registerFunction('panel', 'renderPanel', true),
-            $this->registerFunction('show_group', 'renderShowGroup', true),
-            $this->registerFunction('table', 'renderTable', true),
-            $this->registerFunction('step_header', 'renderStepHeader', true),
-            $this->registerFunction('step_nav', 'renderStepNav', true),
-            $this->registerFunction('modal', 'renderModal', true),
+            $this->registerFunction('widget_ajax_card', 'renderAjaxCard', true),
+            $this->registerFunction('widget_card', 'renderCard', true),
+            $this->registerFunction('widget_field', 'renderField', true),
+            $this->registerFunction('widget_field_group', 'renderFieldGroup', true),
+            $this->registerFunction('widget_form_group', 'renderFormGroup', true),
+            $this->registerFunction('widget_panel', 'renderPanel', true),
+            $this->registerFunction('widget_show_group', 'renderShowGroup', true),
+            $this->registerFunction('widget_table', 'renderTable', true),
+            $this->registerFunction('widget_step_header', 'renderStepHeader', true),
+            $this->registerFunction('widget_step_nav', 'renderStepNav', true),
+            $this->registerFunction('widget_modal', 'renderModal', true),
         ];
+    }
+
+    /**
+     * Renders an ajax card.
+     *
+     * @param Twig_Environment $env
+     * @param string           $title
+     * @param mixed            $data
+     * @param array            $fields
+     * @param FormView         $form
+     * @param string           $template
+     * @param string           $showTemplate
+     * @param string           $formTemplate
+     *
+     * @return string
+     */
+    public function renderAjaxCard(
+        Twig_Environment $env,
+        string $title,
+        $data,
+        array $fields,
+        ?FormView $form = null,
+        ?string $classes = null,
+        ?string $template = null,
+        ?string $showTemplate = null,
+        ?string $formTemplate = null
+    ): string {
+        if ($classes !== null && strpos('ajax', $classes) !== -1) {
+            $classes .= ' ajax';
+        } else {
+            $classes = 'ajax';
+        }
+
+        return $this->renderCard(
+            $env,
+            $title,
+            $data,
+            $fields,
+            $form,
+            $classes,
+            $template,
+            $showTemplate,
+            $formTemplate
+        );
     }
 
     /**
@@ -244,6 +270,7 @@ class Widgets extends \Twig_Extension
             'data'           => [],
             'actions'        => [],
             'allowSelection' => true,
+            'pagination'     => null,
         ], $data);
 
         return $env->render($template, [
@@ -336,58 +363,5 @@ class Widgets extends \Twig_Extension
             'actions'    => $actions,
             'classes'    => $classes,
         ]);
-    }
-
-    /**
-     * Register function helper.
-     *
-     * @param string $functionName
-     * @param string $method
-     * @param bool   $needsEnv
-     * @param array  $safeFormats
-     *
-     * @return Twig_SimpleFunction
-     */
-    private function registerFunction(
-        string $functionName,
-        string $method,
-        ?bool $needsEnv = false,
-        ?array $safeFormats = ['html']
-    ): \Twig_SimpleFunction {
-        $options = [
-            'is_safe'           => $safeFormats,
-            'needs_environment' => $needsEnv,
-        ];
-
-        return new \Twig_SimpleFunction(
-            $this->extensionPrefix . $functionName,
-            [$this, $method],
-            $options
-        );
-    }
-
-    /**
-     * Returns the default template by its name.
-     *
-     * @param string $name
-     *
-     * @return string
-     */
-    private function getTemplate(string $name): string
-    {
-        $templateVar = null;
-        $templateKey = 'templates.' . $name;
-        $accessor = new PropertyAccessor();
-
-        if (!$accessor->isReadable($this->blastUiParameter, $templateKey)) {
-            throw new InvalidArgumentException(
-                  sprintf(
-                      'Template with name « %s » does not exists in configuration. Available templates are : « %s »',
-                      $name, implode(' » , « ', array_keys(get_object_vars($this->blastUiParameter->templates)))
-                  )
-              );
-        }
-
-        return $accessor->getValue($this->blastUiParameter, $templateKey);
     }
 }

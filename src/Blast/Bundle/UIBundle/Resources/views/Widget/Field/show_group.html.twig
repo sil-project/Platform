@@ -2,16 +2,35 @@
     <tbody>
         {% spaceless %}
             {% for field in fields %}
+
+                {% set trans_prefix = '' %}
+
+                {% if field.trans_prefix is defined %}
+                    {% set trans_prefix = field.trans_prefix %}
+                {% endif %}
+
+                {% set trans_domain = 'messages' %}
+
+                {% if field.trans_domain is defined %}
+                    {% set trans_domain = field.trans_domain %}
+                {% endif %}
+
                 <tr>
 
                     <td class="right aligned four wide">
                         <strong>
-                            {{ field.label }}
+                            {{ field.label|trans }}
                         </strong>
                     </td>
 
                     <td>
-                        {{ attribute(data, field.name) }}
+                        {% set value = blast_access_property(data, field.name) %}
+
+                        {% if blast_guess_data_type(value) == constant('Blast\\Bundle\\UIBundle\\Twig\\Extensions\\DisplayDataExtension::DATA_TYPE_STRING') %}
+                            {{ blast_display_data((trans_prefix ~ value)|trans([], trans_domain))|raw }}
+                        {% else %}
+                            {{ blast_display_data(value) }}
+                        {% endif %}
                     </td>
 
                 </tr>

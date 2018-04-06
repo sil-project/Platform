@@ -19,6 +19,11 @@ use function BenTools\CartesianProduct\cartesian_product;
 
 class ProductService
 {
+    /**
+     * @var string
+     */
+    protected $productVariantClass = ProductVariant::class;
+
     public function generateVariantsForProduct(ProductInterface $product): void
     {
         $options = cartesian_product($this->getProductOptionsAsArray($product))->asArray();
@@ -27,7 +32,7 @@ class ProductService
             $variantName = $product->getName();
             $variantCode = CodeFactory::generateProductVariantCode($product, $option);
 
-            $variant = new ProductVariant($product, $variantCode, $variantName);
+            $variant = new $this->productVariantClass($product, $variantCode, $variantName);
 
             foreach ($option as $optionType => $optionValue) {
                 $variantName .= ' ' . $optionValue->getValue();
@@ -40,11 +45,11 @@ class ProductService
     }
 
     /**
-     * Retreive Option trought OptionType(s) as a associative array.
+     * Retreive Option trought OptionType(s) as an associative array.
      *
      * @return array
      */
-    private function getProductOptionsAsArray(ProductInterface $product): array
+    protected function getProductOptionsAsArray(ProductInterface $product): array
     {
         $optionsAsArray = [];
 
@@ -55,5 +60,13 @@ class ProductService
         }
 
         return $optionsAsArray;
+    }
+
+    /**
+     * @param string $productVariantClass
+     */
+    public function setProductVariantClass(string $productVariantClass): void
+    {
+        $this->productVariantClass = $productVariantClass;
     }
 }

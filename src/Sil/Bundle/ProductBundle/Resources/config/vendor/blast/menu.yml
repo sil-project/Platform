@@ -1,0 +1,30 @@
+blast_menu:
+
+    root:
+
+        sil.product.menu_label.product:
+            icon: archive
+            order: 20
+            children:
+
+                sil.product.menu_label.products:
+                    icon: archive
+                    route: sil_product_homepage
+                    order: 10
+
+    settings:
+
+        sil.product.menu_label.product_settings:
+            icon: archive
+            order: 30
+            children:
+
+                sil.product.menu_label.product_settings_attribute_types:
+                    icon: sort amount down
+                    route: sil_product_attribute_type_homepage
+                    order: 10
+
+                sil.product.menu_label.product_settings_option_types:
+                    icon: tasks
+                    route: sil_product_option_type_homepage
+                    order: 20

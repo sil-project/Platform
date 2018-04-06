@@ -1,0 +1,60 @@
+<div class="ui clearing segment">
+    <h4 class="ui header">
+        {{ 'sil.product.product.show.group.variants.title'|trans }}
+    </h4>
+
+    {{ form_start(form, {'attr': {'action': path('sil_product_variant_edit', {'productId': form.vars.value.id}) }}) }}
+
+    <div class="ui styled fluid exclusive accordion">
+
+        {% for variantForm in form.variants %}
+
+            {% set variant = variantForm.vars.value %}
+
+            <div class="title">
+                <i class="dropdown icon"></i>
+
+                <a class="ui blue image label">
+                    {{ variant.code }}
+                    <span class="detail">{{ variant.name }}</span>
+                </a>
+            </div>
+            <div class="content">
+
+                <div class="ui clearing segment with form transition visible">
+                    <h4 class="ui header"></h4>
+
+                    {{ blast_widget_show_group(variant, [
+                        {'name':'name','label':'Nom'},
+                        {'name':'code','label':'Référence'},
+                        {'name':'enabled','label':'Actif'}
+                    ]) }}
+
+                    <div class="ui form">
+
+                        {{ form_widget(variantForm) }}
+
+                        {{ blast_widget_field('submit', {
+                            label: 'Enregistrer',
+                            class: 'right floated',
+                            icon: 'save'
+                        }) }}
+
+                        {{ blast_widget_field('link', {
+                            label: 'Annuler',
+                            class: 'button left floated close',
+                            icon: 'undo'
+                        }) }}
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        {% endfor %}
+
+    </div>
+
+    {{ form_end(form) }}
+</div>

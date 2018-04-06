@@ -23,10 +23,10 @@
 {#    INPUT SRC                                                                          #}
 {# ##################################################################################### #}
 
-{% set linkSrc = '#' %}
+{% set linkHref = '#' %}
 
-{% if field.src is defined %}
-    {% set linkSrc = field.src %}
+{% if field.href is defined %}
+    {% set linkHref = field.href %}
 {% endif %}
 
 {# ##################################################################################### #}
@@ -44,7 +44,7 @@
 {# ##################################################################################### #}
 
 <a
-    href="{{ linkSrc }}"
+    href="{{ linkHref }}"
     class="{{ fieldClass }}"
     tabindex="1"
     {% for attr, value in attrs %}{{attr}}="{{value}}" {% endfor %}

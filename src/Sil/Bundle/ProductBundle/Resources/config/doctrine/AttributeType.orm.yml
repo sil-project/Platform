@@ -1,0 +1,23 @@
+Sil\Bundle\ProductBundle\Entity\AttributeType:
+    type: mappedSuperclass
+    table: sil_product_attribute_type
+    fields:
+        name:
+            type: string
+            nullable: false
+        type:
+            type: string
+            nullable: false
+        reusable:
+            type: boolean
+            nullable: false
+
+    oneToMany:
+        attributes:
+            targetEntity: Sil\Component\Product\Model\AttributeInterface
+            mappedBy: attributeType
+            orderBy:
+                value: ASC
+            joinColumn:
+                name: attribute_id
+                referencedColumnName: id

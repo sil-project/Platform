@@ -1,0 +1,5 @@
+Sil\Bundle\ProductBundle\Entity\ProductCode:
+    type: embeddable
+    fields:
+        value: { type: string }
+        format: { type: string }

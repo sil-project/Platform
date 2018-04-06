@@ -17,7 +17,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
 use Blast\Component\Resource\Model\ResourceInterface;
 
-class Attribute implements ResourceInterface
+class Attribute implements AttributeInterface, ResourceInterface
 {
     /**
      * Specialized name for this attribute.
@@ -36,7 +36,7 @@ class Attribute implements ResourceInterface
     /**
      * The attribute for current value.
      *
-     * @var AttributeType
+     * @var AttributeTypeInterface
      */
     protected $attributeType;
 
@@ -47,7 +47,7 @@ class Attribute implements ResourceInterface
      */
     protected $products;
 
-    public function __construct(AttributeType $attributeType, $value, $name = null)
+    public function __construct(AttributeTypeInterface $attributeType, $value, $name = null)
     {
         $this->products = new ArrayCollection();
 
@@ -57,7 +57,7 @@ class Attribute implements ResourceInterface
     }
 
     /**
-     * @return string
+     * {@inheritdoc}
      */
     public function getName(): string
     {
@@ -65,7 +65,7 @@ class Attribute implements ResourceInterface
     }
 
     /**
-     * @param string $name
+     * {@inheritdoc}
      */
     public function setName(string $name): void
     {
@@ -73,7 +73,23 @@ class Attribute implements ResourceInterface
     }
 
     /**
-     * @return mixed
+     * {@inheritdoc}
+     */
+    public function getSpecificName(): ?string
+    {
+        return $this->name;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setSpecificName(?string $specificName = null): void
+    {
+        $this->name = $specificName;
+    }
+
+    /**
+     * {@inheritdoc}
      */
     public function getValue()
     {
@@ -81,18 +97,20 @@ class Attribute implements ResourceInterface
     }
 
     /**
-     * @param mixed $value
+     * {@inheritdoc}
      */
     public function setValue($value): void
     {
-        if ($this->getAttributeType()->isReusable()) {
-            throw new InvalidArgumentException('The value of a reusable attribute cannot be changed');
-        }
+        // Uncomment if you wish to disallow changing value of a reusable attribute
+        //
+        // if ($this->getAttributeType()->isReusable()) {
+        //     throw new InvalidArgumentException('The value of a reusable attribute cannot be changed');
+        // }
         $this->value = $value;
     }
 
     /**
-     * @return bool
+     * {@inheritdoc}
      */
     public function isReusable(): bool
     {
@@ -100,21 +118,24 @@ class Attribute implements ResourceInterface
     }
 
     /**
-     * @return AttributeType
+     * {@inheritdoc}
      */
-    public function getAttributeType(): AttributeType
+    public function getAttributeType(): AttributeTypeInterface
     {
         return $this->attributeType;
     }
 
     /**
-     * @return array|ProductInterface[]
+     * {@inheritdoc}
      */
     public function getProducts(): array
     {
         return $this->products->getValues();
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function addProduct(ProductInterface $product): void
     {
         if ($this->products->contains($product)) {
@@ -123,6 +144,9 @@ class Attribute implements ResourceInterface
         $this->products->add($product);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function removeProduct(ProductInterface $product): void
     {
         if (!$this->products->contains($product)) {
@@ -131,6 +155,13 @@ class Attribute implements ResourceInterface
         $this->products->removeElement($product);
     }
 
+    /**
+     * Check if attribute is linked to target product.
+     *
+     * @param ProductInterface $product
+     *
+     * @return bool
+     */
     public function hasProduct(ProductInterface $product): bool
     {
         return $this->products->contains($product);

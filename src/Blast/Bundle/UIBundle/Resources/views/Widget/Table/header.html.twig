@@ -1,5 +1,5 @@
 <tr>
-    {% if allowSelection == true %}
+    {% if allowSelection == true and table.data|length > 0 %}
         <th>
             <div class="ui fitted checkbox select all">
                 <input type="checkbox">
@@ -11,7 +11,7 @@
     {% spaceless %}
         {% for header in table.headers %}
             <th>
-                {{ header.label }}
+                {{ header.label|trans }}
             </th>
         {% endfor %}
     {% endspaceless %}

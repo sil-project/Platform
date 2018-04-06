@@ -1,0 +1,81 @@
+{% extends '@Platform/Views/Show/show.html.twig' %}
+
+{% block page_actions_content %}
+    <div class="ui right floated">
+        <div class="ui labeled icon top left dropdown button primary">
+            <i class="cogs icon"></i>
+            <span class="text">{{ 'sil.product.attribute.actions.actions'|trans }}</span>
+            <div class="menu">
+                <a class="item" href="{{ path('sil_product_attribute_create') }}">
+                    <i class="plus circle icon"></i>
+                    {{ 'sil.product.attribute.actions.create_new_attribute'|trans }}
+                </a>
+                <a class="item" href="{{ path('sil_product_attribute_type_homepage') }}">
+                    <i class="list icon"></i>
+                    {{ 'sil.product.attribute_type.actions.list'|trans }}
+                </a>
+                <div class="ui divider"></div>
+                <a class="item" href="{{ path('sil_product_attribute_type_show', {'attributeTypeId': attribute.attributeType.id}) }}">
+                    <i class="eye icon"></i>
+                    {{ 'sil.product.attribute.actions.show_attribute_type'|trans }}
+                </a>
+            </div>
+        </div>
+    </div>
+{% endblock page_actions_content %}
+
+{% block page_header_icon %}archive{% endblock page_header_icon %}
+
+{% block page_header_title %}
+    {{ 'sil.product.attribute.show.page_header.title'|trans }}
+{% endblock page_header_title %}
+
+{% block page_header_description %}
+    <b>{{ attribute.name|raw }}:</b>
+    <i>{{ attribute.value|raw }}</i>
+{% endblock page_header_description %}
+
+{% block page_content %}
+
+    {% if (attribute.attributeType.isReusable() == true) %}
+        {% set fields = [
+            {
+                'name': 'name',
+                'label': 'Nom'
+            }, {
+                'name': 'attributeType.reusable',
+                'label': 'Attribut réutilisable'
+            }, {
+                'name': 'attributeType.type',
+                'label': 'Type',
+                'trans_prefix': 'sil.product.attribute_type.values.'
+            }, {
+                'name': 'value',
+                'label': 'Valeur'
+            }
+        ] %}
+    {% else %}
+        {% set fields = [
+            {
+                'name': 'name',
+                'label': 'Nom'
+            }, {
+                'name': 'attributeType.reusable',
+                'label': 'Attribut réutilisable'
+            }, {
+                'name': 'specificName',
+                'label': 'Nom spécifique'
+            }, {
+                'name': 'attributeType.type',
+                'label': 'Type',
+                'trans_prefix': 'sil.product.attribute_type.values.'
+            }, {
+                'name': 'value',
+                'label': 'Valeur'
+            }
+        ] %}
+    {% endif %}
+
+    {{ blast_widget_card('sil.product.attribute.show.group.general.title'|trans,attribute, fields, form.general) }}
+
+{% endblock page_content %}
