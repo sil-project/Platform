@@ -13,6 +13,8 @@ namespace Blast\Bundle\TestsBundle\Functional;
 use Symfony\Bundle\FrameworkBundle\Client;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\DomCrawler\Crawler;
+use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
+use Symfony\Component\BrowserKit\Cookie;
 
 trait BlastWebTestCaseTrait
 {
@@ -30,6 +32,25 @@ trait BlastWebTestCaseTrait
     {
         $this->client = static::createClient();
         $this->container = static::$kernel->getContainer();
+        $this->logIn();
+    }
+
+    private function logIn()
+    {
+        /* https://symfony.com/doc/3.4/testing/http_authentication.html */
+        $session = $this->client->getContainer()->get('session');
+
+        /* @todo: Not so clean, should be found in a config file ... */
+        $firewall = 'sil'; //'secured_area';
+        $username = 'sil@sil.eu';
+        $password = 'sil';
+
+        $token = new UsernamePasswordToken($username, $password, $firewall, array('ROLE_USER'));
+        $session->set('_security_' . $firewall, serialize($token));
+        $session->save();
+
+        $cookie = new Cookie($session->getName(), $session->getId());
+        $this->client->getCookieJar()->set($cookie);
     }
 
     protected function goToRoute(string $routeName, array $routeParams = [], ?string $method = 'GET'): Crawler

@@ -26,9 +26,6 @@ class ProductOptionsTest extends WebTestCase
 
     public function test_option_type_pages()
     {
-        $this->markTestSkipped(
-            'work only if there is no login in the application'
-        );
         $this->runForRoute('sil_product_option_create', [], 'sil.product.option.create.page_header.title');
         $this->runForRoute('sil_product_option_type_list', [], 'sil.product.option_type.list.page_header.title');
         $this->runForRoute('sil_product_option_type_create', [], 'sil.product.option_type.create.page_header.title');
@@ -40,9 +37,6 @@ class ProductOptionsTest extends WebTestCase
      */
     public function test_option_type_create()
     {
-        $this->markTestSkipped(
-            'work only if there is no login in the application'
-        );
         $crawler = $this->goToRoute('sil_product_option_type_create');
 
         $form = $crawler->filter('form[name="product_option_type_create"]')->form();
@@ -72,9 +66,6 @@ class ProductOptionsTest extends WebTestCase
      */
     public function test_option_create_for_specific_option_type()
     {
-        $this->markTestSkipped(
-            'work only if there is no login in the application'
-        );
         $crawler = $this->goToRoute('sil_product_option_type_list');
 
         $rows = $crawler->filter('table.ui.very.compact.small.celled.striped.stackable.table.selectable > tbody > tr');
@@ -119,9 +110,6 @@ class ProductOptionsTest extends WebTestCase
      */
     public function test_delete_option_type()
     {
-        $this->markTestSkipped(
-            'work only if there is no login in the application'
-        );
         $crawler = $this->goToRoute('sil_product_option_type_list');
 
         $rows = $crawler->filter('table.ui.very.compact.small.celled.striped.stackable.table.selectable > tbody > tr');

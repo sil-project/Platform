@@ -26,9 +26,6 @@ class ProductAttributeTest extends WebTestCase
 
     public function test_attribute_pages()
     {
-        $this->markTestSkipped(
-            'work only if there is no login in the application'
-        );
         $this->runForRoute('sil_product_attribute_type_create', [], 'sil.product.attribute_type.create.page_header.title');
         $this->runForRoute('sil_product_attribute_type_list', [], 'sil.product.attribute_type.list.page_header.title');
         $this->runForRoute('sil_product_attribute_type_create', [], 'sil.product.attribute_type.create.page_header.title');
@@ -40,9 +37,6 @@ class ProductAttributeTest extends WebTestCase
      */
     public function test_attribute_type_create()
     {
-        $this->markTestSkipped(
-            'work only if there is no login in the application'
-        );
         $crawler = $this->goToRoute('sil_product_attribute_type_create');
 
         $form = $crawler->filter('form[name="product_attribute_type_create"]')->form();
@@ -73,9 +67,6 @@ class ProductAttributeTest extends WebTestCase
      */
     public function test_attribute_create_for_specific_attribute_type()
     {
-        $this->markTestSkipped(
-            'work only if there is no login in the application'
-        );
         $crawler = $this->goToRoute('sil_product_attribute_type_list');
 
         $rows = $crawler->filter('table.ui.very.compact.small.celled.striped.stackable.table.selectable > tbody > tr');
@@ -120,9 +111,6 @@ class ProductAttributeTest extends WebTestCase
      */
     public function test_delete_attribute_type()
     {
-        $this->markTestSkipped(
-            'work only if there is no login in the application'
-        );
         $crawler = $this->goToRoute('sil_product_attribute_type_list');
 
         $rows = $crawler->filter('table.ui.very.compact.small.celled.striped.stackable.table.selectable > tbody > tr');
