@@ -90,18 +90,18 @@ services:
     # CONTROLLERS
     ###################
 
-    sil.controller.stock_operation:
+    sil.sonata_controller.stock_operation:
         class: Sil\Bundle\StockBundle\Controller\OperationCRUDController
         calls:
             - ['setContainer', ['@service_container']]
             - ['setOperationService', ['@sil.domain_service.stock_operation']]
 
-    sil.controller.stock_item:
+    sil.sonata_controller.stock_item:
         class: Sil\Bundle\StockBundle\Controller\StockItemCRUDController
         calls:
             - ['setContainer', ['@service_container']]
 
-    sil.controller.stock_unit:
+    sil.sonata_controller.stock_unit:
         class: Sil\Bundle\StockBundle\Controller\StockUnitCRUDController
         calls:
             - ['setContainer', ['@service_container']]

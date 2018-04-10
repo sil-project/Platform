@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /*
- * Copyright (C) 2015-2017 Libre Informatique
+ * Copyright (C) 2015-2018 Libre Informatique
  *
  * This file is licenced under the GNU LGPL v3.
  * For the full copyright and license information, please view the LICENSE.md
@@ -70,6 +70,7 @@ final class MappedSuperClassSubscriber implements EventSubscriber
 
         if (!$metadata->isMappedSuperclass) {
             $this->setAssociationMappings($metadata, $configuration);
+            $this->setEmbeddedMapping($metadata, $configuration);
         } else {
             $this->unsetAssociationMappings($metadata);
         }
@@ -127,6 +128,18 @@ final class MappedSuperClassSubscriber implements EventSubscriber
                     }
                 }
             }
+        }
+    }
+
+    private function setEmbeddedMapping(ClassMetadataInfo $classMetadata, Configuration $configuration)
+    {
+        foreach ($classMetadata->embeddedClasses as $property => $embeddableClass) {
+            $embeddableMetadata = new ClassMetadata($embeddableClass['class'], $configuration->getNamingStrategy());
+            $embeddableMetadata->wakeupReflection($this->getReflectionService());
+            $configuration->getMetadataDriverImpl()->loadMetadataForClass($embeddableClass['class'], $embeddableMetadata);
+
+            $identifier = $embeddableMetadata->getIdentifier();
+            $classMetadata->inlineEmbeddable($property, $embeddableMetadata);
         }
     }
 

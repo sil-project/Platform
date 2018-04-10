@@ -12,7 +12,9 @@ declare(strict_types=1);
 
 namespace Sil\Component\Currency\Model;
 
-interface CurrencyInterface
+use Blast\Component\Resource\Model\ResourceInterface;
+
+interface CurrencyInterface extends ResourceInterface
 {
     /**
      * Returns the currency string code (ISO 4217).

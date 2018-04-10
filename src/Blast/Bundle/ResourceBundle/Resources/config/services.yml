@@ -1,5 +1,7 @@
 imports:
     - { resource: services/console.yml }
+    - { resource: services/routing.yml }
+    - { resource: services/view.yml }
 
 
 
@@ -21,18 +23,3 @@ services:
         arguments: ['@blast.resource_registry']
         tags:
             - { name: doctrine.event_subscriber, priority: 9000}
-
-    blast.resource.sonata.label_strategy.prefix:
-        class: Blast\Bundle\ResourceBundle\Sonata\Translator\PrefixLabelTranslatorStrategy
-        shared: false
-
-
-   # blast.sonata.crud_controller:
-   #     class:  Blast\Bundle\ResourceBundle\Sonata\Controller\CRUDController
-   #     calls:
-   #         - ["setContainer", ['@service_container']]
-
-
-   # sonata.admin.helper:
-   #     class:  Blast\Bundle\ResourceBundle\Sonata\Admin\AdminHelper
-   #     arguments: ['@sonata.admin.pool']

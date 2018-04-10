@@ -1,0 +1,6 @@
+services:
+  blast.resource.route_loader:
+    class:                   Blast\Bundle\ResourceBundle\Routing\RouteLoader
+    arguments:
+      - "@blast.resource_registry"
+    tags: [routing.loader]

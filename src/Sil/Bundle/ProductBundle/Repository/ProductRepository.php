@@ -19,23 +19,9 @@ use Blast\Component\Code\Repository\CodeAwareRepositoryInterface;
 use Blast\Component\Code\Model\CodeInterface;
 use Blast\Component\Resource\Model\ResourceInterface;
 use Blast\Bundle\ResourceBundle\Doctrine\ORM\Repository\ResourceRepository;
-use Knp\Component\Pager\Pagination\PaginationInterface;
 
 class ProductRepository extends ResourceRepository implements ProductRepositoryInterface, CodeAwareRepositoryInterface
 {
-    /**
-     * Returns a paginated (KnpPaginator) list of resource.
-     *
-     * @return PaginationInterface
-     */
-    public function findAllPaginated(int $page = 1, int $perPage = 20): PaginationInterface
-    {
-        $qb = $this->createQueryBuilder('o');
-        $qb->select('o');
-
-        return $this->paginator->paginate($qb->getQuery(), $page, $perPage);
-    }
-
     /**
      * {@inheritdoc}
      */

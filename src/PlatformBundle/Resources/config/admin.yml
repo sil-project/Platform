@@ -7,7 +7,7 @@ imports:
     #
     #   Global file
     #
-    - { resource: "@SilCRMBundle/Resources/config/admin.yml" }
+    #- { resource: "@SilCRMBundle/Resources/config/admin.yml" }
 
     #   Single files
     #
@@ -66,7 +66,7 @@ imports:
     #
     # ##########################################################################
 
-    - { resource: "@SilEmailBundle/Resources/config/admin.yml" }
+    #- { resource: "@SilEmailBundle/Resources/config/admin.yml" }
 
     # ##########################################################################
     #
@@ -74,7 +74,7 @@ imports:
     #
     # ##########################################################################
 
-    - { resource: "@SilEmailCRMBundle/Resources/config/admin.yml" }
+    # - { resource: "@SilEmailCRMBundle/Resources/config/admin.yml" }
 
     # ##########################################################################
     #
@@ -82,7 +82,7 @@ imports:
     #
     # ##########################################################################
 
-    - { resource: "@SilManufacturingBundle/Resources/config/admin.yml" }
+    #- { resource: "@SilManufacturingBundle/Resources/config/admin.yml" }
 
     # ##########################################################################
     #
@@ -90,7 +90,7 @@ imports:
     #
     # ##########################################################################
 
-    - { resource: "@SilUserBundle/Resources/config/admin.yml" }
+    # - { resource: "@SilUserBundle/Resources/config/admin.yml" }
 
     # ##########################################################################
     #
@@ -100,13 +100,13 @@ imports:
 
     #- { resource: "@SilStockBundle/Resources/config/admin.yml" }
     #- { resource: "@SilStockBundle/Resources/config/admin/sil_stock.admin.stock_item.yml" }
-    - { resource: "@SilStockBundle/Resources/config/admin/sil_stock.admin.movement.yml" }
-    - { resource: "@SilStockBundle/Resources/config/admin/sil_stock.admin.operation.yml" }
-    - { resource: "@SilStockBundle/Resources/config/admin/sil_stock.admin.warehouse.yml" }
-    - { resource: "@SilStockBundle/Resources/config/admin/sil_stock.admin.location.yml" }
-    - { resource: "@SilStockBundle/Resources/config/admin/sil_stock.admin.uom.yml" }
-    - { resource: "@SilStockBundle/Resources/config/admin/sil_stock.admin.uom_type.yml" }
-    - { resource: "@SilStockBundle/Resources/config/admin/sil_stock.admin.stock_unit.yml" }
+    # - { resource: "@SilStockBundle/Resources/config/admin/sil_stock.admin.movement.yml" }
+    # - { resource: "@SilStockBundle/Resources/config/admin/sil_stock.admin.operation.yml" }
+    # - { resource: "@SilStockBundle/Resources/config/admin/sil_stock.admin.warehouse.yml" }
+    # - { resource: "@SilStockBundle/Resources/config/admin/sil_stock.admin.location.yml" }
+    # - { resource: "@SilStockBundle/Resources/config/admin/sil_stock.admin.uom.yml" }
+    # - { resource: "@SilStockBundle/Resources/config/admin/sil_stock.admin.uom_type.yml" }
+    # - { resource: "@SilStockBundle/Resources/config/admin/sil_stock.admin.stock_unit.yml" }
 
     # ##########################################################################
     #
@@ -114,5 +114,5 @@ imports:
     #
     # ##########################################################################
 
-    - { resource: "@PlatformBundle/Resources/config/admin/sil_ecommerce.admin.product.yml" }
-    - { resource: "@PlatformBundle/Resources/config/admin/sil_ecommerce.admin.product_variant.yml" }
+    # - { resource: "@PlatformBundle/Resources/config/admin/sil_ecommerce.admin.product.yml" }
+    # - { resource: "@PlatformBundle/Resources/config/admin/sil_ecommerce.admin.product_variant.yml" }

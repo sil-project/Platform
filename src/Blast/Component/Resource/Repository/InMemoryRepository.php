@@ -11,6 +11,7 @@
 namespace Blast\Component\Resource\Repository;
 
 use ArrayObject;
+use Blast\Component\Resource\Model\ResourceInterface;
 use Symfony\Component\PropertyAccess\PropertyAccess;
 use Symfony\Component\PropertyAccess\PropertyAccessor;
 
@@ -44,14 +45,34 @@ class InMemoryRepository implements ResourceRepositoryInterface
         $this->arrayObject = new ArrayObject();
     }
 
-    public function addAll(array $resources)
+    public function get($id): ResourceInterface
+    {
+        $resource = $this->find($id);
+        if (null == $resource) {
+            throw new \InvalidArgumentException('Resource does not exist');
+        }
+
+        return $resource;
+    }
+
+    public function find($id): ?ResourceInterface
+    {
+        return $this->findOneBy(['id' => $id]);
+    }
+
+    public function findAll(): array
+    {
+        return $this->arrayObject->getArrayCopy();
+    }
+
+    public function addAll(array $resources): void
     {
         foreach ($resources as $resource) {
             $this->add($resource);
         }
     }
 
-    public function add($resource): void
+    public function add(ResourceInterface $resource): void
     {
         if (!$resource instanceof $this->interface) {
             throw new \InvalidArgumentException(
@@ -64,7 +85,14 @@ class InMemoryRepository implements ResourceRepositoryInterface
         $this->arrayObject->append($resource);
     }
 
-    public function remove($resource): void
+    public function removeAll(array $resources): void
+    {
+        foreach ($resources as $resource) {
+            $this->remove($resource);
+        }
+    }
+
+    public function remove(ResourceInterface $resource): void
     {
         $newResources = array_filter(
             $this->findAll(),
@@ -75,32 +103,13 @@ class InMemoryRepository implements ResourceRepositoryInterface
         $this->arrayObject->exchangeArray($newResources);
     }
 
-    public function get($id)
+    public function update(ResourceInterface $resource): void
     {
-        $resource = $this->find($id);
-        if (null == $resource) {
-            throw new \InvalidArgumentException('Resource does not exist');
-        }
-
-        return $resource;
+        //does nothing
     }
 
-    public function find($id)
+    public function findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null): array
     {
-        return $this->findOneBy(['id' => $id]);
-    }
-
-    public function findAll()
-    {
-        return $this->arrayObject->getArrayCopy();
-    }
-
-    public function findBy(
-        array $criteria,
-        $orderBy = null,
-        $limit = null,
-        $offset = null
-    ) {
         $results = $this->findAll();
         if (!empty($criteria)) {
             $results = $this->applyCriteria($results, $criteria);
@@ -113,7 +122,7 @@ class InMemoryRepository implements ResourceRepositoryInterface
         return $results;
     }
 
-    public function findOneBy(array $criteria)
+    public function findOneBy(array $criteria): ?ResourceInterface
     {
         if (empty($criteria)) {
             throw new \InvalidArgumentException('The criteria array needs to be set.');
@@ -126,7 +135,7 @@ class InMemoryRepository implements ResourceRepositoryInterface
         return null;
     }
 
-    public function getClassName()
+    public function getClassName(): string
     {
         return $this->interface;
     }

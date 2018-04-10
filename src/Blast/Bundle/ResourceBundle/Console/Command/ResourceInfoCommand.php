@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Copyright (C) 2015-2017 Libre Informatique
+ * Copyright (C) 2015-2018 Libre Informatique
  *
  * This file is licenced under the GNU LGPL v3.
  * For the full copyright and license information, please view the LICENSE.md
@@ -13,10 +13,13 @@ namespace Blast\Bundle\ResourceBundle\Console\Command;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Blast\Component\Resource\Metadata\MetadataRegistryInterface;
 use Blast\Component\Resource\Metadata\MetadataInterface;
-use Symfony\Component\Console\Helper\Table;
+use Symfony\Component\Console\Helper\TableSeparator;
+use Symfony\Component\Console\Helper\TableCell;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Input\InputArgument;
+use Symfony\Component\Console\Style\OutputStyle;
+use Symfony\Component\Console\Style\SymfonyStyle;
 
 /**
  * Description of ListDoctrineTablesCommand.
@@ -42,81 +45,114 @@ class ResourceInfoCommand extends ContainerAwareCommand
     protected function configure()
     {
         $this
-            ->setName('blast:resource:info')
-            ->setDescription('List Blast resources');
-
+          ->setName('blast:resource:info')
+          ->setDescription('List Blast resources');
         $this->addArgument('resource', InputArgument::OPTIONAL, 'Resource to debug');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $resourceAlias = $input->getArgument('resource');
+        $io = new SymfonyStyle($input, $output);
+
         if (null === $resourceAlias) {
-            $this->listResources($output);
+            $this->listResources($io);
 
             return;
         }
         $metadata = $this->getMetadataRegistry()->get($resourceAlias);
-        $this->debugResource($metadata, $output);
+        $this->debugResource($metadata, $io);
     }
 
     /**
      * @param OutputInterface $output
      */
-    private function listResources(OutputInterface $output)
+    private function listResources(OutputStyle $io)
     {
         $resources = $this->getMetadataRegistry()->getAll();
         ksort($resources);
-        $table = new Table($output);
-        $table->setHeaders(['Prefix', 'Alias']);
+        $headers = [new TableCell('Prefix'), new TableCell('Alias')];
+        $rows = [];
         foreach ($resources as $resource) {
-            $table->addRow([$resource->getPrefix(), $resource->getAlias()]);
+            $rows[] = [$resource->getPrefix(), $resource->getAlias()];
         }
-        $table->render();
+        $io->table($headers, $rows);
     }
 
     /**
      * @param MetadataInterface $metadataMetadataInterface
      * @param OutputInterface   $output
      */
-    private function debugResource(MetadataInterface $metadata, OutputInterface $output)
+    private function debugResource(MetadataInterface $metadata, OutputStyle $io)
     {
-        $table = new Table($output);
-        $table->setHeaders(['Alias', $metadata->getAlias()]);
-        $information = [
-            'prefix'         => $metadata->getPrefix(),
-            'model'          => $metadata->getClassMap()->getModel(),
-            'repository'     => $metadata->getClassMap()->getRepository(),
-            'interfaces'     => implode("\n", $metadata->getClassMap()->getInterfaces()),
+        $io->title($metadata->getFullyQualifiedName());
+
+        $headers = [new TableCell('Classes', array('colspan' => 2))];
+        $rows = [
+            $this->formatStringRow('model', $metadata->getClassMap()->getModel()),
+            $this->formatStringRow('repository', $metadata->getClassMap()->getRepository()),
+            $this->formatArrayRow('interfaces', $metadata->getClassMap()->getInterfaces(), null, false),
+            $this->formatStringRow('controller', $metadata->getClassMap()->getController()),
         ];
+        $io->table($headers, $rows);
 
-        foreach ($information as $key => $value) {
-            $table->addRow([$key, $value]);
+        if ($metadata->hasRouting()) {
+            //  $this->debugRouting($metadata, $io);
         }
-        $table->render();
     }
 
-    /**
-     * @param array  $parameters
-     * @param array  $flattened
-     * @param string $prefix
-     *
-     * @return array
-     */
-    private function flattenParameters(array $parameters, array $flattened = [], $prefix = '')
+    protected function debugRouting(MetadataInterface $metadata, OutputStyle $io)
     {
-        foreach ($parameters as $key => $value) {
-            if (is_array($value)) {
-                $flattened = $this->flattenParameters($value, $flattened, $prefix . $key . '.');
-                continue;
+        $routing = $metadata->getRouting();
+        $view = $routing->getView();
+
+        $headers = [new TableCell('Routing', array('colspan' => 2))];
+        $rows = [];
+        $actions = $routing->getActions();
+        if (count($actions)) {
+            $firstKey = key($actions);
+            $separator = [[new TableSeparator(), new TableSeparator()]];
+
+            foreach ($actions as $k => $action) {
+                $rows = ($k == $firstKey ? $rows : array_merge($rows, $separator));
+                $rows = array_merge($rows, [
+                $this->formatStringRow('path', $action->getPath()),
+                $this->formatArrayRow('methods', $action->getMethods(), ['ANY']),
+            ]);
             }
-            $flattened[$prefix . $key] = $value;
         }
 
-        return $flattened;
+        $io->table($headers, $rows);
     }
 
-    protected function getMetadataRegistry()
+    private function formatStringRow(string $key, ?string $data)
+    {
+        $value = $data;
+        if (null == $value || empty($value)) {
+            $value = '~';
+        }
+
+        return [$key, $value];
+    }
+
+    private function formatArrayRow(string $key, ?array $data, ?array $default, $inline = true)
+    {
+        $value = $data;
+
+        if (null == $value || empty($value)) {
+            $value = $default ?? ['~'];
+        }
+
+        if ($inline) {
+            $value = implode(',', $value);
+        } else {
+            $value = implode("\n", $value);
+        }
+
+        return [$key, $value];
+    }
+
+    private function getMetadataRegistry()
     {
         return $this->metadataRegistry;
     }

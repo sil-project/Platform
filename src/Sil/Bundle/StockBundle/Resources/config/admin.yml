@@ -1,9 +1,9 @@
-imports:
-    - { resource: "@SilStockBundle/Resources/config/admin/sil_stock.admin.stock_item.yml" }
-    - { resource: "@SilStockBundle/Resources/config/admin/sil_stock.admin.movement.yml" }
-    - { resource: "@SilStockBundle/Resources/config/admin/sil_stock.admin.operation.yml" }
-    - { resource: "@SilStockBundle/Resources/config/admin/sil_stock.admin.warehouse.yml" }
-    - { resource: "@SilStockBundle/Resources/config/admin/sil_stock.admin.location.yml" }
-    - { resource: "@SilStockBundle/Resources/config/admin/sil_stock.admin.uom.yml" }
-    - { resource: "@SilStockBundle/Resources/config/admin/sil_stock.admin.uom_type.yml" }
-    - { resource: "@SilStockBundle/Resources/config/admin/sil_stock.admin.stock_unit.yml" }
+# imports:
+#     - { resource: "@SilStockBundle/Resources/config/admin/sil_stock.admin.stock_item.yml" }
+#     - { resource: "@SilStockBundle/Resources/config/admin/sil_stock.admin.movement.yml" }
+#     - { resource: "@SilStockBundle/Resources/config/admin/sil_stock.admin.operation.yml" }
+#     - { resource: "@SilStockBundle/Resources/config/admin/sil_stock.admin.warehouse.yml" }
+#     - { resource: "@SilStockBundle/Resources/config/admin/sil_stock.admin.location.yml" }
+#     - { resource: "@SilStockBundle/Resources/config/admin/sil_stock.admin.uom.yml" }
+#     - { resource: "@SilStockBundle/Resources/config/admin/sil_stock.admin.uom_type.yml" }
+#     - { resource: "@SilStockBundle/Resources/config/admin/sil_stock.admin.stock_unit.yml" }

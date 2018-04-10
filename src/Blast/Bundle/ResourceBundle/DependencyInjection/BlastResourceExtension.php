@@ -56,8 +56,7 @@ class BlastResourceExtension extends Extension
                     'Resource "%s" declare a non-existent model class.', $metadata->getAlias()
                 ));
         }
-        $modelAlias = sprintf('sil.model.%s', $metadata->getAlias());
-        $container->setParameter($modelAlias . '.class', $classMap->getModel());
+        $container->setParameter($metadata->getParameterId('model'), $classMap->getModel());
     }
 
     /**
@@ -68,7 +67,7 @@ class BlastResourceExtension extends Extension
     {
         $classMap = $metadata->getClassMap();
         $repositoryClass = ResourceRepository::class;
-        $repositoryAlias = sprintf('sil.repository.%s', $metadata->getAlias());
+        $repositoryAlias = $metadata->getServiceId('repository');
 
         if ($classMap->hasRepository()) {
             $repositoryClass = $classMap->getRepository();
@@ -81,6 +80,6 @@ class BlastResourceExtension extends Extension
                 ));
         }
 
-        $container->setParameter($repositoryAlias . '.class', $repositoryClass);
+        $container->setParameter($metadata->getParameterId('repository'), $repositoryClass);
     }
 }

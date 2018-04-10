@@ -1,7 +1,6 @@
 Sil\Component\Stock\Model\Operation:
     type: mappedSuperclass
     table: sil_stock_operation
-    repositoryClass: Sil\Bundle\StockBundle\Doctrine\ORM\OperationRepository
     fields:
         code:
             type: string(64)

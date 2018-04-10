@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Sil\Component\User\Tests\Functional\Provider;
+namespace Sil\Component\User\Tests\Unit\Provider;
 
 use Symfony\Component\Security\Core\User\InMemoryUserProvider as BaseUserProvider;
 use Symfony\Component\Security\Core\User\UserInterface;

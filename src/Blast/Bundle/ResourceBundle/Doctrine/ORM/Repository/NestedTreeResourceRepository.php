@@ -11,23 +11,19 @@
 namespace Blast\Bundle\ResourceBundle\Doctrine\ORM\Repository;
 
 use Blast\Component\Resource\Repository\ResourceRepositoryInterface;
+use Blast\Component\Resource\Model\ResourceInterface;
 use Gedmo\Tree\Entity\Repository\NestedTreeRepository;
 use InvalidArgumentException;
-use Knp\Component\Pager\PaginatorInterface;
 
 /**
- * Description of ResourceRepository.
- *
- * @author glenn
+ * @author Glenn Cavarlé <glenn.cavarle@libre-informatique.fr>
  */
 class NestedTreeResourceRepository extends NestedTreeRepository implements ResourceRepositoryInterface
 {
     /**
-     * @var PaginatorInterface
+     * {@inheritdoc}
      */
-    protected $paginator;
-
-    public function get($id)
+    public function get($id): ResourceInterface
     {
         $resource = $this->find($id);
         if (null == $resource) {
@@ -37,10 +33,50 @@ class NestedTreeResourceRepository extends NestedTreeRepository implements Resou
         return $resource;
     }
 
+    public function find($id): ?ResourceInterface
+    {
+        return parent::find($id);
+    }
+
     /**
      * {@inheritdoc}
      */
-    public function add($resource): void
+    public function findAll(): array
+    {
+        return parent::findAll();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null): array
+    {
+        return parent::findBy($criteria, $orderBy, $limit, $offset);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function findOneBy(array $criteria): ?ResourceInterface
+    {
+        return parent::findOneBy($criteria);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function addAll(array $resources): void
+    {
+        foreach ($resources as $resource) {
+            $this->_em->persist($resource);
+        }
+        $this->_em->flush($resource);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function add(ResourceInterface $resource): void
     {
         $this->_em->persist($resource);
         $this->_em->flush($resource);
@@ -49,7 +85,27 @@ class NestedTreeResourceRepository extends NestedTreeRepository implements Resou
     /**
      * {@inheritdoc}
      */
-    public function update($resource): void
+    public function removeAll(array $resources): void
+    {
+        foreach ($resources as $resource) {
+            $this->_em->remove($resource);
+        }
+        $this->_em->flush($resource);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function remove(ResourceInterface $resource): void
+    {
+        $this->_em->remove($resource);
+        $this->_em->flush($resource);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function update(ResourceInterface $resource): void
     {
         $this->_em->flush($resource);
     }
@@ -57,19 +113,20 @@ class NestedTreeResourceRepository extends NestedTreeRepository implements Resou
     /**
      * {@inheritdoc}
      */
-    public function remove($resource): void
+    public function getClassName(): string
     {
-        if (null !== $this->find($resource->getId())) {
-            $this->_em->remove($resource);
-            $this->_em->flush($resource);
-        }
+        return parent::getClassName();
     }
 
     /**
-     * @param PaginatorInterface $paginator
+     * {@inheritdoc}
      */
-    public function setPaginator(PaginatorInterface $paginator): void
+    public function createPaginator(array $criteria = [], array $sorting = []): iterable
     {
-        $this->paginator = $paginator;
+        $queryBuilder = parent::createQueryBuilder('o');
+        $this->applyCriteria($queryBuilder, $criteria);
+        $this->applySorting($queryBuilder, $sorting);
+
+        return new Pagerfanta(new DoctrineORMAdapter($queryBuilder, false, false));
     }
 }

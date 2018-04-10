@@ -24,7 +24,7 @@ services:
     # CONTROLLERS
     ###################
 
-    sil.controller.manufacturing_order:
+    sil.sonata_controller.manufacturing_order:
         class: Sil\Bundle\ManufacturingBundle\Controller\ManufacturingOrderCRUDController
         calls:
             - ['setContainer', ['@service_container']]

@@ -23,6 +23,7 @@ security:
         sil_user.doctrine_provider:
             entity:
                 class: SilUserBundle:User
+                property: username
 
     # ##########################################################################
     # FIREWALLS

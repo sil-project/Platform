@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Sil\Component\User\Tests\Functional;
+namespace Sil\Component\User\Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Security\Core\Authorization\AccessDecisionManager;
@@ -20,9 +20,9 @@ use Symfony\Component\Security\Core\Encoder\EncoderFactory;
 use Symfony\Component\Security\Core\Encoder\MessageDigestPasswordEncoder;
 use Symfony\Component\Security\Core\User\UserChecker;
 use Sil\Component\User\Model\User;
-use Sil\Component\User\Tests\Functional\Provider\InMemoryUserProvider;
+use Sil\Component\User\Tests\Unit\Provider\InMemoryUserProvider;
 use Sil\Component\User\Role\RoleHierarchy;
-use Sil\Component\User\Tests\Functional\Repository\RoleRepository;
+use Sil\Component\User\Tests\Unit\Repository\RoleRepository;
 
 /**
  * @author Romain Sanchez <romain.sanchez@libre-informatique.fr>
@@ -56,7 +56,7 @@ class AuthorizationTest extends TestCase
 
     private function getAccessDecisionManager()
     {
-        $repository = new RoleRepository();
+        $repository = new RoleRepository(User::class);
         $hierarchy = new RoleHierarchy($repository);
         $voter = new RoleHierarchyVoter($hierarchy);
 

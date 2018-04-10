@@ -1,7 +1,6 @@
 Sil\Component\Stock\Model\Warehouse:
     type: mappedSuperclass
     table: sil_stock_warehouse
-    repositoryClass: Sil\Bundle\StockBundle\Doctrine\ORM\WarehouseRepository
 
     fields:
         name:

@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /*
- * Copyright (C) 2015-2017 Libre Informatique
+ * Copyright (C) 2015-2018 Libre Informatique
  *
  * This file is licenced under the GNU LGPL v3.
  * For the full copyright and license information, please view the LICENSE.md
@@ -20,7 +20,10 @@ namespace Blast\Component\Resource\Metadata;
 class ClassMap implements ClassMapInterface
 {
     private $model;
+    private $form;
+    private $view;
     private $repository;
+    private $controller;
     private $interfaces;
 
     private function __construct()
@@ -32,6 +35,9 @@ class ClassMap implements ClassMapInterface
         $classMap = new self();
         $classMap->model = $parameters['model'] ?? null;
         $classMap->repository = $parameters['repository'] ?? null;
+        $classMap->controller = $parameters['controller'] ?? null;
+        $classMap->form = $parameters['form'] ?? null;
+        $classMap->view = $parameters['view'] ?? null;
         $classMap->interfaces = $parameters['interfaces'] ?? [];
 
         self::checkDuplicates($classMap);
@@ -68,6 +74,21 @@ class ClassMap implements ClassMapInterface
     public function getInterfaces()
     {
         return $this->interfaces;
+    }
+
+    public function getForm()
+    {
+        return $this->form;
+    }
+
+    public function getView()
+    {
+        return $this->view;
+    }
+
+    public function getController()
+    {
+        return $this->controller;
     }
 
     private static function checkDuplicates(ClassMapInterface $classMap)

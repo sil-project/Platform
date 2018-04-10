@@ -1,7 +1,6 @@
 Sil\Component\Stock\Model\Location:
     type: mappedSuperclass
     table: sil_stock_location
-    repositoryClass: Sil\Bundle\StockBundle\Doctrine\ORM\LocationRepository
     fields:
         name:
             type: string

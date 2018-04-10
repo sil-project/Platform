@@ -13,8 +13,9 @@ declare(strict_types=1);
 namespace Sil\Component\Address\Model;
 
 use InvalidArgumentException;
+use Blast\Component\Resource\Model\ResourceInterface;
 
-interface PostCodeInterface
+interface PostCodeInterface extends ResourceInterface
 {
     /**
      * Gets post code.

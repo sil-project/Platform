@@ -1,5 +1,5 @@
 <div class="ui center aligned">
-    {% if table.pagination.getTotalItemCount() > table.pagination.getItemNumberPerPage() %}
-        {{ knp_pagination_render(table.pagination) }}
+    {% if table.pagination.getNbPages() > 1 %}
+        {{ pagerfanta(my_pager, 'semantic_ui') }}
     {% endif %}
 </div>

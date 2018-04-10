@@ -1,7 +1,6 @@
 Sil\Component\Stock\Model\Movement:
     type: mappedSuperclass
     table: sil_stock_movement
-    repositoryClass: Sil\Bundle\StockBundle\Doctrine\ORM\MovementRepository
     fields:
         code:
             type: string(64)

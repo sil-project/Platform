@@ -66,7 +66,9 @@ class UserController extends Controller
         );
         $currentPage = $request->query->get('page', 1);
         $perPage = $request->query->get('perPage', $this->perPage);
-        $pagination = $this->userRepository->findAllPaginated($currentPage, $perPage);
+        $pagination = $this->userRepository->createPaginator();
+        $pagination->setCurrentPage($currentPage);
+        $pagination->setMaxPerPage($perPage);
 
         return $this->render('@SilUser/User/list.html.twig', [
             'list' => [
@@ -89,7 +91,7 @@ class UserController extends Controller
                         'label' => $this->get('translator')->trans('sil.user.user.enabled'),
                     ],
                 ],
-                'elements'    => $pagination->getItems(),
+                'elements'    => $pagination,
                 'actions'     => [
                     [
                         'label'       => 'Voir',

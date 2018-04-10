@@ -15,23 +15,9 @@ namespace Sil\Bundle\UserBundle\Repository;
 use Sil\Component\User\Repository\UserRepositoryInterface;
 use Blast\Bundle\ResourceBundle\Doctrine\ORM\Repository\ResourceRepository;
 use Symfony\Bridge\Doctrine\Security\User\UserLoaderInterface;
-use Knp\Component\Pager\Pagination\PaginationInterface;
 
 class UserRepository extends ResourceRepository implements UserRepositoryInterface, UserLoaderInterface
 {
-    /**
-     * Returns a paginated (KnpPaginator) list of resource.
-     *
-     * @return PaginationInterface
-     */
-    public function findAllPaginated(int $page = 1, int $perPage = 20): PaginationInterface
-    {
-        $qb = $this->createQueryBuilder('o');
-        $qb->select('o');
-
-        return $this->paginator->paginate($qb->getQuery(), $page, $perPage);
-    }
-
     /* Symfony UserLoaderInterface */
     public function loadUserByUsername($username)
     {

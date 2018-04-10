@@ -2,7 +2,7 @@
 services:
     sil_manufacturing.admin.manufacturing_order:
         class: Sil\Bundle\ManufacturingBundle\Admin\ManufacturingOrderAdmin
-        arguments: [~, "%sil.model.manufacturing_order.class%", sil.controller.manufacturing_order]
+        arguments: [~, "%sil.model.manufacturing_order.class%", sil.sonata_controller.manufacturing_order]
         calls:
             - [ setManufacturingOrderCodeGenerator, ['@sil.code_generator.manufacturing_order']]
             - [ setResourceRepository, ['@sil.repository.manufacturing_order']]

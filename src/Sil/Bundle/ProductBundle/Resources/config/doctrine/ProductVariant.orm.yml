@@ -1,6 +1,6 @@
 Sil\Bundle\ProductBundle\Entity\ProductVariant:
     # type: mappedSuperclass
-    type: entity
+    type: mappedSuperclass
     table: sil_product_variant
     embedded:
         code:

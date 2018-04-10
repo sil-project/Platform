@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Sil\Component\User\Tests\Functional;
+namespace Sil\Component\User\Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager;
@@ -20,7 +20,7 @@ use Symfony\Component\Security\Core\Encoder\EncoderFactory;
 use Symfony\Component\Security\Core\Encoder\MessageDigestPasswordEncoder;
 use Symfony\Component\Security\Core\User\UserChecker;
 use Symfony\Component\Security\Core\Exception\BadCredentialsException;
-use Sil\Component\User\Tests\Functional\Provider\InMemoryUserProvider;
+use Sil\Component\User\Tests\Unit\Provider\InMemoryUserProvider;
 use Sil\Component\User\Model\User;
 
 /**
@@ -75,9 +75,7 @@ class AuthenticationTest extends TestCase
         $user->enable();
 
         $userProvider = new InMemoryUserProvider([$user]);
-
         $userChecker = new UserChecker();
-
         $authProviders = [new DaoAuthenticationProvider($userProvider, $userChecker, User::class, $encoderFactory)];
 
         return new AuthenticationProviderManager($authProviders);

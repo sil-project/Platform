@@ -1,6 +1,6 @@
 imports:
     - { resource: "@SilStockBundle/Resources/config/vendor/blast/resource.yml" }
-    - { resource: '@SilStockBundle/Resources/config/vendor/blast/menu.yml' }
+  #  - { resource: '@SilStockBundle/Resources/config/vendor/blast/menu.yml' }
 
 doctrine:
     orm:

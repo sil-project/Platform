@@ -13,8 +13,9 @@ declare(strict_types=1);
 namespace Sil\Component\Address\Model;
 
 use InvalidArgumentException;
+use Blast\Component\Resource\Model\ResourceInterface;
 
-interface CountryInterface
+interface CountryInterface extends ResourceInterface
 {
     /**
      * Return the name of current country.

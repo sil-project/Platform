@@ -1,7 +1,6 @@
 Sil\Component\Manufacturing\Model\BomLine:
     type: mappedSuperclass
     table: sil_manufacturing_bom_line
-    repositoryClass: Sil\Bundle\ManufacturingBundle\Doctrine\ORM\BomLineRepository
     fields:
         qtyValue:
             type: decimal

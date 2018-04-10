@@ -60,7 +60,9 @@ class ProductController extends BaseController
         $currentPage = $request->get('page', 1);
         $perPage = $request->get('perPage', $this->perPage);
 
-        $pagination = $this->productRepository->findAllPaginated($currentPage, $perPage);
+        $pagination = $this->productRepository->createPaginator();
+        $pagination->setCurrentPage($currentPage);
+        $pagination->setMaxPerPage($perPage);
 
         return $this->render('@SilProduct/Product/list.html.twig', [
             'list' => [
@@ -76,7 +78,7 @@ class ProductController extends BaseController
                         'label' => 'Actif',
                     ],
                 ],
-                'elements'    => $pagination->getItems(),
+                'elements'    => $pagination,
                 'actions'     => [
                     [
                         'label'       => 'Voir',

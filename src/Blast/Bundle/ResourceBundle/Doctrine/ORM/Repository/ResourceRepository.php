@@ -11,23 +11,22 @@
 namespace Blast\Bundle\ResourceBundle\Doctrine\ORM\Repository;
 
 use Blast\Component\Resource\Repository\ResourceRepositoryInterface;
+use Blast\Component\Resource\Model\ResourceInterface;
 use Doctrine\ORM\EntityRepository;
+use Doctrine\ORM\QueryBuilder;
+use Pagerfanta\Adapter\DoctrineORMAdapter;
+use Pagerfanta\Pagerfanta;
 use InvalidArgumentException;
-use Knp\Component\Pager\PaginatorInterface;
 
 /**
- * Description of ResourceRepository.
- *
- * @author glenn
+ * @author Glenn Cavarlé <glenn.cavarle@libre-informatique.fr>
  */
 class ResourceRepository extends EntityRepository implements ResourceRepositoryInterface
 {
     /**
-     * @var PaginatorInterface
+     * {@inheritdoc}
      */
-    protected $paginator;
-
-    public function get($id)
+    public function get($id): ResourceInterface
     {
         $resource = $this->find($id);
         if (null == $resource) {
@@ -40,7 +39,50 @@ class ResourceRepository extends EntityRepository implements ResourceRepositoryI
     /**
      * {@inheritdoc}
      */
-    public function add($resource): void
+    public function find($id): ?ResourceInterface
+    {
+        return parent::find($id);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function findAll(): array
+    {
+        return parent::findAll();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null): array
+    {
+        return parent::findBy($criteria, $orderBy, $limit, $offset);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function findOneBy(array $criteria): ?ResourceInterface
+    {
+        return parent::findOneBy($criteria);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function addAll(array $resources): void
+    {
+        foreach ($resources as $resource) {
+            $this->_em->persist($resource);
+        }
+        $this->_em->flush();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function add(ResourceInterface $resource): void
     {
         $this->_em->persist($resource);
         $this->_em->flush($resource);
@@ -49,7 +91,27 @@ class ResourceRepository extends EntityRepository implements ResourceRepositoryI
     /**
      * {@inheritdoc}
      */
-    public function update($resource): void
+    public function removeAll(array $resources): void
+    {
+        foreach ($resources as $resource) {
+            $this->_em->remove($resource);
+        }
+        $this->_em->flush($resource);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function remove(ResourceInterface $resource): void
+    {
+        $this->_em->remove($resource);
+        $this->_em->flush($resource);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function update(ResourceInterface $resource): void
     {
         $this->_em->flush($resource);
     }
@@ -57,19 +119,68 @@ class ResourceRepository extends EntityRepository implements ResourceRepositoryI
     /**
      * {@inheritdoc}
      */
-    public function remove($resource): void
+    public function getClassName(): string
     {
-        if (null !== $this->find($resource->getId())) {
-            $this->_em->remove($resource);
-            $this->_em->flush($resource);
+        return parent::getClassName();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function createPaginator(array $criteria = [], array $sorting = []): iterable
+    {
+        $queryBuilder = parent::createQueryBuilder('o');
+        $this->applyCriteria($queryBuilder, $criteria);
+        $this->applySorting($queryBuilder, $sorting);
+
+        return new Pagerfanta(new DoctrineORMAdapter($queryBuilder, false, false));
+    }
+
+    protected function applyCriteria(QueryBuilder $queryBuilder, array $criteria = []): void
+    {
+        foreach ($criteria as $property => $value) {
+            $name = $this->getPropertyName($property);
+            if (null === $value) {
+                $queryBuilder->andWhere($queryBuilder->expr()->isNull($name));
+            } elseif (is_array($value)) {
+                $queryBuilder->andWhere($queryBuilder->expr()->in($name, $value));
+            } elseif ('' !== $value) {
+                $parameter = str_replace('.', '_', $property);
+                $queryBuilder
+                ->andWhere($queryBuilder->expr()->eq($name, ':' . $parameter))
+                ->setParameter($parameter, $value)
+            ;
+            }
         }
     }
 
     /**
-     * @param PaginatorInterface $paginator
+     * @param QueryBuilder $queryBuilder
+     * @param array        $sorting
      */
-    public function setPaginator(PaginatorInterface $paginator): void
+    protected function applySorting(QueryBuilder $queryBuilder, array $sorting = []): void
     {
-        $this->paginator = $paginator;
+        foreach ($sorting as $property => $order) {
+            if (!in_array($property, array_merge($this->_class->getAssociationNames(), $this->_class->getFieldNames()), true)) {
+                continue;
+            }
+            if (!empty($order)) {
+                $queryBuilder->addOrderBy($this->getPropertyName($property), $order);
+            }
+        }
+    }
+
+    /**
+     * @param string $name
+     *
+     * @return string
+     */
+    protected function getPropertyName(string $name): string
+    {
+        if (false === strpos($name, '.')) {
+            return 'o' . '.' . $name;
+        }
+
+        return $name;
     }
 }

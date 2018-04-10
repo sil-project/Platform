@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Copyright (C) 2015-2017 Libre Informatique
+ * Copyright (C) 2015-2018 Libre Informatique
  *
  * This file is licenced under the GNU LGPL v3.
  * For the full copyright and license information, please view the LICENSE.md
@@ -49,7 +49,11 @@ class MappedSuperClassSubscriberTest extends TestCase
     {
         $registry = new MetadataRegistry();
         $mappedSuperClassSubscriber = new MappedSuperClassSubscriber($registry);
-        $registry->addFromAliasAndParameters('app.my_entity', ['classes'=>['model'=>MyEntity::class]]);
+        $registry->addFromAliasAndParameters('app.my_entity', [
+          'classes' => ['model'=> MyEntity::class],
+          'routing' => ['enabled' => false],
+          'api'     => ['enabled' => false],
+        ]);
 
         $myEntityMetadata = $this->entityManager->getClassMetadata(MyEntity::class);
         $myParentEntityMetadata = $this->entityManager->getClassMetadata(MyParentEntity::class);

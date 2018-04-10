@@ -45,18 +45,9 @@ class OptionTypeController extends BaseController
             )
         ;
 
-        $qb = $this->getDoctrine()->getEntityManagerForClass($this->optionTypeClass)->createQueryBuilder();
-
-        $qb
-            ->select('o')
-            ->from($this->optionTypeClass, 'o');
-
-        $paginator = $this->get('knp_paginator');
-        $pagination = $paginator->paginate(
-            $qb->getQuery(),
-            $request->query->getInt('page', 1),
-            $request->query->getInt('perPage', $this->perPage)
-        );
+        $pagination = $this->get('sil.repository.product_option_type')->createPaginator();
+        $pagination->setCurrentPage($request->query->getInt('page', 1));
+        $pagination->setMaxPerPage($request->query->getInt('perPage', $this->perPage));
 
         return $this->render('@SilProduct/OptionType/list.html.twig', [
             'list' => [
@@ -69,7 +60,7 @@ class OptionTypeController extends BaseController
                         'label' => 'Nb options',
                     ],
                 ],
-                'elements'    => $pagination->getItems(),
+                'elements'    => $pagination,
                 'actions'     => [
                     [
                         'label'       => 'Voir',

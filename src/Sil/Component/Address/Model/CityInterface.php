@@ -12,7 +12,9 @@ declare(strict_types=1);
 
 namespace Sil\Component\Address\Model;
 
-interface CityInterface
+use Blast\Component\Resource\Model\ResourceInterface;
+
+interface CityInterface extends ResourceInterface
 {
     /**
      * Return the name of current city.

@@ -12,7 +12,9 @@ declare(strict_types=1);
 
 namespace Sil\Component\Address\Model;
 
-interface AddressInterface
+use Blast\Component\Resource\Model\ResourceInterface;
+
+interface AddressInterface extends ResourceInterface
 {
     /**
      * Return the street of current address.

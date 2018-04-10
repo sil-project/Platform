@@ -30,7 +30,7 @@ class LocationRepository extends NestedTreeResourceRepository implements Locatio
         return $qb;
     }
 
-    public function findAll()
+    public function findAll(): array
     {
         return $this->createQueryBuilder('o')->getQuery()->getResult();
     }

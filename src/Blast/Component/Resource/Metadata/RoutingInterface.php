@@ -1,5 +1,4 @@
 <?php
-
 /*
  * Copyright (C) 2015-2017 Libre Informatique
  *
@@ -7,16 +6,11 @@
  * For the full copyright and license information, please view the LICENSE.md
  * file that was distributed with this source code.
  */
-
-namespace Blast\Bundle\ResourceBundle\Sonata\Controller;
-
-use Blast\Bundle\CoreBundle\Controller\CRUDController as BlastCRUDController;
+namespace Blast\Component\Resource\Metadata;
 
 /**
- * Description of CRUDController.
- *
  * @author glenn
  */
-class CRUDController extends BlastCRUDController
+interface RoutingInterface
 {
 }

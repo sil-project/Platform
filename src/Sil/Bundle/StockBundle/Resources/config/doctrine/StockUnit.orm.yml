@@ -1,7 +1,6 @@
 Sil\Component\Stock\Model\StockUnit:
     type: mappedSuperclass
     table: sil_stock_unit
-    repositoryClass: Sil\Bundle\StockBundle\Doctrine\ORM\StockUnitRepository
     fields:
         code:
             type: string(64)

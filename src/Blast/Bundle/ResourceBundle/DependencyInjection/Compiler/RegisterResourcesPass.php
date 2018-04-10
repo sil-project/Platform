@@ -15,10 +15,10 @@ use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Blast\Component\Resource\Metadata\Metadata;
 use Blast\Component\Resource\Metadata\MetadataInterface;
-use Blast\Component\Resource\Repository\ResourceRepositoryInterface;
 use Symfony\Component\DependencyInjection\Definition;
 use Symfony\Component\DependencyInjection\Reference;
 use Blast\Bundle\ResourceBundle\Doctrine\ORM\Repository\ResourceRepository;
+use Blast\Bundle\ResourceBundle\Controller\ResourceController;
 use Doctrine\ORM\Mapping\ClassMetadata;
 
 /**
@@ -43,6 +43,7 @@ class RegisterResourcesPass implements CompilerPassInterface
 
             $this->declareRepositoryService($container, $metadata);
             $this->resolveTargetEntities($targetEntityResolver, $container, $metadata);
+            $this->declareController($container, $metadata);
 
             if (!$targetEntityResolver->hasTag('doctrine.event_listener')) {
                 $targetEntityResolver->addTag('doctrine.event_listener', ['event' => 'loadClassMetadata']);
@@ -56,8 +57,8 @@ class RegisterResourcesPass implements CompilerPassInterface
      */
     protected function declareRepositoryService(ContainerBuilder $container, MetadataInterface $metadata)
     {
-        $repositoryAlias = sprintf('%s.repository.%s', $metadata->getPrefix(), $metadata->getAlias());
-        $repositoryParameter = sprintf('%s.class', $repositoryAlias);
+        $repositoryAlias = $metadata->getServiceId('repository');
+        $repositoryParameter = $metadata->getParameterId('repository');
         $repositoryClass = ResourceRepository::class;
 
         if ($container->hasParameter($repositoryParameter)) {
@@ -67,17 +68,34 @@ class RegisterResourcesPass implements CompilerPassInterface
         $definition = new Definition($repositoryClass);
         $definition->setArguments([
            new Reference('doctrine.orm.entity_manager'),
-           $this->getClassMetadataDefinition($metadata),
+           $this->getDoctrineClassMetadataDefinition($metadata),
         ]);
+        $container->setDefinition($repositoryAlias, $definition);
+    }
 
-        $reflexionClass = new \ReflectionClass($repositoryClass);
-        // Check if repository class implements ResourceRepositoryInterface and has method setPaginator
-        if ($reflexionClass->implementsInterface(ResourceRepositoryInterface::class) && $reflexionClass->hasMethod('setPaginator')) {
-            // Inject paginator only in repository that implements ResourceRepositoryInterface
-            $definition->addMethodCall('setPaginator', [new Reference('knp_paginator')]);
+    /**
+     * @param ContainerBuilder  $container
+     * @param MetadataInterface $metadata
+     */
+    protected function declareController(ContainerBuilder $container, MetadataInterface $metadata)
+    {
+        $controllerAlias = $metadata->getServiceId('controller');
+        $controllerParameter = $metadata->getParameterId('controller');
+        $controllerClass = ResourceController::class;
+
+        if ($container->hasParameter($controllerParameter)) {
+            $controllerClass = $container->getParameter($controllerParameter);
         }
 
-        $container->setDefinition($repositoryAlias, $definition);
+        $definition = new Definition($controllerClass);
+        $definition->setPublic(true);
+        $definition->setArguments([
+          $this->getResourceMetadataDefinition($metadata),
+          new Reference($metadata->getServiceId('repository')),
+          new Reference('event_dispatcher'),
+          new Reference('fos_rest.view_handler'),
+        ]);
+        $container->setDefinition($controllerAlias, $definition);
     }
 
     /**
@@ -101,13 +119,24 @@ class RegisterResourcesPass implements CompilerPassInterface
     /**
      * @param MetadataInterface $metadata
      */
-    protected function getClassMetadataDefinition(MetadataInterface $metadata): Definition
+    protected function getDoctrineClassMetadataDefinition(MetadataInterface $metadata): Definition
     {
         $definition = new Definition(ClassMetadata::class);
         $definition
           ->setFactory([new Reference('doctrine.orm.entity_manager'), 'getClassMetadata'])
           ->setArguments([$metadata->getClassMap()->getModel()])
           ->setPublic(false);
+
+        return $definition;
+    }
+
+    protected function getResourceMetadataDefinition(MetadataInterface $metadata): Definition
+    {
+        $definition = new Definition(Metadata::class);
+        $definition
+            ->setFactory([new Reference('blast.resource_registry'), 'get'])
+            ->setArguments([$metadata->getFullyQualifiedName()])
+        ;
 
         return $definition;
     }

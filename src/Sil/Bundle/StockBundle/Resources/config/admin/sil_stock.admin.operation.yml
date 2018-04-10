@@ -2,7 +2,7 @@
 services:
     sil_stock.admin.operation:
         class: Sil\Bundle\StockBundle\Admin\OperationAdmin
-        arguments: [~, "%sil.model.stock_operation.class%", sil.controller.stock_operation]
+        arguments: [~, "%sil.model.stock_operation.class%", sil.sonata_controller.stock_operation]
         calls:
             - [setOperationCodeGenerator, ['@sil.code_generator.stock_operation']]
             - [setMovementCodeGenerator, ['@sil.code_generator.stock_movement']]

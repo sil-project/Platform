@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Copyright (C) 2015-2017 Libre Informatique
+ * Copyright (C) 2015-2018 Libre Informatique
  *
  * This file is licenced under the GNU LGPL v3.
  * For the full copyright and license information, please view the LICENSE.md
@@ -12,13 +12,13 @@ namespace Sil\Bundle\CRMBundle\Form\DataTransformer;
 
 use Symfony\Component\Form\DataTransformerInterface;
 use Symfony\Component\PropertyAccess\PropertyAccessor;
-use Doctrine\Common\Persistence\ObjectRepository;
+use Sil\Bundle\CRMBundle\Entity\Repository\CityRepository;
 use Ramsey\Uuid\Uuid;
 
 class CityViewTransformer implements DataTransformerInterface
 {
     /**
-     * @var ObjectRepository
+     * @var CityRepository
      */
     private $cityRepository;
 
@@ -63,9 +63,9 @@ class CityViewTransformer implements DataTransformerInterface
     }
 
     /**
-     * @param ObjectRepository $cityRepository
+     * @param CityRepository $cityRepository
      */
-    public function setCityRepository(ObjectRepository $cityRepository): void
+    public function setCityRepository(CityRepository $cityRepository): void
     {
         $this->cityRepository = $cityRepository;
     }

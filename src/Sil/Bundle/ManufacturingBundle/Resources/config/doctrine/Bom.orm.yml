@@ -1,7 +1,6 @@
 Sil\Component\Manufacturing\Model\Bom:
     type: mappedSuperclass
     table: sil_manufacturing_bom
-    repositoryClass: Sil\Bundle\ManufacturingBundle\Doctrine\ORM\BomRepository
     fields:
         code:
             type: string(64)

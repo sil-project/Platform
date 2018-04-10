@@ -10,26 +10,17 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Sil\Component\User\Tests\Functional\Repository;
+namespace Sil\Component\User\Tests\Unit\Repository;
 
+use Blast\Component\Resource\Repository\InMemoryRepository;
 use Sil\Component\User\Repository\RoleRepositoryInterface;
 use Sil\Component\User\Model\Role;
 
 /**
  * @author Romain Sanchez <romain.sanchez@libre-informatique.fr>
  */
-class RoleRepository implements RoleRepositoryInterface
+class RoleRepository extends InMemoryRepository implements RoleRepositoryInterface
 {
-    /* @todo: maybe add an array (or not) */
-
-    public function add($resource): void
-    {
-    }
-
-    public function remove($resource): void
-    {
-    }
-
     public function getRoleHierarchy(): array
     {
         $admin = new Role('ROLE_ADMIN');

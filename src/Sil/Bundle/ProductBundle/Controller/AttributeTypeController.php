@@ -45,18 +45,9 @@ class AttributeTypeController extends BaseController
             )
         ;
 
-        $qb = $this->getDoctrine()->getEntityManagerForClass($this->attributeTypeClass)->createQueryBuilder();
-
-        $qb
-            ->select('a')
-            ->from($this->attributeTypeClass, 'a');
-
-        $paginator = $this->get('knp_paginator');
-        $pagination = $paginator->paginate(
-            $qb->getQuery(),
-            $request->query->getInt('page', 1),
-            $request->query->getInt('perPage', $this->perPage)
-        );
+        $pagination = $this->get('sil.repository.product_attribute_type')->createPaginator();
+        $pagination->setCurrentPage($request->query->getInt('page', 1));
+        $pagination->setMaxPerPage($request->query->getInt('perPage', $this->perPage));
 
         return $this->render('@SilProduct/AttributeType/list.html.twig', [
             'list' => [
@@ -76,7 +67,7 @@ class AttributeTypeController extends BaseController
                         'label' => 'Nb Attributs',
                     ],
                 ],
-                'elements'    => $pagination->getItems(),
+                'elements'    => $pagination,
                 'actions'     => [
                     [
                         'label'       => 'Voir',

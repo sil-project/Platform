@@ -1,6 +1,5 @@
 Sil\Bundle\CRMBundle\Entity\Organism:
     type: entity
-    repositoryClass: Sil\Bundle\EmailCRMBundle\Entity\Repository\OrganismRepository
 
     manyToMany:
         emailMessages:
