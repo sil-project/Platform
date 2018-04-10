@@ -28,6 +28,7 @@
 
         "doctrine/doctrine-bundle": "^1.6",
         "doctrine/doctrine-migrations-bundle": "^1.2",
+        "ocramius/proxy-manager": "2.1.*",
         "doctrine/orm": "^2.5",
         "friendsofsymfony/jsrouting-bundle": "^1.6",
         "friendsofsymfony/elastica-bundle": "^5.0",
