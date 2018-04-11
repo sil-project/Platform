@@ -1,12 +1,8 @@
 pipeline {
-    parameters {
-        string(defaultValue: '7.1', description: 'Version of Php', name: 'phpVersion')
-    }
-
     agent {
         dockerfile {
             filename "etc/dockerfile.build.jenkins"
-            additionalBuildArgs "--build-arg UID=`id -u` --build-arg GID=`id -g` --build-arg PHPVER=${params.phpVersion}"
+            additionalBuildArgs "--build-arg UID=`id -u` --build-arg GID=`id -g` --build-arg PHPVER=7.1"
             args '--network=ci.network --volume $HOME/cache/pip:/home/jenkins/.cache/pip --volume $HOME/cache/composer:/home/jenkins/.composer/cache --volume $HOME/cache/node_modules:/home/jenkins/node_modules'
            /* '--volume $HOME/cache/npm:/home/jenkins/.npm/_cacache' */
         }
