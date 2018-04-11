@@ -41,7 +41,8 @@ rm -rf \
 
 # warning ! can't use  --exclude=*.dist with tar as it does not take care of path (all file in the tree are not included like for example app/config/parameters.yml.dist
 # gen archive --transform='s|\./|./'${Tag}'/|g'
-tar --exclude=build \
+tar --exclude-vcs \
+    --exclude=build \
     --exclude=bin/git-scripts \
     --exclude=doc \
     -czhf ${Filename} ./*
