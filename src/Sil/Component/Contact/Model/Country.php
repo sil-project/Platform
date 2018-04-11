@@ -10,12 +10,10 @@
 
 namespace Sil\Component\Contact\Model;
 
-use Blast\Component\Resource\Model\ResourceInterface;
-
 /**
  * @author Romain Sanchez <romain.sanchez@libre-informatique.fr>
  */
-class Country implements ResourceInterface
+class Country implements CountryInterface
 {
     /**
      * name.
