@@ -1,0 +1,72 @@
+pipeline {
+    parameters {
+        string(defaultValue: '7.1', description: 'Version of Php', name: 'phpVersion')
+    }
+
+    agent {
+        dockerfile {
+            filename "etc/dockerfile.build.jenkins"
+            additionalBuildArgs "--build-arg UID=`id -u` --build-arg GID=`id -g` --build-arg PHPVER=${params.phpVersion}"
+            args '--network=ci.network --volume $HOME/cache/pip:/home/jenkins/.cache/pip --volume $HOME/cache/composer:/home/jenkins/.composer/cache --volume $HOME/cache/node_modules:/home/jenkins/node_modules'
+           /* '--volume $HOME/cache/npm:/home/jenkins/.npm/_cacache' */
+        }
+    }
+
+
+
+    environment {
+        RND = "${BUILD_NUMBER}"
+        COMPOSERARG=""
+        /* Not working in multi branch pipeline
+        Version = sh(returnStdout: true, script: 'git describe --tags').trim()
+        Tag = sh(returnStdout: true, script: 'git describe --tags --abbrev=0').trim()
+        */
+    }
+
+    options {
+        timeout(time: 1, unit: 'HOURS')
+        timestamps()
+        disableConcurrentBuilds()
+        ansiColor('xterm')
+    }
+
+    stages {
+        stage ('Where Am I') {
+            steps {
+                sh "uname -a"
+            }
+        }
+
+        stage ('Prepare') {
+            steps {
+                sh 'mkdir -p build'
+            }
+        }
+
+
+        stage ('Install Docs') {
+            steps {
+                sh "./bin/ci-scripts/do_run.sh install_docs.sh"
+            }
+        }
+
+
+        stage ('Run Docs') {
+            steps {
+                sh "./bin/git-scripts/doc-update.sh"
+                sh "./bin/ci-scripts/do_run.sh run_docs.sh"
+                publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'build/sphinx', reportFiles: 'index.html', reportName: 'Documentation', reportTitles: ''])
+            }
+        }
+    }
+
+
+
+    post {
+        always {
+            cleanWs()
+        }
+    }
+
+
+}

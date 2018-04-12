@@ -64,35 +64,24 @@ pipeline {
             }
         }
 
-        stage('Parallel Install') {
 
-            parallel {
-                stage ('Install Test') {
-                    steps {
-                        sh "./bin/ci-scripts/do_run.sh install_test.sh"
-                        sh "./bin/ci-scripts/do_run.sh install_db_test.sh"
-                        sh "./bin/ci-scripts/do_run.sh install_ui_test.sh"
-                    }
-                }
-
-                stage ('Install Docs') {
-                    steps {
-                        sh "./bin/ci-scripts/do_run.sh install_docs.sh"
-                    }
-                }
+        stage ('Install Test') {
+            steps {
+                sh "./bin/ci-scripts/do_run.sh install_test.sh"
+                sh "./bin/ci-scripts/do_run.sh install_db_test.sh"
+                sh "./bin/ci-scripts/do_run.sh install_ui_test.sh"
             }
         }
 
 
-        stage('Parallel Start') {
-            parallel {
-                stage ('Start Project') {
-                    steps {
-                        sh "./bin/ci-scripts/do_run.sh before_script_start_test.sh"
-                    }
-                }
+
+
+        stage ('Start Project') {
+            steps {
+                sh "./bin/ci-scripts/do_run.sh before_script_start_test.sh"
             }
         }
+
 
         stage('Parallel Run') {
             parallel {
@@ -115,13 +104,6 @@ pipeline {
                     }
                 }
 
-                stage ('Run Docs') {
-                    steps {
-                        sh "./bin/git-scripts/doc-update.sh"
-                        sh "./bin/ci-scripts/do_run.sh run_docs.sh"
-                        publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'build/sphinx', reportFiles: 'index.html', reportName: 'Documentation', reportTitles: ''])
-                    }
-                }
             }
         }
 
