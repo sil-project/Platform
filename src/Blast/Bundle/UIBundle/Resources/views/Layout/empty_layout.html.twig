@@ -14,7 +14,7 @@
             {# ######################################################################### #}
 
             {% block favicon %}
-                <link rel="icon" type="image/png" href="/bundles/blastui/img/li-favicon.png"/>
+                <link rel="icon" type="image/png" href="{{ asset('bundles/blastui/img/li-favicon.png') }}"/>
             {% endblock favicon %}
 
             {# ######################################################################### #}
@@ -61,9 +61,9 @@
             {#     DEPENDENCIES                                                          #}
             {# ######################################################################### #}
 
-            <script src="/bundles/blastui/js/jquery.min.js"></script>
-            <script src="/bundles/blastui/js/semantic.min.js"></script>
-            <script src="/bundles/blastui/js/semantic-custom.min.js"></script>
+            <script src="{{ asset('bundles/blastui/js/jquery.min.js') }}"></script>
+            <script src="{{ asset('bundles/blastui/js/semantic.min.js') }}"></script>
+            <script src="{{ asset('bundles/blastui/js/semantic-custom.min.js') }}"></script>
         {% endblock javascripts %}
 
     </body>
