@@ -47,6 +47,9 @@ class Group implements ResourceInterface, GroupInterface
      */
     protected $children;
 
+    /**
+     * @param string $name
+     */
     public function __construct(string $name)
     {
         $this->name = $name;
@@ -139,7 +142,7 @@ class Group implements ResourceInterface, GroupInterface
      *
      * @param GroupInterface $parent
      */
-    public function setParent(GroupInterface $parent): void
+    public function setParent(GroupInterface $parent = null): void
     {
         $this->parent = $parent;
     }
