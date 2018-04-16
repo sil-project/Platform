@@ -1,0 +1,39 @@
+{% extends 'PlatformBundle:Views/List:list.html.twig' %}
+
+{% block content %}
+    <div id="group-list-actions" class="ui sticky">
+        <button id="add-group" class="ui blue button"
+            data-url="{{ path('sil_contact_group_create') }}"
+            data-tooltip="{{ 'sil_contact.group.tooltip.create'|trans }}"
+            data-inverted
+        >
+            {{ 'sil_contact.group.create'|trans }}
+            <i class="add icon"></i>
+        </button>
+        <button id="toggle-accordion" class="ui button">
+            Expand/Collapse all
+            <i class="dropdown icon"></i>
+        </button>
+    </div>
+    <ul id="groups" class="group-list ui styled accordion list">
+        {% for group in groups %}
+            {{ include('SilContactBundle:list:nested-group.html.twig', {'group': group}) }}
+        {% endfor %}
+    </ul>
+    <div id="group-modal" class="ui modal">
+        {{ include('SilContactBundle:form:group-form.html.twig', {'form': groupForm}) }}
+    </div>
+    <div id="group-loader" class="ui loader"></div>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="/bundles/silcontact/css/list/group.css" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="/bundles/silcontact/js/vendor/js-cookie.js"></script>
+    <script src="/bundles/silcontact/js/vendor/jquery-sortable.js"></script>
+    <script src="/bundles/silcontact/js/list/group.js"></script>
+{% endblock %}

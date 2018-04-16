@@ -1,3 +1,2 @@
-
 platform:
     resource: "@PlatformBundle/Resources/config/routing.yml"

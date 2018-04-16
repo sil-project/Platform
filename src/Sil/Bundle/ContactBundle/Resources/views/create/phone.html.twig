@@ -1,0 +1,17 @@
+{% extends '@Platform/Views/Show/show.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="/bundles/silcontact/css/show/phone.css" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="/bundles/silcontact/js/edit/phone.js"></script>
+{% endblock %}
+
+{% block content %}
+    {% block form %}
+        {%include 'SilContactBundle:form:phone-form.html.twig' %}
+    {% endblock %}
+{% endblock %}

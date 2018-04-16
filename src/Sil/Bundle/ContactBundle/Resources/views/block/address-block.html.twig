@@ -1,0 +1,58 @@
+<li class="item contact-address"
+    data-id="{{ address.id }}"
+    data-edit-url="{{ path('sil_contact_address_edit', {'id': address.id}) }}"
+    data-remove-url="{{ path('sil_contact_address_delete', {'id': address.id, 'list': true}) }}"
+    data-make-default-url="{{ path('sil_contact_set_default_address', {'addressId': address.id}) }}"
+>
+    <div class="ui center aligned stackable grid">
+        <div class="six wide column">
+            <div class="content">
+                <div class="header">
+                    {{ ('sil_contact.address.choices.' ~ address.type)|trans }}&nbsp;
+                </div>
+                <div class="description">
+                    <i class="blue address card icon"></i>
+                    {{ address.street }}
+                    <div>
+                        {{ address.city.postCode }}
+                        {{ address.city.name }}
+                        {{ address.country }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% if isDefaultAddress %}
+            <div id="default-address" class="four wide column">
+                <span class="ui small teal label">{{ 'sil_contact.contact.default_address'|trans }}</span>
+            </div>
+        {% else %}
+            <div id="default-address" class="four wide column">
+                <a
+                    class="ui mini label make-default"
+                    data-tooltip="{{'sil_contact.contact.tooltip.set_default_address'|trans}}"
+                    data-inverted
+                >{{ 'sil_contact.contact.default_address'|trans }}</a>
+            </div>
+        {% endif %}
+        <div class="four wide column">
+            <div class="ui right floated address-actions">
+                <a
+                    href="#"
+                    class="edit-address"
+                    data-tooltip="{{'sil_contact.address.tooltip.edit'|trans}}"
+                    data-inverted
+                >
+                    <i class="ui circular small teal inverted pencil alternate icon"></i>
+                </a>
+                <a
+                    href="#"
+                    class="remove-address"
+                    data-tooltip="{{'sil_contact.address.tooltip.delete'|trans}}"
+                    data-inverted
+                >
+                    <i class="ui circular small orange inverted trash icon"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</li>

@@ -1,0 +1,24 @@
+<ul id="phone-list" class="ui divided list">
+    {% if contact.defaultPhone %}
+        {{ include('SilContactBundle:block:phone-block.html.twig', {
+            'isDefaultPhone': true,
+            'phone': contact.defaultPhone
+        }) }}
+
+        {% for phone in contact.phones %}
+            {% if phone is not same as(contact.defaultPhone) %}
+                {{ include('SilContactBundle:block:phone-block.html.twig', {
+                    'isDefaultPhone': false,
+                    'phone': phone
+                }) }}
+            {% endif %}
+        {% endfor %}
+    {% else %}
+        {% for phone in contact.phones %}
+            {{ include('SilContactBundle:block:phone-block.html.twig', {
+                'isDefaultPhone': false,
+                'phone': phone
+            }) }}
+        {% endfor %}
+    {% endif %}
+</ul>

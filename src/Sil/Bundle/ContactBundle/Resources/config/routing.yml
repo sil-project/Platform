@@ -1,3 +1,15 @@
-sil_contact_homepage:
-    path:     /
-    defaults: { _controller: SilContactBundle:Default:index }
+sil_contact:
+    resource: "@SilContactBundle/Resources/config/routing/contact.yml"
+    prefix: /contact
+
+sil_contact_phone:
+    resource: "@SilContactBundle/Resources/config/routing/phone.yml"
+    prefix: /contact/phone
+
+sil_contact_address:
+    resource: "@SilContactBundle/Resources/config/routing/address.yml"
+    prefix: /contact/address
+
+sil_contact_group:
+    resource: "@SilContactBundle/Resources/config/routing/group.yml"
+    prefix: /contact/group

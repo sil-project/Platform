@@ -1,0 +1,42 @@
+
+<div class="ui card fluid raised">
+    <h1 class="ui icon header">
+        <i class="circular group icon blue"></i>
+        <div class="content">
+            <div class="sub header">
+                <h3>{{ 'sil_contact.group.create'|trans }}</h3>
+            </div>
+        </div>
+    </h1>
+    {% if form.vars.value is not null and form.vars.value.id is defined %}
+        {% set updateAction =  path('sil_contact_group_edit', {'id': form.vars.value.id, 'list': true}) %}
+    {% else %}
+        {% set updateAction = '' %}
+    {% endif %}
+    {{ form_start(form, {
+        'attr': {
+            'id': 'group-form',
+            'class': 'ui form',
+            'data-action': path('sil_contact_group_create', {'list': true}),
+            'data-edit-action': updateAction
+        }
+    }) }}
+    <div class="ui stackable center aligned grid content">
+        <div class="row">
+            <div class="four wide column">
+                {{ form_row(form.name) }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="four wide column">
+                {{ form_row(form.parent) }}
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div class="content center aligned">
+        {{ form_widget(form.save, { 'attr': {'class': 'ui big teal button'} }) }}
+        <div id="group-cancel" class="ui big orange button">{{ 'sil_contact.form.cancel'|trans }}</div>
+    </div>
+    {{ form_end(form) }}
+</div>

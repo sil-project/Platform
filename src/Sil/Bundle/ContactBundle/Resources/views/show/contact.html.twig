@@ -1,0 +1,141 @@
+{% extends 'PlatformBundle:Views/Show:show.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="/bundles/silcontact/css/show/contact.css" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="/bundles/silcontact/js/show/contact.js"></script>
+{% endblock %}
+
+{% block content %}
+    {% block page_header %}
+        {% include 'SilContactBundle:block:contact-block.html.twig' %}
+    {% endblock %}
+
+    <div id="contact"
+        class="ui container fluid content"
+        data-id="{{ contact.id }}"
+        data-edit-url="{{ path('sil_contact_edit', {
+            'id': contact.id,
+            'form': true
+        }) }}"
+    >
+        <div id="contact-groups" class="ui fluid raised card">
+            <div class="content">
+                <div class="header">
+                    <a id="add-contact-group"
+                        class="right floated"
+                        href="#"
+                        data-tooltip="{{ 'sil_contact.contact.tooltip.add_group'|trans }}"
+                        data-inverted
+                    >
+                        <i class="circular blue inverted add icon"></i>
+                    </a>
+                    <h3>{{ 'sil_contact.contact.groups'|trans }}</h3>
+                </div>
+            </div>
+            <div class="content">
+                {{ include('SilContactBundle:list:contact-groups.html.twig', {'groups': contact.groups}) }}
+                <div id="group-loader" class="ui loader"></div>
+            </div>
+        </div>
+        <div class="ui three stackable cards">
+            <div id="contact-phones" class="ui fluid raised card">
+                <div class="content">
+                    <div class="header">
+                        <a id="add-contact-phone"
+                            class="right floated"
+                            href="#"
+                            data-tooltip="{{ 'sil_contact.contact.tooltip.add_phone'|trans }}"
+                            data-inverted
+                        >
+                            <i class="circular blue inverted add icon"></i>
+                        </a>
+                        <h3>{{ 'sil_contact.contact.phones'|trans }}</h3>
+                    </div>
+                </div>
+                <div class="content">
+                    {{ include('SilContactBundle:list:contact-phones.html.twig', {'contact': contact}) }}
+                    <div id="phone-list-loader" class="ui loader"></div>
+                </div>
+            </div>
+            <div id="contact-addresses" class="ui raised card">
+                <div class="content">
+                    <div class="header">
+                        <a id="add-contact-address"
+                            class="right floated"
+                            href="#"
+                            data-tooltip="{{ 'sil_contact.contact.tooltip.add_address'|trans }}"
+                            data-inverted
+                        >
+                            <i class="circular blue inverted add icon"></i>
+                        </a>
+                        <h3>{{ 'sil_contact.contact.addresses'|trans }}</h3>
+                    </div>
+                </div>
+                <div class="content">
+                    {{ include('SilContactBundle:list:contact-addresses.html.twig', {'contact': contact}) }}
+                    <div id="address-list-loader" class="ui loader"></div>
+                </div>
+            </div>
+
+            <!-- static -->
+            <div id="contact-notes" class="ui raised card">
+                <div class="content">
+                    <div class="header">
+                        <h3>{{ 'sil_contact.contact.notes'|trans }}</h3>
+                    </div>
+                </div>
+                <div class="ui content">
+                    <div class="ui form">
+                        <div id="contact-note-field" class="twelve wide inline field">
+                            <input type="text" class="" placeholder="Add note">
+                        </div>
+                        <span
+                            data-tooltip="{{ 'sil_contact.contact.tooltip.add_note'|trans }}"
+                            data-inverted
+                        >
+                            <i id="add-note" class="inverted circular blue add medium icon"></i>
+                        </span>
+                    </div>
+                    <ul id="notes" class="ui middle aligned divided list">
+                        <li class="item contact-note">
+                            <div class="right floated content">
+                                <i class="disabled trash icon remove-note"></i>
+                            </div>
+                            <div class="content">
+                                <p>Back in 2 weeks</p>
+                                <p class="meta">20/02/18</p>
+                            </div>
+                        </li>
+                        <li class="item contact-note">
+                            <div
+                                class="right floated content"
+                                data-tooltip="{{ 'sil_contact.contact.tooltip.remove_note'|trans }}"
+                                data-inverted
+                            >
+                                <i class="disabled trash icon remove-note"></i>
+                            </div>
+                            <div class="content">
+                                <p>Forgot his pencil</p>
+                                <p class="meta">17/01/18</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="group-modal" class="ui modal">
+        {{ include('SilContactBundle:form:contact-group-form.html.twig', {'form': groupForm}) }}
+    </div>
+    <div id="phone-modal" class="ui modal">
+        {{ include('SilContactBundle:form:phone-form.html.twig', {'form': phoneForm}) }}
+    </div>
+    <div id="address-modal" class="ui modal">
+        {{ include('SilContactBundle:form:address-form.html.twig', {'form': addressForm}) }}
+    </div>
+{% endblock %}

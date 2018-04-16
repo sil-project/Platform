@@ -1,0 +1,64 @@
+Sil\Bundle\ContactBundle\Entity\Contact:
+    type: mappedSuperclass
+    table: sil_contact
+    repositoryClass: Sil\Bundle\ContactBundle\Repository\ContactRepository
+    lifecycleCallbacks: {  }
+
+    fields:
+        firstName:
+            type: string(255)
+            nullable: true
+        lastName:
+            type: string(255)
+            nullable: true
+        title:
+            type: string(255)
+            nullable: true
+        email:
+            type: string(255)
+            nullable: true
+        position:
+            type: string(255)
+            nullable: true
+
+    oneToOne:
+        defaultAddress:
+            targetEntity: Sil\Component\Contact\Model\AddressInterface
+            joinColumn:
+                name: default_address_id
+                onDelete: SET NULL
+            cascade: [persist, remove]
+        defaultPhone:
+            targetEntity: Sil\Component\Contact\Model\PhoneInterface
+            joinColumn:
+                name: default_phone_id
+                onDelete: SET NULL
+            cascade: [persist, remove]
+
+    oneToMany:
+        addresses:
+            targetEntity: Sil\Component\Contact\Model\AddressInterface
+            mappedBy: contact
+            cascade: [ persist, remove ]
+            orphanRemoval: true
+        phones:
+            targetEntity: Sil\Component\Contact\Model\PhoneInterface
+            mappedBy: contact
+            cascade: [ persist, remove ]
+            orphanRemoval: true
+
+    manyToMany:
+        groups:
+            targetEntity: Sil\Component\Contact\Model\GroupInterface
+            inversedBy: members
+            joinTable:
+                name: sil_contact__group
+                joinColumns:
+                    contact_id:
+                        referencedColumnName: id
+                        onDelete: cascade
+                inverseJoinColumns:
+                    group_id:
+                        referencedColumnName: id
+                        onDelete: cascade
+            cascade: [ persist ]

@@ -1,0 +1,40 @@
+
+<div class="ui card fluid raised">
+    <h1 class="ui icon header">
+        <i class="circular phone icon blue"></i>
+        <div class="content">
+            <div class="sub header">
+                <h3>{{ 'sil_contact.phone.create'|trans }}</h3>
+            </div>
+        </div>
+    </h1>
+    {% if form.vars.value is not null and form.vars.value.id is defined %}
+        {% set updateAction =  path('sil_contact_phone_edit', {'id': form.vars.value.id, 'list': true}) %}
+    {% else %}
+        {% set updateAction = '' %}
+    {% endif %}
+    {{ form_start(form, {
+        'attr': {
+            'id': 'phone-form',
+            'class': 'ui form',
+            'data-action': path('sil_contact_phone_create', {'list': true}),
+            'data-edit-action': updateAction
+        }
+    }) }}
+    <div class="ui stackable center aligned grid content">
+        <div class="three wide column">
+            {{ form_row(form.number) }}
+        </div>
+        <div class="one wide column">
+            {{ form_row(form.type) }}
+        </div>
+
+        {{ form_widget(form.contact, {'value': ''}) }}
+    </div>
+    <div class="ui divider"></div>
+    <div class="content center aligned">
+        {{ form_widget(form.save, { 'attr': {'class': 'ui big teal button'} }) }}
+        <div id="cancel-phone" class="ui big orange button">{{ 'sil_contact.form.cancel'|trans }}</div>
+    </div>
+    {{ form_end(form) }}
+</div>

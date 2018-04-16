@@ -1,0 +1,21 @@
+Sil\Bundle\ContactBundle\Entity\Phone:
+    type: mappedSuperclass
+    table: sil_contact_phone
+    repositoryClass: Sil\Bundle\ContactBundle\Repository\PhoneRepository
+    lifecycleCallbacks: {  }
+
+    fields:
+        number:
+            type: string(255)
+            nullable: false
+        type:
+            type: string(255)
+            nullable: true
+
+    manyToOne:
+        contact:
+            targetEntity: Sil\Component\Contact\Model\ContactInterface
+            inversedBy: phones
+            joinColumn:
+                name: contact_id
+            cascade: [ persist ]

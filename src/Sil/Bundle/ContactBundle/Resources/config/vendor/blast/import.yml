@@ -1,0 +1,18 @@
+csv_mapping:
+    Sil\Bundle\ContactBundle\Entity\Country:
+        delete: true
+        filename: country.csv
+        fields:
+            name: name
+            code: code
+
+    Sil\Bundle\ContactBundle\Entity\Province:
+        delete: true
+        filename: province.csv
+        fields:
+            name: name
+            code: code
+        associations:
+            country:
+              entity: Sil\Bundle\ContactBundle\Entity\Country
+              target: code

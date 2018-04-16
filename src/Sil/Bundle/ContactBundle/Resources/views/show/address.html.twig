@@ -1,0 +1,36 @@
+{% extends 'BlastUIBundle:Views/Show:show.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="/bundles/silcontact/css/show/address.css" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="/bundles/silcontact/js/show/address.js"></script>
+{% endblock %}
+
+{% block content %}
+    {% block page_header %}
+        <div class="ui fluid card raised">
+            <h1 class="ui icon header">
+                <i class="circular address card icon blue"></i>
+                <div class="content">
+                    <div>
+                        {{ address.street }}
+                    </div>
+                    <div>
+
+                        {{ address.city.postCode }}
+                        {{ address.city.name }}
+                    </div>
+                    <div>
+                        {{ address.province }}
+                        {{ address.country }}
+                    </div>
+                </div>
+            </h1>
+        </div>
+    {% endblock %}
+</div>
+{% endblock %}

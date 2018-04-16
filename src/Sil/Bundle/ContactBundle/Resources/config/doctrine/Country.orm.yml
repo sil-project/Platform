@@ -1,0 +1,13 @@
+Sil\Bundle\ContactBundle\Entity\Country:
+    type: mappedSuperclass
+    table: sil_contact_country
+    repositoryClass: Sil\Bundle\ContactBundle\Repository\CountryRepository
+    lifecycleCallbacks: {  }
+
+    fields:
+        name:
+            type: string(255)
+            nullable: false
+        code:
+            type: string(255)
+            nullable: true

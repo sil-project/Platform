@@ -1,0 +1,25 @@
+<div id="contact-header" class="ui card fluid raised">
+    <div id="contact-loader" class="ui loader"></div>
+    <h1 class="ui icon header">
+        <i class="circular user icon blue"></i>
+        <div id="contact-info" class="content">
+            {{ ('sil_contact.contact.choices.' ~ contact.title)|trans}}
+            {{ contact.firstName }}
+            {{ contact.lastName }}
+            <div class="sub header">
+                <p>
+                    <a class="" href="mailto:sg">{{ contact.email }}</a>
+                </p>
+                {{ contact.position|capitalize }}
+            </div>
+        </div>
+    </h1>
+    <a id="edit-contact"
+        href="#"
+        class="center aligned"
+        data-tooltip="{{'sil_contact.contact.edit'|trans}}"
+        data-inverted
+    >
+        <i class="ui circular large teal inverted pencil alternate icon"></i>
+    </a>
+</div>

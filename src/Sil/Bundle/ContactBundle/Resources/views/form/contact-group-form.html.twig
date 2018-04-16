@@ -1,0 +1,33 @@
+
+<div class="ui card fluid raised">
+    <h1 class="ui icon header">
+        <i class="circular group icon blue"></i>
+        <div class="content">
+            <div class="sub header">
+                <h3>{{ 'sil_contact.contact.add_group'|trans }}</h3>
+            </div>
+        </div>
+    </h1>
+    {{ form_start(form, {
+        'attr': {
+            'id': 'contact-group-form',
+            'class': 'ui form',
+            'data-action': path('sil_contact_add_group', {'list': true})
+        }
+    }) }}
+    <div class="ui stackable center aligned grid content">
+        <div class="row">
+            <div class="four wide column">
+                {{ form_row(form.group) }}
+            </div>
+        </div>
+
+        {{ form_widget(form.member) }}
+    </div>
+    <div class="ui divider"></div>
+    <div class="content center aligned">
+        {{ form_widget(form.save, { 'attr': {'class': 'ui big teal button'} }) }}
+        <div id="group-cancel" class="ui big orange button">{{ 'sil_contact.form.cancel'|trans }}</div>
+    </div>
+    {{ form_end(form) }}
+</div>

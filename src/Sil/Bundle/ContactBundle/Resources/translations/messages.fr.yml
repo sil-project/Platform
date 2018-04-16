@@ -1,0 +1,80 @@
+sil_contact:
+    menu:
+        contact:
+            label: Contacts
+            list: Liste des contacts
+            new: Nouveau contact
+        group:
+            list: Arborescence des groupes
+    address:
+        street: Voie
+        city: Ville
+        province: Région
+        country: Pays
+        type: Type
+        create: Nouvelle Adresse
+        choices:
+            '': ''
+            type_home: Maison
+            type_work: Travail
+            type_other: Autre
+        tooltip:
+            edit: Modifier
+            delete: Supprimer
+    contact:
+        create: Nouveu contact
+        default_address: Principale
+        default_phone: Principal
+        edit: Modifer les informations personnelles
+        groups: Groupes
+        phones: Téléphones
+        addresses: Adresses
+        notes: Notes
+        position: Occupation
+        firstname: Prénom
+        lastname: Nom
+        title: Titre
+        email: Email
+        add_group: Ajouter un groupe
+        choices:
+            title_mr: Mr
+            title_mrs: Mrs
+        tooltip:
+            add_group: Ajouter un groupe
+            remove_group: Supprimer le groupe
+            add_phone: Ajouter un téléphone
+            set_default_phone: Définir comme téléphone principal
+            add_address: Ajouter une adresse
+            set_default_address: Définir comme adresse principale
+            add_note: Nouvelle note
+            remove_note: Supprimer
+    city:
+        name: Ville
+        postcode: Code postal
+    form:
+        save: Enregistrer
+        cancel: Annuler
+        placeholer:
+            select: Sélectionner
+    group:
+        create: Nouveau groupe
+        name: Nom
+        parent: Groupe parent
+        tooltip:
+            add_child: Ajouter un sous groupe
+            create: Ajouter un groupe
+            edit: Modifier
+            delete: Supprimer
+    group_member:
+        group: Groupe
+    phone:
+        create: Nouveau téléphone
+        edit: Modifier
+        delete: Supprimer
+        number: Numéro
+        type: Type
+        choices:
+            '': ''
+            type_home: Maison
+            type_work: Travail
+            type_other: Autre

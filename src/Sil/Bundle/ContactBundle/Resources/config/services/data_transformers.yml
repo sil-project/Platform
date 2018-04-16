@@ -1,0 +1,27 @@
+services:
+    sil_contact.transformer.array_to_phone:
+        class: Sil\Bundle\ContactBundle\Form\DataTransformer\ArrayToPhoneTransformer
+        arguments: ['@sil.repository.contact']
+
+    sil_contact.transformer.array_to_address:
+        class: Sil\Bundle\ContactBundle\Form\DataTransformer\ArrayToAddressTransformer
+        arguments: ['@sil.repository.contact']
+
+    sil_contact.transformer.id_to_contact:
+        class: Sil\Bundle\ContactBundle\Form\DataTransformer\IdToContactTransformer
+        arguments: ['@sil.repository.contact']
+
+    sil_contact.transformer.array_to_city:
+        class: Sil\Bundle\ContactBundle\Form\DataTransformer\ArrayToCityTransformer
+        arguments: ['@sil.repository.contact_country', '@sil.repository.contact_province']
+
+    sil_contact.transformer.array_to_group:
+        class: Sil\Bundle\ContactBundle\Form\DataTransformer\ArrayToGroupTransformer
+
+    sil_contact.transformer.name_to_country:
+        class: Sil\Bundle\ContactBundle\Form\DataTransformer\NameToCountryTransformer
+        arguments: ['@sil.repository.contact_country']
+
+    sil_contact.transformer.name_to_province:
+        class: Sil\Bundle\ContactBundle\Form\DataTransformer\NameToProvinceTransformer
+        arguments: ['@sil.repository.contact_province']

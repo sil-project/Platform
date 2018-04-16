@@ -1,0 +1,24 @@
+<ul id="address-list" class="ui divided list">
+    {% if contact.defaultAddress %}
+        {{ include('SilContactBundle:block:address-block.html.twig', {
+            'isDefaultAddress': true,
+            'address': contact.defaultAddress
+        }) }}
+
+        {% for address in contact.addresses %}
+            {% if address is not same as(contact.defaultAddress) %}
+                {{ include('SilContactBundle:block:address-block.html.twig', {
+                    'isDefaultAddress': false,
+                    'address': address
+                }) }}
+            {% endif %}
+        {% endfor %}
+    {% else %}
+        {% for address in contact.addresses %}
+            {{ include('SilContactBundle:block:address-block.html.twig', {
+                'isDefaultAddress': false,
+                'address': address
+            }) }}
+        {% endfor %}
+    {% endif %}
+</ul>

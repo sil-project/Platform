@@ -38,6 +38,10 @@ sil_media:
     resource: "@SilMediaBundle/Resources/config/routing.yml"
     prefix:   '%sil.url_prefix%'
 
+sil_contact:
+    resource: "@SilContactBundle/Resources/config/routing.yml"
+    prefix:   '%sil.url_prefix%'
+
 sil_product:
     resource: "@SilProductBundle/Resources/config/routing.yml"
     prefix:   '%sil.url_prefix%'

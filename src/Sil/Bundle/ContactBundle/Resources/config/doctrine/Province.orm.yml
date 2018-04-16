@@ -1,0 +1,22 @@
+Sil\Bundle\ContactBundle\Entity\Province:
+    type: mappedSuperclass
+    table: sil_contact_province
+    repositoryClass: Sil\Bundle\ContactBundle\Repository\ProvinceRepository
+    lifecycleCallbacks: {  }
+
+    fields:
+        name:
+            type: string(255)
+            nullable: false
+        code:
+            type: string(255)
+            nullable: true
+
+    manyToOne:
+        country:
+            targetEntity: Sil\Bundle\ContactBundle\Entity\Country
+            joinColumn:
+                name: country_id
+                referencedColumnName: id
+                onDelete: cascade
+            cascade: [persist]

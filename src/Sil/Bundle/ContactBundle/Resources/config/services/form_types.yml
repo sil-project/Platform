@@ -1,0 +1,43 @@
+services:
+    sil_contact.form.type.phone:
+        class: Sil\Bundle\ContactBundle\Form\Type\PhoneType
+        arguments:
+            - '@sil_contact.transformer.array_to_phone'
+            - '@sil_contact.transformer.id_to_contact'
+            - '%locale%'
+        tags: ['form.type']
+
+    sil_contact.form.type.address:
+        class: Sil\Bundle\ContactBundle\Form\Type\AddressType
+        arguments:
+            - '@sil_contact.transformer.array_to_address'
+            - '@sil_contact.transformer.id_to_contact'
+            - '@sil_contact.transformer.name_to_country'
+            - '@sil_contact.transformer.name_to_province'
+            - '%sil.model.contact_country.class%'
+            - '%sil.model.contact_province.class%'
+        tags: ['form.type']
+
+    sil_contact.form.type.city:
+        class: Sil\Bundle\ContactBundle\Form\Type\CityType
+        arguments: ['@sil_contact.transformer.array_to_city']
+        tags: ['form.type']
+
+    sil_contact.form.type.group:
+        class: Sil\Bundle\ContactBundle\Form\Type\GroupType
+        arguments:
+            - '@sil_contact.transformer.array_to_group'
+            - '%sil.model.contact_group.class%'
+        tags: ['form.type']
+
+    sil_contact.form.type.group_member:
+        class: Sil\Bundle\ContactBundle\Form\Type\GroupMemberType
+        arguments:
+            - '%sil.model.contact_group.class%'
+        tags: ['form.type']
+
+    sil_contact.form.type.nested_treeable:
+        class: Sil\Bundle\ContactBundle\Form\Type\NestedTreeableType
+        arguments:
+            - '@sil.repository.contact_group'
+        tags: ['form.type']

@@ -1,0 +1,48 @@
+
+#contact ul li:before {
+    content: none;
+}
+
+#contact-groups {
+    width: 100%;
+}
+
+#contact-groups .remove-group {
+    margin-left: 10px;
+}
+
+#contact-note-field {
+    display: inline;
+}
+
+#contact .card .content {
+    flex-grow: 0
+}
+
+#contact .contact-phone {
+    height: 50px;
+}
+
+#contact .contact-address {
+    height: 82px;
+}
+
+.modal .card{
+    padding: 15px;
+}
+
+#contact .make-default {
+    display: inline;
+}
+
+#phone-list .phone.icon {
+    display: inline;
+}
+
+#edit-contact {
+    margin-bottom: 15px;
+}
+
+#contact_save, #cancel-contact {
+    margin-top: 15px;
+}

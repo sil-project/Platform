@@ -1,4 +1,17 @@
+imports:
+    - { resource: "services/controllers.yml" }
+    - { resource: "services/form_types.yml" }
+    - { resource: "services/data_transformers.yml" }
+
 services:
-#    sil_contact.example:
-#        class: Sil\Bundle\ContactBundle\Example
-#        arguments: ["@service_id", "plain_value", "%parameter%"]
+    sil_contact.validator.group_member:
+        class: Sil\Bundle\ContactBundle\Services\GroupMemberValidator
+        arguments: ['@sil.repository.contact_group']
+
+    sil_contact.twig.phone_number_extension:
+        class: Sil\Bundle\ContactBundle\Twig\Extension\PhoneNumberExtension
+        arguments:
+            - '@libphonenumber.phone_number_util'
+            - %locale%
+        tags:
+            - { name: twig.extension }

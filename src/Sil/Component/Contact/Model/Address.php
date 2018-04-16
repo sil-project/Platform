@@ -142,7 +142,7 @@ class Address implements ResourceInterface, AddressInterface
      *
      * @return string
      */
-    public function getProvince(): string
+    public function getProvince(): ?string
     {
         return $this->province;
     }
@@ -222,7 +222,7 @@ class Address implements ResourceInterface, AddressInterface
      *
      * @return string
      */
-    public function getType(): string
+    public function getType(): ?string
     {
         return $this->type;
     }

@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Copyright (C) 2015-2017 Libre Informatique
+ * Copyright (C) 2015-2018 Libre Informatique
  *
  * This file is licenced under the GNU LGPL v3.
  * For the full copyright and license information, please view the LICENSE.md
@@ -27,19 +27,20 @@ class NestedTreeableListener extends TreeListener implements LoggerAwareInterfac
 
         $reflectionClass = $metadata->getReflectionClass();
 
-        // Don't process if cannot use ReflexionClass
+        // Don't process if cannot use ReflectionClass
         if (!$reflectionClass) {
             return;
         }
 
-        // Don't process superMappedClass
+        // Don't process MappedSuperClasses
         if ($metadata->isMappedSuperclass) {
             return;
         }
 
+        // Return if current entity doesn't use NestedTreeable trait
         if (!$this->hasTrait($reflectionClass, 'Blast\Bundle\BaseEntitiesBundle\Entity\Traits\NestedTreeable')) {
             return;
-        } // return if current entity doesn't use NestedTreeable trait
+        }
 
         $this->logger->debug(
             '[NestedTreeableListener] Entering NestedTreeableListener for « loadClassMetadata » event'
@@ -104,8 +105,8 @@ class NestedTreeableListener extends TreeListener implements LoggerAwareInterfac
                 'join_column'  => [
                     'name'                 => 'tree_root',
                     'referencedColumnName' => 'id',
+                    'onDelete'             => 'cascade',
                     ],
-                'onDelete' => 'CASCADE',
                 'gedmo'    => 'treeRoot',
             ]);
         }
@@ -118,15 +119,15 @@ class NestedTreeableListener extends TreeListener implements LoggerAwareInterfac
                 'join_column'  => [
                     'name'                 => 'tree_parent_id',
                     'referencedColumnName' => 'id',
-                    'onDelete'             => 'CASCADE',
+                    'onDelete'             => 'cascade',
                     ],
                 'gedmo' => 'treeParent',
             ]);
         }
 
-        //if (!$metadata->customRepositoryClassName) {
-        //$metadata->setCustomRepositoryClass('Gedmo\Tree\Entity\Repository\NestedTreeRepository');
-        //}
+        // if (!$metadata->customRepositoryClassName) {
+        //     $metadata->setCustomRepositoryClass('Gedmo\Tree\Entity\Repository\NestedTreeRepository');
+        // }
 
         if (isset(self::$configurations[$this->name][$metadata->name]) && self::$configurations[$this->name][$metadata->name]) {
             $this->getStrategy($om, $metadata->name)->processMetadataLoad($om, $metadata);

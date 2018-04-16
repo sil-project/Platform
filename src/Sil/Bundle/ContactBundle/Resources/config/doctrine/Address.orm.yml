@@ -1,0 +1,33 @@
+Sil\Bundle\ContactBundle\Entity\Address:
+    type: mappedSuperclass
+    table: sil_contact_address
+    repositoryClass: Sil\Bundle\ContactBundle\Repository\AddressRepository
+    lifecycleCallbacks: {  }
+
+    fields:
+        street:
+            type: string(255)
+            nullable: false
+        city:
+            type: string(255)
+            nullable: false
+        postCode:
+            type: string(255)
+            nullable: false
+        province:
+            type: string(255)
+            nullable: true
+        country:
+            type: string(255)
+            nullable: false
+        type:
+            type: string(255)
+            nullable: true
+
+    manyToOne:
+        contact:
+            targetEntity: Sil\Component\Contact\Model\ContactInterface
+            inversedBy: addresses
+            joinColumn:
+                name: contact_id
+            cascade: [ persist ]

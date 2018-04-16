@@ -1,0 +1,53 @@
+<li class="item contact-phone"
+    data-id="{{ phone.id }}"
+    data-edit-url="{{ path('sil_contact_phone_edit', {'id': phone.id}) }}"
+    data-remove-url="{{ path('sil_contact_phone_delete', {'id': phone.id, 'list': true}) }}"
+    data-make-default-url="{{ path('sil_contact_set_default_phone', {'phoneId': phone.id}) }}"
+>
+    <div class="ui center aligned stackable grid">
+        <div class="six wide column">
+            <div class="content">
+                <div class="header">
+                    {{ ('sil_contact.phone.choices.' ~ phone.type)|trans }}&nbsp;
+                </div>
+                <div class="description">
+                    <i class="blue phone icon"></i>
+                    {{ phone.number|formatPhoneForCountry}}
+                </div>
+            </div>
+        </div>
+        {% if isDefaultPhone %}
+            <div id="default-phone" class="four wide column">
+                <span class="ui small teal label">{{ 'sil_contact.contact.default_phone'|trans }}</span>
+            </div>
+        {% else %}
+            <div id="default-phone" class="four wide column">
+                <a
+                    class="ui mini label make-default"
+                    data-tooltip="{{'sil_contact.contact.tooltip.set_default_phone'|trans}}"
+                    data-inverted
+                >{{ 'sil_contact.contact.default_phone'|trans }}</a>
+            </div>
+        {% endif %}
+        <div class="four wide column">
+            <div class="ui right floated phone-actions">
+                <a
+                    href="#"
+                    class="edit-phone"
+                    data-tooltip="{{'sil_contact.phone.edit'|trans}}"
+                    data-inverted
+                >
+                    <i class="ui circular small teal inverted pencil alternate icon"></i>
+                </a>
+                <a
+                    href="#"
+                    class="remove-phone"
+                    data-tooltip="{{'sil_contact.phone.delete'|trans}}"
+                    data-inverted
+                >
+                    <i class="ui circular small orange inverted trash icon"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</li>

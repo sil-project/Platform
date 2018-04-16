@@ -1,0 +1,44 @@
+blast_resource:
+    resources:
+        sil.contact:
+            classes:
+                model:          Sil\Bundle\ContactBundle\Entity\Contact
+                repository:     Sil\Bundle\ContactBundle\Repository\ContactRepository
+                interfaces:
+                    -           Sil\Component\Contact\Model\ContactInterface
+                    -           Sil\Component\Contact\Model\GroupMemberInterface
+        sil.contact_address:
+            classes:
+                model:          Sil\Bundle\ContactBundle\Entity\Address
+                repository:     Sil\Bundle\ContactBundle\Repository\AddressRepository
+                interfaces:
+                    -           Sil\Component\Contact\Model\AddressInterface
+
+        sil.contact_phone:
+            classes:
+                model:          Sil\Bundle\ContactBundle\Entity\Phone
+                repository:     Sil\Bundle\ContactBundle\Repository\PhoneRepository
+                interfaces:
+                    -           Sil\Component\Contact\Model\PhoneInterface
+
+        sil.contact_group:
+            classes:
+                model:          Sil\Bundle\ContactBundle\Entity\Group
+                repository:     Sil\Bundle\ContactBundle\Repository\GroupRepository
+                interfaces:
+                    -           Sil\Component\Contact\Model\GroupInterface
+
+        sil.contact_city:
+            classes:
+                model:          Sil\Bundle\ContactBundle\Entity\City
+                repository:     Sil\Bundle\ContactBundle\Repository\CityRepository
+
+        sil.contact_province:
+            classes:
+                model:          Sil\Bundle\ContactBundle\Entity\Province
+                repository:     Sil\Bundle\ContactBundle\Repository\ProvinceRepository
+
+        sil.contact_country:
+            classes:
+                model:          Sil\Bundle\ContactBundle\Entity\Country
+                repository:     Sil\Bundle\ContactBundle\Repository\CountryRepository

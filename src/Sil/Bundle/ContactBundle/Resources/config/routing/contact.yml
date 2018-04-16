@@ -1,0 +1,27 @@
+sil_contact_create:
+    path:     /create
+    defaults: { _controller: sil_contact.controller.contact:createAction }
+
+sil_contact_show:
+    path:     /show/{id}
+    defaults: { _controller: sil_contact.controller.contact:showAction }
+
+sil_contact_edit:
+    path:     /edit/{id}
+    defaults: { _controller: sil_contact.controller.contact:editAction }
+
+sil_contact_set_default_phone:
+    path:     /set-default-phone/{phoneId}
+    defaults: { _controller: sil_contact.controller.contact:setDefaultPhoneAction }
+
+sil_contact_set_default_address:
+    path:     /set-default-address/{addressId}
+    defaults: { _controller: sil_contact.controller.contact:setDefaultAddressAction }
+
+sil_contact_add_group:
+    path:     /add-group
+    defaults: { _controller: sil_contact.controller.contact:addGroupAction }
+
+sil_contact_remove_group:
+    path:     /remove-group/{groupId}
+    defaults: { _controller: sil_contact.controller.contact:removeGroupAction }

@@ -1,0 +1,28 @@
+{% extends 'BlastUIBundle:Views/Show:show.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="/bundles/silcontact/css/show/phone.css" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="/bundles/silcontact/js/show/phone.js"></script>
+{% endblock %}
+
+{% block content %}
+    {% block page_header %}
+        <div class="ui card raised">
+            <h1 class="ui icon header">
+                <i class="circular phone icon blue"></i>
+                <div class="content">
+                    <div class="meta header">
+                        {{ phone.type }}
+                    </div>
+                    {{ phone.number|split('', 2)|join('.') }}
+                </div>
+            </h1>
+        </div>
+    {% endblock %}
+</div>
+{% endblock %}

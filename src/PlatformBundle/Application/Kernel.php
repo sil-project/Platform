@@ -161,7 +161,9 @@ class Kernel extends BaseKernel
             new \Sil\Bundle\UomBundle\SilUomBundle(),
             new \Sil\Bundle\StockBundle\SilStockBundle(),
             new \Sil\Bundle\ManufacturingBundle\SilManufacturingBundle(),
+            new \Sil\Bundle\ContactBundle\SilContactBundle(),
             new \Sil\Bundle\ProductBundle\SilProductBundle(),
+            new \Misd\PhoneNumberBundle\MisdPhoneNumberBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

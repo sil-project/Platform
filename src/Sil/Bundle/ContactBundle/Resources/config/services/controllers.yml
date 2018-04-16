@@ -1,0 +1,26 @@
+services:
+    sil_contact.controller.contact:
+        class: Sil\Bundle\ContactBundle\Controller\ContactController
+        calls:
+            - [setContactRepository, ['@sil.repository.contact']]
+            - [setPhoneRepository,   ['@sil.repository.contact_phone']]
+            - [setAddressRepository, ['@sil.repository.contact_address']]
+            - [setGroupRepository,   ['@sil.repository.contact_group']]
+
+    sil_contact.controller.address:
+        class: Sil\Bundle\ContactBundle\Controller\AddressController
+        calls:
+            - [setContactRepository, ['@sil.repository.contact']]
+            - [setAddressRepository, ['@sil.repository.contact_address']]
+
+    sil_contact.controller.phone:
+        class: Sil\Bundle\ContactBundle\Controller\PhoneController
+        calls:
+            - [setContactRepository, ['@sil.repository.contact']]
+            - [setPhoneRepository,   ['@sil.repository.contact_phone']]
+
+    sil_contact.controller.group:
+        class: Sil\Bundle\ContactBundle\Controller\GroupController
+        calls:
+            - [setContactRepository, ['@sil.repository.contact']]
+            - [setGroupRepository,   ['@sil.repository.contact_group']]

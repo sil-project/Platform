@@ -1,0 +1,19 @@
+blast_menu:
+
+    root:
+        sil_contact.menu.contact.label:
+            icon: user
+            order: 20
+            children:
+                sil_contact.menu.contact.new:
+                    icon: add
+                    route: sil_contact_create
+                    order: 10
+                sil_contact.menu.contact.list:
+                    icon: list
+                    # route: sil_contact_list
+                    order: 20
+                sil_contact.menu.group.list:
+                    icon: sitemap
+                    order: 30
+                    route: sil_contact_group_list

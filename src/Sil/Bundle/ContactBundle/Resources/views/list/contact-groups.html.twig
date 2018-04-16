@@ -1,0 +1,16 @@
+<ul id="contact-group-list" class="ui divided list">
+    {% for group in groups %}
+    <div class="contact-group ui blue inverted label"
+        data-remove-url="{{ path('sil_contact_remove_group', {'groupId': group.id, 'list': true}) }}"
+    >
+        {{group.name}}
+        <a
+            href="#"
+            data-tooltip="{{ 'sil_contact.contact.tooltip.remove_group'|trans }}"
+            data-inverted
+        >
+            <i class="remove-group circular remove icon"></i>
+        </a>
+    </div>
+    {% endfor %}
+</ul>

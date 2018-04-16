@@ -1,0 +1,30 @@
+{% extends 'BlastUIBundle:Views/Show:show.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="/bundles/silcontact/css/show/group.css" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="/bundles/silcontact/js/show/group.js"></script>
+{% endblock %}
+
+{% block content %}
+    {% block page_header %}
+        <div class="ui fluid raised card">
+            <h1 class="ui icon header">
+                <i class="circular group icon blue"></i>
+                <div class="content">
+                    {% if group.parent is not null %}
+                        {{ group.parent.name}}
+                    {% endif %}
+                    <div class="meta header">
+                        - {{ group.name }}
+                    </div>
+                </div>
+            </h1>
+        </div>
+    {% endblock %}
+</div>
+{% endblock %}

@@ -1,0 +1,4 @@
+imports:
+    - { resource: "@SilContactBundle/Resources/config/services.yml" }
+    - { resource: "@SilContactBundle/Resources/config/vendor/blast/resource.yml" }
+    - { resource: '@SilContactBundle/Resources/config/vendor/blast/menu.yml' }

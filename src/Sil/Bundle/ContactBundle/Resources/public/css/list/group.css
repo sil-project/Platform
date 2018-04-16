@@ -1,0 +1,40 @@
+
+#groups li:before {
+    content: none;
+}
+
+#groups .group {
+    margin-left: 20px;
+    border-radius: 2px;
+    padding-bottom: 0;
+}
+
+#groups .group .content {
+    padding-bottom: 0;
+}
+
+#groups .ui.styled.accordion .content,
+#groups .ui.styled.accordion .title,
+#groups .ui.styled.accordion .title.active,
+#groups .ui.styled.accordion .content.active,
+#groups .ui.styled.accordion .content.animating
+{
+    background-color: #fff;
+}
+
+#groups .group-actions {
+    width: 90px!important;
+}
+
+#groups .group-title {
+    width: calc(100% - 95px);
+}
+
+#groups .title div {
+    display: inline-block;
+}
+
+#groups .content {
+    padding-left: 0;
+    padding-right: 0;
+}

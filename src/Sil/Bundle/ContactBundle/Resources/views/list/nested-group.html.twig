@@ -1,0 +1,44 @@
+{% set hasChildren = group.children|length > 0 %}
+
+<li class="ui fluid group item active"
+    data-id="{{ group.id }}"
+    data-edit-url="{{ path('sil_contact_group_edit', {'id': group.id}) }}"
+    data-remove-url="{{ path('sil_contact_group_delete', {'id': group.id, 'list': true}) }}"
+>
+    <div class="ui fluid title">
+        <div class="group-title">
+            {% if hasChildren %}
+                <i class="children-count ui tiny blue circular label">{{ group.children|length }}</i>
+            {% endif %}
+            {{ group.name }}
+            {% if hasChildren %}
+                <i class="dropdown icon"></i>
+            {% endif %}
+        </div>
+        <div class="group-actions ">
+            <span
+            data-tooltip="{{ 'sil_contact.group.tooltip.add_child'|trans }}"
+            data-inverted
+            >
+                <i class="add-child-group ui circular small blue inverted add icon" data-url="{{ path('sil_contact_group_create') }}"></i>
+            </span>
+            <span
+                data-tooltip="{{ 'sil_contact.group.tooltip.edit'|trans }}"
+                data-inverted
+            >
+                <i class="edit-group ui circular small teal inverted pencil alternate icon"></i>
+            </span>
+            <span
+                data-tooltip="{{ 'sil_contact.group.tooltip.delete'|trans }}"
+                data-inverted
+            >
+                <i class="remove-group ui circular small orange inverted trash alternate icon"></i>
+            </span>
+        </div>
+    </div>
+    <ul class="group-list ui content fluid list">
+        {% for group in group.children %}
+            {{ include('SilContactBundle:list:nested-group.html.twig', {'group': group}) }}
+        {%  endfor %}
+    </ul
+</li>

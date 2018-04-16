@@ -1,0 +1,45 @@
+{% set id = form.vars.value.id %}
+{{ form_start(form, { 'attr': {
+    'id': 'contact-form',
+    'class': 'ui form'
+} }) }}
+{% block form_header %}
+    <div  id="contact" class="ui card fluid raised">
+        <h1 class="ui icon header">
+            <i class="circular user icon blue"></i>
+            <div class="content">
+                <div class="sub header">
+                    <h3>
+                        {% if id %}
+                            {{ 'sil_contact.contact.edit'|trans }}
+                        {% else %}
+                            {{ 'sil_contact.contact.create'|trans }}
+                        {% endif %}
+                    </h3>
+                </div>
+            </div>
+        </h1>
+        <div class="ui stackable center aligned grid content">
+            <div class="one wide column">
+                {{ form_row(form.title) }}
+            </div>
+            <div class="three wide column">
+                {{ form_row(form.firstName) }}
+            </div>
+            <div class="three wide column">
+                {{ form_row(form.lastName) }}
+            </div>
+            <div class="three wide column">
+                {{ form_row(form.email) }}
+            </div>
+            <div class="three wide column">
+                {{ form_row(form.position) }}
+            </div>
+            <div class="row">
+                {{form_widget(form.save, { 'attr': {'class': 'ui big teal button'} }) }}
+                <div id="cancel-contact" class="ui big orange button">{{ 'sil_contact.form.cancel'|trans }}</div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{{ form_end(form) }}

@@ -1,0 +1,19 @@
+sil_contact_phone_create:
+    path:     /create
+    defaults: { _controller: sil_contact.controller.phone:createAction }
+
+sil_contact_phone_edit:
+    path:     /edit/{id}
+    defaults: { _controller: sil_contact.controller.phone:editAction }
+
+sil_contact_phone_show:
+    path:     /show/{id}
+    defaults: { _controller: sil_contact.controller.phone:showAction }
+
+sil_contact_phone_delete:
+    path:     /delete/{id}
+    defaults: { _controller: sil_contact.controller.phone:deleteAction }
+
+sil_contact_phone_contact-phone-list:
+    path:     /contact-phone-list/{contactId}
+    defaults: { _controller: sil_contact.controller.phone:getPhoneListForContactAction }
