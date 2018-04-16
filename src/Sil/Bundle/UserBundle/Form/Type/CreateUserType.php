@@ -37,17 +37,20 @@ class CreateUserType extends BaseType
         $builder
             ->add('username', TextType::class, [
                 'required'    => true,
+                'label'       => 'sil.user.user.username',
                 'constraints' => [
                     new NotBlank(),
                 ],
             ])
             ->add('password', TextType::class, [
                 'required'    => true,
+                'label'       => 'sil.user.user.password',
                 'constraints' => [
                     new NotBlank(),
                 ],
             ])
             ->add('email', TextType::class, [
+                'label'       => 'sil.user.user.email',
                 'required'    => true,
                 'constraints' => [
                     new NotBlank(), /* maybe it should check if it is a valid email ... (or not) */
