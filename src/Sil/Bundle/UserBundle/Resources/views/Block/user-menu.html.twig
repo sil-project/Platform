@@ -1,0 +1,26 @@
+<div id="user-menu" class="ui floated simple dropdown item secondary inverted ">
+
+    <i class="user circle icon"></i>
+
+    {% block user_menu_username %}
+
+        {{ app.user.username }}
+
+    {% endblock user_menu_username %}
+
+    <i class="dropdown icon"></i>
+
+    <div class="menu">
+
+        {% include '@BlastUI/Layout/Blocks/theme_switcher.html.twig' %}
+
+        <a href="#" class="item">
+            <i class="id card outline icon"></i>
+            Mon compte
+        </a>
+        <a href="{{ path('sil_user_logout') }}" class="item">
+            <i class="sign out alternate icon"></i>
+            Déconnexion
+        </a>
+    </div>
+</div>
