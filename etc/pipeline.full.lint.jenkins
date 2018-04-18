@@ -53,60 +53,56 @@ pipeline {
             }
         }
 
-        stage('Parallel Lint') {
-            parallel {
-                stage ('Main Lint') {
-                    steps {
-                        sh "./bin/ci-scripts/do_run.sh run_lint.sh"
-                    }
-                }
 
-                stage ('Bundle Lint') {
-                    steps {
-                        sh "./bin/ci-scripts/do_it_for_bundle.sh run lint"
-                    }
-                }
+        stage ('Main Lint') {
+            steps {
+                sh "./bin/ci-scripts/do_run.sh run_lint.sh"
+            }
+        }
 
-                stage ('Component Lint') {
-                    steps {
-                        sh "Type=Component ./bin/ci-scripts/do_it_for_bundle.sh run lint"
-                    }
-                }
+        stage ('Bundle Lint') {
+            steps {
+                sh "./bin/ci-scripts/do_it_for_bundle.sh run lint"
+            }
+        }
+
+        stage ('Component Lint') {
+            steps {
+                sh "Type=Component ./bin/ci-scripts/do_it_for_bundle.sh run lint"
             }
         }
 
 
-        stage('Parallel Check') {
-            parallel {
-                stage('Check Style') {
-                    steps {
-                        sh 'phpcs -q --report=checkstyle --report-file=build/checkstyle.xml --standard=PSR2 --ignore=./src/*/*/*/Tests/,./src/Skeleton,./src/Tests --extensions=php ./src || exit 0'
-                        checkstyle pattern: 'build/checkstyle.xml'
-                    }
-                }
 
-                stage('Copy Paste Detection') {
-                    steps {
-                        sh 'phpcpd -q --log-pmd build/pmd-cpd.xml --ignore=./src/*/*/*/Tests/,./src/Skeleton,./src/Tests --regexps-exclude ./src/*/*/*/Tests/,./src/Skeleton,./src/Tests ./src || exit 0'
-                        dry canRunOnFailed: true, pattern: 'build/pmd-cpd.xml'
-                    }
-                }
 
-                stage('Mess Detection') {
-                    steps {
-                        sh 'phpmd ./src xml phpmd.xml.dist --reportfile build/pmd.xml --exclude ./src/*/*/*/Tests/,./src/Skeleton,./src/Tests || exit 0'
-                        pmd canRunOnFailed: true, pattern: 'build/pmd.xml'
-                    }
-                }
-
-                stage('Collect Metrics') {
-                    steps {
-                        sh "phpmetrics --quiet --report-html=build/metrics.html ./src"
-                        publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'build/', reportFiles: 'metrics.html', reportName: 'Metrics Report', reportTitles: ''])
-                    }
-                }
+        stage('Check Style') {
+            steps {
+                sh 'phpcs -q --report=checkstyle --report-file=build/checkstyle.xml --standard=PSR2 --ignore=./src/*/*/*/Tests/,./src/Skeleton,./src/Tests --extensions=php ./src || exit 0'
+                checkstyle pattern: 'build/checkstyle.xml'
             }
         }
+
+        stage('Copy Paste Detection') {
+            steps {
+                sh 'phpcpd -q --log-pmd build/pmd-cpd.xml --ignore=./src/*/*/*/Tests/,./src/Skeleton,./src/Tests --regexps-exclude ./src/*/*/*/Tests/,./src/Skeleton,./src/Tests ./src || exit 0'
+                dry canRunOnFailed: true, pattern: 'build/pmd-cpd.xml'
+            }
+        }
+
+        stage('Mess Detection') {
+            steps {
+                sh 'phpmd ./src xml phpmd.xml.dist --reportfile build/pmd.xml --exclude ./src/*/*/*/Tests/,./src/Skeleton,./src/Tests || exit 0'
+                pmd canRunOnFailed: true, pattern: 'build/pmd.xml'
+            }
+        }
+
+        stage('Collect Metrics') {
+            steps {
+                sh "phpmetrics --quiet --report-html=build/metrics.html ./src"
+                publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'build/', reportFiles: 'metrics.html', reportName: 'Metrics Report', reportTitles: ''])
+            }
+        }
+
     }
 
     post {
