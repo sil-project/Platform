@@ -27,7 +27,7 @@ then
     CODECEPTGROUP=$@
     if [ $# -eq 0 ]
     then
-        CODECEPTGROUP="login" # all"
+        CODECEPTGROUP="all" #"login" # all"
     fi
 
 
