@@ -100,7 +100,6 @@ pipeline {
                 stage ('Run UI Test') {
                     steps {
                         sh "./bin/ci-scripts/do_run.sh run_ui_test.sh"
-                        publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'src/Tests/_output/', reportFiles: 'report.html', reportName: 'Codeception Report', reportTitles: ''])
                     }
                 }
 
@@ -120,6 +119,7 @@ pipeline {
 
     post {
         always {
+            publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'src/Tests/_output/', reportFiles: 'report.html', reportName: 'Codeception Report', reportTitles: ''])
             cleanWs()
         }
         success {
