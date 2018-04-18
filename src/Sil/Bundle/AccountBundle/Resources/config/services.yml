@@ -1,1 +1,15 @@
 services:
+    sil_account.transformer.array_to_account:
+        class: Sil\Bundle\AccountBundle\Form\DataTransformer\ArrayToAccountTransformer
+        arguments: ['@sil.repository.account']
+
+    sil_account.form.type.city:
+        class: Sil\Bundle\AccountBundle\Form\Type\AccountType
+        arguments: ['@sil_account.transformer.array_to_account']
+        tags: ['form.type']
+
+    sil_account.controller.account:
+        class: Sil\Bundle\AccountBundle\Controller\AccountController
+        calls:
+            - [setAccountRepository, ['@sil.repository.account']]
+            - [setContactRepository, ['@sil.repository.contact']]

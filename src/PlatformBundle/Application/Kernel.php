@@ -163,6 +163,7 @@ class Kernel extends BaseKernel
             new \Sil\Bundle\ManufacturingBundle\SilManufacturingBundle(),
             new \Sil\Bundle\ContactBundle\SilContactBundle(),
             new \Sil\Bundle\ProductBundle\SilProductBundle(),
+            new \Sil\Bundle\AccountBundle\SilAccountBundle(),
             new \Misd\PhoneNumberBundle\MisdPhoneNumberBundle(),
         ];
 

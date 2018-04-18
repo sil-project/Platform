@@ -50,6 +50,10 @@ sil_user:
     resource: "@SilUserBundle/Resources/config/routing.yml"
     prefix:   '%sil.url_prefix%'
 
+sil_account:
+    resource: "@SilAccountBundle/Resources/config/routing.yml"
+    prefix:   '%sil.url_prefix%'
+
 admin:
     resource: '@SonataAdminBundle/Resources/config/routing/sonata_admin.xml'
     prefix:   '%sil.url_prefix%'

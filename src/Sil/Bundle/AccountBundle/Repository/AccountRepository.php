@@ -8,15 +8,18 @@
  * file that was distributed with this source code.
  */
 
-namespace Sil\Component\Account\Repository;
+namespace Sil\Bundle\AccountBundle\Repository;
 
-use Blast\Component\Resource\Repository\ResourceRepositoryInterface;
+use Blast\Bundle\ResourceBundle\Doctrine\ORM\Repository\ResourceRepository;
+use Sil\Component\Account\Repository\AccountRepositoryInterface;
 use Sil\Component\Contact\Model\ContactInterface;
 
 /**
+ * Account Entity Repository.
+ *
  * @author Romain Sanchez <romain.sanchez@libre-informatique.fr>
  */
-interface AccountRepositoryInterface extends ResourceRepositoryInterface
+class AccountRepository extends ResourceRepository implements AccountRepositoryInterface
 {
     /**
      * Retrieve the Accounts of a Contact.
@@ -25,5 +28,8 @@ interface AccountRepositoryInterface extends ResourceRepositoryInterface
      *
      * @return array|AccountInterface[]
      */
-    public function getAccountsForContact(ContactInterface $contact): array;
+    public function getAccountsForContact(ContactInterface $contact): array
+    {
+        return [];
+    }
 }

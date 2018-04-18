@@ -44,8 +44,10 @@ imports:
     - { resource: "@SilManufacturingBundle/Resources/config/services.yml" }
 
     - { resource: "@SilContactBundle/Resources/config/app/config.yml" }
-    
+
     - { resource: "@SilProductBundle/Resources/config/app/config.yml" }
+
+    - { resource: "@SilAccountBundle/Resources/config/app/config.yml" }
 
     # Blast
 

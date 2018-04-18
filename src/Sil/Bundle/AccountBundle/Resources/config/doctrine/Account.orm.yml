@@ -1,0 +1,27 @@
+Sil\Bundle\AccountBundle\Entity\Account:
+    type: mappedSuperclass
+    table: sil_account
+    repositoryClass: Sil\Bundle\AccountBundle\Repository\AccountRepository
+
+    fields:
+        name:
+            type: string
+            nullable: false
+        code:
+            type: string
+            nullable: false
+
+    # oneToOne:
+    #     defaultContact:
+    #         targetEntity: Sil\Component\Contact\Model\ContactInterface
+    #         joinColumn:
+    #             name: default_contact_id
+    #             onDelete: SET NULL
+    #         cascade: [persist, remove]
+    #
+    # oneToMany:
+    #     contacts:
+    #         targetEntity: Sil\Component\Contact\Model\ContactInterface
+    #         mappedBy: account
+    #         cascade: [ persist, remove ]
+    #         orphanRemoval: true

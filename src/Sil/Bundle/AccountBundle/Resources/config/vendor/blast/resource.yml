@@ -1,2 +1,8 @@
 blast_resource:
     resources:
+        sil.account:
+            classes:
+                model:          Sil\Bundle\AccountBundle\Entity\Account
+                repository:     Sil\Bundle\AccountBundle\Repository\AccountRepository
+                interfaces:
+                    -           Sil\Component\Account\Model\AccountInterface
