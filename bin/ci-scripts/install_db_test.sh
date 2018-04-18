@@ -25,8 +25,8 @@ do
     #bin/console doctrine:schema:validate --no-interaction --em=$i --env=$SERVERENV
 done
 
-bin/console fos:elastica:reset --no-interaction --env=$SERVERENV
-bin/console fos:elastica:populate --no-interaction --env=$SERVERENV
+#bin/console fos:elastica:reset --no-interaction --env=$SERVERENV
+#bin/console fos:elastica:populate --no-interaction --env=$SERVERENV
 
 # Not needed as it is launch in composer install
 #bin/console blast:patchs:apply --no-interaction --env=$SERVERENV
