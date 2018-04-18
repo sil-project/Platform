@@ -40,7 +40,7 @@ class CreateReusableType extends CreateType
     {
         parent::buildForm($builder, $options);
 
-        $builder->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event) {
+        $builder->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event) use ($options) {
             $form = $event->getForm();
             $data = $event->getData();
 

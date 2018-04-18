@@ -118,7 +118,7 @@ sil:
                 create_new_attribute_type: "Créer un nouveau type d'attribut"
                 create_new_attribute_for_this_type: "Créer un nouvel attribut pour ce type"
                 list: "Voir la liste des types d'attributs"
-                remove: Supprimer cet attribut
+                remove: Supprimer ce type d'attribut
             create:
                 page_header:
                     title: "Nouveau type d'attribut"
@@ -191,6 +191,9 @@ sil:
                         fields:
                             type: Type
                             value: Valeur
+            form:
+                option_type: Type d'option
+                value: Valeur
 
         option_type:
             actions:

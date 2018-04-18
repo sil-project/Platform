@@ -109,44 +109,16 @@ class Sil extends Common
         $this->click('Filtrer');
     }
 
-    public function selectSearchDrop($id, $value)
+    /**
+     * @param string $selector select element css selector
+     * @param string $value    the value to set
+     */
+    public function fillSelect($selector, $value)
     {
-        // UGLY FIRST WORKING WAY
-        //$this->clickWithLeftButton('div[id^="s2id_"][id$="_producer_autocomplete_input"] a');
-        //$this->pressKey('#s2id_autogen8_search', 'sel'); // ugly working way
-
-        // UGLY SECOND WORKING WAY
-        // $this->scrollTo('div[id^="s2id_"][id$="' . $id . '"] a', 0, -100);
-        //$this->clickWithLeftButton('div[id^="s2id_"][id$="' . $id . '"] a');
-        $this->waitForElementVisible('div[id^="s2id_"][id$="' . $id . '"] a');
-        $this->click('div[id^="s2id_"][id$="' . $id . '"] a');
-        // $this->scrollTo('//div[@id="select2-drop"]/div/input[contains(@id,"_search")]'); // is it in the footer ? moved by js ? webdriver is not aware of this move ?
-        $this->waitForElementVisible('//div[@id="select2-drop"]/div/input[contains(@id,"_search")]', 30);
-        $this->fillField('//div[@id="select2-drop"]/div/input[contains(@id,"_search")]', $value);
-        $this->waitCube();
-        //$this->clickWithLeftButton('//div[@id="select2-drop"]/ul/li/div[contains(string(), "' . $value . '")]');
-        $this->waitForElementVisible('//div[@id="select2-drop"]/ul/li/div[contains(string(), "' . $value . '")]');
-        $this->click('//div[@id="select2-drop"]/ul/li/div[contains(string(), "' . $value . '")]');
-        $this->waitCube();
-    }
-
-    public function selectDrop($id, $value, $tag = 'a')
-    {
-        /* @todo test if there is more than one select on the page */
-        // REAL example to click select2 elements below
-        //$this->clickWithLeftButton('div[id^="s2id_"][id$="' . $id . '"] ' . $tag . '');
-        $this->waitForElementVisible('div[id^="s2id_"][id$="' . $id . '"] ' . $tag . '');
-        $this->click('div[id^="s2id_"][id$="' . $id . '"] ' . $tag . '');
-        /* @todo maybe move text to string */
-        //$this->clickWithLeftButton('//div[@id="select2-drop"]/ul/li/div[text()="' . $value . '"]');
-        $this->waitForElementVisible('//div[@id="select2-drop"]/ul/li/div[text()="' . $value . '"]');
-
-        // Little hack to scroll to element to be selected before clicking it
-        $this->executeJS("jQuery('#select2-drop .select2-results').scrollTo(jQuery('#select2-drop .select2-results').find('.select2-result-label:contains(\"$value\")').position().top);");
-        $this->wait(1);
-
-        $this->click('//div[@id="select2-drop"]/ul/li/div[text()="' . $value . '"]');
-        $this->waitCube();
+        $this->executeJs("jQuery('" . $selector . "').parents('.dropdown').dropdown('show');");
+        $this->waitForText($value);
+        $this->click('//div[contains(text(), "' . $value . '")]');
+        $this->waitForText($value);
     }
 
     public function clickCheckbox($name, $value = '1')

@@ -58,7 +58,8 @@ class CreateType extends AbstractFormType
 
         $builder
             ->add('optionType', EntityType::class, [
-                'attr' => [
+                'label'        => 'sil.product.option.form.option_type',
+                'attr'         => [
                     'autocomplete' => 'off',
                 ],
                 'required'     => true,
@@ -70,6 +71,7 @@ class CreateType extends AbstractFormType
                 ],
             ])
             ->add('value', TextType::class, [
+                'label'       => 'sil.product.option.form.value',
                 'required'    => true,
                 'constraints' => [
                     new NotBlank(),

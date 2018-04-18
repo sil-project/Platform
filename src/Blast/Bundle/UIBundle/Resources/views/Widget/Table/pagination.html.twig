@@ -1,5 +1,5 @@
 <div class="ui center aligned">
     {% if table.pagination.getNbPages() > 1 %}
-        {{ pagerfanta(my_pager, 'semantic_ui') }}
+        {{ pagerfanta(table.pagination, 'semantic_ui') }}
     {% endif %}
 </div>
