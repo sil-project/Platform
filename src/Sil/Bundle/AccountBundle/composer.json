@@ -1,0 +1,42 @@
+{
+    "name": "sil-project/account-bundle",
+    "type": "library",
+    "description": "Account Management",
+    "require": {
+        "php": "^7.1",
+        "symfony/symfony": "^3.4",
+        "blast-project/resource": "self.version",
+        "blast-project/resource-bundle": "self.version",
+        "sil-project/account": "self.version"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.4",
+        "symfony/phpunit-bridge": "^3.4"
+    },
+    "license": ["LGPL-3.0-only"],
+    "keywords": [
+        "Account",
+        "account management",
+        "customer account"
+    ],
+    "homepage": "https://github.com/sil-project/account-bundle",
+    "authors": [
+        {
+            "name": "Romain Sanchez",
+            "email": "romain.sanchez@libre-informatique.fr"
+        },
+        {
+            "name": "Libre Informatique",
+            "homepage": "http://www.libre-informatique.fr/"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Sil\\Bundle\\AccountBundle\\": "."
+        }
+    },
+    "config": {
+        "bin-dir": "bin"
+    },
+    "version": "dev-wip-platform"
+}
