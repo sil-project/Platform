@@ -53,10 +53,9 @@ class Sil extends Common
 
     public function logoutSil()
     {
-        //$this->scrollUp(); // logout is on top of page
-        $this->amOnPage($this->getSilUrl() . '/dashboard');
-        $this->click('li.dropdown.user-menu a');
-        $this->waitForElementVisible('.dropdown-menu.dropdown-user', 30);
+        $this->scrollUp(); // logout is on top of page
+        $this->click('#user-menu');
+        $this->waitForElementVisible('.menu', 30);
         $this->testLink('Déconnexion', 'Login');
     }
 
@@ -69,12 +68,12 @@ class Sil extends Common
         $this->waitForText($linkRes, 30); // secs
     }
 
-    public function clickCreate($name = 'btn_create_and_list')
+    public function clickCreate()
     {
         /* @todo: do the same for confirm action and for list batch action button */
         $this->scrollDown(); // submit button is on bottom of page
         // $this->scrollTo("//button[@name='" . $name . "']"); //, 10, 10);
-        $this->click("//button[@name='" . $name . "']");
+        $this->click("//button[@type='submit']");
         //$this->waitForText('succès', 30); // secs
         $this->stdCheck();
     }
