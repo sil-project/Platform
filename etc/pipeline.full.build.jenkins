@@ -64,7 +64,6 @@ pipeline {
             }
         }
 
-
         stage ('Install Test') {
             steps {
                 sh "./bin/ci-scripts/do_run.sh install_test.sh"
@@ -73,15 +72,11 @@ pipeline {
             }
         }
 
-
-
-
         stage ('Start Project') {
             steps {
                 sh "./bin/ci-scripts/do_run.sh before_script_start_test.sh"
             }
         }
-
 
         stage('Parallel Run') {
             parallel {
@@ -106,27 +101,34 @@ pipeline {
             }
         }
 
-        stage ('Archive Gzip') {
-            steps {
-
-                sh './bin/ci-scripts/do_run.sh gen_archive.sh'
-                archiveArtifacts artifacts: "*.tar.gz*, *Latest*", fingerprint: true
-            }
-        }
     }
-
-
 
     post {
         always {
+            /* always is run before other status ... So we can't clean up here */
+            /* cleanWs() */
             publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: false, reportDir: 'src/Tests/_output/', reportFiles: 'report.html', reportName: 'Codeception Report', reportTitles: ''])
+        }
+
+        aborded
+        {
             cleanWs()
         }
-        success {
-            build job: 'Copy Artifact', parameters: [string(name: 'Job', value: "${JOB_NAME}"), string(name: 'Project', value: "Platform"), string(name: 'Branch', value: "${BRANCH_NAME}")], wait: false
+
+        failure
+        {
+            cleanWs()
         }
 
+        unstable {
+            cleanWs()
+        }
+
+        success {
+            sh './bin/ci-scripts/do_run.sh gen_archive.sh'
+            archiveArtifacts artifacts: "*.tar.gz*, *Latest*", fingerprint: true
+            build job: 'Copy Artifact', parameters: [string(name: 'Job', value: "${JOB_NAME}"), string(name: 'Project', value: "Platform"), string(name: 'Branch', value: "${BRANCH_NAME}")], wait: false
+            cleanWs()
+        }
     }
-
-
 }
