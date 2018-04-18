@@ -26,6 +26,9 @@ class ProductOptionsTest extends WebTestCase
 
     public function test_option_type_pages()
     {
+        $this->markTestSkipped(
+            'Disable as it will be done in selenium'
+        );
         $this->runForRoute('sil_product_option_create', [], 'sil.product.option.create.page_header.title');
         $this->runForRoute('sil_product_option_type_list', [], 'sil.product.option_type.list.page_header.title');
         $this->runForRoute('sil_product_option_type_create', [], 'sil.product.option_type.create.page_header.title');

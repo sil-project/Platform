@@ -26,6 +26,9 @@ class ProductTest extends WebTestCase
 
     public function test_product_pages()
     {
+        $this->markTestSkipped(
+            'Disable as it will be done in selenium'
+        );
         $this->runForRoute('sil_product_create', [], 'sil.product.product.create.page_header.title');
         $this->runForRoute('sil_product_list', [], 'sil.product.product.list.page_header.title');
         $this->runForRoute('sil_product_homepage', [], 'sil.product.product.list.page_header.title');

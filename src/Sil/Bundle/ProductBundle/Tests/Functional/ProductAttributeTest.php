@@ -26,6 +26,9 @@ class ProductAttributeTest extends WebTestCase
 
     public function test_attribute_pages()
     {
+        $this->markTestSkipped(
+            'Disable as it will be done in selenium'
+        );
         $this->runForRoute('sil_product_attribute_type_create', [], 'sil.product.attribute_type.create.page_header.title');
         $this->runForRoute('sil_product_attribute_type_list', [], 'sil.product.attribute_type.list.page_header.title');
         $this->runForRoute('sil_product_attribute_type_create', [], 'sil.product.attribute_type.create.page_header.title');
