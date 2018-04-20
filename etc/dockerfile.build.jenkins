@@ -77,7 +77,7 @@ WORKDIR $HOME
 ENV PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/bin/:$HOME/bin:$HOME/.local/bin/
 
 
-RUN pip install --upgrade pip
+#RUN pip install --upgrade pip
 
 # Add some before install step to run test faster
 RUN composer self-update --no-ansi --no-progress --stable \
