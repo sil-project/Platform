@@ -1,6 +1,62 @@
 blast:
     ui:
+        yes_label: Oui
+        no_label: Non
+        all_label: Tous
         data_type:
             boolean:
                 'true': Oui
                 'false': Non
+        grid:
+            actions:
+                show: Voir
+                filter: Filtrer
+                reset: RàZ
+                export: Exporter
+            no_results_to_display: Aucun élément à afficher
+            for_current_selection: Pour la sélection
+            custom_reports:
+                list:
+                    title: Rapports personnalisés
+                    none: Aucuns
+                    remove: Supprimer
+                    empty_reports: Aucun rapport personnalisé
+                form:
+                    title: Créer un rapport personnalisé
+                    name: Nom du rapport personnalisé
+                    public: Accessible à tous le monde
+                    is_public: Est accessible à tous le monde ?
+                    create: Créer un rapport personnalisé
+                    this_custom_report_does_not_belongs_to_you: Ce rapport personnalisé ne vous appartient pas.
+                    report_removed: Rapport personnalisé supprimé
+        modal:
+            confirm:
+                title: "Confirmez l'action"
+                message: "Êtes vous sur de vouloir réaliser cette action ?"
+        modals:
+            confirm:
+                title: "Confirmation de l'action"
+                message: Voulez-vous réaliser cette action ?
+            bulk_action_export:
+                title: "Confirmation de l'export"
+                message: "Voulez-vous exporter ces éléments ?"
+                
+sylius:
+    ui:
+        show: Voir
+        filters: Filtres
+        contains: Contient
+        not_contains: Ne contient pas
+        equal: Égal
+        not_equal: "N'est pas égal"
+        empty: Vide
+        not_empty: Non vide
+        starts_with: Commence par
+        ends_with: Se termine par
+        in: Compris
+        not_in: "N'est pas compris"
+        value: Valeur
+        all: Tous
+        yes_label: Oui
+        no_label: Non
+        bulk_actions: Actions en masse

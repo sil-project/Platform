@@ -3,6 +3,7 @@
 {# ##################################################################################### #}
 
 {% set fieldClass = 'field' %}
+{% set toggleClass = '' %}
 
 {% if field.class is defined %}
     {% set fieldClass = 'field ' ~ field.class %}
@@ -11,6 +12,11 @@
 {% if field.inline is defined and field.inline == true %}
     {% set fieldClass = fieldClass ~ ' inline' %}
 {% endif %}
+
+{% if field.forceCheckbox is not defined or field.forceCheckbox == false %}
+    {% set toggleClass = 'toggle' %}
+{% endif %}
+
 
 {# ##################################################################################### #}
 {#    INPUT READONLY                                                                     #}
@@ -52,7 +58,7 @@
 
 <div class="{{ fieldClass }}">
     {% spaceless %}
-        <div class="ui toggle checkbox" {% for attr, value in attrs %}{{attr}}="{{value}}" {% endfor %}>
+        <div class="ui {{ toggleClass }} checkbox" {% for attr, value in attrs %}{{attr}}="{{value}}" {% endfor %}>
             <input
                 type="checkbox"
                 name="{{ field.name }}"

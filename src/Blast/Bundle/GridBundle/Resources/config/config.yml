@@ -1,0 +1,12 @@
+sylius_grid:
+    templates:
+        action:
+            default: '@BlastUI/Grid/Action/default.html.twig'
+            twig: '@BlastUI/Grid/Action/default.html.twig'
+        filter:
+            string: '@BlastUI/Grid/Filter/string.html.twig'
+            embeddable: '@BlastUI/Grid/Filter/string.html.twig'
+            boolean: '@BlastUI/Grid/Filter/boolean.html.twig'
+            boolean_tristate: '@BlastUI/Grid/Filter/boolean.html.twig'
+        bulk_action:
+            export: '@BlastUI/Grid/BulkAction/export.html.twig'

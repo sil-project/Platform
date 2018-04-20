@@ -24,6 +24,7 @@ use Sil\Component\Product\Repository\AttributeTypeRepositoryInterface;
 use Sil\Component\Product\Repository\OptionTypeRepositoryInterface;
 use Blast\Bundle\UIBundle\Breadcrumb\BreadcrumbBuilder;
 use Blast\Component\Resource\Model\ResourceInterface;
+use Blast\Bundle\GridBundle\Handler\GridHandlerInterface;
 
 abstract class BaseController extends Controller
 {
@@ -91,6 +92,11 @@ abstract class BaseController extends Controller
      * @var OptionTypeRepositoryInterface
      */
     protected $optionTypeRepository;
+
+    /**
+     * @var GridHandlerInterface
+     */
+    protected $gridHandler;
 
     /**
      * @var BreadcrumbBuilder
@@ -247,14 +253,6 @@ abstract class BaseController extends Controller
     }
 
     /**
-     * @param BreadcrumbBuilder $breadcrumbBuilder
-     */
-    public function setBreadcrumbBuilder(BreadcrumbBuilder $breadcrumbBuilder): void
-    {
-        $this->breadcrumbBuilder = $breadcrumbBuilder;
-    }
-
-    /**
      * @param ProductRepositoryInterface $productRepository
      */
     public function setProductRepository(ProductRepositoryInterface $productRepository): void
@@ -303,10 +301,26 @@ abstract class BaseController extends Controller
     }
 
     /**
+     * @param BreadcrumbBuilder $breadcrumbBuilder
+     */
+    public function setBreadcrumbBuilder(BreadcrumbBuilder $breadcrumbBuilder): void
+    {
+        $this->breadcrumbBuilder = $breadcrumbBuilder;
+    }
+
+    /**
      * @param FormFactoryInterface $formFactory
      */
     public function setFormFactory(FormFactoryInterface $formFactory): void
     {
         $this->formFactory = $formFactory;
+    }
+
+    /**
+     * @param GridHandlerInterface $gridHandler
+     */
+    public function setGridHandler(GridHandlerInterface $gridHandler)
+    {
+        $this->gridHandler = $gridHandler;
     }
 }

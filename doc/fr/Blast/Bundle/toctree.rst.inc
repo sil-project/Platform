@@ -3,3 +3,4 @@
 
     ResourceBundle/index
     UIBundle/index
+    GridBundle/index

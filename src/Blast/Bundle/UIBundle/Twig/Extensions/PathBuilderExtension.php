@@ -25,6 +25,9 @@ class PathBuilderExtension extends \Twig_Extension
         $this->router = $router;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getFunctions()
     {
         return [
@@ -35,13 +38,26 @@ class PathBuilderExtension extends \Twig_Extension
         ];
     }
 
-    public function buildPath(string $routeName, array $routeParams = [], $object = null, $objectStringPlaceholder = '%item%'): string
+    /**
+     * Builds an url for an object.
+     *
+     * @param string $routeName
+     * @param array  $routeParams
+     * @param mixed  $object
+     * @param string $objectRegexpPlaceholder
+     *
+     * @return string
+     */
+    public function buildPath(string $routeName, array $routeParams = [], $object = null, $objectRegexpPlaceholder = '^resource'): string
     {
         $params = [];
         foreach ($routeParams as $paramName => $routeParam) {
-            if (strpos($objectStringPlaceholder, $routeParam) !== -1) {
+            $placeholderRegexp = sprintf('/%s/', $objectRegexpPlaceholder);
+            $placeholderReplacementRegexp = sprintf('/%s\./', $objectRegexpPlaceholder);
+
+            if (preg_match($placeholderRegexp, $routeParam) !== -1) {
                 $propertyAccessor = new PropertyAccessor();
-                $params[$paramName] = $propertyAccessor->getValue($object, str_replace($objectStringPlaceholder . '.', '', $routeParam));
+                $params[$paramName] = $propertyAccessor->getValue($object, preg_replace($placeholderReplacementRegexp, '', $routeParam));
             } else {
                 $params[$paramName] = $routeParam;
             }

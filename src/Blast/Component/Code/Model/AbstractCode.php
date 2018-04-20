@@ -15,7 +15,7 @@ namespace Blast\Component\Code\Model;
 abstract class AbstractCode implements CodeInterface
 {
     /**
-     * Product unique identifyer code.
+     * Product unique identifier code.
      *
      * @var string
      */

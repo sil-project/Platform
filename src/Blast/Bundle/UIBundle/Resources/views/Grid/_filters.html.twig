@@ -1,0 +1,71 @@
+<div class="twelve wide computer sixteen wide mobile column">
+
+    <div class="ui styled fluid accordion">
+
+        <div class="title">
+            <i class="dropdown icon"></i>
+            {{ 'sylius.ui.filters'|trans }}
+        </div>
+
+        <div class="content">
+
+            <form method="get" action="{{ path }}" class="ui loadable form stackable grid">
+
+                {#
+                    FILTERS FORMS
+                #}
+
+                <div class="three column row">
+                    {% for filter in definition.enabledFilters | blast_sort_by('position')if filter.enabled %}
+                        <div class="column">
+                            {{ sylius_grid_render_filter(grid, filter) }}
+                        </div>
+                    {% endfor %}
+                </div>
+
+                <div class="sixteen wide column">
+
+                    {#
+                        SUBMIT FILTERS
+                    #}
+
+                    {{ blast_widget_field('submit', {
+                        label: 'blast.ui.grid.actions.filter'|trans,
+                        icon: 'filter'
+                    }) }}
+
+                    {#
+                        CREATE CUSTOM REPORT
+                    #}
+
+                    {% if grid.parameters.get('criteria') %}
+
+                        {{ blast_widget_field('link', {
+                            href: '#',
+                            label: 'blast.ui.grid.custom_reports.form.title'|trans,
+                            icon: 'save',
+                            class: 'button',
+                            attr: {'data-modal': 'create_grid_custom_report'}
+                        }) }}
+
+                    {% endif %}
+
+                    {#
+                        RESET FILTERS
+                    #}
+
+                    {{ blast_widget_field('link', {
+                        label: 'blast.ui.grid.actions.reset'|trans,
+                        icon: 'times',
+                        class: 'button',
+                        href: path
+                    }) }}
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>

@@ -16,7 +16,9 @@
 
 {% if field.icon is defined %}
     {% set fieldIcon = field.icon %}
-    {% set fieldClass = fieldClass ~ ' labeled icon' %}
+    {% if 'button' not in fieldClass %}
+        {% set fieldClass = fieldClass ~ ' labeled icon' %}
+    {% endif %}
 {% endif %}
 
 {# ##################################################################################### #}

@@ -5,7 +5,9 @@
     "require": {
         "php": "^7.1",
         "symfony/symfony": "^3.4",
-        "blast-project/UI": "self.version"
+        "sylius/grid-bundle": "^1.1",
+        "blast-project/UI": "self.version",
+        "willdurand/js-translation-bundle": "^2.6"
     },
     "require-dev": {
         "symfony/phpunit-bridge": "^3.4",

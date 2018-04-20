@@ -30,9 +30,9 @@ services:
             - [setOptionRepository, ['@sil.repository.product_option']]
             - [setOptionTypeRepository, ['@sil.repository.product_option_type']]
 
-            - [setBreadcrumbBuilder, ['@blast_ui.service.breadcrumb_builder']]
-
+            - [setBreadcrumbBuilder, ['@blast_ui.twig.extensions.breadcrumb_builder']]
             - [setFormFactory, ['@form.factory']]
+            - [setGridHandler, ['@blast_grid.grid_handler']]
 
     sil_product.controller.product:
         parent: sil_product.controller.abstract

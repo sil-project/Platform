@@ -40,6 +40,7 @@
         "html2text/html2text": "^4.0",
         "incenteev/composer-parameter-handler": "^2.0",
         "jeroendesloovere/vcard-bundle": "^1.2",
+        "jms/serializer-bundle": "^1.2 || ^2.0",
         "knplabs/knp-menu-bundle" : "^2.2",
         "knplabs/knp-paginator-bundle": "^2.7",
         "knplabs/knp-snappy-bundle": "^1.0",
@@ -57,6 +58,7 @@
         "sparkling/vat-bundle": "^0.2",
         "stfalcon/tinymce-bundle": "^2.1",
         "stof/doctrine-extensions-bundle": "^1.2",
+        "sylius/grid-bundle": "^1.1",
         "symfony/assetic-bundle": "^2.8",
         "symfony/event-dispatcher": "^3.2",
         "symfony/monolog-bundle": "^3.1.0",
@@ -73,8 +75,7 @@
         "mikey179/vfsStream": "^1.6",
         "nelmio/alice": "^2.2",
         "phpunit/phpunit": "^6.4",
-        "symfony/phpunit-bridge": "^3.4",
-        "jms/serializer-bundle": "^1.2 || ^2.0"
+        "symfony/phpunit-bridge": "^3.4"
     },
     "scripts": {
         "git-hook": [

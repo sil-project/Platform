@@ -1,0 +1,22 @@
+Blast\Bundle\GridBundle\Entity\CustomReport:
+    type: mappedSuperclass
+    table: blast_grid_custom_reports
+
+    fields:
+        gridName:
+            type: string
+            nullable: false
+        uri:
+            type: text # not « string » because of very long filters URLs
+            nullable: false
+        name:
+            type: string(64)
+            nullable: false
+        public:
+            type: boolean
+            nullable: false
+            default: false
+
+    manyToOne:
+        owner:
+            targetEntity: Blast\Component\Grid\Model\CustomReportOwnerInterface

@@ -99,11 +99,10 @@ body {
             }
         }
 
-        &.styled.accordion .content,
-        &.styled.accordion .title.active {
-            background-color: $pageBackground;
+        &.styled.accordion .title.active,
+        &.styled.accordion .content {
             border-color    : $pageBackground;
-            color           : $primaryColor !important;
+            color           : $white !important;
         }
 
         &.flash-container,

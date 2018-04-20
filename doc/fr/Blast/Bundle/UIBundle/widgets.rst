@@ -171,6 +171,7 @@ Liste des configuration pour chaque type de champ.
 |            |                        | - readonly: bool       |
 |            |                        | - inline: bool         |
 |            |                        | - attr: array          |
+|            |                        | - forceCheckbox: bool  |
 +------------+------------------------+------------------------+
 | checkboxes | - name: string         | - name: string         |
 |            | - label: string        | - label: string        |

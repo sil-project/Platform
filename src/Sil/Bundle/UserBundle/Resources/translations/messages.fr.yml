@@ -27,6 +27,13 @@ sil:
                 page_header:
                     title: Liste des utilisateurs
                     description:  "{0} Il n'y a aucun utilisateur dans l'application |{1} Il y a %count% utilisateur dans l'application |]1,Inf[ Il y a %count% utilisateurs dans l'application"
+                actions:
+                    show: Voir
+                fields:
+                    username: "Nom d'utilisateur"
+                    email: Adresse email
+                    roles: Rôles
+                    enabled: Actif
             actions:
                 actions: Actions
                 create_new_user: Ajouter

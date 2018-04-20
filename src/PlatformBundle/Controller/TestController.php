@@ -26,7 +26,7 @@ class TestController extends Controller
      */
     public function testAction(Request $request)
     {
-        $breadcrumbBuilder = $this->container->get('blast_ui.service.breadcrumb_builder');
+        $breadcrumbBuilder = $this->container->get('blast_ui.twig.extensions.breadcrumb_builder');
 
         $breadcrumbBuilder
             ->addItem('<i class="home icon"></i>', '/')

@@ -62,3 +62,7 @@ sil_product_variant_edit:
     defaults: { _controller: sil_product.controller.product_variant:editVariantsForProductAction }
     requirements:
         productId:        '^\{?[a-f\d]{8}-(?:[a-f\d]{4}-){3}[a-f\d]{12}\}?$'
+
+sil_product_export:
+    path: /export
+    defaults: { _controller: sil_product.controller.product:exportAction }

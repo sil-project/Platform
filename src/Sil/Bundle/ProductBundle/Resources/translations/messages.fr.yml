@@ -30,6 +30,8 @@ sil:
             remove_option_type:
                 fail: "Impossible de supprimer le type d'option"
                 success: "Type d'option supprimé avec succès"
+            export:
+                success: "{0} Export complet de %count% éléments réalisé avec succès |{1} Export partiel d'un élément réalisé avec succès |]1,Inf[ Export partiel de %count% éléments réalisé avec succès"
 
         product:
             actions:
@@ -48,7 +50,13 @@ sil:
             list:
                 page_header:
                     title: Liste des produits
-                    description: "{0} Il n'y a aucun produit dans l'application |{1} Il y a %count% produit dans l'application |]1,Inf[ Il y a %count% produits dans l'application"
+                    description: "{0} Aucun produit |{1} <a class=\"ui green circular label\">%count%</a> produit affiché |]1,Inf[ <a class=\"ui green circular label\">%count%</a> produits affichés"
+                fields:
+                    name: Nom
+                    code: Référence
+                    enabled: Actif
+                actions:
+                    show: Fiche produit
             show:
                 page_header:
                     title: "Produit #%ref%"
@@ -110,7 +118,7 @@ sil:
             list:
                 page_header:
                     title: Liste des attributs
-                    description: "{0} Il n'y a aucun attribut dans l'application |{1} Il y a %count% attribut dans l'application |]1,Inf[ Il y a %count% attributs dans l'application"
+                    description: "{0} Aucun attribut |{1} <a class=\"ui green circular label\">%count%</a> attribut affiché |]1,Inf[ <a class=\"ui green circular label\">%count%</a> attributs affichés"
             show:
                 page_header:
                     title: "Attribut"
@@ -150,7 +158,14 @@ sil:
             list:
                 page_header:
                     title: "Types d'attributs"
-                    description: "{0} Il n'y a aucun type d'attribut dans l'application |{1} Il y a %count% type d'attribut dans l'application |]1,Inf[ Il y a %count% types d'attribut dans l'application"
+                    description: "{0} Aucun type d'attribut |{1} <a class=\"ui green circular label\">%count%</a> type d'attribut affiché |]1,Inf[ <a class=\"ui green circular label\">%count%</a> types d'attribut affichés"
+                actions:
+                    show: Voir
+                fields:
+                    name: Nom
+                    type: Type de donnée
+                    reusable: Réutilisable
+                    valuesCount: "Nb d'attributs"
             show:
                 page_header:
                     title: "Types d'attributs"
@@ -240,6 +255,11 @@ sil:
                 page_header:
                     title: "Types d'option"
                     description: "{0} Il n'y a aucun type d'option dans l'application |{1} Il y a %count% type d'option dans l'application |]1,Inf[ Il y a %count% types d'option dans l'application"
+                actions:
+                    show: Voir
+                fields:
+                    name: Nom
+                    valuesCount: "Nb d'options"
             show:
                 page_header:
                     title: "Types d'option"

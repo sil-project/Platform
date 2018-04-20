@@ -1,0 +1,43 @@
+{
+    "name": "blast-project/grid-bundle",
+    "type": "symfony-bundle",
+    "description": "The Grid bundle for Blast and SIL elements",
+    "require": {
+        "php": "^7.1",
+        "symfony/symfony": "^3.4",
+        "sylius/grid-bundle": "^1.1",
+        "blast-project/grid": "self.version",
+        "blast-project/UI": "self.version",
+        "willdurand/js-translation-bundle": "^2.6"
+    },
+    "require-dev": {
+        "symfony/phpunit-bridge": "^3.4",
+        "phpunit/phpunit": "^6.4"
+    },
+    "license": ["LGPL-3.0-only"],
+    "keywords": [
+        "grid",
+        "blast",
+        "symfony"
+    ],
+    "homepage": "https://github.com/blast-project/GridBundle",
+    "authors": [
+        {
+            "name": "Vivien FRASCA",
+            "email": "vivien.frasca@libre-informatique.fr"
+        },
+        {
+            "name": "Libre Informatique",
+            "homepage": "http://www.libre-informatique.fr/"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Blast\\Bundle\\GridBundle\\": "."
+        }
+    },
+    "version": "dev-wip-platform",
+    "config": {
+        "bin-dir": "bin"
+    }
+}

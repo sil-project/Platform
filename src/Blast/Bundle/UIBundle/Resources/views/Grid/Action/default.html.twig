@@ -1,0 +1,12 @@
+{% set path = action.options.link.url | default(blastui_build_path(action.options.link.route, action.options.link.parameters, data)) %}
+
+{% if buttonClass is not defined %}
+    {% set buttonClass = 'primary button' %}
+{% endif %}
+
+{{ blast_widget_field('link', {
+    label: action.label|trans,
+    icon: action.icon,
+    href: path,
+    class: buttonClass
+}) }}

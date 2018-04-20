@@ -1,0 +1,17 @@
+{% set modalContent %}
+
+{{ form_start(form) }}
+
+{{ form_row(form.name)}}
+{{ form_row(form.public)}}
+
+{{ form_end(form) }}
+
+{% endset %}
+
+{{ blast_widget_modal('create_grid_custom_report','blast.ui.grid.custom_reports.form.title'|trans ,modalContent, [{
+    type: 'button',
+    label: 'Fermer',
+    class: 'ok cancel',
+    icon: 'times'
+}]) }}

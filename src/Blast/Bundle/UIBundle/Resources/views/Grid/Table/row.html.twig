@@ -1,0 +1,45 @@
+<tr>
+
+    {% if grid.definition.actionGroups | length > 0 and 'bulk' in grid.definition.actionGroups | keys and grid.definition.actionGroups.bulk.actions|length > 0 %}
+        <td class="collapsing center aligned">
+ 
+            {{ blast_widget_field('checkbox', {
+                'name': 'grid-select[]',
+                'class': 'grid-select',
+                'attr': {
+                    'autocomplete': 'off',
+                    'value': row.id
+                },
+                'forceCheckbox': true
+            })}}
+            
+        </td>
+    {% endif %}
+
+    {% spaceless %}
+        {% for fieldName, field in grid.definition.fields %}
+            <td>
+                {% set value = blast_access_property(row, field.name) %}
+
+                {% if field.type == 'twig' %}
+                    {% include field.options.template %}
+                {% else %}
+                    {{ blast_display_data(value) }}
+                {% endif %}
+            </td>
+        {% endfor %}
+    {% endspaceless %}
+
+    {% if grid.definition.actionGroups | length > 0 and 'item' in grid.definition.actionGroups | keys %}
+
+        <td class="right aligned collapsing">
+            <div class="ui buttons">
+
+                {{ blast_grid_render_item_actions(grid, row) }}
+
+            </div>
+        </td>
+
+    {% endif %}
+
+</tr>

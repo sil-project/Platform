@@ -12,8 +12,9 @@ namespace Sil\Bundle\UserBundle\Entity;
 
 use Sil\Component\User\Model\User as SilUser;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Guidable;
+use Symfony\Component\Security\Core\Encoder\EncoderAwareInterface;
 
-class User extends SilUser implements UserInterface, \Serializable
+class User extends SilUser implements UserInterface, \Serializable, EncoderAwareInterface
 {
     /* hum not so well named trait which had the id for this object */
     use Guidable;
@@ -59,5 +60,13 @@ class User extends SilUser implements UserInterface, \Serializable
             $this->email,
             $this->enabled
         ) = unserialize($serialized);
+    }
+
+    /**
+     * Returns the encoder name to be used in app/config/security.yml under key `security.encoders`.
+     */
+    public function getEncoderName(): string
+    {
+        return 'default';
     }
 }

@@ -1,0 +1,60 @@
+sylius_grid:
+    grids:
+
+        # PRODUCT
+
+        sil_user:
+            driver:
+                name: doctrine/orm
+                options:
+                    class: '%sil.model.user.class%'
+            limits: [20,50,200]
+            sorting:
+                username: asc
+                email: asc
+            filters:
+                username:
+                    type: string
+                    label: sil.user.user.list.fields.username
+                    form_options:
+                        type: contains
+                email:
+                    type: string
+                    label: sil.user.user.list.fields.email
+                enabled:
+                    type: boolean
+                    label: sil.user.user.list.fields.enabled
+                # roles:
+                #     label: sil.user.user.list.fields.enabled
+                #     type: array
+            fields: 
+                username:
+                    type: string
+                    label: sil.user.user.list.fields.username
+                    sortable: ~
+                email:
+                    type: string
+                    label: sil.user.user.list.fields.email
+                    sortable: ~
+                roles:
+                    type: twig
+                    label: sil.user.user.list.fields.roles
+                    options:
+                        template: '@BlastUI/Grid/Field/array.html.twig'
+                enabled:
+                    type: twig
+                    label: sil.user.user.list.fields.enabled
+                    options:
+                        template: '@BlastUI/Grid/Field/enabled.html.twig'
+            actions:
+                item:
+                    show:
+                        type: default
+                        icon: eye
+                        label: sil.user.user.list.actions.show
+                        options:
+                            link:
+                                route: sil_user_show
+                                parameters:
+                                    userId: resource.id
+                bulk: ~

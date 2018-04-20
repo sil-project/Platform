@@ -1,0 +1,17 @@
+{% set path = action.options.link.url | default(path(action.options.link.route)) %}
+
+<form name="grid-bulk-form" method="POST" action="{{ path }}" novalidate="novalidate">
+
+    <input type="hidden" name="ids" value=""/>
+
+    {{ blast_widget_field('button', {
+        label: action.label|trans,
+        icon: action.icon,
+        attr: {
+            'data-requires-confirm': true,
+            'data-confirm-title': 'blast.ui.modals.bulk_action_export.title'|trans,
+            'data-confirm-message': 'blast.ui.modals.bulk_action_export.message'|trans
+        }
+    }) }}
+
+</form>

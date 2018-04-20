@@ -1,19 +1,19 @@
 <div id="confirm-modal" class="ui basic mini modal">
     <div class="ui icon header">
         <i class="answer icon"></i>
-        Confirmation de la suppression
+        {{ 'blast.ui.modals.confirm.title'|trans }}
     </div>
     <div class="content">
-        <p>Êtes-vous sûr de vouloir effectuer cette action ?</p>
+        <p>{{ 'blast.ui.modals.confirm.message'|trans }}</p>
     </div>
     <div class="actions">
         <div class="ui red basic cancel inverted button">
             <i class="remove icon"></i>
-            Non
+            {{ 'blast.ui.no_label'|trans }}
         </div>
         <a id="confirm-button" class="ui green ok inverted button">
             <i class="checkmark icon"></i>
-            Oui
+            {{ 'blast.ui.yes_label'|trans }}
         </a>
     </div>
 </div>

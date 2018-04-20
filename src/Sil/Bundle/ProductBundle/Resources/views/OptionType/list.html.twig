@@ -22,5 +22,5 @@
 {% endblock page_header_title %}
 
 {% block page_header_description %}
-    {{ 'sil.product.option_type.list.page_header.description'|transchoice( list.elements|length, {'%count%': list.elements|length}) }}
+    {{ 'sil.product.option_type.list.page_header.description'|transchoice( grid.data.nbResults, {'%count%': grid.data.nbResults}) }}
 {% endblock page_header_description %}

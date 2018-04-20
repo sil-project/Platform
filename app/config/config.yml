@@ -87,6 +87,9 @@ doctrine:
 
                     BlastBaseEntitiesBundle:
                         type: yml
+                        
+                    BlastGridBundle:
+                        type: yml
 
                     # Sil
 

@@ -14,12 +14,13 @@ security:
 
     # todo use with bcrypt
     encoders:
-        Sil\Bundle\UserBundle\Entity\User: plaintext
+        default:
+            algorithm: plaintext
 
     providers:
         sil_user.doctrine_provider:
             entity:
-                class: SilUserBundle:User
+                class: %sil.model.user.class%
                 property: username
 
     # ##########################################################################

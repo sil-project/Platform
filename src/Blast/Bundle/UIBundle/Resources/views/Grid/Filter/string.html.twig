@@ -1,0 +1,9 @@
+<h4 class="ui dividing header">{{ filter.label|trans }}</h4>
+{% if form.type is defined %}
+    <div class="two fields">
+        {{ form_row(form.type, {'label': false}) }}
+        {{ form_row(form.value, {'label': false}) }}
+    </div>
+{% else %}
+    {{ form_row(form.value, {'label': false}) }}
+{% endif %}

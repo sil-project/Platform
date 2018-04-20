@@ -1,0 +1,70 @@
+{% import _self as table %}
+
+<tr>
+    {% if grid.definition.actionGroups | length > 0 and 'bulk' in grid.definition.actionGroups | keys and grid.definition.actionGroups.bulk.actions|length > 0 %}
+        <th class="center aligned">
+
+            {{ blast_widget_field('checkbox', {
+                'name': '',
+                'class': 'select all',
+                'attr': {
+                    'autocomplete': 'off'
+                },
+                'forceCheckbox': true
+            })}}
+
+        </th>
+    {% endif %}
+
+    {% spaceless %}
+        {% for fieldName, header in grid.definition.fields %}
+            {% if header.isSortable %}
+                {{ table.sortableHeader(grid, header, app.request.attributes) }}
+            {% else %}
+                <th name="{{ fieldName }}">
+                    {{ header.label|trans }}
+                </th>
+            {% endif %}
+        {% endfor %}
+    {% endspaceless %}
+
+    {% if grid.definition.actionGroups | length > 0 and 'item' in grid.definition.actionGroups | keys %}
+        <th>
+            &nbsp;
+        </th>
+    {% endif %}
+</tr>
+
+{# Following macros are picked from https://github.com/Sylius/Sylius/blob/master/src/Sylius/Bundle/UiBundle/Resources/views/Macro/sorting.html.twig #}
+
+{% macro sortableHeader(grid, field, attributes) %}
+    {% from _self import link %}
+    {% set order = grid.getSortingOrder(field.name) %}
+
+    {% if grid.isSortedBy(field.name) %}
+        <th class="sortable sorted {{ order == 'desc' ? 'descending' : 'ascending' }} sylius-table-column-{{ field.name }}">
+            <a href="{{ link(field.name, attributes, (order == 'desc' ? 'asc' : 'desc'), grid.parameters.all) }}">
+                {{ field.label|trans }}
+                <i class="sort {{ order == 'desc' ? 'down' : 'up' }} icon"></i>
+            </a>
+        </th>
+    {% else %}
+        <th class="sortable sylius-table-column-{{ field.name }}">
+            <a href="{{ link(field.name, attributes, order, grid.parameters.all) }}">
+                {{ field.label|trans }}
+                <i class="sort icon"></i>
+            </a>
+        </th>
+    {% endif %}
+{% endmacro %}
+
+{% macro link(fieldName, attributes, order, parameters) %}
+    {% set params = attributes.get('_route_params') | merge(parameters) %}
+    {% set sorting = {
+        'sorting': {
+            (fieldName): (order)
+        }
+    } %}
+
+    {{ path(attributes.get('_route'), params|merge(sorting)|merge({'page': 1})) }}
+{% endmacro %}

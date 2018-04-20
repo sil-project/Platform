@@ -1,0 +1,3 @@
+PlatformBundle\Entity\SilUserBundle\User:
+    type: mappedSuperclass
+    table: sil_user

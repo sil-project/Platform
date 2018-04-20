@@ -1,0 +1,18 @@
+{% for action in actions %}
+
+    {% if loop.index0 == 1 %}
+        <div class="secondary ui dropdown icon button">
+            <i class="dropdown icon"></i>
+            <div class="menu">
+    {% endif %}
+
+                {% include '@BlastUI/Grid/Action/default.html.twig' with {
+                    'buttonClass': loop.index0 > 0 ? 'item' : 'primary button'
+                } %}
+
+    {% if loop.index0 > 1 and loop.index0 == loop.last %}
+            </div>
+        </div>
+    {% endif %}
+
+{% endfor %}

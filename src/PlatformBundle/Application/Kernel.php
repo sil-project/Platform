@@ -71,6 +71,7 @@ class Kernel extends BaseKernel
             new \Lexik\Bundle\MaintenanceBundle\LexikMaintenanceBundle(),
             new \JMS\SerializerBundle\JMSSerializerBundle(),
             new \Misd\PhoneNumberBundle\MisdPhoneNumberBundle(),
+            new \Sylius\Bundle\GridBundle\SyliusGridBundle(),
 
             // -------------------------------------------------------------------------------------
             // Blast bundles
@@ -87,7 +88,8 @@ class Kernel extends BaseKernel
             new \Blast\Bundle\DoctrineSessionBundle\BlastDoctrineSessionBundle(),
             new \Blast\Bundle\DecoratorBundle\BlastDecoratorBundle(),
             new \Blast\Bundle\CsvImportBundle\BlastCsvImportBundle(),
-            new \Blast\Bundle\DashboardBundle\BlastDashboardBundle(),
+            // new \Blast\Bundle\DashboardBundle\BlastDashboardBundle(),
+            new \Blast\Bundle\GridBundle\BlastGridBundle(),
 
             // -------------------------------------------------------------------------------------
             // Librinfo bundles

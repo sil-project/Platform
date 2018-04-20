@@ -23,6 +23,8 @@ use Sil\Bundle\ProductBundle\Form\OptionType\OptionTypeSelectorType;
 use Sil\Bundle\ProductBundle\Entity\Product;
 use Sil\Component\Product\Model\ProductInterface;
 use Sil\Component\Product\Service\ProductService;
+use Sylius\Component\Grid\Definition\Grid;
+use Blast\Bundle\GridBundle\Form\CustomReportType;
 
 class ProductController extends BaseController
 {
@@ -57,41 +59,43 @@ class ProductController extends BaseController
             )
         ;
 
-        $currentPage = $request->get('page', 1);
-        $perPage = $request->get('perPage', $this->perPage);
-
-        $pagination = $this->productRepository->createPaginator();
-        $pagination->setCurrentPage($currentPage);
-        $pagination->setMaxPerPage($perPage);
+        $gridView = $this->gridHandler->buildGrid('sil_product');
 
         return $this->render('@SilProduct/Product/list.html.twig', [
-            'list' => [
-                'headers'     => [
-                    [
-                        'name'  => 'name',
-                        'label' => 'Nom',
-                    ], [
-                        'name'  => 'code',
-                        'label' => 'Référence',
-                    ], [
-                        'name'  => 'enabled',
-                        'label' => 'Actif',
-                    ],
-                ],
-                'elements'    => $pagination,
-                'actions'     => [
-                    [
-                        'label'       => 'Voir',
-                        'icon'        => 'eye',
-                        'routeName'   => 'sil_product_show',
-                        'routeParams' => [
-                            'productId' => '%item%.id',
-                        ],
-                    ],
-                ],
-                'pagination'  => $pagination,
-            ],
+            'grid' => $gridView,
         ]);
+    }
+
+    public function createCustomReportAction(Request $request): Response
+    {
+        $customReportForm = $this->createForm(CustomReportType::class, []);
+
+        $customReportForm->handleRequest($request);
+
+        if ($customReportForm->isValid()) {
+            $report = $customReportForm->getData();
+
+            dump($report);
+            die;
+        }
+
+        return $this->render('@BlastUI/CustomReport/form.html.twig');
+    }
+
+    public function exportAction(Request $request)
+    {
+        $ids = array_filter(explode(',', $request->get('ids', null)));
+
+        if (count($ids) > 0) {
+            // Do a partial export
+        } else {
+            // Do a full export
+            $ids = $this->productRepository->findAll();
+        }
+
+        $this->addFlash('success', $this->get('translator')->transChoice('sil.product.flashes.export.success', count($ids), ['%count%' => count($ids)]));
+
+        return new Response('OK');
     }
 
     /**

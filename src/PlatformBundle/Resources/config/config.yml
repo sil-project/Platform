@@ -12,20 +12,16 @@ imports:
 
     # SIL Bundles
 
-    - { resource: "@SilUserBundle/Resources/config/parameters.yml" }
     - { resource: "@SilUserBundle/Resources/config/app/config.yml" }
-
     - { resource: "@SilContactBundle/Resources/config/app/config.yml" }
-    
     - { resource: "@SilProductBundle/Resources/config/app/config.yml" }
 
     # Blast
 
     - { resource: "@PlatformBundle/Resources/config/vendor/blast/csv_import.yml" }
-    # - { resource: "@PlatformBundle/Resources/config/vendor/blast/dashboard.yml" }
-    # - { resource: "@PlatformBundle/Resources/config/vendor/blast/search.yml" }
     - { resource: "@PlatformBundle/Resources/config/vendor/blast/base_entities.yml" }
     - { resource: "@PlatformBundle/Resources/config/vendor/blast/menu.yml" }
-    # - { resource: "@PlatformBundle/Resources/config/vendor/blast/resource.yml" }
-    # - { resource: "@PlatformBundle/Resources/config/vendor/blast/utils.yml" }
+    - { resource: "@PlatformBundle/Resources/config/vendor/blast/resource.yml" }
+    - { resource: "@PlatformBundle/Resources/config/vendor/blast/utils.yml" }
     - { resource: "@PlatformBundle/Resources/config/vendor/blast/ui.yml" }
+    - { resource: "@PlatformBundle/Resources/config/vendor/blast/grid.yml" }

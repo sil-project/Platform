@@ -1,5 +1,5 @@
 Sil\Bundle\UserBundle\Entity\User:
-    type: entity
+    type: mappedSuperclass
     table: sil_user
     fields:
         username:

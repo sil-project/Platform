@@ -27,7 +27,7 @@ interface AttributeTypeInterface
      *
      * @return array
      */
-    public function getSupportedTypes(): array;
+    public static function getSupportedTypes(): array;
 
     /**
      * Gets AttributeType current data type.

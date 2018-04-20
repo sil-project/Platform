@@ -45,41 +45,10 @@ class AttributeTypeController extends BaseController
             )
         ;
 
-        $pagination = $this->get('sil.repository.product_attribute_type')->createPaginator();
-        $pagination->setCurrentPage($request->query->getInt('page', 1));
-        $pagination->setMaxPerPage($request->query->getInt('perPage', $this->perPage));
+        $gridView = $this->gridHandler->buildGrid('sil_product_attribute_type');
 
         return $this->render('@SilProduct/AttributeType/list.html.twig', [
-            'list' => [
-                'headers'     => [
-                    [
-                        'name'  => 'name',
-                        'label' => 'Nom',
-                    ], [
-                        'name'         => 'type',
-                        'label'        => 'Type',
-                        'trans_prefix' => 'sil.product.attribute_type.values.',
-                    ], [
-                        'name'  => 'reusable',
-                        'label' => 'Réutilisable',
-                    ], [
-                        'name'  => 'valuesCount',
-                        'label' => 'Nb Attributs',
-                    ],
-                ],
-                'elements'    => $pagination,
-                'actions'     => [
-                    [
-                        'label'       => 'Voir',
-                        'icon'        => 'eye',
-                        'routeName'   => 'sil_product_attribute_type_show',
-                        'routeParams' => [
-                            'attributeTypeId' => '%item%.id',
-                        ],
-                    ],
-                ],
-                'pagination'  => $pagination,
-            ],
+            'grid' => $gridView,
         ]);
     }
 

@@ -34,31 +34,17 @@
 
     {% endblock %}
 
-    <div class="toolbar">
-        {% block page_toolbar %}
-
-            {% include "@BlastUI/Views/List/Filter/filter_bar.html.twig" %}
-
-        {% endblock page_toolbar %}
-    </div>
-
-    <div class="ui divider"></div>
-
     {% block page_content %}
 
-        {{ blast_widget_table({
-            headers: list.headers,
-            data: list.elements,
-            actions: list.actions,
-            allowSelection: true,
-            pagination: list.pagination
-        }) }}
+        {{ sylius_grid_render(grid) }}
 
     {% endblock %}
 
 {% endblock %}
 
 {% block javascripts %}
+
     {{ parent() }}
     <script src="/bundles/blastui/js/features/list.js"></script>
+    
 {% endblock %}

@@ -1,0 +1,148 @@
+{% import '@BlastUI/Grid/Macro/pagination.html.twig' as pagination %}
+
+{% set definition = grid.definition %}
+{% set data = grid.data %}
+
+{% set path = path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) %}
+
+{% set sections = {
+    'filters': (definition.enabledFilters | length > 0),
+    'bulk_actions': (definition.actionGroups.bulk is defined and definition.actionGroups.bulk.actions|length > 0)
+} %}
+
+{#
+    FILTERS
+#}
+
+<div class="ui grid">
+
+    {% if sections.filters %}
+
+        {#
+            FILTER LIST
+        #}
+
+        {% include '@BlastUI/Grid/_filters.html.twig' %}
+
+        {#
+            CUSTOM REPORT LIST
+        #}
+
+        {{ render(controller('blast_grid.controller.custom_reports:customReportsListAction', {
+            'gridName': grid.definition.getCode(),
+            'resetPath': path
+        })) }}
+
+        {#
+            CUSTOM REPORT MODAL
+        #}
+
+        {% if grid.parameters.get('criteria') %}
+
+            {{ render(controller('blast_grid.controller.custom_reports:buildCustomReportFormAction', {
+                'gridName': grid.definition.getCode(),
+                'uri': getCleanUri()
+            })) }}
+
+        {% endif %}
+
+    {% endif %}
+
+</div>
+
+{#
+    PAGINATION
+#}
+
+{% if definition.limits | length > 1 and data | length > min(definition.limits) %}
+
+    {#
+        PAGINATION AND PER PAGE DROPDOWN
+    #}
+
+    <div class="ui two column fluid stackable grid">
+        <div class="fourteen wide column">
+            {{ pagination.simple(data) }}
+        </div>
+        <div class="two wide column">
+            <div class="ui fluid one item menu sylius-paginate">
+                {{ pagination.perPage(data, definition.limits) }}
+            </div>
+        </div>
+    </div>
+
+{% else %}
+
+    {#
+        PAGINATION ONLY
+    #}
+
+    {{ pagination.simple(data) }}
+
+{% endif %}
+
+{#
+    TABLE
+#}
+
+<table class="ui very compact small celled striped stackable table grid-table">
+
+    {#
+        HEADER
+    #}
+
+    <thead>
+        {% include '@BlastUI/Grid/Table/header.html.twig' %}
+    </thead>
+
+    {#
+        ROWS
+    #}
+
+    <tbody>
+        {% for row in data %}
+            {% include '@BlastUI/Grid/Table/row.html.twig' %}
+        {% else %}
+            {% include '@BlastUI/Grid/Table/empty_row.html.twig' %}
+        {% endfor %}
+    </tbody>
+
+    {#
+        FOOTER
+    #}
+
+    {% if sections.bulk_actions %}
+
+        <tfoot>
+            <tr>
+                <th class="center aligned">
+                    {{ blast_widget_field('checkbox', {
+                        'name': '',
+                        'class': 'select all',
+                        'attr': {'autocomplete': 'off'},
+                        'forceCheckbox': true
+                    }) }}
+                </th>
+                <th colspan="100%">
+
+                    <span class="ui blue label selection-count">0</span>&nbsp;
+
+                    {{ 'blast.ui.grid.for_current_selection'|trans }}:&nbsp;
+
+                    {% for action in definition.getEnabledActions('bulk') %}
+                        {{ sylius_grid_render_bulk_action(grid, action, null) }}
+                    {% endfor %}
+
+                </th>
+            </tr>
+        </tfoot>
+
+    {% endif %}
+
+</table>
+
+{#
+    PAGINATION BOTTOM
+#}
+
+{{ pagination.simple(data) }}

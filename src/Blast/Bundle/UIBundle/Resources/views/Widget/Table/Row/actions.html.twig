@@ -1,25 +1,26 @@
 <div class="mini ui buttons">
     {% spaceless %}
+
         {% for action in table.actions %}
 
             {% set actionPath = '#' %}
 
-            {% if action.routeName is defined %}
+            {% if action.options.link is defined %}
 
                 {% set routeParams = [] %}
 
-                {% if action.routeParams is defined %}
-                    {% set routeParams = action.routeParams %}
+                {% if action.options.link.parameters is defined %}
+                    {% set routeParams = action.options.link.parameters %}
                 {% endif %}
 
-                {% set actionPath = blastui_build_path(action.routeName, routeParams, item, '%item%') %}
+                {% set actionPath = blastui_build_path(action.options.link.route, routeParams, item, 'resource') %}
             {% endif %}
 
             {% if loop.index0 == 0 %}
 
                 <a class="primary mini ui button" href="{{ actionPath }}">
                     <i class="{{ action.icon }} icon"></i>
-                    {{ action.label }}
+                    {{ action.label|trans }}
                 </a>
 
             {% else %}
@@ -34,7 +35,7 @@
 
                         <a class="item" href="{{ actionPath }}">
                             <i class="{{ action.icon }} icon"></i>
-                            {{ action.label }}
+                            {{ action.label|trans }}
                         </a>
 
                         {% if loop.index0 == loop.last %}

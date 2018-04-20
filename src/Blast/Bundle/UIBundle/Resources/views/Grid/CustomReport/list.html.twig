@@ -1,0 +1,66 @@
+{% set activeReport = null %}
+{% for report in customReports %}
+    {% if getCleanUri() == url_decode(report.uri) %}
+        {% set activeReport = report %}
+    {% endif %}
+{% endfor %}
+
+<div class="four wide computer sixteen wide mobile column">
+    <div class="ui styled fluid accordion">
+        <div class="title {% if activeReport is not null %}active{% endif %}">
+            <i class="dropdown icon"></i>
+            {{ 'blast.ui.grid.custom_reports.list.title'|trans }}
+        </div>
+        {% spaceless %}
+            <div class="content {% if activeReport is not null %}active{% endif %}">
+
+                {% for report in customReports | blast_sort_by('name') %}
+                    <div>
+                        {% if report == activeReport %}
+                            <a class="ui blue fluid label">
+                                <i class="check circle icon"></i>
+                                {{ report.name }}
+                            </a>
+                        {% else %}
+                            {{ blast_widget_field('link', {
+                                'label': report.name,
+                                'href': app.request.baseUrl ~ report.uri,
+                                'class': 'ui fluid label',
+                                'icon': report.isPublic ? 'globe' : 'circle outline'
+                            }) }}
+                        {% endif %}
+                    </div>
+                {% else %}
+                    <i>{{ 'blast.ui.grid.custom_reports.list.empty_reports'|trans }}</i>
+                {% endfor %}
+
+                {% if activeReport is not null %}
+
+                    <div class="ui clearing very basic segment">
+
+                        {% if activeReport.owner == app.user %}
+                            {{ blast_widget_field('link', {
+                                'label': 'blast.ui.grid.custom_reports.list.remove'|trans,
+                                'href': path('blast_grid_custom_report_remove_report', {'customReportId': activeReport.id}),
+                                'class': 'ui red button',
+                                'icon': 'trash',
+                                'attr': {
+                                    'data-requires-confirm': true
+                                }
+                            }) }}
+                        {% endif %}
+
+                        {{ blast_widget_field('link', {
+                            'label': 'blast.ui.grid.actions.reset'|trans,
+                            'href': resetPath,
+                            'class': 'ui button right floated',
+                            'icon': 'times'
+                        }) }}
+
+                    </div>
+                    
+                {% endif %}
+            </div>
+        {% endspaceless %}
+    </div>
+</div>

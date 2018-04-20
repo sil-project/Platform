@@ -1,0 +1,15 @@
+blast_grid_custom_report_build_form:
+    path:     /blast/grid/customReport/buildForm/{gridName}
+    defaults: { _controller: blast_grid.controller.custom_reports:buildCustomReportFormAction }
+
+blast_grid_custom_report_handle_form:
+    path:     /blast/grid/customReport/handleForm/{gridName}
+    defaults: { _controller: blast_grid.controller.custom_reports:handleCustomReportFormAction }
+
+blast_grid_custom_report_list_reports:
+    path:     /blast/grid/customReport/listReports/{gridName}
+    defaults: { _controller: blast_grid.controller.custom_reports:customReportsListAction }
+
+blast_grid_custom_report_remove_report:
+    path:     /blast/grid/customReport/removeReport/{customReportId}
+    defaults: { _controller: blast_grid.controller.custom_reports:removeCustomReportAction }

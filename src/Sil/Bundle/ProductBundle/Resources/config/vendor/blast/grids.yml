@@ -1,0 +1,146 @@
+sylius_grid:
+    grids:
+
+        # PRODUCT
+
+        sil_product:
+            driver:
+                name: doctrine/orm
+                options:
+                    class: '%sil.model.product.class%'
+            limits: [20,50,200]
+            sorting:
+                name: asc
+                code: asc
+            filters:
+                name:
+                    type: string
+                    label: sil.product.product.list.fields.name
+                    form_options:
+                        type: contains
+                code:
+                    type: embeddable
+                    label: sil.product.product.list.fields.code
+                    options:
+                        embbedable_property: value
+                enabled:
+                    label: sil.product.product.list.fields.enabled
+                    type: boolean
+            fields: 
+                name:
+                    type: string
+                    label: sil.product.product.list.fields.name
+                    sortable: ~
+                code:
+                    type: string
+                    label: sil.product.product.list.fields.code
+                    sortable: o.code.value
+                enabled:
+                    type: twig
+                    label: sil.product.product.list.fields.enabled
+                    options:
+                        template: '@BlastUI/Grid/Field/enabled.html.twig'
+            actions:
+                item:
+                    show:
+                        type: default
+                        icon: eye
+                        label: sil.product.product.list.actions.show
+                        options:
+                            link:
+                                route: sil_product_show
+                                parameters:
+                                    productId: resource.id
+
+        # ATTRIBUTE TYPE
+
+        sil_product_attribute_type:
+            driver:
+                name: doctrine/orm
+                options:
+                    class: '%sil.model.product_attribute_type.class%'
+            limits: [20,50,200]
+            sorting:
+                type: asc
+                reusable: asc
+            filters:
+                name:
+                    type: string
+                    label: sil.product.attribute_type.list.fields.name
+                    form_options:
+                        type: contains
+                type:
+                    type: string
+                    label: sil.product.attribute_type.list.fields.type
+                    form_options:
+                        type: contains
+                reusable:
+                    label: sil.product.attribute_type.list.fields.reusable
+                    type: boolean
+            fields: 
+                name:
+                    type: string
+                    label: sil.product.attribute_type.list.fields.name
+                    sortable: ~
+                type:
+                    type: string
+                    label: sil.product.attribute_type.list.fields.type
+                    sortable: ~
+                valuesCount:
+                    type: string
+                    label: sil.product.attribute_type.list.fields.valuesCount
+                reusable:
+                    type: twig
+                    label: sil.product.attribute_type.list.fields.reusable
+                    options:
+                        template: '@BlastUI/Grid/Field/enabled.html.twig'
+            actions:
+                item:
+                    show:
+                        type: default
+                        icon: eye
+                        label: sil.product.attribute_type.list.actions.show
+                        options:
+                            link:
+                                route: sil_product_attribute_type_show
+                                parameters:
+                                    attributeTypeId: resource.id
+                bulk: ~
+
+        # OPTION TYPE
+
+        sil_product_option_type:
+            driver:
+                name: doctrine/orm
+                options:
+                    class: '%sil.model.product_option_type.class%'
+            limits: [20,50,200]
+            sorting:
+                name: asc
+            filters:
+                name:
+                    type: string
+                    label: sil.product.option_type.list.fields.name
+                    form_options:
+                        type: contains
+            
+            fields: 
+                name:
+                    type: string
+                    label: sil.product.option_type.list.fields.name
+                    sortable: ~
+                valuesCount:
+                    type: string
+                    label: sil.product.option_type.list.fields.valuesCount
+            actions:
+                item:
+                    show:
+                        type: default
+                        icon: eye
+                        label: sil.product.option_type.list.actions.show
+                        options:
+                            link:
+                                route: sil_product_option_type_show
+                                parameters:
+                                    optionTypeId: resource.id
+                bulk: ~

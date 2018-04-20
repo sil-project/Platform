@@ -1,0 +1,10 @@
+blast_resource:
+
+    resources:
+
+        blast_grid.custom_report:
+            classes:
+                model:                  Blast\Bundle\GridBundle\Entity\CustomReport
+                repository:             Blast\Bundle\GridBundle\Repository\CustomReportRepository
+                interfaces:
+                    -                   Blast\Component\Grid\Model\CustomReportInterface

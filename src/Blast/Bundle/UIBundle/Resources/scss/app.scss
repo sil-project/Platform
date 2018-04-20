@@ -234,6 +234,10 @@ body {
         }
     }
 
+    form[name="grid-bulk-form"] {
+        display: inline;
+    }
+
 }
 
 .toolbar {
@@ -300,9 +304,11 @@ body.pushable .pusher {
 
 .ui.styled.accordion .content,
 .ui.styled.accordion .title.active {
-    background-color: #F5F5F5;
+    // background-color: #F5F5F5;
     border-color    : #F5F5F5;
-    color           : $primaryColor !important;
+}
+.ui.styled.accordion .title.active {
+    color: $primaryColor !important;
 }
 
 .ui.with.form .ui.form {

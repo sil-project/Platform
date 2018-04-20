@@ -45,34 +45,10 @@ class OptionTypeController extends BaseController
             )
         ;
 
-        $pagination = $this->get('sil.repository.product_option_type')->createPaginator();
-        $pagination->setCurrentPage($request->query->getInt('page', 1));
-        $pagination->setMaxPerPage($request->query->getInt('perPage', $this->perPage));
+        $gridView = $this->gridHandler->buildGrid('sil_product_option_type');
 
         return $this->render('@SilProduct/OptionType/list.html.twig', [
-            'list' => [
-                'headers'     => [
-                    [
-                        'name'  => 'name',
-                        'label' => 'Nom',
-                    ], [
-                        'name'  => 'valuesCount',
-                        'label' => 'Nb options',
-                    ],
-                ],
-                'elements'    => $pagination,
-                'actions'     => [
-                    [
-                        'label'       => 'Voir',
-                        'icon'        => 'eye',
-                        'routeName'   => 'sil_product_option_type_show',
-                        'routeParams' => [
-                            'optionTypeId' => '%item%.id',
-                        ],
-                    ],
-                ],
-                'pagination'  => $pagination,
-            ],
+            'grid' => $gridView,
         ]);
     }
 

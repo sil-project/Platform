@@ -102,7 +102,7 @@ class AttributeType implements AttributeTypeInterface, ResourceInterface
     /**
      * {@inheritdoc}
      */
-    public function getSupportedTypes(): array
+    public static function getSupportedTypes(): array
     {
         return [
             AttributeTypeInterface::TYPE_BOOLEAN,

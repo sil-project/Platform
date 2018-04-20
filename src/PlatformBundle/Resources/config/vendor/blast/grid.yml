@@ -1,0 +1,3 @@
+imports:
+    - { resource: "@BlastGridBundle/Resources/config/config.yml" }
+    - { resource: "@BlastGridBundle/Resources/config/vendor/blast/resource.yml" }

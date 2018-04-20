@@ -21,6 +21,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Sil\Bundle\UserBundle\Form\Type\CreateUserType;
 use Sil\Bundle\UserBundle\Form\Type\EditUserType;
+use Blast\Bundle\GridBundle\Handler\GridHandlerInterface;
 
 /* Same as Product Bundle, Should be factorized */
 
@@ -40,6 +41,11 @@ class UserController extends Controller
      * @var BreadcrumbBuilder
      */
     protected $breadcrumbBuilder;
+
+    /**
+     * @var GridHandlerInterface
+     */
+    protected $gridHandler;
 
     /**
      * Default route.
@@ -64,46 +70,11 @@ class UserController extends Controller
             $this->get('translator')->trans('sil.user.user.list.page_header.title'),
             'sil_user_list'
         );
-        $currentPage = $request->query->get('page', 1);
-        $perPage = $request->query->get('perPage', $this->perPage);
-        $pagination = $this->userRepository->createPaginator();
-        $pagination->setCurrentPage($currentPage);
-        $pagination->setMaxPerPage($perPage);
+
+        $gridView = $this->gridHandler->buildGrid('sil_user');
 
         return $this->render('@SilUser/User/list.html.twig', [
-            'list' => [
-                'headers' => [
-                    [
-                        'name'  => 'username',
-                        /* @todo: trans should be done in the twig template (in UI bundle (or not)) */
-                        'label' => $this->get('translator')->trans('sil.user.user.username'),
-                    ],
-                    [
-                        'name'  => 'password',
-                        'label' => $this->get('translator')->trans('sil.user.user.password'),
-                    ],
-                    [
-                        'name'  => 'email',
-                        'label' => $this->get('translator')->trans('sil.user.user.email'),
-                    ],
-                    [
-                        'name'  => 'enabled',
-                        'label' => $this->get('translator')->trans('sil.user.user.enabled'),
-                    ],
-                ],
-                'elements'    => $pagination,
-                'actions'     => [
-                    [
-                        'label'       => 'Voir',
-                        'icon'        => 'eye',
-                        'routeName'   => 'sil_user_show',
-                        'routeParams' => [
-                            'userId' => '%item%.id',
-                        ],
-                    ],
-                ],
-                'pagination'  => $pagination,
-            ],
+            'grid' => $gridView,
         ]);
     }
 
@@ -231,5 +202,13 @@ class UserController extends Controller
     public function setFormFactory(FormFactoryInterface $formFactory): void
     {
         $this->formFactory = $formFactory;
+    }
+
+    /**
+     * @param GridHandlerInterface $gridHandler
+     */
+    public function setGridHandler(GridHandlerInterface $gridHandler)
+    {
+        $this->gridHandler = $gridHandler;
     }
 }

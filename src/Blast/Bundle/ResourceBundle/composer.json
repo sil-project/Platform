@@ -13,7 +13,7 @@
     "require-dev": {
         "symfony/phpunit-bridge": "3.3.*",
         "phpunit/phpunit": "^6.4",
-        "jms/serializer-bundle": "^1.2|^2.0"
+        "jms/serializer-bundle": "^1.2 || ^2.0"
     },
     "license": "LGPL-3.0-only",
     "keywords": [

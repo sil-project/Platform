@@ -1,0 +1,65 @@
+services:
+
+    # SYLIUS OVERRIDES
+
+    sylius.grid.renderer.twig:
+        class: Sylius\Bundle\GridBundle\Renderer\TwigGridRenderer
+        arguments:
+            - '@twig'
+            - '@sylius.registry.grid_field'
+            - '@form.factory'
+            - '@sylius.form_registry.grid_filter'
+            - '@@BlastUI/Grid/grid.html.twig'
+            - '%sylius.grid.templates.action%'
+            - '%sylius.grid.templates.filter%'
+
+    # RENDERERS
+
+    blast_grid.twig.extensions.grid:
+        class: Blast\Bundle\GridBundle\Twig\Extensions\GridExtension
+        arguments:
+            - '%sylius.grid.templates.action%'
+        tags:
+            - { name: twig.extension }
+
+    # HANDLERS
+
+    blast_grid.grid_handler:
+        class: Blast\Bundle\GridBundle\Handler\GridHandler
+        calls:
+            - [ setGridProvider, ['@sylius.grid.provider']]
+            - [ setViewFactory, ['@sylius.grid.view_factory']]
+            - [ setFormFactory, ['@form.factory']]
+            - [ setGridDefinitions, ['%sylius.grids_definitions%']]
+            - [ setRequestStack, ['@request_stack']]
+            - [ setDefaultPerPage, [20]]
+
+    # CONTROLLERS
+
+    blast_grid.controller.custom_reports:
+        class: Blast\Bundle\GridBundle\Controller\CustomReportController
+        calls:
+            - [ setFormFactory, ['@form.factory']]
+            - [ setRequestStack, ['@request_stack']]
+            - [ setRouter, ['@router']]
+            - [ setCustomReportClass, ['%blast_grid.model.custom_report.class%']]
+            - [ setCustomReportRepository, ['@blast_grid.repository.custom_report']]
+            - [ setTranslator, ['@translator']]
+
+    # FILTERS
+    
+    blast_grid.filter.doctrine_embeddable_filter:
+        class: Blast\Bundle\GridBundle\Filter\DoctrineEmbeddableFilter
+        tags:
+            -
+                name: sylius.grid_filter
+                type: embeddable
+                form_type: Sylius\Bundle\GridBundle\Form\Type\Filter\StringFilterType
+
+    blast_grid.filter.boolean_filter:
+        class: Sylius\Component\Grid\Filter\BooleanFilter
+        tags:
+            -
+                name: sylius.grid_filter
+                type: boolean_tristate
+                form_type: Blast\Bundle\GridBundle\Filter\Form\BooleanFilterType

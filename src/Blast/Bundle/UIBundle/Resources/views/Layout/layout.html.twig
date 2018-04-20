@@ -87,7 +87,7 @@
     <script src="/dep/jquery-address/src/jquery.address.js"></script>
     #}
 
-    {% javascripts '@BlastUIBundle/Resources/public/js/libs/*' %}
+    {% javascripts '@BlastUIBundle/Resources/public/js/libs/*' output = 'js/libs.js' %}
     <script src="{{ asset_url }}"></script>
     {% endjavascripts %}
 
@@ -95,8 +95,18 @@
     {#     CUSTOM FEATURES                                                              #}
     {# ################################################################################ #}
 
-    {% javascripts '@BlastUIBundle/Resources/public/js/features/*' %}
+    {% javascripts '@BlastUIBundle/Resources/public/js/features/*' output = 'js/custom.js' %}
     <script src="{{ asset_url }}"></script>
     {% endjavascripts %}
+
+    {# ################################################################################ #}
+    {#     JAVASCRIPT TRANSLATIONS                                                      #}
+    {# ################################################################################ #}
+
+    <script src="{{ asset('bundles/bazingajstranslation/js/translator.min.js') }}"></script>
+    <script>
+        Translator.locale = '{{app.request.locale[:2]}}';
+    </script>
+    <script src="{{ url('bazinga_jstranslation_js', { 'domain': 'messages' }) }}?locales={{app.request.locale[:2]}}"></script>
 
 {% endblock %}
