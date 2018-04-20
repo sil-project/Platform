@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Copyright (C) 2015-2017 Libre Informatique
+ * Copyright (C) 2015-2018 Libre Informatique
  *
  * This file is licenced under the GNU LGPL v3.
  * For the full copyright and license information, please view the LICENSE.md
@@ -10,14 +10,14 @@
 
 namespace Blast\Bundle\BaseEntitiesBundle\Controller;
 
-use Sonata\AdminBundle\Controller\CoreController;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sil\Bundle\DoctrineBundle\Entity\Repository\SortableRepository;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use Doctrine\ORM\Mapping\ClassMetadata;
 
-class SortableController extends CoreController
+class SortableController extends Controller
 {
     /**
      * Move a sortable item.

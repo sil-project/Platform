@@ -1,6 +1,3 @@
-parameters:
-    sonata.security.regex:          "^%sil.url_prefix%(?:/.*)?$"
-
 security:
 
     # ##########################################################################
@@ -53,8 +50,6 @@ security:
     # ##########################################################################
 
     access_control:
-
-        # Sonata access control
 
         - { path: "^/(css|images|js)", role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: "^%sil.url_prefix%/resetting", role: IS_AUTHENTICATED_ANONYMOUSLY }

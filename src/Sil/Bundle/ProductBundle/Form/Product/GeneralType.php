@@ -51,12 +51,14 @@ class GeneralType extends AbstractFormType
         $builder
             ->add('id', HiddenType::class)
             ->add('name', TextType::class, [
+                'label'       => 'sil.product.product.show.group.general.fields.name',
                 'required'    => true,
                 'constraints' => [
                     new NotBlank(),
                 ],
             ])
             ->add('code', TextType::class, [
+                'label'       => 'sil.product.product.show.group.general.fields.code',
                 'disabled'    => true,
                 'constraints' => [
                     new NotBlank(),
@@ -67,6 +69,7 @@ class GeneralType extends AbstractFormType
                 ],
             ])
             ->add('description', TextareaType::class, [
+                'label'       => 'sil.product.product.show.group.general.fields.description',
                 'required'    => false,
                 'constraints' => [
                     new Length([
@@ -75,7 +78,8 @@ class GeneralType extends AbstractFormType
                 ],
             ])
             ->add('enabled', CheckboxType::class, [
-                'required' => false,
+                'label'       => 'sil.product.product.show.group.general.fields.enabled',
+                'required'    => false,
             ])
         ;
     }

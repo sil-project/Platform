@@ -1,12 +1,9 @@
 imports:
     - { resource: "@PlatformBundle/Resources/config/services.yml" }
-    - { resource: "@PlatformBundle/Resources/config/admin.yml" }
 
     # Vendors
 
     - { resource: "@PlatformBundle/Resources/config/vendor/stof.yml" }
-    - { resource: "@PlatformBundle/Resources/config/vendor/sonata.yml" }
-    # - { resource: "@PlatformBundle/Resources/config/vendor/sylius.yml" }
     - { resource: "@PlatformBundle/Resources/config/vendor/lexik.yml" }
     - { resource: "@PlatformBundle/Resources/config/vendor/fos.yml" }
     - { resource: "@PlatformBundle/Resources/config/vendor/doctrine.yml" }
@@ -18,31 +15,6 @@ imports:
     - { resource: "@SilUserBundle/Resources/config/parameters.yml" }
     - { resource: "@SilUserBundle/Resources/config/app/config.yml" }
 
-    - { resource: "@SilEmailBundle/Resources/config/parameters.yml" }
-    - { resource: "@SilEmailBundle/Resources/config/app/config.yml" }
-
-    # - { resource: "@SilEcommerceBundle/Resources/config/parameters.yml" }
-    # - { resource: "@SilEcommerceBundle/Resources/config/app/config.yml" }
-
-    - { resource: "@SilCRMBundle/Resources/config/parameters.yml" }
-    - { resource: "@SilCRMBundle/Resources/config/app/config.yml" }
-
-    - { resource: "@SilMediaBundle/Resources/config/parameters.yml" }
-    - { resource: "@SilMediaBundle/Resources/config/app/config.yml" }
-
-    # - { resource: "@SilSyliusPayboxBundle/Resources/config/parameters.yml" }
-    # - { resource: "@SilSyliusPayboxBundle/Resources/config/app/config.yml" }
-
-    - { resource: "@SilUomBundle/Resources/config/app/config.yml" }
-
-    - { resource: "@SilStockBundle/Resources/config/parameters.yml" }
-    - { resource: "@SilStockBundle/Resources/config/app/config.yml" }
-    - { resource: "@SilStockBundle/Resources/config/services.yml" }
-
-    - { resource: "@SilManufacturingBundle/Resources/config/parameters.yml" }
-    - { resource: "@SilManufacturingBundle/Resources/config/app/config.yml" }
-    - { resource: "@SilManufacturingBundle/Resources/config/services.yml" }
-
     - { resource: "@SilContactBundle/Resources/config/app/config.yml" }
     
     - { resource: "@SilProductBundle/Resources/config/app/config.yml" }
@@ -50,10 +22,10 @@ imports:
     # Blast
 
     - { resource: "@PlatformBundle/Resources/config/vendor/blast/csv_import.yml" }
-    - { resource: "@PlatformBundle/Resources/config/vendor/blast/dashboard.yml" }
-    - { resource: "@PlatformBundle/Resources/config/vendor/blast/search.yml" }
+    # - { resource: "@PlatformBundle/Resources/config/vendor/blast/dashboard.yml" }
+    # - { resource: "@PlatformBundle/Resources/config/vendor/blast/search.yml" }
     - { resource: "@PlatformBundle/Resources/config/vendor/blast/base_entities.yml" }
     - { resource: "@PlatformBundle/Resources/config/vendor/blast/menu.yml" }
-    - { resource: "@PlatformBundle/Resources/config/vendor/blast/resource.yml" }
-    - { resource: "@PlatformBundle/Resources/config/vendor/blast/utils.yml" }
+    # - { resource: "@PlatformBundle/Resources/config/vendor/blast/resource.yml" }
+    # - { resource: "@PlatformBundle/Resources/config/vendor/blast/utils.yml" }
     - { resource: "@PlatformBundle/Resources/config/vendor/blast/ui.yml" }

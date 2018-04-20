@@ -1,7 +1,7 @@
 services:
-    blast_utils.unique_field_checker:
-        class: Blast\Bundle\UtilsBundle\Services\UniqueFieldChecker
-        arguments: [ '@doctrine.orm.entity_manager', '@sonata.admin.pool', '@twig' ]
+    # blast_utils.unique_field_checker:
+    #     class: Blast\Bundle\UtilsBundle\Services\UniqueFieldChecker
+    #     arguments: [ '@doctrine.orm.entity_manager', '@service_container', '@twig' ]
 
     ######### FORM TYPES ###########
     blast_utils.form.type.tinymce:
@@ -20,12 +20,12 @@ services:
         tags:
             - { name: form.type, alias: blast_custom_checkbox }
 
-    blast_utils.form.type.uniquefield:
-        class: Blast\Bundle\UtilsBundle\Form\Type\UniqueFieldType
-        tags:
-            - { name: form.type, alias: blast_unique_field }
-        calls:
-            - [setUniqueFieldChecker, ['@blast_utils.unique_field_checker']]
+    # blast_utils.form.type.uniquefield:
+    #     class: Blast\Bundle\UtilsBundle\Form\Type\UniqueFieldType
+    #     tags:
+    #         - { name: form.type, alias: blast_unique_field }
+    #     calls:
+    #         - [setUniqueFieldChecker, ['@blast_utils.unique_field_checker']]
 
     #########  TWIG EXTENSIONS ############
     blast_utils.twig.base_extension:

@@ -21,37 +21,6 @@ class Kernel extends BaseKernel
             new \Blast\Bundle\ResourceBundle\BlastResourceBundle(),
 
             // -------------------------------------------------------------------------------------
-            // Sylius bundles
-            // -------------------------------------------------------------------------------------
-
-            // new \Sylius\Bundle\OrderBundle\SyliusOrderBundle(),
-            // new \Sylius\Bundle\MoneyBundle\SyliusMoneyBundle(),
-            // new \Sylius\Bundle\CurrencyBundle\SyliusCurrencyBundle(),
-            // new \Sylius\Bundle\LocaleBundle\SyliusLocaleBundle(),
-            // new \Sylius\Bundle\ProductBundle\SyliusProductBundle(),
-            // new \Sylius\Bundle\ChannelBundle\SyliusChannelBundle(),
-            // new \Sylius\Bundle\AttributeBundle\SyliusAttributeBundle(),
-            // new \Sylius\Bundle\TaxationBundle\SyliusTaxationBundle(),
-            // new \Sylius\Bundle\ShippingBundle\SyliusShippingBundle(),
-            // new \Sylius\Bundle\PaymentBundle\SyliusPaymentBundle(),
-            // new \Sylius\Bundle\MailerBundle\SyliusMailerBundle(),
-            // new \Sylius\Bundle\PromotionBundle\SyliusPromotionBundle(),
-            // new \Sylius\Bundle\AddressingBundle\SyliusAddressingBundle(),
-            // new \Sylius\Bundle\InventoryBundle\SyliusInventoryBundle(),
-            // new \Sylius\Bundle\TaxonomyBundle\SyliusTaxonomyBundle(),
-            // new \Sylius\Bundle\UserBundle\SyliusUserBundle(),
-            // new \Sylius\Bundle\CustomerBundle\SyliusCustomerBundle(),
-            // new \Sylius\Bundle\UiBundle\SyliusUiBundle(),
-            // new \Sylius\Bundle\ReviewBundle\SyliusReviewBundle(),
-            // new \Sylius\Bundle\CoreBundle\SyliusCoreBundle(),
-            // new \Sylius\Bundle\ResourceBundle\SyliusResourceBundle(),
-            // new \Sylius\Bundle\GridBundle\SyliusGridBundle(),
-            // new \Sylius\Bundle\FixturesBundle\SyliusFixturesBundle(),
-            // new \Sylius\Bundle\AdminBundle\SyliusAdminBundle(),
-            // new \Sylius\Bundle\ShopBundle\SyliusShopBundle(),
-            // new \Sylius\Bundle\AdminApiBundle\SyliusAdminApiBundle(),
-
-            // -------------------------------------------------------------------------------------
             // Symfony bundles
             // -------------------------------------------------------------------------------------
 
@@ -73,36 +42,17 @@ class Kernel extends BaseKernel
             new \Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
 
             // -------------------------------------------------------------------------------------
-            // Sonata
-            // -------------------------------------------------------------------------------------
-
-            new \Sonata\CoreBundle\SonataCoreBundle(),
-            new \Sonata\AdminBundle\SonataAdminBundle(),
-            new \Sonata\BlockBundle\SonataBlockBundle(),
-            new \Sonata\IntlBundle\SonataIntlBundle(),
-            new \Exporter\Bridge\Symfony\Bundle\SonataExporterBundle(),
-            new \Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
-
-            // -------------------------------------------------------------------------------------
             // FOS
             // -------------------------------------------------------------------------------------
 
-            new \FOS\JsRoutingBundle\FOSJsRoutingBundle(),
-            // new \FOS\OAuthServerBundle\FOSOAuthServerBundle(),
             new \FOS\RestBundle\FOSRestBundle(),
+            new \FOS\JsRoutingBundle\FOSJsRoutingBundle(),
             new \FOS\ElasticaBundle\FOSElasticaBundle(),
-
-            // -------------------------------------------------------------------------------------
-            // JMS
-            // -------------------------------------------------------------------------------------
-
-            new \JMS\SerializerBundle\JMSSerializerBundle(),
 
             // -------------------------------------------------------------------------------------
             // Knp
             // -------------------------------------------------------------------------------------
 
-            new \Knp\Bundle\GaufretteBundle\KnpGaufretteBundle(),
             new \Knp\Bundle\MenuBundle\KnpMenuBundle(),
             new \Knp\Bundle\SnappyBundle\KnpSnappyBundle(),
             new \Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
@@ -111,34 +61,26 @@ class Kernel extends BaseKernel
             // Misc
             // -------------------------------------------------------------------------------------
 
-            new \Bazinga\Bundle\HateoasBundle\BazingaHateoasBundle(),
             new \Bazinga\Bundle\JsTranslationBundle\BazingaJsTranslationBundle(),
             new \JeroenDesloovere\Bundle\VCardBundle\JeroenDesloovereVCardBundle(),
             new \Liip\ImagineBundle\LiipImagineBundle(),
-            // new \Payum\Bundle\PayumBundle\PayumBundle(),
             new \Sparkling\VATBundle\SparklingVATBundle(),
             new \Stfalcon\Bundle\TinymceBundle\StfalconTinymceBundle(),
             new \Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new \WhiteOctober\PagerfantaBundle\WhiteOctoberPagerfantaBundle(),
-            new \winzou\Bundle\StateMachineBundle\winzouStateMachineBundle(),
             new \Lexik\Bundle\MaintenanceBundle\LexikMaintenanceBundle(),
-
-            // -------------------------------------------------------------------------------------
-            // Sylius main bundles
-            // -------------------------------------------------------------------------------------
-
-            // new \Sylius\Bundle\PayumBundle\SyliusPayumBundle(), // must be added after PayumBundle.
-            // new \Sylius\Bundle\ThemeBundle\SyliusThemeBundle(), // must be added after FrameworkBundle
+            new \JMS\SerializerBundle\JMSSerializerBundle(),
+            new \Misd\PhoneNumberBundle\MisdPhoneNumberBundle(),
 
             // -------------------------------------------------------------------------------------
             // Blast bundles
             // -------------------------------------------------------------------------------------
 
-            new \Blast\Bundle\CoreBundle\BlastCoreBundle(),
+            //new \Blast\Bundle\CoreBundle\BlastCoreBundle(),
             new \Blast\Bundle\UIBundle\BlastUIBundle(),
             new \Blast\Bundle\MenuBundle\BlastMenuBundle(),
             new \Blast\Bundle\PatcherBundle\BlastPatcherBundle(),
-            new \Blast\Bundle\SearchBundle\BlastSearchBundle(),
+            // new \Blast\Bundle\SearchBundle\BlastSearchBundle(),
             new \Blast\Bundle\BaseEntitiesBundle\BlastBaseEntitiesBundle(),
             new \Blast\Bundle\UtilsBundle\BlastUtilsBundle(),
             new \Blast\Bundle\DoctrinePgsqlBundle\BlastDoctrinePgsqlBundle(),
@@ -151,19 +93,16 @@ class Kernel extends BaseKernel
             // Librinfo bundles
             // -------------------------------------------------------------------------------------
 
-            new \Sil\Bundle\CRMBundle\SilCRMBundle(),
+            // new \Sil\Bundle\CRMBundle\SilCRMBundle(),
             new \Sil\Bundle\UserBundle\SilUserBundle(),
-            new \Sil\Bundle\EmailBundle\SilEmailBundle(),
-            new \Sil\Bundle\EmailCRMBundle\SilEmailCRMBundle(),
-            new \Sil\Bundle\MediaBundle\SilMediaBundle(),
-            // new \Sil\Bundle\EcommerceBundle\SilEcommerceBundle(),
-            // new \Sil\Bundle\SyliusPayboxBundle\SilSyliusPayboxBundle(),
-            new \Sil\Bundle\UomBundle\SilUomBundle(),
-            new \Sil\Bundle\StockBundle\SilStockBundle(),
-            new \Sil\Bundle\ManufacturingBundle\SilManufacturingBundle(),
+            // new \Sil\Bundle\EmailBundle\SilEmailBundle(),
+            // new \Sil\Bundle\EmailCRMBundle\SilEmailCRMBundle(),
+            // new \Sil\Bundle\MediaBundle\SilMediaBundle(),
+            // new \Sil\Bundle\UomBundle\SilUomBundle(),
+            // new \Sil\Bundle\StockBundle\SilStockBundle(),
+            // new \Sil\Bundle\ManufacturingBundle\SilManufacturingBundle(),
             new \Sil\Bundle\ContactBundle\SilContactBundle(),
             new \Sil\Bundle\ProductBundle\SilProductBundle(),
-            new \Misd\PhoneNumberBundle\MisdPhoneNumberBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

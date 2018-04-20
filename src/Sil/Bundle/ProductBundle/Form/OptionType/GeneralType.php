@@ -30,6 +30,7 @@ class GeneralType extends AbstractFormType
         $builder
             ->add('id', HiddenType::class)
             ->add('name', TextType::class, [
+                'label'       => 'sil.product.option_type.show.group.general.fields.name',
                 'required'    => true,
                 'constraints' => [
                     new NotBlank(),

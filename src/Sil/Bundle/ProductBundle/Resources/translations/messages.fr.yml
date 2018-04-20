@@ -41,6 +41,10 @@ sil:
                 page_header:
                     title: Nouveau produit
                     description: Créez un nouveau produit
+                form:
+                    fields:
+                        name: Nom
+                        optionTypes: "Types d'option"
             list:
                 page_header:
                     title: Liste des produits
@@ -76,6 +80,14 @@ sil:
                     actions:
                         cancel: Annuler
                         create: Créer
+
+        product_variant:
+            show:
+                form:
+                    fields:
+                        name: Nom
+                        code: Référence
+                        enabled: Active
 
         attribute:
             actions:
@@ -130,6 +142,11 @@ sil:
                     value:
                         title: "Valeur d'attribut"
                         description: "Définir la valeur de l'attribut"
+                form:
+                    fields:
+                        name: Nome
+                        type: "Types d'attributs"
+                        reusable: Réutilisable
             list:
                 page_header:
                     title: "Types d'attributs"
@@ -191,9 +208,11 @@ sil:
                         fields:
                             type: Type
                             value: Valeur
-            form:
-                option_type: Type d'option
-                value: Valeur
+            create:
+                form:
+                    fields:
+                        option_type: Type d'option
+                        value: Valeur
 
         option_type:
             actions:
@@ -214,6 +233,9 @@ sil:
                     value:
                         title: "Valeur d'option"
                         description: "Définir la valeur de l'option"
+                form:
+                    fields:
+                        name: Nom
             list:
                 page_header:
                     title: "Types d'option"

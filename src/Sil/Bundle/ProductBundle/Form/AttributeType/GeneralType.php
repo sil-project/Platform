@@ -64,18 +64,21 @@ class GeneralType extends AbstractFormType
         $builder
             ->add('id', HiddenType::class)
             ->add('name', TextType::class, [
+                'label'       => 'sil.product.product.show.group.general.fields.name',
                 'required'    => true,
                 'constraints' => [
                     new NotBlank(),
                 ],
             ])
             ->add('type', ChoiceType::class, [
+                'label'    => 'sil.product.product.show.group.general.fields.type',
                 'disabled' => true,
                 'required' => false,
                 'choices'  => $this->getAttributeTypesChoices(),
             ])
             ->add('reusable', CheckboxType::class, [
-                'required'    => false,
+                'label'    => 'sil.product.product.show.group.general.fields.reusable',
+                'required' => false,
             ]);
 
         $builder->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event) {
@@ -84,6 +87,7 @@ class GeneralType extends AbstractFormType
 
             if ($data !== null && $data->isReusable()) {
                 $form->remove('reusable')->add('reusable', CheckboxType::class, [
+                    'label'    => 'sil.product.product.show.group.general.fields.reusable',
                     'required' => false,
                     'disabled' => true,
                 ]);

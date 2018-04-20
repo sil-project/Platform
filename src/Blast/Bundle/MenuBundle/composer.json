@@ -6,7 +6,7 @@
         "php": "^7.1",
         "symfony/symfony": "^3.4",
         "sonata-project/admin-bundle": "3.*",
-        "knplabs/knp-menu" : "^2.3"
+        "knplabs/knp-menu-bundle" : "^2.2"
     },
     "require-dev": {
         "symfony/phpunit-bridge": "^3.4",

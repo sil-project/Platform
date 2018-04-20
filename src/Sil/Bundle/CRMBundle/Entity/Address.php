@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Copyright (C) 2015-2017 Libre Informatique
+ * Copyright (C) 2015-2018 Libre Informatique
  *
  * This file is licenced under the GNU LGPL v3.
  * For the full copyright and license information, please view the LICENSE.md
@@ -13,13 +13,12 @@ namespace Sil\Bundle\CRMBundle\Entity;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\BaseEntity;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Searchable;
 use Blast\Bundle\BaseEntitiesBundle\Entity\Traits\Timestampable;
-use Sylius\Component\Core\Model\AddressInterface as SyliusAddressInterface;
 use Sylius\Component\Customer\Model\CustomerInterface;
 
 /**
  * Address.
  */
-class Address implements AddressInterface, VCardableInterface, SyliusAddressInterface
+class Address implements AddressInterface, VCardableInterface
 {
     use BaseEntity,
         Timestampable,

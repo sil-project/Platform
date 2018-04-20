@@ -1,27 +1,28 @@
-blast_resource:
-    resources:
-        sil.crm_organism:
-            classes:
-                model:          PlatformBundle\Entity\SilCRMBundle\Organism
-                repository:     PlatformBundle\Repository\OrganismRepository
-                interfaces:
-                    -           Sil\Component\Stock\Model\PartnerInterface
-
-        sil.crm_address:
-            classes:
-                model:          PlatformBundle\Entity\SilCRMBundle\Address
-
-        sil.email:
-            classes:
-                model:          PlatformBundle\Entity\SilEmailBundle\Email
-
-        sil.media_file:
-            classes:
-                model:          PlatformBundle\Entity\SilMediaBundle\File
-
-        sil.stock_item:
-            classes:
-                model:          PlatformBundle\Entity\SilStockBundle\StockItem
-                repository:     PlatformBundle\Repository\StockItemRepository
-                interfaces:
-                    -           Sil\Component\Stock\Model\StockItemInterface
+#blast_resource:
+#    resources:
+#        sil.crm_organism:
+#            classes:
+#                model:          PlatformBundle\Entity\SilCRMBundle\Organism
+#                repository:     PlatformBundle\Repository\OrganismRepository
+#                interfaces:
+#                    -           Sil\Component\Stock\Model\PartnerInterface
+#
+#        sil.crm_address:
+#            classes:
+#                model:          PlatformBundle\Entity\SilCRMBundle\Address
+#
+#        sil.email:
+#            classes:
+#                model:          PlatformBundle\Entity\SilEmailBundle\Email
+#
+#        sil.media_file:
+#            classes:
+#                model:          PlatformBundle\Entity\SilMediaBundle\File
+#
+#        sil.stock_item:
+#            classes:
+#                model:          PlatformBundle\Entity\SilStockBundle\StockItem
+#                repository:     PlatformBundle\Repository\StockItemRepository
+#                interfaces:
+#                    -           Sil\Component\Stock\Model\StockItemInterface
+#

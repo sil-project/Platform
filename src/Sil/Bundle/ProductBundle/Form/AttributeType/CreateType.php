@@ -61,12 +61,14 @@ class CreateType extends AbstractFormType
 
         $builder
             ->add('name', TextType::class, [
+                'label'       => 'sil.product.attribute_type.create.form.fields.name',
                 'required'    => true,
                 'constraints' => [
                     new NotBlank(),
                 ],
             ])
             ->add('type', ChoiceType::class, [
+                'label'        => 'sil.product.attribute_type.create.form.fields.type',
                 'required'     => true,
                 'choices'      => $this->getAttributeTypesChoices(),
                 'constraints'  => [
@@ -74,6 +76,7 @@ class CreateType extends AbstractFormType
                 ],
             ])
             ->add('reusable', CheckboxType::class, [
+                'label'       => 'sil.product.attribute_type.create.form.fields.reusable',
                 'required'    => false,
             ])
         ;

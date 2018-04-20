@@ -45,12 +45,14 @@ class ProductVariantType extends AbstractFormType
             ->add('id', HiddenType::class)
             ->add('product', HiddenType::class)
             ->add('name', TextType::class, [
+                'label'       => 'sil.product.product_variant.show.form.fields.name',
                 'required'    => true,
                 'constraints' => [
                     new NotBlank(),
                 ],
             ])
             ->add('code', TextType::class, [
+                'label'       => 'sil.product.product_variant.show.form.fields.code',
                 'disabled'    => true,
                 'constraints' => [
                     new NotBlank(),
@@ -60,6 +62,7 @@ class ProductVariantType extends AbstractFormType
                 ],
             ])
             ->add('enabled', CheckboxType::class, [
+                'label'    => 'sil.product.product_variant.show.form.fields.enabled',
                 'required' => false,
             ])
         ;

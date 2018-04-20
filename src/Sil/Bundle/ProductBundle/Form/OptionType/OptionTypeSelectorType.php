@@ -40,6 +40,7 @@ class OptionTypeSelectorType extends AbstractFormType
 
         $builder
             ->add('optionTypes', ChoiceType::class, [
+                'label'        => 'sil.product.product.show.group.optionTypes.title',
                 'required'     => true,
                 'choices'      => $this->optionTypeRepository->findAll(),
                 'choice_value' => function (OptionTypeInterface $optionType = null) {

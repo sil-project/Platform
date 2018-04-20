@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Copyright (C) 2015-2017 Libre Informatique
+ * Copyright (C) 2015-2018 Libre Informatique
  *
  * This file is licenced under the GNU LGPL v3.
  * For the full copyright and license information, please view the LICENSE.md
@@ -13,7 +13,6 @@ namespace Sil\Bundle\EcommerceBundle\Form\Type;
 use Symfony\Component\Form\AbstractTypeExtension;
 use Sylius\Component\Resource\Factory\FactoryInterface;
 use Sylius\Component\Resource\Repository\RepositoryInterface;
-use Sylius\Component\Core\Model\AddressInterface;
 use Sylius\Bundle\CoreBundle\Form\Type\Customer\CustomerGuestType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormEvent;
@@ -73,7 +72,6 @@ class CustomerGuestTypeExtension extends AbstractTypeExtension
                 $customer->setEmail($data['email']);
 
                 $addressType = $form->getParent()->get('billingAddress');
-                /** @var AddressInterface $address */
                 $address = $addressType->getData();
 
                 $customer->setFirstname($address->getFirstName());

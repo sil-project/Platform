@@ -48,7 +48,6 @@ pipeline {
         stage ('Prepare') {
             steps {
                 sh 'mkdir -p build'
-                sh "ln -sf /home/jenkins/node_modules"
                 sh "./bin/ci-scripts/do_run.sh before_install_test.sh"
             }
         }

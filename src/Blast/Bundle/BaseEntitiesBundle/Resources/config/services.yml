@@ -7,9 +7,9 @@ services:
 # doctrine.event_subscriber tags are added in BlastBaseEntitiesExtension.php
 # ###################################################################################
 
-    blast_core.label.strategy.blast_baseentities:
-        class: Blast\Bundle\CoreBundle\Translator\SilLabelTranslatorStrategy
-        arguments: ['Blast\Bundle\BaseEntitiesBundle']
+#    blast_core.label.strategy.blast_baseentities:
+#        class: Blast\Bundle\CoreBundle\Translator\SilLabelTranslatorStrategy
+#        arguments: ['Blast\Bundle\BaseEntitiesBundle']
 
 
 # Service that manages Table naming convention
@@ -141,12 +141,12 @@ services:
         tags:
             - { name: form.type, alias: blast_nested_treeable }
 
-    blast_base_entities.form.type.searchable_autocomplete:
-        class: Blast\Bundle\BaseEntitiesBundle\Form\Type\SearchableAutocompleteType
-        calls:
-            - [setSearchHandler, ['@blast_base_entities.search_handler']]
-        tags:
-            - { name: form.type, alias: blast_searchable_autocomplete }
+#    blast_base_entities.form.type.searchable_autocomplete:
+#        class: Blast\Bundle\BaseEntitiesBundle\Form\Type\SearchableAutocompleteType
+#        calls:
+#            - [setSearchHandler, ['@blast_base_entities.search_handler']]
+#        tags:
+#            - { name: form.type, alias: blast_searchable_autocomplete }
 
 # ###################################################################################
 #

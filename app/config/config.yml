@@ -40,13 +40,10 @@ twig:
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
     form_themes:
-        - 'SonataCoreBundle:Form:datepicker.html.twig'
-        - 'SonataCoreBundle:Form:colorpicker.html.twig'
-        - 'BlastCoreBundle:Admin/Form:fields.html.twig'
+        #- 'BlastCoreBundle:Admin/Form:fields.html.twig'
         - 'BlastUtilsBundle:Form:fields.html.twig'
         - 'BlastBaseEntitiesBundle:Form:fields.html.twig'
-        - 'SilMediaBundle:Form:fields.html.twig'
-        - 'BlastSearchBundle:Form:fields.html.twig'
+        #- 'BlastSearchBundle:Form:fields.html.twig'
         - 'BlastUIBundle:Form:theme.html.twig'
     globals:
         sil:
@@ -93,23 +90,11 @@ doctrine:
 
                     # Sil
 
-                    SilCRMBundle:
-                        type: yml
-                    # SilEcommerceBundle:
-                    #     type: yml
-                    SilEmailBundle:
-                        type: yml
-                    SilEmailCRMBundle:
-                        type: yml
-
-                    SilMediaBundle:
-                        type: yml
                     SilUserBundle:
                         type: yml
 
                     SilProductBundle:
                         type: yml
-
 
                     # Platform
 
@@ -135,23 +120,24 @@ doctrine:
                         type: yml
 
 # Swiftmailer Configuration
-swiftmailer:
-    default_mailer: direct_mailer
-    mailers:
-        direct_mailer:
-            transport: "%mailer_transport%"
-            host:      "%mailer_host%" # removed for gmail
-            port:      "%mailer_port%"
-            username:  "%mailer_user%"
-            password:  "%mailer_password%"
-            delivery_addresses: "%mailer_delivery_addresses%"
-            disable_delivery:  "%mailer_disable_delivery%"
-        spool_mailer:
-            transport: "%mailer_transport%"
-            host:      "%mailer_host%" # removed for gmail
-            port:      "%mailer_port%"
-            username:  "%mailer_user%"
-            password:  "%mailer_password%"
-            spool: { type: db }
-            delivery_addresses: "%mailer_delivery_addresses%"
-            disable_delivery:  "%mailer_disable_delivery%"
+#swiftmailer:
+#    default_mailer: direct_mailer
+#    mailers:
+#        direct_mailer:
+#            transport: "%mailer_transport%"
+#            host:      "%mailer_host%" # removed for gmail
+#            port:      "%mailer_port%"
+#            username:  "%mailer_user%"
+#            password:  "%mailer_password%"
+#            delivery_addresses: "%mailer_delivery_addresses%"
+#            disable_delivery:  "%mailer_disable_delivery%"
+#        spool_mailer:
+#            transport: "%mailer_transport%"
+#            host:      "%mailer_host%" # removed for gmail
+#            port:      "%mailer_port%"
+#            username:  "%mailer_user%"
+#            password:  "%mailer_password%"
+#            spool: { type: db }
+#            delivery_addresses: "%mailer_delivery_addresses%"
+#            disable_delivery:  "%mailer_disable_delivery%"
+#

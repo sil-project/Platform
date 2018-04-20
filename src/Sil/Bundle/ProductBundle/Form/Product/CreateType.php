@@ -43,12 +43,14 @@ class CreateType extends AbstractFormType
 
         $builder
             ->add('name', TextType::class, [
+                'label'       => 'sil.product.product.create.form.fields.name',
                 'required'    => true,
                 'constraints' => [
                     new NotBlank(),
                 ],
             ])
             ->add('optionTypes', ChoiceType::class, [
+                'label'        => 'sil.product.product.create.form.fields.optionTypes',
                 'required'     => false,
                 'choices'      => $this->optionTypeRepository->findAll(),
                 'choice_value' => function (OptionTypeInterface $optionType = null) {

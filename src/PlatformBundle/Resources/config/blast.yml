@@ -1,155 +1,158 @@
-parameters:
-    blast:
 
-###################
-# PRODUCT VARIANT
-###################
 
-        PlatformBundle\Admin\ProductVariantAdmin:
-            form_theme:
-                - PlatformBundle:Form/SilEcommerceBundle:fields.html.twig
-            Sonata\AdminBundle\Form\FormMapper:
-                remove:
-                    onHand: ~
-                    onHold: ~
-                    uom: ~
-                    outputStrategy: ~
-                add:
-                    form_tab_general:
-                        form_group_stock:
-                            uom:
-                                choice_label: name
-                            outputStrategy:
-                                choice_label: name
-                            _options:
-                                fieldsOrder:
-                                    - tracked
-                                    - uom
-                                    - outputStrategy
-                                    - onHand
-                                    - onHold
-                    _options:
-                        tabsOrder:
-                            - form_tab_generalsil
-                            - sil.stock.stock_item.form.tab.general
-            Sonata\AdminBundle\Show\ShowMapper:
-                remove:
-                    code: ~
-                    name: ~
-                    onHand: ~
-                    onHold: ~
-                    uom: ~
-                add:
-                    form_tab_general:
-                        form_group_general:
-                            name: ~
-                            code: ~
-
-###################
-# EMAILING
-###################
-        Sil\Bundle\EmailBundle\Admin\EmailAdmin:
-            Sonata\AdminBundle\Form\FormMapper:
-                remove:
-                    field_from: ~
-                    field_to: ~
-                    field_subject: ~
-                    field_cc: ~
-                    field_bcc: ~
-                    template: ~
-                    content: ~
-                    attachments: ~
-                    isTemplate: ~
-                    newTemplateName: ~
-                    isTest: ~
-                    testAddress: ~
-                    tracking: ~
-                    organizations: ~
-                    individuals: ~
-                    circles: ~
-                add:
-                    form_tab_general:
-                        form_group_expeditors:
-                            field_from:
-                                type: text
-                                required: true
-                            field_to:
-                                type: text
-                                required: false
-                                help: sil.email.email.form.help.field_to
-                            field_cc:
-                                type: text
-                                required: false
-                            field_bcc:
-                                type: text
-                                required: false
-                        form_group_grouped_expeditors:
-                            circles:
-                                type: sonata_type_model
-                                multiple: true
-                                expanded: false
-                                btn_add: false
-                                required: false
-                                class: Sil\Bundle\CRMBundle\Entity\Circle
-                                # choicesCallback: [LisemBundle\Admin\CircleAdmin, groupedCirclesChoices]
-                        form_group_general:
-                            field_subject:
-                                type: text
-                                required: false
-                            template:
-                                attr:
-                                    class: template_select
-                            content:
-                                type: Blast\Bundle\UtilsBundle\Form\Type\TinyMceType
-                            attachments:
-                                type: Sil\Bundle\MediaBundle\Form\Type\DropzoneType
-                                required: false
-                                dropzoneTemplate: SilEmailBundle:dropzone:dropzone_template.mustache.twig
-                            _options:
-                                fieldsOrder:
-                                    - field_from
-                                    - field_to
-                                    - field_cc
-                                    - field_bcc
-                                    - field_subject
-                                    - template
-                                    - content
-                                    - attachments
-                        form_group_options:
-                            isTemplate:
-                                type: checkbox
-                                required: false
-                            newTemplateName:
-                                type: text
-                                required: false
-                            isTest:
-                                type: checkbox
-                                required: false
-                                attr:
-                                    class: is_test
-                            testAddress:
-                                type: text
-                                required: false
-                            tracking:
-                                type: checkbox
-                                required: false
-                        _options:
-                            groupsOrder: [ form_group_general, form_group_grouped_expeditors, form_group_expeditors, form_group_options ]
-                    _options:
-                        tabsOrder: [ form_tab_general, form_tab_history ]
-            Sonata\AdminBundle\Datagrid\DatagridMapper:
-                add: ~
-            Sonata\AdminBundle\Datagrid\ListMapper:
-                remove:
-                    field_to: ~
-                add:
-                    circles:
-                        type: null
-                    field_to:
-                        type: null
-                    _options:
-                        fieldsOrder:
-                            - circles
-                            - field_to
-                            - field_subject
-                            - sent
+#parameters:
+#    blast:
+#
+####################
+## PRODUCT VARIANT
+####################
+#
+#        PlatformBundle\Admin\ProductVariantAdmin:
+#            form_theme:
+#                - PlatformBundle:Form/SilEcommerceBundle:fields.html.twig
+#            Sonata\AdminBundle\Form\FormMapper:
+#                remove:
+#                    onHand: ~
+#                    onHold: ~
+#                    uom: ~
+#                    outputStrategy: ~
+#                add:
+#                    form_tab_general:
+#                        form_group_stock:
+#                            uom:
+#                                choice_label: name
+#                            outputStrategy:
+#                                choice_label: name
+#                            _options:
+#                                fieldsOrder:
+#                                    - tracked
+#                                    - uom
+#                                    - outputStrategy
+#                                    - onHand
+#                                    - onHold
+#                    _options:
+#                        tabsOrder:
+#                            - form_tab_generalsil
+#                            - sil.stock.stock_item.form.tab.general
+#            Sonata\AdminBundle\Show\ShowMapper:
+#                remove:
+#                    code: ~
+#                    name: ~
+#                    onHand: ~
+#                    onHold: ~
+#                    uom: ~
+#                add:
+#                    form_tab_general:
+#                        form_group_general:
+#                            name: ~
+#                            code: ~
+#
+####################
+## EMAILING
+####################
+#        Sil\Bundle\EmailBundle\Admin\EmailAdmin:
+#            Sonata\AdminBundle\Form\FormMapper:
+#                remove:
+#                    field_from: ~
+#                    field_to: ~
+#                    field_subject: ~
+#                    field_cc: ~
+#                    field_bcc: ~
+#                    template: ~
+#                    content: ~
+#                    attachments: ~
+#                    isTemplate: ~
+#                    newTemplateName: ~
+#                    isTest: ~
+#                    testAddress: ~
+#                    tracking: ~
+#                    organizations: ~
+#                    individuals: ~
+#                    circles: ~
+#                add:
+#                    form_tab_general:
+#                        form_group_expeditors:
+#                            field_from:
+#                                type: text
+#                                required: true
+#                            field_to:
+#                                type: text
+#                                required: false
+#                                help: sil.email.email.form.help.field_to
+#                            field_cc:
+#                                type: text
+#                                required: false
+#                            field_bcc:
+#                                type: text
+#                                required: false
+#                        form_group_grouped_expeditors:
+#                            circles:
+#                                type: sonata_type_model
+#                                multiple: true
+#                                expanded: false
+#                                btn_add: false
+#                                required: false
+#                                class: Sil\Bundle\CRMBundle\Entity\Circle
+#                                # choicesCallback: [LisemBundle\Admin\CircleAdmin, groupedCirclesChoices]
+#                        form_group_general:
+#                            field_subject:
+#                                type: text
+#                                required: false
+#                            template:
+#                                attr:
+#                                    class: template_select
+#                            content:
+#                                type: Blast\Bundle\UtilsBundle\Form\Type\TinyMceType
+#                            attachments:
+#                                type: Sil\Bundle\MediaBundle\Form\Type\DropzoneType
+#                                required: false
+#                                dropzoneTemplate: SilEmailBundle:dropzone:dropzone_template.mustache.twig
+#                            _options:
+#                                fieldsOrder:
+#                                    - field_from
+#                                    - field_to
+#                                    - field_cc
+#                                    - field_bcc
+#                                    - field_subject
+#                                    - template
+#                                    - content
+#                                    - attachments
+#                        form_group_options:
+#                            isTemplate:
+#                                type: checkbox
+#                                required: false
+#                            newTemplateName:
+#                                type: text
+#                                required: false
+#                            isTest:
+#                                type: checkbox
+#                                required: false
+#                                attr:
+#                                    class: is_test
+#                            testAddress:
+#                                type: text
+#                                required: false
+#                            tracking:
+#                                type: checkbox
+#                                required: false
+#                        _options:
+#                            groupsOrder: [ form_group_general, form_group_grouped_expeditors, form_group_expeditors, form_group_options ]
+#                    _options:
+#                        tabsOrder: [ form_tab_general, form_tab_history ]
+#            Sonata\AdminBundle\Datagrid\DatagridMapper:
+#                add: ~
+#            Sonata\AdminBundle\Datagrid\ListMapper:
+#                remove:
+#                    field_to: ~
+#                add:
+#                    circles:
+#                        type: null
+#                    field_to:
+#                        type: null
+#                    _options:
+#                        fieldsOrder:
+#                            - circles
+#                            - field_to
+#                            - field_subject
+#                            - sent
+#

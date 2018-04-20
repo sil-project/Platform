@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Copyright (C) 2015-2017 Libre Informatique
+ * Copyright (C) 2015-2018 Libre Informatique
  *
  * This file is licenced under the GNU LGPL v3.
  * For the full copyright and license information, please view the LICENSE.md
@@ -10,7 +10,7 @@
 
 namespace Blast\Bundle\CoreBundle\Controller;
 
-use Sonata\AdminBundle\Controller\CoreController as BaseCoreController;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
@@ -19,7 +19,7 @@ use Symfony\Component\HttpFoundation\Response;
  * Extends this controller if you want to render a custom view withing sonata'as admin layout.
  * Your view has to extends the sonata's admin layout (or overrided layouts)
  */
-class BaseController extends BaseCoreController
+class BaseController extends Controller
 {
     /**
      * render.

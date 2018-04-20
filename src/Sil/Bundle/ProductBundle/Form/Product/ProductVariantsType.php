@@ -33,6 +33,7 @@ class ProductVariantsType extends AbstractFormType
 
         $builder
             ->add('variants', CollectionType::class, [
+                'label'         => 'sil.product.product.show.group.variants.title',
                 'entry_type'    => ProductVariantType::class,
                 'entry_options' => [
                     'compound'   => true,

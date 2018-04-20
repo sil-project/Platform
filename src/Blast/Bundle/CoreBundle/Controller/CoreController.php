@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Copyright (C) 2015-2017 Libre Informatique
+ * Copyright (C) 2015-2018 Libre Informatique
  *
  * This file is licenced under the GNU LGPL v3.
  * For the full copyright and license information, please view the LICENSE.md
@@ -10,8 +10,9 @@
 
 namespace Blast\Bundle\CoreBundle\Controller;
 
-use Sonata\AdminBundle\Admin\AdminInterface;
-use Sonata\AdminBundle\Controller\CoreController as BaseCoreController;
+// use Sonata\AdminBundle\Admin\AdminInterface;
+// use Sonata\AdminBundle\Controller\CoreController as BaseCoreController;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -20,7 +21,7 @@ use Symfony\Component\HttpFoundation\Request;
  *
  * @author Marcos Bezerra de Menezes <marcos.bezerra@libre-informatique.fr>
  */
-class CoreController extends BaseCoreController
+class CoreController extends Controller
 {
     /**
      * @param Request $request
