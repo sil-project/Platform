@@ -50,7 +50,7 @@ ENV GROUP=users
 
 ARG UID
 ARG GID
-RUN useradd -d $HOME -g ${GID} -u ${UID} -m $USER \
+RUN useradd -d $HOME -g ${GID} -u ${UID} -m $USER -s /bin/bash \
     && mkdir -p $HOME/bin \
     && chown -R $USER:$GROUP $HOME
 
