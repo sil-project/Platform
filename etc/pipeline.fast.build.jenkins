@@ -51,14 +51,6 @@ pipeline {
             }
         }
 
-        stage ('Install Docs') {
-            steps {
-                        sh "./bin/ci-scripts/do_run.sh install_docs.sh"
-            }
-        }
-
-
-
         stage ('Run Test') {
             steps {
                 sh "./bin/ci-scripts/do_run.sh run_test.sh"
@@ -71,25 +63,11 @@ pipeline {
             }
         }
 
-        stage ('Run Docs') {
-            steps {
-                sh "./bin/git-scripts/doc-update.sh"
-                sh "./bin/ci-scripts/do_run.sh run_docs.sh"
-                publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'build/sphinx', reportFiles: 'index.html', reportName: 'Documentation', reportTitles: ''])
-            }
-        }
-
-        stage ('Run Lint') {
-            steps {
-                sh "./bin/ci-scripts/do_run.sh run_lint.sh"
-            }
-        }
     }
 
     post {
         always {
             cleanWs()
-
         }
     }
 
