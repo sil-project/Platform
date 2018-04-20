@@ -33,4 +33,4 @@ done
 #bin/console blast:patchs:apply --no-interaction --env=$SERVERENV
 
 # TODO remove this when sil:user:fixture is re-usable
-psql -w -h ${DBHOST} -c "INSERT INTO sil_user(id, username, password, email, enabled) VALUES ((SELECT uuid_generate_v1()), 'sil@sil.eu', 'sil', 'sil@sil.eu', true);" -U ${DBAPPUSER} -d ${DBAPPNAME}
+psql -w -h ${DBHOST} -c "INSERT INTO sil_user(id, username, password, email, enabled) VALUES ((SELECT uuid_generate_v4()), 'sil@sil.eu', 'sil', 'sil@sil.eu', true);" -U ${DBAPPUSER} -d ${DBAPPNAME}
