@@ -39,38 +39,6 @@ class ResourceRepository extends EntityRepository implements ResourceRepositoryI
     /**
      * {@inheritdoc}
      */
-    public function find($id): ?ResourceInterface
-    {
-        return parent::find($id);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function findAll(): array
-    {
-        return parent::findAll();
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null): array
-    {
-        return parent::findBy($criteria, $orderBy, $limit, $offset);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function findOneBy(array $criteria): ?ResourceInterface
-    {
-        return parent::findOneBy($criteria);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
     public function addAll(array $resources): void
     {
         foreach ($resources as $resource) {
