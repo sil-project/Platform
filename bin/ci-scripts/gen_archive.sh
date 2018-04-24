@@ -5,7 +5,10 @@ Name=Platform
 # git symbolic-ref -q --short HEAD || git describe --tags --exact-match
 #Version=$(git describe --tags)
 #Tag=$(git describe --tags --abbrev=0)
-Branch=$(git name-rev  --name-only $(git rev-parse HEAD) | sed -e s/\\^.*//g | awk -F'/' '{print $(NF)}')
+if [ -z ${Branch} ]
+then
+    Branch=$(git name-rev  --name-only $(git rev-parse HEAD) | sed -e s/\\^.*//g | awk -F'/' '{print $(NF)}')
+fi
 
 # Clean current git dir
 git clean -df
