@@ -36,6 +36,13 @@ class Account implements AccountInterface
     protected $code;
 
     /**
+     * type.
+     *
+     * @var AccountType
+     */
+    protected $type;
+
+    /**
      * default contact.
      *
      * @var ContactInterface
@@ -98,6 +105,26 @@ class Account implements AccountInterface
     public function setCode(string $code): void
     {
         $this->code = $code;
+    }
+
+    /**
+     * Get the value of type.
+     *
+     * @return AccountType
+     */
+    public function getType(): AccountType
+    {
+        return $this->type;
+    }
+
+    /**
+     * Set the value of type.
+     *
+     * @param AccountType $type
+     */
+    public function setType(AccountType $type): void
+    {
+        $this->type = $type;
     }
 
     /**

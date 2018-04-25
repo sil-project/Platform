@@ -6,3 +6,9 @@ blast_resource:
                 repository:     Sil\Bundle\AccountBundle\Repository\AccountRepository
                 interfaces:
                     -           Sil\Component\Account\Model\AccountInterface
+        sil.account_type:
+            classes:
+                model:          Sil\Bundle\AccountBundle\Entity\AccountType
+                repository:     Sil\Bundle\AccountBundle\Repository\AccountTypeRepository
+                interfaces:
+                    -           Sil\Component\Account\Model\AccountTypeInterface

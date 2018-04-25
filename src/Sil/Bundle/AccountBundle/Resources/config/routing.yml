@@ -1,3 +1,4 @@
+# ACCOUNT
 sil_account_create:
     path:     /account/create
     defaults: { _controller: sil_account.controller.account:createAction }
@@ -13,3 +14,16 @@ sil_account_edit:
 sil_account_set_default_contact:
     path:     /account/set-default-contact/{contactId}
     defaults: { _controller: sil_account.controller.account:setDefaultContactAction }
+
+# ACCOUNT TYPE
+sil_account_type_create:
+    path:     /account/create
+    defaults: { _controller: sil_account.controller.account_type:createAction }
+
+sil_account_type_show:
+    path:     /account/show/{id}
+    defaults: { _controller: sil_account.controller.account_type:showAction }
+
+sil_account_type_edit:
+    path:     /account/edit/{id}
+    defaults: { _controller: sil_account.controller.account_type:editAction }

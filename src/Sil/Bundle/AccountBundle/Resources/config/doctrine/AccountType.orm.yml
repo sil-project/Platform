@@ -1,0 +1,9 @@
+Sil\Bundle\AccountBundle\Entity\AccountType:
+    type: mappedSuperclass
+    table: sil_account_type
+    repositoryClass: Sil\Bundle\AccountBundle\Repository\AccountTypeRepository
+
+    fields:
+        name:
+            type: string
+            nullable: false

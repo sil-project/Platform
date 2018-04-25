@@ -1,0 +1,96 @@
+{% extends 'PlatformBundle:Views/Show:show.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="/bundles/silaccount/css/show/account.css" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="/bundles/silaccount/js/show/account.js"></script>
+{% endblock %}
+
+{% block content %}
+    {% block page_header %}
+        {% include 'SilAccountBundle:block:account-block.html.twig' %}
+    {% endblock %}
+
+    <div id="account"
+        class="ui container fluid content"
+        data-id="{{ account.id }}"
+        data-edit-url="{{ path('sil_account_edit', {
+            'id': account.id,
+            'form': true
+        }) }}"
+    >
+        <div class="ui three stackable cards">
+            <div id="account-contacts" class="ui fluid raised card">
+                <div class="content">
+                    <div class="header">
+                        <a id="add-account-contact"
+                            class="right floated"
+                            href="#"
+                            data-tooltip="{{ 'sil_account.account.tooltip.add_contact'|trans }}"
+                            data-inverted
+                        >
+                            <i class="circular blue inverted add icon"></i>
+                        </a>
+                        <h3>{{ 'sil_account.account.contacts'|trans }}</h3>
+                    </div>
+                </div>
+                <div class="content">
+                    {{ include('SilAccountBundle:list:account-contacts.html.twig', {'account': account}) }}
+                    <div id="contact-list-loader" class="ui loader"></div>
+                </div>
+            </div>
+            <!-- static -->
+            <div id="account-notes" class="ui raised card">
+                <div class="content">
+                    <div class="header">
+                        <h3>{{ 'sil_account.account.notes'|trans }}</h3>
+                    </div>
+                </div>
+                <div class="ui content">
+                    <div class="ui form">
+                        <div id="account-note-field" class="twelve wide inline field">
+                            <input type="text" class="" placeholder="Add note">
+                        </div>
+                        <span
+                            data-tooltip="{{ 'sil_account.account.tooltip.add_note'|trans }}"
+                            data-inverted
+                        >
+                            <i id="add-note" class="inverted circular blue add medium icon"></i>
+                        </span>
+                    </div>
+                    <ul id="notes" class="ui middle aligned divided list">
+                        <li class="item account-note">
+                            <div class="right floated content">
+                                <i class="disabled trash icon remove-note"></i>
+                            </div>
+                            <div class="content">
+                                <p>Back in 2 weeks</p>
+                                <p class="meta">20/02/18</p>
+                            </div>
+                        </li>
+                        <li class="item account-note">
+                            <div
+                                class="right floated content"
+                                data-tooltip="{{ 'sil_account.account.tooltip.remove_note'|trans }}"
+                                data-inverted
+                            >
+                                <i class="disabled trash icon remove-note"></i>
+                            </div>
+                            <div class="content">
+                                <p>Forgot his pencil</p>
+                                <p class="meta">17/01/18</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="contact-modal" class="ui modal">
+        {{ include('SilContactBundle:form:contact-form.html.twig', {'form': contactForm}) }}
+    </div>
+{% endblock %}

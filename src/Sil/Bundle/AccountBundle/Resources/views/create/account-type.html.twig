@@ -1,0 +1,10 @@
+{% extends '@Platform/Views/Show/show.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('/bundles/silaccount/css/show/account.css') }}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block content %}
+    {% include 'SilAccountBundle:form:account-type-form.html.twig' %}
+{% endblock %}

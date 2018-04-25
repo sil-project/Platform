@@ -12,8 +12,10 @@ namespace Sil\Bundle\AccountBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sil\Bundle\AccountBundle\Form\Type\AccountType;
+use Sil\Bundle\AccountBundle\Form\Type\AccountFormType;
 use Sil\Component\Account\Repository\AccountRepositoryInterface;
+use Sil\Bundle\ContactBundle\Form\Type\ContactType;
+use Sil\Bundle\ContactBundle\Entity\Contact;
 use Sil\Component\Contact\Repository\ContactRepositoryInterface;
 
 /**
@@ -44,7 +46,7 @@ class AccountController extends Controller
      */
     public function createAction(Request $request)
     {
-        $form = $this->createForm(AccountType::class, []);
+        $form = $this->createForm(AccountFormType::class, []);
 
         $form->handleRequest($request);
 
@@ -72,7 +74,7 @@ class AccountController extends Controller
         $account = $this->accountRepository->get($id);
 
         $form = $this->createForm(
-            AccountType::class,
+            AccountFormType::class,
             $account,
             ['action' => $this->generateUrl('sil_account_edit', ['id' => $account->getId()])]
         );
@@ -102,7 +104,7 @@ class AccountController extends Controller
     public function showAction(Request $request)
     {
         $id = $request->get('id');
-        $contactForm = $this->createForm(PhoneType::class, []);
+        $contactForm = $this->createForm(ContactType::class, new Contact());
         $account = $this->accountRepository->find($id);
 
         if (!$account) {
@@ -145,7 +147,7 @@ class AccountController extends Controller
      */
     public function setAccountRepository(AccountRepositoryInterface $repository)
     {
-        $this->phoneRepository = $repository;
+        $this->accountRepository = $repository;
     }
 
     /**

@@ -1,1 +1,18 @@
 sil_account:
+    form:
+        save: Enregistrer
+        cancel: Annuler
+    account:
+        create: Nouveau compte
+        edit: Modifier
+        name: Nom
+        code: Code
+        type: Type de compte
+        contacts: Contacts
+        notes: Notes
+        tooltip:
+            add_contact:
+                Ajouter un contact
+            add_note:
+                Nouvelle note
+            remove_note: Supprimer

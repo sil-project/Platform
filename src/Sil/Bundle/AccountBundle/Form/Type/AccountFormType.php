@@ -14,29 +14,38 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Sil\Bundle\AccountBundle\Form\DataTransformer\ArrayToAccountTransformer;
+use Sil\Bundle\AccountBundle\Entity\AccountType;
 
 /**
  * Account entity form.
  *
  * @author Romain Sanchez <romain.sanchez@libre-informatique.fr>
  */
-class AccountType extends AbstractType
+class AccountFormType extends AbstractType
 {
     /**
      * Array to Account transformer.
      *
      * @var ArrayToAccountTransformer
      */
-    private $transformer;
+    protected $transformer;
+
+    /**
+     * AccountType fqcn
+     * @var string
+     */
+    protected $AccountTypeClass;
 
     /**
      * @param ArrayToAccountTransformer $transformer
      */
-    public function __construct(ArrayToAccountTransformer $transformer)
+    public function __construct(ArrayToAccountTransformer $transformer, string $accountTypeClass)
     {
         $this->transformer = $transformer;
+        $this->accountTypeClass = $accountTypeClass;
     }
 
     /**
@@ -52,6 +61,12 @@ class AccountType extends AbstractType
 
             ->add('code', TextType::class, [
                 'label'        => 'sil_account.account.code',
+                'constraints'  => [new NotBlank()],
+            ])
+
+            ->add('type', EntityType::class, [
+                'label'        => 'sil_account.account.type',
+                'class'        => $this->accountTypeClass,
                 'constraints'  => [new NotBlank()],
             ])
 

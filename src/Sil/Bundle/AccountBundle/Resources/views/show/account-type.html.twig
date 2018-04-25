@@ -1,0 +1,28 @@
+{% extends 'PlatformBundle:Views/Show:show.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="/bundles/silaccount/css/show/account.css" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="/bundles/silaccount/js/show/account.js"></script>
+{% endblock %}
+
+{% block content %}
+    {% block page_header %}
+        {% include 'SilAccountBundle:block:account-block.html.twig' %}
+    {% endblock %}
+
+    <div id="account"
+        class="ui container fluid content"
+        data-id="{{ accountType.id }}"
+        data-edit-url="{{ path('sil_account_edit', {
+            'id': accountType.id,
+            'form': true
+        }) }}"
+    >
+
+    {{ accountType.name }}
+{% endblock %}

@@ -1,0 +1,18 @@
+<div id="account-header" class="ui card fluid raised">
+    <div id="account-loader" class="ui loader"></div>
+    <h1 class="ui icon header">
+        <i class="circular book icon blue"></i>
+        <div id="account-info" class="content">
+            {{ account.name }}
+            {{ account.code }}
+        </div>
+    </h1>
+    <a id="edit-account"
+        href="#"
+        class="center aligned"
+        data-tooltip="{{'sil_account.account.edit'|trans}}"
+        data-inverted
+    >
+        <i class="ui circular large teal inverted pencil alternate icon"></i>
+    </a>
+</div>

@@ -3,9 +3,11 @@ services:
         class: Sil\Bundle\AccountBundle\Form\DataTransformer\ArrayToAccountTransformer
         arguments: ['@sil.repository.account']
 
-    sil_account.form.type.city:
-        class: Sil\Bundle\AccountBundle\Form\Type\AccountType
-        arguments: ['@sil_account.transformer.array_to_account']
+    sil_account.form.type.account:
+        class: Sil\Bundle\AccountBundle\Form\Type\AccountFormType
+        arguments:
+            - '@sil_account.transformer.array_to_account'
+            - '%sil.model.account_type.class%'
         tags: ['form.type']
 
     sil_account.controller.account:

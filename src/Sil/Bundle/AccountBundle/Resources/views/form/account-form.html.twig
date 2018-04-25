@@ -1,0 +1,44 @@
+
+{% if form.vars.value is not null and form.vars.value.id is defined %}
+    {% set id = form.vars.value.id %}
+{% else %}
+    {% set id = null %}
+{% endif %}
+{{ form_start(form, { 'attr': {
+    'id': 'account-form',
+    'class': 'ui form'
+} }) }}
+{% block form_header %}
+    <div id="account" class="ui card fluid raised">
+        <h1 class="ui icon header">
+            <i class="circular user icon blue"></i>
+            <div class="content">
+                <div class="sub header">
+                    <h3>
+                        {% if id %}
+                            {{ 'sil_account.account.edit'|trans }}
+                        {% else %}
+                            {{ 'sil_account.account.create'|trans }}
+                        {% endif %}
+                    </h3>
+                </div>
+            </div>
+        </h1>
+        <div class="ui stackable center aligned grid content">
+            <div class="two wide column">
+                {{ form_row(form.name) }}
+            </div>
+            <div class="two wide column">
+                {{ form_row(form.code) }}
+            </div>
+            <div class="two wide column">
+                {{ form_row(form.type) }}
+            </div>
+            <div class="row">
+                {{form_widget(form.save, { 'attr': {'class': 'ui big teal button'} }) }}
+                <div id="cancel-account" class="ui big orange button">{{ 'sil_account.form.cancel'|trans }}</div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{{ form_end(form) }}

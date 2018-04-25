@@ -1,0 +1,6 @@
+csv_mapping:
+    Sil\Bundle\AccountBundle\Entity\AccountType:
+        delete: true
+        filename: account-type.csv
+        fields:
+            name: name

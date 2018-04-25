@@ -25,3 +25,12 @@ Sil\Bundle\AccountBundle\Entity\Account:
     #         mappedBy: account
     #         cascade: [ persist, remove ]
     #         orphanRemoval: true
+
+    manyToOne:
+        type:
+            targetEntity: Sil\Component\Account\Model\AccountTypeInterface
+            joinColumn:
+                name: account_type_id
+                referencedColumnName: id
+                onDelete: cascade
+            cascade: [persist]
