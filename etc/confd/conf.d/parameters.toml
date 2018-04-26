@@ -10,5 +10,4 @@ keys = [
        "/postgres/user/password",
        "/elastic/hostname",
        "/elastic/indexalias",
-       "/sylius/channelurl",
 ]

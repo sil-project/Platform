@@ -63,8 +63,6 @@ $ETCDCTLCMD put $prefix/selenium/hostname $seleniumhost $ETCDENDPOINT
 $ETCDCTLCMD put $prefix/symfony/env test $ETCDENDPOINT # maybe put this in env variable (or not)
 $ETCDCTLCMD put $prefix/symfony/addr $currentip':8042' $ETCDENDPOINT
 
-$ETCDCTLCMD put $prefix/sylius/channelurl $currentip $ETCDENDPOINT
-
 $ETCDCTLCMD get  --prefix $prefix $ETCDENDPOINT
 
 confd -onetime -backend etcdv3 -node http://${ETCDHOST}:2379 -confdir ./etc/confd -log-level debug -prefix $prefix
